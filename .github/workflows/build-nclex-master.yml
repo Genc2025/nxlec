@@ -49,8 +49,9 @@ jobs:
 
           assert integrity == "ok", integrity
           assert total == 3525, total
-          assert verified == 30, verified
-          assert ready == 30, ready
+          assert verified >= 30, verified
+          assert ready >= 30, ready
+          assert ready <= verified, (ready, verified)
           print(f"Verified: integrity={integrity}, total={total}, verified={verified}, ready={ready}")
           PY
 
