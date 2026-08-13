@@ -8,6 +8,6 @@
 - Structural REVIEW: **75**
 - Source-verified clinical items: **286**
 - Current commercial-gate-ready items: **286**
-- Override package: `2026-08-13-wave10 + 2026-08-13-wave11 + 2026-08-13-wave12 + 2026-08-13-wave13 + 2026-08-13-wave14 + 2026-08-13-wave15 + 2026-08-13-wave16 + 2026-08-13-wave17 + 2026-08-13-wave2 + 2026-08-13-wave3 + 2026-08-13-wave4 + 2026-08-13-wave5 + 2026-08-13-wave6 + 2026-08-13-wave7 + 2026-08-13-wave8 + 2026-08-13-wave9 + disabled-staging`
+- Override package: `2026-08-13-wave10 + 2026-08-13-wave11 + 2026-08-13-wave12 + 2026-08-13-wave13 + 2026-08-13-wave14 + 2026-08-13-wave15 + 2026-08-13-wave16r1 + 2026-08-13-wave17 + 2026-08-13-wave2 + 2026-08-13-wave3 + 2026-08-13-wave4 + 2026-08-13-wave5 + 2026-08-13-wave6 + 2026-08-13-wave7 + 2026-08-13-wave8 + 2026-08-13-wave9 + disabled-staging`
 
 The two source databases are preserved unchanged. The master is regenerated from them plus the versioned clinical override package.
