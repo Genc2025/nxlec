@@ -1,0 +1,67 @@
+name: Build NCLEX commercial master
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "tools/build_nclex_master.py"
+      - "data/clinical_overrides_*.json"
+      - "nclex ngn bank 75of75 ALL7formats FINAL.db"
+      - "nclex question bank v2 inprogress 5.db"
+      - ".github/workflows/build-nclex-master.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build master database
+        run: python tools/build_nclex_master.py
+
+      - name: Verify master database
+        run: |
+          python - <<'PY'
+          import sqlite3
+          from pathlib import Path
+
+          db = Path("NCLEX_COMMERCIAL_MASTER_CURRENT.db")
+          if not db.exists():
+              raise SystemExit("Master database was not created")
+
+          con = sqlite3.connect(db)
+          integrity = con.execute("PRAGMA integrity_check").fetchone()[0]
+          total = con.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+          verified = con.execute("SELECT COUNT(*) FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%'").fetchone()[0]
+          ready = con.execute("SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1").fetchone()[0]
+          con.close()
+
+          assert integrity == "ok", integrity
+          assert total == 3525, total
+          assert verified == 30, verified
+          assert ready == 30, ready
+          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, ready={ready}")
+          PY
+
+      - name: Commit generated master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md
+          if git diff --cached --quiet; then
+            echo "Master is already current"
+          else
+            git commit -m "Build current NCLEX commercial master [skip ci]"
+            git push
+          fi
