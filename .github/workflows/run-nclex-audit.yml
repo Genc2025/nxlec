@@ -1,0 +1,45 @@
+name: Run NCLEX commercial audit
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/run-nclex-audit.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/nclex-commercial
+          fetch-depth: 0
+
+      - name: Audit and merge databases
+        run: python3 tools/audit_merge_nclex.py
+
+      - name: Commit outputs to audit branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NCLEX_AUDIT_REPORT.json NCLEX_AUDIT_REPORT.md nclex_commercial_merged.db
+          if git diff --cached --quiet; then
+            echo "No output changes"
+          else
+            git commit -m "Generate NCLEX commercial audit and merged bank"
+            git push origin HEAD:audit/nclex-commercial
+          fi
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nclex-commercial-merged
+          path: |
+            nclex_commercial_merged.db
+            NCLEX_AUDIT_REPORT.json
+            NCLEX_AUDIT_REPORT.md
+          retention-days: 30
