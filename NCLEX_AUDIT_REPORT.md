@@ -1,66 +1,53 @@
-# NCLEX Commercial Bank Audit
+# NCLEX Commercial Bank Audit — Corrected Merge
 
-Generated: 2026-08-13T00:38:52.641384+00:00
+Generated: 2026-08-13T00:45:36.515813+00:00
 
-> Scope: structural/schema/deduplication/ordering audit. This does **not** certify clinical correctness or source licensing.
+## Result
 
-## Executive summary
+- Core MCQ source rows: **3,000**
+- Active unique core MCQ after exact-stem dedupe: **2,999**
+- NGN case studies: **75**
+- NGN practice items: **525** (7 formats per case)
+- NGN simulation items: **450** (6 per case)
+- Stand-alone NGN items currently present: **0**
+- Unified catalog rows: **3,525**
+- Final SQLite integrity: **ok**
 
-- Recognized question rows: **3525**
-- Structurally app-ready after exact dedupe: **2999**
-- Held for review/duplicate: **526**
-- Detected case-study groups: **75** (525 items)
-- Exact duplicate stem groups: **20**
-- Near-duplicate candidates: **231**
+## Core blueprint distribution
 
-## Source databases
+| Category | Core | Core % | Range | Midpoint | NGN cases | NGN items |
+|---|---:|---:|---:|---:|---:|---:|
+| Management of Care | 540 | 18.00% | 15-21% | 18% | 6 | 42 |
+| Safety & Infection Prevention and Control | 390 | 13.00% | 10-16% | 13% | 4 | 28 |
+| Health Promotion and Maintenance | 270 | 9.00% | 6-12% | 9% | 2 | 14 |
+| Psychosocial Integrity | 270 | 9.00% | 6-12% | 9% | 5 | 35 |
+| Basic Care and Comfort | 270 | 9.00% | 6-12% | 9% | 2 | 14 |
+| Pharmacological and Parenteral Therapies | 480 | 16.00% | 13-19% | 16% | 5 | 35 |
+| Reduction of Risk Potential | 360 | 12.00% | 9-15% | 12% | 3 | 21 |
+| Physiological Adaptation | 420 | 14.00% | 11-17% | 14% | 48 | 336 |
 
-### ngn75 — `nclex ngn bank 75of75 ALL7formats FINAL.db`
-- Size: 1,327,104 bytes
-- SQLite integrity: `ok`
-- Tables:
-  - `case_studies` — 75 rows — support/raw
-  - `case_study_items` — 525 rows — question-like
-  - `categories` — 8 rows — support/raw
-  - `standalone_ngn_items` — 0 rows — question-like
+## Exact deduplication
 
-### v2 — `nclex question bank v2 inprogress 5.db`
-- Size: 4,820,992 bytes
-- SQLite integrity: `ok`
-- Tables:
-  - `categories` — 10 rows — support/raw
-  - `category_progress` — 8 rows — support/raw
-  - `questions` — 3,000 rows — question-like
-  - `topic_fingerprints` — 3,000 rows — support/raw
+- Exact core stem groups: **1**
+- Groups: `[[1310, 2073]]`
+- Duplicate source rows remain in `core_questions`; duplicates are `active=0` and point to `duplicate_of_uid`.
+- NGN stems are **not** deduplicated across case studies because a generic stem can have different meaning under different case context.
 
-## Item families
+## Ordering semantics
 
-- multiple_choice: **3000**
-- other: **150**
-- multiple_response: **75**
-- matrix: **75**
-- highlight: **75**
-- cloze: **75**
-- bow_tie: **75**
+1. `unified_catalog.catalog_order` is a stable admin/import order: pool → Client Needs rank → case/sequence or source ID.
+2. It is **not** the exam delivery order.
+3. Core tests should be sampled using the blueprint weights/ranges stored in `test_blueprint_2026`.
+4. NGN simulation keeps each selected case together and uses six items per case. All seven source formats remain available in practice mode.
 
-## 2026 Client Needs mapping (structurally app-ready unique items)
+## Important commercial gates
 
-- Unmapped: **2999** items; official midpoint target stored: **0.0%**
+- Homepage-only core source URLs flagged for traceability review: **1,690**.
+- All source rows carry an internal `verified` flag, but the merged DB deliberately labels independent clinical status as `NOT_VERIFIED` until answer/rationale review is performed independently.
+- NGN `extended_drag_drop` and `bowtie` source scoring rules are flagged for scoring-model review before claiming exact NCLEX scoring behavior.
+- Stand-alone NGN pool has **0** items, so the current bank should not yet be marketed as a complete replication of every current clinical-judgment delivery component.
+- IP/licensing review remains required before commercial publication; source attribution is not the same as permission to reproduce copyrighted material.
 
-## Audit issue counts
+## Release status
 
-- UNMAPPED_BLUEPRINT: **3525**
-- MISSING_REFERENCE: **525**
-- MISSING_ANSWER: **525**
-- NEAR_DUPLICATE_CANDIDATE: **462**
-- UNMAPPED_ITEM_FORMAT: **150**
-- EXACT_DUPLICATE_STEM: **121**
-- MISSING_OPTIONS: **75**
-
-## Ordering and app usage
-
-`question_catalog.commercial_order` is a stable catalog order, not an exam sequence. It groups by the 2026 Client Needs framework and keeps inferred NGN case-study item sets together. Commercial tests should sample from the catalog by blueprint weights, rather than simply taking consecutive rows.
-
-## Safety gate
-
-Every normalized item is marked `clinical_verification_status = NOT_VERIFIED`. A structural PASS means the record can be rendered by an app; it does not mean the medical answer/rationale has been independently verified.
+**STRUCTURALLY_MERGED__CLINICAL_AND_IP_REVIEW_REQUIRED**
