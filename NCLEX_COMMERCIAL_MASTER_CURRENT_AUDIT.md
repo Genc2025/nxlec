@@ -6,8 +6,8 @@
 - NGN case-study items: **525**
 - Case studies: **75**
 - Structural REVIEW: **75**
-- Source-verified clinical items: **51**
-- Current commercial-gate-ready items: **51**
-- Override package: `2026-08-13-wave2 + 2026-08-13-wave3`
+- Source-verified clinical items: **60**
+- Current commercial-gate-ready items: **60**
+- Override package: `2026-08-13-wave2 + 2026-08-13-wave3 + 2026-08-13-wave4`
 
 The two source databases are preserved unchanged. The master is regenerated from them plus the versioned clinical override package.
