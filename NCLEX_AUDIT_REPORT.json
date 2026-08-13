@@ -1,0 +1,2165 @@
+{
+  "generated_at": "2026-08-13T00:38:25.421042+00:00",
+  "audit_scope": "structural/schema/deduplication/ordering only; clinical correctness remains unverified",
+  "source_databases": [
+    {
+      "label": "ngn75",
+      "file": "nclex ngn bank 75of75 ALL7formats FINAL.db",
+      "size_bytes": 1327104,
+      "integrity_check": "ok",
+      "tables": [
+        {
+          "name": "case_studies",
+          "row_count": 75,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "category_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "specialty",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "setting",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "client_profile",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "stage1_scenario",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "stage2_scenario",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "stage3_scenario",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "difficulty",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "source_name",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "source_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "date_created",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 13,
+              "name": "verified",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": "1",
+              "pk": 0
+            }
+          ],
+          "question_like": false
+        },
+        {
+          "name": "case_study_items",
+          "row_count": 525,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "case_study_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "sequence",
+              "type": "INTEGER",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "cjmm_skill",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "item_type",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "stem",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "item_data_json",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "correct_answer_json",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "rationale",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "scoring_rule",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            }
+          ],
+          "question_like": true
+        },
+        {
+          "name": "categories",
+          "row_count": 8,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "parent_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "code",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "name",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "weight_min",
+              "type": "REAL",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "weight_max",
+              "type": "REAL",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            }
+          ],
+          "question_like": false
+        },
+        {
+          "name": "standalone_ngn_items",
+          "row_count": 0,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "category_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "specialty",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "cjmm_skill",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "item_type",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "client_scenario",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "stem",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "item_data_json",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "correct_answer_json",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "rationale",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "scoring_rule",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "difficulty",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "source_name",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 13,
+              "name": "source_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 14,
+              "name": "date_created",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 15,
+              "name": "verified",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": "1",
+              "pk": 0
+            }
+          ],
+          "question_like": true
+        }
+      ]
+    },
+    {
+      "label": "v2",
+      "file": "nclex question bank v2 inprogress 5.db",
+      "size_bytes": 4820992,
+      "integrity_check": "ok",
+      "tables": [
+        {
+          "name": "categories",
+          "row_count": 10,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "parent_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "code",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "name",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "weight_min",
+              "type": "REAL",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "weight_max",
+              "type": "REAL",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            }
+          ],
+          "question_like": false
+        },
+        {
+          "name": "category_progress",
+          "row_count": 8,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "category_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "target_count",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "current_count",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": "0",
+              "pk": 0
+            }
+          ],
+          "question_like": false
+        },
+        {
+          "name": "questions",
+          "row_count": 3000,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "category_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "fingerprint_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "question_text",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "option_a",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "option_b",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "option_c",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "option_d",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "correct_option",
+              "type": "CHAR(1)",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "explanation",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "source_name",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "source_detail",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "source_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 13,
+              "name": "difficulty",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 14,
+              "name": "item_type",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": "'multiple_choice'",
+              "pk": 0
+            },
+            {
+              "cid": 15,
+              "name": "ngn_step",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 16,
+              "name": "batch_number",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 17,
+              "name": "date_created",
+              "type": "TEXT",
+              "notnull": 0,
+              "default": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 18,
+              "name": "verified",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": "1",
+              "pk": 0
+            }
+          ],
+          "question_like": true
+        },
+        {
+          "name": "topic_fingerprints",
+          "row_count": 3000,
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "fingerprint",
+              "type": "TEXT",
+              "notnull": 1,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "category_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "times_used",
+              "type": "INTEGER",
+              "notnull": 0,
+              "default": "1",
+              "pk": 0
+            }
+          ],
+          "question_like": false
+        }
+      ]
+    }
+  ],
+  "catalog": {
+    "total_recognized_question_rows": 3525,
+    "app_ready_structurally": 2999,
+    "held_for_structural_review_or_duplicate": 526,
+    "by_source_bank": {
+      "ngn75": 525,
+      "v2": 3000
+    },
+    "by_item_family": {
+      "multiple_choice": 3000,
+      "other": 150,
+      "multiple_response": 75,
+      "matrix": 75,
+      "highlight": 75,
+      "cloze": 75,
+      "bow_tie": 75
+    },
+    "by_2026_client_needs": {
+      "Unmapped": {
+        "count": 2999,
+        "target_pct": 0.0
+      }
+    },
+    "case_groups_detected": 75,
+    "items_in_case_groups": 525
+  },
+  "issues": {
+    "UNMAPPED_BLUEPRINT": 3525,
+    "MISSING_REFERENCE": 525,
+    "MISSING_ANSWER": 525,
+    "NEAR_DUPLICATE_CANDIDATE": 462,
+    "UNMAPPED_ITEM_FORMAT": 150,
+    "EXACT_DUPLICATE_STEM": 121,
+    "MISSING_OPTIONS": 75
+  },
+  "duplicates": {
+    "exact_duplicate_groups": [
+      {
+        "canonical": "ngn75:case_study_items:105",
+        "members": [
+          "ngn75:case_study_items:105",
+          "ngn75:case_study_items:111",
+          "ngn75:case_study_items:117",
+          "ngn75:case_study_items:123",
+          "ngn75:case_study_items:141",
+          "ngn75:case_study_items:147",
+          "ngn75:case_study_items:15",
+          "ngn75:case_study_items:153",
+          "ngn75:case_study_items:165",
+          "ngn75:case_study_items:171",
+          "ngn75:case_study_items:177",
+          "ngn75:case_study_items:183",
+          "ngn75:case_study_items:195",
+          "ngn75:case_study_items:21",
+          "ngn75:case_study_items:225",
+          "ngn75:case_study_items:231",
+          "ngn75:case_study_items:249",
+          "ngn75:case_study_items:279",
+          "ngn75:case_study_items:33",
+          "ngn75:case_study_items:39",
+          "ngn75:case_study_items:45",
+          "ngn75:case_study_items:51",
+          "ngn75:case_study_items:57",
+          "ngn75:case_study_items:63",
+          "ngn75:case_study_items:81",
+          "ngn75:case_study_items:87",
+          "ngn75:case_study_items:9",
+          "ngn75:case_study_items:99"
+        ],
+        "stem": "Complete the diagram for this client's priority condition."
+      },
+      {
+        "canonical": "ngn75:case_study_items:10",
+        "members": [
+          "ngn75:case_study_items:10",
+          "ngn75:case_study_items:118",
+          "ngn75:case_study_items:142",
+          "ngn75:case_study_items:154",
+          "ngn75:case_study_items:22",
+          "ngn75:case_study_items:40",
+          "ngn75:case_study_items:52",
+          "ngn75:case_study_items:64",
+          "ngn75:case_study_items:88",
+          "ngn75:case_study_items:94"
+        ],
+        "stem": "Complete the statement about this client's immediate management."
+      },
+      {
+        "canonical": "ngn75:case_study_items:11",
+        "members": [
+          "ngn75:case_study_items:11",
+          "ngn75:case_study_items:119",
+          "ngn75:case_study_items:143",
+          "ngn75:case_study_items:23",
+          "ngn75:case_study_items:41",
+          "ngn75:case_study_items:89",
+          "ngn75:case_study_items:95"
+        ],
+        "stem": "Sequence the nurse's immediate actions for this client from first to last."
+      },
+      {
+        "canonical": "ngn75:case_study_items:107",
+        "members": [
+          "ngn75:case_study_items:107",
+          "ngn75:case_study_items:113",
+          "ngn75:case_study_items:125",
+          "ngn75:case_study_items:137",
+          "ngn75:case_study_items:149",
+          "ngn75:case_study_items:155",
+          "ngn75:case_study_items:167",
+          "ngn75:case_study_items:173",
+          "ngn75:case_study_items:179",
+          "ngn75:case_study_items:185",
+          "ngn75:case_study_items:203",
+          "ngn75:case_study_items:227",
+          "ngn75:case_study_items:233",
+          "ngn75:case_study_items:245",
+          "ngn75:case_study_items:251",
+          "ngn75:case_study_items:269",
+          "ngn75:case_study_items:275",
+          "ngn75:case_study_items:287",
+          "ngn75:case_study_items:29",
+          "ngn75:case_study_items:293",
+          "ngn75:case_study_items:298",
+          "ngn75:case_study_items:305",
+          "ngn75:case_study_items:323",
+          "ngn75:case_study_items:329",
+          "ngn75:case_study_items:335",
+          "ngn75:case_study_items:341",
+          "ngn75:case_study_items:35",
+          "ngn75:case_study_items:47",
+          "ngn75:case_study_items:53",
+          "ngn75:case_study_items:59",
+          "ngn75:case_study_items:65",
+          "ngn75:case_study_items:83"
+        ],
+        "stem": "Sequence the nurse's priority actions for this client, from first to last."
+      },
+      {
+        "canonical": "ngn75:case_study_items:106",
+        "members": [
+          "ngn75:case_study_items:106",
+          "ngn75:case_study_items:112",
+          "ngn75:case_study_items:124",
+          "ngn75:case_study_items:148",
+          "ngn75:case_study_items:172",
+          "ngn75:case_study_items:178",
+          "ngn75:case_study_items:184",
+          "ngn75:case_study_items:226",
+          "ngn75:case_study_items:232",
+          "ngn75:case_study_items:34",
+          "ngn75:case_study_items:46",
+          "ngn75:case_study_items:58",
+          "ngn75:case_study_items:82"
+        ],
+        "stem": "Complete the statement about this client's management."
+      },
+      {
+        "canonical": "ngn75:case_study_items:126",
+        "members": [
+          "ngn75:case_study_items:126",
+          "ngn75:case_study_items:150",
+          "ngn75:case_study_items:330",
+          "ngn75:case_study_items:48"
+        ],
+        "stem": "After 24 hours of treatment, the nurse reviews the client's trend. Select all findings indicating a positive response to treatment."
+      },
+      {
+        "canonical": "ngn75:case_study_items:273",
+        "members": [
+          "ngn75:case_study_items:273",
+          "ngn75:case_study_items:93"
+        ],
+        "stem": "Complete the diagram for this client's priority condition and immediate action."
+      },
+      {
+        "canonical": "ngn75:case_study_items:100",
+        "members": [
+          "ngn75:case_study_items:100",
+          "ngn75:case_study_items:196",
+          "ngn75:case_study_items:250",
+          "ngn75:case_study_items:280",
+          "ngn75:case_study_items:346"
+        ],
+        "stem": "Complete the statement about this client's emergency management."
+      },
+      {
+        "canonical": "ngn75:case_study_items:101",
+        "members": [
+          "ngn75:case_study_items:101",
+          "ngn75:case_study_items:197",
+          "ngn75:case_study_items:281"
+        ],
+        "stem": "Sequence the nurse's emergency actions for this client, from first to last."
+      },
+      {
+        "canonical": "ngn75:case_study_items:129",
+        "members": [
+          "ngn75:case_study_items:129",
+          "ngn75:case_study_items:159",
+          "ngn75:case_study_items:237",
+          "ngn75:case_study_items:255"
+        ],
+        "stem": "Complete the diagram for this child's priority condition."
+      },
+      {
+        "canonical": "ngn75:case_study_items:161",
+        "members": [
+          "ngn75:case_study_items:161",
+          "ngn75:case_study_items:239",
+          "ngn75:case_study_items:257"
+        ],
+        "stem": "Sequence the nurse's priority actions for this child, from first to last."
+      },
+      {
+        "canonical": "ngn75:case_study_items:268",
+        "members": [
+          "ngn75:case_study_items:268",
+          "ngn75:case_study_items:286"
+        ],
+        "stem": "Complete the statement about this client's urgent management."
+      },
+      {
+        "canonical": "ngn75:case_study_items:297",
+        "members": [
+          "ngn75:case_study_items:297",
+          "ngn75:case_study_items:321"
+        ],
+        "stem": "Complete the diagram for this client's priority condition and management approach."
+      },
+      {
+        "canonical": "ngn75:case_study_items:333",
+        "members": [
+          "ngn75:case_study_items:333",
+          "ngn75:case_study_items:351",
+          "ngn75:case_study_items:371"
+        ],
+        "stem": "Complete the diagram: select the condition the nurse should suspect, two findings that support it, and two actions the nurse should anticipate."
+      },
+      {
+        "canonical": "ngn75:case_study_items:345",
+        "members": [
+          "ngn75:case_study_items:345",
+          "ngn75:case_study_items:357"
+        ],
+        "stem": "Complete the diagram: select the condition the nurse should suspect, two findings that support it, and two immediate actions."
+      },
+      {
+        "canonical": "ngn75:case_study_items:347",
+        "members": [
+          "ngn75:case_study_items:347",
+          "ngn75:case_study_items:353",
+          "ngn75:case_study_items:359",
+          "ngn75:case_study_items:365",
+          "ngn75:case_study_items:373"
+        ],
+        "stem": "Sequence the nurse's priority actions from first to last."
+      },
+      {
+        "canonical": "ngn75:case_study_items:389",
+        "members": [
+          "ngn75:case_study_items:389",
+          "ngn75:case_study_items:396",
+          "ngn75:case_study_items:403",
+          "ngn75:case_study_items:410",
+          "ngn75:case_study_items:417",
+          "ngn75:case_study_items:424",
+          "ngn75:case_study_items:445",
+          "ngn75:case_study_items:452",
+          "ngn75:case_study_items:459",
+          "ngn75:case_study_items:466"
+        ],
+        "stem": "Sequence the nurse's actions from first to last."
+      },
+      {
+        "canonical": "ngn75:case_study_items:392",
+        "members": [
+          "ngn75:case_study_items:392",
+          "ngn75:case_study_items:470"
+        ],
+        "stem": "Select all findings that are severe features of preeclampsia in this client."
+      },
+      {
+        "canonical": "ngn75:case_study_items:408",
+        "members": [
+          "ngn75:case_study_items:408",
+          "ngn75:case_study_items:450"
+        ],
+        "stem": "Complete the diagram: select the priority problem, two supporting findings, and two immediate actions."
+      },
+      {
+        "canonical": "v2:questions:1310",
+        "members": [
+          "v2:questions:1310",
+          "v2:questions:2073"
+        ],
+        "stem": "A client presents with sudden, severe, colicky flank pain radiating to the groin, along with hematuria. The nurse should suspect:"
+      }
+    ],
+    "near_duplicate_candidates": [
+      {
+        "a": "ngn75:case_study_items:3",
+        "b": "ngn75:case_study_items:333",
+        "similarity": 0.9586
+      },
+      {
+        "a": "ngn75:case_study_items:3",
+        "b": "ngn75:case_study_items:351",
+        "similarity": 0.9586
+      },
+      {
+        "a": "ngn75:case_study_items:3",
+        "b": "ngn75:case_study_items:371",
+        "similarity": 0.9586
+      },
+      {
+        "a": "ngn75:case_study_items:333",
+        "b": "ngn75:case_study_items:339",
+        "similarity": 0.9632
+      },
+      {
+        "a": "ngn75:case_study_items:339",
+        "b": "ngn75:case_study_items:351",
+        "similarity": 0.9706
+      },
+      {
+        "a": "ngn75:case_study_items:339",
+        "b": "ngn75:case_study_items:371",
+        "similarity": 0.9706
+      },
+      {
+        "a": "ngn75:case_study_items:339",
+        "b": "ngn75:case_study_items:379",
+        "similarity": 0.9588
+      },
+      {
+        "a": "ngn75:case_study_items:345",
+        "b": "ngn75:case_study_items:363",
+        "similarity": 0.9547
+      },
+      {
+        "a": "ngn75:case_study_items:357",
+        "b": "ngn75:case_study_items:363",
+        "similarity": 0.9547
+      },
+      {
+        "a": "ngn75:case_study_items:408",
+        "b": "ngn75:case_study_items:464",
+        "similarity": 0.9453
+      },
+      {
+        "a": "ngn75:case_study_items:422",
+        "b": "ngn75:case_study_items:443",
+        "similarity": 0.9524
+      },
+      {
+        "a": "ngn75:case_study_items:450",
+        "b": "ngn75:case_study_items:464",
+        "similarity": 0.9453
+      },
+      {
+        "a": "ngn75:case_study_items:9",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:15",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:21",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:33",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:39",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:45",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:51",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:57",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:63",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:81",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:87",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:93",
+        "b": "ngn75:case_study_items:201",
+        "similarity": 0.9554
+      },
+      {
+        "a": "ngn75:case_study_items:99",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:105",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:111",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:117",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:123",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:141",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:147",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:153",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:165",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:171",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:177",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:183",
+        "b": "ngn75:case_study_items:189",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:189",
+        "b": "ngn75:case_study_items:195",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:189",
+        "b": "ngn75:case_study_items:225",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:189",
+        "b": "ngn75:case_study_items:231",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:189",
+        "b": "ngn75:case_study_items:249",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:189",
+        "b": "ngn75:case_study_items:279",
+        "similarity": 0.9474
+      },
+      {
+        "a": "ngn75:case_study_items:201",
+        "b": "ngn75:case_study_items:273",
+        "similarity": 0.9554
+      },
+      {
+        "a": "ngn75:case_study_items:10",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:10",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:22",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:22",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:34",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:40",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:40",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:46",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:52",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:52",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:58",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:64",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:64",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:82",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:88",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:88",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:94",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:94",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:100",
+        "b": "ngn75:case_study_items:238",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:100",
+        "b": "ngn75:case_study_items:268",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:100",
+        "b": "ngn75:case_study_items:286",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:106",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:112",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:118",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:118",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:124",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:142",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:142",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:148",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:154",
+        "b": "ngn75:case_study_items:256",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:154",
+        "b": "ngn75:case_study_items:334",
+        "similarity": 0.9449
+      },
+      {
+        "a": "ngn75:case_study_items:172",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:178",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:184",
+        "b": "ngn75:case_study_items:190",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:190",
+        "b": "ngn75:case_study_items:226",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:190",
+        "b": "ngn75:case_study_items:232",
+        "similarity": 0.9434
+      },
+      {
+        "a": "ngn75:case_study_items:196",
+        "b": "ngn75:case_study_items:238",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:196",
+        "b": "ngn75:case_study_items:268",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:196",
+        "b": "ngn75:case_study_items:286",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:238",
+        "b": "ngn75:case_study_items:250",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:238",
+        "b": "ngn75:case_study_items:280",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:238",
+        "b": "ngn75:case_study_items:346",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:250",
+        "b": "ngn75:case_study_items:268",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:250",
+        "b": "ngn75:case_study_items:286",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:268",
+        "b": "ngn75:case_study_items:280",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:268",
+        "b": "ngn75:case_study_items:346",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:280",
+        "b": "ngn75:case_study_items:286",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:286",
+        "b": "ngn75:case_study_items:346",
+        "similarity": 0.9431
+      },
+      {
+        "a": "ngn75:case_study_items:29",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:29",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:29",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:29",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:35",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:35",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:35",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:35",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:47",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:47",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:47",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:47",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:53",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:53",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:53",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:53",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:59",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:59",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:59",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:59",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:65",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:65",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:65",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:65",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:83",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:83",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:83",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:83",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:107",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:107",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:107",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:107",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:113",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:113",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:113",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:113",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:125",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:125",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:125",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:125",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:131",
+        "b": "ngn75:case_study_items:215",
+        "similarity": 0.944
+      },
+      {
+        "a": "ngn75:case_study_items:137",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:137",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:137",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:137",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:149",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:149",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:149",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:149",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:155",
+        "b": "ngn75:case_study_items:161",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:155",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:155",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:155",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:167",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:173",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:179",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:185",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:203",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:227",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:233",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:245",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:251",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:269",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:275",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:287",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:293",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:298",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:305",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:323",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:329",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:335",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:161",
+        "b": "ngn75:case_study_items:341",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:167",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:167",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:167",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:173",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:173",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:173",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:179",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:179",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:179",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:185",
+        "b": "ngn75:case_study_items:191",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:185",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:185",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:203",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:227",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:233",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:245",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:251",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:269",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:275",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:287",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:293",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:298",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:305",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:323",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:329",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:335",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:191",
+        "b": "ngn75:case_study_items:341",
+        "similarity": 0.9583
+      },
+      {
+        "a": "ngn75:case_study_items:203",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:203",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:227",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:227",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:233",
+        "b": "ngn75:case_study_items:239",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:233",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:245",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:251",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:269",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:275",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:287",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:293",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:298",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:305",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:323",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:329",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:335",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:239",
+        "b": "ngn75:case_study_items:341",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:245",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:251",
+        "b": "ngn75:case_study_items:257",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:269",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:275",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:287",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:293",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:298",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:305",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:323",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:329",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:335",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:257",
+        "b": "ngn75:case_study_items:341",
+        "similarity": 0.951
+      },
+      {
+        "a": "ngn75:case_study_items:24",
+        "b": "ngn75:case_study_items:336",
+        "similarity": 0.9667
+      },
+      {
+        "a": "ngn75:case_study_items:84",
+        "b": "ngn75:case_study_items:174",
+        "similarity": 0.952
+      },
+      {
+        "a": "ngn75:case_study_items:96",
+        "b": "ngn75:case_study_items:144",
+        "similarity": 0.9412
+      },
+      {
+        "a": "v2:questions:41",
+        "b": "v2:questions:1037",
+        "similarity": 0.9459
+      },
+      {
+        "a": "v2:questions:1317",
+        "b": "v2:questions:1722",
+        "similarity": 0.9706
+      },
+      {
+        "a": "v2:questions:2045",
+        "b": "v2:questions:2094",
+        "similarity": 0.9561
+      },
+      {
+        "a": "v2:questions:2045",
+        "b": "v2:questions:2244",
+        "similarity": 0.9802
+      },
+      {
+        "a": "v2:questions:2094",
+        "b": "v2:questions:2244",
+        "similarity": 0.9469
+      },
+      {
+        "a": "v2:questions:1628",
+        "b": "v2:questions:2250",
+        "similarity": 0.9652
+      },
+      {
+        "a": "v2:questions:1728",
+        "b": "v2:questions:1848",
+        "similarity": 0.9732
+      },
+      {
+        "a": "v2:questions:1849",
+        "b": "v2:questions:1949",
+        "similarity": 0.9474
+      },
+      {
+        "a": "v2:questions:1924",
+        "b": "v2:questions:2066",
+        "similarity": 0.9507
+      }
+    ]
+  },
+  "ordering_policy": {
+    "storage_order": "2026 Client Needs rank, then keep inferred case-study groups contiguous, then source order",
+    "test_delivery": "Do not serve by storage order. Build tests using blueprint-weighted sampling and keep case-study item sets intact.",
+    "dedupe_priority": "structural PASS first; then ngn75 FINAL over v2 inprogress for exact duplicate stems"
+  },
+  "clinical_verification_status": "NOT_VERIFIED"
+}
