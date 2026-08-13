@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "NCLEX_COMMERCIAL_MASTER_CURRENT.db"
 OUT = ROOT / "data" / "pending_audit_next.json"
-START = 52
-END = 101
+MIN_SOURCE_ID = 102
+BATCH_SIZE = 20
 
 con = sqlite3.connect(DB)
 con.row_factory = sqlite3.Row
@@ -20,16 +20,22 @@ rows = con.execute(
            source_name, source_detail, source_url, clinical_qa_status
     FROM questions
     WHERE source_bank='v2'
-      AND source_id BETWEEN ? AND ?
+      AND source_id >= ?
       AND clinical_qa_status NOT LIKE 'SOURCE_VERIFIED_2026_%'
     ORDER BY source_id
+    LIMIT ?
     """,
-    (START, END),
+    (MIN_SOURCE_ID, BATCH_SIZE),
 ).fetchall()
 con.close()
 
+if rows:
+    source_range = [rows[0]["source_id"], rows[-1]["source_id"]]
+else:
+    source_range = []
+
 payload = {
-    "range": [START, END],
+    "range": source_range,
     "count": len(rows),
     "questions": [dict(row) for row in rows],
 }
