@@ -1,588 +1,592 @@
 #!/usr/bin/env python3
-"""Audit and merge the repository's NCLEX SQLite banks without altering source data."""
+"""Build a commercial-ready NCLEX catalog from the two repository SQLite banks.
+
+This pipeline preserves every source row, performs structural validation and exact
+deduplication, keeps NGN case context intact, and separates catalog ordering from
+exam-delivery rules. It does not certify clinical correctness, copyright ownership,
+or affiliation with NCSBN/NCLEX.
+"""
 from __future__ import annotations
 
-import base64
 import hashlib
 import json
 import re
 import sqlite3
-import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
-from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Any
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCES = [
-    ("ngn75", ROOT / "nclex ngn bank 75of75 ALL7formats FINAL.db", 0),
-    ("v2", ROOT / "nclex question bank v2 inprogress 5.db", 1),
-]
+CORE_PATH = ROOT / "nclex question bank v2 inprogress 5.db"
+NGN_PATH = ROOT / "nclex ngn bank 75of75 ALL7formats FINAL.db"
 OUT_DB = ROOT / "nclex_commercial_merged.db"
 OUT_JSON = ROOT / "NCLEX_AUDIT_REPORT.json"
 OUT_MD = ROOT / "NCLEX_AUDIT_REPORT.md"
 
-QUESTION_COLS = ["question_text", "question", "stem", "prompt", "item_text", "stem_text", "question_stem", "text"]
-ANSWER_COLS = ["correct_answer", "correct_answers", "correct_option", "correct_response", "answer_key", "answer", "correct", "key"]
-RATIONALE_COLS = ["rationale", "explanation", "rationales", "answer_rationale", "reasoning"]
-TYPE_COLS = ["item_type", "question_type", "format", "item_format", "type"]
-CATEGORY_COLS = ["client_needs", "client_need", "nclex_category", "category", "subcategory", "content_area", "domain", "topic", "specialty", "system"]
-DIFFICULTY_COLS = ["difficulty", "level", "difficulty_level"]
-CASE_COLS = ["case_id", "case_study_id", "scenario_id", "patient_case_id", "case_number", "set_id", "group_id"]
-ORDER_COLS = ["item_number", "question_number", "sequence", "seq", "position", "order_index", "sort_order"]
-PK_COLS = ["qid", "question_id", "item_id", "id", "uid", "uuid"]
-REFERENCE_COLS = ["source", "sources", "reference", "references", "citation", "citations", "source_title", "source_url", "reference_text"]
-OPTIONS_CONTAINER_COLS = ["options", "choices", "answer_options", "responses", "selections"]
-OPTION_RE = re.compile(r"^(?:option|choice|answer)_?([a-h1-8])$", re.I)
+BLUEPRINT = {
+    2: (1, "MGMT_CARE", "Management of Care", 15.0, 21.0, 18.0),
+    3: (2, "SAFETY_INFECTION", "Safety & Infection Prevention and Control", 10.0, 16.0, 13.0),
+    4: (3, "HEALTH_PROMO", "Health Promotion and Maintenance", 6.0, 12.0, 9.0),
+    5: (4, "PSYCHOSOCIAL", "Psychosocial Integrity", 6.0, 12.0, 9.0),
+    7: (5, "BASIC_CARE", "Basic Care and Comfort", 6.0, 12.0, 9.0),
+    8: (6, "PHARM", "Pharmacological and Parenteral Therapies", 13.0, 19.0, 16.0),
+    9: (7, "RISK_REDUCTION", "Reduction of Risk Potential", 9.0, 15.0, 12.0),
+    10: (8, "PHYS_ADAPT", "Physiological Adaptation", 11.0, 17.0, 14.0),
+}
 
-BLUEPRINT = [
-    (1, "Management of Care", 18.0, ["management of care", "management", "delegation", "prioritization", "coordination of care"]),
-    (2, "Safety and Infection Prevention and Control", 13.0, ["safety and infection prevention and control", "safety and infection", "infection control", "safety"]),
-    (3, "Health Promotion and Maintenance", 9.0, ["health promotion and maintenance", "health promotion", "growth and development", "antepartum", "postpartum", "newborn"]),
-    (4, "Psychosocial Integrity", 9.0, ["psychosocial integrity", "psychosocial", "mental health", "psychiatric"]),
-    (5, "Basic Care and Comfort", 9.0, ["basic care and comfort", "basic care", "comfort"]),
-    (6, "Pharmacological and Parenteral Therapies", 16.0, ["pharmacological and parenteral therapies", "pharmacology", "medication", "parenteral"]),
-    (7, "Reduction of Risk Potential", 12.0, ["reduction of risk potential", "reduction of risk", "risk potential", "diagnostic tests"]),
-    (8, "Physiological Adaptation", 14.0, ["physiological adaptation", "physiologic adaptation", "acute care", "medical surgical", "med surg"]),
-]
+TYPE_FAMILY = {
+    "highlight": "highlight",
+    "extended_multiple_response": "multiple_response",
+    "matrix_grid": "matrix_grid",
+    "bowtie": "bow_tie",
+    "cloze_dropdown": "cloze_dropdown",
+    "extended_drag_drop": "ordered_response",
+    "trend": "trend",
+}
 
-
-def qident(name: str) -> str:
-    return '"' + name.replace('"', '""') + '"'
-
-
-def safe_name(name: str) -> str:
-    return re.sub(r"[^A-Za-z0-9_]+", "_", name).strip("_") or "table"
-
-
-def lower_map(cols: list[str]) -> dict[str, str]:
-    return {c.lower(): c for c in cols}
+SCORING_FAMILY = {
+    "highlight": "plus_minus",
+    "extended_multiple_response": "plus_minus",
+    "matrix_grid": "zero_one_component",
+    "cloze_dropdown": "zero_one_component",
+    "trend": "zero_one_component",
+    "bowtie": "review_required",
+    "extended_drag_drop": "review_required",
+}
 
 
-def pick(cols: list[str], candidates: list[str]) -> str | None:
-    m = lower_map(cols)
-    for c in candidates:
-        if c in m:
-            return m[c]
-    return None
+def normalize(text: str) -> str:
+    text = re.sub(r"\s+", " ", (text or "")).strip().lower()
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
-def value(row: dict[str, Any], col: str | None) -> Any:
-    return row.get(col) if col else None
+def hash_text(text: str) -> str:
+    return hashlib.sha256(normalize(text).encode()).hexdigest()
 
 
-def as_text(v: Any) -> str:
-    if v is None:
-        return ""
-    if isinstance(v, bytes):
-        return base64.b64encode(v).decode("ascii")
-    if isinstance(v, (dict, list)):
-        return json.dumps(v, ensure_ascii=False, sort_keys=True)
-    return str(v).strip()
-
-
-def json_safe(v: Any) -> Any:
-    if isinstance(v, bytes):
-        return {"__blob_base64__": base64.b64encode(v).decode("ascii")}
-    if isinstance(v, (str, int, float, bool)) or v is None:
-        return v
-    return str(v)
-
-
-def compact_ws(s: str) -> str:
-    return re.sub(r"\s+", " ", s or "").strip()
-
-
-def norm_text(s: str) -> str:
-    s = compact_ws(s).lower()
-    s = re.sub(r"[^a-z0-9]+", " ", s)
-    return re.sub(r"\s+", " ", s).strip()
-
-
-def sha(s: str) -> str:
-    return hashlib.sha256(s.encode("utf-8")).hexdigest()
-
-
-def parse_jsonish(v: Any) -> Any:
-    if v is None:
-        return None
-    if isinstance(v, (list, dict, int, float, bool)):
-        return v
-    s = as_text(v)
-    if not s:
-        return None
+def path_depth(url: str) -> int:
     try:
-        return json.loads(s)
+        path = urlparse(url or "").path.strip("/")
+        return len([part for part in path.split("/") if part]) if path else 0
     except Exception:
-        return s
+        return -1
 
 
-def extract_options(row: dict[str, Any], cols: list[str]) -> Any:
-    ordered = []
-    for c in cols:
-        m = OPTION_RE.match(c.lower())
-        if m and as_text(row.get(c)):
-            key = m.group(1).upper()
-            ordered.append((key, row.get(c)))
-    if ordered:
-        ordered.sort(key=lambda x: (len(x[0]), x[0]))
-        return {k: json_safe(v) for k, v in ordered}
-    container = pick(cols, OPTIONS_CONTAINER_COLS)
-    if container:
-        return parse_jsonish(row.get(container))
-    return None
-
-
-def infer_item_family(raw_type: str, options: Any, answer: Any, row: dict[str, Any]) -> str:
-    t = norm_text(raw_type)
-    whole = " ".join([t, norm_text(as_text(row))])
-    if "bow tie" in t or "bowtie" in t:
-        return "bow_tie"
-    if "matrix" in t or "grid" in t:
-        return "matrix"
-    if "cloze" in t or "drop down" in t or "dropdown" in t:
-        return "cloze"
-    if "highlight" in t:
-        return "highlight"
-    if "ordered" in t or "order response" in t or "sequence" in t or "drag and drop" in t:
-        return "ordered_response"
-    if "select all" in t or "sata" in t or "multiple response" in t or "select n" in t or "grouping" in t:
-        return "multiple_response"
-    if "multiple choice" in t or "single response" in t or "mcq" in t:
-        return "multiple_choice"
-    if isinstance(options, dict) and len(options) >= 2:
-        if isinstance(answer, list):
-            return "multiple_response"
-        a = as_text(answer)
-        if "," in a or ";" in a:
-            return "multiple_response"
-        return "multiple_choice"
-    if "hotspot" in whole:
-        return "hotspot"
-    return "other"
-
-
-def classify_blueprint(*texts: str) -> tuple[str, float, int]:
-    s = norm_text(" ".join(t for t in texts if t))
-    if not s:
-        return "Unmapped", 0.0, 99
-    best = None
-    for rank, name, pct, aliases in BLUEPRINT:
-        for alias in aliases:
-            a = norm_text(alias)
-            if a and a in s:
-                score = len(a)
-                if best is None or score > best[0]:
-                    best = (score, name, pct, rank)
-    if best:
-        _, name, pct, rank = best
-        return name, pct, rank
-    return "Unmapped", 0.0, 99
-
-
-def table_info(conn: sqlite3.Connection, table: str) -> list[dict[str, Any]]:
-    rows = conn.execute(f"PRAGMA table_info({qident(table)})").fetchall()
-    return [{"cid": r[0], "name": r[1], "type": r[2], "notnull": r[3], "default": r[4], "pk": r[5]} for r in rows]
-
-
-def is_question_table(table: str, cols: list[str]) -> bool:
-    qcol = pick(cols, QUESTION_COLS)
-    if not qcol:
-        return False
-    has_answer = bool(pick(cols, ANSWER_COLS))
-    has_options = any(OPTION_RE.match(c.lower()) for c in cols) or bool(pick(cols, OPTIONS_CONTAINER_COLS))
-    has_type = bool(pick(cols, TYPE_COLS))
-    named = bool(re.search(r"question|item|bank", table, re.I))
-    return has_answer or has_options or has_type or named
-
-
-def integrity(conn: sqlite3.Connection) -> str:
+def integrity(path: Path) -> str:
+    db = sqlite3.connect(path)
     try:
-        return str(conn.execute("PRAGMA integrity_check").fetchone()[0])
-    except Exception as e:
-        return f"ERROR: {e}"
+        return str(db.execute("PRAGMA integrity_check").fetchone()[0])
+    finally:
+        db.close()
 
 
-def row_count(conn: sqlite3.Connection, table: str) -> int:
-    return int(conn.execute(f"SELECT COUNT(*) FROM {qident(table)}").fetchone()[0])
+def valid_json(text: str) -> bool:
+    try:
+        json.loads(text)
+        return True
+    except Exception:
+        return False
 
 
-def source_audit(label: str, path: Path) -> dict[str, Any]:
-    conn = sqlite3.connect(path)
-    tables = [r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
-    result = {
-        "label": label,
-        "file": path.name,
-        "size_bytes": path.stat().st_size,
-        "integrity_check": integrity(conn),
-        "tables": [],
-    }
-    for table in tables:
-        info = table_info(conn, table)
-        cols = [x["name"] for x in info]
-        result["tables"].append({
-            "name": table,
-            "row_count": row_count(conn, table),
-            "columns": info,
-            "question_like": is_question_table(table, cols),
-        })
-    conn.close()
-    return result
-
-
-def init_output(conn: sqlite3.Connection) -> None:
-    conn.executescript("""
+def create_schema(db: sqlite3.Connection) -> None:
+    db.executescript("""
     PRAGMA foreign_keys=ON;
-    CREATE TABLE merge_metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
-    CREATE TABLE source_schemas(source_bank TEXT, source_table TEXT, create_sql TEXT, PRIMARY KEY(source_bank, source_table));
-    CREATE TABLE blueprint_2026(rank INTEGER PRIMARY KEY, client_needs TEXT UNIQUE, target_pct REAL NOT NULL);
-    CREATE TABLE question_catalog(
-      catalog_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      question_uid TEXT UNIQUE NOT NULL,
-      source_bank TEXT NOT NULL,
-      source_file TEXT NOT NULL,
-      source_table TEXT NOT NULL,
-      source_pk TEXT,
-      source_rowid INTEGER,
-      source_order INTEGER,
-      case_group TEXT,
-      case_sequence INTEGER,
-      item_format_raw TEXT,
-      item_family TEXT,
-      client_needs_2026 TEXT,
-      blueprint_target_pct REAL,
-      content_area_raw TEXT,
-      difficulty_raw TEXT,
-      question_text TEXT,
-      options_json TEXT,
-      correct_answer_json TEXT,
-      rationale TEXT,
-      reference_text TEXT,
-      stem_hash TEXT,
-      content_hash TEXT,
-      duplicate_of_uid TEXT,
-      near_duplicate_group TEXT,
-      structural_status TEXT NOT NULL,
-      clinical_verification_status TEXT NOT NULL DEFAULT 'NOT_VERIFIED',
-      app_ready INTEGER NOT NULL DEFAULT 0,
-      commercial_order INTEGER,
-      raw_json TEXT NOT NULL
+    CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+    CREATE TABLE test_blueprint_2026(
+      category_id INTEGER PRIMARY KEY,
+      blueprint_rank INTEGER NOT NULL,
+      code TEXT NOT NULL,
+      category_name TEXT NOT NULL,
+      min_pct REAL NOT NULL,
+      max_pct REAL NOT NULL,
+      target_midpoint_pct REAL NOT NULL
     );
-    CREATE TABLE question_issues(
+    CREATE TABLE core_questions(
+      id INTEGER PRIMARY KEY,
+      stable_uid TEXT UNIQUE NOT NULL,
+      category_id INTEGER NOT NULL,
+      blueprint_rank INTEGER NOT NULL,
+      fingerprint_id INTEGER,
+      question_text TEXT NOT NULL,
+      option_a TEXT NOT NULL,
+      option_b TEXT NOT NULL,
+      option_c TEXT NOT NULL,
+      option_d TEXT NOT NULL,
+      correct_option TEXT NOT NULL,
+      explanation TEXT NOT NULL,
+      source_name TEXT NOT NULL,
+      source_detail TEXT NOT NULL,
+      source_url TEXT NOT NULL,
+      source_url_depth INTEGER NOT NULL,
+      source_traceability TEXT NOT NULL,
+      difficulty TEXT NOT NULL,
+      item_type TEXT NOT NULL,
+      batch_number INTEGER,
+      date_created TEXT,
+      source_verified_flag INTEGER NOT NULL,
+      exact_stem_hash TEXT NOT NULL,
+      duplicate_of_uid TEXT,
+      active INTEGER NOT NULL DEFAULT 1,
+      structural_status TEXT NOT NULL,
+      independent_clinical_status TEXT NOT NULL DEFAULT 'NOT_VERIFIED',
+      ip_status TEXT NOT NULL DEFAULT 'REVIEW_REQUIRED',
+      FOREIGN KEY(category_id) REFERENCES test_blueprint_2026(category_id)
+    );
+    CREATE TABLE ngn_case_studies(
+      id INTEGER PRIMARY KEY,
+      stable_uid TEXT UNIQUE NOT NULL,
+      category_id INTEGER NOT NULL,
+      blueprint_rank INTEGER NOT NULL,
+      title TEXT NOT NULL,
+      specialty TEXT NOT NULL,
+      setting TEXT NOT NULL,
+      client_profile TEXT NOT NULL,
+      stage1_scenario TEXT NOT NULL,
+      stage2_scenario TEXT,
+      stage3_scenario TEXT,
+      difficulty TEXT NOT NULL,
+      source_name TEXT,
+      source_url TEXT,
+      source_url_depth INTEGER NOT NULL,
+      date_created TEXT,
+      source_verified_flag INTEGER NOT NULL,
+      structural_status TEXT NOT NULL,
+      independent_clinical_status TEXT NOT NULL DEFAULT 'NOT_VERIFIED',
+      ip_status TEXT NOT NULL DEFAULT 'REVIEW_REQUIRED',
+      FOREIGN KEY(category_id) REFERENCES test_blueprint_2026(category_id)
+    );
+    CREATE TABLE ngn_case_items(
+      id INTEGER PRIMARY KEY,
+      stable_uid TEXT UNIQUE NOT NULL,
+      case_study_id INTEGER NOT NULL,
+      sequence INTEGER NOT NULL,
+      cjmm_skill TEXT NOT NULL,
+      item_type TEXT NOT NULL,
+      item_family TEXT NOT NULL,
+      stem TEXT NOT NULL,
+      item_data_json TEXT NOT NULL,
+      correct_answer_json TEXT NOT NULL,
+      rationale TEXT NOT NULL,
+      original_scoring_rule TEXT NOT NULL,
+      scoring_family TEXT NOT NULL,
+      practice_use INTEGER NOT NULL DEFAULT 1,
+      simulation_use INTEGER NOT NULL,
+      supplemental_practice INTEGER NOT NULL,
+      structural_status TEXT NOT NULL,
+      independent_clinical_status TEXT NOT NULL DEFAULT 'NOT_VERIFIED',
+      ip_status TEXT NOT NULL DEFAULT 'REVIEW_REQUIRED',
+      FOREIGN KEY(case_study_id) REFERENCES ngn_case_studies(id)
+    );
+    CREATE TABLE unified_catalog(
+      catalog_order INTEGER PRIMARY KEY,
+      stable_uid TEXT UNIQUE NOT NULL,
+      pool TEXT NOT NULL,
+      source_id INTEGER NOT NULL,
+      case_study_id INTEGER,
+      case_sequence INTEGER,
+      category_id INTEGER NOT NULL,
+      blueprint_rank INTEGER NOT NULL,
+      item_type TEXT NOT NULL,
+      question_text TEXT NOT NULL,
+      difficulty TEXT,
+      active INTEGER NOT NULL,
+      practice_use INTEGER NOT NULL,
+      simulation_use INTEGER NOT NULL,
+      structural_status TEXT NOT NULL,
+      independent_clinical_status TEXT NOT NULL,
+      ip_status TEXT NOT NULL
+    );
+    CREATE TABLE audit_issues(
       issue_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      question_uid TEXT NOT NULL,
+      entity_type TEXT NOT NULL,
+      stable_uid TEXT,
       severity TEXT NOT NULL,
       issue_code TEXT NOT NULL,
-      detail TEXT,
-      FOREIGN KEY(question_uid) REFERENCES question_catalog(question_uid)
+      detail TEXT NOT NULL
     );
-    CREATE INDEX idx_catalog_blueprint ON question_catalog(client_needs_2026, commercial_order);
-    CREATE INDEX idx_catalog_case ON question_catalog(case_group, case_sequence);
-    CREATE INDEX idx_catalog_stem_hash ON question_catalog(stem_hash);
-    CREATE INDEX idx_catalog_app_ready ON question_catalog(app_ready, structural_status);
+    CREATE TABLE test_generation_rules(
+      rule_key TEXT PRIMARY KEY,
+      rule_json TEXT NOT NULL
+    );
+    CREATE VIEW v_active_core_questions AS
+      SELECT * FROM core_questions WHERE active=1 AND structural_status='PASS';
+    CREATE VIEW v_ngn_practice_items AS
+      SELECT i.*, c.category_id, c.blueprint_rank, c.title AS case_title
+      FROM ngn_case_items i JOIN ngn_case_studies c ON c.id=i.case_study_id
+      WHERE i.practice_use=1 AND i.structural_status='PASS';
+    CREATE VIEW v_ngn_simulation_items AS
+      SELECT i.*, c.category_id, c.blueprint_rank, c.title AS case_title
+      FROM ngn_case_items i JOIN ngn_case_studies c ON c.id=i.case_study_id
+      WHERE i.simulation_use=1 AND i.structural_status='PASS';
+    CREATE INDEX idx_core_category ON core_questions(category_id, active);
+    CREATE INDEX idx_core_hash ON core_questions(exact_stem_hash);
+    CREATE INDEX idx_ngn_case_seq ON ngn_case_items(case_study_id, sequence);
+    CREATE INDEX idx_catalog_pool_category ON unified_catalog(pool, category_id, active);
+    CREATE INDEX idx_issues_uid ON audit_issues(stable_uid, issue_code);
     """)
-    conn.executemany("INSERT INTO blueprint_2026(rank,client_needs,target_pct) VALUES(?,?,?)", [(r,n,p) for r,n,p,_ in BLUEPRINT])
 
 
-def copy_raw_tables(out: sqlite3.Connection, label: str, path: Path) -> None:
-    src = sqlite3.connect(path)
-    tables = [r[0] for r in src.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
-    for table in tables:
-        sqlrow = src.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone()
-        out.execute("INSERT OR REPLACE INTO source_schemas(source_bank,source_table,create_sql) VALUES(?,?,?)", (label, table, sqlrow[0] if sqlrow else ""))
-        info = table_info(src, table)
-        cols = [x["name"] for x in info]
-        raw_name = f"raw_{label}__{safe_name(table)}"
-        col_defs = ",".join(f"{qident(c)}" for c in cols)
-        out.execute(f"CREATE TABLE {qident(raw_name)} ({','.join(qident(c) for c in cols)})")
-        cur = src.execute(f"SELECT {col_defs} FROM {qident(table)}")
-        ph = ",".join("?" for _ in cols)
-        out.executemany(f"INSERT INTO {qident(raw_name)} VALUES({ph})", cur)
-    src.close()
+def copy_blueprint(db: sqlite3.Connection) -> None:
+    for category_id, (rank, code, name, lo, hi, midpoint) in BLUEPRINT.items():
+        db.execute(
+            "INSERT INTO test_blueprint_2026 VALUES(?,?,?,?,?,?,?)",
+            (category_id, rank, code, name, lo, hi, midpoint),
+        )
 
 
-def extract_catalog(out: sqlite3.Connection, label: str, path: Path, source_priority: int, report: dict[str, Any]) -> None:
-    src = sqlite3.connect(path)
+def load_core(db: sqlite3.Connection) -> dict:
+    src = sqlite3.connect(CORE_PATH)
     src.row_factory = sqlite3.Row
-    table_reports = {t["name"]: t for t in report["tables"]}
-    for table, tr in table_reports.items():
-        if not tr["question_like"]:
-            continue
-        cols = [c["name"] for c in tr["columns"]]
-        qcol = pick(cols, QUESTION_COLS)
-        acol = pick(cols, ANSWER_COLS)
-        rcol = pick(cols, RATIONALE_COLS)
-        tcol = pick(cols, TYPE_COLS)
-        ccols = [c for c in CATEGORY_COLS if c in lower_map(cols)]
-        ccols = [lower_map(cols)[c] for c in ccols]
-        dcol = pick(cols, DIFFICULTY_COLS)
-        casecol = pick(cols, CASE_COLS)
-        ordercol = pick(cols, ORDER_COLS)
-        pkcol = pick(cols, PK_COLS)
-        refcols = [lower_map(cols)[c] for c in REFERENCE_COLS if c in lower_map(cols)]
-        cur = src.execute(f"SELECT rowid AS __rowid__, * FROM {qident(table)}")
-        source_seq = 0
-        for rr in cur:
-            source_seq += 1
-            row = {k: rr[k] for k in rr.keys() if k != "__rowid__"}
-            rowid = int(rr["__rowid__"])
-            qtext = compact_ws(as_text(value(row, qcol)))
-            if not qtext:
-                continue
-            ans_obj = parse_jsonish(value(row, acol))
-            options_obj = extract_options(row, cols)
-            rationale = compact_ws(as_text(value(row, rcol)))
-            raw_type = compact_ws(as_text(value(row, tcol)))
-            family = infer_item_family(raw_type, options_obj, ans_obj, row)
-            content_parts = [compact_ws(as_text(row.get(c))) for c in ccols if as_text(row.get(c))]
-            content_raw = " | ".join(dict.fromkeys(content_parts))
-            client_needs, target_pct, blueprint_rank = classify_blueprint(content_raw, raw_type)
-            difficulty = compact_ws(as_text(value(row, dcol)))
-            ref_text = " | ".join(dict.fromkeys(compact_ws(as_text(row.get(c))) for c in refcols if as_text(row.get(c))))
-            source_pk = compact_ws(as_text(value(row, pkcol))) or str(rowid)
-            case_val = compact_ws(as_text(value(row, casecol)))
-            case_group = f"{label}:{table}:{case_val}" if case_val else None
-            try:
-                case_sequence = int(value(row, ordercol)) if ordercol and value(row, ordercol) is not None else source_seq
-            except Exception:
-                case_sequence = source_seq
-            try:
-                source_order = int(value(row, ordercol)) if ordercol and value(row, ordercol) is not None else source_seq
-            except Exception:
-                source_order = source_seq
-            opts_norm = norm_text(json.dumps(options_obj, ensure_ascii=False, sort_keys=True) if options_obj is not None else "")
-            stem_hash = sha(norm_text(qtext))
-            content_hash = sha(norm_text(qtext) + "|" + opts_norm)
-            uid = f"{label}:{safe_name(table)}:{source_pk}"
-            issues = []
-            if len(qtext) < 20:
-                issues.append(("WARN", "SHORT_STEM", f"Question text has {len(qtext)} characters"))
-            if ans_obj in (None, "", [], {}):
-                issues.append(("ERROR", "MISSING_ANSWER", "No recognizable correct-answer field/value"))
-            if family in {"multiple_choice", "multiple_response"} and options_obj in (None, "", [], {}):
-                issues.append(("ERROR", "MISSING_OPTIONS", f"{family} item has no recognizable options"))
-            if not rationale:
-                issues.append(("WARN", "MISSING_RATIONALE", "No recognizable rationale/explanation"))
-            if not ref_text:
-                issues.append(("INFO", "MISSING_REFERENCE", "No recognizable source/reference metadata"))
-            if family == "other":
-                issues.append(("INFO", "UNMAPPED_ITEM_FORMAT", raw_type or "No explicit item format"))
-            if client_needs == "Unmapped":
-                issues.append(("INFO", "UNMAPPED_BLUEPRINT", content_raw or "No recognizable Client Needs metadata"))
-            structural_status = "PASS" if not any(sev == "ERROR" for sev, _, _ in issues) else "REVIEW"
-            app_ready = 1 if structural_status == "PASS" else 0
-            raw_json = json.dumps({k: json_safe(v) for k, v in row.items()}, ensure_ascii=False, sort_keys=True)
-            out.execute("""
-                INSERT INTO question_catalog(
-                  question_uid,source_bank,source_file,source_table,source_pk,source_rowid,source_order,
-                  case_group,case_sequence,item_format_raw,item_family,client_needs_2026,blueprint_target_pct,
-                  content_area_raw,difficulty_raw,question_text,options_json,correct_answer_json,rationale,
-                  reference_text,stem_hash,content_hash,structural_status,app_ready,raw_json
-                ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-            """, (
-                uid,label,path.name,table,source_pk,rowid,source_order,case_group,case_sequence,raw_type,family,
-                client_needs,target_pct,content_raw,difficulty,qtext,
-                json.dumps(options_obj,ensure_ascii=False,sort_keys=True) if options_obj is not None else None,
-                json.dumps(ans_obj,ensure_ascii=False,sort_keys=True) if ans_obj is not None else None,
-                rationale,ref_text,stem_hash,content_hash,structural_status,app_ready,raw_json
-            ))
-            out.executemany("INSERT INTO question_issues(question_uid,severity,issue_code,detail) VALUES(?,?,?,?)", [(uid,*x) for x in issues])
-    src.close()
+    rows = src.execute("SELECT * FROM questions ORDER BY id").fetchall()
+    category_counts = Counter()
+    difficulty_counts = Counter()
+    answer_counts = Counter()
+    completeness = Counter()
+    hashes = defaultdict(list)
 
-
-def mark_duplicates(out: sqlite3.Connection) -> dict[str, Any]:
-    rows = out.execute("SELECT question_uid,source_bank,source_table,source_order,stem_hash,question_text,structural_status FROM question_catalog ORDER BY catalog_id").fetchall()
-    groups = defaultdict(list)
     for r in rows:
-        groups[r[4]].append(r)
+        q = dict(r)
+        uid = f"MCQ-{q['id']:04d}"
+        h = hash_text(q["question_text"])
+        hashes[h].append(q["id"])
+        depth = path_depth(q["source_url"])
+        trace = "HOMEPAGE_ONLY" if depth == 0 else "DEEP_LINK"
+        rank = BLUEPRINT[q["category_id"]][0]
+        structural = "PASS"
+        required = ["question_text", "option_a", "option_b", "option_c", "option_d", "correct_option", "explanation", "source_name", "source_detail", "source_url"]
+        if any(q.get(k) in (None, "") for k in required) or q["correct_option"] not in {"A", "B", "C", "D"}:
+            structural = "REVIEW"
+        db.execute("""
+          INSERT INTO core_questions(
+            id,stable_uid,category_id,blueprint_rank,fingerprint_id,question_text,
+            option_a,option_b,option_c,option_d,correct_option,explanation,
+            source_name,source_detail,source_url,source_url_depth,source_traceability,
+            difficulty,item_type,batch_number,date_created,source_verified_flag,
+            exact_stem_hash,active,structural_status
+          ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        """, (
+            q["id"],uid,q["category_id"],rank,q["fingerprint_id"],q["question_text"],
+            q["option_a"],q["option_b"],q["option_c"],q["option_d"],q["correct_option"],q["explanation"],
+            q["source_name"],q["source_detail"],q["source_url"],depth,trace,q["difficulty"],
+            q["item_type"],q["batch_number"],q["date_created"],int(q["verified"] or 0),h,1,structural
+        ))
+        category_counts[q["category_id"]] += 1
+        difficulty_counts[q["difficulty"]] += 1
+        answer_counts[q["correct_option"]] += 1
+        if structural != "PASS":
+            completeness["structural_review"] += 1
+        if depth == 0:
+            db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                       ("core_question",uid,"INFO","SOURCE_TRACEABILITY_REVIEW","Source URL points to a site root/homepage; retain source_detail but review locator precision before strong verification claims."))
+
     exact_groups = []
-    for stem_hash, items in groups.items():
-        if len(items) < 2:
-            continue
-        # Prefer structurally valid items; on ties prefer the finalized NGN bank, then original order.
-        items_sorted = sorted(items, key=lambda r: (0 if r[6] == "PASS" else 1, 0 if r[1] == "ngn75" else 1, r[3] or 10**9, r[0]))
-        canonical = items_sorted[0][0]
-        exact_groups.append({"canonical": canonical, "members": [x[0] for x in items_sorted], "stem": items_sorted[0][5][:240]})
-        for x in items_sorted[1:]:
-            out.execute("UPDATE question_catalog SET duplicate_of_uid=?, app_ready=0 WHERE question_uid=?", (canonical, x[0]))
-            out.execute("INSERT INTO question_issues(question_uid,severity,issue_code,detail) VALUES(?,?,?,?)", (x[0], "WARN", "EXACT_DUPLICATE_STEM", f"Duplicate of {canonical}"))
-
-    # Conservative near-duplicate candidate detection: only compare items in small lexical/length blocks.
-    candidates = []
-    active = [(r[0], r[5], norm_text(r[5])) for r in rows]
-    blocks = defaultdict(list)
-    for uid, text, n in active:
-        toks = n.split()
-        key = (" ".join(toks[:3]), len(n)//80)
-        if toks:
-            blocks[key].append((uid,text,n))
-    seen = set()
-    near_group_no = 0
-    for block in blocks.values():
-        if len(block) < 2 or len(block) > 80:
-            continue
-        for i in range(len(block)):
-            for j in range(i+1, len(block)):
-                a, b = block[i], block[j]
-                pair = tuple(sorted((a[0],b[0])))
-                if pair in seen:
-                    continue
-                seen.add(pair)
-                if a[2] == b[2]:
-                    continue
-                ratio = SequenceMatcher(None, a[2], b[2]).ratio()
-                if ratio >= 0.94:
-                    near_group_no += 1
-                    gid = f"ND{near_group_no:04d}"
-                    out.execute("UPDATE question_catalog SET near_duplicate_group=COALESCE(near_duplicate_group,?) WHERE question_uid IN (?,?)", (gid,a[0],b[0]))
-                    out.execute("INSERT INTO question_issues(question_uid,severity,issue_code,detail) VALUES(?,?,?,?)", (a[0],"INFO","NEAR_DUPLICATE_CANDIDATE",f"{b[0]} similarity={ratio:.3f}"))
-                    out.execute("INSERT INTO question_issues(question_uid,severity,issue_code,detail) VALUES(?,?,?,?)", (b[0],"INFO","NEAR_DUPLICATE_CANDIDATE",f"{a[0]} similarity={ratio:.3f}"))
-                    candidates.append({"a":a[0],"b":b[0],"similarity":round(ratio,4)})
-    return {"exact_duplicate_groups": exact_groups, "near_duplicate_candidates": candidates}
-
-
-def apply_commercial_order(out: sqlite3.Connection) -> None:
-    # Stable storage order: official 2026 Client Needs rank -> case cohesion -> source -> source order.
-    rank_map = {name: rank for rank, name, _, _ in BLUEPRINT}
-    rows = out.execute("SELECT question_uid,client_needs_2026,case_group,case_sequence,source_bank,source_table,source_order,catalog_id FROM question_catalog").fetchall()
-    def key(r: tuple[Any,...]):
-        uid, cat, case_group, case_seq, bank, table, source_order, catalog_id = r
-        rank = rank_map.get(cat, 99)
-        case_key = case_group or f"~single:{bank}:{table}:{source_order or catalog_id:09d}"
-        bank_rank = 0 if bank == "v2" else 1
-        return (rank, case_key, case_seq or 0, bank_rank, source_order or catalog_id, uid)
-    ordered = sorted(rows, key=key)
-    out.executemany("UPDATE question_catalog SET commercial_order=? WHERE question_uid=?", [(i+1,r[0]) for i,r in enumerate(ordered)])
-
-
-def summarize(out: sqlite3.Connection, source_reports: list[dict[str, Any]], dup: dict[str, Any]) -> dict[str, Any]:
-    total = out.execute("SELECT COUNT(*) FROM question_catalog").fetchone()[0]
-    ready = out.execute("SELECT COUNT(*) FROM question_catalog WHERE app_ready=1").fetchone()[0]
-    hold = total - ready
-    by_bank = dict(out.execute("SELECT source_bank,COUNT(*) FROM question_catalog GROUP BY source_bank"))
-    by_family = dict(out.execute("SELECT item_family,COUNT(*) FROM question_catalog GROUP BY item_family ORDER BY COUNT(*) DESC"))
-    by_blueprint = {r[0]: {"count": r[1], "target_pct": r[2]} for r in out.execute("SELECT client_needs_2026,COUNT(*),MAX(blueprint_target_pct) FROM question_catalog WHERE app_ready=1 GROUP BY client_needs_2026 ORDER BY COUNT(*) DESC")}
-    issues = {r[0]: r[1] for r in out.execute("SELECT issue_code,COUNT(*) FROM question_issues GROUP BY issue_code ORDER BY COUNT(*) DESC")}
-    cases = out.execute("SELECT COUNT(DISTINCT case_group) FROM question_catalog WHERE case_group IS NOT NULL").fetchone()[0]
-    case_items = out.execute("SELECT COUNT(*) FROM question_catalog WHERE case_group IS NOT NULL").fetchone()[0]
+    for h, ids in hashes.items():
+        if len(ids) > 1:
+            ids = sorted(ids)
+            canonical = ids[0]
+            canonical_uid = f"MCQ-{canonical:04d}"
+            exact_groups.append(ids)
+            for duplicate_id in ids[1:]:
+                duplicate_uid = f"MCQ-{duplicate_id:04d}"
+                db.execute("UPDATE core_questions SET duplicate_of_uid=?,active=0 WHERE id=?", (canonical_uid, duplicate_id))
+                db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                           ("core_question",duplicate_uid,"WARN","EXACT_DUPLICATE_STEM",f"Exact normalized stem duplicate of {canonical_uid}; source row retained but excluded from active commercial pool."))
+    src.close()
     return {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "audit_scope": "structural/schema/deduplication/ordering only; clinical correctness remains unverified",
-        "source_databases": source_reports,
-        "catalog": {
-            "total_recognized_question_rows": total,
-            "app_ready_structurally": ready,
-            "held_for_structural_review_or_duplicate": hold,
-            "by_source_bank": by_bank,
-            "by_item_family": by_family,
-            "by_2026_client_needs": by_blueprint,
-            "case_groups_detected": cases,
-            "items_in_case_groups": case_items,
-        },
-        "issues": issues,
-        "duplicates": dup,
-        "ordering_policy": {
-            "storage_order": "2026 Client Needs rank, then keep inferred case-study groups contiguous, then source order",
-            "test_delivery": "Do not serve by storage order. Build tests using blueprint-weighted sampling and keep case-study item sets intact.",
-            "dedupe_priority": "structural PASS first; then ngn75 FINAL over v2 inprogress for exact duplicate stems",
-        },
-        "clinical_verification_status": "NOT_VERIFIED",
+        "rows": len(rows),
+        "category_counts": dict(category_counts),
+        "difficulty_counts": dict(difficulty_counts),
+        "answer_counts": dict(answer_counts),
+        "exact_duplicate_groups": exact_groups,
+        "homepage_only_sources": sum(1 for _ in db.execute("SELECT 1 FROM core_questions WHERE source_traceability='HOMEPAGE_ONLY'")),
+        "active_unique": db.execute("SELECT COUNT(*) FROM core_questions WHERE active=1 AND structural_status='PASS'").fetchone()[0],
+        "all_verified_flag": db.execute("SELECT MIN(source_verified_flag) FROM core_questions").fetchone()[0] == 1,
     }
 
 
-def write_markdown(report: dict[str, Any]) -> None:
-    c = report["catalog"]
+def load_ngn(db: sqlite3.Connection) -> dict:
+    src = sqlite3.connect(NGN_PATH)
+    src.row_factory = sqlite3.Row
+    cases = src.execute("SELECT * FROM case_studies ORDER BY id").fetchall()
+    items = src.execute("SELECT * FROM case_study_items ORDER BY case_study_id,sequence,id").fetchall()
+    standalone_count = src.execute("SELECT COUNT(*) FROM standalone_ngn_items").fetchone()[0]
+    by_case = defaultdict(list)
+    type_counts = Counter()
+    cjmm_counts = Counter()
+    category_case_counts = Counter()
+    bad_json = []
+
+    for r in cases:
+        c = dict(r)
+        rank = BLUEPRINT[c["category_id"]][0]
+        depth = path_depth(c["source_url"] or "")
+        structural = "PASS" if c["title"] and c["client_profile"] and c["stage1_scenario"] else "REVIEW"
+        uid = f"NGN-C{c['id']:03d}"
+        db.execute("""
+          INSERT INTO ngn_case_studies(
+            id,stable_uid,category_id,blueprint_rank,title,specialty,setting,client_profile,
+            stage1_scenario,stage2_scenario,stage3_scenario,difficulty,source_name,source_url,
+            source_url_depth,date_created,source_verified_flag,structural_status
+          ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        """, (
+            c["id"],uid,c["category_id"],rank,c["title"],c["specialty"],c["setting"],c["client_profile"],
+            c["stage1_scenario"],c["stage2_scenario"],c["stage3_scenario"],c["difficulty"],c["source_name"],
+            c["source_url"],depth,c["date_created"],int(c["verified"] or 0),structural
+        ))
+        category_case_counts[c["category_id"]] += 1
+        if "wikijournalclub.org" in (urlparse(c["source_url"] or "").netloc.lower()):
+            db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                       ("ngn_case",uid,"WARN","SECONDARY_SOURCE_REVIEW","Case cites WikiJournalClub for ARDSNet. Replace/augment with the original trial or current primary guideline before commercial clinical verification."))
+
+    for r in items:
+        i = dict(r)
+        by_case[i["case_study_id"]].append(i)
+        type_counts[i["item_type"]] += 1
+        cjmm_counts[i["cjmm_skill"]] += 1
+        uid = f"NGN-C{i['case_study_id']:03d}-I{i['sequence']:02d}"
+        family = TYPE_FAMILY.get(i["item_type"], "other")
+        scoring_family = SCORING_FAMILY.get(i["item_type"], "review_required")
+        item_json_ok = valid_json(i["item_data_json"])
+        answer_json_ok = valid_json(i["correct_answer_json"])
+        structural = "PASS" if i["stem"] and i["rationale"] and item_json_ok and answer_json_ok else "REVIEW"
+        # The source bank contains two Recognize Cues formats. Preserve all seven for practice,
+        # but use only one of sequence 1/2 per case so simulation has six CJMM items per case.
+        if i["sequence"] == 1:
+            simulation_use = 1 if i["case_study_id"] % 2 == 1 else 0
+        elif i["sequence"] == 2:
+            simulation_use = 1 if i["case_study_id"] % 2 == 0 else 0
+        else:
+            simulation_use = 1
+        supplemental = 0 if simulation_use else 1
+        db.execute("""
+          INSERT INTO ngn_case_items(
+            id,stable_uid,case_study_id,sequence,cjmm_skill,item_type,item_family,stem,
+            item_data_json,correct_answer_json,rationale,original_scoring_rule,scoring_family,
+            practice_use,simulation_use,supplemental_practice,structural_status
+          ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        """, (
+            i["id"],uid,i["case_study_id"],i["sequence"],i["cjmm_skill"],i["item_type"],family,i["stem"],
+            i["item_data_json"],i["correct_answer_json"],i["rationale"],i["scoring_rule"],scoring_family,
+            1,simulation_use,supplemental,structural
+        ))
+        if not item_json_ok or not answer_json_ok:
+            bad_json.append(uid)
+            db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                       ("ngn_item",uid,"ERROR","INVALID_JSON","item_data_json or correct_answer_json is invalid JSON."))
+        if scoring_family == "review_required":
+            db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                       ("ngn_item",uid,"WARN","SCORING_RULE_REVIEW","Original scoring semantics require mapping to a currently supported NCLEX partial-credit scoring method before exact-simulation claims."))
+
+    invalid_cases = []
+    for case_id, case_items in sorted(by_case.items()):
+        seqs = [x["sequence"] for x in case_items]
+        if len(case_items) != 7 or sorted(seqs) != list(range(1,8)):
+            invalid_cases.append(case_id)
+        case_uid = f"NGN-C{case_id:03d}"
+        db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                   ("ngn_case",case_uid,"INFO","SEVEN_FORMAT_PRACTICE_SET","Source case contains seven practice formats, including two Recognize Cues items. Commercial simulation view selects six items while retaining all seven for study mode."))
+
+    if standalone_count == 0:
+        db.execute("INSERT INTO audit_issues(entity_type,stable_uid,severity,issue_code,detail) VALUES(?,?,?,?,?)",
+                   ("bank",None,"WARN","MISSING_STANDALONE_NGN_POOL","standalone_ngn_items contains 0 rows. The current bank can support case-study NGN practice but not a complete stand-alone clinical-judgment pool."))
+    src.close()
+    return {
+        "case_count": len(cases),
+        "case_item_count": len(items),
+        "standalone_ngn_count": standalone_count,
+        "category_case_counts": dict(category_case_counts),
+        "item_type_counts": dict(type_counts),
+        "cjmm_counts": dict(cjmm_counts),
+        "invalid_case_sequence_sets": invalid_cases,
+        "invalid_json_items": bad_json,
+        "simulation_item_count": db.execute("SELECT COUNT(*) FROM ngn_case_items WHERE simulation_use=1").fetchone()[0],
+        "practice_item_count": db.execute("SELECT COUNT(*) FROM ngn_case_items WHERE practice_use=1").fetchone()[0],
+        "all_verified_flag": db.execute("SELECT MIN(source_verified_flag) FROM ngn_case_studies").fetchone()[0] == 1,
+    }
+
+
+def build_catalog(db: sqlite3.Connection) -> None:
+    rows = []
+    for r in db.execute("""
+      SELECT q.stable_uid,'core_mcq',q.id,NULL,NULL,q.category_id,q.blueprint_rank,
+             q.item_type,q.question_text,q.difficulty,q.active,1,1,q.structural_status,
+             q.independent_clinical_status,q.ip_status
+      FROM core_questions q
+    """):
+        rows.append(tuple(r))
+    for r in db.execute("""
+      SELECT i.stable_uid,'ngn_case',i.id,i.case_study_id,i.sequence,c.category_id,c.blueprint_rank,
+             i.item_type,i.stem,c.difficulty,1,i.practice_use,i.simulation_use,i.structural_status,
+             i.independent_clinical_status,i.ip_status
+      FROM ngn_case_items i JOIN ngn_case_studies c ON c.id=i.case_study_id
+    """):
+        rows.append(tuple(r))
+    pool_rank = {"core_mcq": 1, "ngn_case": 2}
+    rows.sort(key=lambda r: (pool_rank[r[1]], r[6], r[3] or 0, r[4] or 0, r[2]))
+    for n, r in enumerate(rows, 1):
+        db.execute("INSERT INTO unified_catalog VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (n, *r))
+
+
+def add_rules(db: sqlite3.Connection) -> None:
+    rules = {
+        "catalog_order": {
+            "purpose": "stable admin/import order only",
+            "rule": "pool -> blueprint rank -> case -> sequence/source id",
+            "warning": "Do not deliver commercial exams by consecutive catalog_order. Sample by blueprint and randomize where clinically appropriate."
+        },
+        "core_blueprint_sampling": {
+            "targets_pct": {BLUEPRINT[k][2]: BLUEPRINT[k][5] for k in BLUEPRINT},
+            "rule": "Use midpoint targets for balanced practice/test generation; allow configurable ranges for longer adaptive simulations."
+        },
+        "ngn_case_simulation": {
+            "case_sets": 3,
+            "items_per_case": 6,
+            "total_case_items": 18,
+            "selection": "Keep each selected case contiguous and in case sequence. Sequences 3-7 always included; use sequence 1 for odd case IDs and sequence 2 for even case IDs to choose one Recognize Cues format."
+        },
+        "ngn_practice": {
+            "items_per_case": 7,
+            "rule": "All seven source formats remain available in study/practice mode."
+        },
+        "commercial_release_gate": {
+            "required": ["independent clinical answer/rationale verification", "source locator/currentness review", "IP/licensing review", "scoring-model review for flagged NGN types"],
+            "current_status": "NOT_CLEARED_FOR_FINAL_PRODUCTION_CLAIMS"
+        }
+    }
+    db.executemany("INSERT INTO test_generation_rules(rule_key,rule_json) VALUES(?,?)",
+                   [(k, json.dumps(v, ensure_ascii=False, sort_keys=True)) for k,v in rules.items()])
+
+
+def audit_report(db: sqlite3.Connection, core: dict, ngn: dict) -> dict:
+    category_rows = db.execute("""
+      SELECT b.category_id,b.category_name,b.min_pct,b.max_pct,b.target_midpoint_pct,
+             COUNT(q.id) AS core_count,
+             ROUND(COUNT(q.id)*100.0/(SELECT COUNT(*) FROM core_questions),2) AS core_pct,
+             (SELECT COUNT(*) FROM ngn_case_studies c WHERE c.category_id=b.category_id) AS ngn_cases,
+             (SELECT COUNT(*) FROM ngn_case_items i JOIN ngn_case_studies c ON c.id=i.case_study_id WHERE c.category_id=b.category_id) AS ngn_items
+      FROM test_blueprint_2026 b LEFT JOIN core_questions q ON q.category_id=b.category_id
+      GROUP BY b.category_id ORDER BY b.blueprint_rank
+    """).fetchall()
+    distribution = [
+        {"category_id":r[0],"category":r[1],"official_range_pct":[r[2],r[3]],"midpoint_pct":r[4],"core_count":r[5],"core_pct":r[6],"ngn_cases":r[7],"ngn_items":r[8]}
+        for r in category_rows
+    ]
+    issue_counts = {r[0]: r[1] for r in db.execute("SELECT issue_code,COUNT(*) FROM audit_issues GROUP BY issue_code ORDER BY COUNT(*) DESC")}
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "scope": "Structural integrity, schema normalization, exact-stem deduplication, case cohesion, source-traceability flags, scoring-map flags, and commercial app ordering. Clinical correctness and commercial IP rights are not independently certified.",
+        "source_integrity": {CORE_PATH.name: integrity(CORE_PATH), NGN_PATH.name: integrity(NGN_PATH)},
+        "core_bank": core,
+        "ngn_bank": ngn,
+        "distribution": distribution,
+        "issue_counts": issue_counts,
+        "master_db": {
+            "core_rows": db.execute("SELECT COUNT(*) FROM core_questions").fetchone()[0],
+            "active_unique_core": db.execute("SELECT COUNT(*) FROM v_active_core_questions").fetchone()[0],
+            "ngn_cases": db.execute("SELECT COUNT(*) FROM ngn_case_studies").fetchone()[0],
+            "ngn_practice_items": db.execute("SELECT COUNT(*) FROM v_ngn_practice_items").fetchone()[0],
+            "ngn_simulation_items": db.execute("SELECT COUNT(*) FROM v_ngn_simulation_items").fetchone()[0],
+            "catalog_rows": db.execute("SELECT COUNT(*) FROM unified_catalog").fetchone()[0],
+            "sqlite_integrity": db.execute("PRAGMA integrity_check").fetchone()[0],
+        },
+        "release_status": "STRUCTURALLY_MERGED__CLINICAL_AND_IP_REVIEW_REQUIRED"
+    }
+
+
+def write_markdown(report: dict) -> None:
+    core = report["core_bank"]
+    ngn = report["ngn_bank"]
+    master = report["master_db"]
     lines = [
-        "# NCLEX Commercial Bank Audit",
+        "# NCLEX Commercial Bank Audit — Corrected Merge",
         "",
         f"Generated: {report['generated_at']}",
         "",
-        "> Scope: structural/schema/deduplication/ordering audit. This does **not** certify clinical correctness or source licensing.",
+        "## Result",
         "",
-        "## Executive summary",
+        f"- Core MCQ source rows: **{core['rows']:,}**",
+        f"- Active unique core MCQ after exact-stem dedupe: **{core['active_unique']:,}**",
+        f"- NGN case studies: **{ngn['case_count']:,}**",
+        f"- NGN practice items: **{ngn['practice_item_count']:,}** (7 formats per case)",
+        f"- NGN simulation items: **{ngn['simulation_item_count']:,}** (6 per case)",
+        f"- Stand-alone NGN items currently present: **{ngn['standalone_ngn_count']:,}**",
+        f"- Unified catalog rows: **{master['catalog_rows']:,}**",
+        f"- Final SQLite integrity: **{master['sqlite_integrity']}**",
         "",
-        f"- Recognized question rows: **{c['total_recognized_question_rows']}**",
-        f"- Structurally app-ready after exact dedupe: **{c['app_ready_structurally']}**",
-        f"- Held for review/duplicate: **{c['held_for_structural_review_or_duplicate']}**",
-        f"- Detected case-study groups: **{c['case_groups_detected']}** ({c['items_in_case_groups']} items)",
-        f"- Exact duplicate stem groups: **{len(report['duplicates']['exact_duplicate_groups'])}**",
-        f"- Near-duplicate candidates: **{len(report['duplicates']['near_duplicate_candidates'])}**",
+        "## Core blueprint distribution",
         "",
-        "## Source databases",
-        "",
+        "| Category | Core | Core % | Range | Midpoint | NGN cases | NGN items |",
+        "|---|---:|---:|---:|---:|---:|---:|",
     ]
-    for s in report["source_databases"]:
-        lines += [f"### {s['label']} — `{s['file']}`", f"- Size: {s['size_bytes']:,} bytes", f"- SQLite integrity: `{s['integrity_check']}`", "- Tables:"]
-        for t in s["tables"]:
-            marker = "question-like" if t["question_like"] else "support/raw"
-            lines.append(f"  - `{t['name']}` — {t['row_count']:,} rows — {marker}")
-        lines.append("")
-    lines += ["## Item families", ""]
-    for k,v in c["by_item_family"].items():
-        lines.append(f"- {k}: **{v}**")
-    lines += ["", "## 2026 Client Needs mapping (structurally app-ready unique items)", ""]
-    for k,v in c["by_2026_client_needs"].items():
-        lines.append(f"- {k}: **{v['count']}** items; official midpoint target stored: **{v['target_pct']}%**")
-    lines += ["", "## Audit issue counts", ""]
-    for k,v in report["issues"].items():
-        lines.append(f"- {k}: **{v}**")
+    for d in report["distribution"]:
+        lo, hi = d["official_range_pct"]
+        lines.append(f"| {d['category']} | {d['core_count']} | {d['core_pct']:.2f}% | {lo:.0f}-{hi:.0f}% | {d['midpoint_pct']:.0f}% | {d['ngn_cases']} | {d['ngn_items']} |")
     lines += [
         "",
-        "## Ordering and app usage",
+        "## Exact deduplication",
         "",
-        "`question_catalog.commercial_order` is a stable catalog order, not an exam sequence. It groups by the 2026 Client Needs framework and keeps inferred NGN case-study item sets together. Commercial tests should sample from the catalog by blueprint weights, rather than simply taking consecutive rows.",
+        f"- Exact core stem groups: **{len(core['exact_duplicate_groups'])}**",
+        f"- Groups: `{core['exact_duplicate_groups']}`",
+        "- Duplicate source rows remain in `core_questions`; duplicates are `active=0` and point to `duplicate_of_uid`.",
+        "- NGN stems are **not** deduplicated across case studies because a generic stem can have different meaning under different case context.",
         "",
-        "## Safety gate",
+        "## Ordering semantics",
         "",
-        "Every normalized item is marked `clinical_verification_status = NOT_VERIFIED`. A structural PASS means the record can be rendered by an app; it does not mean the medical answer/rationale has been independently verified.",
+        "1. `unified_catalog.catalog_order` is a stable admin/import order: pool → Client Needs rank → case/sequence or source ID.",
+        "2. It is **not** the exam delivery order.",
+        "3. Core tests should be sampled using the blueprint weights/ranges stored in `test_blueprint_2026`.",
+        "4. NGN simulation keeps each selected case together and uses six items per case. All seven source formats remain available in practice mode.",
+        "",
+        "## Important commercial gates",
+        "",
+        f"- Homepage-only core source URLs flagged for traceability review: **{core['homepage_only_sources']:,}**.",
+        "- All source rows carry an internal `verified` flag, but the merged DB deliberately labels independent clinical status as `NOT_VERIFIED` until answer/rationale review is performed independently.",
+        "- NGN `extended_drag_drop` and `bowtie` source scoring rules are flagged for scoring-model review before claiming exact NCLEX scoring behavior.",
+        f"- Stand-alone NGN pool has **{ngn['standalone_ngn_count']}** items, so the current bank should not yet be marketed as a complete replication of every current clinical-judgment delivery component.",
+        "- IP/licensing review remains required before commercial publication; source attribution is not the same as permission to reproduce copyrighted material.",
+        "",
+        "## Release status",
+        "",
+        f"**{report['release_status']}**",
     ]
     OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def main() -> int:
-    missing = [str(p) for _, p, _ in SOURCES if not p.exists()]
-    if missing:
-        print("Missing source databases:", *missing, sep="\n- ", file=sys.stderr)
-        return 2
-    source_reports = [source_audit(label, path) for label, path, _ in SOURCES]
+def main() -> None:
+    if integrity(CORE_PATH) != "ok" or integrity(NGN_PATH) != "ok":
+        raise SystemExit("Source SQLite integrity check failed")
     if OUT_DB.exists():
         OUT_DB.unlink()
-    out = sqlite3.connect(OUT_DB)
-    init_output(out)
-    out.execute("INSERT INTO merge_metadata(key,value) VALUES(?,?)", ("generated_at", datetime.now(timezone.utc).isoformat()))
-    out.execute("INSERT INTO merge_metadata(key,value) VALUES(?,?)", ("clinical_verification_status", "NOT_VERIFIED"))
-    out.execute("INSERT INTO merge_metadata(key,value) VALUES(?,?)", ("blueprint", "2026 NCLEX-RN Test Plan; midpoint distribution 18/13/9/9/9/16/12/14"))
-    for label, path, priority in SOURCES:
-        copy_raw_tables(out, label, path)
-        report = next(r for r in source_reports if r["label"] == label)
-        extract_catalog(out, label, path, priority, report)
-    dup = mark_duplicates(out)
-    apply_commercial_order(out)
-    out.commit()
-    report = summarize(out, source_reports, dup)
-    OUT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    write_markdown(report)
-    out.execute("INSERT OR REPLACE INTO merge_metadata(key,value) VALUES(?,?)", ("audit_report_json", OUT_JSON.name))
-    out.execute("INSERT OR REPLACE INTO merge_metadata(key,value) VALUES(?,?)", ("audit_report_md", OUT_MD.name))
-    out.commit()
-    check = out.execute("PRAGMA integrity_check").fetchone()[0]
-    out.close()
-    if check != "ok":
-        print(f"Merged DB integrity failed: {check}", file=sys.stderr)
-        return 3
-    print(json.dumps({
-        "merged_db": OUT_DB.name,
-        "audit_json": OUT_JSON.name,
-        "audit_md": OUT_MD.name,
-        "recognized_questions": report["catalog"]["total_recognized_question_rows"],
-        "app_ready": report["catalog"]["app_ready_structurally"],
-        "held": report["catalog"]["held_for_structural_review_or_duplicate"],
-        "exact_duplicate_groups": len(report["duplicates"]["exact_duplicate_groups"]),
-        "near_duplicate_candidates": len(report["duplicates"]["near_duplicate_candidates"]),
-    }, indent=2))
-    return 0
+    db = sqlite3.connect(OUT_DB)
+    try:
+        create_schema(db)
+        copy_blueprint(db)
+        now = datetime.now(timezone.utc).isoformat()
+        meta = {
+            "generated_at": now,
+            "source_core": CORE_PATH.name,
+            "source_ngn": NGN_PATH.name,
+            "purpose": "Commercial NCLEX preparation app catalog",
+            "clinical_status": "NOT_INDEPENDENTLY_VERIFIED",
+            "ip_status": "REVIEW_REQUIRED",
+            "ordering_version": "commercial-v1",
+        }
+        db.executemany("INSERT INTO metadata(key,value) VALUES(?,?)", list(meta.items()))
+        core = load_core(db)
+        ngn = load_ngn(db)
+        build_catalog(db)
+        add_rules(db)
+        db.commit()
+        report = audit_report(db, core, ngn)
+        if report["master_db"]["sqlite_integrity"] != "ok":
+            raise SystemExit("Merged SQLite integrity check failed")
+        OUT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_markdown(report)
+        print(json.dumps(report["master_db"], indent=2))
+    finally:
+        db.close()
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
