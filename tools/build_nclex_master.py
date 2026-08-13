@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import json, re, sqlite3
+import json, re, sqlite3, hashlib
 from pathlib import Path
 from datetime import datetime, timezone
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 ROOT = Path(__file__).resolve().parents[1]
 NGN_DB = ROOT / 'nclex ngn bank 75of75 ALL7formats FINAL.db'
 V2_DB = ROOT / 'nclex question bank v2 inprogress 5.db'
-OVERRIDES = ROOT / 'data' / 'clinical_overrides.json'
+OVERRIDE_FILES = sorted((ROOT / 'data').glob('clinical_overrides_*.json'))
 OUT_DB = ROOT / 'NCLEX_COMMERCIAL_MASTER_CURRENT.db'
 OUT_REPORT = ROOT / 'NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md'
 
@@ -32,6 +32,7 @@ RENDERER = {
     'extended_drag_drop': ('ordered_response',5,None),
     'trend': ('trend',6,None),
 }
+
 
 def jdump(v):
     return json.dumps(v, ensure_ascii=False, sort_keys=True, separators=(',',':'))
@@ -95,6 +96,7 @@ def create_schema(con):
     CREATE INDEX idx_questions_sort ON questions(stable_sort_key);
     ''')
 
+
 def validate_ngn(item_type, data, ans):
     flags=[]
     if item_type=='highlight':
@@ -117,9 +119,12 @@ def validate_ngn(item_type, data, ans):
     else: flags.append('UNKNOWN_ITEM_TYPE')
     return flags
 
+
 def main():
-    for p in (NGN_DB,V2_DB,OVERRIDES):
+    for p in (NGN_DB,V2_DB):
         if not p.exists(): raise SystemExit(f'Missing required input: {p.name}')
+    if not OVERRIDE_FILES:
+        raise SystemExit('Missing clinical override chunks in data/clinical_overrides_*.json')
     if OUT_DB.exists(): OUT_DB.unlink()
     out=sqlite3.connect(OUT_DB); out.row_factory=sqlite3.Row
     create_schema(out)
@@ -209,9 +214,14 @@ def main():
             out.execute('INSERT INTO audit_issues(question_uid,severity,issue_code,detail) VALUES(?,?,?,?)',(uid,'MEDIUM',f,f))
     v2.close()
 
-    override_doc=json.loads(OVERRIDES.read_text(encoding='utf-8'))
-    version=override_doc.get('version','clinical-overrides')
-    for item in override_doc['questions']:
+    override_items=[]
+    override_versions=[]
+    for override_path in OVERRIDE_FILES:
+        override_doc=json.loads(override_path.read_text(encoding='utf-8'))
+        override_versions.append(override_doc.get('version',override_path.name))
+        override_items.extend(override_doc['questions'])
+    version=' + '.join(sorted(set(override_versions)))
+    for item in override_items:
         uid=item['question_uid']
         old=out.execute('SELECT stem,item_data_json,correct_answer_json,rationale FROM questions WHERE question_uid=?',(uid,)).fetchone()
         out.execute('''UPDATE questions SET stem=?,item_data_json=?,correct_answer_json=?,rationale=?,source_name=?,source_detail=?,source_url=?,
