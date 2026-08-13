@@ -33,7 +33,11 @@ jobs:
         run: |
           shopt -s nullglob
           for file in data/clinical_overrides_*.b64; do
-            base64 --decode "$file" > "${file%.b64}.json"
+            echo "Decoding $file"
+            if ! base64 --decode "$file" > "${file%.b64}.json"; then
+              echo "INVALID_BASE64_FILE=$file"
+              exit 1
+            fi
           done
 
       - name: Build master database
