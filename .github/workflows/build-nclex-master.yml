@@ -31,6 +31,7 @@ jobs:
 
       - name: Decode staged override payloads
         run: |
+          # Keep the file name visible so a malformed staging payload is immediately identifiable.
           shopt -s nullglob
           for file in data/clinical_overrides_*.b64; do
             echo "Decoding $file"
