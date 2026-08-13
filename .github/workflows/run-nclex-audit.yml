@@ -30,7 +30,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No output changes"
           else
-            git commit -m "Generate NCLEX commercial audit and merged bank"
+            git commit -m "Generate corrected NCLEX commercial audit and merged bank"
             git push origin HEAD:audit/nclex-commercial
           fi
 
