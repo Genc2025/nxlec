@@ -31,11 +31,17 @@ jobs:
 
       - name: Decode staged override payloads
         run: |
-          # Keep the file name visible so a malformed staging payload is immediately identifiable.
+          # Readable JSON is authoritative. Decode a staging payload only when the
+          # corresponding JSON file does not already exist.
           shopt -s nullglob
           for file in data/clinical_overrides_*.b64; do
+            json_file="${file%.b64}.json"
+            if [[ -f "$json_file" ]]; then
+              echo "Keeping existing $json_file; skipping $file"
+              continue
+            fi
             echo "Decoding $file"
-            if ! base64 --decode "$file" > "${file%.b64}.json"; then
+            if ! base64 --decode "$file" > "$json_file"; then
               echo "INVALID_BASE64_FILE=$file"
               exit 1
             fi
