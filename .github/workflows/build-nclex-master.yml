@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - "tools/build_nclex_master.py"
+      - "tools/enforce_commercial_gate.py"
       - "tools/export_pending_audit.py"
       - "data/clinical_overrides_*.json"
       - "data/clinical_overrides_*.b64"
@@ -50,6 +51,9 @@ jobs:
       - name: Build master database
         run: python tools/build_nclex_master.py
 
+      - name: Enforce commercial hard gate
+        run: python tools/enforce_commercial_gate.py
+
       - name: Export next pending audit range
         run: python tools/export_pending_audit.py
 
@@ -68,14 +72,16 @@ jobs:
           total = con.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
           verified = con.execute("SELECT COUNT(*) FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%'").fetchone()[0]
           ready = con.execute("SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1").fetchone()[0]
+          gate = con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
           con.close()
 
           assert integrity == "ok", integrity
           assert total == 3525, total
           assert verified >= 30, verified
-          assert ready >= 30, ready
-          assert ready <= verified, (ready, verified)
-          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, ready={ready}")
+          assert ready == 0, ready
+          assert gate is not None, "Missing commercial release gate metadata"
+          assert gate[0] == "CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA", gate[0]
+          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, ready={ready}, gate={gate[0]}")
           PY
 
       - name: Commit generated master
