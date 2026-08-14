@@ -13,6 +13,7 @@ on:
       - "tools/apply_wave25_final_gate.py"
       - "tools/apply_batch001_final_gate.py"
       - "tools/apply_wave26_manual_final_gate.py"
+      - "tools/report_wave26_option_metrics.py"
       - "tools/export_pending_audit.py"
       - "data/clinical_overrides_*.json"
       - "data/clinical_overrides_*.b64"
@@ -60,6 +61,9 @@ jobs:
 
       - name: Enforce strict 11-dimension governance on all verified questions
         run: python tools/enforce_strict_question_gate.py
+
+      - name: Report Wave 26 option-length diagnostics
+        run: python tools/report_wave26_option_metrics.py
 
       - name: Apply Q0001-Q0050 strict final QA gate
         run: python tools/apply_batch001_final_gate.py
