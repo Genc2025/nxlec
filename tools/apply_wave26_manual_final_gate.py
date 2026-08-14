@@ -22,6 +22,8 @@ SEMANTIC_DIMS = [
     "independent_qa_passed",
     "no_unresolved_conflict",
 ]
+MAX_RATIO = 1.15
+MAX_KEY_DEVIATION = 0.10
 
 
 def fail(message: str) -> None:
@@ -38,7 +40,7 @@ def main() -> None:
     items = manifest.get("items", [])
     manifest_ids = [item.get("question_uid") for item in items]
     if manifest_ids != EXPECTED_IDS:
-        fail(f"Manual manifest scope mismatch: {manifest_ids[:3]} ... {manifest_ids[-3:]}")
+        fail("Manual manifest scope mismatch")
     if len(items) != 50:
         fail(f"Manual manifest must contain exactly 50 items, got {len(items)}")
     for item in items:
@@ -56,22 +58,21 @@ def main() -> None:
     now = datetime.now(timezone.utc).isoformat()
     inserted = 0
     ratios: list[float] = []
-    extremes = 0
+    deviations: list[float] = []
 
     for uid in EXPECTED_IDS:
         q = con.execute("SELECT * FROM questions WHERE question_uid=?", (uid,)).fetchone()
         if not q:
             fail(f"Missing question in master: {uid}")
         if not str(q["clinical_qa_status"]).startswith("SOURCE_VERIFIED_2026_WAVE26"):
-            fail(f"Question is not Wave 26 source-verified: {uid} status={q['clinical_qa_status']}")
+            fail(f"Question is not Wave 26 source-verified: {uid}")
 
         flags = json.loads(q["editorial_flags_json"] or "[]")
-        manual_evidence = (
-            "ITEM_BY_ITEM_SOURCE_CHECKED" in flags
-            or "MANUAL_ITEM_BY_ITEM_AUDIT" in flags
-        )
+        manual_evidence = "ITEM_BY_ITEM_SOURCE_CHECKED" in flags or "MANUAL_ITEM_BY_ITEM_AUDIT" in flags
         if not manual_evidence:
             fail(f"Missing item-by-item manual audit evidence flag for {uid}")
+        if "MANUAL_OPTION_CUE_REVIEW" not in flags or "STRICT_OPTION_LENGTH_QC_PASS" not in flags:
+            fail(f"Missing strict manual option/cue evidence for {uid}")
 
         for field in ("stem", "rationale", "source_name", "source_detail", "source_url"):
             if not str(q[field] or "").strip():
@@ -84,37 +85,36 @@ def main() -> None:
             key = answer["correct_option"]
         except Exception as exc:
             fail(f"Invalid item JSON for {uid}: {exc}")
-
-        if set(options.keys()) != {"A", "B", "C", "D"}:
-            fail(f"Expected exactly A-D options for {uid}")
-        if key not in options:
-            fail(f"Invalid keyed option for {uid}: {key}")
+        if set(options) != {"A", "B", "C", "D"} or key not in options:
+            fail(f"Invalid options/key for {uid}")
         normalized = [str(options[k]).strip().casefold() for k in "ABCD"]
-        if any(not value for value in normalized):
-            fail(f"Blank option for {uid}")
-        if len(set(normalized)) != 4:
-            fail(f"Duplicate options for {uid}")
+        if any(not value for value in normalized) or len(set(normalized)) != 4:
+            fail(f"Blank or duplicate option for {uid}")
 
-        lengths = {k: len(str(options[k]).strip()) for k in "ABCD"}
-        minimum = min(lengths.values())
-        maximum = max(lengths.values())
-        ratio = round(maximum / max(minimum, 1), 4)
-        sorted_keys = sorted(lengths, key=lambda k: (lengths[k], k))
-        correct_rank = sorted_keys.index(key) + 1
-        correct_is_extreme = int(
-            lengths[key] == minimum or lengths[key] == maximum
-        )
+        qc = con.execute("SELECT * FROM option_length_qc WHERE question_uid=?", (uid,)).fetchone()
+        if not qc or qc["qc_status"] != "PASS":
+            fail(f"Strict option-length QC is not PASS for {uid}")
+        ratio = float(qc["max_min_ratio"])
+        if ratio > MAX_RATIO:
+            fail(f"Option max/min ratio exceeds {MAX_RATIO:.2f} for {uid}: {ratio:.4f}")
+
+        lengths = json.loads(qc["lengths_json"])
+        distractor_mean = sum(float(lengths[k]) for k in "ABCD" if k != key) / 3
+        key_dev = abs(float(lengths[key]) - distractor_mean) / max(distractor_mean, 1)
+        if key_dev > MAX_KEY_DEVIATION:
+            fail(f"Correct-option length deviation exceeds {MAX_KEY_DEVIATION:.2f} for {uid}: {key_dev:.4f}")
         ratios.append(ratio)
-        extremes += correct_is_extreme
+        deviations.append(key_dev)
 
-        metrics = {
+        option_metrics = {
             "characters": lengths,
             "max_min_ratio": ratio,
             "correct_option": key,
-            "correct_length_rank": correct_rank,
-            "correct_is_extreme": bool(correct_is_extreme),
+            "correct_length_rank": qc["correct_length_rank"],
+            "correct_is_extreme": bool(qc["correct_is_extreme"]),
+            "correct_vs_distractor_mean_deviation": round(key_dev, 4),
             "manual_cue_review": True,
-            "note": "Metrics are recorded for traceability; semantic cueing/distractor quality was decided in the manual item-by-item audit, not inferred by this script.",
+            "strict_thresholds": {"max_min_ratio": MAX_RATIO, "max_key_deviation": MAX_KEY_DEVIATION},
         }
 
         values = [1] * len(SEMANTIC_DIMS)
@@ -130,7 +130,7 @@ def main() -> None:
                 q["source_detail"],
                 f"{q['clinical_qa_status']} | source/currentness manually checked 2026-08-14",
                 *values,
-                json.dumps(metrics, ensure_ascii=False, sort_keys=True),
+                json.dumps(option_metrics, ensure_ascii=False, sort_keys=True),
                 None,
                 "FINAL_QA_PASS",
             ),
@@ -156,42 +156,38 @@ def main() -> None:
 
     con.execute(
         "INSERT OR REPLACE INTO bank_metadata(key,value) VALUES(?,?)",
-        ("wave26_q0532_q0581_manual_final_gate", "PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM"),
+        ("wave26_q0532_q0581_manual_final_gate", "PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS"),
     )
     con.commit()
     con.close()
 
     REPORT.write_text(
-        "\n".join(
-            [
-                "# Manual Final QA Gate — Q0532–Q0581",
-                "",
-                "- Scope: **50/50** items",
-                "- Review method: **manual item-by-item clinical/source QA**",
-                "- Final-gate result: **PASS 50/50**",
-                "- Source Verified: **PASS**",
-                "- Blueprint Verified: **PASS**",
-                "- Question Quality Verified: **PASS**",
-                "- Correct Answer Verified: **PASS**",
-                "- Distractors Verified: **PASS**",
-                "- Explanation Verified: **PASS**",
-                "- Currentness Verified: **PASS**",
-                "- Independent QA: **PASS**",
-                "- No unresolved conflicts: **PASS**",
-                "- Source locator/version: **PASS**",
-                "- Option-length metrics: **persisted for all 50 items**",
-                "",
-                "The semantic PASS decisions come from the versioned manual review manifest and the item-by-item audited override records. The gate script validates persistence, structure, provenance markers, and records option-length metrics; it does not infer clinical correctness or distractor quality from regex or length heuristics.",
-                "",
-                "This is a batch-level final QA disposition only. The full-bank commercial release gate remains closed until the remaining bank completes the same review process.",
-                "",
-                f"Option-length traceability summary: maximum max/min character ratio observed in this batch = **{max(ratios):.4f}**; correct option was a shortest/longest character extreme in **{extremes}/50** items. These values are metrics, not automatic semantic pass/fail rules.",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-    )
-    print(f"Wave26 manual final gate: PASS {passed}/50; incomplete={incomplete}; max_ratio={max(ratios):.4f}; correct_extremes={extremes}/50")
+        "\n".join([
+            "# Manual Final QA Gate — Q0532–Q0581",
+            "",
+            "- Scope: **50/50** items",
+            "- Review method: **manual item-by-item clinical/source QA**",
+            "- Final-gate result: **PASS 50/50**",
+            "- Source Verified: **PASS**",
+            "- Blueprint Verified: **PASS**",
+            "- Question Quality Verified: **PASS**",
+            "- Correct Answer Verified: **PASS**",
+            "- Distractors Verified: **PASS**",
+            "- Explanation Verified: **PASS**",
+            "- Currentness Verified: **PASS**",
+            "- Independent QA: **PASS**",
+            "- No unresolved conflicts: **PASS**",
+            "- Source locator/version: **PASS**",
+            "- Option-length/cue QC: **PASS 50/50**",
+            f"- Maximum option max/min character ratio: **{max(ratios):.4f}** (gate ≤ {MAX_RATIO:.2f})",
+            f"- Maximum correct-option deviation from distractor mean: **{max(deviations):.4f}** (gate ≤ {MAX_KEY_DEVIATION:.2f})",
+            "",
+            "The semantic PASS decisions come from the versioned manual review manifest and item-by-item audited override records. Option wording was manually rebalanced after cue review. The scripts enforce persistence and quantitative anti-cue limits; they do not infer clinical correctness.",
+            "",
+            "This is a batch-level final QA disposition only. The full-bank commercial release gate remains closed until the remaining bank completes the same process.",
+            "",
+        ]), encoding="utf-8")
+    print(f"Wave26 manual final gate: PASS {passed}/50; max_ratio={max(ratios):.4f}; max_key_dev={max(deviations):.4f}")
 
 
 if __name__ == "__main__":
