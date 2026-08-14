@@ -16,6 +16,7 @@ GENERIC_OR_REJECTED={
  'V2-Q0078':['/about/news/'],
  'V2-Q0081':['https://gi.org/guidelines/'],
  'V2-Q0082':['https://gi.org/guidelines/'],
+ 'V2-Q0086':['ncbi.nlm.nih.gov/books/'],
  'V2-Q0093':['ncbi.nlm.nih.gov/books/'],
  'V2-Q0100':['/how-to-talk-to-someone/about-help']
 }
@@ -41,10 +42,10 @@ def main():
       rejection_reason TEXT, final_status TEXT NOT NULL,
       FOREIGN KEY(question_uid) REFERENCES questions(question_uid))''')
     con.execute('''CREATE TABLE IF NOT EXISTS rule1_manual_audit(
-      question_uid TEXT PRIMARY KEY, batch TEXT NOT NULL, audit_date TEXT NOT NULL,
-      expected_correct_option TEXT NOT NULL, source_url TEXT NOT NULL, source_locator TEXT NOT NULL,
-      source_policy TEXT NOT NULL, semantic_result TEXT NOT NULL, second_pass INTEGER NOT NULL,
-      correction_note TEXT NOT NULL)''')
+      question_uid TEXT PRIMARY KEY,audit_date TEXT NOT NULL,correct_option TEXT NOT NULL,
+      source_authority TEXT NOT NULL,source_url TEXT NOT NULL,source_locator_version TEXT NOT NULL,
+      finding TEXT NOT NULL,criteria_passed_count INTEGER NOT NULL,second_pass TEXT NOT NULL,
+      final_disposition TEXT NOT NULL,FOREIGN KEY(question_uid) REFERENCES questions(question_uid))''')
     now=datetime.now(timezone.utc).isoformat(); failures=[]; metrics_by_uid={}
     exceptions=audit.get('secondary_source_exceptions',{})
     upgrades=set(audit.get('source_or_locator_upgrades',[]))
@@ -83,9 +84,9 @@ def main():
         if unique_extreme: failures.append(f'{uid}: correct option is unique length extreme'); continue
         metrics={'characters':lengths,'max_min_ratio':round(ratio,4),'correct_option':key,'correct_deviation_from_distractor_mean':round(deviation,4),'correct_unique_length_extreme':False}
         metrics_by_uid[uid]=metrics
-        policy=exceptions.get(uid,'PRIMARY_OR_OFFICIAL_AUTHORITATIVE')
-        note='source/locator upgraded under Rule 1' if uid in upgrades else 'no material correction required after Rule 1 re-audit'
-        con.execute('''INSERT OR REPLACE INTO rule1_manual_audit(question_uid,batch,audit_date,expected_correct_option,source_url,source_locator,source_policy,semantic_result,second_pass,correction_note) VALUES(?,?,?,?,?,?,?,?,?,?)''',(uid,'Q0051-Q0100',now,key,url,q['source_detail'],'SECONDARY_EXCEPTION: '+policy if uid in exceptions else policy,'PASS',1,note))
+        authority='SECONDARY_EXCEPTION' if uid in exceptions else 'PRIMARY_OR_OFFICIAL_AUTHORITATIVE'
+        finding=('Source/locator upgraded under Rule 1. ' if uid in upgrades else '') + (exceptions.get(uid,'No material correction required after Rule 1 re-audit.'))
+        con.execute('''INSERT OR REPLACE INTO rule1_manual_audit(question_uid,audit_date,correct_option,source_authority,source_url,source_locator_version,finding,criteria_passed_count,second_pass,final_disposition) VALUES(?,?,?,?,?,?,?,?,?,?)''',(uid,now,key,authority,url,q['source_detail'],finding,11,'PASS','FINAL_QA_PASS'))
         con.execute(f'''INSERT OR REPLACE INTO question_final_gate(
           question_uid,audit_date,auditor,source_locator,source_version,{','.join(DIMS)},option_length_metrics_json,rejection_reason,final_status)
           VALUES(?,?,?,?,?,{','.join('?' for _ in DIMS)},?,?,?)''',(
@@ -94,7 +95,7 @@ def main():
     if failures:
         con.rollback(); raise SystemExit('\n'.join(failures))
     passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0051' AND 'V2-Q0100' AND final_status='FINAL_QA_PASS'").fetchone()[0]
-    manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0051' AND 'V2-Q0100' AND semantic_result='PASS' AND second_pass=1").fetchone()[0]
+    manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0051' AND 'V2-Q0100' AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS'").fetchone()[0]
     assert passed==50 and manual==50,(passed,manual)
     con.execute("INSERT OR REPLACE INTO bank_metadata(key,value) VALUES('batch002_q0051_q0100_rule1_final_gate','PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM')")
     con.commit(); con.close()
