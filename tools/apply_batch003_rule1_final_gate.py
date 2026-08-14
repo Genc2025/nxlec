@@ -21,7 +21,7 @@ REQUIRED_UPGRADE_LOCATOR_MARKERS={
  'V2-Q0115':['workplace-exposure section','Reviewed 2026-08-14'],
  'V2-Q0120':['42 CFR §489.24','Reviewed 2026-08-14'],
  'V2-Q0129':['10.1164/rccm.202303-0558WS','Reviewed 2026-08-14'],
- 'V2-Q0131':['Evaluation and Management of Autonomic Dysreflexia','reviewed 2026-08-14'],
+ 'V2-Q0131':['Current PVA Consortium CPG listing','reviewed 2026-08-14','sitting the individual upright'],
  'V2-Q0136':['10.1001/jama.2023.12914','Reviewed 2026-08-14'],
  'V2-Q0143':['WOCN Core Curriculum','Reviewed 2026-08-14'],
  'V2-Q0144':['42 CFR §482.13(e)(2)-(3)','Reviewed 2026-08-14']
