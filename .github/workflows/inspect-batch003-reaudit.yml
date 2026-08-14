@@ -1,0 +1,48 @@
+name: Inspect Batch 003 Re-audit DB
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-batch003-reaudit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect integrated Batch 003 DB
+        run: |
+          python - <<'PY'
+          import sqlite3, json
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          con.row_factory=sqlite3.Row
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          reaudited=con.execute("SELECT COUNT(*) FROM rule1_reaudit_evidence WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch003_q0101_q0150_rule1_reaudit_20260814'").fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
+          assert integrity=='ok'
+          assert reaudited==50
+          assert meta=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_14'
+          assert ready==0
+          expected={
+            'V2-Q0106':('B','https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/ipledge-risk-evaluation-and-mitigation-strategy-rems'),
+            'V2-Q0131':('D','https://pmc.ncbi.nlm.nih.gov/articles/PMC8152175/'),
+            'V2-Q0141':('B','https://www.cdc.gov/asthma/living-with/index.html'),
+            'V2-Q0146':('B','https://www.bonehealthandosteoporosis.org/preventing-fractures/prevention/'),
+            'V2-Q0147':('A','https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening'),
+          }
+          for uid,(key,url) in expected.items():
+              row=con.execute('SELECT question_uid,stem,item_data_json,correct_answer_json,rationale,source_detail,source_url FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              assert row is not None
+              actual_key=json.loads(row['correct_answer_json'])['correct_option']
+              assert actual_key==key,(uid,actual_key,key)
+              assert row['source_url']==url,(uid,row['source_url'],url)
+              print('INTEGRATED_ITEM='+json.dumps({'question_uid':uid,'key':actual_key,'source_url':row['source_url'],'stem':row['stem'],'source_detail':row['source_detail']},ensure_ascii=False,sort_keys=True))
+          con.close()
+          print(f'INTEGRATED_DB_VERIFIED integrity={integrity} reaudited={reaudited}/50 meta={meta} ready={ready}')
+          PY
