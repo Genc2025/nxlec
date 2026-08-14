@@ -6,8 +6,12 @@ on:
     branches: [main]
     paths:
       - "tools/apply_batch003_rule1_final_gate.py"
+      - "tools/verify_batch003_rule1_reaudit.py"
       - "data/rule1_manual_audit_batch003_q0101_q0150.json"
+      - "data/rule1_reaudit_batch003_evidence_part1_q0101_q0125.json"
+      - "data/rule1_reaudit_batch003_evidence_part2_q0126_q0150.json"
       - "data/clinical_overrides_rule1_batch003_source_upgrades.json"
+      - "data/clinical_overrides_rule1_batch003_z_reaudit_20260814.json"
       - ".github/workflows/build-rule1-batch003.yml"
 
 permissions:
@@ -53,6 +57,8 @@ jobs:
         run: python tools/apply_batch002_rule1_final_gate.py
       - name: Apply Rule 1 Batch 003
         run: python tools/apply_batch003_rule1_final_gate.py
+      - name: Verify Rule 1 Batch 003 real re-audit
+        run: python tools/verify_batch003_rule1_reaudit.py
       - name: Apply Wave 25 gate
         run: python tools/apply_wave25_final_gate.py
       - name: Apply Wave 26 gate
@@ -72,35 +78,41 @@ jobs:
           total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
           ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
           meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch003_q0101_q0150_rule1_final_gate'").fetchone()
+          re_meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch003_q0101_q0150_rule1_reaudit_20260814'").fetchone()
           passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS' AND criteria_passed_count=11").fetchone()[0]
+          reaudited=con.execute("SELECT COUNT(*) FROM rule1_reaudit_evidence WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS' AND criteria_passed_count=11").fetchone()[0]
           bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
           option_rows=con.execute("SELECT question_uid, option_length_metrics_json FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150'").fetchall()
           option_ok=sum(1 for _,raw in option_rows if (lambda m: m.get('max_min_ratio',99)<=1.15 and m.get('correct_deviation_from_distractor_mean',99)<=0.10 and m.get('correct_unique_length_extreme') is False)(json.loads(raw)))
           gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
           upgrades=con.execute("SELECT COUNT(*) FROM questions WHERE question_uid IN ('V2-Q0115','V2-Q0120','V2-Q0129','V2-Q0131','V2-Q0136','V2-Q0143','V2-Q0144') AND source_detail LIKE '%2026-08-14%'").fetchone()[0]
+          corrected=con.execute("SELECT COUNT(*) FROM rule1_reaudit_evidence WHERE question_uid IN ('V2-Q0106','V2-Q0131','V2-Q0141','V2-Q0146','V2-Q0147') AND correction IS NOT NULL").fetchone()[0]
           con.close()
           assert integrity=='ok', integrity
           assert total==3525, total
           assert ready==0, ready
           assert meta and meta[0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM', meta
+          assert re_meta and re_meta[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_14', re_meta
           assert passed==50, passed
           assert manual==50, manual
+          assert reaudited==50, reaudited
           assert bad==0, bad
           assert option_ok==50, option_ok
           assert upgrades==7, upgrades
+          assert corrected==5, corrected
           assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA', gate
-          print(f'RULE1_BATCH003_VERIFIED integrity={integrity} total={total} pass={passed}/50 manual11={manual}/50 option_qc={option_ok}/50 upgrades={upgrades}/7 bad={bad} ready={ready}')
+          print(f'RULE1_BATCH003_VERIFIED integrity={integrity} total={total} pass={passed}/50 manual11={manual}/50 reaudited11={reaudited}/50 option_qc={option_ok}/50 upgrades={upgrades}/7 corrections={corrected}/5 bad={bad} ready={ready}')
           PY
 
       - name: Commit integrated master and Rule 1 report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md FINAL_QA_BATCH003_REAL_REAUDIT_20260814.md data/pending_audit_next.json data/clinical_overrides_*.json
           if git diff --cached --quiet; then
             echo "Rule 1 Batch 003 outputs already current"
           else
-            git commit -m "Integrate Rule 1 Batch 003 Q0101-Q0150 [skip ci]"
+            git commit -m "Integrate Rule 1 Batch 003 Q0101-Q0150 real re-audit [skip ci]"
             git push
           fi
