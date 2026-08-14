@@ -15,6 +15,7 @@ on:
       - "tools/apply_wave26_option_balance.py"
       - "tools/apply_wave26_manual_final_gate.py"
       - "tools/apply_wave27_manual_final_gate.py"
+      - "tools/rebuild_wave27_manifest.py"
       - "tools/report_wave26_option_metrics.py"
       - "tools/export_pending_audit.py"
       - "data/clinical_overrides_*.json"
@@ -22,7 +23,6 @@ on:
       - "data/clinical_overrides_*.json.gz.b64"
       - "data/manual_final_qa_wave26_0532_0581.json"
       - "data/manual_final_qa_wave27_0582_0631.json"
-      - "data/manual_final_qa_wave27_0582_0631.json.gz.b64"
       - "data/manual_option_balance_wave26*.json"
       - "nclex ngn bank 75of75 ALL7formats FINAL.db"
       - "nclex question bank v2 inprogress 5.db"
@@ -46,7 +46,7 @@ jobs:
       - name: Decode staged override payloads
         run: |
           shopt -s nullglob
-          for file in data/clinical_overrides_*.json.gz.b64 data/manual_final_qa_wave27_*.json.gz.b64; do
+          for file in data/clinical_overrides_*.json.gz.b64; do
             json_file="${file%.gz.b64}"
             if [[ -f "$json_file" ]]; then
               echo "Keeping existing $json_file; skipping $file"
@@ -71,6 +71,9 @@ jobs:
               exit 1
             fi
           done
+
+      - name: Rebuild Wave 27 manual QA manifest
+        run: python tools/rebuild_wave27_manifest.py
 
       - name: Build master database
         run: python tools/build_nclex_master.py
