@@ -12,6 +12,8 @@ on:
       - "tools/enforce_strict_question_gate.py"
       - "tools/apply_wave25_final_gate.py"
       - "tools/apply_batch001_final_gate.py"
+      - "tools/apply_batch002_rule1_final_gate.py"
+      - "tools/apply_batch003_rule1_final_gate.py"
       - "tools/apply_wave26_option_balance.py"
       - "tools/apply_wave26_manual_final_gate.py"
       - "tools/apply_wave27_manual_final_gate.py"
@@ -21,6 +23,8 @@ on:
       - "data/clinical_overrides_*.json"
       - "data/clinical_overrides_*.b64"
       - "data/clinical_overrides_*.json.gz.b64"
+      - "data/rule1_manual_audit_batch002_q0051_q0100.json"
+      - "data/rule1_manual_audit_batch003_q0101_q0150.json"
       - "data/manual_final_qa_wave26_0532_0581.json"
       - "data/manual_final_qa_wave27_0582_0631.json"
       - "data/manual_option_balance_wave26*.json"
@@ -93,6 +97,12 @@ jobs:
       - name: Apply Q0001-Q0050 strict final QA gate
         run: python tools/apply_batch001_final_gate.py
 
+      - name: Apply Rule 1 Batch 002 Q0051-Q0100
+        run: python tools/apply_batch002_rule1_final_gate.py
+
+      - name: Apply Rule 1 Batch 003 Q0101-Q0150
+        run: python tools/apply_batch003_rule1_final_gate.py
+
       - name: Apply Wave 25 strict final QA gate
         run: python tools/apply_wave25_final_gate.py
 
@@ -108,6 +118,7 @@ jobs:
       - name: Verify master database and strict final-gate coverage
         run: |
           python - <<'PY'
+          import json
           import sqlite3
           from pathlib import Path
           db=Path("NCLEX_COMMERCIAL_MASTER_CURRENT.db")
@@ -120,6 +131,8 @@ jobs:
           gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
           policy=con.execute("SELECT value FROM bank_metadata WHERE key='strict_final_gate_policy'").fetchone()
           batch1=con.execute("SELECT value FROM bank_metadata WHERE key='batch001_q0001_q0050_final_gate'").fetchone()
+          batch2=con.execute("SELECT value FROM bank_metadata WHERE key='batch002_q0051_q0100_rule1_final_gate'").fetchone()
+          batch3=con.execute("SELECT value FROM bank_metadata WHERE key='batch003_q0101_q0150_rule1_final_gate'").fetchone()
           wave25=con.execute("SELECT value FROM bank_metadata WHERE key='wave25_q0492_q0531_final_gate'").fetchone()
           wave26=con.execute("SELECT value FROM bank_metadata WHERE key='wave26_q0532_q0581_manual_final_gate'").fetchone()
           wave27=con.execute("SELECT value FROM bank_metadata WHERE key='wave27_q0582_q0631_manual_final_gate'").fetchone()
@@ -127,6 +140,13 @@ jobs:
           passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PASS'").fetchone()[0]
           pending=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PENDING'").fetchone()[0]
           batch1_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0001' AND 'V2-Q0050' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          batch2_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0051' AND 'V2-Q0100' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          batch2_manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0051' AND 'V2-Q0100' AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS' AND criteria_passed_count=11").fetchone()[0]
+          batch3_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          batch3_manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS' AND criteria_passed_count=11").fetchone()[0]
+          batch3_bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
+          batch3_metrics=con.execute("SELECT option_length_metrics_json FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0101' AND 'V2-Q0150'").fetchall()
+          batch3_option=sum(1 for (raw,) in batch3_metrics if (lambda m: m.get('max_min_ratio',99)<=1.15 and m.get('correct_deviation_from_distractor_mean',99)<=0.10 and m.get('correct_unique_length_extreme') is False)(json.loads(raw)))
           wave25_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0492' AND 'V2-Q0531' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           wave26_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0532' AND 'V2-Q0581' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           wave26_option=con.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0532' AND 'V2-Q0581' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
@@ -143,6 +163,14 @@ jobs:
           assert passed+pending==records,(passed,pending,records)
           assert batch1 and batch1[0]=='PASS_50_OF_50_2026_08_14',batch1
           assert batch1_passed==50,batch1_passed
+          assert batch2 and batch2[0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM',batch2
+          assert batch2_passed==50,batch2_passed
+          assert batch2_manual==50,batch2_manual
+          assert batch3 and batch3[0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM',batch3
+          assert batch3_passed==50,batch3_passed
+          assert batch3_manual==50,batch3_manual
+          assert batch3_bad==0,batch3_bad
+          assert batch3_option==50,batch3_option
           assert wave25 and wave25[0]=='PASS_40_OF_40_2026_08_14',wave25
           assert wave25_passed==40,wave25_passed
           assert wave26 and wave26[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS',wave26
@@ -151,17 +179,17 @@ jobs:
           assert wave27 and wave27[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS',wave27
           assert wave27_passed==50,wave27_passed
           assert wave27_option==50,wave27_option
-          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, strict_records={records}, final_pass={passed}, final_pending={pending}, batch1_final={batch1_passed}/50, wave25_final={wave25_passed}/40, wave26_manual_final={wave26_passed}/50, wave26_option_qc={wave26_option}/50, wave27_manual_final={wave27_passed}/50, wave27_option_qc={wave27_option}/50, full_bank_ready={ready}")
+          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, strict_records={records}, final_pass={passed}, final_pending={pending}, batch1_final={batch1_passed}/50, batch2_rule1={batch2_passed}/50, batch3_rule1={batch3_passed}/50, batch3_manual11={batch3_manual}/50, batch3_option_qc={batch3_option}/50, wave25_final={wave25_passed}/40, wave26_manual_final={wave26_passed}/50, wave26_option_qc={wave26_option}/50, wave27_manual_final={wave27_passed}/50, wave27_option_qc={wave27_option}/50, full_bank_ready={ready}")
           PY
 
       - name: Commit generated master
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_BATCH002_Q0051_Q0100_RULE1_10OF10.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/rule1_manual_audit_batch002_q0051_q0100.json data/rule1_manual_audit_batch003_q0101_q0150.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
           if git diff --cached --quiet; then
             echo "Master is already current"
           else
-            git commit -m "Build current NCLEX commercial master with Wave 27 manual final QA [skip ci]"
+            git commit -m "Build current NCLEX commercial master with Rule 1 batches 2-3 [skip ci]"
             git push
           fi
