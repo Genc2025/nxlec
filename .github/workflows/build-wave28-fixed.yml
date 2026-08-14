@@ -1,0 +1,114 @@
+name: Build NCLEX Wave 28 corrected final QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "tools/run_wave28_manual_payload.py"
+      - ".github/workflows/build-wave28-fixed.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-wave28:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decode staged override payloads
+        run: |
+          shopt -s nullglob
+          for file in data/clinical_overrides_*.json.gz.b64; do
+            json_file="${file%.gz.b64}"
+            [[ -f "$json_file" ]] || base64 --decode "$file" | gzip -dc > "$json_file"
+          done
+          for file in data/clinical_overrides_*.b64; do
+            [[ "$file" == *.json.gz.b64 ]] && continue
+            json_file="${file%.b64}.json"
+            [[ -f "$json_file" ]] || base64 --decode "$file" > "$json_file"
+          done
+
+      - name: Rebuild Wave 27 manual QA manifest
+        run: python tools/rebuild_wave27_manifest.py
+
+      - name: Build corrected Wave 28 manually audited payload
+        run: python tools/run_wave28_manual_payload.py
+
+      - name: Build master database
+        run: python tools/build_nclex_master.py
+
+      - name: Enforce full-bank commercial hard gate
+        run: python tools/enforce_commercial_gate.py
+
+      - name: Enforce strict 11-dimension governance
+        run: python tools/enforce_strict_question_gate.py
+
+      - name: Apply Q0001-Q0050 strict final QA gate
+        run: python tools/apply_batch001_final_gate.py
+
+      - name: Apply Wave 25 strict final QA gate
+        run: python tools/apply_wave25_final_gate.py
+
+      - name: Apply Wave 26 option balance
+        run: python tools/apply_wave26_option_balance.py
+
+      - name: Apply Wave 26 manual final QA gate
+        run: python tools/apply_wave26_manual_final_gate.py
+
+      - name: Apply Wave 27 manual final QA gate
+        run: python tools/apply_wave27_manual_final_gate.py
+
+      - name: Apply Wave 28 manual final QA gate
+        run: python tools/apply_wave28_manual_final_gate.py
+
+      - name: Export next pending audit range
+        run: python tools/export_pending_audit.py
+
+      - name: Verify Wave 28 and database
+        run: |
+          python - <<'PY'
+          import sqlite3
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          verified=con.execute("SELECT COUNT(*) FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%'").fetchone()[0]
+          records=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid IN (SELECT question_uid FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%')").fetchone()[0]
+          passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PASS'").fetchone()[0]
+          pending=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PENDING'").fetchone()[0]
+          wave28=con.execute("SELECT value FROM bank_metadata WHERE key='wave28_q0632_q0681_manual_final_gate'").fetchone()
+          wave28_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0632' AND 'V2-Q0681' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          wave28_option=con.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0632' AND 'V2-Q0681' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
+          con.close()
+          assert integrity == 'ok', integrity
+          assert total == 3525, total
+          assert verified >= 681, verified
+          assert records == verified, (records, verified)
+          assert passed + pending == records, (passed, pending, records)
+          assert wave28 and wave28[0] == 'PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS', wave28
+          assert wave28_passed == 50, wave28_passed
+          assert wave28_option == 50, wave28_option
+          assert ready == 0, ready
+          print(f'WAVE28_VERIFIED integrity={integrity} total={total} verified={verified} final_pass={passed} final_pending={pending} wave28_final={wave28_passed}/50 wave28_option={wave28_option}/50 full_bank_ready={ready}')
+          PY
+
+      - name: Commit generated Wave 28 master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_WAVE28_Q0632_Q0681_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_wave28_0632_0681.json data/manual_final_qa_wave28_0632_0681.json
+          if git diff --cached --quiet; then
+            echo "Wave 28 master is already current"
+          else
+            git commit -m "Build current NCLEX master with corrected Wave 28 final QA [skip ci]"
+            git push
+          fi
