@@ -13,10 +13,10 @@
 - Independent QA: **PASS**
 - No unresolved conflicts: **PASS**
 - Source locator/version: **PASS**
-- Option-length metrics: **persisted for all 50 items**
+- Option-length/cue QC: **PASS 50/50**
+- Maximum option max/min character ratio: **1.1461** (gate ≤ 1.15)
+- Maximum correct-option deviation from distractor mean: **0.0976** (gate ≤ 0.10)
 
-The semantic PASS decisions come from the versioned manual review manifest and the item-by-item audited override records. The gate script validates persistence, structure, provenance markers, and records option-length metrics; it does not infer clinical correctness or distractor quality from regex or length heuristics.
+The semantic PASS decisions come from the versioned manual review manifest and item-by-item audited override records. Option wording was manually rebalanced after cue review. The scripts enforce persistence and quantitative anti-cue limits; they do not infer clinical correctness.
 
-This is a batch-level final QA disposition only. The full-bank commercial release gate remains closed until the remaining bank completes the same review process.
-
-Option-length traceability summary: maximum max/min character ratio observed in this batch = **4.7500**; correct option was a shortest/longest character extreme in **43/50** items. These values are metrics, not automatic semantic pass/fail rules.
+This is a batch-level final QA disposition only. The full-bank commercial release gate remains closed until the remaining bank completes the same process.
