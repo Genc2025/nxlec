@@ -14,11 +14,15 @@ on:
       - "tools/apply_batch001_final_gate.py"
       - "tools/apply_wave26_option_balance.py"
       - "tools/apply_wave26_manual_final_gate.py"
+      - "tools/apply_wave27_manual_final_gate.py"
       - "tools/report_wave26_option_metrics.py"
       - "tools/export_pending_audit.py"
       - "data/clinical_overrides_*.json"
       - "data/clinical_overrides_*.b64"
+      - "data/clinical_overrides_*.json.gz.b64"
       - "data/manual_final_qa_wave26_0532_0581.json"
+      - "data/manual_final_qa_wave27_0582_0631.json"
+      - "data/manual_final_qa_wave27_0582_0631.json.gz.b64"
       - "data/manual_option_balance_wave26*.json"
       - "nclex ngn bank 75of75 ALL7formats FINAL.db"
       - "nclex question bank v2 inprogress 5.db"
@@ -42,7 +46,20 @@ jobs:
       - name: Decode staged override payloads
         run: |
           shopt -s nullglob
+          for file in data/clinical_overrides_*.json.gz.b64 data/manual_final_qa_wave27_*.json.gz.b64; do
+            json_file="${file%.gz.b64}"
+            if [[ -f "$json_file" ]]; then
+              echo "Keeping existing $json_file; skipping $file"
+              continue
+            fi
+            echo "Decoding compressed $file"
+            if ! base64 --decode "$file" | gzip -dc > "$json_file"; then
+              echo "INVALID_GZIP_BASE64_FILE=$file"
+              exit 1
+            fi
+          done
           for file in data/clinical_overrides_*.b64; do
+            [[ "$file" == *.json.gz.b64 ]] && continue
             json_file="${file%.b64}.json"
             if [[ -f "$json_file" ]]; then
               echo "Keeping existing $json_file; skipping $file"
@@ -79,6 +96,9 @@ jobs:
       - name: Apply Wave 26 manual item-by-item final QA gate
         run: python tools/apply_wave26_manual_final_gate.py
 
+      - name: Apply Wave 27 manual item-by-item final QA gate
+        run: python tools/apply_wave27_manual_final_gate.py
+
       - name: Export next pending audit range
         run: python tools/export_pending_audit.py
 
@@ -99,6 +119,7 @@ jobs:
           batch1=con.execute("SELECT value FROM bank_metadata WHERE key='batch001_q0001_q0050_final_gate'").fetchone()
           wave25=con.execute("SELECT value FROM bank_metadata WHERE key='wave25_q0492_q0531_final_gate'").fetchone()
           wave26=con.execute("SELECT value FROM bank_metadata WHERE key='wave26_q0532_q0581_manual_final_gate'").fetchone()
+          wave27=con.execute("SELECT value FROM bank_metadata WHERE key='wave27_q0582_q0631_manual_final_gate'").fetchone()
           records=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid IN (SELECT question_uid FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%')").fetchone()[0]
           passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PASS'").fetchone()[0]
           pending=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PENDING'").fetchone()[0]
@@ -106,10 +127,12 @@ jobs:
           wave25_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0492' AND 'V2-Q0531' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           wave26_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0532' AND 'V2-Q0581' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           wave26_option=con.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0532' AND 'V2-Q0581' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
+          wave27_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0582' AND 'V2-Q0631' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          wave27_option=con.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0582' AND 'V2-Q0631' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
           con.close()
           assert integrity=='ok',integrity
           assert total==3525,total
-          assert verified>=581,verified
+          assert verified>=631,verified
           assert ready==0,ready
           assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA',gate
           assert policy and policy[0]=='REQUIRED_11_DIMENSIONS_FOR_EVERY_QUESTION',policy
@@ -122,17 +145,20 @@ jobs:
           assert wave26 and wave26[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS',wave26
           assert wave26_passed==50,wave26_passed
           assert wave26_option==50,wave26_option
-          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, strict_records={records}, final_pass={passed}, final_pending={pending}, batch1_final={batch1_passed}/50, wave25_final={wave25_passed}/40, wave26_manual_final={wave26_passed}/50, wave26_option_qc={wave26_option}/50, full_bank_ready={ready}")
+          assert wave27 and wave27[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS',wave27
+          assert wave27_passed==50,wave27_passed
+          assert wave27_option==50,wave27_option
+          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, strict_records={records}, final_pass={passed}, final_pending={pending}, batch1_final={batch1_passed}/50, wave25_final={wave25_passed}/40, wave26_manual_final={wave26_passed}/50, wave26_option_qc={wave26_option}/50, wave27_manual_final={wave27_passed}/50, wave27_option_qc={wave27_option}/50, full_bank_ready={ready}")
           PY
 
       - name: Commit generated master
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_option_balance_wave26*.json
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
           if git diff --cached --quiet; then
             echo "Master is already current"
           else
-            git commit -m "Build current NCLEX commercial master with strict Wave 26 manual QA [skip ci]"
+            git commit -m "Build current NCLEX commercial master with Wave 27 manual final QA [skip ci]"
             git push
           fi
