@@ -1,0 +1,65 @@
+name: Build NCLEX Wave 30 final corrected QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/run_wave30_final.py"
+      - ".github/workflows/build-wave30-final.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-wave30:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Decode staged override payloads
+        run: |
+          shopt -s nullglob
+          for file in data/clinical_overrides_*.json.gz.b64; do json_file="${file%.gz.b64}"; [[ -f "$json_file" ]] || base64 --decode "$file" | gzip -dc > "$json_file"; done
+          for file in data/clinical_overrides_*.b64; do [[ "$file" == *.json.gz.b64 ]] && continue; json_file="${file%.b64}.json"; [[ -f "$json_file" ]] || base64 --decode "$file" > "$json_file"; done
+      - run: python tools/rebuild_wave27_manifest.py
+      - name: Build final Wave 30 manually audited payload
+        run: python tools/run_wave30_final.py
+      - run: python tools/build_nclex_master.py
+      - run: python tools/enforce_commercial_gate.py
+      - run: python tools/enforce_strict_question_gate.py
+      - run: python tools/apply_batch001_final_gate.py
+      - run: python tools/apply_wave25_final_gate.py
+      - run: python tools/apply_wave26_option_balance.py
+      - run: python tools/apply_wave26_manual_final_gate.py
+      - run: python tools/apply_wave27_manual_final_gate.py
+      - run: python tools/apply_wave28_manual_final_gate.py
+      - run: python tools/apply_wave29_manual_final_gate.py
+      - run: python tools/apply_wave30_manual_final_gate.py
+      - run: python tools/export_pending_audit.py
+      - name: Verify Wave 30 and database
+        run: |
+          python - <<'PY'
+          import sqlite3
+          c=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          integrity=c.execute('PRAGMA integrity_check').fetchone()[0]
+          total=c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          verified=c.execute("SELECT COUNT(*) FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%'").fetchone()[0]
+          records=c.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid IN (SELECT question_uid FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%')").fetchone()[0]
+          passed=c.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PASS'").fetchone()[0]
+          pending=c.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PENDING'").fetchone()[0]
+          wave=c.execute("SELECT value FROM bank_metadata WHERE key='wave30_q0732_q0781_manual_final_gate'").fetchone()
+          wp=c.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0732' AND 'V2-Q0781' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          wo=c.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0732' AND 'V2-Q0781' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
+          ready=c.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]; c.close()
+          assert integrity=='ok'; assert total==3525; assert verified>=781; assert records==verified; assert passed+pending==records; assert wave and wave[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS'; assert wp==50; assert wo==50; assert ready==0
+          print(f'WAVE30_VERIFIED integrity={integrity} total={total} verified={verified} final_pass={passed} final_pending={pending} wave30_final={wp}/50 wave30_option={wo}/50 full_bank_ready={ready}')
+          PY
+      - name: Commit generated Wave 30 master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_WAVE30_Q0732_Q0781_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_wave30_0732_0781.json data/manual_final_qa_wave30_0732_0781.json
+          if git diff --cached --quiet; then echo "Wave 30 master is already current"; else git commit -m "Build current NCLEX master with Wave 30 final QA [skip ci]"; git push; fi
