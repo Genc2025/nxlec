@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "tools/run_wave29_manual_payload.py.gz.b64"
+      - "tools/wave29_payload.part*"
       - "tools/apply_wave29_manual_final_gate.py"
       - ".github/workflows/build-wave29.yml"
 
@@ -42,7 +42,7 @@ jobs:
         run: python tools/rebuild_wave27_manifest.py
 
       - name: Decode Wave 29 manually audited payload generator
-        run: base64 --decode tools/run_wave29_manual_payload.py.gz.b64 | gzip -dc > /tmp/run_wave29_manual_payload.py
+        run: cat tools/wave29_payload.part1 tools/wave29_payload.part2 tools/wave29_payload.part3 tools/wave29_payload.part4 tools/wave29_payload.part5 tools/wave29_payload.part6 | base64 --decode | gzip -dc > /tmp/run_wave29_manual_payload.py
 
       - name: Build Wave 29 manually audited payload
         run: |
