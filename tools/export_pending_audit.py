@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "NCLEX_COMMERCIAL_MASTER_CURRENT.db"
 OUT = ROOT / "data" / "pending_audit_next.json"
 MIN_SOURCE_ID = 102
-BATCH_SIZE = 40
+BATCH_SIZE = 50
 
 con = sqlite3.connect(DB)
 con.row_factory = sqlite3.Row
