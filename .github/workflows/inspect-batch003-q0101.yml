@@ -1,0 +1,29 @@
+name: Inspect Batch 003 Q0101
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-batch003-q0101.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print Q0101 integrated record
+        run: |
+          python - <<'PY'
+          import sqlite3, json
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          con.row_factory=sqlite3.Row
+          row=con.execute("SELECT question_uid,source_id,stem,item_data_json,correct_answer_json,rationale,source_name,source_detail,source_url,clinical_qa_status,category_id FROM questions WHERE question_uid='V2-Q0101'").fetchone()
+          if not row:
+              raise SystemExit('V2-Q0101 missing')
+          print('Q0101_RECORD='+json.dumps(dict(row), ensure_ascii=False, sort_keys=True))
+          con.close()
+          PY
