@@ -11,6 +11,7 @@ on:
       - "tools/enforce_commercial_gate.py"
       - "tools/enforce_strict_question_gate.py"
       - "tools/apply_wave25_final_gate.py"
+      - "tools/apply_batch001_final_gate.py"
       - "tools/export_pending_audit.py"
       - "data/clinical_overrides_*.json"
       - "data/clinical_overrides_*.b64"
@@ -58,6 +59,9 @@ jobs:
       - name: Enforce strict 11-dimension governance on all verified questions
         run: python tools/enforce_strict_question_gate.py
 
+      - name: Apply Q0001-Q0050 strict final QA gate
+        run: python tools/apply_batch001_final_gate.py
+
       - name: Apply Wave 25 strict final QA gate
         run: python tools/apply_wave25_final_gate.py
 
@@ -78,10 +82,12 @@ jobs:
           ready=con.execute("SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1").fetchone()[0]
           gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
           policy=con.execute("SELECT value FROM bank_metadata WHERE key='strict_final_gate_policy'").fetchone()
+          batch1=con.execute("SELECT value FROM bank_metadata WHERE key='batch001_q0001_q0050_final_gate'").fetchone()
           wave=con.execute("SELECT value FROM bank_metadata WHERE key='wave25_q0492_q0531_final_gate'").fetchone()
           records=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid IN (SELECT question_uid FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%')").fetchone()[0]
           passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PASS'").fetchone()[0]
           pending=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PENDING'").fetchone()[0]
+          batch1_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0001' AND 'V2-Q0050' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           wave_passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0492' AND 'V2-Q0531' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           con.close()
           assert integrity=='ok',integrity
@@ -92,19 +98,21 @@ jobs:
           assert policy and policy[0]=='REQUIRED_11_DIMENSIONS_FOR_EVERY_QUESTION',policy
           assert records==verified,(records,verified)
           assert passed+pending==records,(passed,pending,records)
+          assert batch1 and batch1[0]=='PASS_50_OF_50_2026_08_14',batch1
+          assert batch1_passed==50,batch1_passed
           assert wave and wave[0]=='PASS_40_OF_40_2026_08_14',wave
           assert wave_passed==40,wave_passed
-          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, strict_records={records}, final_pass={passed}, final_pending={pending}, full_bank_ready={ready}")
+          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, strict_records={records}, final_pass={passed}, final_pending={pending}, batch1_final={batch1_passed}/50, wave25_final={wave_passed}/40, full_bank_ready={ready}")
           PY
 
       - name: Commit generated master
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json
           if git diff --cached --quiet; then
             echo "Master is already current"
           else
-            git commit -m "Build current NCLEX commercial master with strict final-gate coverage [skip ci]"
+            git commit -m "Build current NCLEX commercial master with batch001 final QA [skip ci]"
             git push
           fi
