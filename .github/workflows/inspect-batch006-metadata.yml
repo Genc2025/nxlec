@@ -14,15 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Dump Q0832-Q0881 option metrics
+      - name: Inspect Batch 006 builder options
         run: |
           python - <<'PY'
-          import json, sqlite3
-          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
-          rows=con.execute("SELECT question_uid,item_data_json,correct_answer_json FROM questions WHERE question_uid BETWEEN 'V2-Q0832' AND 'V2-Q0881' ORDER BY question_uid").fetchall()
-          assert len(rows)==50
-          for uid,oj,kj in rows:
-              o=json.loads(oj)['options']; k=json.loads(kj)['correct_option']; lens={x:len(o[x].strip()) for x in 'ABCD'}; vals=list(lens.values()); ratio=max(vals)/min(vals); dm=sum(lens[x] for x in 'ABCD' if x!=k)/3; dev=abs(lens[k]-dm)/dm; unique=((lens[k]==min(vals) and vals.count(min(vals))==1) or (lens[k]==max(vals) and vals.count(max(vals))==1))
-              print(f'{uid}|key={k}|lens={lens}|ratio={ratio:.4f}|dev={dev:.4f}|unique={unique}')
-          con.close()
+          import importlib.util
+          spec=importlib.util.spec_from_file_location('b6','tools/build_batch006_artifacts.py')
+          m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+          bad=[]
+          for uid in m.IDS:
+              x=m.MANUAL[uid]; o=x['options']; k=x['key']; lens,ratio,dev,unique=m.metrics(o,k)
+              ok=ratio<=1.15+1e-12 and dev<=0.10+1e-12 and not unique
+              print(f'{uid}|key={k}|lens={lens}|ratio={ratio:.4f}|dev={dev:.4f}|unique={unique}|ok={ok}')
+              if not ok: bad.append(uid)
+          print('BAD='+','.join(bad))
+          print(f'BAD_COUNT={len(bad)}')
           PY
