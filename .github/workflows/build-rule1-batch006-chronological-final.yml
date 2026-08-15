@@ -47,14 +47,14 @@ jobs:
           assert e['standard']=='RULE_1_FINAL_10_OF_10_REAL_REAUDIT' and e['batch']=='Q0251-Q0300' and e['legacy_status_evidence'] is False
           assert len(e['criteria_names'])==11 and [x['id'] for x in e['items']]==ids and len(e['items'])==50
           assert [x['question_uid'] for x in o['questions']]==ids and len(o['questions'])==50
-          assert set(e['substantive_corrections'])=={'V2-Q0251','V2-Q0271','V2-Q0274','V2-Q0279','V2-Q0282','V2-Q0287'}
+          assert set(e['substantive_corrections'])=={'V2-Q0251','V2-Q0271','V2-Q0274','V2-Q0279','V2-Q0282','V2-Q0287','V2-Q0292'}
           assert set(e['secondary_source_exceptions'])=={'V2-Q0291','V2-Q0295'}
           for x in e['items']:
             assert x['criteria']==11 and x['second_pass']=='PASS' and x['final']=='FINAL_QA_PASS'
             assert x['source_url'].startswith('https://') and x['source_locator'] and x['source_version'] and '2026-08-15' in x['source_version']
             n=x['ncsbn_first_check']; assert n['required'] is True and n['result']=='PASS' and '2026 NCLEX-RN Test Plan' in n['source'] and '2026-04-01' in n['version']
             q=x['option_qc']; assert q['max_min_ratio']<=1.15 and q['correct_deviation']<=0.10 and q['correct_unique_length_extreme'] is False and q['artificial_padding'] is False
-          print('BATCH006_AUTHORED_INPUTS_VALID items=50/50 criteria11=50/50 ncsbn_first_check=50/50 corrections=6/6 secondary=2/2 option_qc=50/50')
+          print('BATCH006_AUTHORED_INPUTS_VALID items=50/50 criteria11=50/50 ncsbn_first_check=50/50 corrections=7/7 secondary=2/2 option_qc=50/50')
           PY
       - name: Rebuild Wave 27 manifest
         run: python tools/rebuild_wave27_manifest.py
@@ -110,6 +110,7 @@ jobs:
           q279=con.execute("SELECT stem,source_name FROM questions WHERE question_uid='V2-Q0279'").fetchone()
           q282=con.execute("SELECT stem FROM questions WHERE question_uid='V2-Q0282'").fetchone()[0]
           q287=con.execute("SELECT stem,item_data_json FROM questions WHERE question_uid='V2-Q0287'").fetchone()
+          q292=con.execute("SELECT category_id,client_need FROM questions WHERE question_uid='V2-Q0292'").fetchone()
           con.close()
           pending=json.loads(Path('data/pending_audit_next.json').read_text())
           assert integrity=='ok' and total==3525 and ready==0
@@ -121,6 +122,7 @@ jobs:
           assert 'painless bright-red' in q279[0].lower() and q279[1].startswith('ACOG')
           assert 'worsened over several hours' in q282.lower() and 'new confusion' in q282.lower()
           assert 'awake, calm term newborn' in q287[0].lower() and '205 beats/min' in q287[1]
+          assert q292==(4,'Health Promotion and Maintenance')
           assert pending['range']==[301,350] and pending['count']==50
           print(f'BATCH006_INTEGRATED_VERIFIED integrity={integrity} total={total} final={final}/50 manual11={manual}/50 evidence11={ev}/50 ncsbn={ncsbn}/50 secondary={secondary}/2 status={status}/50 bad={bad} next={pending["range"]} ready={ready}')
           PY
