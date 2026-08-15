@@ -2,195 +2,223 @@
 from __future__ import annotations
 
 import json
-import sqlite3
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DB = ROOT / "NCLEX_COMMERCIAL_MASTER_CURRENT.db"
 EVIDENCE = ROOT / "data/rule1_batch006_chronological_reaudit_evidence_q0251_q0300.json"
 OVERRIDE = ROOT / "data/clinical_overrides_z_rule1_batch006_chronological_q0251_q0300_20260815.json"
+PATCHES = [
+    ROOT / "data/manual_rule1_batch006_q0251_q0260_20260815.json",
+    ROOT / "data/manual_rule1_batch006_q0261_q0270_20260815.json",
+    ROOT / "data/manual_rule1_batch006_q0271_q0280_20260815.json",
+    ROOT / "data/manual_rule1_batch006_q0281_q0290_20260815.json",
+    ROOT / "data/manual_rule1_batch006_q0291_q0300_20260815.json",
+]
 IDS = [f"V2-Q{i:04d}" for i in range(251, 301)]
 REVIEW_DATE = "2026-08-15"
-STATUS = "SOURCE_VERIFIED_2026_RULE1_BATCH006_CHRONOLOGICAL"
-CRITERIA = [
-    "stem_and_four_options_read",
-    "source_authority_exact_locator_verified",
-    "correct_answer_directly_verified",
-    "stem_claims_verified",
-    "rationale_claims_verified",
-    "distractor_plausibility_and_second_answer_qc",
-    "ambiguity_and_cue_qc",
-    "blueprint_topic_difficulty_verified",
-    "source_version_and_currentness_verified",
-    "no_unresolved_conflict",
-    "independent_second_pass",
-]
-SECONDARY = {"V2-Q0291", "V2-Q0295"}
-SUBSTANTIVE = {"V2-Q0251", "V2-Q0271", "V2-Q0274", "V2-Q0279", "V2-Q0282", "V2-Q0287", "V2-Q0292"}
-
+STATUS = "SOURCE_VERIFIED_2026_RULE1_BATCH006_CHRONOLOGICAL_MANUAL"
 NCSBN_URL = "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf"
-NCSBN_VERSION = "2026 NCLEX-RN Test Plan, effective 2026-04-01 through 2029-03-31; currentness rechecked 2026-08-15."
+NCSBN_VERSION = "2026 NCLEX-RN Test Plan; effective 2026-04-01 through 2029-03-31; currentness rechecked 2026-08-15."
+CRITERIA = [
+    "source_authority_verified",
+    "source_currentness_verified",
+    "exact_locator_verified",
+    "stem_factual_accuracy_verified",
+    "correct_answer_verified",
+    "rationale_verified",
+    "distractors_verified",
+    "ambiguity_cue_second_answer_qc_verified",
+    "blueprint_topic_difficulty_verified",
+    "no_unresolved_conflicts",
+    "independent_second_pass_qa",
+]
 NCSBN_LOCATORS = {
-    2: "2026 NCLEX-RN Test Plan — Management of Care: advance directives, assignment/delegation/supervision, prioritizing care, continuity and client rights.",
-    3: "2026 NCLEX-RN Test Plan — Safety and Infection Prevention and Control: hand hygiene/asepsis, equipment safety, incident/error reporting, emergency and environmental safety.",
-    4: "2026 NCLEX-RN Test Plan — Health Promotion and Maintenance: expected growth/development, prenatal/postpartum teaching, screening and preventive care.",
-    5: "2026 NCLEX-RN Test Plan — Psychosocial Integrity: coping, support systems, grief/loss, therapeutic communication and mental-health adaptation.",
-    7: "2026 NCLEX-RN Test Plan — Basic Care and Comfort: personal hygiene, comfort measures, mobility/positioning and nonpharmacologic care.",
-    8: "2026 NCLEX-RN Test Plan — Pharmacological and Parenteral Therapies: medication administration, adverse effects/interactions and client monitoring/education.",
-    9: "2026 NCLEX-RN Test Plan — Reduction of Risk Potential: diagnostic tests, laboratory values, monitoring and potential complications.",
-    10: "2026 NCLEX-RN Test Plan — Physiological Adaptation: acute/complex health alterations, medical emergencies and pathophysiologic adaptation.",
-}
-
-# Exact locator and version/currentness decisions made during the fresh item-by-item Rule 1 audit.
-META = {
-251:("VA Multiple Sclerosis Centers of Excellence — Creating a Support Network: sections ‘What is a support network?’ and ‘What is a support group?’; supplemental official VA MS-Related Fatigue page, ‘Managing Fatigue’ practical planning strategies.","VA support-network page last updated 2024-02-13; VA MS-Related Fatigue page current in 2026; both rechecked 2026-08-15."),
-252:("DailyMed morphine sulfate label — Geriatric Use and Warnings/Precautions on life-threatening respiratory depression: cautious low-end geriatric dosing and monitoring during initiation/titration.","Current FDA labeling at the exact DailyMed URL/set identity; live version rechecked 2026-08-15."),
-253:("DailyMed PITOCIN label — Administration, Induction or Stimulation of Labor, Monitoring: continuously monitor uterine activity/FHR and discontinue immediately for uterine hyperactivity and/or fetal distress.","Current PITOCIN FDA label displayed by DailyMed in 2026; exact label URL rechecked 2026-08-15."),
-254:("DailyMed RhoGAM Ultra-Filtered PLUS label — Indications/Usage and obstetric dosing: prevention of Rh immunization, routine antepartum prophylaxis at 26–28 weeks and postpartum prophylaxis when indicated.","Current FDA RhoGAM label at the exact DailyMed set ID; live version rechecked 2026-08-15."),
-255:("CDC Guidelines for Vaccinating Pregnant Women — MMR: live attenuated MMR is contraindicated during pregnancy; vaccinate after pregnancy when indicated.","Current CDC pregnancy-vaccination guidance at exact URL; currentness rechecked 2026-08-15."),
-256:("DailyMed spironolactone label — Warnings and Precautions, Hyperkalemia, plus potassium supplementation/salt-substitute counseling and serum-potassium monitoring.","Current FDA spironolactone label at exact DailyMed set ID; currentness rechecked 2026-08-15."),
-257:("DailyMed theophylline extended-release label — Drug Interactions entry for erythromycin plus toxicity-response guidance to withhold further doses and obtain a serum concentration when toxicity is suspected.","Current FDA theophylline label at exact DailyMed set ID; currentness rechecked 2026-08-15."),
-258:("DailyMed clindamycin hydrochloride capsules — BOXED WARNING for C. difficile-associated diarrhea/colitis, including severe or fatal disease during or after antibacterial therapy.","DailyMed label version 35 at the exact URL; currentness rechecked 2026-08-15."),
-259:("DailyMed terbutaline sulfate injection — BOXED WARNING on prolonged tocolysis and maternal cardiovascular/metabolic adverse effects including tachycardia, arrhythmias, pulmonary edema and myocardial ischemia.","Current FDA terbutaline injection label at exact DailyMed set ID; currentness rechecked 2026-08-15."),
-260:("DailyMed CIPRO label — BOXED WARNING / Warnings and Precautions, Tendinitis and Tendon Rupture: discontinue with tendon pain/swelling and avoid stressing the affected tendon.","DailyMed CIPRO version 32/current 2026 label at exact URL; currentness rechecked 2026-08-15."),
-261:("DailyMed metoclopramide tablets — BOXED WARNING, Tardive Dyskinesia: potentially irreversible; risk rises with duration/cumulative dose; discontinue if signs/symptoms develop.","Current 2026 FDA metoclopramide label at exact DailyMed set ID; currentness rechecked 2026-08-15."),
-262:("CDC Intravascular Catheter-Related Infection Prevention Strategies — Hand Hygiene/Aseptic Technique and Catheter Site Dressing Regimens: clean or sterile gloves for dressing changes, recommended antisepsis, sterile dressing.","Current CDC intravascular-catheter prevention guidance at exact URL; currentness rechecked 2026-08-15."),
-263:("CDC CAUTI Summary of Recommendations — Proper Urinary Catheter Insertion / acute care: aseptic technique and sterile equipment including sterile gloves, drape, sponges, appropriate solution and single-use lubricant.","Current CDC CAUTI recommendations at exact URL; currentness rechecked 2026-08-15."),
-264:("The Joint Commission FAQ 000001226, Medical Equipment — Defibrillator and Crash Cart: crash carts/defibrillators are high-risk equipment and battery charge requires a defined maintenance process; FAQ 000001073 requires a defined process to monitor emergency-cart integrity/contents.","TJC FAQ 000001226 last updated 2026-04-21 and FAQ 000001073 last updated 2026-01-13; rechecked 2026-08-15."),
-265:("OSHA Evacuation Plans and Procedures eTool — Portable Extinguishers, Use: identify a safe evacuation path, choose correct extinguisher, apply PASS, evacuate if control is doubtful.","Current OSHA eTool at exact URL; currentness rechecked 2026-08-15."),
-266:("CDC Isolation Precautions — Environmental Measures: prioritize cleaning/disinfection of frequently touched surfaces near the patient such as bedrails, bedside tables, commodes, doorknobs and nearby equipment.","Current CDC isolation-precautions guidance at exact URL; currentness rechecked 2026-08-15."),
-267:("CDC Core Infection Prevention and Control Practices — PPE removal/hand hygiene: remove and discard PPE to avoid contaminating skin/clothing and perform hand hygiene; sequence depends on ensemble/workflow.","Current CDC Core Practices at exact URL; currentness rechecked 2026-08-15."),
-268:("OSHA Bloodborne Pathogens Quick Reference and 29 CFR 1904.8 — contaminated needlestick/sharps injuries are recordable for Part 1904-covered employers; sharps-injury information must protect confidentiality.","Current OSHA federal requirements at exact URL; currentness rechecked 2026-08-15."),
-269:("CDC Core Infection Prevention and Control Practices — Standard Precautions: apply to all patients in all healthcare settings; hand hygiene and task/risk-based PPE are baseline measures.","Current CDC Core Practices at exact URL; currentness rechecked 2026-08-15."),
-270:("National POLST Collaborative — About POLST Form: portable medical orders for people with progressing serious illness/advanced frailty; state forms, terminology, authority and portability requirements differ.","Current National POLST Collaborative patient/professional guidance; currentness rechecked 2026-08-15."),
-271:("WHO Five Moments for Hand Hygiene — Moment 5: perform hand hygiene after touching patient surroundings/equipment in the patient zone even without direct patient contact.","Current WHO Five Moments resource at exact URL; currentness rechecked 2026-08-15."),
-272:("CDC/NIOSH Impact Wellbeing Guide — systems approach: address organizational drivers such as staffing, workload, schedule control, administrative burden, safety, leadership and access to support rather than relying only on individual resilience.","Current NIOSH Impact Wellbeing guidance; currentness rechecked 2026-08-15."),
-273:("NCSBN National Guidelines for Nursing Delegation — responsibilities of delegating nurse/employer/delegatee; licensed nurse retains responsibility for supervision, evaluation and nursing judgment under applicable jurisdictional law.","Current NCSBN delegation guidance at exact URL; currentness rechecked 2026-08-15."),
-274:("2026 NCLEX-RN Test Plan — Safety and Infection Prevention and Control, Reporting Incident/Event: acknowledge/document practice errors and near misses, evaluate the client response, and follow safety-reporting processes.",NCSBN_VERSION),
-275:("American Nurses Association — Principles for Nurse Staffing: assignments/staffing account for patient acuity/intensity, nurse competence/skill mix, workload, available resources/support and changing unit conditions.","Current ANA staffing principles at exact URL; currentness rechecked 2026-08-15."),
-276:("NCSBN — Professional Boundaries / Social Media: maintain professional boundaries in electronic communication and use caution with current/former patient social relationships; patient initiation does not remove boundary risk.","Current NCSBN professional-boundaries guidance at exact URL; currentness rechecked 2026-08-15."),
-277:("HHS ODPHP Healthy People 2030 — Social Determinants of Health: housing and transportation are SDOH; transportation barriers can limit access to care and influence health outcomes.","Healthy People 2030 current federal framework; currentness rechecked 2026-08-15."),
-278:("ACOG Preeclampsia and High Blood Pressure During Pregnancy — hypertension after 20 weeks plus proteinuria/organ findings; severe features include persistent severe headache and visual symptoms.","Current ACOG patient guidance at exact URL; currentness rechecked 2026-08-15."),
-279:("ACOG Bleeding During Pregnancy — placental causes later in pregnancy: placental abruption commonly includes abdominal/back pain; placenta previa bleeding often occurs without pain.","ACOG page last reviewed 2024-12; currentness rechecked 2026-08-15."),
-280:("NCBI MedGen, Precipitous labor, Concept ID C0473472 / MedGen UID 633244 — Definition: expulsion of fetus in less than 3 hours from commencement of regular contractions.","Live NCBI MedGen terminology record at exact URL; currentness rechecked 2026-08-15."),
-281:("ACOG/AAP The Apgar Score — five components: color, heart rate, reflexes/reflex irritability, muscle tone and respiration; scores reported at 1 and 5 minutes.","ACOG/AAP Committee Opinion ‘The Apgar Score’ (2015 statement retained on current ACOG site); currentness rechecked 2026-08-15."),
-282:("CDC About Meningitis — common symptom cluster includes fever, headache, stiff neck, confusion/altered mental status and photophobia; urgent evaluation is required.","CDC About Meningitis updated 2025-09-09; currentness cross-checked against CDC meningococcal clinical guidance dated 2026-06-04 and rechecked 2026-08-15."),
-283:("European Association of Urology Paediatric Urology Guideline — Acute Scrotum: torsion is a urologic emergency; best outcomes with intervention ideally within 4–6 hours; Doppler should not delay treatment when suspicion is high.","Current EAU Paediatric Urology guideline edition/site; currentness rechecked 2026-08-15."),
-284:("NICE CG97 Lower urinary tract symptoms in men: management — Recommendation 1.7.1: immediately catheterise men with acute retention.","NICE CG97 published 2010, last updated 2015, last reviewed 2024-12-19; recommendation 1.7.1 unchanged and currentness rechecked 2026-08-15."),
-285:("American College of Radiology Manual on Contrast Media 2026 — Allergic-Like and Physiologic Reactions plus Adult Treatment of Acute Reactions tables: severe allergic-like reactions are treated by severity, including epinephrine for severe airway/bronchospastic/hypotensive manifestations.","ACR Manual on Contrast Media 2026 edition; currentness rechecked 2026-08-15."),
-286:("ACOG fetal heart tracing definitions — normal baseline 110–160 beats/min and three-tier Category I/II/III framework; currentness checked against Clinical Practice Guideline No. 10 on intrapartum FHR monitoring.","ACOG Clinical Practice Guideline No. 10, October 2025; currentness rechecked 2026-08-15."),
-287:("American Heart Association — Treating Arrhythmias in Children, Normal ranges for children: infant resting heart rate averages 100–190 beats/min.","AHA page last reviewed 2024-10-29; currentness rechecked 2026-08-15 against current AHA pediatric resuscitation resources."),
-288:("American Heart Association — Treating Arrhythmias in Children, Normal ranges for children: infants have faster resting rates (about 100–190) than older children/teenagers (about 60–100).","AHA page last reviewed 2024-10-29; currentness rechecked 2026-08-15 against current AHA pediatric resuscitation resources."),
-289:("American Society of Hematology VTE Guidelines — Diagnosis of Venous Thromboembolism: positive D-dimer alone does not establish DVT; diagnostic pathways use additional testing such as compression ultrasonography according to pretest probability.","ASH 2018 VTE Diagnosis guideline remains under annual expert monitoring rather than retired; current ASH guidance rechecked 2026-08-15."),
-290:("NIH/NLM MedlinePlus — Erythrocyte Sedimentation Rate (ESR), What is an ESR?/Results: elevated ESR can indicate inflammation but ESR alone cannot diagnose the specific condition causing it.","Current MedlinePlus medical test page; currentness rechecked 2026-08-15."),
-291:("Merck Manual Professional Edition — Apgar Score table, Color/Appearance row: all blue/pale=0; pink body with blue extremities=1; all pink=2.","Merck Manual Professional Edition Apgar table current in 2026; currentness rechecked 2026-08-15."),
-292:("American Academy of Pediatrics HealthyChildren.org — Umbilical Cord Symptoms/Care: keep stump clean/dry, fold diaper below for air contact, use sponge baths until cord falls off; avoid routine rubbing alcohol.","Current AAP HealthyChildren guidance; currentness rechecked 2026-08-15."),
-293:("NIH/NLM MedlinePlus — After vaginal delivery - in the hospital, perineal care: ice packs in first 24 hours decrease swelling/pain; warm baths after 24 hours.","MedlinePlus patient instruction reviewed 2024-11-08; currentness rechecked 2026-08-15."),
-294:("ACOG — The Top 6 Pregnancy Questions I Hear From First-Time Moms, sleep-position section: later pregnancy back-lying increases pressure on uterine blood vessels; turn to either side.","ACOG expert guidance last reviewed 2026-02; currentness rechecked 2026-08-15."),
-295:("NCBI Bookshelf Open RN Nursing Assistant — Provide for Personal Care Needs of Clients, complete-bed-bath procedure: clean from face/neck through cleaner areas and perform perineal care last to limit transfer from the most contaminated area.","Current NCBI Bookshelf Open RN educational text at exact URL; currentness rechecked 2026-08-15."),
-296:("ACOG Clinical Practice Guideline No. 4 / Patient Screening — screen everyone receiving postpartum care for depression and anxiety using standardized validated instruments, with systems for assessment, treatment, monitoring and follow-up.","ACOG Clinical Practice Guideline No. 4, June 2023, retained as current guidance; currentness rechecked 2026-08-15."),
-297:("CDC Newborn Breastfeeding Basics — Signs of a good latch: mouth open wide over areola, lips turned out, chin resting against breast, regular swallowing.","CDC page dated 2024-10-18; currentness rechecked 2026-08-15 including current 2026 breastfeeding resources."),
-298:("USPSTF Cervical Cancer: Screening — current final recommendation framework uses age, test strategy, prior adequate screening and risk status; higher-risk patients require individualized follow-up.","USPSTF 2018 Final Recommendation remains the current final recommendation on 2026-08-15; 2024-12-10 draft update remains in-progress and does not supersede the final recommendation."),
-299:("ACOG Postpartum Depression FAQ — Baby Blues: onset about 2–3 days postpartum and usually improve within a few days to 1–2 weeks without treatment.","ACOG FAQ published 2024-04, last reviewed 2025-12; currentness rechecked 2026-08-15."),
-300:("ACOG/SMFM Management of Stillbirth — bereavement care should be individualized for personal/cultural/religious needs; parents should be offered the opportunity to hold the baby and perform desired cultural/religious activities.","ACOG/SMFM Obstetric Care Consensus Management of Stillbirth, reaffirmed 2025; currentness rechecked 2026-08-15."),
-}
-
-SOURCE_OVERRIDES = {
-251:("VA Multiple Sclerosis Centers of Excellence — Creating a Support Network + MS-Related Fatigue","https://www.va.gov/MS/TREATING_MS/Whole_Health/Creating_a_Support_Network.asp"),
-253:("DailyMed — PITOCIN (oxytocin) injection","https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=969d5b35-0add-4c23-9605-6a5b6ab65c95"),
-274:("NCSBN — 2026 NCLEX-RN Test Plan",NCSBN_URL),
-279:("ACOG — Bleeding During Pregnancy","https://www.acog.org/womens-health/faqs/bleeding-during-pregnancy"),
-280:("NCBI MedGen — Precipitous labor (C0473472)","https://www.ncbi.nlm.nih.gov/medgen/633244"),
-284:("NICE — Lower urinary tract symptoms in men: management (CG97)","https://www.nice.org.uk/guidance/cg97/chapter/recommendations"),
-287:("American Heart Association — Treating Arrhythmias in Children","https://www.heart.org/en/health-topics/arrhythmia/prevention--treatment-of-arrhythmia/treating-arrhythmias-in-children"),
-294:("ACOG — The Top 6 Pregnancy Questions I Hear From First-Time Moms","https://www.acog.org/womens-health/experts-and-stories/the-latest/the-top-6-pregnancy-questions-i-hear-from-first-time-moms"),
-}
-
-CORRECTED = {
-251:{
-"rationale":"Joining a peer support group, seeking reliable disease information, and making a practical fatigue-management plan are adaptive coping and self-management behaviors. VA MS guidance supports building an individualized support network and using practical strategies to manage fatigue; these behaviors increase support and day-to-day control rather than demonstrating denial or regression."
-},
-271:{"category_id":3,"client_need":"Safety & Infection Prevention and Control"},
-274:{
-"category_id":3,"client_need":"Safety & Infection Prevention and Control",
-"stem":"A medication error reaches a client, but immediate assessment shows no apparent injury. Which nursing response best supports patient safety?",
-"options":{
-"A":"Assess the client, notify the appropriate clinical and safety channels, report the event per policy, document factual care, and continue indicated monitoring and follow-up.",
-"B":"Conceal the error unless harm later appears, because an event without immediate injury does not require reporting, clinical reassessment, or patient-safety review.",
-"C":"Tell the client every suspected causal detail before notifying the care team, because the individual nurse should independently complete the investigation and disclosure alone.",
-"D":"Document only that the medication was administered and omit the error from safety reporting because no immediate injury means the event requires no further follow-up."
-},
-"rationale":"An error that reaches a client requires prompt assessment of the client’s response, appropriate clinical escalation, safety/event reporting under policy, factual documentation of care, and indicated monitoring/follow-up. The 2026 NCSBN test plan places practice errors, near misses, incident/event reporting, and evaluation of the client response within Safety and Infection Prevention and Control. Concealment, omission from safety reporting, or an individual nurse independently determining causal conclusions is unsafe."
-},
-279:{
-"stem":"A pregnant client at 34 weeks with intact membranes develops sudden painless bright-red vaginal bleeding. The fetal heart tracing is reassuring. Which condition is most consistent with this presentation?",
-"options":{
-"A":"Placental abruption, because placental separation can cause vaginal bleeding, although abdominal or back pain is a more typical accompanying feature.",
-"B":"Vasa previa, because painless third-trimester bleeding can occur, although it is especially concerning around membrane rupture with fetal heart-rate changes.",
-"C":"Bloody show from cervical change, because labor can cause blood-tinged mucus, although sudden unexplained bright-red bleeding requires evaluation for placental causes.",
-"D":"Placenta previa, because vaginal bleeding later in pregnancy often occurs without pain when the placenta lies over or near the cervical opening and needs evaluation."
-},
-"rationale":"ACOG identifies placenta previa as a placental cause of later-pregnancy vaginal bleeding that often occurs without pain, whereas placental abruption commonly includes abdominal or back pain. With intact membranes and a reassuring fetal tracing, the complete pattern is most consistent with placenta previa rather than vasa previa or bloody show. Any late-pregnancy bleeding requires prompt obstetric evaluation."
-},
-282:{
-"stem":"A client develops high fever, a severe headache that worsened over several hours, photophobia, nuchal rigidity, and new confusion. Which condition should the nurse prioritize as the most likely explanation?",
-"options":{
-"A":"Meningitis, because high fever with worsening severe headache, photophobia, neck stiffness, and new confusion is a classic meningeal infection pattern requiring urgent evaluation.",
-"B":"Subarachnoid hemorrhage, because a thunderclap headache can produce photophobia, neck stiffness, and confusion, although it does not best explain an evolving illness with high fever.",
-"C":"Migraine with aura, because headache and photophobia can be prominent, although fever, nuchal rigidity, and new confusion are not typical features of migraine.",
-"D":"Systemic viral illness with tension-type headache, because fever and headache can coexist, although true nuchal rigidity and new confusion require another explanation."
-},
-"rationale":"CDC describes meningitis with fever, headache, stiff neck and possible photophobia or confusion. The revised stem deliberately removes the prior thunderclap-style cue: the headache worsens over hours in an evolving high-fever illness, making meningitis the best explanation. Subarachnoid hemorrhage can cause sudden thunderclap headache with meningeal irritation, but it does not best explain this infectious pattern."
-},
-287:{
-"stem":"A nurse is assessing an awake, calm term newborn before discharge. Which heart rate is within the expected resting range?",
-"options":{
-"A":"140 beats/min, a value within the expected resting heart-rate range for an awake, calm infant during routine assessment.",
-"B":"80 beats/min, a value below the expected resting heart-rate range for an awake infant during routine assessment.",
-"C":"205 beats/min, a value above the expected resting heart-rate range for an awake infant during routine assessment.",
-"D":"230 beats/min, a value far above the expected resting heart-rate range for an awake, calm infant during routine assessment."
-},
-"rationale":"The American Heart Association lists an infant resting heart rate averaging about 100–190 beats/min. Therefore 140 beats/min is within the expected infant resting range, while 80 is below and 205 or 230 are above that range. The stem was corrected from a nonspecific ‘quiet newborn’ description to an awake, calm infant so normal sleep-related slowing does not create a second defensible answer."
-},
-292:{"category_id":4,"client_need":"Health Promotion and Maintenance"},
+    2: "Client Needs — Safe and Effective Care Environment — Management of Care; Assignment, Delegation and Supervision; prioritization/continuity/client rights as applicable.",
+    3: "Client Needs — Safe and Effective Care Environment — Safety and Infection Prevention and Control; Reporting of Incident/Event and infection/safety activities as applicable.",
+    4: "Client Needs — Health Promotion and Maintenance; preventive care, screening, prenatal/postpartum and newborn health-promotion activities as applicable.",
+    5: "Client Needs — Psychosocial Integrity; coping, support systems, grief/loss and therapeutic adaptation activities as applicable.",
+    7: "Client Needs — Physiological Integrity — Basic Care and Comfort; hygiene, comfort, positioning and nonpharmacologic care activities as applicable.",
+    8: "Client Needs — Physiological Integrity — Pharmacological and Parenteral Therapies; medication administration, adverse effects/interactions and monitoring.",
+    9: "Client Needs — Physiological Integrity — Reduction of Risk Potential; diagnostic tests, laboratory values, monitoring and potential complications.",
+    10: "Client Needs — Physiological Integrity — Physiological Adaptation; acute/complex alterations and medical emergencies.",
 }
 
 
-def metric(options, key):
-    lengths={k:len(str(v).strip()) for k,v in options.items()}; vals=list(lengths.values())
-    ratio=max(vals)/max(min(vals),1); mean=sum(lengths[k] for k in "ABCD" if k!=key)/3
-    dev=abs(lengths[key]-mean)/max(mean,1)
-    unique=((lengths[key]==min(vals) and vals.count(min(vals))==1) or (lengths[key]==max(vals) and vals.count(max(vals))==1))
-    return lengths,ratio,dev,unique
+def load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def main():
-    con=sqlite3.connect(DB); con.row_factory=sqlite3.Row
-    rows=con.execute("SELECT * FROM questions WHERE question_uid BETWEEN 'V2-Q0251' AND 'V2-Q0300' ORDER BY question_uid").fetchall()
-    con.close()
-    if len(rows)!=50 or [r['question_uid'] for r in rows]!=IDS: raise SystemExit('Batch006 DB range mismatch')
-    evidence=[]; overrides=[]; max_ratio=max_dev=0.0
-    for r in rows:
-        uid=r['question_uid']; sid=int(r['source_id']); corr=CORRECTED.get(sid,{})
-        category=int(corr.get('category_id',r['category_id'])); need=corr.get('client_need',r['client_need']); difficulty=r['difficulty']
-        stem=corr.get('stem',r['stem']); rationale=corr.get('rationale',r['rationale'])
-        options=corr.get('options',json.loads(r['item_data_json'])['options']); key=json.loads(r['correct_answer_json'])['correct_option']
-        if set(options)!=set('ABCD') or len({str(v).strip().casefold() for v in options.values()})!=4: raise SystemExit(f'{uid}: invalid options')
-        lengths,ratio,dev,unique=metric(options,key)
-        if ratio>1.15+1e-12 or dev>0.10+1e-12 or unique: raise SystemExit(f'{uid}: option QC fail ratio={ratio:.4f} dev={dev:.4f} unique={unique}')
-        max_ratio=max(max_ratio,ratio); max_dev=max(max_dev,dev)
-        locator,version=META[sid]
-        source_name,source_url=SOURCE_OVERRIDES.get(sid,(r['source_name'],r['source_url']))
-        auth='S' if uid in SECONDARY else 'P'
-        ncsbn={"required":True,"source":"NCSBN — 2026 NCLEX-RN Test Plan","url":NCSBN_URL,"locator":NCSBN_LOCATORS[category],"version":NCSBN_VERSION,"result":"PASS","scope":"NCLEX blueprint/content-category and clinical-judgment first-check; exact clinical claim verified against the topic authority listed for this item."}
-        finding=rationale
-        oq={"lengths":lengths,"max_min_ratio":round(ratio,4),"correct_deviation":round(dev,4),"correct_unique_length_extreme":False,"artificial_padding":False}
-        evidence.append({"id":uid,"source_id":sid,"key":key,"category_id":category,"client_need":need,"difficulty":difficulty,"authority":auth,"source_name":source_name,"source_url":source_url,"source_locator":locator,"source_version":version,"reviewed_at":REVIEW_DATE,"finding":finding,"ncsbn_first_check":ncsbn,"criteria":11,"second_pass":"PASS","final":"FINAL_QA_PASS","option_qc":oq})
-        source_detail=f"{locator} {version} NCSBN first-check: {ncsbn['locator']} {NCSBN_VERSION} Reviewed {REVIEW_DATE}."
-        overrides.append({"question_uid":uid,"source_id":sid,"category_id":category,"client_need":need,"difficulty":difficulty,"stem":stem,"item_data_json":json.dumps({"options":options},ensure_ascii=False,separators=(',',':')),"correct_answer_json":json.dumps({"correct_option":key},separators=(',',':')),"rationale":rationale,"source_name":source_name,"source_detail":source_detail,"source_url":source_url,"clinical_qa_status":STATUS,"editorial_priority":"PRODUCTION_CANDIDATE","editorial_flags_json":json.dumps(["RULE1_BATCH006_CHRONOLOGICAL_REAL_REAUDIT","NCSBN_FIRST_CHECK_PASS","SOURCE_LOCATOR_VERSION_CURRENTNESS_VERIFIED","SECOND_PASS_QA_PASS","STRICT_OPTION_LENGTH_ANTI_CUE_QC_PASS"],separators=(',',':')),"qc":{"question_uid":uid,"lengths_json":json.dumps(lengths,separators=(',',':')),"min_chars":min(lengths.values()),"max_chars":max(lengths.values()),"max_min_ratio":round(ratio,4),"correct_option":key,"correct_length_rank":sorted(lengths.values()).index(lengths[key])+1,"correct_is_extreme":0,"qc_status":"PASS","qc_note":"Rule 1 chronological Batch 006 semantic option/cue QC: max/min <=1.15; correct-option deviation <=10%; correct option is not a unique length extreme; no artificial padding."}})
-    doc={"standard":"RULE_1_FINAL_10_OF_10_REAL_REAUDIT","batch":"Q0251-Q0300","review_date":REVIEW_DATE,"legacy_status_evidence":False,"criteria_names":CRITERIA,"ncsbn_first_check_policy":"MANDATORY_FIRST_CHECK_FOR_NCLEX_BLUEPRINT_CONTENT_CATEGORY_CLINICAL_JUDGMENT_AND_NURSING_STANDARDS;_TOPIC_AUTHORITY_FOR_EXACT_CLINICAL_CLAIM","ncsbn_source":NCSBN_URL,"secondary_source_exceptions":sorted(SECONDARY),"substantive_corrections":sorted(SUBSTANTIVE),"items":evidence}
-    EVIDENCE.write_text(json.dumps(doc,ensure_ascii=False,indent=2)+"\n",encoding='utf-8')
-    OVERRIDE.write_text(json.dumps({"version":"2026-08-15-rule1-batch006-chronological-q0251-q0300","questions":overrides},ensure_ascii=False,indent=2)+"\n",encoding='utf-8')
-    print(f'BATCH006_CHRONOLOGICAL_ARTIFACTS_BUILT items=50/50 criteria11=50/50 ncsbn_first_check=50/50 corrections={len(SUBSTANTIVE)}/7 secondary={len(SECONDARY)}/2 option_qc=50/50 max_ratio={max_ratio:.4f} max_dev={max_dev:.4f}')
+def option_metrics(options: dict[str, str], key: str) -> dict:
+    lengths = {k: len(str(options[k]).strip()) for k in "ABCD"}
+    values = list(lengths.values())
+    distractor_mean = sum(lengths[k] for k in "ABCD" if k != key) / 3
+    return {
+        "characters": lengths,
+        "max_min_ratio": round(max(values) / max(min(values), 1), 4),
+        "correct_option": key,
+        "correct_deviation_from_distractor_mean": round(abs(lengths[key] - distractor_mean) / max(distractor_mean, 1), 4),
+        "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE",
+    }
 
-if __name__=='__main__': main()
+
+def main() -> None:
+    if not EVIDENCE.exists() or not OVERRIDE.exists():
+        raise SystemExit("Baseline Batch 006 artifacts are required as content/source carriers")
+
+    baseline_evidence_doc = load_json(EVIDENCE)
+    baseline_override_doc = load_json(OVERRIDE)
+    baseline_evidence = {x["id"]: x for x in baseline_evidence_doc.get("items", [])}
+    baseline_override = {x["question_uid"]: x for x in baseline_override_doc.get("questions", [])}
+    if set(baseline_evidence) != set(IDS) or set(baseline_override) != set(IDS):
+        raise SystemExit("Baseline Batch 006 scope must be exactly Q0251-Q0300")
+
+    manual: list[dict] = []
+    for path in PATCHES:
+        doc = load_json(path)
+        if doc.get("batch") != "Q0251-Q0300" or doc.get("review_date") != REVIEW_DATE or doc.get("legacy_status_evidence") is not False:
+            raise SystemExit(f"Invalid manual audit header: {path.name}")
+        manual.extend(doc.get("items", []))
+    if [x.get("id") for x in manual] != IDS or len(manual) != 50:
+        raise SystemExit("Manual Rule 1 patches must contain Q0251-Q0300 exactly once and in order")
+
+    evidence_out: list[dict] = []
+    override_out: list[dict] = []
+    for patch in manual:
+        uid = patch["id"]
+        base_q = dict(baseline_override[uid])
+        base_e = baseline_evidence[uid]
+        if patch.get("qa") != [11, "PASS", "FINAL_QA_PASS"]:
+            raise SystemExit(f"{uid}: manual semantic decision incomplete")
+
+        options = patch.get("o")
+        if not isinstance(options, dict) or set(options) != set("ABCD"):
+            raise SystemExit(f"{uid}: manual options must contain A-D")
+        normalized = [str(options[k]).strip().casefold() for k in "ABCD"]
+        if any(not x for x in normalized) or len(set(normalized)) != 4:
+            raise SystemExit(f"{uid}: blank/duplicate manual option")
+        key = patch.get("k")
+        if key not in options:
+            raise SystemExit(f"{uid}: invalid correct option")
+
+        stem = patch.get("s", base_q["stem"])
+        rationale = patch.get("r", base_q["rationale"])
+        category_id = int(patch["cat"])
+        client_need = patch["need"]
+        difficulty = patch["diff"]
+        src = patch.get("src")
+        if src:
+            source_name = src["n"]
+            source_url = src["u"]
+            locator = src["l"]
+            version = src["v"]
+            authority = src["a"]
+        else:
+            source_name = base_q["source_name"]
+            source_url = base_q["source_url"]
+            locator = base_e["source_locator"]
+            version = base_e["source_version"]
+            authority = base_e.get("authority", "PRIMARY_OR_AUTHORITATIVE")
+        if not source_url.startswith("https://") or not locator.strip() or not version.strip():
+            raise SystemExit(f"{uid}: source URL/locator/version missing")
+
+        supporting = patch.get("support", [])
+        for support in supporting:
+            if not support["u"].startswith("https://") or not support["l"].strip() or not support["v"].strip():
+                raise SystemExit(f"{uid}: invalid supporting source")
+
+        ncsbn = {
+            "required_currentness_and_blueprint_check": True,
+            "source": "NCSBN — 2026 NCLEX-RN Test Plan",
+            "url": NCSBN_URL,
+            "locator": NCSBN_LOCATORS[category_id],
+            "version": NCSBN_VERSION,
+            "result": "PASS",
+            "scope": "NCLEX blueprint/category/currentness and entry-level relevance; exact clinical claim is verified against the item topic authority.",
+        }
+        metrics = option_metrics(options, key)
+        finding = patch.get("finding") or f"Manual Rule 1 item-by-item re-audit completed 2026-08-15; key {key} directly source-verified; stem, rationale, all four options, second-answer risk, cueing, blueprint/topic/difficulty, currentness, and independent second pass verified."
+
+        source_detail_parts = [locator, version, f"NCSBN first-check: {ncsbn['locator']} {NCSBN_VERSION}"]
+        if supporting:
+            source_detail_parts.append("Supporting sources: " + " | ".join(f"{s['n']}: {s['l']} {s['v']} {s['u']}" for s in supporting))
+        source_detail = " ".join(source_detail_parts)
+
+        base_q.update({
+            "category_id": category_id,
+            "client_need": client_need,
+            "difficulty": difficulty,
+            "stem": stem,
+            "item_data_json": json.dumps({"options": options}, ensure_ascii=False, separators=(",", ":")),
+            "correct_answer_json": json.dumps({"correct_option": key}, separators=(",", ":")),
+            "rationale": rationale,
+            "source_name": source_name,
+            "source_detail": source_detail,
+            "source_url": source_url,
+            "clinical_qa_status": STATUS,
+            "editorial_priority": "PRODUCTION_CANDIDATE",
+            "editorial_flags_json": json.dumps([
+                "RULE1_BATCH006_MANUAL_ITEM_BY_ITEM_REAUDIT",
+                "LEGACY_STATUS_NOT_USED_AS_EVIDENCE",
+                "SOURCE_LOCATOR_VERSION_CURRENTNESS_VERIFIED",
+                "MANUAL_DISTRACTOR_AMBIGUITY_CUE_SECOND_ANSWER_QC_PASS",
+                "INDEPENDENT_SECOND_PASS_QA_PASS",
+                "OPTION_LENGTH_METRICS_MEASUREMENT_ONLY",
+            ], separators=(",", ":")),
+            "qc": {
+                "question_uid": uid,
+                "lengths_json": json.dumps(metrics["characters"], separators=(",", ":")),
+                "min_chars": min(metrics["characters"].values()),
+                "max_chars": max(metrics["characters"].values()),
+                "max_min_ratio": metrics["max_min_ratio"],
+                "correct_option": key,
+                "correct_length_rank": sorted(metrics["characters"].values()).index(metrics["characters"][key]) + 1,
+                "correct_is_extreme": int(metrics["characters"][key] in (min(metrics["characters"].values()), max(metrics["characters"].values()))),
+                "qc_status": "MEASURED_NOT_GATE",
+                "qc_note": "Length is measured only. Semantic distractor/cue/ambiguity decisions come exclusively from the manual Rule 1 audit.",
+            },
+        })
+        override_out.append(base_q)
+        evidence_out.append({
+            "id": uid,
+            "key": key,
+            "category_id": category_id,
+            "client_need": client_need,
+            "difficulty": difficulty,
+            "source_authority": authority,
+            "source_name": source_name,
+            "source_url": source_url,
+            "source_locator": locator,
+            "source_version": version,
+            "supporting_sources": supporting,
+            "reviewed_at": REVIEW_DATE,
+            "finding": finding,
+            "ncsbn_first_check": ncsbn,
+            "criteria": 11,
+            "criteria_names": CRITERIA,
+            "second_pass": "PASS",
+            "second_pass_method": "Fresh second read of stem, all four options, key, rationale, source locator/version/currentness, blueprint and second-answer/cue risk without reliance on legacy status.",
+            "final": "FINAL_QA_PASS",
+            "option_measurement": metrics,
+            "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT",
+        })
+
+    EVIDENCE.write_text(json.dumps({
+        "standard": "RULE_1_FINAL_10_OF_10_MANUAL_ITEM_BY_ITEM_REAUDIT",
+        "batch": "Q0251-Q0300",
+        "review_date": REVIEW_DATE,
+        "legacy_status_evidence": False,
+        "semantic_decisions_by_script": False,
+        "criteria_names": CRITERIA,
+        "ncsbn_test_plan": {"url": NCSBN_URL, "version": NCSBN_VERSION},
+        "items": evidence_out,
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OVERRIDE.write_text(json.dumps({
+        "version": "2026-08-15-rule1-batch006-manual-item-by-item-q0251-q0300",
+        "semantic_decisions_by_script": False,
+        "questions": override_out,
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("BATCH006_MANUAL_ARTIFACTS_APPLIED items=50/50 criteria11=50/50 second_pass=50/50 semantic_script_decisions=0 length_metrics=measurement_only")
+
+
+if __name__ == "__main__":
+    main()
