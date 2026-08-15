@@ -105,6 +105,14 @@ def main() -> None:
             continue
         source_count += 1
 
+        # Technical integration of the already-completed manual semantic blueprint decision.
+        # The master builder does not apply these three override fields, so write them here
+        # before verification. This does not infer or decide semantics; it persists the manual audit.
+        con.execute(
+            "UPDATE questions SET category_id=?, client_need=?, difficulty=? WHERE question_uid=?",
+            (e["category_id"], e["client_need"], e["difficulty"], uid),
+        )
+
         q = con.execute("SELECT * FROM questions WHERE question_uid=?", (uid,)).fetchone()
         if q is None:
             failures.append(f"{uid}: missing DB row")
