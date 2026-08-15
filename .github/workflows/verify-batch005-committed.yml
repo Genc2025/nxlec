@@ -66,6 +66,6 @@ jobs:
           assert q799==(5,'Psychosocial Integrity','easy'), q799
           assert q813==(3,'Safety & Infection Prevention and Control','easy'), q813
           assert 'cholecystitis' in q829 and 'ultrasound' in q829
-          assert report.exists() and 'Final Batch 005 disposition: **FINAL_QA_PASS 50/50**' in report.read_text(encoding='utf-8')
+          assert report.exists() and 'Final Batch 005 result: **FINAL_QA_PASS 50/50**' in report.read_text(encoding='utf-8')
           print(f'BATCH005_COMMITTED_DB_INDEPENDENTLY_VERIFIED integrity={integrity} total={total} final={final}/50 manual11={manual}/50 evidence11={evidence}/50 sources={source_ok}/50 option_qc={option_ok}/50 corrections={corrected}/16 secondary={secondary}/1 bad={bad} max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} ready={ready}')
           PY
