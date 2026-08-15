@@ -1,0 +1,31 @@
+name: Inspect Batch 005 Items
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-batch005-items.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dump Q0782-Q0831 current items
+        run: |
+          python - <<'PY'
+          import sqlite3, json
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          con.row_factory=sqlite3.Row
+          rows=con.execute("SELECT question_uid,source_id,category_id,client_need,difficulty,stem,item_data_json,correct_answer_json,rationale,source_name,source_detail,source_url,clinical_qa_status FROM questions WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' ORDER BY question_uid").fetchall()
+          assert len(rows)==50, len(rows)
+          for r in rows:
+              d=dict(r)
+              d['options']=json.loads(d.pop('item_data_json'))['options']
+              d['key']=json.loads(d.pop('correct_answer_json'))['correct_option']
+              print('ITEM='+json.dumps(d,ensure_ascii=False,sort_keys=True))
+          con.close()
+          PY
