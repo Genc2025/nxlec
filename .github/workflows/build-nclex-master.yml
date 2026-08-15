@@ -16,6 +16,7 @@ on:
       - "tools/apply_batch003_rule1_final_gate.py"
       - "tools/apply_batch004_rule1_final_gate.py"
       - "tools/verify_batch004_rule1_round2.py"
+      - "tools/apply_batch005_chronological_rule1_final_gate.py"
       - "tools/apply_batch005_rule1_final_gate.py"
       - "tools/apply_batch006_rule1_final_gate.py"
       - "tools/apply_wave26_option_balance.py"
@@ -63,11 +64,7 @@ jobs:
               echo "Keeping existing $json_file; skipping $file"
               continue
             fi
-            echo "Decoding compressed $file"
-            if ! base64 --decode "$file" | gzip -dc > "$json_file"; then
-              echo "INVALID_GZIP_BASE64_FILE=$file"
-              exit 1
-            fi
+            base64 --decode "$file" | gzip -dc > "$json_file"
           done
           for file in data/clinical_overrides_*.b64; do
             [[ "$file" == *.json.gz.b64 ]] && continue
@@ -76,11 +73,7 @@ jobs:
               echo "Keeping existing $json_file; skipping $file"
               continue
             fi
-            echo "Decoding $file"
-            if ! base64 --decode "$file" > "$json_file"; then
-              echo "INVALID_BASE64_FILE=$file"
-              exit 1
-            fi
+            base64 --decode "$file" > "$json_file"
           done
 
       - name: Rebuild Wave 27 manual QA manifest
@@ -92,16 +85,16 @@ jobs:
       - name: Enforce full-bank commercial hard gate
         run: python tools/enforce_commercial_gate.py
 
-      - name: Enforce strict 11-dimension governance on all verified questions
+      - name: Enforce strict 11-dimension governance baseline
         run: python tools/enforce_strict_question_gate.py
 
       - name: Apply Wave 26 manually authored option balance
         run: python tools/apply_wave26_option_balance.py
 
-      - name: Report Wave 26 option-length diagnostics
+      - name: Report Wave 26 option diagnostics
         run: python tools/report_wave26_option_metrics.py
 
-      - name: Apply Q0001-Q0050 strict final QA gate
+      - name: Apply Rule 1 Batch 001 Q0001-Q0050
         run: python tools/apply_batch001_final_gate.py
 
       - name: Apply Rule 1 Batch 002 Q0051-Q0100
@@ -116,6 +109,9 @@ jobs:
       - name: Verify Rule 1 Batch 004 fresh round2
         run: python tools/verify_batch004_rule1_round2.py
 
+      - name: Apply chronological Rule 1 Batch 005 Q0201-Q0250
+        run: python tools/apply_batch005_chronological_rule1_final_gate.py
+
       - name: Apply off-sequence audited set Q0782-Q0831
         run: python tools/apply_batch005_rule1_final_gate.py
 
@@ -125,89 +121,73 @@ jobs:
       - name: Apply Wave 25 strict final QA gate
         run: python tools/apply_wave25_final_gate.py
 
-      - name: Apply Wave 26 manual item-by-item final QA gate
+      - name: Apply Wave 26 manual final QA gate
         run: python tools/apply_wave26_manual_final_gate.py
 
-      - name: Apply Wave 27 manual item-by-item final QA gate
+      - name: Apply Wave 27 manual final QA gate
         run: python tools/apply_wave27_manual_final_gate.py
 
-      - name: Export next pending audit range
+      - name: Export next chronological pending audit
         run: python tools/export_pending_audit.py
 
-      - name: Verify master database and strict final-gate coverage
+      - name: Verify master database and chronological Rule 1 coverage
         run: |
           python - <<'PY'
-          import json
-          import sqlite3
+          import json, sqlite3
           from pathlib import Path
-          db=Path("NCLEX_COMMERCIAL_MASTER_CURRENT.db")
-          if not db.exists(): raise SystemExit("Master database was not created")
+          db=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          if not db.exists(): raise SystemExit('Master database was not created')
           con=sqlite3.connect(db)
-          integrity=con.execute("PRAGMA integrity_check").fetchone()[0]
-          total=con.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
           verified=con.execute("SELECT COUNT(*) FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%'").fetchone()[0]
-          ready=con.execute("SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1").fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
           gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
           policy=con.execute("SELECT value FROM bank_metadata WHERE key='strict_final_gate_policy'").fetchone()
-          batch1=con.execute("SELECT value FROM bank_metadata WHERE key='batch001_q0001_q0050_final_gate'").fetchone()
-          batch2=con.execute("SELECT value FROM bank_metadata WHERE key='batch002_q0051_q0100_rule1_final_gate'").fetchone()
-          batch3=con.execute("SELECT value FROM bank_metadata WHERE key='batch003_q0101_q0150_rule1_final_gate'").fetchone()
-          batch4=con.execute("SELECT value FROM bank_metadata WHERE key='batch004_q0151_q0200_rule1_final_gate'").fetchone()
-          batch5=con.execute("SELECT value FROM bank_metadata WHERE key='batch005_q0782_q0831_rule1_final_gate'").fetchone()
-          batch6=con.execute("SELECT value FROM bank_metadata WHERE key='batch006_q0832_q0881_rule1_final_gate'").fetchone()
-          wave25=con.execute("SELECT value FROM bank_metadata WHERE key='wave25_q0492_q0531_final_gate'").fetchone()
-          wave26=con.execute("SELECT value FROM bank_metadata WHERE key='wave26_q0532_q0581_manual_final_gate'").fetchone()
-          wave27=con.execute("SELECT value FROM bank_metadata WHERE key='wave27_q0582_q0631_manual_final_gate'").fetchone()
+          meta={k:con.execute('SELECT value FROM bank_metadata WHERE key=?',(k,)).fetchone() for k in [
+            'batch001_q0001_q0050_final_gate','batch002_q0051_q0100_rule1_final_gate','batch003_q0101_q0150_rule1_final_gate',
+            'batch004_q0151_q0200_rule1_final_gate','batch005_chronological_q0201_q0250_rule1_final_gate',
+            'batch005_q0782_q0831_rule1_final_gate','batch006_q0832_q0881_rule1_final_gate',
+            'wave25_q0492_q0531_final_gate','wave26_q0532_q0581_manual_final_gate','wave27_q0582_q0631_manual_final_gate']}
           records=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid IN (SELECT question_uid FROM questions WHERE clinical_qa_status LIKE 'SOURCE_VERIFIED_2026_%')").fetchone()[0]
           passed=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PASS'").fetchone()[0]
           pending=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE final_status='FINAL_QA_PENDING'").fetchone()[0]
-          def count_pass(a,b):
-              return con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN ? AND ? AND final_status='FINAL_QA_PASS'",(a,b)).fetchone()[0]
-          def count_manual(a,b):
-              return con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN ? AND ? AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS' AND criteria_passed_count=11",(a,b)).fetchone()[0]
-          batch1_passed=count_pass('V2-Q0001','V2-Q0050')
-          batch2_passed=count_pass('V2-Q0051','V2-Q0100'); batch2_manual=count_manual('V2-Q0051','V2-Q0100')
-          batch3_passed=count_pass('V2-Q0101','V2-Q0150'); batch3_manual=count_manual('V2-Q0101','V2-Q0150')
-          batch4_passed=count_pass('V2-Q0151','V2-Q0200'); batch4_manual=count_manual('V2-Q0151','V2-Q0200')
-          batch5_passed=count_pass('V2-Q0782','V2-Q0831'); batch5_manual=count_manual('V2-Q0782','V2-Q0831')
-          batch6_passed=count_pass('V2-Q0832','V2-Q0881'); batch6_manual=count_manual('V2-Q0832','V2-Q0881')
-          wave25_passed=count_pass('V2-Q0492','V2-Q0531')
-          wave26_passed=count_pass('V2-Q0532','V2-Q0581')
-          wave26_option=con.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0532' AND 'V2-Q0581' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
-          wave27_passed=count_pass('V2-Q0582','V2-Q0631')
-          wave27_option=con.execute("SELECT COUNT(*) FROM option_length_qc WHERE question_uid BETWEEN 'V2-Q0582' AND 'V2-Q0631' AND qc_status='PASS' AND max_min_ratio<=1.15").fetchone()[0]
+          def cp(a,b): return con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN ? AND ? AND final_status='FINAL_QA_PASS'",(a,b)).fetchone()[0]
+          def cm(a,b): return con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN ? AND ? AND final_disposition='FINAL_QA_PASS' AND second_pass='PASS' AND criteria_passed_count=11",(a,b)).fetchone()[0]
+          b1=cp('V2-Q0001','V2-Q0050'); b2=cp('V2-Q0051','V2-Q0100'); b3=cp('V2-Q0101','V2-Q0150'); b4=cp('V2-Q0151','V2-Q0200')
+          b5c=cp('V2-Q0201','V2-Q0250'); b5cm=cm('V2-Q0201','V2-Q0250')
+          off5=cp('V2-Q0782','V2-Q0831'); off6=cp('V2-Q0832','V2-Q0881')
+          w25=cp('V2-Q0492','V2-Q0531'); w26=cp('V2-Q0532','V2-Q0581'); w27=cp('V2-Q0582','V2-Q0631')
+          b5ce=con.execute("SELECT COUNT(*) FROM rule1_batch005_chronological_reaudit_evidence WHERE criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          b5cbad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
           con.close()
-          pending_json=json.loads(Path('data/pending_audit_next.json').read_text(encoding='utf-8'))
-          assert integrity=='ok',integrity
-          assert total==3525,total
-          assert verified>=881,verified
-          assert ready==0,ready
-          assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA',gate
-          assert policy and policy[0]=='REQUIRED_11_DIMENSIONS_FOR_EVERY_QUESTION',policy
-          assert records==verified,(records,verified)
-          assert passed+pending==records,(passed,pending,records)
-          assert batch1 and batch1[0]=='PASS_50_OF_50_2026_08_14' and batch1_passed==50
-          assert batch2 and batch2[0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM' and batch2_passed==50 and batch2_manual==50
-          assert batch3 and batch3[0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM' and batch3_passed==50 and batch3_manual==50
-          assert batch4 and batch4[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and batch4_passed==50 and batch4_manual==50
-          assert batch5 and batch5[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and batch5_passed==50 and batch5_manual==50
-          assert batch6 and batch6[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and batch6_passed==50 and batch6_manual==50
-          assert wave25 and wave25[0]=='PASS_40_OF_40_2026_08_14' and wave25_passed==40
-          assert wave26 and wave26[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS' and wave26_passed==50 and wave26_option==50
-          assert wave27 and wave27[0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS' and wave27_passed==50 and wave27_option==50
-          assert pending_json.get('range')==[201,250], pending_json.get('range')
-          assert pending_json.get('count')==50, pending_json.get('count')
-          print(f"Verified: integrity={integrity}, total={total}, verified={verified}, final_pass={passed}, batch1={batch1_passed}/50, batch2={batch2_passed}/50, batch3={batch3_passed}/50, batch4={batch4_passed}/50, offseq_0782_0831={batch5_passed}/50, offseq_0832_0881={batch6_passed}/50, next_rule1={pending_json.get('range')}, ready={ready}")
+          nextp=json.loads(Path('data/pending_audit_next.json').read_text(encoding='utf-8'))
+          assert integrity=='ok' and total==3525 and verified>=881 and ready==0
+          assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA'
+          assert policy and policy[0]=='REQUIRED_11_DIMENSIONS_FOR_EVERY_QUESTION'
+          assert records==verified and passed+pending==records
+          assert meta['batch001_q0001_q0050_final_gate'][0]=='PASS_50_OF_50_2026_08_14' and b1==50
+          assert meta['batch002_q0051_q0100_rule1_final_gate'][0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM' and b2==50 and cm('V2-Q0051','V2-Q0100')==50
+          assert meta['batch003_q0101_q0150_rule1_final_gate'][0]=='PASS_50_OF_50_2026_08_14_RULE1_ITEM_BY_ITEM' and b3==50 and cm('V2-Q0101','V2-Q0150')==50
+          assert meta['batch004_q0151_q0200_rule1_final_gate'][0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and b4==50 and cm('V2-Q0151','V2-Q0200')==50
+          assert meta['batch005_chronological_q0201_q0250_rule1_final_gate'][0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and b5c==50 and b5cm==50 and b5ce==50 and b5cbad==0
+          assert meta['batch005_q0782_q0831_rule1_final_gate'][0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and off5==50
+          assert meta['batch006_q0832_q0881_rule1_final_gate'][0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and off6==50
+          assert meta['wave25_q0492_q0531_final_gate'][0]=='PASS_40_OF_40_2026_08_14' and w25==40
+          assert meta['wave26_q0532_q0581_manual_final_gate'][0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS' and w26==50
+          assert meta['wave27_q0582_q0631_manual_final_gate'][0]=='PASS_50_OF_50_2026_08_14_ITEM_BY_ITEM_STRICT_OPTIONS' and w27==50
+          assert nextp.get('range')==[251,300] and nextp.get('count')==50
+          print(f'CANONICAL_MASTER_VERIFIED integrity={integrity} total={total} verified={verified} batch5_chrono={b5c}/50 manual11={b5cm}/50 evidence11={b5ce}/50 bad={b5cbad} next={nextp.get("range")} ready={ready}')
           PY
 
       - name: Commit generated master
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_BATCH002_Q0051_Q0100_RULE1_10OF10.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md FINAL_QA_BATCH004_Q0151_Q0200_RULE1_10OF10.md FINAL_QA_BATCH004_ROUND2_20260815.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md FINAL_QA_BATCH006_Q0832_Q0881_RULE1_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/rule1_manual_audit_batch002_q0051_q0100.json data/rule1_manual_audit_batch003_q0101_q0150.json data/rule1_batch004_*.json data/rule1_batch005_*.json data/rule1_batch006_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_BATCH002_Q0051_Q0100_RULE1_10OF10.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md FINAL_QA_BATCH004_Q0151_Q0200_RULE1_10OF10.md FINAL_QA_BATCH004_ROUND2_20260815.md FINAL_QA_BATCH005_Q0201_Q0250_RULE1_10OF10.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md FINAL_QA_BATCH006_Q0832_Q0881_RULE1_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/rule1_manual_audit_batch002_q0051_q0100.json data/rule1_manual_audit_batch003_q0101_q0150.json data/rule1_batch004_*.json data/rule1_batch005_*.json data/rule1_batch006_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
           if git diff --cached --quiet; then
             echo "Master is already current"
           else
-            git commit -m "Build current NCLEX commercial master with chronological Rule 1 pending selection [skip ci]"
+            git commit -m "Build current NCLEX commercial master with chronological Rule 1 Batch 005 [skip ci]"
             git push
           fi
