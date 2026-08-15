@@ -41,6 +41,7 @@ def main():
             failures.append(f'{uid}: NCSBN currentness/blueprint evidence incomplete'); continue
         if not e.get('source_url','').startswith('https://') or not e.get('source_locator','').strip() or not e.get('source_version','').strip() or not e.get('source_authority','').strip():
             failures.append(f'{uid}: source authority/URL/locator/version incomplete'); continue
+        con.execute('UPDATE questions SET category_id=?,client_need=?,difficulty=? WHERE question_uid=?',(e['category_id'],e['client_need'],e['difficulty'],uid))
         q=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
         if not q: failures.append(f'{uid}: DB row missing'); continue
         try:
