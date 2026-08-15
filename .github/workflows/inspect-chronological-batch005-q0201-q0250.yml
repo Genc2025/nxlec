@@ -1,0 +1,35 @@
+name: Inspect chronological Batch 005 Q0201-Q0250
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-chronological-batch005-q0201-q0250.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect items and option metrics
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db'); con.row_factory=sqlite3.Row
+          rows=con.execute("SELECT question_uid,source_id,category_id,client_need,difficulty,stem,item_data_json,correct_answer_json,rationale,source_name,source_detail,source_url,clinical_qa_status FROM questions WHERE source_bank='v2' AND source_id BETWEEN 201 AND 250 ORDER BY source_id").fetchall()
+          print('COUNT',len(rows))
+          bad=0; max_ratio=0; max_dev=0
+          for q in rows:
+              opts=json.loads(q['item_data_json'])['options']; key=json.loads(q['correct_answer_json'])['correct_option']
+              lengths={k:len(v.strip()) for k,v in opts.items()}; vals=list(lengths.values())
+              ratio=max(vals)/min(vals); dm=sum(lengths[k] for k in 'ABCD' if k!=key)/3; dev=abs(lengths[key]-dm)/dm
+              unique=((lengths[key]==min(vals) and vals.count(min(vals))==1) or (lengths[key]==max(vals) and vals.count(max(vals))==1))
+              fail=ratio>1.15 or dev>0.10 or unique
+              bad+=int(fail); max_ratio=max(max_ratio,ratio); max_dev=max(max_dev,dev)
+              print(f"ITEM|{q['question_uid']}|src={q['source_id']}|cat={q['category_id']}|need={q['client_need']}|diff={q['difficulty']}|key={key}|lengths={lengths}|ratio={ratio:.4f}|dev={dev:.4f}|unique={int(unique)}|fail={int(fail)}|status={q['clinical_qa_status']}|url={q['source_url']}")
+          con.close()
+          print(f'SUMMARY|count={len(rows)}|option_fail={bad}|max_ratio={max_ratio:.4f}|max_dev={max_dev:.4f}')
+          PY
