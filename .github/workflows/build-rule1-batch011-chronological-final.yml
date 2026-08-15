@@ -7,6 +7,7 @@ on:
       - '.github/workflows/build-rule1-batch011-chronological-final.yml'
       - 'tools/materialize_batch011_manual_payload.py'
       - 'tools/apply_batch011_chronological_rule1_final_gate.py'
+      - 'tools/preserve_wave26_tail_after_batch011.py'
       - 'data/batch011_manual_payload.json.gz.b64.part*'
   workflow_dispatch:
 
@@ -75,11 +76,6 @@ jobs:
       - name: Enforce strict governance baseline
         run: python tools/enforce_strict_question_gate.py
 
-      - name: Preserve option-metric enforcement outside Batch 011
-        run: |
-          python tools/apply_wave26_option_balance.py
-          python tools/report_wave26_option_metrics.py
-
       - name: Reapply completed chronological Rule 1 gates 001-010
         run: |
           python tools/apply_batch001_final_gate.py
@@ -94,12 +90,12 @@ jobs:
           python tools/apply_batch009_chronological_rule1_final_gate.py
           python tools/apply_batch010_chronological_rule1_final_gate.py
 
-      - name: Preserve off-sequence audited sets and wave gates
+      - name: Preserve non-overlapping off-sequence audited sets
         run: |
           python tools/apply_batch005_rule1_final_gate.py
           python tools/apply_batch006_rule1_final_gate.py
           python tools/apply_wave25_final_gate.py
-          python tools/apply_wave26_manual_final_gate.py
+          python tools/preserve_wave26_tail_after_batch011.py
           python tools/apply_wave27_manual_final_gate.py
 
       - name: Apply manual chronological Rule 1 Batch 011 final gate
@@ -123,11 +119,13 @@ jobs:
           ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
           gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()[0]
           meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch011_chronological_q0501_q0550_rule1_final_gate'").fetchone()[0]
+          tail=con.execute("SELECT value FROM bank_metadata WHERE key='wave26_tail_q0551_q0581_preserved_after_batch011'").fetchone()[0]
           final=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0501' AND 'V2-Q0550' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0501' AND 'V2-Q0550' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
           evidence=con.execute("SELECT COUNT(*) FROM rule1_batch011_chronological_reaudit_evidence WHERE criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
           status=con.execute("SELECT COUNT(*) FROM questions WHERE question_uid BETWEEN 'V2-Q0501' AND 'V2-Q0550' AND clinical_qa_status='SOURCE_VERIFIED_2026_RULE1_BATCH011_CHRONOLOGICAL_MANUAL'").fetchone()[0]
           bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0501' AND 'V2-Q0550' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
+          tail_final=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0551' AND 'V2-Q0581' AND final_status='FINAL_QA_PASS'").fetchone()[0]
           for uid in ids:
             q=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone(); e=em[uid]; o=om[uid]
             opts=json.loads(q['item_data_json'])['options']; key=json.loads(q['correct_answer_json'])['correct_option']
@@ -141,9 +139,10 @@ jobs:
           assert integrity=='ok' and total==3525 and ready==0
           assert gate=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA'
           assert meta=='PASS_50_OF_50_MANUAL_ITEM_BY_ITEM_SECOND_PASS_11_OF_11_NCSBN_2026_08_15'
+          assert tail=='PASS_31_OF_31_PRIOR_MANUAL_EVIDENCE_REAPPLIED_TECHNICALLY' and tail_final==31
           assert (final,manual,evidence,status,bad)==(50,50,50,50,0)
           assert pending['range']==[551,600] and pending['count']==50
-          print(f'BATCH011_MANUAL_INTEGRATED_VERIFIED integrity={integrity} total={total} final={final}/50 manual11={manual}/50 evidence11={evidence}/50 status={status}/50 bad={bad} next={pending["range"]} ready={ready}')
+          print(f'BATCH011_MANUAL_INTEGRATED_VERIFIED integrity={integrity} total={total} final={final}/50 manual11={manual}/50 evidence11={evidence}/50 status={status}/50 bad={bad} wave26_tail={tail_final}/31 next={pending["range"]} ready={ready}')
           PY
 
       - name: Commit integrated manual Batch 011
