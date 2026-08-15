@@ -14,14 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Dump Q0832-Q0881 metadata
+      - name: Dump Q0832-Q0881 option metrics
         run: |
           python - <<'PY'
-          import sqlite3
+          import json, sqlite3
           con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
-          rows=con.execute("SELECT question_uid,source_id,category_id,client_need,difficulty,clinical_qa_status FROM questions WHERE question_uid BETWEEN 'V2-Q0832' AND 'V2-Q0881' ORDER BY question_uid").fetchall()
-          assert len(rows)==50, len(rows)
-          for r in rows:
-              print('|'.join(map(str,r)))
+          rows=con.execute("SELECT question_uid,item_data_json,correct_answer_json FROM questions WHERE question_uid BETWEEN 'V2-Q0832' AND 'V2-Q0881' ORDER BY question_uid").fetchall()
+          assert len(rows)==50
+          for uid,oj,kj in rows:
+              o=json.loads(oj)['options']; k=json.loads(kj)['correct_option']; lens={x:len(o[x].strip()) for x in 'ABCD'}; vals=list(lens.values()); ratio=max(vals)/min(vals); dm=sum(lens[x] for x in 'ABCD' if x!=k)/3; dev=abs(lens[k]-dm)/dm; unique=((lens[k]==min(vals) and vals.count(min(vals))==1) or (lens[k]==max(vals) and vals.count(max(vals))==1))
+              print(f'{uid}|key={k}|lens={lens}|ratio={ratio:.4f}|dev={dev:.4f}|unique={unique}')
           con.close()
           PY
