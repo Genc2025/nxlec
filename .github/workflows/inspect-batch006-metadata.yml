@@ -1,0 +1,26 @@
+name: Inspect Batch 006 Metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-batch006-metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dump Q0832-Q0881 metadata
+        run: |
+          python - <<'PY'
+          import sqlite3
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          rows=con.execute("SELECT question_uid,source_id,category_id,client_need,difficulty,clinical_qa_status FROM questions WHERE question_uid BETWEEN 'V2-Q0832' AND 'V2-Q0881' ORDER BY question_uid").fetchall()
+          assert len(rows)==50, len(rows)
+          for r in rows: print('|'.join(map(str,r)))
+          con.close()
+          PY
