@@ -876,13 +876,13 @@
       "category_id": 8,
       "client_need": "Pharmacological and Parenteral Therapies",
       "difficulty": "hard",
-      "source_authority": "AUTHORITATIVE_MEDICATION_SAFETY",
-      "source_name": "ISMP — High-Alert Medications in Acute Care Settings",
-      "source_url": "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
-      "source_locator": "ISMP/ECRI — 2024 High-Alert Medications in Acute Care Settings: insulin is a high-alert medication; high-alert drugs warrant special safeguards and redundancies. In the stem, facility policy explicitly requires an independent double-check, and the rapidly changing glucose is clinically relevant before administration.",
-      "source_version": "ISMP 2024 High-Alert Medications in Acute Care Settings remains current; ECRI/ISMP resource live-rechecked 2026-08-15. Blueprint corrected to Pharmacological and Parenteral Therapies because the item tests safe IV insulin administration/monitoring.",
+      "source_authority": "PRIMARY_FDA_LABEL",
+      "source_name": "DailyMed — HUMULIN R (insulin human) injection, Eli Lilly",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b519bd83-038c-4ec5-a231-a51ec5cc291f",
+      "source_locator": "DailyMed HUMULIN R — Dosage and Administration §2.2, Intravenous Administration: administer HUMULIN R intravenously ONLY under medical supervision with close monitoring of blood glucose and potassium; for IV use, use concentrations 0.1 unit/mL to 1 unit/mL in infusion systems containing 0.9% Sodium Chloride Injection.",
+      "source_version": "DailyMed HUMULIN R label updated 2025-05-27; §2.2 IV administration requirements live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key A directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 audit identified two defects in the prior version: the stem explicitly stated a facility double-check policy that cued the keyed action, and the pharmacology claim relied on a medication-safety secondary source instead of the FDA-label hierarchy. The item was rewritten around DailyMed §2.2 IV HUMULIN R administration, then re-read for single-best-answer validity, distractor plausibility, cueing, source support, and NCLEX Pharmacological and Parenteral Therapies alignment.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -911,14 +911,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 147,
-          "B": 149,
-          "C": 153,
-          "D": 144
+          "A": 132,
+          "B": 131,
+          "C": 128,
+          "D": 131
         },
-        "max_min_ratio": 1.0625,
+        "max_min_ratio": 1.0312,
         "correct_option": "A",
-        "correct_deviation_from_distractor_mean": 0.0112,
+        "correct_deviation_from_distractor_mean": 0.0154,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1303,10 +1303,10 @@
       "source_authority": "AUTHORITATIVE_QUALITY_IMPROVEMENT",
       "source_name": "Institute for Healthcare Improvement — Model for Improvement",
       "source_url": "https://www.ihi.org/library/model-for-improvement",
-      "source_locator": "Institute for Healthcare Improvement — Model for Improvement, Testing Changes: PDSA means Plan, Do, Study, Act; the cycle is used iteratively to test a change on a small scale, study results, learn, and adapt the next cycle.",
-      "source_version": "Current IHI Model for Improvement resource live-rechecked 2026-08-15. NCLEX relevance independently verified against NCSBN 2026 Management of Care performance-improvement/QI activity statements.",
+      "source_locator": "Institute for Healthcare Improvement — Model for Improvement, Testing Changes: PDSA is Plan, Do, Study, Act; PDSA cycles are iterative tests of change used to learn from results and adapt subsequent cycles.",
+      "source_version": "Current IHI Model for Improvement resource live-rechecked 2026-08-15. NCLEX relevance independently verified against the 2026 NCSBN Management of Care performance-improvement activities.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key C directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 option audit found that the prior choices contained explanatory clauses added mainly to equalize length, creating artificial padding. The four choices were rewritten as concise, parallel acronym expansions. The keyed answer remains source-supported, no alternative expansion is accepted, and a second independent read found no cueing or second-answer ambiguity.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1335,14 +1335,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 144,
-          "B": 143,
-          "C": 141,
-          "D": 135
+          "A": 22,
+          "B": 25,
+          "C": 20,
+          "D": 23
         },
-        "max_min_ratio": 1.0667,
+        "max_min_ratio": 1.25,
         "correct_option": "C",
-        "correct_deviation_from_distractor_mean": 0.0024,
+        "correct_deviation_from_distractor_mean": 0.1429,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1357,9 +1357,9 @@
       "source_name": "Agency for Healthcare Research and Quality — Benchmarking",
       "source_url": "https://digital.ahrq.gov/health-it-tools-and-resources/evaluation-resources/workflow-assessment-health-it-toolkit/all-workflow-tools/benchmarking",
       "source_locator": "AHRQ Digital Healthcare Research — Benchmarking: benchmarking evaluates metrics and/or best practices from other organizations or reference standards and compares them with local performance to identify opportunities for improvement.",
-      "source_version": "Current AHRQ benchmarking workflow-assessment resource live-rechecked 2026-08-15. NCLEX relevance independently verified against NCSBN 2026 Management of Care performance-improvement/QI activity statements.",
+      "source_version": "Current AHRQ benchmarking workflow-assessment resource live-rechecked 2026-08-15. NCLEX relevance independently verified against the 2026 NCSBN Management of Care performance-improvement activities.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key A directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 option audit found rationale-like explanatory padding in every prior choice. The choices were rewritten as natural competing terms with no answer-length cue. A second read confirmed that only benchmarking matches the external performance-comparison construct in the stem.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1388,14 +1388,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 152,
-          "B": 140,
-          "C": 139,
-          "D": 157
+          "A": 12,
+          "B": 12,
+          "C": 13,
+          "D": 18
         },
-        "max_min_ratio": 1.1295,
+        "max_min_ratio": 1.5,
         "correct_option": "A",
-        "correct_deviation_from_distractor_mean": 0.0459,
+        "correct_deviation_from_distractor_mean": 0.1628,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1511,14 +1511,14 @@
       "key": "D",
       "category_id": 10,
       "client_need": "Physiological Adaptation",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "source_authority": "AUTHORITATIVE_NCBI",
       "source_name": "StatPearls/NCBI Bookshelf — Abdominal Aortic Aneurysm",
       "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK470237/",
-      "source_locator": "StatPearls Abdominal Aortic Aneurysm — clinical presentation/rupture: rupture can present with sudden severe abdominal and/or back/flank pain, hypotension/shock, tachycardia, and sometimes a pulsatile abdominal mass; suspected rupture is a vascular emergency requiring immediate evaluation and management.",
-      "source_version": "StatPearls [Internet], current 2026 NCBI Bookshelf entry; clinical content live-rechecked 2026-08-15.",
+      "source_locator": "StatPearls Abdominal Aortic Aneurysm — History and Physical: enlarging AAA can cause abdominal, flank, or back pain; ruptured AAA may present dramatically with shock and abdominal pain. Suspected rupture is a vascular emergency.",
+      "source_version": "Current StatPearls/NCBI Bookshelf Abdominal Aortic Aneurysm entry; clinical content live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key D directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review removed explanatory padding from all four diagnostic choices and corrected difficulty from hard to easy because the stem presents the classic high-discrimination rupture pattern of known AAA, sudden severe abdominal/back pain, and hypotension. The final choices were rechecked for overlap and second-answer risk.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1547,14 +1547,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 147,
-          "B": 147,
-          "C": 149,
-          "D": 148
+          "A": 28,
+          "B": 30,
+          "C": 48,
+          "D": 22
         },
-        "max_min_ratio": 1.0136,
+        "max_min_ratio": 2.1818,
         "correct_option": "D",
-        "correct_deviation_from_distractor_mean": 0.0023,
+        "correct_deviation_from_distractor_mean": 0.3774,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1564,14 +1564,14 @@
       "key": "B",
       "category_id": 10,
       "client_need": "Physiological Adaptation",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "source_authority": "AUTHORITATIVE_NCBI",
       "source_name": "StatPearls/NCBI Bookshelf — Pericarditis",
       "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK431080/",
-      "source_locator": "StatPearls Pericarditis — History and Physical/acute pericarditis: chest pain is classically sharp and pleuritic, worse supine and improved sitting up or leaning forward; a pericardial friction rub is a characteristic and highly specific finding when present.",
-      "source_version": "Current 2026 StatPearls Pericarditis entry in NCBI Bookshelf; live-rechecked 2026-08-15.",
+      "source_locator": "StatPearls Pericarditis — History and Physical: acute pericarditis classically causes severe pleuritic, positional chest pain that improves with sitting up and leaning forward; examination may reveal a pericardial friction rub.",
+      "source_version": "Current StatPearls/NCBI Bookshelf Pericarditis entry, updated 2026-04-13; live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key B directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review removed rationale-like clauses from the diagnostic choices and corrected difficulty from hard to easy because the friction rub plus classic positional pleuritic pain is highly discriminating. A second read found no plausible second keyed diagnosis.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1600,14 +1600,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 154,
-          "B": 151,
-          "C": 145,
-          "D": 136
+          "A": 27,
+          "B": 18,
+          "C": 18,
+          "D": 31
         },
-        "max_min_ratio": 1.1324,
+        "max_min_ratio": 1.7222,
         "correct_option": "B",
-        "correct_deviation_from_distractor_mean": 0.0414,
+        "correct_deviation_from_distractor_mean": 0.2895,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1617,14 +1617,14 @@
       "key": "B",
       "category_id": 10,
       "client_need": "Physiological Adaptation",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "source_authority": "AUTHORITATIVE_NCBI",
       "source_name": "StatPearls/NCBI Bookshelf — Barrett Esophagus",
       "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK430979/",
-      "source_locator": "StatPearls Barrett Esophagus — Etiology/Risk Factors and clinical overview: chronic gastroesophageal reflux disease is a major precipitating/risk factor for Barrett esophagus, in which distal esophageal epithelium undergoes intestinal metaplasia and carries increased adenocarcinoma risk.",
-      "source_version": "StatPearls Barrett Esophagus updated 2025-05-26 and available in StatPearls [Internet] 2026; NCBI source live-rechecked 2026-08-15.",
+      "source_locator": "StatPearls Barrett Esophagus — Introduction/Etiology: Barrett esophagus is intestinal metaplasia of the distal esophagus; most cases are acquired and the usual precipitant is long-standing gastroesophageal reflux disease, with increased esophageal adenocarcinoma risk.",
+      "source_version": "StatPearls Barrett Esophagus updated 2025-05-26 and current in StatPearls [Internet] 2026; NCBI source live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key B directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review removed explanatory padding from all four diagnostic choices and corrected difficulty from hard to easy because the item tests a direct chronic-GERD association. A second read confirmed a single supported answer and no diagnostic overlap in the options.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1653,14 +1653,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 149,
-          "B": 139,
-          "C": 131,
-          "D": 147
+          "A": 9,
+          "B": 17,
+          "C": 18,
+          "D": 19
         },
-        "max_min_ratio": 1.1374,
+        "max_min_ratio": 2.1111,
         "correct_option": "B",
-        "correct_deviation_from_distractor_mean": 0.0234,
+        "correct_deviation_from_distractor_mean": 0.1087,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1674,10 +1674,10 @@
       "source_authority": "PRIMARY_GUIDELINE_ORGANIZATION",
       "source_name": "KDIGO — 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
       "source_url": "https://kdigo.org/wp-content/uploads/2026/04/KDIGO-2024-CKD-Guideline.pdf",
-      "source_locator": "KDIGO 2024 CKD Guideline, Definition and Classification of CKD, Kidney International 105(Suppl 4S), p. S137: classify CKD based on Cause, GFR category (G1-G5), and Albuminuria category (A1-A3), abbreviated CGA.",
-      "source_version": "KDIGO 2024 CKD Guideline remains the current global CKD guideline; KDIGO notes a focused update of Chapter 3 is underway. Currentness rechecked 2026-08-15. Blueprint corrected to Reduction of Risk Potential because the item tests diagnostic/laboratory-based CKD classification.",
+      "source_locator": "KDIGO 2024 CKD Guideline, Definition and classification of CKD, Kidney International 105(Suppl 4S), printed p. S137: CKD is classified based on Cause, GFR category (G1-G5), and Albuminuria category (A1-A3), abbreviated CGA; Tables 2 and 3 define the GFR and albuminuria categories.",
+      "source_version": "KDIGO 2024 CKD Guideline remains the current global CKD guideline; focused Chapter 3 update is underway but has not superseded the classification section. PDF page S137 and currentness live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key B directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review directly rechecked the KDIGO primary PDF, including printed page S137, and removed rationale-like padding from the choices. The final options are parallel competing frameworks. Independent second-pass review found no alternate correct framework and preserved Reduction of Risk Potential because the item tests diagnostic classification.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1706,14 +1706,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 154,
-          "B": 152,
-          "C": 158,
-          "D": 151
+          "A": 57,
+          "B": 45,
+          "C": 58,
+          "D": 55
         },
-        "max_min_ratio": 1.0464,
+        "max_min_ratio": 1.2889,
         "correct_option": "B",
-        "correct_deviation_from_distractor_mean": 0.0151,
+        "correct_deviation_from_distractor_mean": 0.2059,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1727,10 +1727,10 @@
       "source_authority": "AUTHORITATIVE_NCBI",
       "source_name": "StatPearls/NCBI Bookshelf — Myxedema Coma",
       "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK545193/",
-      "source_locator": "StatPearls Myxedema Coma — History and Physical/Evaluation: decompensated severe hypothyroidism typically features altered mental status and hypothermia, with bradycardia, hypotension/hypoventilation and multisystem dysfunction; it is a life-threatening endocrine emergency.",
+      "source_locator": "StatPearls Myxedema Coma — History and Physical/Evaluation: decompensated severe hypothyroidism typically features altered mental status and hypothermia, with bradycardia, hypotension or hypoventilation and multisystem dysfunction; it is a life-threatening endocrine emergency.",
       "source_version": "StatPearls Myxedema Coma updated 2025-12-13 and current in StatPearls [Internet] 2026; NCBI source live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key B directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review replaced padded, self-explanatory choices with concise clinically plausible endocrine/emergency diagnoses. Independent second-pass review confirmed that the severe hypothyroid context plus hypothermia, bradycardia, and depressed consciousness makes myxedema coma uniquely best.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1759,14 +1759,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 166,
-          "B": 161,
-          "C": 148,
-          "D": 165
+          "A": 14,
+          "B": 13,
+          "C": 13,
+          "D": 12
         },
-        "max_min_ratio": 1.1216,
+        "max_min_ratio": 1.1667,
         "correct_option": "B",
-        "correct_deviation_from_distractor_mean": 0.0084,
+        "correct_deviation_from_distractor_mean": 0.0,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1780,10 +1780,10 @@
       "source_authority": "AUTHORITATIVE_PROFESSIONAL_GUIDELINE",
       "source_name": "Endocrine Society — Primary Adrenal Insufficiency Guideline",
       "source_url": "https://www.endocrine.org/clinical-practice-guidelines/primary-adrenal-insufficiency",
-      "source_locator": "Endocrine Society Clinical Practice Guideline — Primary Adrenal Insufficiency, clinical features/diagnostic considerations: glucocorticoid and mineralocorticoid deficiency can cause fatigue/weakness, volume depletion and hypotension, salt craving, and hyperpigmentation from elevated ACTH in primary disease.",
+      "source_locator": "Endocrine Society Clinical Practice Guideline — Primary Adrenal Insufficiency, clinical features and diagnostic considerations: glucocorticoid and mineralocorticoid deficiency can cause fatigue or weakness, volume depletion and hypotension, salt craving, and hyperpigmentation from elevated ACTH in primary disease.",
       "source_version": "Endocrine Society Primary Adrenal Insufficiency guideline remains the current society guideline resource; live source and current status rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key B directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review removed answer-explaining clauses from every choice. The concise endocrine diagnoses remain clinically plausible distractors without creating a second correct answer; the final item passed an independent second read against the Endocrine Society source.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1812,14 +1812,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 152,
-          "B": 150,
-          "C": 155,
-          "D": 139
+          "A": 16,
+          "B": 29,
+          "C": 10,
+          "D": 26
         },
-        "max_min_ratio": 1.1151,
+        "max_min_ratio": 2.9,
         "correct_option": "B",
-        "correct_deviation_from_distractor_mean": 0.009,
+        "correct_deviation_from_distractor_mean": 0.6731,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1829,14 +1829,14 @@
       "key": "C",
       "category_id": 9,
       "client_need": "Reduction of Risk Potential",
-      "difficulty": "hard",
-      "source_authority": "AUTHORITATIVE_NCBI",
-      "source_name": "StatPearls/NCBI Bookshelf — Hypokalemia",
-      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482465/",
-      "source_locator": "StatPearls Hypokalemia — Etiology/Clinical Features/ECG: loop diuretics can cause renal potassium loss; serum potassium below 3.5 mEq/L is hypokalemia, and levels around 2.5-3.0 mEq/L may cause muscle weakness and decreased gastrointestinal motility/constipation; ECG changes include T-wave flattening/depression and U waves.",
-      "source_version": "Current StatPearls Hypokalemia entry in StatPearls [Internet] 2026; NCBI source live-rechecked 2026-08-15. Blueprint corrected from Physiological Adaptation to Reduction of Risk Potential because the item primarily tests laboratory/ECG interpretation and medication-related risk.",
+      "difficulty": "easy",
+      "source_authority": "AUTHORITATIVE_LAB_REFERENCE",
+      "source_name": "Mayo Clinic Laboratories — Potassium, Serum",
+      "source_url": "https://www.mayocliniclabs.com/test-catalog/Overview/602352",
+      "source_locator": "Mayo Clinic Laboratories Test KS/602352, Potassium, Serum — Reference Values: age >=1 year 3.6-5.2 mmol/L. Clinical Information/Interpretation: decreased extracellular potassium is characterized by muscle weakness and cardiac conduction abnormalities; potassium below 3.0 mmol/L is associated with marked neuromuscular symptoms.",
+      "source_version": "Current Mayo Clinic Laboratories Test KS/602352 catalog entry; reference interval and interpretation live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key C directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 audit corrected the source hierarchy from a general pathophysiology source to the required authoritative laboratory reference, Mayo Clinic Laboratories. It also removed padded explanatory choices and corrected difficulty from hard to easy because the value is directly below the cited adult reference interval. The corrected item passed a fresh second read for lab interpretation, cueing, and second-answer risk.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1865,14 +1865,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 141,
-          "B": 135,
-          "C": 137,
-          "D": 127
+          "A": 12,
+          "B": 13,
+          "C": 11,
+          "D": 25
         },
-        "max_min_ratio": 1.1102,
+        "max_min_ratio": 2.2727,
         "correct_option": "C",
-        "correct_deviation_from_distractor_mean": 0.0199,
+        "correct_deviation_from_distractor_mean": 0.34,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1884,12 +1884,12 @@
       "client_need": "Reduction of Risk Potential",
       "difficulty": "hard",
       "source_authority": "AUTHORITATIVE_NCBI",
-      "source_name": "Endotext/NCBI Bookshelf — Hyperglycemic Crises",
-      "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK620701/",
-      "source_locator": "Endotext Hyperglycemic Crises — Diagnostic criteria/clinical manifestations of DKA: metabolic acidosis is reflected by pH <7.3 and/or serum bicarbonate <18 mmol/L; Kussmaul respiration is deep, labored/rapid breathing that compensates for metabolic acidosis.",
-      "source_version": "Endotext Hyperglycemic Crises updated 2026-01-31; current NCBI Bookshelf version live-rechecked 2026-08-15.",
+      "source_name": "Endotext/NCBI Bookshelf — Diabetic Ketoacidosis",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK620701/",
+      "source_locator": "Endotext/NCBI Bookshelf — Diabetic Ketoacidosis, Clinical Manifestations and diagnostic tables: DKA includes hyperglycemia, ketonemia/ketonuria, metabolic acidosis with pH <7.3 and/or bicarbonate <18 mmol/L, and Kussmaul breathing described as deep, labored breathing.",
+      "source_version": "Endotext Diabetic Ketoacidosis entry current in 2026; diagnostic criteria and clinical manifestations live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key D directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 audit identified a second-answer ambiguity in the prior version: low bicarbonate plus rapid deep breathing without ketone or hyperglycemia context could be misread as compensation for another primary disorder. The stem was clinically corrected by adding DKA-defining hyperglycemia and positive ketones, the choices were de-padded, and the final state was independently re-audited for a single best answer.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1918,14 +1918,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 148,
-          "B": 150,
-          "C": 143,
-          "D": 144
+          "A": 19,
+          "B": 20,
+          "C": 21,
+          "D": 18
         },
-        "max_min_ratio": 1.049,
+        "max_min_ratio": 1.1667,
         "correct_option": "D",
-        "correct_deviation_from_distractor_mean": 0.0204,
+        "correct_deviation_from_distractor_mean": 0.1,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
@@ -1939,10 +1939,10 @@
       "source_authority": "AUTHORITATIVE_NCBI",
       "source_name": "StatPearls/NCBI Bookshelf — Chronic Kidney Disease-Mineral Bone Disorder",
       "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK560742/",
-      "source_locator": "StatPearls CKD-Mineral Bone Disorder — Pathophysiology: declining kidney function impairs phosphate excretion and calcitriol production, contributing to hyperphosphatemia, lower serum calcium/hypocalcemia, and secondary hyperparathyroidism in advanced CKD.",
-      "source_version": "Current StatPearls CKD-MBD entry in StatPearls [Internet] 2026; NCBI source live-rechecked 2026-08-15.",
+      "source_locator": "StatPearls Chronic Kidney Disease-Mineral Bone Disorder — Pathophysiology: declining kidney function impairs phosphate excretion and calcitriol production, contributing to hyperphosphatemia, lower serum calcium or hypocalcemia, and secondary hyperparathyroidism in advanced CKD.",
+      "source_version": "Current StatPearls CKD-Mineral Bone Disorder entry in StatPearls [Internet] 2026; NCBI source live-rechecked 2026-08-15.",
       "reviewed_at": "2026-08-15",
-      "finding": "Fresh manual Rule 1 audit completed 2026-08-15. Key B directly verified against the cited authority. Stem, all four options, rationale, distractor plausibility/clinical correctness, ambiguity, cueing, overlap, second-answer risk, blueprint/topic/difficulty, source authority/locator/version/currentness and unresolved conflicts were checked. Any required clinical/editorial/source/blueprint correction was applied before a separate independent second read of the final state.",
+      "finding": "Fresh Rule 1 review removed explanatory padding from the laboratory choices while preserving clinically distinct distractors. Independent second-pass review confirmed that hypocalcemia is the characteristic paired abnormality supported by the cited CKD-mineral bone pathophysiology and that no second option overlaps.",
       "ncsbn_first_check": {
         "required_currentness_and_blueprint_check": true,
         "source": "NCSBN — 2026 NCLEX-RN Test Plan",
@@ -1971,14 +1971,14 @@
       "final": "FINAL_QA_PASS",
       "option_measurement": {
         "characters": {
-          "A": 144,
-          "B": 146,
-          "C": 148,
-          "D": 145
+          "A": 13,
+          "B": 12,
+          "C": 13,
+          "D": 15
         },
-        "max_min_ratio": 1.0278,
+        "max_min_ratio": 1.25,
         "correct_option": "B",
-        "correct_deviation_from_distractor_mean": 0.0023,
+        "correct_deviation_from_distractor_mean": 0.122,
         "use": "MEASUREMENT_ONLY_NOT_SEMANTIC_GATE"
       },
       "semantic_decision_origin": "MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT"
