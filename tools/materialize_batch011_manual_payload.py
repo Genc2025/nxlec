@@ -23,6 +23,27 @@ if [x.get('id') for x in ev.get('items',[])] != IDS:
     raise SystemExit('Batch011 evidence scope/order mismatch')
 if len(ov['questions'])!=50 or len(ev['items'])!=50:
     raise SystemExit('Batch011 payload must contain exactly 50 items')
+# Technical-only QC normalization required by build_nclex_master.py.
+# These measurements do not make semantic/clinical decisions.
+for q in ov['questions']:
+    opts=json.loads(q['item_data_json'])['options']
+    key=json.loads(q['correct_answer_json'])['correct_option']
+    lengths={k:len(str(opts[k]).strip()) for k in 'ABCD'}
+    ordered=sorted('ABCD', key=lambda k:(lengths[k],k))
+    qc=dict(q.get('qc') or {})
+    qc.update({
+        'question_uid':q['question_uid'],
+        'lengths_json':json.dumps(lengths,separators=(',',':')),
+        'min_chars':min(lengths.values()),
+        'max_chars':max(lengths.values()),
+        'max_min_ratio':round(max(lengths.values())/max(min(lengths.values()),1),4),
+        'correct_option':key,
+        'correct_length_rank':ordered.index(key)+1,
+        'correct_is_extreme':int(lengths[key] in (min(lengths.values()),max(lengths.values()))),
+        'qc_status':'MEASURED_NOT_GATE',
+        'qc_note':'Length metrics are measurement only; semantic option/cue/ambiguity decisions are manual.'
+    })
+    q['qc']=qc
 OVERRIDE.write_text(json.dumps(ov,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 EVIDENCE.write_text(json.dumps(ev,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-print('BATCH011_MANUAL_PAYLOAD_MATERIALIZED items=50 override=50 evidence=50 semantic_script_decisions=0')
+print('BATCH011_MANUAL_PAYLOAD_MATERIALIZED items=50 override=50 evidence=50 semantic_script_decisions=0 qc_measurement_normalized=50')
