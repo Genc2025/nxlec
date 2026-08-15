@@ -1,0 +1,28 @@
+name: Inspect Batch 004 Blueprint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-batch004-blueprint.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect Q0151-Q0200 metadata
+        run: |
+          python - <<'PY'
+          import sqlite3, json
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          con.row_factory=sqlite3.Row
+          rows=con.execute("SELECT question_uid,category_id,client_need,difficulty,stem FROM questions WHERE question_uid BETWEEN 'V2-Q0151' AND 'V2-Q0200' ORDER BY question_uid").fetchall()
+          assert len(rows)==50, len(rows)
+          for r in rows:
+              print('META='+json.dumps(dict(r),ensure_ascii=False,sort_keys=True))
+          con.close()
+          PY
