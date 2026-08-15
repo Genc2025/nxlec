@@ -1,0 +1,29 @@
+name: QC chronological Batch 006 Q0251-Q0300
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/qc-chronological-batch006-q0251-q0300.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compute option metrics
+        run: |
+          python - <<'PY'
+          import sqlite3,json,statistics
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          rows=con.execute("SELECT question_uid,item_data_json,correct_answer_json FROM questions WHERE question_uid BETWEEN 'V2-Q0251' AND 'V2-Q0300' ORDER BY question_uid").fetchall()
+          for uid,item,keyj in rows:
+              opts=json.loads(item)['options']; key=json.loads(keyj)['correct_option']
+              lens={k:len(v.strip()) for k,v in opts.items()}; vals=list(lens.values()); ratio=max(vals)/min(vals)
+              d=[lens[k] for k in 'ABCD' if k!=key]; mean=sum(d)/3; dev=abs(lens[key]-mean)/mean
+              ex=(lens[key]==min(vals) and vals.count(min(vals))==1) or (lens[key]==max(vals) and vals.count(max(vals))==1)
+              print(f"{uid} key={key} lens={lens} ratio={ratio:.4f} dev={dev:.4f} unique={int(ex)}")
+          con.close()
+          PY
