@@ -26,7 +26,7 @@ CRITERIA = [
     "independent_second_pass",
 ]
 SECONDARY = {"V2-Q0291", "V2-Q0295"}
-SUBSTANTIVE = {"V2-Q0251", "V2-Q0271", "V2-Q0274", "V2-Q0279", "V2-Q0282", "V2-Q0287"}
+SUBSTANTIVE = {"V2-Q0251", "V2-Q0271", "V2-Q0274", "V2-Q0279", "V2-Q0282", "V2-Q0287", "V2-Q0292"}
 
 NCSBN_URL = "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf"
 NCSBN_VERSION = "2026 NCLEX-RN Test Plan, effective 2026-04-01 through 2029-03-31; currentness rechecked 2026-08-15."
@@ -152,6 +152,7 @@ CORRECTED = {
 },
 "rationale":"The American Heart Association lists an infant resting heart rate averaging about 100–190 beats/min. Therefore 140 beats/min is within the expected infant resting range, while 80 is below and 205 or 230 are above that range. The stem was corrected from a nonspecific ‘quiet newborn’ description to an awake, calm infant so normal sleep-related slowing does not create a second defensible answer."
 },
+292:{"category_id":4,"client_need":"Health Promotion and Maintenance"},
 }
 
 
@@ -190,6 +191,6 @@ def main():
     doc={"standard":"RULE_1_FINAL_10_OF_10_REAL_REAUDIT","batch":"Q0251-Q0300","review_date":REVIEW_DATE,"legacy_status_evidence":False,"criteria_names":CRITERIA,"ncsbn_first_check_policy":"MANDATORY_FIRST_CHECK_FOR_NCLEX_BLUEPRINT_CONTENT_CATEGORY_CLINICAL_JUDGMENT_AND_NURSING_STANDARDS;_TOPIC_AUTHORITY_FOR_EXACT_CLINICAL_CLAIM","ncsbn_source":NCSBN_URL,"secondary_source_exceptions":sorted(SECONDARY),"substantive_corrections":sorted(SUBSTANTIVE),"items":evidence}
     EVIDENCE.write_text(json.dumps(doc,ensure_ascii=False,indent=2)+"\n",encoding='utf-8')
     OVERRIDE.write_text(json.dumps({"version":"2026-08-15-rule1-batch006-chronological-q0251-q0300","questions":overrides},ensure_ascii=False,indent=2)+"\n",encoding='utf-8')
-    print(f'BATCH006_CHRONOLOGICAL_ARTIFACTS_BUILT items=50/50 criteria11=50/50 ncsbn_first_check=50/50 corrections={len(SUBSTANTIVE)}/6 secondary={len(SECONDARY)}/2 option_qc=50/50 max_ratio={max_ratio:.4f} max_dev={max_dev:.4f}')
+    print(f'BATCH006_CHRONOLOGICAL_ARTIFACTS_BUILT items=50/50 criteria11=50/50 ncsbn_first_check=50/50 corrections={len(SUBSTANTIVE)}/7 secondary={len(SECONDARY)}/2 option_qc=50/50 max_ratio={max_ratio:.4f} max_dev={max_dev:.4f}')
 
 if __name__=='__main__': main()

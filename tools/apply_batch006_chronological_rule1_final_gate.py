@@ -16,7 +16,8 @@ CRITERIA=[
 "stem_claims_verified","rationale_claims_verified","distractor_plausibility_and_second_answer_qc","ambiguity_and_cue_qc",
 "blueprint_topic_difficulty_verified","source_version_and_currentness_verified","no_unresolved_conflict","independent_second_pass"]
 SECONDARY={"V2-Q0291","V2-Q0295"}
-SUBSTANTIVE={"V2-Q0251","V2-Q0271","V2-Q0274","V2-Q0279","V2-Q0282","V2-Q0287"}
+SUBSTANTIVE={"V2-Q0251","V2-Q0271","V2-Q0274","V2-Q0279","V2-Q0282","V2-Q0287","V2-Q0292"}
+BLUEPRINT_PATCH={"V2-Q0271","V2-Q0274","V2-Q0292"}
 SIGNATURES={
 "V2-Q0251":("va multiple sclerosis centers of excellence","adaptive coping and self-management"),
 "V2-Q0271":("after touching the patient's surroundings","safety & infection prevention and control"),
@@ -24,6 +25,7 @@ SIGNATURES={
 "V2-Q0279":("sudden painless bright-red vaginal bleeding","often occurs without pain"),
 "V2-Q0282":("worsened over several hours","new confusion"),
 "V2-Q0287":("awake, calm term newborn","205 beats/min"),
+"V2-Q0292":("american academy of pediatrics","umbilical cord"),
 }
 DIMS=["source_verified","blueprint_verified","question_quality_verified","correct_answer_verified","distractors_verified","explanation_verified","currentness_verified","independent_qa_passed","no_unresolved_conflict"]
 STATUS="SOURCE_VERIFIED_2026_RULE1_BATCH006_CHRONOLOGICAL"
@@ -76,6 +78,8 @@ def main():
         ncsbn_ok+=1
         if e.get("authority") not in {"P","S"} or ((uid in SECONDARY)!=(e.get("authority")=="S")):
             failures.append(f"{uid}: authority/secondary classification mismatch"); continue
+        if uid in BLUEPRINT_PATCH:
+            con.execute("UPDATE questions SET category_id=?,client_need=?,difficulty=? WHERE question_uid=?",(e["category_id"],e["client_need"],e["difficulty"],uid))
         q=con.execute("SELECT * FROM questions WHERE question_uid=?",(uid,)).fetchone()
         if q is None: failures.append(f"{uid}: missing DB row"); continue
         try:
@@ -124,8 +128,8 @@ def main():
           (uid,now,"OpenAI Rule 1 chronological Batch 006 independent re-audit",e["source_locator"],e["source_version"],*([1]*len(DIMS)),json.dumps(metrics,sort_keys=True),None,"FINAL_QA_PASS"))
     if failures:
         con.rollback(); raise SystemExit("\n".join(failures))
-    if (option_ok,corrections,secondary,ncsbn_ok,source_ok)!=(50,6,2,50,50):
-        con.rollback(); raise SystemExit(f"Gate counts invalid option={option_ok}/50 corrections={corrections}/6 secondary={secondary}/2 ncsbn={ncsbn_ok}/50 sources={source_ok}/50")
+    if (option_ok,corrections,secondary,ncsbn_ok,source_ok)!=(50,7,2,50,50):
+        con.rollback(); raise SystemExit(f"Gate counts invalid option={option_ok}/50 corrections={corrections}/7 secondary={secondary}/2 ncsbn={ncsbn_ok}/50 sources={source_ok}/50")
     con.execute("INSERT OR REPLACE INTO bank_metadata(key,value) VALUES(?,?)",("batch006_chronological_q0251_q0300_rule1_final_gate","PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_NCSBN_FIRST_CHECK_2026_08_15"))
     integrity=con.execute("PRAGMA integrity_check").fetchone()[0]; total=con.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
     ready=con.execute("SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1").fetchone()[0]
@@ -147,11 +151,11 @@ def main():
         "- Distractor / ambiguity / second-answer / cue QC: **50/50**","- Unresolved conflicts: **0**",
         f"- Option max/min <= 1.15: **50/50** (max {max_ratio:.4f})",f"- Correct-option deviation <= 10%: **50/50** (max {max_dev:.4f})",
         "- Correct option unique length extreme: **0/50**","- Artificial option padding: **NOT USED**",
-        "- Substantive/source/blueprint corrections: **Q0251, Q0271, Q0274, Q0279, Q0282, Q0287**",
+        "- Substantive/source/blueprint corrections: **Q0251, Q0271, Q0274, Q0279, Q0282, Q0287, Q0292**",
         "- Documented secondary-source exceptions: **Q0291, Q0295 only**",
         "- Final chronological Batch 006 result: **FINAL_QA_PASS 50/50**","",
         "Per-item evidence is persisted in `rule1_batch006_chronological_reaudit_evidence` and `rule1_manual_audit`; strict status is persisted in `question_final_gate`. Full-bank commercial release remains closed.","",
     ]),encoding="utf-8")
-    print(f"RULE1_BATCH006_CHRONOLOGICAL_PASS integrity={integrity} total={total} pass={pass_count}/50 evidence11={evcount}/50 manual11={manual}/50 ncsbn_first_check={ncsbn_ok}/50 sources={source_ok}/50 option_qc={option_ok}/50 corrections={corrections}/6 secondary={secondary}/2 bad={bad} max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} ready={ready}")
+    print(f"RULE1_BATCH006_CHRONOLOGICAL_PASS integrity={integrity} total={total} pass={pass_count}/50 evidence11={evcount}/50 manual11={manual}/50 ncsbn_first_check={ncsbn_ok}/50 sources={source_ok}/50 option_qc={option_ok}/50 corrections={corrections}/7 secondary={secondary}/2 bad={bad} max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} ready={ready}")
 
 if __name__=="__main__": main()
