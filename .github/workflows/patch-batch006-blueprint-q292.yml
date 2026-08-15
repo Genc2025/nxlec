@@ -1,0 +1,72 @@
+name: Patch Batch 006 blueprint integration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch-batch006-blueprint-q292.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch authored builder and gate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          bp=Path('tools/build_batch006_chronological_rule1_artifacts.py')
+          s=bp.read_text()
+          s=s.replace('SUBSTANTIVE = {"V2-Q0251", "V2-Q0271", "V2-Q0274", "V2-Q0279", "V2-Q0282", "V2-Q0287"}',
+                      'SUBSTANTIVE = {"V2-Q0251", "V2-Q0271", "V2-Q0274", "V2-Q0279", "V2-Q0282", "V2-Q0287", "V2-Q0292"}')
+          marker='287:{\n"stem":"A nurse is assessing an awake, calm term newborn before discharge. Which heart rate is within the expected resting range?",'
+          if marker not in s:
+              raise SystemExit('builder Q0287 marker missing')
+          end='''"rationale":"The American Heart Association lists an infant resting heart rate averaging about 100–190 beats/min. Therefore 140 beats/min is within the expected infant resting range, while 80 is below and 205 or 230 are above that range. The stem was corrected from a nonspecific ‘quiet newborn’ description to an awake, calm infant so normal sleep-related slowing does not create a second defensible answer."\n},\n}'''
+          repl='''"rationale":"The American Heart Association lists an infant resting heart rate averaging about 100–190 beats/min. Therefore 140 beats/min is within the expected infant resting range, while 80 is below and 205 or 230 are above that range. The stem was corrected from a nonspecific ‘quiet newborn’ description to an awake, calm infant so normal sleep-related slowing does not create a second defensible answer."\n},\n292:{"category_id":4,"client_need":"Health Promotion and Maintenance"},\n}'''
+          if end not in s:
+              raise SystemExit('builder corrected-block tail missing')
+          s=s.replace(end,repl)
+          s=s.replace('corrections={len(SUBSTANTIVE)}/6 secondary=', 'corrections={len(SUBSTANTIVE)}/7 secondary=')
+          bp.write_text(s)
+
+          gp=Path('tools/apply_batch006_chronological_rule1_final_gate.py')
+          g=gp.read_text()
+          g=g.replace('SUBSTANTIVE={"V2-Q0251","V2-Q0271","V2-Q0274","V2-Q0279","V2-Q0282","V2-Q0287"}',
+                      'SUBSTANTIVE={"V2-Q0251","V2-Q0271","V2-Q0274","V2-Q0279","V2-Q0282","V2-Q0287","V2-Q0292"}\nBLUEPRINT_PATCH={"V2-Q0271","V2-Q0274","V2-Q0292"}')
+          g=g.replace('"V2-Q0287":("awake, calm term newborn","205 beats/min"),\n}',
+                      '"V2-Q0287":("awake, calm term newborn","205 beats/min"),\n"V2-Q0292":("american academy of pediatrics","umbilical cord"),\n}')
+          old='''        q=con.execute("SELECT * FROM questions WHERE question_uid=?",(uid,)).fetchone()\n        if q is None: failures.append(f"{uid}: missing DB row"); continue'''
+          new='''        if uid in BLUEPRINT_PATCH:\n            con.execute("UPDATE questions SET category_id=?,client_need=?,difficulty=? WHERE question_uid=?",(e["category_id"],e["client_need"],e["difficulty"],uid))\n        q=con.execute("SELECT * FROM questions WHERE question_uid=?",(uid,)).fetchone()\n        if q is None: failures.append(f"{uid}: missing DB row"); continue'''
+          if old not in g:
+              raise SystemExit('gate DB-row marker missing')
+          g=g.replace(old,new)
+          g=g.replace('(option_ok,corrections,secondary,ncsbn_ok,source_ok)!=(50,6,2,50,50)', '(option_ok,corrections,secondary,ncsbn_ok,source_ok)!=(50,7,2,50,50)')
+          g=g.replace('corrections={corrections}/6 secondary=', 'corrections={corrections}/7 secondary=')
+          g=g.replace('**Q0251, Q0271, Q0274, Q0279, Q0282, Q0287**', '**Q0251, Q0271, Q0274, Q0279, Q0282, Q0287, Q0292**')
+          gp.write_text(g)
+
+          wp=Path('.github/workflows/build-rule1-batch006-chronological-final.yml')
+          w=wp.read_text()
+          w=w.replace("{'V2-Q0251','V2-Q0271','V2-Q0274','V2-Q0279','V2-Q0282','V2-Q0287'}", "{'V2-Q0251','V2-Q0271','V2-Q0274','V2-Q0279','V2-Q0282','V2-Q0287','V2-Q0292'}")
+          w=w.replace('corrections=6/6 secondary=2/2', 'corrections=7/7 secondary=2/2')
+          oldv="""          q287=con.execute(\"SELECT stem,item_data_json FROM questions WHERE question_uid='V2-Q0287'\").fetchone()\n          con.close()"""
+          newv="""          q287=con.execute(\"SELECT stem,item_data_json FROM questions WHERE question_uid='V2-Q0287'\").fetchone()\n          q292=con.execute(\"SELECT category_id,client_need FROM questions WHERE question_uid='V2-Q0292'\").fetchone()\n          con.close()"""
+          if oldv not in w:
+              raise SystemExit('workflow Q0287 marker missing')
+          w=w.replace(oldv,newv)
+          w=w.replace("          assert 'awake, calm term newborn' in q287[0].lower() and '205 beats/min' in q287[1]\n          assert pending['range']==[301,350]", "          assert 'awake, calm term newborn' in q287[0].lower() and '205 beats/min' in q287[1]\n          assert q292==(4,'Health Promotion and Maintenance')\n          assert pending['range']==[301,350]")
+          wp.write_text(w)
+          PY
+          python -m py_compile tools/build_batch006_chronological_rule1_artifacts.py tools/apply_batch006_chronological_rule1_final_gate.py
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/build_batch006_chronological_rule1_artifacts.py tools/apply_batch006_chronological_rule1_final_gate.py .github/workflows/build-rule1-batch006-chronological-final.yml
+          git commit -m 'Integrate NCSBN Batch 006 blueprint corrections Q0271 Q0274 Q0292'
+          git push
