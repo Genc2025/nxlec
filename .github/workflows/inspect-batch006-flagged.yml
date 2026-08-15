@@ -1,0 +1,24 @@
+name: Inspect Batch 006 flagged items
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/inspect-batch006-flagged.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dump flagged rows
+        run: |
+          python - <<'PY'
+          import sqlite3,json
+          ids=['V2-Q0264','V2-Q0268','V2-Q0271','V2-Q0274','V2-Q0282','V2-Q0287','V2-Q0292','V2-Q0293','V2-Q0295']
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          for uid in ids:
+              r=con.execute('SELECT question_uid,source_id,category_id,client_need,difficulty,stem,item_data_json,correct_answer_json,rationale,source_name,source_detail,source_url FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              print(json.dumps(r,ensure_ascii=False))
+          con.close()
+          PY
