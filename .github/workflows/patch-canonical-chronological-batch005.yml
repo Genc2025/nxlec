@@ -1,0 +1,52 @@
+name: Patch canonical build for chronological Batch 005
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/patch-canonical-chronological-batch005.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch canonical workflow
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/build-nclex-master.yml')
+          s=p.read_text()
+          reps=[
+          ('      - "tools/verify_batch004_rule1_round2.py"\n      - "tools/apply_batch005_rule1_final_gate.py"',
+           '      - "tools/verify_batch004_rule1_round2.py"\n      - "tools/apply_batch005_chronological_rule1_final_gate.py"\n      - "tools/apply_batch005_rule1_final_gate.py"'),
+          ('      - name: Apply off-sequence audited set Q0782-Q0831\n        run: python tools/apply_batch005_rule1_final_gate.py',
+           '      - name: Apply chronological Rule 1 Batch 005 Q0201-Q0250\n        run: python tools/apply_batch005_chronological_rule1_final_gate.py\n\n      - name: Apply off-sequence audited set Q0782-Q0831\n        run: python tools/apply_batch005_rule1_final_gate.py'),
+          ('          batch4=con.execute("SELECT value FROM bank_metadata WHERE key=\'batch004_q0151_q0200_rule1_final_gate\'").fetchone()\n          batch5=con.execute',
+           '          batch4=con.execute("SELECT value FROM bank_metadata WHERE key=\'batch004_q0151_q0200_rule1_final_gate\'").fetchone()\n          batch5c=con.execute("SELECT value FROM bank_metadata WHERE key=\'batch005_chronological_q0201_q0250_rule1_final_gate\'").fetchone()\n          batch5=con.execute'),
+          ("          batch4_passed=count_pass('V2-Q0151','V2-Q0200'); batch4_manual=count_manual('V2-Q0151','V2-Q0200')\n          batch5_passed=count_pass('V2-Q0782','V2-Q0831')",
+           "          batch4_passed=count_pass('V2-Q0151','V2-Q0200'); batch4_manual=count_manual('V2-Q0151','V2-Q0200')\n          batch5c_passed=count_pass('V2-Q0201','V2-Q0250'); batch5c_manual=count_manual('V2-Q0201','V2-Q0250')\n          batch5_passed=count_pass('V2-Q0782','V2-Q0831')"),
+          ("          assert batch4 and batch4[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and batch4_passed==50 and batch4_manual==50\n          assert batch5 and",
+           "          assert batch4 and batch4[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and batch4_passed==50 and batch4_manual==50\n          assert batch5c and batch5c[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15' and batch5c_passed==50 and batch5c_manual==50\n          assert batch5 and"),
+          ("          assert pending_json.get('range')==[201,250], pending_json.get('range')",
+           "          assert pending_json.get('range')==[251,300], pending_json.get('range')"),
+          ('batch4={batch4_passed}/50, offseq_0782_0831=',
+           'batch4={batch4_passed}/50, batch5_chrono={batch5c_passed}/50, offseq_0782_0831='),
+          ('FINAL_QA_BATCH004_ROUND2_20260815.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md',
+           'FINAL_QA_BATCH004_ROUND2_20260815.md FINAL_QA_BATCH005_Q0201_Q0250_RULE1_10OF10.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md'),
+          ]
+          for old,new in reps:
+              if old not in s:
+                  raise SystemExit('PATCH_PATTERN_NOT_FOUND: '+old[:100])
+              s=s.replace(old,new,1)
+          p.write_text(s)
+          print('CANONICAL_BATCH005_CHRONOLOGICAL_PATCHED')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/build-nclex-master.yml
+          git commit -m "Preserve chronological Rule 1 Batch 005 in canonical build [skip ci]"
+          git push
