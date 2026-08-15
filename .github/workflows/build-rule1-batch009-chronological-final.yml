@@ -151,8 +151,7 @@ jobs:
             FINAL_QA_BATCH009_Q0401_Q0450_RULE1_10OF10.md \
             data/pending_audit_next.json \
             data/rule1_batch009_chronological_reaudit_evidence_q0401_q0450.json \
-            data/clinical_overrides_zzz_rule1_batch009_chronological_q0401_q0450_20260815.json \
-            data/.batch009_placeholder
+            data/clinical_overrides_zzz_rule1_batch009_chronological_q0401_q0450_20260815.json
           if git diff --cached --quiet; then
             echo 'Batch 009 manual integration already current'
           else
