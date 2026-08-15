@@ -26,7 +26,9 @@ NCSBN_LOCATORS={
 def materialize_payload():
     if not PAYLOAD.exists(): raise SystemExit('Batch 010 authored manual payload missing')
     try:
-        raw=gzip.decompress(base64.b64decode(PAYLOAD.read_text(encoding='ascii').strip()))
+        encoded=PAYLOAD.read_text(encoding='ascii').strip()
+        encoded += '=' * (-len(encoded) % 4)
+        raw=gzip.decompress(base64.b64decode(encoded, validate=True))
         bundle=json.loads(raw.decode('utf-8'))
     except Exception as exc:
         raise SystemExit(f'Batch 010 manual payload decode failed: {exc}')
