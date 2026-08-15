@@ -1,0 +1,94 @@
+name: Verify Chronological Batch 005 Committed DB
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/verify-batch005-chronological-committed.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-committed-db:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently verify committed chronological Batch 005 DB
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+
+          DB=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          EVIDENCE=Path('data/rule1_batch005_chronological_reaudit_evidence_q0201_q0250.json')
+          REPORT=Path('FINAL_QA_BATCH005_Q0201_Q0250_RULE1_10OF10.md')
+          PENDING=Path('data/pending_audit_next.json')
+          IDS=[f'V2-Q{i:04d}' for i in range(201,251)]
+          CORRECTIONS={'V2-Q0205':('hyperglycemia','assessed separately'),'V2-Q0220':('nurse-leader competencies','specific leadership theory'),'V2-Q0236':('creatinine-cystatin C','muscle mass')}
+
+          ev=json.loads(EVIDENCE.read_text(encoding='utf-8'))
+          assert ev['standard']=='RULE_1_FINAL_10_OF_10_REAL_REAUDIT'
+          assert ev['batch']=='Q0201-Q0250' and ev['legacy_status_evidence'] is False
+          assert len(ev['criteria_names'])==11
+          assert ev['secondary_source_exceptions']==['V2-Q0243']
+          assert set(ev['substantive_corrections'])==set(CORRECTIONS)
+          assert [x['id'] for x in ev['items']]==IDS and len(ev['items'])==50
+          eby={x['id']:x for x in ev['items']}
+
+          con=sqlite3.connect(DB)
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
+          gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
+          meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch005_chronological_q0201_q0250_rule1_final_gate'").fetchone()
+          final=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          evidence_count=con.execute("SELECT COUNT(*) FROM rule1_batch005_chronological_reaudit_evidence WHERE criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
+          status_count=con.execute("SELECT COUNT(*) FROM questions WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND clinical_qa_status='SOURCE_VERIFIED_2026_RULE1_BATCH005_CHRONOLOGICAL'").fetchone()[0]
+
+          source_ok=0; option_ok=0; secondary=[]; corrections=0; max_ratio=0.0; max_dev=0.0
+          for uid in IDS:
+              e=eby[uid]
+              assert e['criteria']==11 and e['second_pass']=='PASS' and e['final']=='FINAL_QA_PASS' and e['reviewed_at']=='2026-08-15'
+              q=con.execute("SELECT category_id,client_need,difficulty,stem,item_data_json,correct_answer_json,rationale,source_name,source_detail,source_url,clinical_qa_status FROM questions WHERE question_uid=?",(uid,)).fetchone()
+              assert q is not None
+              cat,need,diff,stem,item_json,key_json,rationale,source_name,source_detail,source_url,status=q
+              assert (cat,need,diff)==(e['category_id'],e['client_need'],e['difficulty'])
+              opts=json.loads(item_json)['options']; key=json.loads(key_json)['correct_option']
+              assert set(opts)==set('ABCD') and len({v.strip().casefold() for v in opts.values()})==4 and key==e['key']
+              assert source_url==e['source_url'] and source_url.startswith('https://')
+              assert e['source_locator'].casefold() in source_detail.casefold()
+              assert e['source_version'].casefold() in source_detail.casefold() and '2026-08-15' in source_detail
+              assert status=='SOURCE_VERIFIED_2026_RULE1_BATCH005_CHRONOLOGICAL'
+              source_ok+=1
+              erow=con.execute("SELECT source_authority,source_url,source_locator,source_version,criteria_passed_count,second_pass,final_disposition,option_metrics_json FROM rule1_batch005_chronological_reaudit_evidence WHERE question_uid=?",(uid,)).fetchone()
+              assert erow is not None
+              authority,eurl,eloc,ever,criteria,second,disp,emetrics=erow
+              assert eurl==e['source_url'] and eloc==e['source_locator'] and ever==e['source_version']
+              assert criteria==11 and second=='PASS' and disp=='FINAL_QA_PASS'
+              if authority=='SECONDARY_EXCEPTION': secondary.append(uid)
+              fg=con.execute("SELECT source_locator,source_version,option_length_metrics_json,final_status FROM question_final_gate WHERE question_uid=?",(uid,)).fetchone()
+              assert fg and fg[0]==e['source_locator'] and fg[1]==e['source_version'] and fg[3]=='FINAL_QA_PASS'
+              m=json.loads(fg[2]); vals=m['characters']; ratio=m['max_min_ratio']; dev=m['correct_deviation_from_distractor_mean']
+              assert ratio<=1.15 and dev<=0.10 and m['correct_unique_length_extreme'] is False and m.get('artificial_padding') is False
+              assert json.loads(emetrics)['artificial_padding'] is False
+              option_ok+=1; max_ratio=max(max_ratio,ratio); max_dev=max(max_dev,dev)
+              if uid in CORRECTIONS:
+                  hay=' '.join([stem,rationale,*opts.values()]).casefold(); a,b=CORRECTIONS[uid]
+                  corrections+=int(a.casefold() in hay and b.casefold() in hay)
+
+          con.close()
+          pending=json.loads(PENDING.read_text(encoding='utf-8'))
+          report=REPORT.read_text(encoding='utf-8')
+          assert integrity=='ok' and total==3525 and ready==0
+          assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA'
+          assert meta and meta[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15'
+          assert (final,manual,evidence_count,bad,status_count)==(50,50,50,0,50)
+          assert source_ok==50 and option_ok==50 and secondary==['V2-Q0243'] and corrections==3
+          assert pending.get('range')==[251,300] and pending.get('count')==50
+          assert 'Final chronological Batch 005 result: **FINAL_QA_PASS 50/50**' in report
+          print(f'BATCH005_CHRONOLOGICAL_COMMITTED_DB_INDEPENDENTLY_VERIFIED integrity={integrity} total={total} final={final}/50 manual11={manual}/50 evidence11={evidence_count}/50 sources={source_ok}/50 option_qc={option_ok}/50 corrections={corrections}/3 secondary={len(secondary)}/1 bad={bad} status={status_count}/50 next={pending.get("range")} max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} ready={ready}')
+          PY
