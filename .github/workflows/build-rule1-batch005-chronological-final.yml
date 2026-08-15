@@ -1,0 +1,152 @@
+name: Rule 1 Chronological Batch 005 Q0201-Q0250
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/build_batch005_chronological_rule1_artifacts.py"
+      - "tools/apply_batch005_chronological_rule1_final_gate.py"
+      - ".github/workflows/build-rule1-batch005-chronological-final.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rule1-batch005-chronological:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build manually authored Batch 005 audit artifacts
+        run: python tools/build_batch005_chronological_rule1_artifacts.py
+
+      - name: Validate Batch 005 audit artifacts before rebuild
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          ev=json.loads(Path('data/rule1_batch005_chronological_reaudit_evidence_q0201_q0250.json').read_text())
+          ov=json.loads(Path('data/clinical_overrides_z_rule1_batch005_chronological_q0201_q0250_20260815.json').read_text())
+          ids=[f'V2-Q{i:04d}' for i in range(201,251)]
+          assert ev['standard']=='RULE_1_FINAL_10_OF_10_REAL_REAUDIT' and ev['batch']=='Q0201-Q0250' and ev['legacy_status_evidence'] is False
+          assert [x['id'] for x in ev['items']]==ids and [x['question_uid'] for x in ov['questions']]==ids
+          assert set(ev['substantive_corrections'])=={'V2-Q0205','V2-Q0220','V2-Q0236'}
+          assert set(ev['secondary_source_exceptions'])=={'V2-Q0243'}
+          eby={x['id']:x for x in ev['items']}; oby={x['question_uid']:x for x in ov['questions']}
+          max_ratio=max_dev=0.0
+          for uid in ids:
+              e=eby[uid]; q=oby[uid]
+              assert e['criteria']==11 and e['second_pass']=='PASS' and e['final']=='FINAL_QA_PASS' and e['reviewed_at']=='2026-08-15'
+              assert e['source_url'].startswith('https://') and e['source_locator'] and e['source_version']
+              assert q['source_url']==e['source_url'] and e['source_locator'].casefold() in q['source_detail'].casefold() and e['source_version'].casefold() in q['source_detail'].casefold()
+              opts=json.loads(q['item_data_json'])['options']; key=json.loads(q['correct_answer_json'])['correct_option']; assert key==e['key'] and set(opts)==set('ABCD')
+              lens={k:len(v.strip()) for k,v in opts.items()}; vals=list(lens.values()); ratio=max(vals)/min(vals); dm=sum(lens[k] for k in 'ABCD' if k!=key)/3; dev=abs(lens[key]-dm)/dm
+              unique=((lens[key]==min(vals) and vals.count(min(vals))==1) or (lens[key]==max(vals) and vals.count(max(vals))==1))
+              assert ratio<=1.15+1e-12 and dev<=0.10+1e-12 and not unique
+              assert e['option_qc']['artificial_padding'] is False
+              max_ratio=max(max_ratio,ratio); max_dev=max(max_dev,dev)
+          print(f'BATCH005_CHRONOLOGICAL_ARTIFACTS_VALID items=50/50 criteria11=50/50 second_pass=50/50 sources=50/50 option_qc=50/50 corrections=3/3 secondary=1/1 max_ratio={max_ratio:.4f} max_dev={max_dev:.4f}')
+          PY
+
+      - name: Decode other staged clinical overrides
+        run: |
+          shopt -s nullglob
+          for file in data/clinical_overrides_*.json.gz.b64; do
+            json_file="${file%.gz.b64}"
+            [[ -f "$json_file" ]] && continue
+            base64 --decode "$file" | gzip -dc > "$json_file"
+          done
+          for file in data/clinical_overrides_*.b64; do
+            [[ "$file" == *.json.gz.b64 ]] && continue
+            json_file="${file%.b64}.json"
+            [[ -f "$json_file" ]] && continue
+            base64 --decode "$file" > "$json_file"
+          done
+
+      - name: Rebuild Wave 27 manifest
+        run: python tools/rebuild_wave27_manifest.py
+      - name: Build master DB
+        run: python tools/build_nclex_master.py
+      - name: Enforce commercial hard gate
+        run: python tools/enforce_commercial_gate.py
+      - name: Enforce strict governance baseline
+        run: python tools/enforce_strict_question_gate.py
+      - name: Apply Wave 26 option balance
+        run: python tools/apply_wave26_option_balance.py
+      - name: Apply Rule 1 Batch 001
+        run: python tools/apply_batch001_final_gate.py
+      - name: Apply Rule 1 Batch 002
+        run: python tools/apply_batch002_rule1_final_gate.py
+      - name: Apply Rule 1 Batch 003
+        run: python tools/apply_batch003_rule1_final_gate.py
+      - name: Apply Rule 1 Batch 004
+        run: python tools/apply_batch004_rule1_final_gate.py
+      - name: Verify Rule 1 Batch 004 round2
+        run: python tools/verify_batch004_rule1_round2.py
+      - name: Apply chronological Rule 1 Batch 005
+        run: python tools/apply_batch005_chronological_rule1_final_gate.py
+      - name: Reapply off-sequence audited Q0782-Q0831
+        run: python tools/apply_batch005_rule1_final_gate.py
+      - name: Reapply off-sequence audited Q0832-Q0881
+        run: python tools/apply_batch006_rule1_final_gate.py
+      - name: Apply Wave 25 gate
+        run: python tools/apply_wave25_final_gate.py
+      - name: Apply Wave 26 gate
+        run: python tools/apply_wave26_manual_final_gate.py
+      - name: Apply Wave 27 gate
+        run: python tools/apply_wave27_manual_final_gate.py
+      - name: Export next chronological pending audit
+        run: python tools/export_pending_audit.py
+
+      - name: Verify chronological Batch 005 integrated DB
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
+          gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
+          meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch005_chronological_q0201_q0250_rule1_final_gate'").fetchone()
+          final=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          evidence=con.execute("SELECT COUNT(*) FROM rule1_batch005_chronological_reaudit_evidence WHERE criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
+          source_rows=con.execute("SELECT q.question_uid,q.source_url,q.source_detail,e.source_url,e.source_locator,e.source_version,e.source_authority FROM questions q JOIN rule1_batch005_chronological_reaudit_evidence e USING(question_uid) ORDER BY q.question_uid").fetchall()
+          source_ok=sum(1 for uid,qurl,detail,eurl,loc,ver,auth in source_rows if qurl==eurl and qurl.startswith('https://') and loc.casefold() in detail.casefold() and ver.casefold() in detail.casefold() and '2026-08-15' in detail)
+          secondary=sum(1 for r in source_rows if r[6]=='SECONDARY_EXCEPTION')
+          rows=con.execute("SELECT option_length_metrics_json FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0201' AND 'V2-Q0250'").fetchall()
+          option_ok=0; max_ratio=max_dev=0.0
+          for (raw,) in rows:
+              m=json.loads(raw); max_ratio=max(max_ratio,m['max_min_ratio']); max_dev=max(max_dev,m['correct_deviation_from_distractor_mean'])
+              option_ok+=int(m['max_min_ratio']<=1.15 and m['correct_deviation_from_distractor_mean']<=0.10 and m['correct_unique_length_extreme'] is False and m.get('artificial_padding') is False)
+          signatures={'V2-Q0205':('hyperglycemia','assessed separately'),'V2-Q0220':('nurse-leader competencies','specific leadership theory'),'V2-Q0236':('creatinine-cystatin C','muscle mass')}
+          corrections=0
+          for uid,(a,b) in signatures.items():
+              r=con.execute('SELECT stem,item_data_json,rationale FROM questions WHERE question_uid=?',(uid,)).fetchone(); hay=' '.join(r).casefold(); corrections+=int(a.casefold() in hay and b.casefold() in hay)
+          con.close()
+          pending=json.loads(Path('data/pending_audit_next.json').read_text())
+          assert integrity=='ok' and total==3525 and ready==0
+          assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA'
+          assert meta and meta[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15'
+          assert (final,manual,evidence,bad,source_ok,secondary,option_ok,corrections)==(50,50,50,0,50,1,50,3)
+          assert pending.get('range')==[251,300] and pending.get('count')==50, pending.get('range')
+          print(f'RULE1_BATCH005_CHRONOLOGICAL_VERIFIED integrity={integrity} total={total} pass={final}/50 manual11={manual}/50 evidence11={evidence}/50 sources={source_ok}/50 option_qc={option_ok}/50 corrections={corrections}/3 secondary={secondary}/1 bad={bad} next={pending.get("range")} max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} ready={ready}')
+          PY
+
+      - name: Commit chronological Batch 005 outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH005_Q0201_Q0250_RULE1_10OF10.md data/pending_audit_next.json data/rule1_batch005_chronological_reaudit_evidence_q0201_q0250.json data/clinical_overrides_z_rule1_batch005_chronological_q0201_q0250_20260815.json
+          if git diff --cached --quiet; then
+            echo "Chronological Batch 005 outputs already current"
+          else
+            git commit -m "Integrate chronological Rule 1 Batch 005 Q0201-Q0250 [skip ci]"
+            git push
+          fi
