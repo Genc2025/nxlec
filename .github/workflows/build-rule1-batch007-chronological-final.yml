@@ -1,0 +1,157 @@
+name: Rule 1 Manual Chronological Batch 007 Q0301-Q0350
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-rule1-batch007-chronological-final.yml'
+      - 'tools/build_batch007_chronological_rule1_artifacts.py'
+      - 'tools/apply_batch007_chronological_rule1_final_gate.py'
+      - 'data/manual_rule1_batch007_q0301_q0310_20260815.json'
+      - 'data/manual_rule1_batch007_q0311_q0320_20260815.json'
+      - 'data/manual_rule1_batch007_q0321_q0330_20260815.json'
+      - 'data/manual_rule1_batch007_q0331_q0340_20260815.json'
+      - 'data/manual_rule1_batch007_q0341_q0350_20260815.json'
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Decode existing staged payloads
+        run: |
+          shopt -s nullglob
+          for file in data/clinical_overrides_*.json.gz.b64; do
+            json_file="${file%.gz.b64}"
+            [[ -f "$json_file" ]] && continue
+            base64 --decode "$file" | gzip -dc > "$json_file"
+          done
+          for file in data/clinical_overrides_*.b64; do
+            [[ "$file" == *.json.gz.b64 ]] && continue
+            json_file="${file%.b64}.json"
+            [[ -f "$json_file" ]] && continue
+            base64 --decode "$file" > "$json_file"
+          done
+
+      - name: Apply manually authored Rule 1 Batch 007 decisions
+        run: python tools/build_batch007_chronological_rule1_artifacts.py
+
+      - name: Technical validation of manual Batch 007 artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          ids=[f'V2-Q{i:04d}' for i in range(301,351)]
+          e=json.loads(Path('data/rule1_batch007_chronological_reaudit_evidence_q0301_q0350.json').read_text())
+          o=json.loads(Path('data/clinical_overrides_zz_rule1_batch007_chronological_q0301_q0350_20260815.json').read_text())
+          assert e['standard']=='RULE_1_FINAL_10_OF_10_MANUAL_ITEM_BY_ITEM_REAUDIT'
+          assert e['batch']=='Q0301-Q0350' and e['legacy_status_evidence'] is False and e['semantic_decisions_by_script'] is False
+          assert len(e['criteria_names'])==11 and [x['id'] for x in e['items']]==ids and len(e['items'])==50
+          assert o['semantic_decisions_by_script'] is False and [x['question_uid'] for x in o['questions']]==ids and len(o['questions'])==50
+          for x in e['items']:
+            assert x['criteria']==11 and x['second_pass']=='PASS' and x['final']=='FINAL_QA_PASS'
+            assert x['semantic_decision_origin']=='MANUAL_ITEM_BY_ITEM_AUDIT_NOT_SCRIPT'
+            assert x['source_authority'] and x['source_url'].startswith('https://') and x['source_locator'] and x['source_version']
+            n=x['ncsbn_first_check']; assert n['required_currentness_and_blueprint_check'] is True and n['result']=='PASS'
+            assert '2026-04-01' in n['version'] and '2029-03-31' in n['version']
+            assert x['option_measurement']['use']=='MEASUREMENT_ONLY_NOT_SEMANTIC_GATE'
+          print('BATCH007_MANUAL_INPUTS_TECHNICALLY_VALID items=50/50 criteria11=50/50 sources=50/50 second_pass=50/50 semantic_script_decisions=0')
+          PY
+
+      - name: Rebuild Wave 27 manifest
+        run: python tools/rebuild_wave27_manifest.py
+      - name: Build master DB with manual Batch 007 override
+        run: python tools/build_nclex_master.py
+      - name: Enforce commercial hard gate
+        run: python tools/enforce_commercial_gate.py
+      - name: Enforce strict governance baseline
+        run: python tools/enforce_strict_question_gate.py
+      - name: Apply Wave 26 option balance outside Batch 007 scope
+        run: python tools/apply_wave26_option_balance.py
+      - name: Report Wave 26 metrics
+        run: python tools/report_wave26_option_metrics.py
+
+      - name: Reapply completed chronological Rule 1 gates
+        run: |
+          python tools/apply_batch001_final_gate.py
+          python tools/apply_batch002_rule1_final_gate.py
+          python tools/apply_batch003_rule1_final_gate.py
+          python tools/apply_batch004_rule1_final_gate.py
+          python tools/verify_batch004_rule1_round2.py
+          python tools/apply_batch005_chronological_rule1_final_gate.py
+          python tools/apply_batch006_chronological_rule1_final_gate.py
+
+      - name: Apply manual chronological Rule 1 Batch 007 final gate
+        run: python tools/apply_batch007_chronological_rule1_final_gate.py
+
+      - name: Preserve off-sequence audited sets and wave gates
+        run: |
+          python tools/apply_batch005_rule1_final_gate.py
+          python tools/apply_batch006_rule1_final_gate.py
+          python tools/apply_wave25_final_gate.py
+          python tools/apply_wave26_manual_final_gate.py
+          python tools/apply_wave27_manual_final_gate.py
+
+      - name: Export next chronological pending audit
+        run: python tools/export_pending_audit.py
+
+      - name: Verify integrated Batch 007 and final DB state
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          ids=[f'V2-Q{i:04d}' for i in range(301,351)]
+          ev=json.loads(Path('data/rule1_batch007_chronological_reaudit_evidence_q0301_q0350.json').read_text())
+          ov=json.loads(Path('data/clinical_overrides_zz_rule1_batch007_chronological_q0301_q0350_20260815.json').read_text())
+          em={x['id']:x for x in ev['items']}; om={x['question_uid']:x for x in ov['questions']}
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db'); con.row_factory=sqlite3.Row
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
+          gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()[0]
+          meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch007_chronological_q0301_q0350_rule1_final_gate'").fetchone()[0]
+          final=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0301' AND 'V2-Q0350' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0301' AND 'V2-Q0350' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          evidence=con.execute("SELECT COUNT(*) FROM rule1_batch007_chronological_reaudit_evidence WHERE criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          status=con.execute("SELECT COUNT(*) FROM questions WHERE question_uid BETWEEN 'V2-Q0301' AND 'V2-Q0350' AND clinical_qa_status='SOURCE_VERIFIED_2026_RULE1_BATCH007_CHRONOLOGICAL_MANUAL'").fetchone()[0]
+          bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0301' AND 'V2-Q0350' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
+          for uid in ids:
+            q=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone(); e=em[uid]; o=om[uid]
+            opts=json.loads(q['item_data_json'])['options']; key=json.loads(q['correct_answer_json'])['correct_option']
+            assert opts==json.loads(o['item_data_json'])['options'] and key==json.loads(o['correct_answer_json'])['correct_option']==e['key']
+            assert q['stem']==o['stem'] and q['rationale']==o['rationale']
+            assert (q['category_id'],q['client_need'],q['difficulty'])==(e['category_id'],e['client_need'],e['difficulty'])
+            assert q['source_name']==e['source_name'] and q['source_url']==e['source_url']
+            assert e['source_locator'] in q['source_detail'] and e['source_version'] in q['source_detail'] and 'NCSBN first-check' in q['source_detail']
+          con.close()
+          pending=json.loads(Path('data/pending_audit_next.json').read_text())
+          assert integrity=='ok' and total==3525 and ready==0
+          assert gate=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA'
+          assert meta=='PASS_50_OF_50_MANUAL_ITEM_BY_ITEM_SECOND_PASS_11_OF_11_NCSBN_2026_08_15'
+          assert (final,manual,evidence,status,bad)==(50,50,50,50,0)
+          assert pending['range']==[351,400] and pending['count']==50
+          print(f'BATCH007_MANUAL_INTEGRATED_VERIFIED integrity={integrity} total={total} final={final}/50 manual11={manual}/50 evidence11={evidence}/50 status={status}/50 bad={bad} next={pending["range"]} ready={ready}')
+          PY
+
+      - name: Commit integrated manual Batch 007
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md \
+            FINAL_QA_BATCH007_Q0301_Q0350_RULE1_10OF10.md \
+            data/pending_audit_next.json \
+            data/rule1_batch007_chronological_reaudit_evidence_q0301_q0350.json \
+            data/clinical_overrides_zz_rule1_batch007_chronological_q0301_q0350_20260815.json
+          if git diff --cached --quiet; then
+            echo 'Batch 007 manual integration already current'
+          else
+            git commit -m 'Integrate manual Rule 1 Batch 007 Q0301-Q0350 [skip ci]'
+            git push
+          fi
