@@ -1,0 +1,55 @@
+name: Inspect Batch 004 Integrated DB
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-batch004-integrated.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently inspect committed Batch 004 DB
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          evidence={}
+          for path in [Path('data/rule1_batch004_reaudit_evidence_part1_q0151_q0175.json'),Path('data/rule1_batch004_reaudit_evidence_part2_q0176_q0200.json')]:
+              doc=json.loads(path.read_text(encoding='utf-8'))
+              for item in doc['items']:
+                  evidence[item['id']]=item
+          assert len(evidence)==50
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          con.row_factory=sqlite3.Row
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT value FROM bank_metadata WHERE key='batch004_q0151_q0200_rule1_final_gate'").fetchone()[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15'
+          assert con.execute("SELECT COUNT(*) FROM rule1_batch004_reaudit_evidence WHERE question_uid BETWEEN 'V2-Q0151' AND 'V2-Q0200' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]==50
+          assert con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0151' AND 'V2-Q0200' AND final_status='FINAL_QA_PASS'").fetchone()[0]==50
+          assert con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]==0
+          mismatches=[]
+          for uid,e in sorted(evidence.items()):
+              q=con.execute('SELECT question_uid,category_id,client_need,difficulty,stem,item_data_json,correct_answer_json,rationale,source_url,source_detail FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if not q:
+                  mismatches.append(uid+':missing'); continue
+              key=json.loads(q['correct_answer_json'])['correct_option']
+              if key!=e['key']: mismatches.append(uid+':key')
+              if q['category_id']!=e['category_id'] or q['client_need']!=e['client_need'] or q['difficulty']!=e['difficulty']: mismatches.append(uid+':blueprint')
+              if q['source_url']!=e['source_url']: mismatches.append(uid+':source_url')
+              if e['source_locator'].casefold() not in q['source_detail'].casefold(): mismatches.append(uid+':locator')
+              if e['source_version'].casefold() not in q['source_detail'].casefold(): mismatches.append(uid+':version')
+          assert not mismatches, mismatches
+          q178=con.execute("SELECT stem FROM questions WHERE question_uid='V2-Q0178'").fetchone()[0]
+          q182=con.execute("SELECT stem FROM questions WHERE question_uid='V2-Q0182'").fetchone()[0]
+          q193=con.execute("SELECT stem,item_data_json FROM questions WHERE question_uid='V2-Q0193'").fetchone()
+          assert 'meets current STEMI diagnostic criteria' in q178
+          assert q182.startswith('Two weeks after abdominal surgery')
+          assert 'measured serum or plasma osmolality' in json.loads(q193['item_data_json'])['options']['B']
+          con.close()
+          print('BATCH004_COMMITTED_DB_INDEPENDENTLY_VERIFIED integrity=ok items=50/50 sources=50/50 blueprint=50/50 keys=50/50 corrections=3/3 final_gate=50/50 ready=0')
+          PY
