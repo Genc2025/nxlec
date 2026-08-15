@@ -1,0 +1,185 @@
+name: Rule 1 Batch 005 Hotfix Q0782-Q0831
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/fix_batch005_gate_inputs.py"
+      - "tools/build_batch005_override.py"
+      - "tools/apply_batch005_rule1_final_gate.py"
+      - "data/rule1_batch005_reaudit_evidence_q0782_q0831.json.gz.b64"
+      - ".github/workflows/build-rule1-batch005-hotfix.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rule1-batch005-hotfix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decode and authenticate original Batch 005 evidence
+        run: |
+          base64 --decode data/rule1_batch005_reaudit_evidence_q0782_q0831.json.gz.b64 | gzip -dc > data/rule1_batch005_reaudit_evidence_q0782_q0831.json
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          p=Path('data/rule1_batch005_reaudit_evidence_q0782_q0831.json')
+          h=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert h=='c40f987e2ff0cae6751b6a45c99066302048ea22d0c9761c23cb3cb5b90da4c8', h
+          print('BATCH005_ORIGINAL_EVIDENCE_AUTHENTICATED sha256='+h)
+          PY
+
+      - name: Build corrected Batch 005 override
+        run: python tools/build_batch005_override.py
+
+      - name: Normalize audited blueprint metadata and Q0829 terminology
+        run: python tools/fix_batch005_gate_inputs.py
+
+      - name: Validate normalized Batch 005 inputs
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          ep=Path('data/rule1_batch005_reaudit_evidence_q0782_q0831.json')
+          op=Path('data/clinical_overrides_z_rule1_batch005_reaudit_20260815.json')
+          ev=json.loads(ep.read_text()); ov=json.loads(op.read_text())
+          ids=[f'V2-Q{i:04d}' for i in range(782,832)]
+          assert ev['standard']=='RULE_1_FINAL_10_OF_10_REAL_REAUDIT'
+          assert ev['batch']=='Q0782-Q0831'
+          assert ev['legacy_status_evidence'] is False
+          assert [x['id'] for x in ev['items']]==ids and len(ev['items'])==50
+          assert [x['question_uid'] for x in ov['questions']]==ids and len(ov['questions'])==50
+          eby={x['id']:x for x in ev['items']}; oby={x['question_uid']:x for x in ov['questions']}
+          assert (eby['V2-Q0799']['category_id'],eby['V2-Q0799']['client_need'],eby['V2-Q0799']['difficulty'])==(5,'Psychosocial Integrity','easy')
+          assert (eby['V2-Q0813']['category_id'],eby['V2-Q0813']['client_need'],eby['V2-Q0813']['difficulty'])==(3,'Safety & Infection Prevention and Control','easy')
+          q829=oby['V2-Q0829']; hay=(q829['stem']+' '+q829['rationale']+' '+q829['item_data_json']).casefold()
+          assert 'cholecystitis' in hay and 'ultrasound' in hay
+          corrections=0; secondary=0; option_ok=0; max_ratio=0.0; max_dev=0.0
+          for uid in ids:
+              e=eby[uid]; q=oby[uid]
+              assert e['criteria']==11 and e['second_pass']=='PASS' and e['final']=='FINAL_QA_PASS'
+              assert e['reviewed_at']=='2026-08-15'
+              assert q['source_url']==e['source_url'] and q['source_url'].startswith('https://')
+              assert e['source_locator'].casefold() in q['source_detail'].casefold()
+              assert e['source_version'].casefold() in q['source_detail'].casefold()
+              assert '2026-08-15' in q['source_detail']
+              options=json.loads(q['item_data_json'])['options']; key=json.loads(q['correct_answer_json'])['correct_option']
+              assert key==e['key']; assert set(options)==set('ABCD'); assert len({v.strip().casefold() for v in options.values()})==4
+              lens={k:len(v.strip()) for k,v in options.items()}; vals=list(lens.values())
+              ratio=max(vals)/min(vals); dmean=sum(lens[k] for k in 'ABCD' if k!=key)/3; dev=abs(lens[key]-dmean)/dmean
+              unique=((lens[key]==min(vals) and vals.count(min(vals))==1) or (lens[key]==max(vals) and vals.count(max(vals))==1))
+              assert ratio<=1.15+1e-12 and dev<=0.10+1e-12 and not unique, (uid,ratio,dev,unique)
+              option_ok+=1; max_ratio=max(max_ratio,ratio); max_dev=max(max_dev,dev)
+              flags=json.loads(q['editorial_flags_json'])
+              corrections += int('SUBSTANTIVE_CORRECTION' in flags)
+              secondary += int(e['authority']=='S')
+          assert corrections==16 and secondary==1 and option_ok==50
+          print(f'BATCH005_NORMALIZED_INPUTS_VALID items=50/50 criteria11=50/50 corrections={corrections}/16 secondary={secondary}/1 option_qc={option_ok}/50 max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} evidence_sha256={hashlib.sha256(ep.read_bytes()).hexdigest()} override_sha256={hashlib.sha256(op.read_bytes()).hexdigest()}')
+          PY
+
+      - name: Decode other staged clinical overrides
+        run: |
+          shopt -s nullglob
+          for file in data/clinical_overrides_*.json.gz.b64; do
+            [[ "$file" == "data/clinical_overrides_z_rule1_batch005_reaudit_20260815.json.gz.b64" ]] && continue
+            json_file="${file%.gz.b64}"
+            [[ -f "$json_file" ]] && continue
+            base64 --decode "$file" | gzip -dc > "$json_file"
+          done
+          for file in data/clinical_overrides_*.b64; do
+            [[ "$file" == *.json.gz.b64 ]] && continue
+            json_file="${file%.b64}.json"
+            [[ -f "$json_file" ]] && continue
+            base64 --decode "$file" > "$json_file"
+          done
+
+      - name: Rebuild Wave 27 manifest
+        run: python tools/rebuild_wave27_manifest.py
+      - name: Build master DB
+        run: python tools/build_nclex_master.py
+      - name: Enforce commercial hard gate
+        run: python tools/enforce_commercial_gate.py
+      - name: Enforce strict governance baseline
+        run: python tools/enforce_strict_question_gate.py
+      - name: Apply Wave 26 option balance
+        run: python tools/apply_wave26_option_balance.py
+      - name: Apply Rule 1 Batch 001
+        run: python tools/apply_batch001_final_gate.py
+      - name: Apply Rule 1 Batch 002
+        run: python tools/apply_batch002_rule1_final_gate.py
+      - name: Apply Rule 1 Batch 003
+        run: python tools/apply_batch003_rule1_final_gate.py
+      - name: Verify Rule 1 Batch 003
+        run: python tools/verify_batch003_rule1_reaudit.py
+      - name: Apply Rule 1 Batch 004
+        run: python tools/apply_batch004_rule1_final_gate.py
+      - name: Verify Rule 1 Batch 004 fresh round2
+        run: python tools/verify_batch004_rule1_round2.py
+      - name: Apply Rule 1 Batch 005
+        run: python tools/apply_batch005_rule1_final_gate.py
+      - name: Apply Wave 25 gate
+        run: python tools/apply_wave25_final_gate.py
+      - name: Apply Wave 26 gate
+        run: python tools/apply_wave26_manual_final_gate.py
+      - name: Apply Wave 27 gate
+        run: python tools/apply_wave27_manual_final_gate.py
+      - name: Export pending audit
+        run: python tools/export_pending_audit.py
+
+      - name: Verify Rule 1 Batch 005 integrated DB
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          con=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          ready=con.execute('SELECT COUNT(*) FROM questions WHERE commercial_release_ready=1').fetchone()[0]
+          gate=con.execute("SELECT value FROM bank_metadata WHERE key='commercial_release_gate'").fetchone()
+          meta=con.execute("SELECT value FROM bank_metadata WHERE key='batch005_q0782_q0831_rule1_final_gate'").fetchone()
+          final=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' AND final_status='FINAL_QA_PASS'").fetchone()[0]
+          manual=con.execute("SELECT COUNT(*) FROM rule1_manual_audit WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          evidence=con.execute("SELECT COUNT(*) FROM rule1_batch005_reaudit_evidence WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' AND criteria_passed_count=11 AND second_pass='PASS' AND final_disposition='FINAL_QA_PASS'").fetchone()[0]
+          bad=con.execute("SELECT COUNT(*) FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' AND (source_verified<>1 OR blueprint_verified<>1 OR question_quality_verified<>1 OR correct_answer_verified<>1 OR distractors_verified<>1 OR explanation_verified<>1 OR currentness_verified<>1 OR independent_qa_passed<>1 OR no_unresolved_conflict<>1)").fetchone()[0]
+          source_current=con.execute("SELECT COUNT(*) FROM questions WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' AND source_detail LIKE '%2026-08-15%'").fetchone()[0]
+          secondary=con.execute("SELECT COUNT(*) FROM rule1_batch005_reaudit_evidence WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831' AND source_authority='SECONDARY_EXCEPTION'").fetchone()[0]
+          q799=con.execute("SELECT category_id,client_need,difficulty FROM questions WHERE question_uid='V2-Q0799'").fetchone()
+          q813=con.execute("SELECT category_id,client_need,difficulty FROM questions WHERE question_uid='V2-Q0813'").fetchone()
+          q829=con.execute("SELECT stem,item_data_json,rationale FROM questions WHERE question_uid='V2-Q0829'").fetchone()
+          rows=con.execute("SELECT question_uid,option_length_metrics_json FROM question_final_gate WHERE question_uid BETWEEN 'V2-Q0782' AND 'V2-Q0831'").fetchall()
+          option_ok=0; max_ratio=0.0; max_dev=0.0
+          for uid,raw in rows:
+              m=json.loads(raw); max_ratio=max(max_ratio,m['max_min_ratio']); max_dev=max(max_dev,m['correct_deviation_from_distractor_mean'])
+              if m['max_min_ratio']<=1.15 and m['correct_deviation_from_distractor_mean']<=0.10 and m['correct_unique_length_extreme'] is False and m.get('artificial_padding') is False: option_ok+=1
+          signatures={'V2-Q0782':('position-triggered','BPPV'),'V2-Q0784':('20 mm Hg','10 mm Hg'),'V2-Q0791':('4 to 5 half-lives','drug-specific'),'V2-Q0793':('aspiration','fasting'),'V2-Q0794':('1 to 1.5 inches','hands'),'V2-Q0795':('delirium','multicomponent'),'V2-Q0796':('calcium','bone'),'V2-Q0799':('active listening','culture'),'V2-Q0801':('prolonged grief','impairment'),'V2-Q0804':('muscle','report'),'V2-Q0811':('ceiling','respiratory'),'V2-Q0812':('horizontal evacuation','smoke compartment'),'V2-Q0813':('several days','individual'),'V2-Q0817':('Contact Precautions','gown'),'V2-Q0828':('diverticulitis','CT'),'V2-Q0829':('cholecystitis','ultrasound')}
+          corrected=0
+          for uid,(a,b) in signatures.items():
+              r=con.execute('SELECT stem,item_data_json,rationale FROM questions WHERE question_uid=?',(uid,)).fetchone(); hay=' '.join(r).casefold()
+              corrected += int(a.casefold() in hay and b.casefold() in hay)
+          con.close()
+          assert integrity=='ok' and total==3525 and ready==0
+          assert gate and gate[0]=='CLOSED_PENDING_FULL_BANK_CLINICAL_CURRENTNESS_SOURCE_LICENSING_AND_RELEASE_QA'
+          assert meta and meta[0]=='PASS_50_OF_50_REAL_REAUDIT_SECOND_PASS_11_OF_11_2026_08_15'
+          assert final==50 and manual==50 and evidence==50 and bad==0 and source_current==50 and secondary==1 and option_ok==50 and corrected==16
+          assert q799==(5,'Psychosocial Integrity','easy'), q799
+          assert q813==(3,'Safety & Infection Prevention and Control','easy'), q813
+          assert 'ultrasound' in ' '.join(q829).casefold()
+          print(f'RULE1_BATCH005_INTEGRATED_VERIFIED integrity={integrity} total={total} pass={final}/50 manual11={manual}/50 evidence11={evidence}/50 source_current={source_current}/50 option_qc={option_ok}/50 corrections={corrected}/16 secondary={secondary}/1 bad={bad} max_ratio={max_ratio:.4f} max_dev={max_dev:.4f} ready={ready}')
+          PY
+
+      - name: Commit integrated Batch 005 outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md data/pending_audit_next.json data/rule1_batch005_reaudit_evidence_q0782_q0831.json data/clinical_overrides_z_rule1_batch005_reaudit_20260815.json
+          if git diff --cached --quiet; then
+            echo "Rule 1 Batch 005 outputs already current"
+          else
+            git commit -m "Integrate Rule 1 Batch 005 Q0782-Q0831 real re-audit [skip ci]"
+            git push
+          fi
