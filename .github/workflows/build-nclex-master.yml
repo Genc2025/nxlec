@@ -18,6 +18,8 @@ on:
       - "tools/apply_batch004_rule1_final_gate.py"
       - "tools/verify_batch004_rule1_round2.py"
       - "tools/apply_batch005_chronological_rule1_final_gate.py"
+      - "tools/build_batch006_chronological_audit.py"
+      - "tools/apply_batch006_chronological_rule1_final_gate.py"
       - "tools/apply_batch005_rule1_final_gate.py"
       - "tools/apply_batch006_rule1_final_gate.py"
       - "tools/apply_wave26_option_balance.py"
@@ -113,6 +115,9 @@ jobs:
       - name: Apply chronological Rule 1 Batch 005 Q0201-Q0250
         run: python tools/apply_batch005_chronological_rule1_final_gate.py
 
+      - name: Apply chronological Rule 1 Batch 006 Q0251-Q0300
+        run: python tools/apply_batch006_chronological_rule1_final_gate.py
+
       - name: Apply off-sequence audited set Q0782-Q0831
         run: python tools/apply_batch005_rule1_final_gate.py
 
@@ -138,10 +143,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_BATCH002_Q0051_Q0100_RULE1_10OF10.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md FINAL_QA_BATCH004_Q0151_Q0200_RULE1_10OF10.md FINAL_QA_BATCH004_ROUND2_20260815.md FINAL_QA_BATCH005_Q0201_Q0250_RULE1_10OF10.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md FINAL_QA_BATCH006_Q0832_Q0881_RULE1_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/rule1_manual_audit_batch002_q0051_q0100.json data/rule1_manual_audit_batch003_q0101_q0150.json data/rule1_batch004_*.json data/rule1_batch005_*.json data/rule1_batch006_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
+          git add NCLEX_COMMERCIAL_MASTER_CURRENT.db NCLEX_COMMERCIAL_MASTER_CURRENT_AUDIT.md FINAL_QA_BATCH001_Q0001_Q0050_10OF10.md FINAL_QA_BATCH002_Q0051_Q0100_RULE1_10OF10.md FINAL_QA_BATCH003_Q0101_Q0150_RULE1_10OF10.md FINAL_QA_BATCH004_Q0151_Q0200_RULE1_10OF10.md FINAL_QA_BATCH004_ROUND2_20260815.md FINAL_QA_BATCH005_Q0201_Q0250_RULE1_10OF10.md FINAL_QA_BATCH006_Q0251_Q0300_RULE1_10OF10.md FINAL_QA_BATCH005_Q0782_Q0831_RULE1_10OF10.md FINAL_QA_BATCH006_Q0832_Q0881_RULE1_10OF10.md FINAL_QA_WAVE25_Q0492_Q0531_10OF10.md FINAL_QA_WAVE26_Q0532_Q0581_MANUAL_10OF10.md FINAL_QA_WAVE27_Q0582_Q0631_MANUAL_10OF10.md data/pending_audit_next.json data/clinical_overrides_*.json data/rule1_manual_audit_batch002_q0051_q0100.json data/rule1_manual_audit_batch003_q0101_q0150.json data/rule1_batch004_*.json data/rule1_batch005_*.json data/rule1_batch006_*.json data/manual_final_qa_wave26_0532_0581.json data/manual_final_qa_wave27_0582_0631.json data/manual_option_balance_wave26*.json
           if git diff --cached --quiet; then
             echo "Master is already current"
           else
-            git commit -m "Build current NCLEX commercial master with chronological Rule 1 Batch 005 [skip ci]"
+            git commit -m "Build current NCLEX commercial master with chronological Rule 1 Batch 006 [skip ci]"
             git push
           fi
