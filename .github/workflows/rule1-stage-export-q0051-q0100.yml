@@ -1,0 +1,48 @@
+name: Rule 1 stage export Q0051-Q0100
+on:
+  push:
+    branches: [rule1-stage-batch100]
+    paths:
+      - '.github/workflows/rule1-stage-export-q0051-q0100.yml'
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export current source rows and canonical
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json, subprocess
+          from pathlib import Path
+          src=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          can=Path('NCLEX_CANONICAL.db')
+          s=sqlite3.connect(src); s.row_factory=sqlite3.Row
+          c=sqlite3.connect(can); c.row_factory=sqlite3.Row
+          rows=[dict(r) for r in s.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 51 AND 100 ORDER BY source_id")]
+          bp=[dict(r) for r in s.execute('SELECT * FROM nclex_2026_blueprint ORDER BY category_id')]
+          meta={
+            'source_integrity':s.execute('PRAGMA integrity_check').fetchone()[0],
+            'canonical_integrity':c.execute('PRAGMA integrity_check').fetchone()[0],
+            'source_question_count':s.execute('SELECT COUNT(*) FROM questions').fetchone()[0],
+            'canonical_question_count':c.execute('SELECT COUNT(*) FROM questions').fetchone()[0],
+            'source_blob':subprocess.check_output(['git','hash-object',str(src)],text=True).strip(),
+            'canonical_blob':subprocess.check_output(['git','hash-object',str(can)],text=True).strip(),
+            'row_count':len(rows),
+            'uids':[r['question_uid'] for r in rows]
+          }
+          Path('rule1_source_q0051_q0100.json').write_text(json.dumps({'meta':meta,'blueprint':bp,'questions':rows},ensure_ascii=False,indent=2),encoding='utf-8')
+          Path('rule1_export_meta.json').write_text(json.dumps(meta,indent=2),encoding='utf-8')
+          s.close(); c.close()
+          PY
+      - name: Upload export artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rule1-source-q0051-q0100
+          path: |
+            rule1_source_q0051_q0100.json
+            rule1_export_meta.json
+            NCLEX_CANONICAL.db
+          retention-days: 7
