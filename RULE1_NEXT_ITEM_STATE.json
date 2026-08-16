@@ -2,11 +2,7 @@
   "canonical_db": "NCLEX_CANONICAL.db",
   "canonical_exists": true,
   "canonical_integrity": "ok",
-  "canonical_question_count": 1,
-  "canonical_tables": [
-    "canonical_metadata",
-    "questions"
-  ],
+  "canonical_question_count": 2,
   "next_blueprint": {
     "category_id": 8,
     "client_need": "Pharmacological and Parenteral Therapies",
@@ -21,238 +17,31 @@
     "category_id": 8,
     "cjmm_skill": null,
     "client_need": "Pharmacological and Parenteral Therapies",
-    "correct_answer_json": "{\"correct_option\":\"C\"}",
+    "correct_answer_json": "{\"correct_option\":\"D\"}",
     "difficulty": "hard",
-    "item_data_json": "{\"options\":{\"A\":\"Administer the scheduled digoxin, then repeat the potassium level after the next dose of furosemide.\",\"B\":\"Hold furosemide only, give the digoxin, and treat the ventricular ectopy as an unrelated rhythm change.\",\"C\":\"Withhold digoxin, notify the provider, and obtain current digoxin, electrolyte, and renal-function data.\",\"D\":\"Give the digoxin with food and continue routine monitoring because gastrointestinal effects are expected.\"}}",
+    "item_data_json": "{\"options\":{\"A\":\"Administer oral vitamin K alone and postpone any additional reversal therapy until a repeat INR is available.\",\"B\":\"Administer protamine with IV vitamin K because protamine provides rapid reversal of vitamin K antagonist therapy.\",\"C\":\"Hold warfarin and transfuse platelets because platelet replacement corrects the factor deficiency caused by warfarin.\",\"D\":\"Administer four-factor prothrombin complex concentrate with concurrent vitamin K for urgent warfarin reversal.\"}}",
     "item_type_raw": "multiple_choice",
     "mode": "standalone",
     "official_case_slot": null,
     "original_sequence": null,
-    "question_uid": "V2-Q0002",
-    "rationale": "Nausea, anorexia, fatigue, and ventricular ectopy are compatible with digoxin toxicity, and hypokalemia increases susceptibility. The nurse should withhold digoxin and promptly escalate for a current digoxin level, electrolyte assessment, and renal-function assessment. Giving another dose despite this cluster of findings can worsen toxicity.",
+    "question_uid": "V2-Q0003",
+    "rationale": "Urgent reversal of warfarin for acute major bleeding or urgent surgery requires rapid replacement of vitamin K-dependent clotting factors with four-factor prothrombin complex concentrate; vitamin K is given concurrently for sustained reversal. Oral vitamin K alone is too slow for this emergency, protamine reverses heparin rather than warfarin, and platelets do not replace the deficient vitamin K-dependent factors.",
     "renderer_type": "multiple_choice",
     "scoring_rule": null,
     "slot_variant": null,
     "source_bank": "v2",
-    "source_detail": "Current DailyMed digoxin label reviewed 2026-08-14; Warnings and Precautions §5.3 Digoxin Toxicity, including gastrointestinal and cardiac manifestations and predisposition with hypokalemia.",
-    "source_id": 2,
-    "source_name": "DailyMed — Digoxin prescribing information",
+    "source_detail": "Current label reviewed 2026-08-14; Indications and Usage §1 and Dosage and Administration §2.1: urgent VKA reversal for acute major bleeding or urgent surgery/invasive procedure; administer vitamin K concurrently.",
+    "source_id": 3,
+    "source_name": "DailyMed — KCENTRA (4-factor prothrombin complex concentrate) prescribing information",
     "source_table": "questions",
-    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=ca595f0c-5bf0-4feb-8183-47832ee8c820",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eee1afb8-324c-42e4-8bf0-f0c9da5e6d42",
     "specialty": null,
-    "stable_sort_key": "06-STANDALONE-00002",
-    "stem": "A client taking digoxin and furosemide has a potassium level of 3.1 mEq/L, nausea, anorexia, fatigue, and new frequent premature ventricular contractions. Which action is the nurse's priority?"
+    "stable_sort_key": "06-STANDALONE-00003",
+    "stem": "A client receiving long-term warfarin has active gastrointestinal bleeding, an INR of 4.8, and requires emergency surgery within the hour. Which intervention should the nurse anticipate?"
   },
-  "questions_schema": [
-    {
-      "cid": 0,
-      "dflt_value": null,
-      "name": "question_uid",
-      "notnull": 0,
-      "pk": 1,
-      "type": "TEXT"
-    },
-    {
-      "cid": 1,
-      "dflt_value": null,
-      "name": "source_bank",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 2,
-      "dflt_value": null,
-      "name": "source_table",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 3,
-      "dflt_value": null,
-      "name": "source_id",
-      "notnull": 1,
-      "pk": 0,
-      "type": "INTEGER"
-    },
-    {
-      "cid": 4,
-      "dflt_value": null,
-      "name": "mode",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 5,
-      "dflt_value": null,
-      "name": "case_uid",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 6,
-      "dflt_value": null,
-      "name": "original_sequence",
-      "notnull": 0,
-      "pk": 0,
-      "type": "INTEGER"
-    },
-    {
-      "cid": 7,
-      "dflt_value": null,
-      "name": "official_case_slot",
-      "notnull": 0,
-      "pk": 0,
-      "type": "INTEGER"
-    },
-    {
-      "cid": 8,
-      "dflt_value": null,
-      "name": "slot_variant",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 9,
-      "dflt_value": null,
-      "name": "category_id",
-      "notnull": 1,
-      "pk": 0,
-      "type": "INTEGER"
-    },
-    {
-      "cid": 10,
-      "dflt_value": null,
-      "name": "client_need",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 11,
-      "dflt_value": null,
-      "name": "specialty",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 12,
-      "dflt_value": null,
-      "name": "difficulty",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 13,
-      "dflt_value": null,
-      "name": "cjmm_skill",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 14,
-      "dflt_value": null,
-      "name": "item_type_raw",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 15,
-      "dflt_value": null,
-      "name": "renderer_type",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 16,
-      "dflt_value": null,
-      "name": "stem",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 17,
-      "dflt_value": null,
-      "name": "item_data_json",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 18,
-      "dflt_value": null,
-      "name": "correct_answer_json",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 19,
-      "dflt_value": null,
-      "name": "rationale",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 20,
-      "dflt_value": null,
-      "name": "scoring_rule",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 21,
-      "dflt_value": null,
-      "name": "source_name",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 22,
-      "dflt_value": null,
-      "name": "source_detail",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 23,
-      "dflt_value": null,
-      "name": "source_url",
-      "notnull": 0,
-      "pk": 0,
-      "type": "TEXT"
-    },
-    {
-      "cid": 24,
-      "dflt_value": null,
-      "name": "stable_sort_key",
-      "notnull": 1,
-      "pk": 0,
-      "type": "TEXT"
-    }
-  ],
   "source_blueprint_count": 8,
   "source_case_count": 75,
   "source_db": "NCLEX_COMMERCIAL_MASTER_CURRENT.db",
   "source_integrity": "ok",
-  "source_question_count": 3525,
-  "source_tables": [
-    "case_studies",
-    "nclex_2026_blueprint",
-    "questions"
-  ]
+  "source_question_count": 3525
 }
