@@ -1,0 +1,748 @@
+{
+  "canonical_blob_expected": "f7da435343d26661c38bac68f4d44dcd60689afc",
+  "canonical_questions_schema": [
+    {
+      "cid": 0,
+      "dflt_value": null,
+      "name": "question_uid",
+      "notnull": 0,
+      "pk": 1,
+      "type": "TEXT"
+    },
+    {
+      "cid": 1,
+      "dflt_value": null,
+      "name": "source_bank",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 2,
+      "dflt_value": null,
+      "name": "source_table",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 3,
+      "dflt_value": null,
+      "name": "source_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 4,
+      "dflt_value": null,
+      "name": "mode",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 5,
+      "dflt_value": null,
+      "name": "case_uid",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 6,
+      "dflt_value": null,
+      "name": "original_sequence",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 7,
+      "dflt_value": null,
+      "name": "official_case_slot",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 8,
+      "dflt_value": null,
+      "name": "slot_variant",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 9,
+      "dflt_value": null,
+      "name": "category_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 10,
+      "dflt_value": null,
+      "name": "client_need",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 11,
+      "dflt_value": null,
+      "name": "specialty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 12,
+      "dflt_value": null,
+      "name": "difficulty",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 13,
+      "dflt_value": null,
+      "name": "cjmm_skill",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 14,
+      "dflt_value": null,
+      "name": "item_type_raw",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 15,
+      "dflt_value": null,
+      "name": "renderer_type",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 16,
+      "dflt_value": null,
+      "name": "stem",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 17,
+      "dflt_value": null,
+      "name": "item_data_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 18,
+      "dflt_value": null,
+      "name": "correct_answer_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 19,
+      "dflt_value": null,
+      "name": "rationale",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 20,
+      "dflt_value": null,
+      "name": "scoring_rule",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 21,
+      "dflt_value": null,
+      "name": "educational_objective",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 22,
+      "dflt_value": null,
+      "name": "source_organization",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 23,
+      "dflt_value": null,
+      "name": "source_document_title",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 24,
+      "dflt_value": null,
+      "name": "source_version_date",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 25,
+      "dflt_value": null,
+      "name": "source_accessed_date",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 26,
+      "dflt_value": null,
+      "name": "source_locator",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 27,
+      "dflt_value": null,
+      "name": "source_url",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 28,
+      "dflt_value": null,
+      "name": "source_claim_supported",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 29,
+      "dflt_value": null,
+      "name": "blueprint_source_organization",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 30,
+      "dflt_value": null,
+      "name": "blueprint_document_title",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 31,
+      "dflt_value": null,
+      "name": "blueprint_version",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 32,
+      "dflt_value": null,
+      "name": "blueprint_locator",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 33,
+      "dflt_value": null,
+      "name": "blueprint_url",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 34,
+      "dflt_value": null,
+      "name": "blueprint_topic",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 35,
+      "dflt_value": null,
+      "name": "stable_sort_key",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 36,
+      "dflt_value": null,
+      "name": "source_db_filename",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 37,
+      "dflt_value": null,
+      "name": "source_db_blob_sha",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 38,
+      "dflt_value": null,
+      "name": "source_original_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 39,
+      "dflt_value": null,
+      "name": "correction_summary",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 40,
+      "dflt_value": null,
+      "name": "audit_status",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 41,
+      "dflt_value": null,
+      "name": "second_pass_status",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 42,
+      "dflt_value": null,
+      "name": "audit_date_utc",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 43,
+      "dflt_value": null,
+      "name": "audit_reviewer",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 44,
+      "dflt_value": null,
+      "name": "source_authority_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 45,
+      "dflt_value": null,
+      "name": "currentness_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 46,
+      "dflt_value": null,
+      "name": "exact_locator_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 47,
+      "dflt_value": null,
+      "name": "stem_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 48,
+      "dflt_value": null,
+      "name": "correct_answer_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 49,
+      "dflt_value": null,
+      "name": "distractors_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 50,
+      "dflt_value": null,
+      "name": "rationale_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 51,
+      "dflt_value": null,
+      "name": "educational_objective_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 52,
+      "dflt_value": null,
+      "name": "ambiguity_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 53,
+      "dflt_value": null,
+      "name": "second_answer_excluded",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 54,
+      "dflt_value": null,
+      "name": "cueing_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 55,
+      "dflt_value": null,
+      "name": "blueprint_verified",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 56,
+      "dflt_value": null,
+      "name": "independent_qa_passed",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 57,
+      "dflt_value": null,
+      "name": "no_unresolved_conflict",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 58,
+      "dflt_value": null,
+      "name": "audit_findings_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 59,
+      "dflt_value": null,
+      "name": "payload_sha256",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 60,
+      "dflt_value": null,
+      "name": "created_at_utc",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    }
+  ],
+  "source_blob_expected": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "source_questions_schema": [
+    {
+      "cid": 0,
+      "dflt_value": null,
+      "name": "question_uid",
+      "notnull": 0,
+      "pk": 1,
+      "type": "TEXT"
+    },
+    {
+      "cid": 1,
+      "dflt_value": null,
+      "name": "source_bank",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 2,
+      "dflt_value": null,
+      "name": "source_table",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 3,
+      "dflt_value": null,
+      "name": "source_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 4,
+      "dflt_value": null,
+      "name": "mode",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 5,
+      "dflt_value": null,
+      "name": "case_uid",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 6,
+      "dflt_value": null,
+      "name": "original_sequence",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 7,
+      "dflt_value": null,
+      "name": "official_case_slot",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 8,
+      "dflt_value": null,
+      "name": "slot_variant",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 9,
+      "dflt_value": null,
+      "name": "category_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 10,
+      "dflt_value": null,
+      "name": "client_need",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 11,
+      "dflt_value": null,
+      "name": "specialty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 12,
+      "dflt_value": null,
+      "name": "difficulty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 13,
+      "dflt_value": null,
+      "name": "cjmm_skill",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 14,
+      "dflt_value": null,
+      "name": "item_type_raw",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 15,
+      "dflt_value": null,
+      "name": "renderer_type",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 16,
+      "dflt_value": null,
+      "name": "stem",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 17,
+      "dflt_value": null,
+      "name": "item_data_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 18,
+      "dflt_value": null,
+      "name": "correct_answer_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 19,
+      "dflt_value": null,
+      "name": "rationale",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 20,
+      "dflt_value": null,
+      "name": "scoring_rule",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 21,
+      "dflt_value": null,
+      "name": "source_name",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 22,
+      "dflt_value": null,
+      "name": "source_detail",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 23,
+      "dflt_value": null,
+      "name": "source_url",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 24,
+      "dflt_value": null,
+      "name": "stable_sort_key",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    }
+  ],
+  "uids": [
+    "V2-Q0301",
+    "V2-Q0302",
+    "V2-Q0303",
+    "V2-Q0304",
+    "V2-Q0305",
+    "V2-Q0306",
+    "V2-Q0307",
+    "V2-Q0308",
+    "V2-Q0309",
+    "V2-Q0310",
+    "V2-Q0311",
+    "V2-Q0312",
+    "V2-Q0313",
+    "V2-Q0314",
+    "V2-Q0315",
+    "V2-Q0316",
+    "V2-Q0317",
+    "V2-Q0318",
+    "V2-Q0319",
+    "V2-Q0320",
+    "V2-Q0321",
+    "V2-Q0322",
+    "V2-Q0323",
+    "V2-Q0324",
+    "V2-Q0325",
+    "V2-Q0326",
+    "V2-Q0327",
+    "V2-Q0328",
+    "V2-Q0329",
+    "V2-Q0330",
+    "V2-Q0331",
+    "V2-Q0332",
+    "V2-Q0333",
+    "V2-Q0334",
+    "V2-Q0335",
+    "V2-Q0336",
+    "V2-Q0337",
+    "V2-Q0338",
+    "V2-Q0339",
+    "V2-Q0340",
+    "V2-Q0341",
+    "V2-Q0342",
+    "V2-Q0343",
+    "V2-Q0344",
+    "V2-Q0345",
+    "V2-Q0346",
+    "V2-Q0347",
+    "V2-Q0348",
+    "V2-Q0349",
+    "V2-Q0350"
+  ]
+}
