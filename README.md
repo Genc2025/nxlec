@@ -1,2 +1,0 @@
-# nxlec
-App per mjeksi
