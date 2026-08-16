@@ -1,0 +1,36 @@
+name: Rule 1 export source range Q0572-Q0600
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-export-source-range-0572-0600.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export source rows only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json
+          from pathlib import Path
+          db=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          db.row_factory=sqlite3.Row
+          rows=[dict(r) for r in db.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 572 AND 600 ORDER BY source_id ASC")]
+          cats=sorted({r['category_id'] for r in rows})
+          bps={str(cid):dict(db.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(cid,)).fetchone()) for cid in cats}
+          out={'source_db':'NCLEX_COMMERCIAL_MASTER_CURRENT.db','range':'V2-Q0572..V2-Q0600','rows':rows,'blueprints':bps}
+          Path('RULE1_SOURCE_RANGE_0572_0600.json').write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          db.close()
+          PY
+      - name: Commit source-range snapshot
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_SOURCE_RANGE_0572_0600.json
+          git commit -m 'Export Rule 1 source rows V2-Q0572-Q0600'
+          git push origin main
