@@ -1,0 +1,48 @@
+name: Rule 1 stage export Q0151-Q0200
+on:
+  push:
+    branches: [rule1-stage-batch200]
+    paths:
+      - '.github/workflows/rule1-stage-export-q0151-q0200.yml'
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export current source rows and canonical
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json, subprocess, shutil
+          from pathlib import Path
+          source=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          canonical=Path('NCLEX_CANONICAL.db')
+          con=sqlite3.connect(source); con.row_factory=sqlite3.Row
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=[dict(r) for r in con.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 151 AND 200 ORDER BY source_id")]
+          assert len(rows)==50, len(rows)
+          assert [r['question_uid'] for r in rows]==[f'V2-Q{i:04d}' for i in range(151,201)]
+          meta={
+            'source_blob_sha': subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip(),
+            'canonical_blob_sha': subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip(),
+          }
+          cc=sqlite3.connect(canonical)
+          meta['canonical_integrity']=cc.execute('PRAGMA integrity_check').fetchone()[0]
+          meta['canonical_count']=cc.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          cc.close(); con.close()
+          assert meta['source_blob_sha']=='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          assert meta['canonical_blob_sha']=='d54f31dad97ad2acaf5e7b7c8c579360f86ef4b0'
+          assert meta['canonical_integrity']=='ok' and meta['canonical_count']==150
+          Path('rule1_source_q0151_q0200.json').write_text(json.dumps({'meta':meta,'rows':rows},ensure_ascii=False,indent=2),encoding='utf-8')
+          shutil.copy2(canonical,'NCLEX_CANONICAL_EXPORT.db')
+          PY
+      - name: Upload export artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rule1-source-q0151-q0200
+          path: |
+            rule1_source_q0151_q0200.json
+            NCLEX_CANONICAL_EXPORT.db
+          if-no-files-found: error
