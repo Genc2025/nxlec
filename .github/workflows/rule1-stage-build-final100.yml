@@ -1,0 +1,103 @@
+name: Rule 1 stage build final100
+on:
+  push:
+    branches: [rule1-stage-batch100]
+    paths:
+      - '.github/workflows/rule1-stage-build-final100.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and verify canonical 100
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          cat rule1_batch100_payload.part1 rule1_batch100_payload.part2 rule1_batch100_payload.part3 rule1_batch100_payload.part4 > payload.b64
+          python3 - <<'PY'
+          import base64,lzma,json,sqlite3,hashlib,subprocess,datetime,urllib.request,os
+          from pathlib import Path
+          G=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
+          cj=lambda v:json.dumps(v,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+          raw=lzma.decompress(base64.b64decode(Path('payload.b64').read_text()))
+          P=json.loads(raw)
+          exp=[f'V2-Q{i:04d}' for i in range(51,101)]
+          assert len(P)==50 and [p['question_uid'] for p in P]==exp
+          SRC='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; DB='NCLEX_CANONICAL.db'
+          sb=subprocess.check_output(['git','hash-object',SRC],text=True).strip()
+          cb=subprocess.check_output(['git','hash-object',DB],text=True).strip()
+          assert sb=='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          assert cb=='71abb406a9e08716e109d90144947b72a1a66ccf'
+          s=sqlite3.connect(SRC); s.row_factory=sqlite3.Row
+          c=sqlite3.connect(DB); c.row_factory=sqlite3.Row
+          assert s.execute('pragma integrity_check').fetchone()[0]=='ok'
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          assert c.execute('select count(*) from questions').fetchone()[0]==50
+          assert [r[0] for r in c.execute('select question_uid from questions order by source_id')]==[f'V2-Q{i:04d}' for i in range(1,51)]
+          for p in P:
+              assert p['audit_status']=='FINAL_QA_PASS' and p['second_pass_status']=='PASS'
+              assert p['source_db_blob_sha']==sb and all(p['gates'].get(g)==1 for g in G)
+              r=s.execute('select * from questions where question_uid=?',(p['question_uid'],)).fetchone()
+              assert r and r['source_id']==p['source_id'] and r['source_bank']==p['source_bank']
+              o=p['source_original']; opts=json.loads(r['item_data_json'])['options']; ans=json.loads(r['correct_answer_json'])['correct_option']
+              assert r['stem']==o['stem'] and opts==o['options'] and ans==o['correct_option']
+              assert r['rationale']==o['rationale'] and r['source_url']==o['source_url']
+              assert r['source_detail']==o['source_detail'] and r['difficulty']==o['difficulty']
+          now=datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
+          def vals(p):
+              d={k:p.get(k) for k in ['question_uid','source_bank','source_table','source_id','mode','case_uid','original_sequence','official_case_slot','slot_variant','category_id','client_need','specialty','difficulty','cjmm_skill','item_type_raw','renderer_type','stem','rationale','scoring_rule','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha','correction_summary','audit_status','second_pass_status','audit_date_utc','audit_reviewer']}
+              d['item_data_json']=cj(p['item_data']); d['correct_answer_json']=cj(p['correct_answer'])
+              d['source_original_json']=cj(p['source_original']); d['audit_findings_json']=cj(p['audit_findings'])
+              d.update({g:int(p['gates'][g]) for g in G})
+              d['payload_sha256']=hashlib.sha256(cj(p).encode()).hexdigest(); d['created_at_utc']=now
+              return d
+          c.execute('BEGIN IMMEDIATE')
+          try:
+              for p in P:
+                  assert c.execute('select count(*) from questions where question_uid=?',(p['question_uid'],)).fetchone()[0]==0
+                  d=vals(p); ks=list(d)
+                  c.execute(f"insert into questions ({','.join(ks)}) values ({','.join('?' for _ in ks)})",[d[k] for k in ks])
+              c.commit()
+          except:
+              c.rollback(); raise
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          assert c.execute('select count(*) from questions').fetchone()[0]==100
+          assert c.execute('select count(*) from (select question_uid,count(*) n from questions group by question_uid having n>1)').fetchone()[0]==0
+          assert [r[0] for r in c.execute('select question_uid from questions order by source_id')]==[f'V2-Q{i:04d}' for i in range(1,101)]
+          req=['stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_locator','source_url','source_claim_supported','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','correction_summary','audit_findings_json']
+          miss=badjson=0
+          for r in c.execute('select * from questions'):
+              miss+=sum(r[x] is None or (isinstance(r[x],str) and not r[x].strip()) for x in req)
+              try: json.loads(r['item_data_json']); json.loads(r['correct_answer_json']); json.loads(r['source_original_json']); json.loads(r['audit_findings_json'])
+              except: badjson+=1
+          assert miss==0 and badjson==0
+          for p in P:
+              r=c.execute('select * from questions where question_uid=?',(p['question_uid'],)).fetchone(); d=vals(p)
+              assert r['stem']==p['stem'] and json.loads(r['item_data_json'])==p['item_data']
+              assert json.loads(r['correct_answer_json'])==p['correct_answer'] and r['rationale']==p['rationale']
+              assert r['educational_objective']==p['educational_objective']
+              assert r['source_original_json']==cj(p['source_original'])
+              assert r['payload_sha256']==d['payload_sha256'] and r['audit_status']=='FINAL_QA_PASS' and r['second_pass_status']=='PASS'
+              assert all(r[g]==1 for g in G)
+          c.close(); s.close()
+          blob=subprocess.check_output(['git','hash-object',DB],text=True).strip()
+          data=base64.b64encode(Path(DB).read_bytes()).decode()
+          body=json.dumps({'content':data,'encoding':'base64'}).encode()
+          req=urllib.request.Request(f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/git/blobs",data=body,method='POST',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'})
+          with urllib.request.urlopen(req) as z: remote=json.load(z)['sha']
+          assert remote==blob
+          report={'final_canonical_blob':blob,'integrity':'ok','count':100,'duplicate_uid':0,'missing_required':0,'bad_json':0,'batch_count':50,'batch_uids':exp,'source_blob':sb,'pre_canonical_blob':cb}
+          Path('rule1_batch100_report.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps(report))
+          PY
+      - name: Upload final artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rule1-final-canonical-100
+          path: |
+            NCLEX_CANONICAL.db
+            rule1_batch100_report.json
+          retention-days: 7
