@@ -1,0 +1,252 @@
+{
+  "canonical_db": "NCLEX_CANONICAL.db",
+  "canonical_exists": false,
+  "next_blueprint": {
+    "category_id": 8,
+    "client_need": "Pharmacological and Parenteral Therapies",
+    "code": "PHARM",
+    "midpoint": 16.0,
+    "official_order": 6,
+    "weight_max": 19.0,
+    "weight_min": 13.0
+  },
+  "next_question": {
+    "case_uid": null,
+    "category_id": 8,
+    "cjmm_skill": null,
+    "client_need": "Pharmacological and Parenteral Therapies",
+    "correct_answer_json": "{\"correct_option\":\"B\"}",
+    "difficulty": "hard",
+    "item_data_json": "{\"options\":{\"A\":\"Continue metformin and lisinopril, checking renal function only if oliguria develops after the procedure.\",\"B\":\"Withhold metformin at or before contrast, recheck renal function about 48 hours later, and restart if stable.\",\"C\":\"Hold lisinopril but continue metformin, because ACE inhibition is the medication-related concern with contrast.\",\"D\":\"Give both medications as scheduled and use oral hydration alone as the medication-related contrast precaution.\"}}",
+    "item_type_raw": "multiple_choice",
+    "mode": "standalone",
+    "official_case_slot": null,
+    "original_sequence": null,
+    "question_uid": "V2-Q0001",
+    "rationale": "Intra-arterial iodinated contrast is a labeled indication to stop metformin at or before the procedure. Renal function should be reassessed about 48 hours later and metformin restarted if stable. Routine withholding of lisinopril is not the metformin-label requirement tested here, and oral hydration alone does not replace the labeled metformin precaution.",
+    "renderer_type": "multiple_choice",
+    "scoring_rule": null,
+    "slot_variant": null,
+    "source_bank": "v2",
+    "source_detail": "Section 2.4, Discontinuation for Iodinated Contrast Imaging Procedures",
+    "source_id": 1,
+    "source_name": "DailyMed — Metformin Hydrochloride prescribing information",
+    "source_table": "questions",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=59a4ccda-5487-4ac4-9373-0c0fc8b7c88b",
+    "specialty": null,
+    "stable_sort_key": "06-STANDALONE-00001",
+    "stem": "A client with type 2 diabetes takes metformin and is scheduled for cardiac catheterization using intra-arterial iodinated contrast. Which medication-related action should the nurse anticipate?"
+  },
+  "questions_schema": [
+    {
+      "cid": 0,
+      "dflt_value": null,
+      "name": "question_uid",
+      "notnull": 0,
+      "pk": 1,
+      "type": "TEXT"
+    },
+    {
+      "cid": 1,
+      "dflt_value": null,
+      "name": "source_bank",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 2,
+      "dflt_value": null,
+      "name": "source_table",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 3,
+      "dflt_value": null,
+      "name": "source_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 4,
+      "dflt_value": null,
+      "name": "mode",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 5,
+      "dflt_value": null,
+      "name": "case_uid",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 6,
+      "dflt_value": null,
+      "name": "original_sequence",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 7,
+      "dflt_value": null,
+      "name": "official_case_slot",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 8,
+      "dflt_value": null,
+      "name": "slot_variant",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 9,
+      "dflt_value": null,
+      "name": "category_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 10,
+      "dflt_value": null,
+      "name": "client_need",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 11,
+      "dflt_value": null,
+      "name": "specialty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 12,
+      "dflt_value": null,
+      "name": "difficulty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 13,
+      "dflt_value": null,
+      "name": "cjmm_skill",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 14,
+      "dflt_value": null,
+      "name": "item_type_raw",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 15,
+      "dflt_value": null,
+      "name": "renderer_type",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 16,
+      "dflt_value": null,
+      "name": "stem",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 17,
+      "dflt_value": null,
+      "name": "item_data_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 18,
+      "dflt_value": null,
+      "name": "correct_answer_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 19,
+      "dflt_value": null,
+      "name": "rationale",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 20,
+      "dflt_value": null,
+      "name": "scoring_rule",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 21,
+      "dflt_value": null,
+      "name": "source_name",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 22,
+      "dflt_value": null,
+      "name": "source_detail",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 23,
+      "dflt_value": null,
+      "name": "source_url",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 24,
+      "dflt_value": null,
+      "name": "stable_sort_key",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    }
+  ],
+  "source_blueprint_count": 8,
+  "source_case_count": 75,
+  "source_db": "NCLEX_COMMERCIAL_MASTER_CURRENT.db",
+  "source_integrity": "ok",
+  "source_question_count": 3525,
+  "source_tables": [
+    "case_studies",
+    "nclex_2026_blueprint",
+    "questions"
+  ]
+}
