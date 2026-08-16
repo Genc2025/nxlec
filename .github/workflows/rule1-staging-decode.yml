@@ -1,0 +1,56 @@
+name: Rule1 staging decode payloads
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+    paths:
+      - '.github/workflows/rule1-staging-decode.yml'
+permissions:
+  contents: read
+jobs:
+  decode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode and validate staged payload parts
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64,gzip,json,hashlib
+          from pathlib import Path
+          names=['q0201_q0250.part0','q0201_q0250.part1','stream0','stream1']
+          out=Path('decoded'); out.mkdir(exist_ok=True)
+          summary=[]
+          for n in names:
+              p=Path('staging_payload_parts')/n
+              raw=p.read_text().strip()
+              rec={'name':n,'chars':len(raw),'sha256_text':hashlib.sha256(raw.encode()).hexdigest()}
+              try:
+                  b=base64.b64decode(raw,validate=True)
+                  rec['base64_bytes']=len(b)
+                  try:
+                      d=gzip.decompress(b)
+                      rec['gzip_bytes']=len(d)
+                      text=d.decode('utf-8')
+                      (out/(n+'.decoded')).write_text(text,encoding='utf-8')
+                      rec['head']=text[:120]
+                      rec['tail']=text[-120:]
+                      try:
+                          obj=json.loads(text)
+                          rec['json_type']=type(obj).__name__
+                          rec['json_len']=len(obj) if hasattr(obj,'__len__') else None
+                      except Exception as e:
+                          rec['json_error']=str(e)
+                  except Exception as e:
+                      rec['gzip_error']=repr(e)
+              except Exception as e:
+                  rec['base64_error']=repr(e)
+              summary.append(rec)
+          Path('decode_summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-staging-decode
+          path: |
+            decode_summary.json
+            decoded/
