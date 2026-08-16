@@ -18,6 +18,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
+          cat rule1_payload.part1 rule1_payload.part2 rule1_payload.part3 rule1_payload.part4 rule1_payload.part5 rule1_payload.part6 > rule1_batch_payload.xz.b64
           python3 - <<'PY'
           import base64, hashlib, json, lzma, os, sqlite3, subprocess, urllib.request
           from pathlib import Path
@@ -63,7 +64,24 @@ jobs:
               assert all(exact),(uid,exact)
               sha=hashlib.sha256(cjson(p).encode()).hexdigest()
               vals={
-                'question_uid':uid,'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],'mode':p['mode'],'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],'item_data_json':cjson(p['item_data']),'correct_answer_json':cjson(p['correct_answer']),'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],'source_version_date':p['source_version_date'],'source_accessed_date':p['source_accessed_date'],'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],'blueprint_version':p['blueprint_version'],'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],'source_db_filename':p['source_db_filename'],'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':cjson(p['source_original']),'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],**{g:1 for g in GATES},'audit_findings_json':cjson(p['audit_findings']),'payload_sha256':sha,'created_at_utc':created}
+                'question_uid':uid,'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],
+                'mode':p['mode'],'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),
+                'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],
+                'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),
+                'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],
+                'item_data_json':cjson(p['item_data']),'correct_answer_json':cjson(p['correct_answer']),
+                'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],
+                'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],
+                'source_version_date':p['source_version_date'],'source_accessed_date':p['source_accessed_date'],
+                'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],
+                'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],
+                'blueprint_version':p['blueprint_version'],'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],
+                'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],'source_db_filename':p['source_db_filename'],
+                'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':cjson(p['source_original']),
+                'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],
+                'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],
+                **{g:1 for g in GATES},
+                'audit_findings_json':cjson(p['audit_findings']),'payload_sha256':sha,'created_at_utc':created}
               cols=list(vals); con.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[vals[c] for c in cols])
             con.commit()
           except Exception:
