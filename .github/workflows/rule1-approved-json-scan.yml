@@ -1,0 +1,52 @@
+name: Rule1 approved JSON scan Q0351-Q0400
+on:
+  push:
+    branches: [rule1-q0351-q0400-staging]
+    paths:
+      - '.github/workflows/rule1-approved-json-scan.yml'
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan all 50 approved JSON files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          bad=[]
+          expected=[f'V2-Q{i:04d}.json' for i in range(351,401)]
+          actual=sorted(p.name for p in Path('approved_items').glob('*.json'))
+          if actual != expected:
+              print('FILE_SET_MISMATCH', 'expected=50', f'actual={len(actual)}')
+              print('missing=', sorted(set(expected)-set(actual)))
+              print('extra=', sorted(set(actual)-set(expected)))
+          dec=json.JSONDecoder()
+          for name in expected:
+              p=Path('approved_items')/name
+              if not p.exists():
+                  bad.append((name,'MISSING',''))
+                  continue
+              text=p.read_text(encoding='utf-8')
+              try:
+                  obj,end=dec.raw_decode(text.lstrip())
+                  offset=len(text)-len(text.lstrip())
+                  end += offset
+                  suffix=text[end:]
+                  if suffix.strip():
+                      bad.append((name,'EXTRA_DATA',repr(suffix[:120])))
+                  else:
+                      json.loads(text)
+              except Exception as e:
+                  bad.append((name,type(e).__name__,str(e)))
+          print('APPROVED_TOTAL=',len(expected))
+          print('MALFORMED_COUNT=',len(bad))
+          for row in bad:
+              print('MALFORMED',*row)
+          if bad:
+              raise SystemExit(1)
+          print('ALL_APPROVED_JSON_VALID=50/50')
+          PY
