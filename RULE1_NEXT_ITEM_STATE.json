@@ -1,6 +1,12 @@
 {
   "canonical_db": "NCLEX_CANONICAL.db",
-  "canonical_exists": false,
+  "canonical_exists": true,
+  "canonical_integrity": "ok",
+  "canonical_question_count": 1,
+  "canonical_tables": [
+    "canonical_metadata",
+    "questions"
+  ],
   "next_blueprint": {
     "category_id": 8,
     "client_need": "Pharmacological and Parenteral Therapies",
@@ -15,27 +21,27 @@
     "category_id": 8,
     "cjmm_skill": null,
     "client_need": "Pharmacological and Parenteral Therapies",
-    "correct_answer_json": "{\"correct_option\":\"B\"}",
+    "correct_answer_json": "{\"correct_option\":\"C\"}",
     "difficulty": "hard",
-    "item_data_json": "{\"options\":{\"A\":\"Continue metformin and lisinopril, checking renal function only if oliguria develops after the procedure.\",\"B\":\"Withhold metformin at or before contrast, recheck renal function about 48 hours later, and restart if stable.\",\"C\":\"Hold lisinopril but continue metformin, because ACE inhibition is the medication-related concern with contrast.\",\"D\":\"Give both medications as scheduled and use oral hydration alone as the medication-related contrast precaution.\"}}",
+    "item_data_json": "{\"options\":{\"A\":\"Administer the scheduled digoxin, then repeat the potassium level after the next dose of furosemide.\",\"B\":\"Hold furosemide only, give the digoxin, and treat the ventricular ectopy as an unrelated rhythm change.\",\"C\":\"Withhold digoxin, notify the provider, and obtain current digoxin, electrolyte, and renal-function data.\",\"D\":\"Give the digoxin with food and continue routine monitoring because gastrointestinal effects are expected.\"}}",
     "item_type_raw": "multiple_choice",
     "mode": "standalone",
     "official_case_slot": null,
     "original_sequence": null,
-    "question_uid": "V2-Q0001",
-    "rationale": "Intra-arterial iodinated contrast is a labeled indication to stop metformin at or before the procedure. Renal function should be reassessed about 48 hours later and metformin restarted if stable. Routine withholding of lisinopril is not the metformin-label requirement tested here, and oral hydration alone does not replace the labeled metformin precaution.",
+    "question_uid": "V2-Q0002",
+    "rationale": "Nausea, anorexia, fatigue, and ventricular ectopy are compatible with digoxin toxicity, and hypokalemia increases susceptibility. The nurse should withhold digoxin and promptly escalate for a current digoxin level, electrolyte assessment, and renal-function assessment. Giving another dose despite this cluster of findings can worsen toxicity.",
     "renderer_type": "multiple_choice",
     "scoring_rule": null,
     "slot_variant": null,
     "source_bank": "v2",
-    "source_detail": "Section 2.4, Discontinuation for Iodinated Contrast Imaging Procedures",
-    "source_id": 1,
-    "source_name": "DailyMed — Metformin Hydrochloride prescribing information",
+    "source_detail": "Current DailyMed digoxin label reviewed 2026-08-14; Warnings and Precautions §5.3 Digoxin Toxicity, including gastrointestinal and cardiac manifestations and predisposition with hypokalemia.",
+    "source_id": 2,
+    "source_name": "DailyMed — Digoxin prescribing information",
     "source_table": "questions",
-    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=59a4ccda-5487-4ac4-9373-0c0fc8b7c88b",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=ca595f0c-5bf0-4feb-8183-47832ee8c820",
     "specialty": null,
-    "stable_sort_key": "06-STANDALONE-00001",
-    "stem": "A client with type 2 diabetes takes metformin and is scheduled for cardiac catheterization using intra-arterial iodinated contrast. Which medication-related action should the nurse anticipate?"
+    "stable_sort_key": "06-STANDALONE-00002",
+    "stem": "A client taking digoxin and furosemide has a potassium level of 3.1 mEq/L, nausea, anorexia, fatigue, and new frequent premature ventricular contractions. Which action is the nurse's priority?"
   },
   "questions_schema": [
     {
