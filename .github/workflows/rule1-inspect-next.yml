@@ -1,0 +1,68 @@
+name: Rule 1 inspect next item
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-inspect-next.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect source and canonical state
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json, os
+          from pathlib import Path
+          source=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          canonical=Path('NCLEX_CANONICAL.db')
+          con=sqlite3.connect(source); con.row_factory=sqlite3.Row
+          state={}
+          state['source_db']=str(source)
+          state['source_integrity']=con.execute('PRAGMA integrity_check').fetchone()[0]
+          state['source_tables']=[r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
+          state['source_question_count']=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          state['source_case_count']=con.execute('SELECT COUNT(*) FROM case_studies').fetchone()[0]
+          state['source_blueprint_count']=con.execute('SELECT COUNT(*) FROM nclex_2026_blueprint').fetchone()[0]
+          state['questions_schema']=[dict(r) for r in con.execute('PRAGMA table_info(questions)')]
+          completed=set()
+          state['canonical_db']=str(canonical)
+          state['canonical_exists']=canonical.exists()
+          if canonical.exists():
+              cc=sqlite3.connect(canonical); cc.row_factory=sqlite3.Row
+              state['canonical_integrity']=cc.execute('PRAGMA integrity_check').fetchone()[0]
+              state['canonical_tables']=[r[0] for r in cc.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
+              if 'questions' in state['canonical_tables']:
+                  state['canonical_question_count']=cc.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+                  cols=[r[1] for r in cc.execute('PRAGMA table_info(questions)')]
+                  uid_col='question_uid' if 'question_uid' in cols else ('id' if 'id' in cols else None)
+                  if uid_col:
+                      completed={r[0] for r in cc.execute(f'SELECT {uid_col} FROM questions')}
+              cc.close()
+          rows=con.execute("SELECT * FROM questions WHERE source_bank='v2' ORDER BY source_id ASC").fetchall()
+          nxt=None
+          for r in rows:
+              uid=r['question_uid']
+              if uid not in completed:
+                  nxt=dict(r); break
+          state['next_question']=nxt
+          if nxt:
+              bp=con.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(nxt['category_id'],)).fetchone()
+              state['next_blueprint']=dict(bp) if bp else None
+          con.close()
+          Path('RULE1_NEXT_ITEM_STATE.json').write_text(json.dumps(state,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          PY
+      - name: Commit inspection snapshot
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_NEXT_ITEM_STATE.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Inspect Rule 1 source and next canonical item'
+          git push origin main
