@@ -1,0 +1,94 @@
+name: Rule1 structural JSON repair and Q0351-Q0400 batch
+on:
+  push:
+    branches: [rule1-q0351-q0400-staging]
+    paths:
+      - '.github/workflows/rule1-json-repair-and-batch.yml'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-q0351-q0400-final-stage
+  cancel-in-progress: false
+jobs:
+  repair-and-batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Remove only the proven extra trailing brace from Q0354-Q0392
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, subprocess
+          from pathlib import Path
+
+          dec=json.JSONDecoder()
+          expected=[Path('approved_items')/f'V2-Q{i:04d}.json' for i in range(354,393)]
+          repaired=[]
+          for path in expected:
+              text=path.read_text(encoding='utf-8')
+              lead=len(text)-len(text.lstrip())
+              obj,end0=dec.raw_decode(text.lstrip())
+              end=end0+lead
+              suffix=text[end:]
+              if suffix.strip() != '}':
+                  raise SystemExit(f'{path}: expected exactly one extra trailing brace, got {suffix!r}')
+              before_semantic=hashlib.sha256(json.dumps(obj,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+              fixed=text[:end]
+              obj_after=json.loads(fixed)
+              after_semantic=hashlib.sha256(json.dumps(obj_after,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+              if obj_after != obj or before_semantic != after_semantic:
+                  raise SystemExit(f'{path}: semantic object changed during structural repair')
+              path.write_text(fixed,encoding='utf-8')
+              repaired.append(path.as_posix())
+
+          actual=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          expected_names=[p.as_posix() for p in expected]
+          if actual != expected_names:
+              raise SystemExit(f'Unexpected repair diff: actual={actual} expected={expected_names}')
+          print('STRUCTURAL_REPAIR_COUNT=',len(repaired))
+          print('SEMANTIC_OBJECT_UNCHANGED=39/39')
+          PY
+
+      - name: Validate all 50 approved JSON files after repair
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          expected=[f'V2-Q{i:04d}.json' for i in range(351,401)]
+          actual=sorted(p.name for p in Path('approved_items').glob('*.json'))
+          if actual != expected:
+              raise SystemExit(f'approved file set mismatch expected=50 actual={len(actual)}')
+          for name in expected:
+              p=Path('approved_items')/name
+              json.loads(p.read_text(encoding='utf-8'))
+          print('APPROVED_JSON_VALID=50/50')
+          PY
+
+      - name: Commit structural JSON repair to staging only
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add approved_items
+          changed=$(git diff --cached --name-only | wc -l)
+          test "$changed" -eq 39
+          git commit -m 'Repair trailing JSON brace Q0354-Q0392 without semantic changes'
+          git push origin rule1-q0351-q0400-staging
+
+      - name: Revalidate and apply one SQLite transaction 350 to 400
+        run: python3 tools/rule1_batch_q0351_q0400.py
+
+      - name: Commit verified staging database and PASS report
+        shell: bash
+        run: |
+          test "$(python3 -c "import json; print(json.load(open('RULE1_BATCH_Q0351_Q0400_REPORT.json'))['status'])")" = PASS
+          git add NCLEX_CANONICAL.db RULE1_BATCH_Q0351_Q0400_REPORT.json
+          changed=$(git diff --cached --name-only)
+          printf '%s\n' "$changed"
+          test "$changed" = $'NCLEX_CANONICAL.db\nRULE1_BATCH_Q0351_Q0400_REPORT.json'
+          git commit -m 'Stage canonical batch V2-Q0351-V2-Q0400 350 to 400'
+          git push origin rule1-q0351-q0400-staging
