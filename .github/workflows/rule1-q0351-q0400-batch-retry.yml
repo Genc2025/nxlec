@@ -1,0 +1,33 @@
+name: Rule1 Q0351-Q0400 corrected batch
+on:
+  push:
+    branches: [rule1-q0351-q0400-staging]
+    paths:
+      - '.github/workflows/rule1-q0351-q0400-batch-retry.yml'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-q0351-q0400-corrected-batch
+  cancel-in-progress: false
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate 50 payloads and apply one SQLite transaction
+        run: python3 tools/rule1_batch_q0351_q0400.py
+      - name: Commit verified staging database and report
+        shell: bash
+        run: |
+          test "$(python3 -c "import json; print(json.load(open('RULE1_BATCH_Q0351_Q0400_REPORT.json'))['status'])")" = PASS
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db RULE1_BATCH_Q0351_Q0400_REPORT.json
+          changed=$(git diff --cached --name-only)
+          printf '%s\n' "$changed"
+          test "$changed" = $'NCLEX_CANONICAL.db\nRULE1_BATCH_Q0351_Q0400_REPORT.json'
+          git commit -m 'Stage canonical batch V2-Q0351-V2-Q0400 350 to 400'
+          git pull --rebase origin rule1-q0351-q0400-staging
+          git push origin rule1-q0351-q0400-staging
