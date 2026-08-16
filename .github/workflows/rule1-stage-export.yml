@@ -1,0 +1,48 @@
+name: Rule 1 stage export
+on:
+  push:
+    branches: [rule1-stage-batch50]
+    paths:
+      - '.github/workflows/rule1-stage-export.yml'
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Export current source rows and canonical binary
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json, subprocess
+          src=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db'); src.row_factory=sqlite3.Row
+          can=sqlite3.connect('NCLEX_CANONICAL.db'); can.row_factory=sqlite3.Row
+          out={
+            'branch':subprocess.check_output(['git','branch','--show-current'],text=True).strip(),
+            'head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'source_blob':subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip(),
+            'canonical_blob':subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip(),
+            'source_integrity':src.execute('PRAGMA integrity_check').fetchone()[0],
+            'canonical_integrity':can.execute('PRAGMA integrity_check').fetchone()[0],
+            'canonical_count':can.execute('SELECT COUNT(*) FROM questions').fetchone()[0],
+            'canonical_uids':[r[0] for r in can.execute('SELECT question_uid FROM questions ORDER BY stable_sort_key')],
+            'rows':[],
+          }
+          bps={r['category_id']:dict(r) for r in src.execute('SELECT * FROM nclex_2026_blueprint')}
+          for r in src.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 4 AND 50 ORDER BY source_id"):
+            d=dict(r); d['blueprint']=bps.get(r['category_id']); out['rows'].append(d)
+          open('rule1_source_q0004_q0050.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True))
+          print(json.dumps({k:v for k,v in out.items() if k!='rows'},ensure_ascii=False))
+          print('rows',len(out['rows']))
+          src.close(); can.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-stage-export
+          path: |
+            rule1_source_q0004_q0050.json
+            NCLEX_CANONICAL.db
+          if-no-files-found: error
