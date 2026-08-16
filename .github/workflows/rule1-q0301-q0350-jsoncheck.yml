@@ -1,0 +1,31 @@
+name: Rule1 Q0301-Q0350 JSON diagnostic
+on:
+  push:
+    branches: [rule1-q0301-q0350-staging]
+    paths:
+      - '.github/workflows/rule1-q0301-q0350-jsoncheck.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate exact approved payload JSON files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          bad=[]
+          for i in range(301,351):
+              p=Path('approved_items')/f'V2-Q{i:04d}.json'
+              try:
+                  json.loads(p.read_text(encoding='utf-8'))
+                  print('OK',p)
+              except Exception as e:
+                  print('BAD',p,repr(e))
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Invalid JSON: '+', '.join(bad))
+          PY
