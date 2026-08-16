@@ -1,0 +1,84 @@
+name: Rule1 staging technical extract
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open real SQLite DBs and export technical snapshot
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json, hashlib, subprocess
+          from pathlib import Path
+
+          src=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          can=Path('NCLEX_CANONICAL.db')
+          out={}
+          out['git_head']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          out['source_git_blob']=subprocess.check_output(['git','hash-object',str(src)],text=True).strip()
+          out['canonical_git_blob']=subprocess.check_output(['git','hash-object',str(can)],text=True).strip()
+
+          def inspect(path):
+              c=sqlite3.connect(path); c.row_factory=sqlite3.Row
+              d={}
+              d['integrity']=c.execute('PRAGMA integrity_check').fetchone()[0]
+              d['tables']=[r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
+              d['questions_count']=c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+              d['questions_schema']=[dict(r) for r in c.execute('PRAGMA table_info(questions)')]
+              cols=[r['name'] for r in c.execute('PRAGMA table_info(questions)')]
+              uid='question_uid' if 'question_uid' in cols else ('id' if 'id' in cols else None)
+              d['uid_column']=uid
+              if uid:
+                  d['duplicate_uid_groups']=c.execute(f'SELECT COUNT(*) FROM (SELECT {uid} FROM questions GROUP BY {uid} HAVING COUNT(*)>1)').fetchone()[0]
+              return c,d
+
+          sc,sd=inspect(src); cc,cd=inspect(can)
+          out['source']=sd; out['canonical']=cd
+
+          completed=set(r[0] for r in cc.execute('SELECT question_uid FROM questions'))
+          out['canonical_uid_count']=len(completed)
+          out['canonical_min_uid']=cc.execute('SELECT MIN(question_uid) FROM questions').fetchone()[0]
+          out['canonical_max_uid']=cc.execute('SELECT MAX(question_uid) FROM questions').fetchone()[0]
+
+          # Stable full-row fingerprint of existing canonical records.
+          can_rows=[dict(r) for r in cc.execute('SELECT * FROM questions ORDER BY question_uid')]
+          can_json=json.dumps(can_rows,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+          out['canonical_rows_sha256']=hashlib.sha256(can_json.encode()).hexdigest()
+
+          wanted=[f'V2-Q{i:04d}' for i in range(201,251)]
+          qmarks=','.join('?'*len(wanted))
+          rows=[dict(r) for r in sc.execute(f'SELECT * FROM questions WHERE question_uid IN ({qmarks}) ORDER BY source_id ASC',wanted)]
+          out['batch_rows']=rows
+          out['batch_found']=len(rows)
+          out['batch_uids']=[r.get('question_uid') for r in rows]
+          out['batch_already_in_canonical']=[u for u in wanted if u in completed]
+
+          # First source-bank v2 item absent from canonical using stable source_id order.
+          nxt=None
+          for r in sc.execute("SELECT question_uid, source_id FROM questions WHERE source_bank='v2' ORDER BY source_id ASC"):
+              if r['question_uid'] not in completed:
+                  nxt=dict(r); break
+          out['first_source_minus_canonical']=nxt
+
+          # Export canonical prompts/choices for semantic near-duplicate review, not automated PASS decisions.
+          ccols=[r['name'] for r in cc.execute('PRAGMA table_info(questions)')]
+          wanted_cols=[x for x in ['question_uid','stem','question','prompt','choices','option_a','option_b','option_c','option_d','correct_answer','rationale','explanation'] if x in ccols]
+          out['canonical_review_rows']=[dict(r) for r in cc.execute('SELECT '+','.join(wanted_cols)+' FROM questions ORDER BY question_uid')]
+
+          sc.close(); cc.close()
+          Path('rule1_staging_tech.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps({k:out[k] for k in ['git_head','source_git_blob','canonical_git_blob','batch_found','batch_already_in_canonical','first_source_minus_canonical']},indent=2))
+          print('source',sd['integrity'],sd['questions_count'],sd['duplicate_uid_groups'])
+          print('canonical',cd['integrity'],cd['questions_count'],cd['duplicate_uid_groups'])
+          print('canonical_rows_sha256',out['canonical_rows_sha256'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-staging-tech
+          path: rule1_staging_tech.json
+          if-no-files-found: error
