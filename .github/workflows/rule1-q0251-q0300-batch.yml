@@ -1,0 +1,233 @@
+name: Rule1 Q0251-Q0300 staging batch
+on:
+  push:
+    branches: [rule1-q0251-q0300-staging]
+    paths:
+      - '.github/workflows/rule1-q0251-q0300-batch.yml'
+permissions:
+  contents: write
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and verify canonical batch Q0251-Q0300
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from __future__ import annotations
+          import hashlib, json, sqlite3, subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          SOURCE=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          CANONICAL=Path('NCLEX_CANONICAL.db')
+          APPROVED=Path('approved_items')
+          REPORT=Path('STAGING_BATCH_Q0251_Q0300_REPORT.json')
+          EXPECTED_SOURCE_BLOB='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANONICAL_BLOB='273a2cde42ce8964fc178654c234d7e2eeb373ca'
+          GATES=[
+            'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+            'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+            'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict'
+          ]
+          REQUIRED_TOP=[
+            'question_uid','source_bank','source_table','source_id','mode','category_id','client_need','difficulty',
+            'item_type_raw','renderer_type','stem','item_data','correct_answer','rationale','educational_objective',
+            'source_organization','source_document_title','source_version_date','source_accessed_date','source_locator',
+            'source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title',
+            'blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','stable_sort_key','source_db_filename',
+            'source_db_blob_sha','source_original','correction_summary','audit_status','second_pass_status','audit_date_utc',
+            'audit_reviewer','gates','audit_findings'
+          ]
+
+          def cjson(v):
+              return json.dumps(v, ensure_ascii=False, sort_keys=True, separators=(',',':'))
+          def sha_bytes(path):
+              h=hashlib.sha256()
+              with open(path,'rb') as f:
+                  for chunk in iter(lambda:f.read(1024*1024), b''): h.update(chunk)
+              return h.hexdigest()
+          def row_hash(row):
+              return hashlib.sha256(cjson(dict(row)).encode()).hexdigest()
+          def git_blob(path):
+              return subprocess.check_output(['git','rev-parse',f'HEAD:{path}'],text=True).strip()
+
+          expected_names=[f'V2-Q{i:04d}.json' for i in range(251,301)]
+          actual_names=sorted(p.name for p in APPROVED.glob('V2-Q*.json'))
+          target_actual=[n for n in actual_names if 'V2-Q0251.json' <= n <= 'V2-Q0300.json']
+          if target_actual != expected_names:
+              raise SystemExit(f'Approved file set mismatch: expected 50 exact, got {len(target_actual)}')
+
+          source_blob=git_blob(SOURCE.name)
+          canonical_blob=git_blob(CANONICAL.name)
+          if source_blob != EXPECTED_SOURCE_BLOB:
+              raise SystemExit(f'Source blob changed: {source_blob}')
+          if canonical_blob != EXPECTED_CANONICAL_BLOB:
+              raise SystemExit(f'Canonical input blob changed: {canonical_blob}')
+
+          source_file_sha_before=sha_bytes(SOURCE)
+          payloads=[]
+          for n in expected_names:
+              p=json.loads((APPROVED/n).read_text(encoding='utf-8'))
+              uid=n[:-5]
+              if p.get('question_uid') != uid: raise SystemExit(f'UID/file mismatch {n}')
+              if p.get('source_id') != int(uid[-4:]): raise SystemExit(f'source_id mismatch {uid}')
+              missing=[k for k in REQUIRED_TOP if k not in p or p[k] is None or (isinstance(p[k],str) and not p[k].strip())]
+              if missing: raise SystemExit(f'{uid} missing required payload fields: {missing}')
+              if p['audit_status']!='FINAL_QA_PASS' or p['second_pass_status']!='PASS':
+                  raise SystemExit(f'{uid} is not FINAL_QA_PASS/PASS')
+              bad=[g for g in GATES if p['gates'].get(g)!=1]
+              if bad: raise SystemExit(f'{uid} failed gates {bad}')
+              if p['source_db_filename']!=SOURCE.name or p['source_db_blob_sha']!=EXPECTED_SOURCE_BLOB:
+                  raise SystemExit(f'{uid} source provenance mismatch')
+              payloads.append(p)
+
+          src=sqlite3.connect(f'file:{SOURCE}?mode=ro', uri=True); src.row_factory=sqlite3.Row
+          con=sqlite3.connect(CANONICAL); con.row_factory=sqlite3.Row
+          if src.execute('PRAGMA integrity_check').fetchone()[0] != 'ok': raise SystemExit('source integrity failed')
+          if con.execute('PRAGMA integrity_check').fetchone()[0] != 'ok': raise SystemExit('canonical pre integrity failed')
+
+          pre_count=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          pre_dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]
+          if pre_count != 250 or pre_dup != 0: raise SystemExit(f'canonical pre-state count={pre_count} dup={pre_dup}')
+          targets=[p['question_uid'] for p in payloads]
+          qmarks=','.join('?' for _ in targets)
+          pre_target_count=con.execute(f'SELECT COUNT(*) FROM questions WHERE question_uid IN ({qmarks})',targets).fetchone()[0]
+          if pre_target_count != 0: raise SystemExit(f'target UIDs already exist: {pre_target_count}')
+
+          legacy_rows=con.execute('SELECT * FROM questions ORDER BY question_uid').fetchall()
+          if len(legacy_rows)!=250: raise SystemExit('legacy snapshot not 250')
+          legacy_hashes={r['question_uid']:row_hash(r) for r in legacy_rows}
+
+          # Re-read each exact source record and prove the audited source snapshot still matches the real source DB.
+          for p in payloads:
+              r=src.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone()
+              if r is None: raise SystemExit(f"source missing {p['question_uid']}")
+              if r['source_bank']!=p['source_bank'] or r['source_table']!=p['source_table'] or r['source_id']!=p['source_id'] or r['stable_sort_key']!=p['stable_sort_key']:
+                  raise SystemExit(f"source identity mismatch {p['question_uid']}")
+              o=p['source_original']
+              exact={
+                'stem':r['stem']==o['stem'],
+                'options':json.loads(r['item_data_json'])['options']==o['options'],
+                'correct_option':json.loads(r['correct_answer_json'])['correct_option']==o['correct_option'],
+                'rationale':r['rationale']==o['rationale'],
+                'source_url':r['source_url']==o['source_url'],
+                'source_detail':r['source_detail']==o['source_detail'],
+                'difficulty':r['difficulty']==o['difficulty'],
+              }
+              if not all(exact.values()): raise SystemExit(f"source snapshot mismatch {p['question_uid']}: {exact}")
+
+          now=datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          expected_saved={}
+          try:
+              con.execute('BEGIN IMMEDIATE')
+              for p in payloads:
+                  if con.execute('SELECT 1 FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone():
+                      raise RuntimeError(f"duplicate before insert {p['question_uid']}")
+                  payload_sha=hashlib.sha256(cjson(p).encode('utf-8')).hexdigest()
+                  vals={
+                    'question_uid':p['question_uid'],'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],
+                    'mode':p['mode'],'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),
+                    'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],
+                    'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),
+                    'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],
+                    'item_data_json':cjson(p['item_data']),'correct_answer_json':cjson(p['correct_answer']),
+                    'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],
+                    'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],
+                    'source_version_date':p['source_version_date'],'source_accessed_date':p['source_accessed_date'],
+                    'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],
+                    'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],
+                    'blueprint_version':p['blueprint_version'],'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],
+                    'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],'source_db_filename':p['source_db_filename'],
+                    'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':cjson(p['source_original']),
+                    'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],
+                    'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],
+                    **{g:int(p['gates'][g]) for g in GATES},
+                    'audit_findings_json':cjson(p['audit_findings']),'payload_sha256':payload_sha,'created_at_utc':now,
+                  }
+                  cols=list(vals)
+                  con.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[vals[c] for c in cols])
+                  expected_saved[p['question_uid']]=vals
+              con.commit()
+          except Exception:
+              con.rollback(); raise
+
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          count=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]
+          if integrity!='ok' or count!=300 or dup!=0:
+              raise SystemExit(f'post-state failed integrity={integrity} count={count} dup={dup}')
+
+          ti=[dict(r) for r in con.execute('PRAGMA table_info(questions)')]
+          required_cols=[r['name'] for r in ti if r['notnull']==1 or r['pk']==1]
+          missing_required=[]
+          for r in con.execute('SELECT * FROM questions'):
+              for c in required_cols:
+                  v=r[c]
+                  if v is None or (isinstance(v,str) and not v.strip()):
+                      missing_required.append([r['question_uid'],c])
+          if missing_required: raise SystemExit(f'required missing: {missing_required[:10]}')
+
+          json_cols=['item_data_json','correct_answer_json','source_original_json','audit_findings_json']
+          bad_json=[]
+          for r in con.execute('SELECT question_uid,item_data_json,correct_answer_json,source_original_json,audit_findings_json FROM questions'):
+              for c in json_cols:
+                  try: json.loads(r[c])
+                  except Exception: bad_json.append([r['question_uid'],c])
+          if bad_json: raise SystemExit(f'bad json: {bad_json[:10]}')
+
+          reread_exact=0
+          for uid,exp in expected_saved.items():
+              r=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if r is None: raise SystemExit(f'reread missing {uid}')
+              diffs=[c for c,v in exp.items() if r[c]!=v]
+              if diffs: raise SystemExit(f'reread mismatch {uid}: {diffs}')
+              reread_exact += 1
+          if reread_exact!=50: raise SystemExit(f'reread count {reread_exact}')
+
+          failed_gate_rows=[]
+          for r in con.execute('SELECT * FROM questions'):
+              bad=[g for g in GATES if r[g]!=1]
+              if bad: failed_gate_rows.append([r['question_uid'],bad])
+          if failed_gate_rows: raise SystemExit(f'failed saved gates: {failed_gate_rows[:5]}')
+
+          legacy_after=con.execute(f"SELECT * FROM questions WHERE question_uid NOT IN ({qmarks}) ORDER BY question_uid",targets).fetchall()
+          if len(legacy_after)!=250: raise SystemExit(f'legacy after count {len(legacy_after)}')
+          legacy_after_hashes={r['question_uid']:row_hash(r) for r in legacy_after}
+          if legacy_after_hashes != legacy_hashes: raise SystemExit('Q0001-Q0250 changed during batch')
+
+          source_file_sha_after=sha_bytes(SOURCE)
+          if source_file_sha_after != source_file_sha_before: raise SystemExit('source DB bytes changed')
+
+          completed={r[0] for r in con.execute('SELECT question_uid FROM questions')}
+          next_uid=None
+          for r in src.execute("SELECT question_uid FROM questions WHERE source_bank='v2' ORDER BY source_id ASC"):
+              if r['question_uid'] not in completed:
+                  next_uid=r['question_uid']; break
+          if next_uid!='V2-Q0301': raise SystemExit(f'next item mismatch {next_uid}')
+
+          report={
+            'batch':'V2-Q0251-V2-Q0300','approved_payload_count':len(payloads),'pre_canonical_blob':canonical_blob,
+            'source_blob':source_blob,'source_integrity':'ok','source_bytes_unchanged':True,
+            'pre_count':pre_count,'pre_duplicate_uid':pre_dup,'pre_target_uid_count':pre_target_count,
+            'transaction_inserted':50,'post_integrity':integrity,'post_count':count,'post_duplicate_uid':dup,
+            'required_missing':0,'bad_json':0,'reread_exact_count':reread_exact,'all_14_gates_one_rows':300,
+            'legacy_q0001_q0250_unchanged':True,'legacy_unchanged_count':len(legacy_after),
+            'next_question_uid':next_uid,'verified_at_utc':now,
+            'approved_uids':targets,
+            'status':'PASS'
+          }
+          REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          src.close(); con.close()
+          print(json.dumps(report,indent=2,sort_keys=True))
+          PY
+      - name: Commit staging-only verified canonical and report
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db STAGING_BATCH_Q0251_Q0300_REPORT.json
+          git commit -m 'Stage verified canonical batch Q0251-Q0300'
+          git push origin rule1-q0251-q0300-staging
