@@ -1,0 +1,69 @@
+name: One-time clean NCLEX source DB
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/clean-source-db-once.yml']
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Clean audit artifacts from SQLite
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          from pathlib import Path
+
+          db = Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          if not db.exists(): raise SystemExit('DB not found')
+          con = sqlite3.connect(db); con.row_factory = sqlite3.Row
+          con.execute('PRAGMA foreign_keys=OFF')
+          def tables(): return [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
+          def cols(t): return [r[1] for r in con.execute(f'PRAGMA table_info("{t}")')]
+          def count(t): return con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0]
+
+          bt=tables(); bq=count('questions'); bc=count('case_studies') if 'case_studies' in bt else 0
+          print('BEFORE_TABLES', bt); print('QUESTION_COUNT_BEFORE', bq); print('CASE_COUNT_BEFORE', bc)
+          for t in bt: print('BEFORE', t, count(t), cols(t))
+
+          for t in ['audit_issues','option_length_qc','clinical_audit_log','test_generation_rules','bank_metadata']:
+              if t in tables(): con.execute(f'DROP TABLE "{t}"'); print('DROPPED_TABLE', t)
+
+          remove={
+            'questions':['source_verified_flag','structural_status','clinical_qa_status','source_licensing_status','commercial_release_ready','editorial_priority','editorial_flags_json','raw_json'],
+            'case_studies':['source_verified_flag','source_licensing_status','clinical_qa_status','raw_json']}
+          for t, blacklist in remove.items():
+              if t not in tables(): continue
+              existing=set(cols(t)); targets=[c for c in blacklist if c in existing]
+              for idxrow in list(con.execute(f'PRAGMA index_list("{t}")')):
+                  idx=idxrow[1]; idxcols=[r[2] for r in con.execute(f'PRAGMA index_info("{idx}")')]
+                  if any(c in targets for c in idxcols): con.execute(f'DROP INDEX IF EXISTS "{idx}"'); print('DROPPED_INDEX', idx)
+              for c in targets:
+                  con.execute(f'ALTER TABLE "{t}" DROP COLUMN "{c}"'); print('DROPPED_COLUMN', t, c)
+
+          con.commit()
+          aq=count('questions'); ac=count('case_studies') if 'case_studies' in tables() else 0
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          if aq!=bq: raise SystemExit(f'Question count changed {bq}->{aq}')
+          if ac!=bc: raise SystemExit(f'Case count changed {bc}->{ac}')
+          if integrity!='ok': raise SystemExit('Integrity failed: '+integrity)
+          print('AFTER_TABLES', tables()); print('QUESTION_COUNT_AFTER', aq); print('CASE_COUNT_AFTER', ac); print('INTEGRITY_CHECK', integrity)
+          for t in tables(): print('AFTER', t, count(t), cols(t))
+          con.execute('VACUUM'); con.close()
+          PY
+      - name: Commit cleaned DB and remove one-time workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/clean-source-db-once.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add -A
+          git commit -m 'Clean legacy audit artifacts from NCLEX source DB'
+          git push origin main
