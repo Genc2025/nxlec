@@ -1,0 +1,35 @@
+name: Rule1 staging pad payload stream
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+    paths:
+      - '.github/workflows/rule1-staging-pad.yml'
+permissions:
+  contents: write
+jobs:
+  pad:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore terminal base64 padding
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('staging_payload_parts/q0201_q0250.part1')
+          s=p.read_text()
+          joined_len=len(Path('staging_payload_parts/q0201_q0250.part0').read_text().strip()+s.strip())
+          need=(-joined_len)%4
+          if need:
+              p.write_text(s.rstrip()+('='*need),encoding='utf-8')
+          print('padding_added',need)
+          PY
+      - name: Commit staging payload technical fix
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_payload_parts/q0201_q0250.part1
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Fix staged payload base64 padding'
+          git push origin HEAD:rule1-q0201-q0250-20260816
