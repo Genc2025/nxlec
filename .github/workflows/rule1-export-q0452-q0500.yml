@@ -1,0 +1,51 @@
+name: Rule1 export source Q0452-Q0500
+on:
+  push:
+    branches: [rule1-q0451-q0500-staging]
+    paths:
+      - '.github/workflows/rule1-export-q0452-q0500.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q0451-q0500-staging
+      - name: Verify immutable DB blobs and export source rows
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db)" = "07e335d471ef1b4689406ba41eb98eaa2ca41472"
+          test "$(git rev-parse HEAD:NCLEX_CANONICAL.db)" = "9884b027cc2db1f6ed6468eb42e7794b16aeb757"
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          db=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          db.row_factory=sqlite3.Row
+          out=Path('staging_items'); out.mkdir(exist_ok=True)
+          for i in range(452,501):
+              uid=f'V2-Q{i:04d}'
+              r=db.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if r is None: raise SystemExit(f'missing {uid}')
+              bp=db.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(r['category_id'],)).fetchone()
+              payload={
+                'source_blob_expected':'07e335d471ef1b4689406ba41eb98eaa2ca41472',
+                'canonical_blob_expected':'9884b027cc2db1f6ed6468eb42e7794b16aeb757',
+                'source_row':dict(r),
+                'blueprint_row':dict(bp) if bp else None,
+              }
+              (out/f'{uid}.json').write_text(json.dumps(payload,indent=2,ensure_ascii=False,sort_keys=True)+'\n',encoding='utf-8')
+          db.close()
+          PY
+      - name: Commit source snapshots only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Rule1 Source Exporter"
+          git config user.email "actions@users.noreply.github.com"
+          git add staging_items/V2-Q04*.json staging_items/V2-Q0500.json
+          test "$(git diff --cached --name-only | wc -l)" -eq 49
+          git commit -m "Export source snapshots V2-Q0452-V2-Q0500"
+          git push origin HEAD:rule1-q0451-q0500-staging
