@@ -1,0 +1,41 @@
+name: Rule1 staging promote exact payload stream
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+    paths:
+      - '.github/workflows/rule1-staging-promote-stream.yml'
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate exact stream and promote to batch inputs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64,gzip,json,hashlib
+          from pathlib import Path
+          a=Path('staging_payload_parts/stream0').read_text().strip()
+          b=Path('staging_payload_parts/stream1').read_text().strip()
+          packed=a+b
+          raw=base64.b64decode(packed)
+          text=gzip.decompress(raw).decode('utf-8')
+          obj=json.loads(text)
+          uids=[x.get('question_uid') for x in obj]
+          expected=[f'V2-Q{i:04d}' for i in range(201,251)]
+          if len(obj)!=50 or uids!=expected:
+              raise SystemExit(f'exact stream invalid count={len(obj)} first={uids[:2]} last={uids[-2:]}')
+          print(json.dumps({'count':len(obj),'first':uids[0],'last':uids[-1],'json_sha256':hashlib.sha256(text.encode()).hexdigest()},indent=2))
+          Path('staging_payload_parts/q0201_q0250.part0').write_text(a,encoding='utf-8')
+          Path('staging_payload_parts/q0201_q0250.part1').write_text(b,encoding='utf-8')
+          PY
+      - name: Commit validated exact stream as batch input
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_payload_parts/q0201_q0250.part0 staging_payload_parts/q0201_q0250.part1
+          git commit -m 'Promote validated exact Q0201-Q0250 payload stream'
+          git push origin HEAD:rule1-q0201-q0250-20260816
