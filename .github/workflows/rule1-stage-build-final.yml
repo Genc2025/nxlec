@@ -1,0 +1,105 @@
+name: Rule 1 stage build final canonical
+on:
+  push:
+    branches: [rule1-stage-batch50]
+    paths:
+      - '.github/workflows/rule1-stage-build-final.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Apply audited payloads in one SQLite transaction and create Git blob
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64, hashlib, json, lzma, os, sqlite3, subprocess, urllib.request
+          from pathlib import Path
+
+          SOURCE=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          CANON=Path('NCLEX_CANONICAL.db')
+          PAYLOAD_B64=Path('rule1_batch_payload.xz.b64')
+          EXPECT_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECT_CANON='90e70a89cbdf349c21ea1c35a9e5af6f6e982529'
+          GATES=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
+          REQUIRED=['stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha','source_original_json','correction_summary','audit_status','second_pass_status','audit_date_utc','audit_reviewer','audit_findings_json','payload_sha256','created_at_utc']
+          def cjson(v): return json.dumps(v,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+          src_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
+          can_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          assert src_blob==EXPECT_SOURCE,(src_blob,EXPECT_SOURCE)
+          assert can_blob==EXPECT_CANON,(can_blob,EXPECT_CANON)
+          payloads=json.loads(lzma.decompress(base64.b64decode(PAYLOAD_B64.read_text().strip())))
+          assert len(payloads)==47
+          assert [p['question_uid'] for p in payloads]==[f'V2-Q{i:04d}' for i in range(4,51)]
+          assert len({p['question_uid'] for p in payloads})==47
+
+          src=sqlite3.connect(SOURCE); src.row_factory=sqlite3.Row
+          con=sqlite3.connect(CANON); con.row_factory=sqlite3.Row
+          assert src.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]==3
+          assert con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]==0
+          existing={r[0] for r in con.execute('SELECT question_uid FROM questions')}
+          assert existing=={'V2-Q0001','V2-Q0002','V2-Q0003'}
+
+          created='2026-08-16T09:41:23+00:00'
+          con.execute('BEGIN IMMEDIATE')
+          try:
+            for p in payloads:
+              uid=p['question_uid']
+              assert uid not in existing
+              assert p['audit_status']=='FINAL_QA_PASS' and p['second_pass_status']=='PASS'
+              assert p['source_db_blob_sha']==EXPECT_SOURCE
+              assert all(p['gates'].get(g)==1 for g in GATES)
+              r=src.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone(); assert r is not None
+              o=p['source_original']; opts=json.loads(r['item_data_json'])['options']; ans=json.loads(r['correct_answer_json'])['correct_option']
+              exact=[r['source_id']==p['source_id'],r['source_bank']==p['source_bank'],r['source_table']==p['source_table'],r['stem']==o['stem'],opts==o['options'],ans==o['correct_option'],r['rationale']==o['rationale'],r['source_url']==o['source_url'],r['source_detail']==o['source_detail'],r['difficulty']==o['difficulty']]
+              assert all(exact),(uid,exact)
+              sha=hashlib.sha256(cjson(p).encode()).hexdigest()
+              vals={
+                'question_uid':uid,'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],'mode':p['mode'],'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],'item_data_json':cjson(p['item_data']),'correct_answer_json':cjson(p['correct_answer']),'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],'source_version_date':p['source_version_date'],'source_accessed_date':p['source_accessed_date'],'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],'blueprint_version':p['blueprint_version'],'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],'source_db_filename':p['source_db_filename'],'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':cjson(p['source_original']),'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],**{g:1 for g in GATES},'audit_findings_json':cjson(p['audit_findings']),'payload_sha256':sha,'created_at_utc':created}
+              cols=list(vals); con.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[vals[c] for c in cols])
+            con.commit()
+          except Exception:
+            con.rollback(); raise
+
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          count=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          dups=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]
+          assert integrity=='ok' and count==50 and dups==0
+          missing=0
+          for c in REQUIRED:
+            missing += con.execute(f"SELECT COUNT(*) FROM questions WHERE {c} IS NULL OR (typeof({c})='text' AND trim({c})='')").fetchone()[0]
+          assert missing==0,missing
+          reread=[]
+          for p in payloads:
+            r=con.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone(); assert r
+            sha=hashlib.sha256(cjson(p).encode()).hexdigest()
+            ok=r['audit_status']=='FINAL_QA_PASS' and r['second_pass_status']=='PASS' and r['payload_sha256']==sha and all(r[g]==1 for g in GATES)
+            assert ok,p['question_uid']; reread.append(p['question_uid'])
+          con.close(); src.close()
+
+          data=CANON.read_bytes()
+          git_blob=hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()
+          repo=os.environ['GITHUB_REPOSITORY']; token=os.environ['GH_TOKEN']
+          body=json.dumps({'content':base64.b64encode(data).decode(),'encoding':'base64'}).encode()
+          req=urllib.request.Request(f'https://api.github.com/repos/{repo}/git/blobs',data=body,method='POST',headers={'Authorization':f'Bearer {token}','Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'})
+          with urllib.request.urlopen(req) as resp: remote=json.load(resp)
+          assert remote['sha']==git_blob,(remote['sha'],git_blob)
+          report={'source_blob':src_blob,'previous_canonical_blob':can_blob,'final_canonical_blob':git_blob,'integrity_check':integrity,'question_count':count,'duplicate_uid_count':dups,'required_field_missing_count':missing,'reread_count':len(reread),'reread_uids':reread}
+          Path('rule1_batch50_report.json').write_text(json.dumps(report,indent=2,sort_keys=True))
+          print(json.dumps({k:v for k,v in report.items() if k!='reread_uids'}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-final-canonical-50
+          path: |
+            NCLEX_CANONICAL.db
+            rule1_batch50_report.json
+          if-no-files-found: error
