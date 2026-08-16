@@ -1,0 +1,47 @@
+name: Rule1 verify Q0455 official source
+on:
+  push:
+    branches: [rule1-q0451-q0500-staging]
+    paths:
+      - '.github/workflows/rule1-verify-q0455-source.yml'
+permissions:
+  contents: write
+jobs:
+  verify-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q0451-q0500-staging
+      - name: Fetch current DailyMed label and extract literal context
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=adec4fd2-6858-4c99-91d4-531f5f2a2d79'
+          curl -fL --retry 5 --retry-delay 2 "$url" -o /tmp/label.html
+          python - <<'PY'
+          from pathlib import Path
+          import html, re
+          raw=Path('/tmp/label.html').read_text(errors='replace')
+          text=html.unescape(re.sub(r'<[^>]+>', ' ', raw))
+          text=re.sub(r'\s+', ' ', text).strip()
+          needles=['Updated','Revised:','Acute Pancreatitis','persistent or severe abdominal pain','radiating to the back','discontinue OZEMPIC']
+          chunks=[]
+          for n in needles:
+              i=text.lower().find(n.lower())
+              if i>=0:
+                  chunks.append(f'=== {n} ===\n'+text[max(0,i-500):i+1600])
+              else:
+                  chunks.append(f'=== {n} ===\nNOT FOUND')
+          out=Path('source_checks'); out.mkdir(exist_ok=True)
+          (out/'V2-Q0455-dailymed.txt').write_text('URL: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=adec4fd2-6858-4c99-91d4-531f5f2a2d79\n\n'+'\n\n'.join(chunks)+'\n')
+          PY
+      - name: Commit literal source check only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Rule1 Source Fetcher'
+          git config user.email 'actions@users.noreply.github.com'
+          git add source_checks/V2-Q0455-dailymed.txt
+          git commit -m 'Fetch official DailyMed text for V2-Q0455'
+          git push origin HEAD:rule1-q0451-q0500-staging
