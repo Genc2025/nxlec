@@ -1,0 +1,53 @@
+name: Rule1 source snapshot scan Q0351-Q0400
+on:
+  push:
+    branches: [rule1-q0351-q0400-staging]
+    paths:
+      - '.github/workflows/rule1-source-snapshot-scan.yml'
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare all approved source_original snapshots with real source SQLite
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          src=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          src.row_factory=sqlite3.Row
+          if src.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+              raise SystemExit('source integrity failed')
+          mismatches=[]
+          for i in range(351,401):
+              uid=f'V2-Q{i:04d}'
+              p=json.loads((Path('approved_items')/f'{uid}.json').read_text(encoding='utf-8'))
+              r=src.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if r is None:
+                  mismatches.append((uid,'ROW_MISSING',None,None)); continue
+              o=p['source_original']
+              checks={
+                'stem':(r['stem'],o.get('stem')),
+                'options':(json.loads(r['item_data_json'])['options'],o.get('options')),
+                'correct_option':(json.loads(r['correct_answer_json'])['correct_option'],o.get('correct_option')),
+                'rationale':(r['rationale'],o.get('rationale')),
+                'source_url':(r['source_url'],o.get('source_url')),
+                'source_detail':(r['source_detail'],o.get('source_detail')),
+                'difficulty':(r['difficulty'],o.get('difficulty')),
+              }
+              if r['stable_sort_key'] != p['stable_sort_key']:
+                  mismatches.append((uid,'stable_sort_key',r['stable_sort_key'],p['stable_sort_key']))
+              for field,(actual,snap) in checks.items():
+                  if actual != snap:
+                      mismatches.append((uid,field,actual,snap))
+          print('SNAPSHOT_SCAN_COUNT=50')
+          print('MISMATCH_COUNT=',len(mismatches))
+          for uid,field,actual,snap in mismatches:
+              print('MISMATCH',uid,field,'SOURCE=',repr(actual),'SNAPSHOT=',repr(snap))
+          if mismatches:
+              raise SystemExit(1)
+          print('SOURCE_SNAPSHOTS_EXACT=50/50')
+          PY
