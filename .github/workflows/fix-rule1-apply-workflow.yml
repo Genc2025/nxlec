@@ -1,0 +1,37 @@
+name: Fix Rule 1 apply workflow
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-rule1-apply-workflow.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix dynamic commit identity and remove redundant canonical trigger
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/rule1-apply-current.yml')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("      - 'NCLEX_CANONICAL.db'\n","")
+          old="          git commit -m 'Rule 1 FINAL_QA_PASS V2-Q0001 into canonical DB'"
+          new="          uid=$(python3 -c \"import json; print(json.load(open('RULE1_CURRENT_PAYLOAD.json'))['question_uid'])\")\n          git commit -m \"Rule 1 FINAL_QA_PASS ${uid} into canonical DB\""
+          if old not in s:
+              raise SystemExit('Expected hardcoded commit line not found')
+          s=s.replace(old,new)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit workflow correction and remove one-time fixer
+        shell: bash
+        run: |
+          rm -f .github/workflows/fix-rule1-apply-workflow.yml
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add -A
+          git commit -m 'Fix Rule 1 canonical commit identity'
+          git push origin main
