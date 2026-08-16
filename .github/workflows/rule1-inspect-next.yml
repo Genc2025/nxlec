@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/rule1-inspect-next.yml'
+      - 'NCLEX_CANONICAL.db'
 permissions:
   contents: write
 jobs:
@@ -15,7 +16,7 @@ jobs:
         shell: bash
         run: |
           python3 - <<'PY'
-          import sqlite3, json, os
+          import sqlite3, json
           from pathlib import Path
           source=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
           canonical=Path('NCLEX_CANONICAL.db')
