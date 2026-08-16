@@ -1,0 +1,47 @@
+name: Rule 1 stage export Q0101-Q0150
+on:
+  push:
+    branches: [rule1-stage-batch150]
+    paths:
+      - '.github/workflows/rule1-stage-export-q0101-q0150.yml'
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export current source rows and canonical
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          src='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; can='NCLEX_CANONICAL.db'
+          c=sqlite3.connect(src); c.row_factory=sqlite3.Row
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=[dict(r) for r in c.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 101 AND 150 ORDER BY source_id")]
+          assert len(rows)==50 and rows[0]['question_uid']=='V2-Q0101' and rows[-1]['question_uid']=='V2-Q0150'
+          bp=[dict(r) for r in c.execute('SELECT * FROM nclex_2026_blueprint ORDER BY category_id')]
+          c.close()
+          cc=sqlite3.connect(can)
+          assert cc.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          cnt=cc.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          uids=[r[0] for r in cc.execute('SELECT question_uid FROM questions ORDER BY source_id')]
+          cc.close()
+          assert cnt==100 and len(uids)==100
+          meta={
+            'source_blob':subprocess.check_output(['git','rev-parse','HEAD:'+src],text=True).strip(),
+            'canonical_blob':subprocess.check_output(['git','rev-parse','HEAD:'+can],text=True).strip(),
+            'canonical_count':cnt,'canonical_uids':uids,'source_rows':rows,'blueprint':bp
+          }
+          Path('rule1_source_q0101_q0150.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
+          PY
+          mkdir -p rule1_export_q0101_q0150
+          cp rule1_source_q0101_q0150.json NCLEX_CANONICAL.db rule1_export_q0101_q0150/
+      - name: Upload export artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rule1-source-q0101-q0150
+          path: rule1_export_q0101_q0150/
+          retention-days: 7
