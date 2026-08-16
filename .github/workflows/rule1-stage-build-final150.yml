@@ -1,0 +1,113 @@
+name: Rule 1 stage build final150
+on:
+  push:
+    branches: [rule1-stage-batch150]
+    paths:
+      - '.github/workflows/rule1-stage-build-final150.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build and verify canonical 150
+        shell: bash
+        run: |
+          cat q150_{00..11} > rule1_batch150_payload.b64
+          test "$(sha256sum rule1_batch150_payload.b64 | awk '{print $1}')" = "5a14677d05899019eebd5930d4b7cbc60d055deaba3dfb2d247a1b737d9ccede"
+          base64 -d rule1_batch150_payload.b64 > payload.json.xz
+          test "$(sha256sum payload.json.xz | awk '{print $1}')" = "d2b7cbc7f14c72621d0d86158672856f63708000f3e92a8ba81535bce7db6646"
+          xz -dc payload.json.xz > payload.json
+          test "$(sha256sum payload.json | awk '{print $1}')" = "be4506f22e16c5feacd695e53aafb4f03e043d85a737f06789f5e903eaaf36b5"
+          python3 - <<'PY'
+          import sqlite3,json,hashlib,subprocess,datetime
+          from pathlib import Path
+          P=json.load(open('payload.json'))
+          assert len(P)==50
+          assert [x['question_uid'] for x in P]==[f'V2-Q{i:04d}' for i in range(101,151)]
+          G=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
+          srcsha=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
+          cansha=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          assert srcsha=='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          assert cansha=='31829240594320edeba87e6ce89220624b0b896b'
+          s=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db'); s.row_factory=sqlite3.Row
+          c=sqlite3.connect('NCLEX_CANONICAL.db'); c.row_factory=sqlite3.Row
+          assert s.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]==100
+          before={}
+          for r in c.execute('SELECT * FROM questions ORDER BY question_uid'):
+              d=dict(r); before[r['question_uid']]=hashlib.sha256(json.dumps(d,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
+          def cj(v): return json.dumps(v,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+          for p in P:
+              assert p['audit_status']=='FINAL_QA_PASS' and p['second_pass_status']=='PASS'
+              assert p['source_db_blob_sha']==srcsha and all(p['gates'].get(g)==1 for g in G)
+              r=s.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone(); assert r
+              o=p['source_original']; opts=json.loads(r['item_data_json'])['options']; ans=json.loads(r['correct_answer_json'])['correct_option']
+              assert r['source_id']==p['source_id'] and r['source_bank']==p['source_bank'] and r['source_table']==p['source_table']
+              assert r['stem']==o['stem'] and opts==o['options'] and ans==o['correct_option'] and r['rationale']==o['rationale']
+              assert r['source_url']==o['source_url'] and r['source_detail']==o['source_detail'] and r['difficulty']==o['difficulty']
+              assert r['category_id']==o['category_id'] and r['client_need']==o['client_need']
+          now=datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
+          c.execute('BEGIN IMMEDIATE')
+          for p in P:
+              assert c.execute('SELECT 1 FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone() is None
+              ph=hashlib.sha256(cj(p).encode()).hexdigest()
+              vals={
+                'question_uid':p['question_uid'],'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],'mode':p['mode'],
+                'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),
+                'category_id':p['category_id'],'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),
+                'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],'item_data_json':cj(p['item_data']),
+                'correct_answer_json':cj(p['correct_answer']),'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],
+                'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],'source_version_date':p['source_version_date'],
+                'source_accessed_date':p['source_accessed_date'],'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],
+                'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],'blueprint_version':p['blueprint_version'],
+                'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],
+                'source_db_filename':p['source_db_filename'],'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':cj(p['source_original']),
+                'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],'audit_date_utc':p['audit_date_utc'],
+                'audit_reviewer':p['audit_reviewer'],**{g:int(p['gates'][g]) for g in G},'audit_findings_json':cj(p['audit_findings']),'payload_sha256':ph,'created_at_utc':now}
+              cols=list(vals); c.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[vals[x] for x in cols])
+          c.commit()
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]==150
+          assert c.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]==0
+          after={}
+          for r in c.execute("SELECT * FROM questions WHERE source_id<=100 ORDER BY question_uid"):
+              d=dict(r); after[r['question_uid']]=hashlib.sha256(json.dumps(d,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
+          assert before==after
+          req=['stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_locator','source_url','source_claim_supported','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','correction_summary','audit_findings_json']
+          missing=0; badjson=0
+          for r in c.execute('SELECT * FROM questions'):
+              missing+=sum(r[x] is None or (isinstance(r[x],str) and not r[x].strip()) for x in req)
+              for x in ['item_data_json','correct_answer_json','source_original_json','audit_findings_json']:
+                  try: json.loads(r[x])
+                  except: badjson+=1
+          assert missing==0 and badjson==0
+          for p in P:
+              r=c.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone(); assert r
+              assert r['audit_status']=='FINAL_QA_PASS' and r['second_pass_status']=='PASS' and all(r[g]==1 for g in G)
+              assert r['payload_sha256']==hashlib.sha256(cj(p).encode()).hexdigest()
+          c.close(); s.close()
+          report={'canonical_count':150,'integrity':'ok','duplicates':0,'required_missing':0,'bad_json':0,'batch_count':50,'batch_first':'V2-Q0101','batch_last':'V2-Q0150','old_records_unchanged':100,'source_blob':srcsha,'pre_canonical_blob':cansha,'payload_sha256':'be4506f22e16c5feacd695e53aafb4f03e043d85a737f06789f5e903eaaf36b5'}
+          Path('rule1_batch150_report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+          PY
+          echo "final_blob=$(git hash-object NCLEX_CANONICAL.db)" >> "$GITHUB_ENV"
+      - name: Commit final canonical only to staging
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db
+          git commit -m 'Stage Rule 1 final canonical Q0101-Q0150'
+          git push origin rule1-stage-batch150
+      - name: Upload final artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rule1-final-canonical-150
+          path: |
+            NCLEX_CANONICAL.db
+            rule1_batch150_report.json
+          retention-days: 7
