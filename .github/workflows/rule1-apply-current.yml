@@ -1,0 +1,275 @@
+name: Rule 1 apply current canonical item
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-apply-current.yml'
+      - 'RULE1_CURRENT_PAYLOAD.json'
+      - 'NCLEX_CANONICAL.db'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-canonical-main
+  cancel-in-progress: false
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply one audited item without rebuilding canonical DB
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json, hashlib, subprocess
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          source_path=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          canonical_path=Path('NCLEX_CANONICAL.db')
+          payload_path=Path('RULE1_CURRENT_PAYLOAD.json')
+          state_path=Path('RULE1_CANONICAL_STATE.json')
+          p=json.loads(payload_path.read_text(encoding='utf-8'))
+
+          required_top=[
+            'question_uid','source_bank','source_table','source_id','mode','category_id','client_need',
+            'difficulty','item_type_raw','renderer_type','stem','item_data','correct_answer','rationale',
+            'educational_objective','source_organization','source_document_title','source_version_date',
+            'source_accessed_date','source_locator','source_url','source_claim_supported',
+            'blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator',
+            'blueprint_url','blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha',
+            'source_original','correction_summary','audit_status','second_pass_status','audit_date_utc',
+            'audit_reviewer','gates','audit_findings'
+          ]
+          missing=[k for k in required_top if k not in p or p[k] in ('',None) and k not in {'case_uid','original_sequence','official_case_slot','slot_variant','specialty','cjmm_skill','scoring_rule'}]
+          if missing:
+            raise SystemExit(f'Missing required payload fields: {missing}')
+          if p['audit_status']!='FINAL_QA_PASS':
+            raise SystemExit('Payload is not FINAL_QA_PASS')
+          if p['second_pass_status']!='PASS':
+            raise SystemExit('Independent second pass is not PASS')
+          gate_names=[
+            'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+            'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+            'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict'
+          ]
+          bad_gates=[g for g in gate_names if p['gates'].get(g)!=1]
+          if bad_gates:
+            raise SystemExit(f'FINAL_QA_PASS blocked by gates: {bad_gates}')
+
+          current_source_blob=subprocess.check_output(
+            ['git','rev-parse',f"HEAD:{p['source_db_filename']}"], text=True
+          ).strip()
+          if current_source_blob!=p['source_db_blob_sha']:
+            raise SystemExit(f"Source DB moved: payload={p['source_db_blob_sha']} current={current_source_blob}")
+
+          src=sqlite3.connect(source_path); src.row_factory=sqlite3.Row
+          if src.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise SystemExit('Source DB integrity_check failed')
+          row=src.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone()
+          if row is None:
+            raise SystemExit('Source question not found')
+          if row['source_id']!=p['source_id'] or row['source_bank']!=p['source_bank'] or row['source_table']!=p['source_table']:
+            raise SystemExit('Source identity mismatch')
+          orig=p['source_original']
+          src_opts=json.loads(row['item_data_json'])['options']
+          src_ans=json.loads(row['correct_answer_json'])['correct_option']
+          exact_checks={
+            'stem': row['stem']==orig['stem'],
+            'options': src_opts==orig['options'],
+            'correct_option': src_ans==orig['correct_option'],
+            'rationale': row['rationale']==orig['rationale'],
+            'source_url': row['source_url']==orig['source_url'],
+            'source_detail': row['source_detail']==orig['source_detail'],
+            'difficulty': row['difficulty']==orig['difficulty']
+          }
+          if not all(exact_checks.values()):
+            raise SystemExit(f'Current source row no longer matches audited source snapshot: {exact_checks}')
+          src.close()
+
+          payload_canonical=json.dumps(p,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+          payload_sha=hashlib.sha256(payload_canonical.encode('utf-8')).hexdigest()
+          created_db=not canonical_path.exists()
+          con=sqlite3.connect(canonical_path); con.row_factory=sqlite3.Row
+          con.execute('PRAGMA foreign_keys=ON')
+          con.executescript('''
+          CREATE TABLE IF NOT EXISTS canonical_metadata(
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL
+          );
+          CREATE TABLE IF NOT EXISTS questions(
+            question_uid TEXT PRIMARY KEY,
+            source_bank TEXT NOT NULL,
+            source_table TEXT NOT NULL,
+            source_id INTEGER NOT NULL,
+            mode TEXT NOT NULL,
+            case_uid TEXT,
+            original_sequence INTEGER,
+            official_case_slot INTEGER,
+            slot_variant TEXT,
+            category_id INTEGER NOT NULL,
+            client_need TEXT NOT NULL,
+            specialty TEXT,
+            difficulty TEXT NOT NULL,
+            cjmm_skill TEXT,
+            item_type_raw TEXT NOT NULL,
+            renderer_type TEXT NOT NULL,
+            stem TEXT NOT NULL,
+            item_data_json TEXT NOT NULL,
+            correct_answer_json TEXT NOT NULL,
+            rationale TEXT NOT NULL,
+            scoring_rule TEXT,
+            educational_objective TEXT NOT NULL,
+            source_organization TEXT NOT NULL,
+            source_document_title TEXT NOT NULL,
+            source_version_date TEXT NOT NULL,
+            source_accessed_date TEXT NOT NULL,
+            source_locator TEXT NOT NULL,
+            source_url TEXT NOT NULL,
+            source_claim_supported TEXT NOT NULL,
+            blueprint_source_organization TEXT NOT NULL,
+            blueprint_document_title TEXT NOT NULL,
+            blueprint_version TEXT NOT NULL,
+            blueprint_locator TEXT NOT NULL,
+            blueprint_url TEXT NOT NULL,
+            blueprint_topic TEXT NOT NULL,
+            stable_sort_key TEXT NOT NULL,
+            source_db_filename TEXT NOT NULL,
+            source_db_blob_sha TEXT NOT NULL,
+            source_original_json TEXT NOT NULL,
+            correction_summary TEXT NOT NULL,
+            audit_status TEXT NOT NULL CHECK(audit_status IN ('AUDITING','BLOCKED','FINAL_QA_PASS')),
+            second_pass_status TEXT NOT NULL,
+            audit_date_utc TEXT NOT NULL,
+            audit_reviewer TEXT NOT NULL,
+            source_authority_verified INTEGER NOT NULL CHECK(source_authority_verified IN (0,1)),
+            currentness_verified INTEGER NOT NULL CHECK(currentness_verified IN (0,1)),
+            exact_locator_verified INTEGER NOT NULL CHECK(exact_locator_verified IN (0,1)),
+            stem_verified INTEGER NOT NULL CHECK(stem_verified IN (0,1)),
+            correct_answer_verified INTEGER NOT NULL CHECK(correct_answer_verified IN (0,1)),
+            distractors_verified INTEGER NOT NULL CHECK(distractors_verified IN (0,1)),
+            rationale_verified INTEGER NOT NULL CHECK(rationale_verified IN (0,1)),
+            educational_objective_verified INTEGER NOT NULL CHECK(educational_objective_verified IN (0,1)),
+            ambiguity_verified INTEGER NOT NULL CHECK(ambiguity_verified IN (0,1)),
+            second_answer_excluded INTEGER NOT NULL CHECK(second_answer_excluded IN (0,1)),
+            cueing_verified INTEGER NOT NULL CHECK(cueing_verified IN (0,1)),
+            blueprint_verified INTEGER NOT NULL CHECK(blueprint_verified IN (0,1)),
+            independent_qa_passed INTEGER NOT NULL CHECK(independent_qa_passed IN (0,1)),
+            no_unresolved_conflict INTEGER NOT NULL CHECK(no_unresolved_conflict IN (0,1)),
+            audit_findings_json TEXT NOT NULL,
+            payload_sha256 TEXT NOT NULL,
+            created_at_utc TEXT NOT NULL
+          );
+          CREATE INDEX IF NOT EXISTS idx_canonical_source ON questions(source_bank,source_id);
+          CREATE INDEX IF NOT EXISTS idx_canonical_sort ON questions(stable_sort_key);
+          CREATE INDEX IF NOT EXISTS idx_canonical_client_need ON questions(client_need);
+          ''')
+          expected_cols={
+            'question_uid','source_bank','source_table','source_id','mode','case_uid','original_sequence','official_case_slot',
+            'slot_variant','category_id','client_need','specialty','difficulty','cjmm_skill','item_type_raw','renderer_type',
+            'stem','item_data_json','correct_answer_json','rationale','scoring_rule','educational_objective','source_organization',
+            'source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported',
+            'blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url',
+            'blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha','source_original_json','correction_summary',
+            'audit_status','second_pass_status','audit_date_utc','audit_reviewer','source_authority_verified','currentness_verified',
+            'exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified',
+            'educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict','audit_findings_json','payload_sha256','created_at_utc'
+          }
+          actual_cols={r['name'] for r in con.execute('PRAGMA table_info(questions)')}
+          if not expected_cols.issubset(actual_cols):
+            raise SystemExit(f'Canonical schema mismatch, missing columns: {sorted(expected_cols-actual_cols)}')
+
+          now=datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          meta={
+            'canonical_role':'OUTPUT_FINAL_ONLY',
+            'source_db':'NCLEX_COMMERCIAL_MASTER_CURRENT.db',
+            'source_role':'SOURCE_ONLY_DO_NOT_OVERWRITE_FROM_CANONICAL',
+            'schema_version':'1',
+            'workflow_rule':'RULE_1_ONE_ITEM_AT_A_TIME',
+            'created_at_utc': now if created_db else None
+          }
+          for k,v in meta.items():
+            if v is not None:
+              con.execute('INSERT OR IGNORE INTO canonical_metadata(key,value) VALUES(?,?)',(k,v))
+
+          existing=con.execute('SELECT payload_sha256 FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone()
+          inserted=False
+          if existing:
+            if existing['payload_sha256']!=payload_sha:
+              raise SystemExit('Question UID already exists with different audited payload; refusing overwrite')
+          else:
+            vals={
+              'question_uid':p['question_uid'],'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],
+              'mode':p['mode'],'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),
+              'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],
+              'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),
+              'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],
+              'item_data_json':json.dumps(p['item_data'],ensure_ascii=False,sort_keys=True,separators=(',',':')),
+              'correct_answer_json':json.dumps(p['correct_answer'],ensure_ascii=False,sort_keys=True,separators=(',',':')),
+              'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],
+              'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],
+              'source_version_date':p['source_version_date'],'source_accessed_date':p['source_accessed_date'],
+              'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],
+              'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],
+              'blueprint_version':p['blueprint_version'],'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],
+              'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],'source_db_filename':p['source_db_filename'],
+              'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':json.dumps(p['source_original'],ensure_ascii=False,sort_keys=True,separators=(',',':')),
+              'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],
+              'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],
+              **{g:int(p['gates'][g]) for g in gate_names},
+              'audit_findings_json':json.dumps(p['audit_findings'],ensure_ascii=False,sort_keys=True,separators=(',',':')),
+              'payload_sha256':payload_sha,'created_at_utc':now
+            }
+            cols=list(vals)
+            con.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[vals[c] for c in cols])
+            inserted=True
+          con.commit()
+
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          duplicate_uid=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]
+          saved=con.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone()
+          if integrity!='ok' or duplicate_uid!=0 or saved is None:
+            raise SystemExit(f'Technical verification failed integrity={integrity} duplicate_uid={duplicate_uid} saved={saved is not None}')
+          if saved['audit_status']!='FINAL_QA_PASS' or saved['second_pass_status']!='PASS' or saved['payload_sha256']!=payload_sha:
+            raise SystemExit('Saved record failed final status/hash reread')
+          if any(saved[g]!=1 for g in gate_names):
+            raise SystemExit('Saved record has a failed gate after reread')
+          required_saved=['stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_locator','source_url','source_claim_supported','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','correction_summary','audit_findings_json']
+          missing_saved=[c for c in required_saved if saved[c] is None or (isinstance(saved[c],str) and not saved[c].strip())]
+          if missing_saved:
+            raise SystemExit(f'Saved record missing required fields: {missing_saved}')
+          state={
+            'canonical_db':str(canonical_path),
+            'canonical_role':'OUTPUT_FINAL_ONLY',
+            'source_db':str(source_path),
+            'source_db_blob_sha_verified':current_source_blob,
+            'canonical_integrity':integrity,
+            'canonical_question_count':total,
+            'duplicate_question_uid_count':duplicate_uid,
+            'verified_question_uid':p['question_uid'],
+            'payload_sha256':payload_sha,
+            'inserted_this_run':inserted,
+            'saved_record':dict(saved),
+            'verified_at_utc':now
+          }
+          state_path.write_text(json.dumps(state,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          con.close()
+          print(json.dumps({k:v for k,v in state.items() if k!='saved_record'},ensure_ascii=False))
+          PY
+      - name: Commit canonical DB and technical verification snapshot
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db RULE1_CANONICAL_STATE.json
+          if git diff --cached --quiet; then
+            echo 'Canonical DB already contains this exact audited item; verification only.'
+            exit 0
+          fi
+          git commit -m 'Rule 1 FINAL_QA_PASS V2-Q0001 into canonical DB'
+          git pull --rebase origin main
+          git push origin main
