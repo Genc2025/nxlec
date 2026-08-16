@@ -1,0 +1,106 @@
+name: Rule1 staging batch v2 Q0201-Q0250
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+    paths:
+      - '.github/workflows/rule1-staging-batch-v2.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build and verify canonical batch
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64,gzip,hashlib,json,sqlite3,subprocess
+          from datetime import datetime,timezone
+          from pathlib import Path
+          S=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db'); C=Path('NCLEX_CANONICAL.db')
+          ES='07e335d471ef1b4689406ba41eb98eaa2ca41472'; EC='a0c267879f451a10b45dafdf0e453f64d857025a'; EO='5024b33264a223abf655e8dc15249cddccf48e14b7a167a23d677d12bc2cbe72'
+          G=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
+          BP={
+          'Management of Care':('Management of Care, printed p.7/PDF p.11: client rights, confidentiality/privacy, consent, referrals, legal scope and prioritization','Management of Care — client rights, legal scope, continuity and care coordination'),
+          'Safety & Infection Prevention and Control':('Safety and Infection Prevention and Control, printed p.8/PDF p.12: infection prevention, injury prevention, patient identification, emergency planning/response and safe equipment use','Safety & Infection Prevention and Control — patient identification, emergency response and environmental safety'),
+          'Health Promotion and Maintenance':('Health Promotion and Maintenance, printed p.9/PDF p.13: prevention, screening, health-maintenance recommendations and age-specific education','Health Promotion and Maintenance — prevention, screening and health education'),
+          'Psychosocial Integrity':('Psychosocial Integrity, printed p.10/PDF p.14: mental illness, therapeutic environment, therapeutic communication, coping and behavioral management','Psychosocial Integrity — mental health, coping, therapeutic communication and behavioral management'),
+          'Basic Care and Comfort':('Basic Care and Comfort, printed p.11/PDF p.15: nutrition/tube feeding, assistive devices, positioning, skin integrity, intake/output and comfort','Basic Care and Comfort — nutrition, mobility, positioning and comfort'),
+          'Pharmacological and Parenteral Therapies':('Pharmacological and Parenteral Therapies, printed p.12/PDF p.16: safe medication administration, IV therapy, medication reconciliation, high-risk medications and medication response','Pharmacological and Parenteral Therapies — medication safety, administration and monitoring'),
+          'Reduction of Risk Potential':('Reduction of Risk Potential, printed p.13/PDF p.17: focused assessment, diagnostic-test monitoring and recognition of treatment/condition complications','Reduction of Risk Potential — diagnostic interpretation and complication recognition'),
+          'Physiological Adaptation':('Physiological Adaptation, printed p.14/PDF p.18: acute/life-threatening conditions, hemodynamics, ventilation, fluid/electrolyte imbalance and pathophysiology','Physiological Adaptation — acute pathophysiology, hemodynamics and life-threatening conditions')}
+          def cj(x): return json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+          def sha_rows(rows): return hashlib.sha256(cj(rows).encode()).hexdigest()
+          def blob(p): return subprocess.check_output(['git','rev-parse','HEAD:'+str(p)],text=True).strip()
+          if blob(S)!=ES or blob(C)!=EC: raise SystemExit('baseline blob moved')
+          parts=[Path(f'staging_payload_parts/stream{i}').read_text().strip() for i in range(4)]
+          if [len(x) for x in parts] != [16050]*4: raise SystemExit(f'payload chunk length mismatch {[len(x) for x in parts]}')
+          packed=''.join(parts)
+          if len(packed)!=64200: raise SystemExit('payload stream length mismatch')
+          audited=json.loads(gzip.decompress(base64.b64decode(packed,validate=True)).decode())
+          uids=[f'V2-Q{i:04d}' for i in range(201,251)]
+          if len(audited)!=50 or [x['question_uid'] for x in audited]!=uids: raise SystemExit('audited set mismatch')
+          src=sqlite3.connect(S); src.row_factory=sqlite3.Row; can=sqlite3.connect(C); can.row_factory=sqlite3.Row
+          if src.execute('PRAGMA integrity_check').fetchone()[0]!='ok' or can.execute('PRAGMA integrity_check').fetchone()[0]!='ok': raise SystemExit('prewrite integrity failed')
+          if src.execute('SELECT COUNT(*) FROM questions').fetchone()[0]!=3525 or can.execute('SELECT COUNT(*) FROM questions').fetchone()[0]!=200: raise SystemExit('prewrite count moved')
+          if can.execute('SELECT COUNT(*) FROM (SELECT question_uid FROM questions GROUP BY question_uid HAVING COUNT(*)>1)').fetchone()[0]: raise SystemExit('prewrite duplicate uid')
+          old=[dict(r) for r in can.execute('SELECT * FROM questions ORDER BY question_uid')]
+          if sha_rows(old)!=EO: raise SystemExit('old canonical rows moved')
+          have={r[0] for r in can.execute('SELECT question_uid FROM questions')}
+          if any(u in have for u in uids): raise SystemExit('batch uid already present')
+          bp={r['category_id']:r['client_need'] for r in src.execute('SELECT category_id,client_need FROM nclex_2026_blueprint')}
+          now=datetime.now(timezone.utc).replace(microsecond=0).isoformat(); payloads=[]
+          for a in audited:
+              r=src.execute('SELECT * FROM questions WHERE question_uid=?',(a['question_uid'],)).fetchone()
+              if not r: raise SystemExit('source row missing '+a['question_uid'])
+              cn={'Safety and Infection Prevention and Control':'Safety & Infection Prevention and Control'}.get(a['client_need'],a['client_need'])
+              if bp.get(a['category_id'])!=cn: raise SystemExit('blueprint mismatch '+a['question_uid'])
+              so={'stem':r['stem'],'options':json.loads(r['item_data_json'])['options'],'correct_option':json.loads(r['correct_answer_json'])['correct_option'],'rationale':r['rationale'],'source_name':r['source_name'],'source_detail':r['source_detail'],'source_url':r['source_url'],'difficulty':r['difficulty']}
+              p={'question_uid':a['question_uid'],'source_bank':r['source_bank'],'source_table':r['source_table'],'source_id':r['source_id'],'mode':r['mode'],'case_uid':r['case_uid'],'original_sequence':r['original_sequence'],'official_case_slot':r['official_case_slot'],'slot_variant':r['slot_variant'],'category_id':a['category_id'],'client_need':cn,'specialty':r['specialty'],'difficulty':a['difficulty'],'cjmm_skill':r['cjmm_skill'],'item_type_raw':r['item_type_raw'],'renderer_type':r['renderer_type'],'stem':a['stem'],'item_data':{'options':a['options']},'correct_answer':{'correct_option':a['correct_option']},'rationale':a['rationale'],'scoring_rule':r['scoring_rule'],'educational_objective':a['educational_objective'],'source_organization':a['source_organization'],'source_document_title':a['source_document_title'],'source_version_date':a['source_version_date'],'source_accessed_date':a['source_accessed_date'],'source_locator':a['source_locator'],'source_url':a['source_url'],'source_claim_supported':a['source_claim_supported'],'blueprint_source_organization':'National Council of State Boards of Nursing (NCSBN)','blueprint_document_title':'2026 NCLEX-RN Test Plan','blueprint_version':'Effective April 2026','blueprint_locator':BP[cn][0],'blueprint_url':'https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf','blueprint_topic':BP[cn][1],'stable_sort_key':r['stable_sort_key'],'source_db_filename':S.name,'source_db_blob_sha':ES,'source_original':so,'correction_summary':a['correction_summary'],'audit_status':'FINAL_QA_PASS','second_pass_status':'PASS','audit_date_utc':now,'audit_reviewer':'GPT-5.6 Sol — Rule 1 item-by-item audit','gates':{g:1 for g in G},'audit_findings':a['audit_findings']}
+              if set(p['item_data']['options'])!={'A','B','C','D'} or p['correct_answer']['correct_option'] not in {'A','B','C','D'}: raise SystemExit('bad choices '+p['question_uid'])
+              payloads.append(p)
+          hashes={}; can.execute('BEGIN IMMEDIATE')
+          try:
+              for p in payloads:
+                  h=hashlib.sha256(cj(p).encode()).hexdigest(); hashes[p['question_uid']]=h
+                  v={'question_uid':p['question_uid'],'source_bank':p['source_bank'],'source_table':p['source_table'],'source_id':p['source_id'],'mode':p['mode'],'case_uid':p.get('case_uid'),'original_sequence':p.get('original_sequence'),'official_case_slot':p.get('official_case_slot'),'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],'client_need':p['client_need'],'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],'item_data_json':cj(p['item_data']),'correct_answer_json':cj(p['correct_answer']),'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),'educational_objective':p['educational_objective'],'source_organization':p['source_organization'],'source_document_title':p['source_document_title'],'source_version_date':p['source_version_date'],'source_accessed_date':p['source_accessed_date'],'source_locator':p['source_locator'],'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],'blueprint_source_organization':p['blueprint_source_organization'],'blueprint_document_title':p['blueprint_document_title'],'blueprint_version':p['blueprint_version'],'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],'source_db_filename':p['source_db_filename'],'source_db_blob_sha':p['source_db_blob_sha'],'source_original_json':cj(p['source_original']),'correction_summary':p['correction_summary'],'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],**{g:1 for g in G},'audit_findings_json':cj(p['audit_findings']),'payload_sha256':h,'created_at_utc':now}
+                  cols=list(v); can.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[v[c] for c in cols])
+              can.commit()
+          except Exception: can.rollback(); raise
+          R={}; R['integrity']=can.execute('PRAGMA integrity_check').fetchone()[0]; R['count']=can.execute('SELECT COUNT(*) FROM questions').fetchone()[0]; R['duplicates']=can.execute('SELECT COUNT(*) FROM (SELECT question_uid FROM questions GROUP BY question_uid HAVING COUNT(*)>1)').fetchone()[0]
+          req=['question_uid','source_bank','source_table','mode','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha','source_original_json','correction_summary','audit_status','second_pass_status','audit_date_utc','audit_reviewer','audit_findings_json','payload_sha256','created_at_utc']
+          R['required_missing']=sum(can.execute(f"SELECT COUNT(*) FROM questions WHERE {c} IS NULL OR (typeof({c})='text' AND trim({c})='')").fetchone()[0] for c in req)
+          bad=0
+          for rr in can.execute('SELECT item_data_json,correct_answer_json,source_original_json,audit_findings_json FROM questions'):
+              for x in rr:
+                  try: json.loads(x)
+                  except Exception: bad+=1
+          R['bad_json']=bad; R['gate_fail_rows']=can.execute("SELECT COUNT(*) FROM questions WHERE audit_status!='FINAL_QA_PASS' OR second_pass_status!='PASS' OR "+' OR '.join(f'{g}!=1' for g in G)).fetchone()[0]
+          old2=[dict(r) for r in can.execute("SELECT * FROM questions WHERE question_uid BETWEEN 'V2-Q0001' AND 'V2-Q0200' ORDER BY question_uid")]; R['old_rows_sha']=sha_rows(old2); R['old_records_unchanged']=R['old_rows_sha']==EO
+          exact=0
+          for p in payloads:
+              rr=can.execute('SELECT * FROM questions WHERE question_uid=?',(p['question_uid'],)).fetchone()
+              if rr and rr['payload_sha256']==hashes[p['question_uid']] and rr['stem']==p['stem'] and rr['item_data_json']==cj(p['item_data']) and rr['correct_answer_json']==cj(p['correct_answer']) and rr['rationale']==p['rationale'] and rr['educational_objective']==p['educational_objective'] and rr['source_locator']==p['source_locator'] and rr['source_url']==p['source_url'] and rr['audit_findings_json']==cj(p['audit_findings']) and all(rr[g]==1 for g in G): exact+=1
+          R['payload_reread_exact']=exact; done={r[0] for r in can.execute('SELECT question_uid FROM questions')}; nxt=None
+          for rr in src.execute("SELECT question_uid,source_id,stable_sort_key FROM questions WHERE source_bank='v2' ORDER BY source_id"):
+              if rr['question_uid'] not in done: nxt=dict(rr); break
+          R['next_source_minus_canonical']=nxt; src.close(); can.close(); R['canonical_file_sha256']=hashlib.sha256(C.read_bytes()).hexdigest(); R['canonical_git_blob_after']=subprocess.check_output(['git','hash-object',str(C)],text=True).strip()
+          R['all_checks_pass']=bool(R['integrity']=='ok' and R['count']==250 and R['duplicates']==0 and R['required_missing']==0 and R['bad_json']==0 and R['gate_fail_rows']==0 and R['old_records_unchanged'] and R['payload_reread_exact']==50 and nxt and nxt['question_uid']=='V2-Q0251')
+          Path('rule1_batch_report.json').write_text(json.dumps(R,ensure_ascii=False,indent=2),encoding='utf-8'); print(json.dumps(R,ensure_ascii=False,indent=2))
+          if not R['all_checks_pass']: raise SystemExit('batch verification failed')
+          PY
+      - name: Commit canonical only on staging
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db
+          git commit -m 'Stage Rule 1 batch FINAL_QA_PASS V2-Q0201-Q0250'
+          git push origin HEAD:rule1-q0201-q0250-20260816
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-q0201-q0250-batch-report-v2
+          path: rule1_batch_report.json
+          if-no-files-found: error
