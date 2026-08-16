@@ -1,0 +1,60 @@
+name: Rule1 Q0301-Q0350 staging batch
+on:
+  push:
+    branches: [rule1-q0301-q0350-staging]
+    paths:
+      - '.github/workflows/rule1-q0301-q0350-batch.yml'
+permissions:
+  contents: write
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and verify canonical batch Q0301-Q0350
+        shell: bash
+        run: |
+          git fetch origin rule1-q0251-q0300-staging
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+
+          old = subprocess.check_output([
+              'git','show','origin/rule1-q0251-q0300-staging:.github/workflows/rule1-q0251-q0300-batch.yml'
+          ], text=True)
+          marker = "          from __future__ import annotations"
+          start = old.index(marker)
+          end = old.index("\n          PY", start)
+          block = old[start:end]
+          code = "\n".join(line[10:] if line.startswith("          ") else line for line in block.splitlines()) + "\n"
+
+          replacements = [
+              ("REPORT=Path('STAGING_BATCH_Q0251_Q0300_REPORT.json')", "REPORT=Path('STAGING_BATCH_Q0301_Q0350_REPORT.json')"),
+              ("EXPECTED_CANONICAL_BLOB='273a2cde42ce8964fc178654c234d7e2eeb373ca'", "EXPECTED_CANONICAL_BLOB='f7da435343d26661c38bac68f4d44dcd60689afc'"),
+              ("range(251,301)", "range(301,351)"),
+              ("'V2-Q0251.json' <= n <= 'V2-Q0300.json'", "'V2-Q0301.json' <= n <= 'V2-Q0350.json'"),
+              ("if pre_count != 250 or pre_dup != 0", "if pre_count != 300 or pre_dup != 0"),
+              ("if len(legacy_rows)!=250", "if len(legacy_rows)!=300"),
+              ("if integrity!='ok' or count!=300 or dup!=0", "if integrity!='ok' or count!=350 or dup!=0"),
+              ("if len(legacy_after)!=250", "if len(legacy_after)!=300"),
+              ("Q0001-Q0250 changed during batch", "Q0001-Q0300 changed during batch"),
+              ("if next_uid!='V2-Q0301'", "if next_uid!='V2-Q0351'"),
+              ("'batch':'V2-Q0251-V2-Q0300'", "'batch':'V2-Q0301-V2-Q0350'"),
+              ("'all_14_gates_one_rows':300", "'all_14_gates_one_rows':350"),
+              ("'legacy_q0001_q0250_unchanged':True", "'legacy_q0001_q0300_unchanged':True"),
+          ]
+          for old_s, new_s in replacements:
+              if old_s not in code:
+                  raise SystemExit(f'template replacement target missing: {old_s}')
+              code = code.replace(old_s, new_s)
+          Path('/tmp/rule1_batch_q0301_q0350.py').write_text(code, encoding='utf-8')
+          subprocess.check_call(['python3','/tmp/rule1_batch_q0301_q0350.py'])
+          PY
+      - name: Commit staging-only verified canonical and report
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db STAGING_BATCH_Q0301_Q0350_REPORT.json
+          git commit -m 'Stage verified canonical batch Q0301-Q0350'
+          git push origin rule1-q0301-q0350-staging
