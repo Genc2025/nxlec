@@ -1,0 +1,43 @@
+name: Rule1 Q0301-Q0350 JSON repair
+on:
+  push:
+    branches: [rule1-q0301-q0350-staging]
+    paths:
+      - '.github/workflows/rule1-q0301-q0350-jsonrepair.yml'
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove exact extra trailing brace from Q0343-Q0350
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          dec=json.JSONDecoder()
+          for i in range(343,351):
+              p=Path('approved_items')/f'V2-Q{i:04d}.json'
+              text=p.read_text(encoding='utf-8')
+              obj,end=dec.raw_decode(text)
+              trailing=text[end:].strip()
+              if trailing != '}':
+                  raise SystemExit(f'{p}: unexpected trailing data {trailing!r}')
+              if obj.get('question_uid') != f'V2-Q{i:04d}':
+                  raise SystemExit(f'{p}: UID mismatch')
+              if obj.get('audit_status')!='FINAL_QA_PASS' or obj.get('second_pass_status')!='PASS':
+                  raise SystemExit(f'{p}: status mismatch')
+              p.write_text(json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=False)+'\n',encoding='utf-8')
+              json.loads(p.read_text(encoding='utf-8'))
+              print('REPAIRED',p)
+          PY
+      - name: Commit repaired JSON only
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add approved_items/V2-Q0343.json approved_items/V2-Q0344.json approved_items/V2-Q0345.json approved_items/V2-Q0346.json approved_items/V2-Q0347.json approved_items/V2-Q0348.json approved_items/V2-Q0349.json approved_items/V2-Q0350.json
+          git commit -m 'Repair trailing JSON braces Q0343-Q0350'
+          git push origin rule1-q0301-q0350-staging
