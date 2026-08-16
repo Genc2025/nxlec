@@ -1,0 +1,69 @@
+name: Rule1 repair audit timestamps Q0409-Q0426
+on:
+  push:
+    branches: [rule1-q0401-q0450-staging]
+    paths:
+      - '.github/workflows/rule1-repair-audit-times-q0409-q0426.yml'
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Repair only audit_date_utc from each approved-file commit time
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import copy, json, subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+          changed=[]
+          for i in range(409,427):
+              path=Path('approved_items')/f'V2-Q{i:04d}.json'
+              before=json.loads(path.read_text(encoding='utf-8'))
+              commit_time=subprocess.check_output(['git','log','-1','--format=%cI','--',str(path)],text=True).strip()
+              if not commit_time:
+                  raise SystemExit(f'No creation/history timestamp for {path}')
+              dt=datetime.fromisoformat(commit_time)
+              if dt > datetime.now(timezone.utc):
+                  raise SystemExit(f'Git commit time is future for {path}: {commit_time}')
+              normalized=dt.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
+              after=copy.deepcopy(before)
+              after['audit_date_utc']=normalized
+              b=copy.deepcopy(before); a=copy.deepcopy(after)
+              b.pop('audit_date_utc',None); a.pop('audit_date_utc',None)
+              if a != b:
+                  raise SystemExit(f'Non-timestamp semantic change detected for {path}')
+              path.write_text(json.dumps(after,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+              changed.append((after['question_uid'],before['audit_date_utc'],normalized))
+          print('REPAIRED=',len(changed))
+          for row in changed: print('AUDIT_TIME_REPAIR',*row)
+          # Validate all approved Q0401-Q0426 timestamps are now non-future and all JSON parse.
+          now=datetime.now(timezone.utc)
+          future=[]
+          for i in range(401,427):
+              d=json.loads((Path('approved_items')/f'V2-Q{i:04d}.json').read_text(encoding='utf-8'))
+              t=datetime.fromisoformat(d['audit_date_utc'].replace('Z','+00:00'))
+              if t > now: future.append((d['question_uid'],d['audit_date_utc']))
+          print('VALIDATED_JSON=26/26')
+          print('FUTURE_COUNT=',len(future))
+          if future: raise SystemExit(f'Future timestamps remain: {future}')
+          PY
+      - name: Verify diff scope and commit repair
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          expected=[f'approved_items/V2-Q{i:04d}.json' for i in range(409,427)]
+          actual=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          if actual != expected:
+              raise SystemExit(f'Unexpected diff scope: {actual}')
+          PY
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add approved_items/V2-Q04*.json
+          git commit -m 'Repair real audit timestamps Q0409-Q0426'
+          git push origin rule1-q0401-q0450-staging
