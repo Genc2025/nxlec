@@ -2,46 +2,257 @@
   "canonical_db": "NCLEX_CANONICAL.db",
   "canonical_exists": true,
   "canonical_integrity": "ok",
-  "canonical_question_count": 3,
+  "canonical_question_count": 50,
+  "canonical_tables": [
+    "canonical_metadata",
+    "questions"
+  ],
   "next_blueprint": {
-    "category_id": 8,
-    "client_need": "Pharmacological and Parenteral Therapies",
-    "code": "PHARM",
-    "midpoint": 16.0,
-    "official_order": 6,
-    "weight_max": 19.0,
-    "weight_min": 13.0
+    "category_id": 5,
+    "client_need": "Psychosocial Integrity",
+    "code": "PSYCHOSOCIAL",
+    "midpoint": 9.0,
+    "official_order": 4,
+    "weight_max": 12.0,
+    "weight_min": 6.0
   },
   "next_question": {
     "case_uid": null,
-    "category_id": 8,
+    "category_id": 5,
     "cjmm_skill": null,
-    "client_need": "Pharmacological and Parenteral Therapies",
-    "correct_answer_json": "{\"correct_option\":\"A\"}",
+    "client_need": "Psychosocial Integrity",
+    "correct_answer_json": "{\"correct_option\":\"D\"}",
     "difficulty": "hard",
-    "item_data_json": "{\"options\":{\"A\":\"Activate emergency help and provide effective bag-mask ventilations while naloxone is obtained and administered.\",\"B\":\"Leave the client to retrieve naloxone before initiating ventilation because antidote delivery takes priority.\",\"C\":\"Stop the opioid infusion and apply nasal oxygen, then wait several minutes for spontaneous respirations to improve.\",\"D\":\"Place the client in recovery position and reassess after naloxone arrives, avoiding assisted ventilation meanwhile.\"}}",
+    "item_data_json": "{\"options\":{\"A\":\"Approach within arm’s reach while another nurse observes and begin assessing the trigger, because close therapeutic presence can reduce escalating agitation safely.\",\"B\":\"Administer a PRN sedative before changing the environment, because medication should precede other de-escalation measures when an object is being held.\",\"C\":\"Leave the client in the day room but move staff farther away and wait for spontaneous calming, because additional interaction may intensify agitation before assessment.\",\"D\":\"Increase distance, clear nearby people from immediate danger, call for support, and use a calm de-escalation approach while maintaining a safe exit route.\"}}",
     "item_type_raw": "multiple_choice",
     "mode": "standalone",
     "official_case_slot": null,
     "original_sequence": null,
-    "question_uid": "V2-Q0004",
-    "rationale": "For suspected opioid overdose with severe respiratory depression or respiratory arrest and a definite pulse, ventilation and emergency-system activation must not be delayed while naloxone is obtained or administered. Naloxone is important, but airway and breathing support are immediate priorities. Stopping the opioid or applying oxygen without adequate ventilation does not correct profound hypoventilation.",
+    "question_uid": "V2-Q0051",
+    "rationale": "When a person is escalating while holding an object that could be used as a weapon, immediate scene safety precedes detailed exploration. The nurse should create distance, move bystanders out of danger, summon assistance, preserve an exit route, and use calm de-escalation. Approaching within striking distance, waiting in a crowded environment, or treating medication as the automatic first intervention can increase risk.",
     "renderer_type": "multiple_choice",
     "scoring_rule": null,
     "slot_variant": null,
     "source_bank": "v2",
-    "source_detail": "Section 21.11: provide breaths/bag-mask ventilation with definite pulse; do not delay standard resuscitation for naloxone",
-    "source_id": 4,
-    "source_name": "American Heart Association — 2025 CPR & ECC Guidelines, Opioid Overdose",
+    "source_detail": "SAMHSA crisis resources emphasize safety for both responders and people in crisis and use of safe, positive de-escalation approaches with timely support.",
+    "source_id": 51,
+    "source_name": "SAMHSA — Creating Safe Scenes / National Behavioral Health Crisis Care Guidance",
     "source_table": "questions",
-    "source_url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation",
+    "source_url": "https://www.samhsa.gov/technical-assistance/dtac/training/safe-scenes",
     "specialty": null,
-    "stable_sort_key": "06-STANDALONE-00004",
-    "stem": "A postoperative client is unresponsive with a respiratory rate of 6/min, pinpoint pupils, oxygen saturation of 84%, and a definite pulse after IV morphine. Naloxone is not yet at the bedside. What should the nurse do first?"
+    "stable_sort_key": "04-STANDALONE-00051",
+    "stem": "A highly agitated client in a day room is pacing, shouting, and gripping a chair while several other clients are nearby. Which action should the nurse take first?"
   },
+  "questions_schema": [
+    {
+      "cid": 0,
+      "dflt_value": null,
+      "name": "question_uid",
+      "notnull": 0,
+      "pk": 1,
+      "type": "TEXT"
+    },
+    {
+      "cid": 1,
+      "dflt_value": null,
+      "name": "source_bank",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 2,
+      "dflt_value": null,
+      "name": "source_table",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 3,
+      "dflt_value": null,
+      "name": "source_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 4,
+      "dflt_value": null,
+      "name": "mode",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 5,
+      "dflt_value": null,
+      "name": "case_uid",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 6,
+      "dflt_value": null,
+      "name": "original_sequence",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 7,
+      "dflt_value": null,
+      "name": "official_case_slot",
+      "notnull": 0,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 8,
+      "dflt_value": null,
+      "name": "slot_variant",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 9,
+      "dflt_value": null,
+      "name": "category_id",
+      "notnull": 1,
+      "pk": 0,
+      "type": "INTEGER"
+    },
+    {
+      "cid": 10,
+      "dflt_value": null,
+      "name": "client_need",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 11,
+      "dflt_value": null,
+      "name": "specialty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 12,
+      "dflt_value": null,
+      "name": "difficulty",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 13,
+      "dflt_value": null,
+      "name": "cjmm_skill",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 14,
+      "dflt_value": null,
+      "name": "item_type_raw",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 15,
+      "dflt_value": null,
+      "name": "renderer_type",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 16,
+      "dflt_value": null,
+      "name": "stem",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 17,
+      "dflt_value": null,
+      "name": "item_data_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 18,
+      "dflt_value": null,
+      "name": "correct_answer_json",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 19,
+      "dflt_value": null,
+      "name": "rationale",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 20,
+      "dflt_value": null,
+      "name": "scoring_rule",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 21,
+      "dflt_value": null,
+      "name": "source_name",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 22,
+      "dflt_value": null,
+      "name": "source_detail",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 23,
+      "dflt_value": null,
+      "name": "source_url",
+      "notnull": 0,
+      "pk": 0,
+      "type": "TEXT"
+    },
+    {
+      "cid": 24,
+      "dflt_value": null,
+      "name": "stable_sort_key",
+      "notnull": 1,
+      "pk": 0,
+      "type": "TEXT"
+    }
+  ],
   "source_blueprint_count": 8,
   "source_case_count": 75,
   "source_db": "NCLEX_COMMERCIAL_MASTER_CURRENT.db",
   "source_integrity": "ok",
-  "source_question_count": 3525
+  "source_question_count": 3525,
+  "source_tables": [
+    "case_studies",
+    "nclex_2026_blueprint",
+    "questions"
+  ]
 }
