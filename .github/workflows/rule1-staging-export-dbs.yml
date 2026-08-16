@@ -1,0 +1,31 @@
+name: Rule1 staging export DBs
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+    paths:
+      - '.github/workflows/rule1-staging-export-dbs.yml'
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify SQLite before export
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          for f in ['NCLEX_CANONICAL.db','NCLEX_COMMERCIAL_MASTER_CURRENT.db']:
+              c=sqlite3.connect(f)
+              x=c.execute('PRAGMA integrity_check').fetchone()[0]
+              print(f, x)
+              assert x=='ok'
+              c.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-real-dbs
+          path: |
+            NCLEX_CANONICAL.db
+            NCLEX_COMMERCIAL_MASTER_CURRENT.db
+          retention-days: 1
