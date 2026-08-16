@@ -1,0 +1,36 @@
+name: Rule1 audit timestamp scan Q0401-Q0426
+on:
+  push:
+    branches: [rule1-q0401-q0450-staging]
+    paths:
+      - '.github/workflows/rule1-audit-time-scan-q0401-q0426.yml'
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate audit timestamps are not in the future
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          now=datetime.now(timezone.utc)
+          future=[]
+          for i in range(401,427):
+              p=Path('approved_items')/f'V2-Q{i:04d}.json'
+              d=json.loads(p.read_text(encoding='utf-8'))
+              t=datetime.fromisoformat(d['audit_date_utc'].replace('Z','+00:00'))
+              if t > now:
+                  future.append((d['question_uid'],d['audit_date_utc']))
+          print('NOW_UTC=',now.isoformat())
+          print('CHECKED=26')
+          print('FUTURE_COUNT=',len(future))
+          for uid,t in future:
+              print('FUTURE',uid,t)
+          if future:
+              raise SystemExit(1)
+          PY
