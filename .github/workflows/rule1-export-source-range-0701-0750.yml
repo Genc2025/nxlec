@@ -1,0 +1,43 @@
+name: Rule 1 export source V2-Q0701-V2-Q0750
+on:
+  push:
+    branches: [rule1-q0701-q0750-staging]
+    paths:
+      - '.github/workflows/rule1-export-source-range-0701-0750.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Export source snapshots
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          db='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          source_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{db}'],text=True).strip()
+          canonical_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          con=sqlite3.connect(db); con.row_factory=sqlite3.Row
+          out=[]; Path('staging_items').mkdir(exist_ok=True)
+          for n in range(701,751):
+              uid=f'V2-Q{n:04d}'
+              r=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if r is None: raise SystemExit(f'missing source row {uid}')
+              bp=con.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(r['category_id'],)).fetchone()
+              doc={'source_blob_expected':source_blob,'canonical_blob_expected':canonical_blob,'source_row':dict(r),'blueprint_row':dict(bp) if bp else None}
+              Path(f'staging_items/{uid}.json').write_text(json.dumps(doc,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+              out.append(doc)
+          Path('RULE1_SOURCE_RANGE_0701_0750.json').write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          con.close()
+          print(json.dumps({'exported':50,'first':'V2-Q0701','last':'V2-Q0750','source_blob':source_blob,'canonical_blob':canonical_blob}))
+          PY
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add staging_items/V2-Q07*.json RULE1_SOURCE_RANGE_0701_0750.json
+          git commit -m 'Stage source snapshots V2-Q0701-V2-Q0750'
+          git push origin rule1-q0701-q0750-staging
