@@ -23,30 +23,29 @@ jobs:
           can.row_factory=sqlite3.Row
           rows=[dict(r) for r in src.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 251 AND 300 ORDER BY source_id")]
           cats=sorted({r.get('category_id') for r in rows if r.get('category_id') is not None})
-          bp=[]
+          bp={}
           for c in cats:
               x=src.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(c,)).fetchone()
-              if x: bp.append(dict(x))
-          out={
-            'source_blob_expected':'07e335d471ef1b4689406ba41eb98eaa2ca41472',
-            'canonical_blob_expected':'273a2cde42ce8964fc178654c234d7e2eeb373ca',
-            'source_rows':rows,
-            'blueprint_rows':bp,
-            'source_questions_schema':[dict(r) for r in src.execute('PRAGMA table_info(questions)')],
-            'canonical_questions_schema':[dict(r) for r in can.execute('PRAGMA table_info(questions)')],
-            'canonical_table_sql':can.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='questions'").fetchone()[0],
-          }
+              if x: bp[str(c)]=dict(x)
           assert len(rows)==50, len(rows)
           assert rows[0]['question_uid']=='V2-Q0251', rows[0].get('question_uid')
           assert rows[-1]['question_uid']=='V2-Q0300', rows[-1].get('question_uid')
-          Path('STAGING_Q0251_Q0300_SOURCE.json').write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          outdir=Path('staging_items'); outdir.mkdir(exist_ok=True)
+          for r in rows:
+              payload={
+                'source_blob_expected':'07e335d471ef1b4689406ba41eb98eaa2ca41472',
+                'canonical_blob_expected':'273a2cde42ce8964fc178654c234d7e2eeb373ca',
+                'source_row':r,
+                'blueprint_row':bp.get(str(r.get('category_id'))),
+              }
+              (outdir/f"{r['question_uid']}.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
           src.close(); can.close()
           PY
-      - name: Commit extraction to staging only
+      - name: Commit split extraction to staging only
         shell: bash
         run: |
           git config user.name 'OpenAI GitHub Connector'
           git config user.email 'github-connector@openai.com'
-          git add STAGING_Q0251_Q0300_SOURCE.json
-          git commit -m 'Stage source records Q0251-Q0300'
+          git add staging_items
+          git commit -m 'Stage split source records Q0251-Q0300'
           git push origin rule1-q0251-q0300-staging
