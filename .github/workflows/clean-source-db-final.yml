@@ -1,0 +1,60 @@
+name: Final clean NCLEX source DB
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/clean-source-db-final.yml']
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remove all remaining audit-only SQLite tables
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          from pathlib import Path
+          db=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          con=sqlite3.connect(db)
+          con.execute('PRAGMA foreign_keys=OFF')
+          def tables():
+              return [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
+          def count(t):
+              return con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0]
+          keep={'questions','case_studies','nclex_2026_blueprint'}
+          before=tables(); q0=count('questions'); c0=count('case_studies')
+          print('BEFORE_TABLES', before)
+          for t in before:
+              if t not in keep:
+                  con.execute(f'DROP TABLE "{t}"')
+                  print('DROPPED_TABLE', t)
+          con.commit()
+          after=tables(); q1=count('questions'); c1=count('case_studies')
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          if set(after)!=keep: raise SystemExit(f'Unexpected remaining tables: {after}')
+          if q0!=q1: raise SystemExit(f'Question count changed {q0}->{q1}')
+          if c0!=c1: raise SystemExit(f'Case count changed {c0}->{c1}')
+          if integrity!='ok': raise SystemExit('Integrity failed: '+integrity)
+          print('AFTER_TABLES', after)
+          print('QUESTION_COUNT', q1)
+          print('CASE_COUNT', c1)
+          print('BLUEPRINT_ROWS', count('nclex_2026_blueprint'))
+          print('INTEGRITY_CHECK', integrity)
+          con.execute('VACUUM')
+          con.close()
+          PY
+      - name: Commit final cleaned DB and remove one-time workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/clean-source-db-final.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add -A
+          git commit -m 'Remove remaining legacy audit tables from NCLEX source DB'
+          git push origin main
