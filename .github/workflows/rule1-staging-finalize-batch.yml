@@ -1,0 +1,51 @@
+name: Rule1 staging finalize verified batch
+on:
+  push:
+    branches: [rule1-q0201-q0250-20260816]
+    paths:
+      - '.github/workflows/rule1-staging-finalize-batch.yml'
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Execute verified v2 builder
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import textwrap
+          lines=Path('.github/workflows/rule1-staging-batch-v2.yml').read_text(encoding='utf-8').splitlines()
+          start=next(i for i,x in enumerate(lines) if "python3 - <<'PY'" in x)+1
+          end=next(i for i in range(start,len(lines)) if lines[i].strip()=='PY')
+          code=textwrap.dedent('\n'.join(lines[start:end]))
+          Path('/tmp/rule1_build.py').write_text(code,encoding='utf-8')
+          PY
+          python3 /tmp/rule1_build.py
+          cp NCLEX_CANONICAL.db /tmp/NCLEX_CANONICAL.verified.db
+          cp rule1_batch_report.json /tmp/rule1_batch_report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rule1-q0201-q0250-final-report
+          path: rule1_batch_report.json
+          if-no-files-found: error
+      - name: Commit verified canonical atop latest staging head
+        shell: bash
+        run: |
+          BR=rule1-q0201-q0250-20260816
+          BASE_CANON=a0c267879f451a10b45dafdf0e453f64d857025a
+          git fetch origin "$BR"
+          REMOTE=$(git rev-parse "origin/$BR")
+          REMOTE_CANON=$(git rev-parse "origin/$BR:NCLEX_CANONICAL.db")
+          test "$REMOTE_CANON" = "$BASE_CANON"
+          git reset --hard "$REMOTE"
+          cp /tmp/NCLEX_CANONICAL.verified.db NCLEX_CANONICAL.db
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db
+          git commit -m 'Stage Rule 1 batch FINAL_QA_PASS V2-Q0201-Q0250'
+          git push origin HEAD:"$BR"
