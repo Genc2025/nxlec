@@ -1,0 +1,59 @@
+name: Rule1 Q0351-Q0400 staging extract
+on:
+  push:
+    branches: [rule1-q0351-q0400-staging]
+    paths:
+      - '.github/workflows/rule1-q0351-q0400-staging.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract Q0351-Q0400 from source SQLite
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3, json
+          from pathlib import Path
+          src=sqlite3.connect('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          src.row_factory=sqlite3.Row
+          can=sqlite3.connect('NCLEX_CANONICAL.db')
+          can.row_factory=sqlite3.Row
+          rows=[dict(r) for r in src.execute("SELECT * FROM questions WHERE source_bank='v2' AND source_id BETWEEN 351 AND 400 ORDER BY source_id")]
+          assert len(rows)==50, len(rows)
+          assert rows[0]['question_uid']=='V2-Q0351'
+          assert rows[-1]['question_uid']=='V2-Q0400'
+          Path('staging_items').mkdir(exist_ok=True)
+          cats={}
+          for r in rows:
+              c=r.get('category_id')
+              if c not in cats:
+                  bp=src.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(c,)).fetchone()
+                  cats[c]=dict(bp) if bp else None
+              out={
+                'source_blob_expected':'07e335d471ef1b4689406ba41eb98eaa2ca41472',
+                'canonical_blob_expected':'fb6d0cd1be359bbb7198bf149b286af779565927',
+                'source_row':r,
+                'blueprint_row':cats[c]
+              }
+              Path('staging_items',f"{r['question_uid']}.json").write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          summary={
+            'source_blob_expected':'07e335d471ef1b4689406ba41eb98eaa2ca41472',
+            'canonical_blob_expected':'fb6d0cd1be359bbb7198bf149b286af779565927',
+            'uids':[r['question_uid'] for r in rows],
+            'source_questions_schema':[dict(x) for x in src.execute('PRAGMA table_info(questions)')],
+            'canonical_questions_schema':[dict(x) for x in can.execute('PRAGMA table_info(questions)')]
+          }
+          Path('STAGING_Q0351_Q0400_SOURCE.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          src.close(); can.close()
+          PY
+      - name: Commit extraction to staging only
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_items STAGING_Q0351_Q0400_SOURCE.json
+          git commit -m 'Stage source records Q0351-Q0400'
+          git push origin rule1-q0351-q0400-staging
