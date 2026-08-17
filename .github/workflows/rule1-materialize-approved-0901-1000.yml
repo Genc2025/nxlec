@@ -1,0 +1,114 @@
+name: Rule 1 materialize approved V2-Q0901-V2-Q1000
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-materialize-approved-0901-1000.yml'
+permissions:
+  contents: write
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout staging branch
+        uses: actions/checkout@v4
+        with:
+          ref: rule1-q0901-q1000-staging
+          fetch-depth: 1
+      - name: Reconstruct and verify audited payload
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64, bz2, hashlib, json
+          from pathlib import Path
+
+          PARTS=sorted(Path('staging_payloads').glob('approved_0901_1000.part*.b64'))
+          if len(PARTS)!=7:
+              raise SystemExit(f'BLOCKED: expected 7 payload parts, found {len(PARTS)}')
+          encoded=''.join(p.read_text(encoding='utf-8').strip() for p in PARTS)
+          try:
+              packed_raw=bz2.decompress(base64.b64decode(encoded))
+          except Exception as e:
+              raise SystemExit(f'BLOCKED: payload decode/decompress failed: {e}')
+          packed_sha=hashlib.sha256(packed_raw).hexdigest()
+          if packed_sha!='2297a7a0dc289e3a7168d98951d573821e5a05fc4db9a779fafe81e9172bce60':
+              raise SystemExit(f'BLOCKED: packed payload checksum mismatch {packed_sha}')
+          data=json.loads(packed_raw)
+          if data.get('format')!='RULE1_APPROVED_PACKED_V1' or data.get('batch')!='V2-Q0901..V2-Q1000':
+              raise SystemExit('BLOCKED: packed payload header mismatch')
+          columns=data['columns']; common=data['common']; rows=data['items']
+          expected=[f'V2-Q{n:04d}' for n in range(901,1001)]
+          if len(rows)!=100:
+              raise SystemExit(f'BLOCKED: expected 100 audited items, found {len(rows)}')
+          gates=[
+            'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+            'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+            'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict'
+          ]
+          required=[
+            'question_uid','category_id','client_need','difficulty','stem','options','correct_option','rationale',
+            'educational_objective','source_organization','source_document_title','source_version_date',
+            'source_accessed_date','source_locator','source_url','source_claim_supported',
+            'blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator',
+            'blueprint_url','blueprint_topic','correction_summary','audit_status','second_pass_status',
+            'audit_reviewer','gates','audit_findings'
+          ]
+          approved=[]
+          for row in rows:
+              if len(row)!=len(columns):
+                  raise SystemExit('BLOCKED: packed row/column length mismatch')
+              a=dict(zip(columns,row))
+              a.update({
+                'source_accessed_date':common['source_accessed_date'],
+                'blueprint_source_organization':common['blueprint_source_organization'],
+                'blueprint_document_title':common['blueprint_document_title'],
+                'blueprint_version':common['blueprint_version'],
+                'blueprint_url':common['blueprint_url'],
+                'audit_status':common['audit_status'],
+                'second_pass_status':common['second_pass_status'],
+                'audit_reviewer':common['audit_reviewer'],
+                'gates':common['gates'],
+              })
+              topic=a['blueprint_topic']
+              if topic not in common['blueprint_locators']:
+                  raise SystemExit(f"BLOCKED: {a['question_uid']} missing blueprint locator mapping")
+              a['blueprint_locator']=common['blueprint_locators'][topic]
+              missing=[k for k in required if k not in a or a[k] in ('',None)]
+              if missing:
+                  raise SystemExit(f"BLOCKED: {a.get('question_uid')} missing required fields {missing}")
+              if sorted(a['options'])!=['A','B','C','D'] or a['correct_option'] not in a['options']:
+                  raise SystemExit(f"BLOCKED: {a['question_uid']} invalid final A-D options/key")
+              if a['audit_status']!='FINAL_QA_PASS' or a['second_pass_status']!='PASS':
+                  raise SystemExit(f"BLOCKED: {a['question_uid']} status mismatch")
+              bad=[g for g in gates if a['gates'].get(g)!=1]
+              if bad:
+                  raise SystemExit(f"BLOCKED: {a['question_uid']} failed gates {bad}")
+              approved.append(a)
+          if [a['question_uid'] for a in approved]!=expected or len({a['question_uid'] for a in approved})!=100:
+              raise SystemExit('BLOCKED: audited UID set/order mismatch')
+          exact=hashlib.sha256(json.dumps(approved,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')).hexdigest()
+          if exact!='190d6407bacc9545ccd1efd4a790d7155eaaaf8a2ed7ed44ce945fa8c1cf36d0':
+              raise SystemExit(f'BLOCKED: reconstructed audited payload checksum mismatch {exact}')
+          out=Path('approved_items'); out.mkdir(exist_ok=True)
+          for a in approved:
+              p=out/f"{a['question_uid']}.json"
+              if p.exists():
+                  raise SystemExit(f'BLOCKED: refusing to overwrite existing approved payload {p}')
+              p.write_text(json.dumps(a,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('RULE1_MATERIALIZE='+json.dumps({
+            'status':'MATERIALIZE_PASS','approved_items':len(approved),
+            'packed_sha256':packed_sha,'reconstructed_sha256':exact,
+            'first_uid':approved[0]['question_uid'],'last_uid':approved[-1]['question_uid']
+          },sort_keys=True))
+          PY
+      - name: Commit 100 approved payloads to staging
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          test "$(find approved_items -maxdepth 1 -type f -name 'V2-Q*.json' | grep -E 'V2-Q(09(0[1-9]|[1-9][0-9])|1000)\.json$' | wc -l)" -eq 100
+          git add approved_items/V2-Q09*.json approved_items/V2-Q1000.json
+          git commit -m 'Rule 1 materialize approved V2-Q0901-V2-Q1000'
+          git push origin HEAD:rule1-q0901-q1000-staging
+          echo "STAGING_COMMIT=$(git rev-parse HEAD)"
