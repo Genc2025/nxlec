@@ -1,0 +1,40 @@
+name: Rule 1 resolve next eligible after Q1100
+on:
+  push:
+    branches: [rule1-q1101-q1200-staging]
+    paths:
+      - '.github/workflows/rule1-resolve-next-eligible-1101.yml'
+permissions:
+  contents: write
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Inspect source-minus-canonical candidates
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3,json,subprocess
+          SRC='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; CAN='NCLEX_CANONICAL.db'
+          src_blob=subprocess.check_output(['git','rev-parse','HEAD:'+SRC],text=True).strip()
+          can_blob=subprocess.check_output(['git','rev-parse','HEAD:'+CAN],text=True).strip()
+          con=sqlite3.connect(SRC); con.row_factory=sqlite3.Row
+          con.execute("ATTACH DATABASE ? AS can",(CAN,))
+          rows=[dict(r) for r in con.execute('''SELECT s.question_uid,s.source_bank,s.mode,s.source_table,s.source_id,s.stable_sort_key,s.item_type_raw,s.renderer_type,s.category_id,s.client_need FROM questions s LEFT JOIN can.questions c ON c.question_uid=s.question_uid WHERE c.question_uid IS NULL ORDER BY s.stable_sort_key,s.question_uid LIMIT 30''')]
+          q1101=con.execute("SELECT question_uid,source_bank,mode,source_table,source_id,stable_sort_key,item_type_raw,renderer_type,category_id,client_need FROM questions WHERE question_uid='V2-Q1101'").fetchone()
+          bank_counts=[dict(r) for r in con.execute('''SELECT s.source_bank,s.mode,COUNT(*) n FROM questions s LEFT JOIN can.questions c ON c.question_uid=s.question_uid WHERE c.question_uid IS NULL GROUP BY s.source_bank,s.mode ORDER BY s.source_bank,s.mode''')]
+          con.close()
+          out={'source_blob':src_blob,'canonical_blob':can_blob,'first_30_source_minus_canonical':rows,'q1101':dict(q1101) if q1101 else None,'missing_counts_by_source_bank_mode':bank_counts}
+          open('RULE1_NEXT_ELIGIBLE_DIAGNOSTIC.json','w').write(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Commit diagnostic
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_NEXT_ELIGIBLE_DIAGNOSTIC.json
+          git commit -m 'Rule 1 next eligible diagnostic after canonical 1100'
+          git push origin HEAD:rule1-q1101-q1200-staging
