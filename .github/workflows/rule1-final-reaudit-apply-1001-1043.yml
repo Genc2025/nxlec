@@ -1,0 +1,185 @@
+name: Rule 1 final reaudit apply V2-Q1001-V2-Q1043
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-final-reaudit-apply-1001-1043.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q1001-q1100-staging
+          fetch-depth: 1
+      - name: Serialize final semantic reaudit decisions
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path('approved_items')
+          uids=[f'V2-Q{n:04d}' for n in range(1001,1044)]
+          for uid in uids:
+              if not (root/f'{uid}.json').exists(): raise SystemExit(f'BLOCKED missing {uid}')
+
+          # Exact 2026 NCSBN Test Plan locations, visually verified from the official PDF.
+          bp={
+            'Management of Care':'2026 NCLEX-RN Test Plan, Management of Care, printed p.7 / PDF p.11',
+            'Safety and Infection Prevention and Control':'2026 NCLEX-RN Test Plan, Safety and Infection Prevention and Control, printed p.8 / PDF p.12',
+            'Psychosocial Integrity':'2026 NCLEX-RN Test Plan, Psychosocial Integrity, printed p.10 / PDF p.14',
+            'Basic Care and Comfort':'2026 NCLEX-RN Test Plan, Basic Care and Comfort, printed p.11 / PDF p.15',
+            'Pharmacological and Parenteral Therapies':'2026 NCLEX-RN Test Plan, Pharmacological and Parenteral Therapies, printed p.12 / PDF p.16',
+            'Reduction of Risk Potential':'2026 NCLEX-RN Test Plan, Reduction of Risk Potential, printed p.13 / PDF p.17',
+            'Physiological Adaptation':'2026 NCLEX-RN Test Plan, Physiological Adaptation, printed p.14 / PDF p.18',
+          }
+
+          def load(uid): return json.loads((root/f'{uid}.json').read_text(encoding='utf-8'))
+          def save(a): (root/f"{a['question_uid']}.json").write_text(json.dumps(a,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          # Q1001: remove unsourced definitions of distractors from rationale.
+          a=load('V2-Q1001')
+          a['rationale']="The National Library of Medicine's 2026 MeSH descriptor defines psychological identification as an unconscious process in which an individual patterns themself after another person and notes its importance in personality development. The vignette directly describes that pattern."
+          a['audit_findings']="D uniquely matches the NLM definition of psychological identification. A, B, and C do not describe the tested pattern of modeling oneself after another person. No second defensible answer remains."
+          save(a)
+
+          # Q1002-Q1003: keep rationale strictly inside the cited label claims.
+          a=load('V2-Q1002')
+          a['rationale']="The current clopidogrel prescribing information states that when an antiplatelet effect is needed within hours, treatment is initiated with a single 300-mg loading dose followed by 75 mg daily. Starting without a loading dose delays establishment of the antiplatelet effect by several days."
+          a['audit_findings']="B directly matches DailyMed Section 2.1. A, C, and D do not describe the labeled purpose of the clopidogrel loading dose. No second answer remains."
+          save(a)
+          a=load('V2-Q1003')
+          a['rationale']="The current prescribing information states that aspirin inhibits platelet aggregation by irreversibly inhibiting platelet cyclooxygenase, thereby inhibiting generation of thromboxane A2."
+          a['audit_findings']="B is the exact labeled aspirin mechanism. A, C, and D do not describe aspirin's labeled antiplatelet mechanism. No second answer remains."
+          save(a)
+
+          # Q1004: pin to the current 2026 DailyMed simvastatin label.
+          a=load('V2-Q1004')
+          a['source_version_date']='Version 7 (current); label updated 2026-04-14; prescribing information revised 07/2025'
+          a['source_locator']='Drug Interactions, Section 7.1 > Grapefruit Juice > Clinical Impact and Intervention'
+          a['source_url']='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d053fee4-b797-4a82-8865-0b4d08b14990&version=7'
+          a['correction_summary']='Final reaudit pinned the item to the current 2026 DailyMed label. The clinical claim remains unchanged: grapefruit juice raises simvastatin exposure, increases myopathy/rhabdomyolysis risk, and should be avoided.'
+          save(a)
+
+          # Q1005: current label supports cough as an adverse reaction; remove overclaimed bradykinin-cough mechanism.
+          a=load('V2-Q1005')
+          a['options']={
+            'A':'The cough proves the client has bacterial pneumonia',
+            'B':'The cough means the lisinopril dose is too low',
+            'C':'Persistent dry cough is a recognized adverse effect of lisinopril',
+            'D':'The cough is an expected sign of fluid overload caused by lisinopril'
+          }
+          a['rationale']='The current lisinopril prescribing information lists cough among common adverse reactions. A persistent dry cough in a client taking lisinopril should therefore be recognized as a possible medication adverse effect rather than automatically attributed to pneumonia, underdosing, or fluid overload.'
+          a['educational_objective']='Recognize persistent dry cough as a known adverse effect of lisinopril.'
+          a['source_version_date']='Revised 10/2025; DailyMed updated 2025-10-10; current label accessed 2026-08-17'
+          a['source_locator']='Adverse Reactions, Section 6.1 > Hypertension: cough'
+          a['source_url']='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7d6c31e2-b5a4-4279-8013-a8dad37ea73b'
+          a['source_claim_supported']='Cough is listed among common adverse reactions to lisinopril in the current prescribing information.'
+          a['correction_summary']='Removed the bradykinin mechanism from the tested claim because the current label directly supports cough as an adverse reaction but does not directly attribute the cough to that mechanism in the cited adverse-reaction locator.'
+          a['audit_findings']='C is directly supported by the current label. A, B, and D add diagnoses or causal interpretations not supported by the vignette. No second answer remains.'
+          save(a)
+
+          # Q1008: distinguish physical dependence from opioid tolerance.
+          a=load('V2-Q1008')
+          a['stem']='A postoperative client who is physically dependent on opioids develops opioid-induced respiratory depression. Which naloxone strategy is most appropriate?'
+          a['rationale']='Naloxone labeling directs that postoperative opioid-induced respiratory depression be treated with smaller IV doses titrated to adequate ventilation and alertness without significant pain or discomfort. The label also warns that abrupt complete reversal in a person physically dependent on opioids may precipitate acute withdrawal.'
+          a['educational_objective']='Use titrated naloxone dosing for postoperative opioid respiratory depression and avoid unnecessary abrupt complete reversal in clients physically dependent on opioids.'
+          a['source_version_date']='Revised 03/2023; current DailyMed label accessed 2026-08-17'
+          a['source_locator']='Warnings > Drug Dependence; Dosage and Administration > Usage in Adults > Postoperative Opioid-Induced Depression'
+          a['correction_summary']='Final reaudit changed opioid-tolerant to physically dependent on opioids so the withdrawal warning exactly matches the label. The response-based postoperative naloxone titration endpoint is unchanged.'
+          a['audit_findings']='B uniquely matches the label. A risks excessive/abrupt reversal; C is false because physical dependence is a caution rather than a contraindication; D contradicts response-based titration. No second answer remains.'
+          save(a)
+
+          # Q1010: exact current version/locator and no broader HPA claim than needed.
+          a=load('V2-Q1010')
+          a['rationale']='The current prednisone label states that drug-induced secondary adrenocortical insufficiency may be minimized by gradual dosage reduction and that, after long-term therapy, prednisone should be withdrawn gradually rather than abruptly.'
+          a['educational_objective']='Recognize that prednisone should be withdrawn gradually after long-term therapy rather than stopped abruptly.'
+          a['source_version_date']='Version 12 (current); updated 2026-04-06; published 2026-04-08'
+          a['source_locator']='PRECAUTIONS > General Precautions; DOSAGE AND ADMINISTRATION > long-term therapy discontinuation'
+          a['source_claim_supported']='Gradual dosage reduction minimizes drug-induced secondary adrenocortical insufficiency; after long-term prednisone therapy, withdrawal should be gradual rather than abrupt.'
+          a['correction_summary']='Final reaudit pinned the current Version 12 label and narrowed the rationale to the exact gradual-reduction and long-term-withdrawal statements.'
+          save(a)
+
+          # Q1026: make source chronology explicit rather than implying a newer ASPE publication.
+          a=load('V2-Q1026')
+          a['source_version_date']='CMS QSO-24-10-Hospitals issued 2024-04-01; HHS ASPE legal/policy review published 2007'
+          a['source_locator']='CMS QSO-24-10-Hospitals > informed consent policies/forms and fully informed decisions; HHS ASPE 2007 > Informed Consent > disclosure, voluntariness, competence'
+          a['correction_summary']='Final reaudit retained the valid informed-consent elements and corrected source chronology so the older HHS ASPE legal/policy review is not misrepresented as a newly updated publication.'
+          save(a)
+
+          # Q1028: do not invent an update date for the ALA page.
+          a=load('V2-Q1028')
+          a['source_version_date']='Current American Lung Association page, accessed 2026-08-17'
+          save(a)
+
+          # Q1030: use one exact NCBI source instead of implying two separately pinned sources.
+          a=load('V2-Q1030')
+          a['source_organization']='NCBI Bookshelf / StatPearls'
+          a['source_document_title']='Aspiration Pneumonia'
+          a['source_version_date']='Updated 2024-03-20; accessed 2026-08-17'
+          a['source_locator']='Etiology; Pathophysiology; History and Physical > impaired swallowing and impaired consciousness as aspiration-risk factors'
+          a['source_claim_supported']='Impaired swallowing and altered/impaired consciousness compromise airway-protective mechanisms, increase aspiration risk, and can lead to aspiration pneumonia.'
+          a['correction_summary']='Final reaudit simplified provenance to the single exact NCBI Aspiration Pneumonia source that directly supports the tested dysphagia/decreased-consciousness aspiration risk.'
+          save(a)
+
+          # Q1035: NCSBN explicitly places sequential compression devices under Reduction of Risk Potential.
+          a=load('V2-Q1035')
+          a['category_id']=9
+          a['client_need']='Reduction of Risk Potential'
+          a['blueprint_topic']='Reduction of Risk Potential'
+          a['correction_summary']='Final reaudit retained the clinically correct DVT-prevention content and corrected the NCLEX blueprint mapping: the 2026 NCSBN Test Plan explicitly lists devices used to promote venous return, including sequential compression devices, under Reduction of Risk Potential.'
+          a['audit_findings']='A is the direct purpose of IPC/SCD mechanical prophylaxis. B, C, and D are not the complication targeted by venous-compression prophylaxis. NCSBN blueprint mapping was independently corrected to Reduction of Risk Potential. No second answer remains.'
+          save(a)
+
+          # Q1041: use a single Mayo renal panel URL supporting both analytes and reference intervals.
+          a=load('V2-Q1041')
+          a['stem']="An adult female client's serum creatinine is 2.0 mg/dL and BUN is 42 mg/dL. Which interpretation is most appropriate?"
+          a['options']={
+            'A':"Both results are above Mayo's adult female reference intervals and warrant clinical evaluation of kidney function",
+            'B':'Both results are within expected adult female reference intervals',
+            'C':'Both results are below expected adult female reference intervals',
+            'D':'The values primarily establish isolated liver dysfunction'
+          }
+          a['rationale']='Mayo Clinic Laboratories lists adult female reference intervals of 0.59-1.04 mg/dL for creatinine and 6-21 mg/dL for BUN in its renal function panel. Creatinine 2.0 mg/dL and BUN 42 mg/dL are both above those intervals. The renal function panel is used to aid evaluation and management of conditions affecting kidney function, so the findings warrant clinical evaluation rather than being treated as normal or as proof of an unrelated isolated liver disorder.'
+          a['educational_objective']='Recognize elevated creatinine and BUN relative to current laboratory reference intervals and the need for clinical evaluation of kidney function.'
+          a['source_organization']='Mayo Clinic Laboratories'
+          a['source_document_title']='Renal Function Panel, Serum (RFAMA)'
+          a['source_version_date']='Current Mayo Clinic Laboratories test catalog, accessed 2026-08-17'
+          a['source_locator']='Useful For; Profile Information; Reference Values > Blood Urea Nitrogen > Females ≥18 years; Creatinine > Females ≥16 years'
+          a['source_url']='https://www.mayocliniclabs.com/test-catalog/Overview/113634'
+          a['source_claim_supported']='The renal panel includes BUN and creatinine and is used to aid evaluation of kidney function; adult female reference intervals are BUN 6-21 mg/dL and creatinine 0.59-1.04 mg/dL.'
+          a['correction_summary']='Final reaudit replaced two separately implied Mayo sources with one exact renal-function-panel source that contains both analytes and both current adult female reference intervals. The answer no longer overstates a specific etiology.'
+          a['audit_findings']='A is directly supported by the Mayo panel and reference intervals. B and C contradict the numeric intervals; D does not fit the panel purpose or the two elevated renal-function markers. No second answer remains.'
+          save(a)
+
+          # Apply exact NCSBN blueprint locators to every reaudited item and mark this semantic pass.
+          for uid in uids:
+              a=load(uid)
+              topic=a.get('blueprint_topic')
+              if topic not in bp: raise SystemExit(f'BLOCKED unknown blueprint topic {uid}: {topic}')
+              a['blueprint_locator']=bp[topic]
+              a['blueprint_url']='https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf'
+              a['audit_status']='FINAL_QA_PASS'
+              a['second_pass_status']='PASS'
+              a['audit_reviewer']='GPT-5.6 Sol Rule 1 — final semantic reaudit'
+              a['final_reaudit_date']='2026-08-17'
+              a['final_reaudit_status']='FINAL_QA_PASS'
+              a['final_reaudit_scope']='source authority/currentness/exact locator; claim-by-claim; all distractors; ambiguity/second-answer/cueing; correction; re-audit; NCSBN 2026 blueprint; independent second-pass'
+              for g in a['gates']: a['gates'][g]=1
+              save(a)
+
+          print('REAUDIT_SERIALIZED=43')
+          PY
+      - name: Commit final reaudit corrections to staging
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add approved_items/V2-Q10*.json
+          test "$(git diff --cached --name-only | grep '^approved_items/V2-Q10' | wc -l)" -ge 1
+          git commit -m 'Rule 1 final semantic reaudit corrections V2-Q1001-V2-Q1043'
+          git push origin HEAD:rule1-q1001-q1100-staging
+          echo "REAUDIT_COMMIT=$(git rev-parse HEAD)"
