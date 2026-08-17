@@ -1,0 +1,62 @@
+name: Rule 1 export V2-Q1601-V2-Q1700
+on:
+  push:
+    branches: ['staging/rule1-v2-q1601-q1700']
+    paths:
+      - '.github/workflows/rule1-export-1601-1700.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Export exact source rows only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          sb=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          if sb!=EXPECTED_SOURCE:
+              raise SystemExit(f'BLOCKED source blob {sb}')
+          con=sqlite3.connect(SOURCE); con.row_factory=sqlite3.Row
+          integ=con.execute('PRAGMA integrity_check').fetchone()[0]
+          if integ!='ok':
+              raise SystemExit(f'BLOCKED source integrity={integ}')
+          uids=[f'V2-Q{n:04d}' for n in range(1601,1701)]
+          marks=','.join('?' for _ in uids)
+          rows=con.execute(f'SELECT * FROM questions WHERE question_uid IN ({marks})',uids).fetchall()
+          con.close()
+          by={r['question_uid']:dict(r) for r in rows}
+          if len(rows)!=100 or set(by)!=set(uids):
+              missing=sorted(set(uids)-set(by))
+              raise SystemExit(f'BLOCKED source UID set/count rows={len(rows)} unique={len(by)} missing={missing}')
+          out=Path('source_snapshots'); out.mkdir(parents=True,exist_ok=True)
+          batch=[]
+          for uid in uids:
+              r=by[uid]
+              if r.get('source_bank')!='v2' or r.get('mode')!='standalone':
+                  raise SystemExit(f'BLOCKED track mismatch {uid}: {r.get("source_bank")}/{r.get("mode")}')
+              snap={'source_blob_expected':EXPECTED_SOURCE,'source_row':r}
+              p=out/f'{uid}.json'
+              if p.exists():
+                  raise SystemExit(f'BLOCKED overwrite {p}')
+              p.write_text(json.dumps(snap,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+              batch.append(snap)
+          Path('RULE1_SOURCE_BATCH_1601_1700.json').write_text(json.dumps(batch,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(f'EXPORTED={len(batch)} FIRST={batch[0]["source_row"]["question_uid"]} LAST={batch[-1]["source_row"]["question_uid"]} source={sb}')
+          PY
+      - name: Commit source snapshots to staging branch
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add source_snapshots/V2-Q16*.json source_snapshots/V2-Q1700.json RULE1_SOURCE_BATCH_1601_1700.json
+          test "$(git diff --cached --name-only | wc -l)" -eq 101
+          git commit -m 'Rule 1 stage source snapshots V2-Q1601-V2-Q1700'
+          git push origin HEAD:staging/rule1-v2-q1601-q1700
