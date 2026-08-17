@@ -1,0 +1,281 @@
+name: Rule 1 batch V2-Q1101-V2-Q1200
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-batch-1101-1200.yml'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-canonical-main
+  cancel-in-progress: false
+jobs:
+  batch-write:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main canonical state
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout exact approved staging payloads
+        uses: actions/checkout@v4
+        with:
+          ref: 790856c632bc8acb17222bea44af7e4c38510fc9
+          path: stage
+          fetch-depth: 1
+          sparse-checkout: |
+            approved_items
+            staging_items
+          sparse-checkout-cone-mode: false
+
+      - name: Preflight, one SQLite transaction, exact reread, read-only final gate
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, sqlite3, subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          CANONICAL=Path('NCLEX_CANONICAL.db')
+          SOURCE=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          STAGE=Path('stage')
+          RESULT=Path('RULE1_BATCH_1101_1200_RESULT.json')
+          EXPECTED_CANONICAL_BLOB='07a46d34cb0bacc50a0abfdeb3853d410b346625'
+          EXPECTED_SOURCE_BLOB='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_STAGE='790856c632bc8acb17222bea44af7e4c38510fc9'
+          EXPECTED_UIDS=[f'V2-Q{n:04d}' for n in range(1101,1201)]
+          GATES=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
+          REQUIRED_APPROVED=['question_uid','category_id','client_need','difficulty','stem','options','correct_option','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','correction_summary','audit_status','second_pass_status','audit_reviewer','gates','audit_findings']
+          REQUIRED_SAVED=['question_uid','stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','source_db_filename','source_db_blob_sha','source_original_json','correction_summary','audit_status','second_pass_status','audit_date_utc','audit_reviewer','audit_findings_json','payload_sha256','created_at_utc']
+
+          def canon(v):
+              return json.dumps(v,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+
+          def read_json(rel):
+              p=STAGE/rel
+              if not p.is_file():
+                  raise SystemExit(f'BLOCKED: missing staging file {rel}')
+              try:
+                  return json.loads(p.read_text(encoding='utf-8'))
+              except Exception as e:
+                  raise SystemExit(f'BLOCKED: invalid JSON {rel}: {e}')
+
+          stage_head=subprocess.check_output(['git','-C',str(STAGE),'rev-parse','HEAD'],text=True).strip()
+          canonical_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          source_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
+          if stage_head != EXPECTED_STAGE:
+              raise SystemExit(f'BLOCKED: staging commit changed {stage_head}')
+          if canonical_blob != EXPECTED_CANONICAL_BLOB:
+              raise SystemExit(f'BLOCKED: canonical blob changed {canonical_blob}')
+          if source_blob != EXPECTED_SOURCE_BLOB:
+              raise SystemExit(f'BLOCKED: source blob changed {source_blob}')
+
+          for path,expected_count in [(SOURCE,3525),(CANONICAL,1100)]:
+              c=sqlite3.connect(path); c.row_factory=sqlite3.Row
+              integrity=c.execute('PRAGMA integrity_check').fetchone()[0]
+              count=c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+              dup=c.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+              c.close()
+              if integrity != 'ok' or count != expected_count or dup != 0:
+                  raise SystemExit(f'BLOCKED: prewrite SQLite state {path}: integrity={integrity} count={count} dup={dup}')
+
+          src=sqlite3.connect(SOURCE); src.row_factory=sqlite3.Row
+          src.execute("ATTACH DATABASE 'NCLEX_CANONICAL.db' AS can")
+          first=src.execute('''
+              SELECT s.question_uid,s.stable_sort_key
+              FROM questions s
+              LEFT JOIN can.questions c ON c.question_uid=s.question_uid
+              WHERE c.question_uid IS NULL AND s.source_bank='v2' AND s.mode='standalone'
+              ORDER BY s.stable_sort_key,s.question_uid LIMIT 1
+          ''').fetchone()
+          if first is None or first['question_uid'] != 'V2-Q1101':
+              raise SystemExit(f"BLOCKED: scoped first eligible is {None if first is None else first['question_uid']}")
+
+          payloads=[]; source_exact=0
+          finalize_ts=datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          for uid in EXPECTED_UIDS:
+              a=read_json(Path('approved_items')/f'{uid}.json')
+              snap=read_json(Path('staging_items')/f'{uid}.json')
+              r=snap.get('source_row') or {}
+              if a.get('question_uid') != uid or r.get('question_uid') != uid:
+                  raise SystemExit(f'BLOCKED: UID mismatch {uid}')
+              missing=[k for k in REQUIRED_APPROVED if k not in a or a[k] in ('',None)]
+              if missing:
+                  raise SystemExit(f'BLOCKED: {uid} approved missing {missing}')
+              if a['audit_status'] != 'FINAL_QA_PASS' or a['second_pass_status'] != 'PASS':
+                  raise SystemExit(f'BLOCKED: {uid} not FINAL_QA_PASS/PASS')
+              bad=[g for g in GATES if a.get('gates',{}).get(g) != 1]
+              if bad:
+                  raise SystemExit(f'BLOCKED: {uid} failed gates {bad}')
+              if not isinstance(a['options'],dict) or sorted(a['options']) != ['A','B','C','D'] or a['correct_option'] not in a['options']:
+                  raise SystemExit(f'BLOCKED: malformed final A-D/key {uid}')
+              if snap.get('source_blob_expected') != EXPECTED_SOURCE_BLOB or snap.get('canonical_blob_expected') != EXPECTED_CANONICAL_BLOB:
+                  raise SystemExit(f'BLOCKED: SHA pin mismatch {uid}')
+
+              live=src.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if live is None:
+                  raise SystemExit(f'BLOCKED: source row missing {uid}')
+              compare_cols=['question_uid','source_id','source_bank','source_table','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_detail','source_name','source_url','stable_sort_key']
+              mism=[k for k in compare_cols if live[k] != r.get(k)]
+              if mism:
+                  raise SystemExit(f'BLOCKED: source snapshot != live SQLite {uid}: {mism}')
+              source_exact += 1
+
+              source_opts=json.loads(r['item_data_json'])['options']
+              source_ans=json.loads(r['correct_answer_json'])['correct_option']
+              source_original={
+                  'stem':r['stem'],'options':source_opts,'correct_option':source_ans,
+                  'rationale':r['rationale'],'source_url':r['source_url'],
+                  'source_detail':r['source_detail'],'difficulty':r['difficulty']
+              }
+              p={
+                  'question_uid':uid,'source_bank':r['source_bank'],'source_table':r['source_table'],
+                  'source_id':r['source_id'],'mode':r['mode'],'case_uid':r.get('case_uid'),
+                  'original_sequence':r.get('original_sequence'),'official_case_slot':r.get('official_case_slot'),
+                  'slot_variant':r.get('slot_variant'),'category_id':a['category_id'],'client_need':a['client_need'],
+                  'specialty':r.get('specialty'),'difficulty':a['difficulty'],'cjmm_skill':r.get('cjmm_skill'),
+                  'item_type_raw':r['item_type_raw'],'renderer_type':r['renderer_type'],'stem':a['stem'],
+                  'item_data':{'options':a['options']},'correct_answer':{'correct_option':a['correct_option']},
+                  'rationale':a['rationale'],'scoring_rule':r.get('scoring_rule'),
+                  'educational_objective':a['educational_objective'],
+                  'source_organization':a['source_organization'],'source_document_title':a['source_document_title'],
+                  'source_version_date':a['source_version_date'],'source_accessed_date':a['source_accessed_date'],
+                  'source_locator':a['source_locator'],'source_url':a['source_url'],
+                  'source_claim_supported':a['source_claim_supported'],
+                  'blueprint_source_organization':a['blueprint_source_organization'],
+                  'blueprint_document_title':a['blueprint_document_title'],'blueprint_version':a['blueprint_version'],
+                  'blueprint_locator':a['blueprint_locator'],'blueprint_url':a['blueprint_url'],
+                  'blueprint_topic':a['blueprint_topic'],'stable_sort_key':r['stable_sort_key'],
+                  'source_db_filename':SOURCE.name,'source_db_blob_sha':EXPECTED_SOURCE_BLOB,
+                  'source_original':source_original,'correction_summary':a['correction_summary'],
+                  'audit_status':'FINAL_QA_PASS','second_pass_status':'PASS',
+                  'audit_date_utc':a.get('audit_date_utc') or a.get('final_reaudit_date') or finalize_ts,
+                  'audit_reviewer':a['audit_reviewer'],'gates':{g:int(a['gates'][g]) for g in GATES},
+                  'audit_findings':a['audit_findings']
+              }
+              payloads.append(p)
+          src.close()
+
+          if source_exact != 100 or [p['question_uid'] for p in payloads] != EXPECTED_UIDS or len({p['question_uid'] for p in payloads}) != 100:
+              raise SystemExit('BLOCKED: preflight sequence/source exact gate failed')
+
+          con=sqlite3.connect(CANONICAL); con.row_factory=sqlite3.Row; con.execute('PRAGMA foreign_keys=ON')
+          if con.execute('SELECT COUNT(*) FROM questions').fetchone()[0] != 1100:
+              raise SystemExit('BLOCKED: canonical count before write !=1100')
+          marks=','.join('?' for _ in EXPECTED_UIDS)
+          existing=[r[0] for r in con.execute(f'SELECT question_uid FROM questions WHERE question_uid IN ({marks})',EXPECTED_UIDS)]
+          if existing:
+              raise SystemExit(f'BLOCKED: batch UID already exists {existing}')
+
+          table_cols={row['name'] for row in con.execute('PRAGMA table_info(questions)')}
+          needed={'question_uid','source_bank','source_table','source_id','mode','case_uid','original_sequence','official_case_slot','slot_variant','category_id','client_need','specialty','difficulty','cjmm_skill','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','scoring_rule','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha','source_original_json','correction_summary','audit_status','second_pass_status','audit_date_utc','audit_reviewer','audit_findings_json','payload_sha256','created_at_utc',*GATES}
+          if not needed.issubset(table_cols):
+              raise SystemExit(f'BLOCKED: canonical schema missing {sorted(needed-table_cols)}')
+
+          created_ts=datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          hashes={}; expected_saved={}
+          try:
+              con.execute('BEGIN IMMEDIATE')
+              for p in payloads:
+                  ph=hashlib.sha256(canon(p).encode()).hexdigest(); hashes[p['question_uid']]=ph
+                  vals={
+                      'question_uid':p['question_uid'],'source_bank':p['source_bank'],'source_table':p['source_table'],
+                      'source_id':p['source_id'],'mode':p['mode'],'case_uid':p.get('case_uid'),
+                      'original_sequence':p.get('original_sequence'),'official_case_slot':p.get('official_case_slot'),
+                      'slot_variant':p.get('slot_variant'),'category_id':p['category_id'],'client_need':p['client_need'],
+                      'specialty':p.get('specialty'),'difficulty':p['difficulty'],'cjmm_skill':p.get('cjmm_skill'),
+                      'item_type_raw':p['item_type_raw'],'renderer_type':p['renderer_type'],'stem':p['stem'],
+                      'item_data_json':canon(p['item_data']),'correct_answer_json':canon(p['correct_answer']),
+                      'rationale':p['rationale'],'scoring_rule':p.get('scoring_rule'),
+                      'educational_objective':p['educational_objective'],'source_organization':p['source_organization'],
+                      'source_document_title':p['source_document_title'],'source_version_date':p['source_version_date'],
+                      'source_accessed_date':p['source_accessed_date'],'source_locator':p['source_locator'],
+                      'source_url':p['source_url'],'source_claim_supported':p['source_claim_supported'],
+                      'blueprint_source_organization':p['blueprint_source_organization'],
+                      'blueprint_document_title':p['blueprint_document_title'],'blueprint_version':p['blueprint_version'],
+                      'blueprint_locator':p['blueprint_locator'],'blueprint_url':p['blueprint_url'],
+                      'blueprint_topic':p['blueprint_topic'],'stable_sort_key':p['stable_sort_key'],
+                      'source_db_filename':p['source_db_filename'],'source_db_blob_sha':p['source_db_blob_sha'],
+                      'source_original_json':canon(p['source_original']),'correction_summary':p['correction_summary'],
+                      'audit_status':p['audit_status'],'second_pass_status':p['second_pass_status'],
+                      'audit_date_utc':p['audit_date_utc'],'audit_reviewer':p['audit_reviewer'],
+                      **{g:int(p['gates'][g]) for g in GATES},
+                      'audit_findings_json':canon(p['audit_findings']),'payload_sha256':ph,
+                      'created_at_utc':created_ts
+                  }
+                  expected_saved[p['question_uid']]=vals
+                  cols=list(vals)
+                  con.execute(f"INSERT INTO questions ({','.join(cols)}) VALUES ({','.join('?' for _ in cols)})",[vals[c] for c in cols])
+              con.commit()
+          except Exception:
+              con.rollback()
+              raise
+
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+          rows=con.execute(f'SELECT * FROM questions WHERE question_uid IN ({marks}) ORDER BY question_uid',EXPECTED_UIDS).fetchall()
+          required_ok=exact_ok=finalqa_ok=secondpass_ok=gates_ok=0
+          for row in rows:
+              uid=row['question_uid']; exp=expected_saved[uid]
+              if all(row[k] is not None and (not isinstance(row[k],str) or row[k].strip()) for k in REQUIRED_SAVED):
+                  required_ok += 1
+              if all(row[k] == v for k,v in exp.items()):
+                  exact_ok += 1
+              if row['audit_status'] == 'FINAL_QA_PASS':
+                  finalqa_ok += 1
+              if row['second_pass_status'] == 'PASS':
+                  secondpass_ok += 1
+              if all(row[g] == 1 for g in GATES):
+                  gates_ok += 1
+          con.close()
+
+          if integrity != 'ok' or total != 1200 or dup != 0 or len(rows) != 100 or min(required_ok,exact_ok,finalqa_ok,secondpass_ok,gates_ok) != 100:
+              raise SystemExit(f'POSTWRITE FAIL integrity={integrity} total={total} dup={dup} reread={len(rows)} required={required_ok} exact={exact_ok} finalqa={finalqa_ok} second={secondpass_ok} gates={gates_ok}')
+
+          ro=sqlite3.connect(f'file:{CANONICAL}?mode=ro',uri=True); ro.row_factory=sqlite3.Row
+          ro_integrity=ro.execute('PRAGMA integrity_check').fetchone()[0]
+          ro_total=ro.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          ro_dup=ro.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+          gate_cols=','.join(GATES)
+          ro_rows=ro.execute(f'SELECT question_uid,payload_sha256,audit_status,second_pass_status,{gate_cols} FROM questions WHERE question_uid IN ({marks}) ORDER BY question_uid',EXPECTED_UIDS).fetchall()
+          ro_exact=sum(1 for r in ro_rows if r['payload_sha256']==hashes[r['question_uid']] and r['audit_status']=='FINAL_QA_PASS' and r['second_pass_status']=='PASS' and all(r[g]==1 for g in GATES))
+          ro.close()
+          if ro_integrity != 'ok' or ro_total != 1200 or ro_dup != 0 or len(ro_rows) != 100 or ro_exact != 100:
+              raise SystemExit(f'READONLY FINAL GATE FAIL integrity={ro_integrity} total={ro_total} dup={ro_dup} rows={len(ro_rows)} exact={ro_exact}')
+
+          new_canonical_blob=subprocess.check_output(['git','hash-object',str(CANONICAL)],text=True).strip()
+          result={
+              'status':'FINAL_BATCH_PASS','range':'V2-Q1101-V2-Q1200','transaction_count':100,
+              'canonical_count_before':1100,'canonical_count_after':1200,
+              'source_snapshot_vs_live':f'{source_exact}/100','required_fields':f'{required_ok}/100',
+              'exact_saved_payload_verification':f'{exact_ok}/100','final_qa_pass':f'{finalqa_ok}/100',
+              'independent_second_pass':f'{secondpass_ok}/100','all_14_gates':f'{gates_ok}/100',
+              'reread_records':f'{len(rows)}/100','integrity_check':integrity,'duplicate_uid_count':dup,
+              'readonly_integrity_check':ro_integrity,'readonly_count':ro_total,
+              'readonly_duplicate_uid_count':ro_dup,'readonly_exact_gate':f'{ro_exact}/100',
+              'source_blob':source_blob,'canonical_blob_before':canonical_blob,
+              'canonical_blob_after':new_canonical_blob,'staging_commit':stage_head,
+              'completed_at_utc':datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          }
+          RESULT.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(result,indent=2))
+          PY
+
+      - name: Commit canonical 1100 to 1200 only after all gates pass
+        shell: bash
+        run: |
+          set -euo pipefail
+          remote_head="$(git ls-remote origin refs/heads/main | cut -f1)"
+          local_head="$(git rev-parse HEAD)"
+          if [ "$remote_head" != "$local_head" ]; then
+            echo "BLOCKED: main changed during batch run: remote=$remote_head local=$local_head"
+            exit 1
+          fi
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db RULE1_BATCH_1101_1200_RESULT.json
+          git diff --cached --quiet && { echo 'BLOCKED: no canonical/result changes staged'; exit 1; }
+          git commit -m 'Rule 1 FINAL_QA_PASS V2-Q1101-V2-Q1200 canonical 1100 to 1200'
+          git push origin HEAD:main
