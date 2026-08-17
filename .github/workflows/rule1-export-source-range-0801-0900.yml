@@ -1,0 +1,53 @@
+name: Rule 1 export source V2-Q0801-V2-Q0900
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-export-source-range-0801-0900.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            NCLEX_COMMERCIAL_MASTER_CURRENT.db
+            NCLEX_CANONICAL.db
+          sparse-checkout-cone-mode: false
+      - name: Export source snapshots to dedicated staging branch
+        shell: bash
+        run: |
+          git fetch origin rule1-q0801-q0900-staging
+          git checkout -B rule1-q0801-q0900-staging origin/rule1-q0801-q0900-staging
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; CANONICAL='NCLEX_CANONICAL.db'
+          EXPECTED_SOURCE_BLOB='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANONICAL_BLOB='60c7b2b45f5ed5ab6c3f1b90aac71a8d54bbda68'
+          source_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          canonical_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{CANONICAL}'],text=True).strip()
+          if source_blob != EXPECTED_SOURCE_BLOB: raise SystemExit(f'BLOCKED: source blob changed: {source_blob}')
+          if canonical_blob != EXPECTED_CANONICAL_BLOB: raise SystemExit(f'BLOCKED: canonical blob changed: {canonical_blob}')
+          con=sqlite3.connect(SOURCE); con.row_factory=sqlite3.Row
+          Path('staging_items').mkdir(exist_ok=True); out=[]
+          for n in range(801,901):
+              uid=f'V2-Q{n:04d}'
+              r=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if r is None: raise SystemExit(f'BLOCKED: missing source row {uid}')
+              bp=con.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(r['category_id'],)).fetchone()
+              doc={'source_blob_expected':source_blob,'canonical_blob_expected':canonical_blob,'source_row':dict(r),'blueprint_row':dict(bp) if bp else None}
+              Path(f'staging_items/{uid}.json').write_text(json.dumps(doc,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+              out.append(doc)
+          con.close()
+          Path('RULE1_SOURCE_RANGE_0801_0900.json').write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          print(json.dumps({'exported':100,'first':'V2-Q0801','last':'V2-Q0900','source_blob':source_blob,'canonical_blob':canonical_blob}))
+          PY
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add --sparse staging_items/V2-Q08*.json staging_items/V2-Q0900.json RULE1_SOURCE_RANGE_0801_0900.json
+          git commit -m 'Stage source snapshots V2-Q0801-V2-Q0900'
+          git push origin rule1-q0801-q0900-staging
