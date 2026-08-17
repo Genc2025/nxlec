@@ -1,0 +1,140 @@
+name: Rule 1 final gate V2-Q0801-V2-Q0900
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-final-gate-0801-0900.yml'
+permissions:
+  contents: read
+jobs:
+  final-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify committed canonical DB on main
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+
+          CANON='NCLEX_CANONICAL.db'
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          RESULT='RULE1_BATCH_0801_0900_RESULT.json'
+          BATCH_COMMIT='10f230f178751c39b62e5cb91ec4c325e3bfcf04'
+          SOURCE_BLOB='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          UIDS=[f'V2-Q{n:04d}' for n in range(801,901)]
+          GATES=[
+            'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+            'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+            'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict'
+          ]
+          REQUIRED=[
+            'stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization',
+            'source_document_title','source_version_date','source_accessed_date','source_locator','source_url',
+            'source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version',
+            'blueprint_locator','blueprint_url','blueprint_topic','source_db_filename','source_db_blob_sha',
+            'source_original_json','correction_summary','audit_status','second_pass_status','audit_date_utc',
+            'audit_reviewer','audit_findings_json','payload_sha256','created_at_utc'
+          ]
+
+          head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          parent=subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip()
+          canonical_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{CANON}'],text=True).strip()
+          source_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          if parent != BATCH_COMMIT:
+            raise SystemExit(f'FINAL_GATE_FAIL: final-gate commit parent {parent} != batch commit {BATCH_COMMIT}')
+          if source_blob != SOURCE_BLOB:
+            raise SystemExit(f'FINAL_GATE_FAIL: source blob changed {source_blob}')
+
+          # Source DB remains intact and unchanged.
+          scon=sqlite3.connect(SOURCE)
+          source_integrity=scon.execute('PRAGMA integrity_check').fetchone()[0]
+          source_count=scon.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          source_dup=scon.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+          scon.close()
+          if source_integrity!='ok' or source_count!=3525 or source_dup!=0:
+            raise SystemExit(f'FINAL_GATE_FAIL: source integrity={source_integrity} count={source_count} dup={source_dup}')
+
+          con=sqlite3.connect(CANON)
+          con.row_factory=sqlite3.Row
+          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+          total=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+          if integrity!='ok' or total!=900 or dup!=0:
+            raise SystemExit(f'FINAL_GATE_FAIL: canonical integrity={integrity} count={total} dup={dup}')
+
+          marks=','.join('?' for _ in UIDS)
+          rows=con.execute(f'SELECT * FROM questions WHERE question_uid IN ({marks}) ORDER BY question_uid',UIDS).fetchall()
+          if len(rows)!=100 or [r['question_uid'] for r in rows]!=UIDS:
+            raise SystemExit('FINAL_GATE_FAIL: Q0801-Q0900 UID set/count mismatch')
+
+          required_ok=0; final_ok=0; second_ok=0; gate_ok=0; source_pin_ok=0; json_ok=0
+          for r in rows:
+            uid=r['question_uid']
+            missing=[c for c in REQUIRED if r[c] is None or (isinstance(r[c],str) and not r[c].strip())]
+            if missing:
+              raise SystemExit(f'FINAL_GATE_FAIL: {uid} missing required fields {missing}')
+            required_ok += 1
+            if r['audit_status']!='FINAL_QA_PASS': raise SystemExit(f'FINAL_GATE_FAIL: {uid} audit_status={r["audit_status"]}')
+            final_ok += 1
+            if r['second_pass_status']!='PASS': raise SystemExit(f'FINAL_GATE_FAIL: {uid} second_pass_status={r["second_pass_status"]}')
+            second_ok += 1
+            bad=[g for g in GATES if r[g]!=1]
+            if bad: raise SystemExit(f'FINAL_GATE_FAIL: {uid} gates={bad}')
+            gate_ok += 1
+            if r['source_db_filename']!='NCLEX_COMMERCIAL_MASTER_CURRENT.db' or r['source_db_blob_sha']!=SOURCE_BLOB:
+              raise SystemExit(f'FINAL_GATE_FAIL: {uid} source provenance pin mismatch')
+            source_pin_ok += 1
+            # Ensure the four JSON-bearing saved fields are parseable and final item has exactly A-D + valid key.
+            item=json.loads(r['item_data_json'])
+            ans=json.loads(r['correct_answer_json'])
+            json.loads(r['source_original_json'])
+            json.loads(r['audit_findings_json'])
+            opts=item.get('options') if isinstance(item,dict) else None
+            key=ans.get('correct_option') if isinstance(ans,dict) else None
+            if not isinstance(opts,dict) or sorted(opts)!=['A','B','C','D'] or key not in opts:
+              raise SystemExit(f'FINAL_GATE_FAIL: {uid} malformed final options/key')
+            json_ok += 1
+          con.close()
+
+          report=json.loads(Path(RESULT).read_text(encoding='utf-8'))
+          expected_report={
+            'batch':'V2-Q0801..V2-Q0900','inserted':100,'canonical_count_before':800,
+            'canonical_count_after':900,'canonical_integrity_check':'ok','duplicate_question_uid_count':0,
+            'batch_uid_count':100,'required_fields_verified':100,'records_reread_count':100,
+            'exact_saved_payload_fields_verified':100,'final_qa_pass_verified':100,
+            'independent_second_pass_verified':100,'all_14_gates_verified':100,
+            'source_db_blob_sha':SOURCE_BLOB,'status':'FINAL_QA_PASS_BATCH_COMMITTED'
+          }
+          mismatches={k:(report.get(k),v) for k,v in expected_report.items() if report.get(k)!=v}
+          if mismatches:
+            raise SystemExit(f'FINAL_GATE_FAIL: committed batch result mismatch {mismatches}')
+
+          out={
+            'status':'FINAL_GATE_PASS',
+            'main_head':head,
+            'batch_commit':BATCH_COMMIT,
+            'canonical_blob_after':canonical_blob,
+            'source_blob':source_blob,
+            'canonical_count':total,
+            'canonical_integrity':integrity,
+            'canonical_duplicate_uid_groups':dup,
+            'batch_uid_count':len(rows),
+            'required_fields_verified':required_ok,
+            'final_qa_pass_verified':final_ok,
+            'independent_second_pass_verified':second_ok,
+            'all_14_gates_verified':gate_ok,
+            'source_provenance_pins_verified':source_pin_ok,
+            'final_item_json_and_key_verified':json_ok,
+            'source_count':source_count,
+            'source_integrity':source_integrity,
+            'source_duplicate_uid_groups':source_dup,
+            'result_file_status':report['status'],
+            'next_question':'V2-Q0901'
+          }
+          print('RULE1_FINAL_GATE='+json.dumps(out,sort_keys=True))
+          PY
