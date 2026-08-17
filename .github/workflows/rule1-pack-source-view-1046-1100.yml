@@ -1,0 +1,45 @@
+name: Rule 1 pack source view V2-Q1046-V2-Q1100
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-pack-source-view-1046-1100.yml'
+permissions:
+  contents: write
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q1001-q1100-staging
+          fetch-depth: 1
+      - name: Pack source snapshots only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          rows=[]
+          for n in range(1046,1101):
+              p=Path('staging_items')/f'V2-Q{n:04d}.json'
+              if not p.exists(): raise SystemExit(f'BLOCKED missing {p}')
+              s=json.loads(p.read_text(encoding='utf-8'))
+              r=s['source_row']
+              rows.append({
+                'uid':r['question_uid'],'category_id':r['category_id'],'client_need':r['client_need'],'difficulty':r['difficulty'],
+                'stem':r['stem'],'options':json.loads(r['item_data_json'])['options'],
+                'correct_option':json.loads(r['correct_answer_json'])['correct_option'],'rationale':r['rationale'],
+                'source_name':r['source_name'],'source_detail':r['source_detail'],'source_url':r['source_url']
+              })
+          Path('RULE1_SOURCE_VIEW_1046_1100.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('PACKED_SOURCE_ROWS=',len(rows))
+          PY
+      - name: Commit source audit view to staging
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add RULE1_SOURCE_VIEW_1046_1100.json
+          git commit -m 'Rule 1 pack source view V2-Q1046-V2-Q1100'
+          git push origin HEAD:rule1-q1001-q1100-staging
