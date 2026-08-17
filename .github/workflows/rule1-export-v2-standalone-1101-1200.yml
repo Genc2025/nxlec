@@ -1,0 +1,50 @@
+name: Rule 1 scoped V2 standalone export Q1101-Q1200
+on:
+  push:
+    branches: [rule1-q1101-q1200-staging]
+    paths:
+      - '.github/workflows/rule1-export-v2-standalone-1101-1200.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Scoped state truth and source export
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,sqlite3,subprocess
+          from pathlib import Path
+          SRC=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db'); CAN=Path('NCLEX_CANONICAL.db')
+          EXPECT_SRC='07e335d471ef1b4689406ba41eb98eaa2ca41472'; EXPECT_CAN='07a46d34cb0bacc50a0abfdeb3853d410b346625'
+          sb=subprocess.check_output(['git','rev-parse','HEAD:'+SRC.name],text=True).strip(); cb=subprocess.check_output(['git','rev-parse','HEAD:'+CAN.name],text=True).strip()
+          if sb!=EXPECT_SRC or cb!=EXPECT_CAN: raise SystemExit(f'BLOCKED blob mismatch source={sb} canonical={cb}')
+          def check(p):
+            c=sqlite3.connect(p); c.row_factory=sqlite3.Row
+            x=(c.execute('PRAGMA integrity_check').fetchone()[0],c.execute('SELECT COUNT(*) FROM questions').fetchone()[0],c.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]); c.close(); return x
+          si,sc,sd=check(SRC); ci,cc,cd=check(CAN)
+          if si!='ok' or ci!='ok' or sd or cd or cc!=1100: raise SystemExit(f'BLOCKED sqlite state src={si}/{sc}/{sd} can={ci}/{cc}/{cd}')
+          con=sqlite3.connect(SRC); con.row_factory=sqlite3.Row; con.execute("ATTACH DATABASE ? AS can",(str(CAN),))
+          first=con.execute('''SELECT s.question_uid,s.stable_sort_key FROM questions s LEFT JOIN can.questions c ON c.question_uid=s.question_uid WHERE c.question_uid IS NULL AND s.source_bank='v2' AND s.mode='standalone' ORDER BY s.stable_sort_key,s.question_uid LIMIT 1''').fetchone()
+          if not first or first['question_uid']!='V2-Q1101': raise SystemExit(f"BLOCKED scoped first eligible={dict(first) if first else None}")
+          out=Path('staging_items'); out.mkdir(exist_ok=True)
+          for n in range(1101,1201):
+            uid=f'V2-Q{n:04d}'; r=con.execute("SELECT * FROM questions WHERE question_uid=? AND source_bank='v2' AND mode='standalone'",(uid,)).fetchone()
+            if not r: raise SystemExit(f'BLOCKED missing scoped source row {uid}')
+            (out/f'{uid}.json').write_text(json.dumps({'canonical_blob_expected':EXPECT_CAN,'source_blob_expected':EXPECT_SRC,'source_row':dict(r)},ensure_ascii=False,indent=2)+'\n')
+          con.close()
+          state={'status':'STATE_TRUTH_PASS','eligibility_scope':{'source_bank':'v2','mode':'standalone'},'excluded_separate_bank_note':'ngn75/case_study is a separate source track and is not mixed into the current V2 standalone canonical sequence','source_blob':sb,'canonical_blob':cb,'source_integrity':si,'canonical_integrity':ci,'source_count':sc,'canonical_count':cc,'source_duplicate_uid_count':sd,'canonical_duplicate_uid_count':cd,'first_eligible_uid':first['question_uid'],'first_eligible_stable_sort_key':first['stable_sort_key'],'exported_range':'V2-Q1101-V2-Q1200','exported_count':100}
+          Path('RULE1_PREFLIGHT_1101_1200.json').write_text(json.dumps(state,indent=2)+'\n')
+          PY
+      - name: Commit source snapshots
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_items/V2-Q11*.json staging_items/V2-Q1200.json RULE1_PREFLIGHT_1101_1200.json
+          git commit -m 'Rule 1 scoped source snapshots V2-Q1101-V2-Q1200'
+          git push origin HEAD:rule1-q1101-q1200-staging
