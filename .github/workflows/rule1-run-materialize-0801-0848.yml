@@ -1,0 +1,52 @@
+name: Run Rule 1 materializer V2-Q0801-V2-Q0848
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-run-materialize-0801-0848.yml'
+permissions:
+  contents: write
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q0801-q0900-staging
+          fetch-depth: 1
+      - name: Decode and validate confirmed approved payloads
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64,gzip,hashlib,json,re
+          from pathlib import Path
+          src=Path('.github/workflows/rule1-materialize-approved-0801-0848.yml').read_text(encoding='utf-8')
+          m=re.search(r"DATA = '''([^']+)'''",src,re.S)
+          if not m: raise SystemExit('BLOCKED: embedded materialization payload missing')
+          raw=gzip.decompress(base64.b64decode(m.group(1)))
+          if hashlib.sha256(raw).hexdigest()!='81902a4cb1363463b51f4e1c6875745f2b5c2a8705b19df4a71c725b544221cd':
+              raise SystemExit('BLOCKED: materialization checksum mismatch')
+          mapping=json.loads(raw.decode('utf-8'))
+          expected=[f'approved_items/V2-Q{n:04d}.json' for n in range(801,849)]
+          gates=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
+          if sorted(mapping)!=expected or len(mapping)!=48: raise SystemExit('BLOCKED: UID set mismatch')
+          for path in expected:
+              p=Path(path)
+              if p.exists(): raise SystemExit(f'BLOCKED: refusing overwrite {path}')
+              obj=json.loads(mapping[path])
+              if obj.get('question_uid')!=p.stem or obj.get('audit_status')!='FINAL_QA_PASS' or obj.get('second_pass_status')!='PASS':
+                  raise SystemExit(f'BLOCKED: status/UID mismatch {path}')
+              if any(obj.get('gates',{}).get(g)!=1 for g in gates): raise SystemExit(f'BLOCKED: gate mismatch {path}')
+              p.parent.mkdir(parents=True,exist_ok=True)
+              p.write_text(mapping[path],encoding='utf-8')
+          print('MATERIALIZED_APPROVED=48')
+          PY
+      - name: Commit only Q0801-Q0848 approved payloads to staging
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add approved_items/V2-Q08{01..48}.json
+          test "$(git diff --cached --name-only | wc -l)" -eq 48
+          git commit -m 'Rule 1 materialize approved V2-Q0801-V2-Q0848'
+          git push origin HEAD:rule1-q0801-q0900-staging
