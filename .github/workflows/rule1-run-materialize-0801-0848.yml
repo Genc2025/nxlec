@@ -18,28 +18,70 @@ jobs:
         shell: bash
         run: |
           python3 - <<'PY'
-          import base64,gzip,hashlib,json,re
+          import base64, gzip, hashlib, json
           from pathlib import Path
-          src=Path('.github/workflows/rule1-materialize-approved-0801-0848.yml').read_text(encoding='utf-8')
-          m=re.search(r"DATA = '''([^']+)'''",src,re.S)
-          if not m: raise SystemExit('BLOCKED: embedded materialization payload missing')
-          raw=gzip.decompress(base64.b64decode(m.group(1)))
-          if hashlib.sha256(raw).hexdigest()!='81902a4cb1363463b51f4e1c6875745f2b5c2a8705b19df4a71c725b544221cd':
-              raise SystemExit('BLOCKED: materialization checksum mismatch')
+
+          part_paths=[Path(f'staging_payloads/approved_0801_0848.part{i:02d}.b64') for i in range(8)]
+          missing=[str(p) for p in part_paths if not p.exists()]
+          if missing:
+              raise SystemExit(f'BLOCKED: missing payload chunks {missing}')
+          parts=[p.read_text(encoding='utf-8').strip() for p in part_paths]
+          expected_lengths=[4000,4000,4000,4000,4000,4000,4000,3752]
+          got_lengths=[len(x) for x in parts]
+          if got_lengths != expected_lengths:
+              raise SystemExit(f'BLOCKED: chunk lengths {got_lengths} != {expected_lengths}')
+          encoded=''.join(parts)
+          if len(encoded) != 31752:
+              raise SystemExit(f'BLOCKED: concatenated length {len(encoded)} != 31752')
+          try:
+              raw=gzip.decompress(base64.b64decode(encoded, validate=True))
+          except Exception as e:
+              raise SystemExit(f'BLOCKED: payload decode failed: {e}')
+          digest=hashlib.sha256(raw).hexdigest()
+          expected_digest='81902a4cb1363463b51f4e1c6875745f2b5c2a8705b19df4a71c725b544221cd'
+          if digest != expected_digest:
+              raise SystemExit(f'BLOCKED: payload SHA256 {digest} != {expected_digest}')
+
           mapping=json.loads(raw.decode('utf-8'))
           expected=[f'approved_items/V2-Q{n:04d}.json' for n in range(801,849)]
-          gates=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
-          if sorted(mapping)!=expected or len(mapping)!=48: raise SystemExit('BLOCKED: UID set mismatch')
+          if sorted(mapping) != expected or len(mapping) != 48:
+              raise SystemExit('BLOCKED: UID set mismatch')
+          gates=[
+              'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+              'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+              'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+              'independent_qa_passed','no_unresolved_conflict'
+          ]
+          required=[
+              'question_uid','category_id','client_need','difficulty','stem','options','correct_option','rationale',
+              'educational_objective','source_organization','source_document_title','source_version_date',
+              'source_accessed_date','source_locator','source_url','source_claim_supported',
+              'blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator',
+              'blueprint_url','blueprint_topic','correction_summary','audit_status','second_pass_status',
+              'audit_reviewer','gates','audit_findings'
+          ]
           for path in expected:
               p=Path(path)
-              if p.exists(): raise SystemExit(f'BLOCKED: refusing overwrite {path}')
-              obj=json.loads(mapping[path])
-              if obj.get('question_uid')!=p.stem or obj.get('audit_status')!='FINAL_QA_PASS' or obj.get('second_pass_status')!='PASS':
-                  raise SystemExit(f'BLOCKED: status/UID mismatch {path}')
-              if any(obj.get('gates',{}).get(g)!=1 for g in gates): raise SystemExit(f'BLOCKED: gate mismatch {path}')
+              if p.exists():
+                  raise SystemExit(f'BLOCKED: refusing to overwrite existing {path}')
+              text=mapping[path]
+              obj=json.loads(text)
+              if obj.get('question_uid') != p.stem:
+                  raise SystemExit(f'BLOCKED: UID mismatch {path}')
+              miss=[k for k in required if k not in obj or obj[k] in ('',None)]
+              if miss:
+                  raise SystemExit(f'BLOCKED: {p.stem} missing required {miss}')
+              if obj.get('audit_status') != 'FINAL_QA_PASS' or obj.get('second_pass_status') != 'PASS':
+                  raise SystemExit(f'BLOCKED: status mismatch {p.stem}')
+              bad=[g for g in gates if obj.get('gates',{}).get(g) != 1]
+              if bad:
+                  raise SystemExit(f'BLOCKED: {p.stem} failed gates {bad}')
+              opts=obj.get('options')
+              if not isinstance(opts,dict) or sorted(opts) != ['A','B','C','D'] or obj.get('correct_option') not in opts:
+                  raise SystemExit(f'BLOCKED: malformed options/key {p.stem}')
               p.parent.mkdir(parents=True,exist_ok=True)
-              p.write_text(mapping[path],encoding='utf-8')
-          print('MATERIALIZED_APPROVED=48')
+              p.write_text(text,encoding='utf-8')
+          print(f'MATERIALIZED_APPROVED=48 SHA256={digest}')
           PY
       - name: Commit only Q0801-Q0848 approved payloads to staging
         shell: bash
