@@ -1,0 +1,90 @@
+name: Rule 1 export V2-Q1301-V2-Q1400
+on:
+  push:
+    branches: [rule1-q1301-q1400-staging]
+    paths:
+      - '.github/workflows/rule1-export-1301-1400.yml'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-export-1301-1400
+  cancel-in-progress: false
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Verify real SQLite state and export exact source rows
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          CANON='NCLEX_CANONICAL.db'
+          EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANON='dccc8dced82e91dfd56e697dc3c234ea8ce79632'
+          EXPECTED_FIRST='V2-Q1301'
+          EXPECTED_SOURCE_COUNT=3525
+          EXPECTED_CANON_COUNT=1300
+          sb=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          cb=subprocess.check_output(['git','rev-parse',f'HEAD:{CANON}'],text=True).strip()
+          if sb!=EXPECTED_SOURCE: raise SystemExit(f'BLOCKED source blob {sb}')
+          if cb!=EXPECTED_CANON: raise SystemExit(f'BLOCKED canonical blob {cb}')
+          required_source={'question_uid','source_bank','source_table','source_id','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_name','source_detail','source_url','stable_sort_key'}
+          required_canon={'question_uid','source_bank','source_table','source_id','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_organization','source_document_title','source_locator','source_url','stable_sort_key','audit_status','second_pass_status'}
+          for db,expected,required in [(SOURCE,EXPECTED_SOURCE_COUNT,required_source),(CANON,EXPECTED_CANON_COUNT,required_canon)]:
+            con=sqlite3.connect(db)
+            integ=con.execute('PRAGMA integrity_check').fetchone()[0]
+            cnt=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+            dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+            fk=con.execute('PRAGMA foreign_key_check').fetchall()
+            cols={r[1] for r in con.execute('PRAGMA table_info(questions)').fetchall()}
+            con.close()
+            if integ!='ok' or cnt!=expected or dup!=0 or fk or not required.issubset(cols):
+              raise SystemExit(f'BLOCKED {db}: integrity={integ} count={cnt} dup={dup} fk={len(fk)} missing={sorted(required-cols)}')
+          con=sqlite3.connect(SOURCE); con.row_factory=sqlite3.Row
+          con.execute("ATTACH DATABASE ? AS canon",(CANON,))
+          first=con.execute("""
+            SELECT s.question_uid,s.stable_sort_key
+            FROM questions s
+            LEFT JOIN canon.questions c ON c.question_uid=s.question_uid
+            WHERE s.source_bank='v2' AND s.mode='standalone' AND c.question_uid IS NULL
+            ORDER BY s.stable_sort_key,s.question_uid LIMIT 1
+          """).fetchone()
+          if first is None or first['question_uid']!=EXPECTED_FIRST:
+            raise SystemExit(f"BLOCKED first eligible {dict(first) if first else None}")
+          uids=[f'V2-Q{n:04d}' for n in range(1301,1401)]
+          marks=','.join('?' for _ in uids)
+          rows=con.execute(f'SELECT * FROM questions WHERE question_uid IN ({marks})',uids).fetchall()
+          con.close()
+          by={r['question_uid']:dict(r) for r in rows}
+          if set(by)!=set(uids) or len(by)!=100: raise SystemExit(f'BLOCKED source UID set/count {len(by)}')
+          out=Path('/tmp/rule1_q1301_q1400'); out.mkdir(parents=True,exist_ok=True)
+          batch=[]
+          for uid in uids:
+            r=by[uid]
+            if r.get('source_bank')!='v2' or r.get('mode')!='standalone':
+              raise SystemExit(f'BLOCKED track mismatch {uid}: {r.get("source_bank")}/{r.get("mode")}')
+            snap={'source_blob_expected':EXPECTED_SOURCE,'canonical_blob_expected':EXPECTED_CANON,'source_row':r}
+            (out/f'{uid}.json').write_text(json.dumps(snap,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+            batch.append(snap)
+          Path('/tmp/RULE1_SOURCE_BATCH_1301_1400.json').write_text(json.dumps(batch,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(f'STATE_TRUTH_PASS source={sb} canonical={cb} first={first["question_uid"]}')
+          print(f'EXPORTED={len(batch)} FIRST={batch[0]["source_row"]["question_uid"]} LAST={batch[-1]["source_row"]["question_uid"]}')
+          PY
+      - name: Commit snapshots only to this staging branch
+        shell: bash
+        run: |
+          mkdir -p staging_items
+          for f in /tmp/rule1_q1301_q1400/*.json; do b=$(basename "$f"); test ! -e "staging_items/$b" || { echo "BLOCKED overwrite staging_items/$b"; exit 1; }; cp "$f" "staging_items/$b"; done
+          test ! -e RULE1_SOURCE_BATCH_1301_1400.json || { echo 'BLOCKED batch index exists'; exit 1; }
+          cp /tmp/RULE1_SOURCE_BATCH_1301_1400.json .
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_items/V2-Q13*.json staging_items/V2-Q1400.json RULE1_SOURCE_BATCH_1301_1400.json
+          test "$(git diff --cached --name-only | wc -l)" -eq 101
+          git commit -m 'Rule 1 stage source snapshots V2-Q1301-V2-Q1400'
+          git push origin HEAD:rule1-q1301-q1400-staging
