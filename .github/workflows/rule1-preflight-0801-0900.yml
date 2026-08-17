@@ -1,0 +1,106 @@
+name: Rule 1 preflight V2-Q0801-V2-Q0900
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-preflight-0801-0900.yml'
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Fetch staging branch
+        shell: bash
+        run: git fetch origin rule1-q0801-q0900-staging:refs/remotes/origin/rule1-q0801-q0900-staging
+      - name: Validate complete batch and pinned SQLite state
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+
+          STAGE='origin/rule1-q0801-q0900-staging'
+          EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANON='60c7b2b45f5ed5ab6c3f1b90aac71a8d54bbda68'
+          uids=[f'V2-Q{n:04d}' for n in range(801,901)]
+          gates=[
+            'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+            'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+            'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict'
+          ]
+          required=[
+            'question_uid','category_id','client_need','difficulty','stem','rationale','educational_objective',
+            'source_organization','source_document_title','source_version_date','source_accessed_date','source_locator',
+            'source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title',
+            'blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','correction_summary',
+            'audit_status','second_pass_status','audit_reviewer','gates','audit_findings'
+          ]
+
+          source_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
+          canon_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          if source_blob != EXPECTED_SOURCE: raise SystemExit(f'BLOCKED source blob {source_blob}')
+          if canon_blob != EXPECTED_CANON: raise SystemExit(f'BLOCKED canonical blob {canon_blob}')
+
+          for db,expected_count in [('NCLEX_COMMERCIAL_MASTER_CURRENT.db',3525),('NCLEX_CANONICAL.db',800)]:
+            con=sqlite3.connect(db)
+            integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+            count=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+            dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]
+            con.close()
+            if integrity!='ok' or count!=expected_count or dup!=0:
+              raise SystemExit(f'BLOCKED SQLite state {db}: integrity={integrity} count={count} dup={dup}')
+
+          def git_json(path):
+            try:
+              text=subprocess.check_output(['git','show',f'{STAGE}:{path}'],text=True)
+            except subprocess.CalledProcessError:
+              raise SystemExit(f'BLOCKED missing {path}')
+            try: return json.loads(text)
+            except Exception as e: raise SystemExit(f'BLOCKED invalid JSON {path}: {e}')
+
+          approved=0; snapshots=0; finalqa=0; secondpass=0
+          for uid in uids:
+            a=git_json(f'approved_items/{uid}.json')
+            s=git_json(f'staging_items/{uid}.json')
+            approved += 1; snapshots += 1
+            if a.get('question_uid') != uid or s.get('source_row',{}).get('question_uid') != uid:
+              raise SystemExit(f'BLOCKED UID mismatch {uid}')
+            miss=[k for k in required if k not in a or a[k] in ('',None)]
+            if miss: raise SystemExit(f'BLOCKED {uid} missing approved fields {miss}')
+            opts=a.get('options')
+            if opts is None and isinstance(a.get('item_data'),dict): opts=a['item_data'].get('options')
+            if not isinstance(opts,dict) or sorted(opts)!=['A','B','C','D']:
+              raise SystemExit(f'BLOCKED {uid} options malformed')
+            key=a.get('correct_option')
+            if key is None and isinstance(a.get('correct_answer'),dict): key=a['correct_answer'].get('correct_option')
+            if key not in opts: raise SystemExit(f'BLOCKED {uid} correct option malformed')
+            if a['audit_status']!='FINAL_QA_PASS': raise SystemExit(f'BLOCKED {uid} not FINAL_QA_PASS')
+            finalqa += 1
+            if a['second_pass_status']!='PASS': raise SystemExit(f'BLOCKED {uid} second pass not PASS')
+            secondpass += 1
+            bad=[g for g in gates if a['gates'].get(g)!=1]
+            if bad: raise SystemExit(f'BLOCKED {uid} failed gates {bad}')
+            if s.get('source_blob_expected') != EXPECTED_SOURCE:
+              raise SystemExit(f'BLOCKED {uid} source snapshot blob mismatch')
+            if s.get('canonical_blob_expected') != EXPECTED_CANON:
+              raise SystemExit(f'BLOCKED {uid} canonical snapshot blob mismatch')
+
+          # Confirm none of the batch UIDs already exists in canonical.
+          con=sqlite3.connect('NCLEX_CANONICAL.db')
+          marks=','.join('?' for _ in uids)
+          existing=[r[0] for r in con.execute(f'SELECT question_uid FROM questions WHERE question_uid IN ({marks})',uids)]
+          con.close()
+          if existing: raise SystemExit(f'BLOCKED batch UIDs already in canonical: {existing}')
+
+          print(json.dumps({
+            'status':'PREFLIGHT_PASS','approved_payloads':approved,'source_snapshots':snapshots,
+            'final_qa_pass':finalqa,'independent_second_pass':secondpass,
+            'all_14_gates':100,'canonical_count':800,'canonical_integrity':'ok','canonical_duplicate_uids':0,
+            'source_count':3525,'source_integrity':'ok','source_duplicate_uids':0,
+            'source_blob':source_blob,'canonical_blob':canon_blob,'staging_ref':STAGE
+          },sort_keys=True))
+          PY
