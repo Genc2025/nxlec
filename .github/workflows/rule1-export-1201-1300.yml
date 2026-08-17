@@ -30,8 +30,9 @@ jobs:
           cb=subprocess.check_output(['git','rev-parse',f'HEAD:{CANON}'],text=True).strip()
           if sb!=EXPECTED_SOURCE: raise SystemExit(f'BLOCKED source blob {sb}')
           if cb!=EXPECTED_CANON: raise SystemExit(f'BLOCKED canonical blob {cb}')
-          required={'question_uid','source_bank','source_table','source_id','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_name','source_detail','source_url','stable_sort_key'}
-          for db,expected in [(SOURCE,EXPECTED_SOURCE_COUNT),(CANON,EXPECTED_CANON_COUNT)]:
+          required_source={'question_uid','source_bank','source_table','source_id','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_name','source_detail','source_url','stable_sort_key'}
+          required_canon={'question_uid','source_bank','source_table','source_id','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_organization','source_document_title','source_locator','source_url','stable_sort_key','audit_status','second_pass_status'}
+          for db,expected,required in [(SOURCE,EXPECTED_SOURCE_COUNT,required_source),(CANON,EXPECTED_CANON_COUNT,required_canon)]:
             con=sqlite3.connect(db)
             integ=con.execute('PRAGMA integrity_check').fetchone()[0]
             cnt=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
