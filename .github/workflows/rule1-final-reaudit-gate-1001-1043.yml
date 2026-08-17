@@ -1,0 +1,175 @@
+name: Rule 1 final reaudit gate V2-Q1001-V2-Q1043
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-final-reaudit-gate-1001-1043.yml'
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main DB state
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Checkout exact final-reaudit staging commit
+        uses: actions/checkout@v4
+        with:
+          ref: e8a4942dc6f4ffe3f8ff6b5336810223b60a53e7
+          path: stage
+          fetch-depth: 1
+          sparse-checkout: |
+            approved_items
+            staging_items
+          sparse-checkout-cone-mode: false
+      - name: Verify final semantic reaudit serialization
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+
+          EXPECTED_STAGE='e8a4942dc6f4ffe3f8ff6b5336810223b60a53e7'
+          EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANON='70e98d4a4b1ea3313f77856a91d58b14fc63c86f'
+          UIDS=[f'V2-Q{n:04d}' for n in range(1001,1044)]
+          GATES=[
+            'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
+            'correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified',
+            'ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified',
+            'independent_qa_passed','no_unresolved_conflict'
+          ]
+          BP={
+            'Management of Care':'2026 NCLEX-RN Test Plan, Management of Care, printed p.7 / PDF p.11',
+            'Safety and Infection Prevention and Control':'2026 NCLEX-RN Test Plan, Safety and Infection Prevention and Control, printed p.8 / PDF p.12',
+            'Psychosocial Integrity':'2026 NCLEX-RN Test Plan, Psychosocial Integrity, printed p.10 / PDF p.14',
+            'Basic Care and Comfort':'2026 NCLEX-RN Test Plan, Basic Care and Comfort, printed p.11 / PDF p.15',
+            'Pharmacological and Parenteral Therapies':'2026 NCLEX-RN Test Plan, Pharmacological and Parenteral Therapies, printed p.12 / PDF p.16',
+            'Reduction of Risk Potential':'2026 NCLEX-RN Test Plan, Reduction of Risk Potential, printed p.13 / PDF p.17',
+            'Physiological Adaptation':'2026 NCLEX-RN Test Plan, Physiological Adaptation, printed p.14 / PDF p.18',
+          }
+          BP_URL='https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf'
+          REQUIRED=[
+            'question_uid','category_id','client_need','difficulty','stem','options','correct_option','rationale',
+            'educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date',
+            'source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title',
+            'blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','correction_summary','audit_findings',
+            'audit_status','second_pass_status','audit_reviewer','gates','final_reaudit_date','final_reaudit_status','final_reaudit_scope'
+          ]
+
+          def gj(path):
+              p=Path(path)
+              if not p.is_file(): raise SystemExit(f'FINAL_REAUDIT_FAIL missing {path}')
+              try: return json.loads(p.read_text(encoding='utf-8'))
+              except Exception as e: raise SystemExit(f'FINAL_REAUDIT_FAIL invalid JSON {path}: {e}')
+
+          stage_head=subprocess.check_output(['git','-C','stage','rev-parse','HEAD'],text=True).strip()
+          if stage_head!=EXPECTED_STAGE: raise SystemExit(f'FINAL_REAUDIT_FAIL staging commit {stage_head}')
+          source_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
+          canon_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          if source_blob!=EXPECTED_SOURCE: raise SystemExit(f'FINAL_REAUDIT_FAIL source blob {source_blob}')
+          if canon_blob!=EXPECTED_CANON: raise SystemExit(f'FINAL_REAUDIT_FAIL canonical blob {canon_blob}')
+
+          db_stats={}
+          for db,expected_count in [('NCLEX_COMMERCIAL_MASTER_CURRENT.db',3525),('NCLEX_CANONICAL.db',1000)]:
+              c=sqlite3.connect(db)
+              integrity=c.execute('PRAGMA integrity_check').fetchone()[0]
+              count=c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+              dup=c.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+              c.close()
+              if integrity!='ok' or count!=expected_count or dup!=0:
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {db} integrity={integrity} count={count} dup={dup}')
+              db_stats[db]={'integrity':integrity,'count':count,'duplicates':dup}
+
+          ok=0; pins=0; req=0; json_key=0; gate_ok=0; bp_ok=0
+          for uid in UIDS:
+              a=gj(f'stage/approved_items/{uid}.json')
+              s=gj(f'stage/staging_items/{uid}.json')
+              if a.get('question_uid')!=uid or s.get('source_row',{}).get('question_uid')!=uid:
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL UID mismatch {uid}')
+              missing=[k for k in REQUIRED if k not in a or a[k] in ('',None)]
+              if missing: raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} missing {missing}')
+              req+=1
+              if not isinstance(a['options'],dict) or sorted(a['options'])!=['A','B','C','D'] or a['correct_option'] not in a['options']:
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} invalid A-D/key')
+              json_key+=1
+              if a['audit_status']!='FINAL_QA_PASS' or a['second_pass_status']!='PASS' or a['final_reaudit_status']!='FINAL_QA_PASS':
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} status mismatch')
+              if a['final_reaudit_date']!='2026-08-17' or a['audit_reviewer']!='GPT-5.6 Sol Rule 1 — final semantic reaudit':
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} final reaudit metadata mismatch')
+              bad=[g for g in GATES if a['gates'].get(g)!=1]
+              if bad: raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} gates {bad}')
+              gate_ok+=1
+              topic=a['blueprint_topic']
+              if topic not in BP or a['blueprint_locator']!=BP[topic] or a['blueprint_url']!=BP_URL:
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} blueprint mismatch {topic} {a["blueprint_locator"]}')
+              bp_ok+=1
+              if not str(a['source_url']).startswith('https://') or not str(a['source_locator']).strip():
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} source URL/locator malformed')
+              if s.get('source_blob_expected')!=EXPECTED_SOURCE or s.get('canonical_blob_expected')!=EXPECTED_CANON:
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} provenance pin mismatch')
+              pins+=1
+              ok+=1
+
+          # Semantic-decision assertions for corrections made during final reaudit.
+          a=gj('stage/approved_items/V2-Q1004.json')
+          if a['source_url']!='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d053fee4-b797-4a82-8865-0b4d08b14990&version=7' or '2026-04-14' not in a['source_version_date']:
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1004 current-label pin')
+
+          a=gj('stage/approved_items/V2-Q1005.json')
+          combined=' '.join([a['stem'],*a['options'].values(),a['rationale'],a['educational_objective'],a['source_claim_supported']]).lower()
+          if a['correct_option']!='C' or 'bradykinin' in combined or 'recognized adverse effect of lisinopril' not in a['options']['C'].lower() or '7d6c31e2-b5a4-4279-8013-a8dad37ea73b' not in a['source_url']:
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1005 label-claim correction')
+
+          a=gj('stage/approved_items/V2-Q1008.json')
+          if 'physically dependent on opioids' not in a['stem'].lower() or 'opioid-tolerant' in a['stem'].lower() or a['correct_option']!='B' or 'Drug Dependence' not in a['source_locator'] or 'Postoperative Opioid-Induced Depression' not in a['source_locator']:
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1008 dependence/titration correction')
+
+          a=gj('stage/approved_items/V2-Q1010.json')
+          if 'Version 12' not in a['source_version_date'] or 'withdrawn gradually' not in a['rationale']:
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1010 current prednisone label')
+
+          a=gj('stage/approved_items/V2-Q1026.json')
+          if '2024-04-01' not in a['source_version_date'] or '2007' not in a['source_version_date']:
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1026 source chronology')
+
+          a=gj('stage/approved_items/V2-Q1028.json')
+          if a['source_version_date']!='Current American Lung Association page, accessed 2026-08-17':
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1028 source-date honesty')
+
+          a=gj('stage/approved_items/V2-Q1030.json')
+          if a['source_document_title']!='Aspiration Pneumonia' or a['source_organization']!='NCBI Bookshelf / StatPearls':
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1030 source simplification')
+
+          a=gj('stage/approved_items/V2-Q1035.json')
+          if a['category_id']!=9 or a['client_need']!='Reduction of Risk Potential' or a['blueprint_topic']!='Reduction of Risk Potential' or a['blueprint_locator']!=BP['Reduction of Risk Potential']:
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1035 blueprint correction')
+
+          a=gj('stage/approved_items/V2-Q1041.json')
+          if a['source_url']!='https://www.mayocliniclabs.com/test-catalog/Overview/113634' or '0.59-1.04' not in a['rationale'] or '6-21' not in a['rationale'] or a['correct_option']!='A':
+              raise SystemExit('FINAL_REAUDIT_FAIL Q1041 renal-panel correction')
+
+          for uid in ['V2-Q1042','V2-Q1043']:
+              a=gj(f'stage/approved_items/{uid}.json')
+              if a['blueprint_topic']!='Basic Care and Comfort' or a['blueprint_locator']!=BP['Basic Care and Comfort']:
+                  raise SystemExit(f'FINAL_REAUDIT_FAIL {uid} basic-care blueprint')
+
+          # None of the active batch items may already exist in canonical.
+          c=sqlite3.connect('NCLEX_CANONICAL.db')
+          marks=','.join('?' for _ in UIDS)
+          existing=[r[0] for r in c.execute(f'SELECT question_uid FROM questions WHERE question_uid IN ({marks})',UIDS)]
+          c.close()
+          if existing: raise SystemExit(f'FINAL_REAUDIT_FAIL active UIDs already canonical {existing}')
+
+          print('RULE1_FINAL_REAUDIT_GATE='+json.dumps({
+            'status':'FINAL_REAUDIT_PASS','staging_commit':stage_head,'items_verified':ok,
+            'required_fields_verified':req,'final_options_and_key_verified':json_key,
+            'all_14_gates_verified':gate_ok,'blueprint_mapping_verified':bp_ok,
+            'source_snapshot_pins_verified':pins,'canonical_count':1000,'canonical_integrity':'ok',
+            'canonical_duplicate_uid_groups':0,'source_count':3525,'source_integrity':'ok',
+            'source_duplicate_uid_groups':0,'source_blob':source_blob,'canonical_blob':canon_blob,
+            'canonical_active_uid_count':0,'next_question':'V2-Q1044'
+          },sort_keys=True))
+          PY
