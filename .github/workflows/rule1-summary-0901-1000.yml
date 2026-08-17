@@ -1,0 +1,40 @@
+name: Rule 1 compact audit summary Q0901-Q1000
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-summary-0901-1000.yml'
+permissions:
+  contents: write
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q0901-q1000-staging
+          fetch-depth: 1
+      - name: Build one-line-per-item audit summary from snapshots
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          lines=[]
+          for n in range(901,1001):
+            uid=f'V2-Q{n:04d}'
+            s=json.loads(Path(f'staging_items/{uid}.json').read_text(encoding='utf-8'))
+            r=s['source_row']
+            obj={k:r.get(k) for k in ['question_uid','category_id','client_need','difficulty','stem','item_data_json','correct_answer_json','rationale','source_name','source_detail','source_url','stable_sort_key']}
+            lines.append(json.dumps(obj,ensure_ascii=False,separators=(',',':')))
+          Path('RULE1_AUDIT_SUMMARY_0901_1000.jsonl').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+          print('SUMMARY_LINES',len(lines))
+          PY
+      - name: Commit summary to staging
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add RULE1_AUDIT_SUMMARY_0901_1000.jsonl
+          git commit -m 'Rule 1 add compact audit summary V2-Q0901-V2-Q1000'
+          git push origin HEAD:rule1-q0901-q1000-staging
