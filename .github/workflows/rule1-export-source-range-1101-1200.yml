@@ -1,0 +1,65 @@
+name: Rule 1 state truth and export V2-Q1101-V2-Q1200
+on:
+  push:
+    branches: [rule1-q1101-q1200-staging]
+    paths:
+      - '.github/workflows/rule1-export-source-range-1101-1200.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify SQLite state truth and export source snapshots
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SRC=Path('NCLEX_COMMERCIAL_MASTER_CURRENT.db')
+          CAN=Path('NCLEX_CANONICAL.db')
+          EXPECT_SRC='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECT_CAN='07a46d34cb0bacc50a0abfdeb3853d410b346625'
+          src_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
+          can_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
+          if src_blob!=EXPECT_SRC: raise SystemExit(f'BLOCKED source blob {src_blob}')
+          if can_blob!=EXPECT_CAN: raise SystemExit(f'BLOCKED canonical blob {can_blob}')
+          def inspect(path):
+            con=sqlite3.connect(path); con.row_factory=sqlite3.Row
+            integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+            schema=[dict(r) for r in con.execute('PRAGMA table_info(questions)')]
+            count=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+            dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+            con.close(); return integrity,schema,count,dup
+          si,ss,sc,sd=inspect(SRC); ci,cs,cc,cd=inspect(CAN)
+          if si!='ok' or ci!='ok' or sd or cd: raise SystemExit(f'BLOCKED integrity/duplicates src={si}/{sd} can={ci}/{cd}')
+          if cc!=1100: raise SystemExit(f'BLOCKED canonical count {cc}, expected 1100')
+          src=sqlite3.connect(SRC); src.row_factory=sqlite3.Row
+          src.execute("ATTACH DATABASE 'NCLEX_CANONICAL.db' AS can")
+          first=src.execute('''SELECT s.question_uid,s.stable_sort_key FROM questions s LEFT JOIN can.questions c ON c.question_uid=s.question_uid WHERE c.question_uid IS NULL ORDER BY s.stable_sort_key,s.question_uid LIMIT 1''').fetchone()
+          if first is None: raise SystemExit('BLOCKED no source-minus-canonical item')
+          if first['question_uid']!='V2-Q1101': raise SystemExit(f"BLOCKED first eligible is {first['question_uid']} sort={first['stable_sort_key']}, not V2-Q1101")
+          out=Path('staging_items'); out.mkdir(exist_ok=True)
+          uids=[]
+          for n in range(1101,1201):
+            uid=f'V2-Q{n:04d}'
+            r=src.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+            if r is None: raise SystemExit(f'BLOCKED missing source row {uid}')
+            p={'canonical_blob_expected':EXPECT_CAN,'source_blob_expected':EXPECT_SRC,'source_row':dict(r)}
+            (out/f'{uid}.json').write_text(json.dumps(p,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+            uids.append(uid)
+          src.close()
+          state={'status':'STATE_TRUTH_PASS','branch':'rule1-q1101-q1200-staging','source_blob':src_blob,'canonical_blob':can_blob,'source_integrity':si,'canonical_integrity':ci,'source_count':sc,'canonical_count':cc,'source_duplicate_uid_count':sd,'canonical_duplicate_uid_count':cd,'first_eligible_uid':first['question_uid'],'first_eligible_stable_sort_key':first['stable_sort_key'],'exported_count':len(uids),'range':'V2-Q1101-V2-Q1200'}
+          Path('RULE1_PREFLIGHT_1101_1200.json').write_text(json.dumps(state,indent=2)+'\n')
+          PY
+      - name: Commit source snapshots
+        shell: bash
+        run: |
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_items/V2-Q11*.json staging_items/V2-Q1200.json RULE1_PREFLIGHT_1101_1200.json
+          git commit -m 'Rule 1 source snapshots V2-Q1101-V2-Q1200'
+          git push origin HEAD:rule1-q1101-q1200-staging
