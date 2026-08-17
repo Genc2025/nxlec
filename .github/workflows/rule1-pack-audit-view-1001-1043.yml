@@ -1,0 +1,38 @@
+name: Rule 1 pack audit view V2-Q1001-V2-Q1043
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-pack-audit-view-1001-1043.yml'
+permissions:
+  contents: write
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q1001-q1100-staging
+          fetch-depth: 1
+      - name: Pack current approved items Q1001-Q1043
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          out=[]
+          for n in range(1001,1044):
+              p=Path('approved_items')/f'V2-Q{n:04d}.json'
+              if not p.exists(): raise SystemExit(f'BLOCKED missing {p}')
+              out.append(json.loads(p.read_text(encoding='utf-8')))
+          Path('RULE1_AUDIT_VIEW_1001_1043.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('PACKED',len(out))
+          PY
+      - name: Commit audit view to staging
+        shell: bash
+        run: |
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add RULE1_AUDIT_VIEW_1001_1043.json
+          git commit -m 'Rule 1 pack audit view V2-Q1001-V2-Q1043'
+          git push origin HEAD:rule1-q1001-q1100-staging
