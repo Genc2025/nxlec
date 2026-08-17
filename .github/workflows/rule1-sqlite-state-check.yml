@@ -1,0 +1,53 @@
+name: Rule 1 SQLite state check
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rule1-sqlite-state-check.yml'
+permissions:
+  contents: read
+jobs:
+  sqlite-state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Read real SQLite state
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          source='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          canonical='NCLEX_CANONICAL.db'
+          source_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{source}'],text=True).strip()
+          canonical_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{canonical}'],text=True).strip()
+          def inspect(path):
+              con=sqlite3.connect(path)
+              con.row_factory=sqlite3.Row
+              integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
+              tables=[r['name'] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")]
+              qcount=con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+              dup=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0]
+              cols=[r['name'] for r in con.execute('PRAGMA table_info(questions)')]
+              con.close()
+              return {'integrity':integrity,'tables':tables,'questions':qcount,'duplicate_uid_groups':dup,'question_columns':cols}
+          s=inspect(source); c=inspect(canonical)
+          scon=sqlite3.connect(source); scon.row_factory=sqlite3.Row
+          ccon=sqlite3.connect(canonical); ccon.row_factory=sqlite3.Row
+          cuids={r['question_uid'] for r in ccon.execute('SELECT question_uid FROM questions')}
+          first=None
+          missing_count=0
+          for r in scon.execute('SELECT question_uid,stable_sort_key FROM questions ORDER BY stable_sort_key,question_uid'):
+              if r['question_uid'] not in cuids:
+                  missing_count += 1
+                  if first is None: first=dict(r)
+          scon.close(); ccon.close()
+          print('RULE1_SQLITE_STATE='+json.dumps({
+              'head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+              'source_blob':source_blob,'canonical_blob':canonical_blob,
+              'source':s,'canonical':c,
+              'source_minus_canonical_count':missing_count,
+              'first_source_minus_canonical':first
+          },sort_keys=True))
+          PY
