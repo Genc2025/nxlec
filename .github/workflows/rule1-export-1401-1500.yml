@@ -1,0 +1,73 @@
+name: Rule 1 export V2-Q1401-V2-Q1500
+on:
+  push:
+    branches: [rule1-q1401-1500-staging]
+    paths:
+      - '.github/workflows/rule1-export-1401-1500.yml'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-export-1401-1500
+  cancel-in-progress: false
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Verify pinned blobs and export exact source rows only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          CANON='NCLEX_CANONICAL.db'
+          EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANON='a726c03d59748f9554b7d0f38a6597e90c753223'
+          sb=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          cb=subprocess.check_output(['git','rev-parse',f'HEAD:{CANON}'],text=True).strip()
+          if sb!=EXPECTED_SOURCE: raise SystemExit(f'BLOCKED source blob {sb}')
+          if cb!=EXPECTED_CANON: raise SystemExit(f'BLOCKED canonical blob {cb}')
+          uids=[f'V2-Q{n:04d}' for n in range(1401,1501)]
+          marks=','.join('?' for _ in uids)
+          con=sqlite3.connect(SOURCE); con.row_factory=sqlite3.Row
+          rows=con.execute(f'SELECT * FROM questions WHERE question_uid IN ({marks})',uids).fetchall()
+          con.close()
+          by={r['question_uid']:dict(r) for r in rows}
+          if set(by)!=set(uids) or len(by)!=100:
+            raise SystemExit(f'BLOCKED source UID set/count {len(by)}')
+          for uid in uids:
+            r=by[uid]
+            if r.get('source_bank')!='v2' or r.get('mode')!='standalone':
+              raise SystemExit(f'BLOCKED track mismatch {uid}: {r.get("source_bank")}/{r.get("mode")}')
+          con=sqlite3.connect(CANON)
+          present=con.execute(f'SELECT question_uid FROM questions WHERE question_uid IN ({marks})',uids).fetchall()
+          con.close()
+          if present:
+            raise SystemExit(f'BLOCKED target UID already canonical: {[r[0] for r in present]}')
+          out=Path('/tmp/rule1_q1401_q1500'); out.mkdir(parents=True,exist_ok=True)
+          batch=[]
+          for uid in uids:
+            r=by[uid]
+            snap={'source_blob_expected':EXPECTED_SOURCE,'canonical_blob_expected':EXPECTED_CANON,'source_row':r}
+            (out/f'{uid}.json').write_text(json.dumps(snap,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+            batch.append(snap)
+          Path('/tmp/RULE1_SOURCE_BATCH_1401_1500.json').write_text(json.dumps(batch,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(f'PINNED_BLOBS_PASS source={sb} canonical={cb}')
+          print(f'EXPORTED={len(batch)} FIRST={batch[0]["source_row"]["question_uid"]} LAST={batch[-1]["source_row"]["question_uid"]}')
+          PY
+      - name: Commit snapshots only to this staging branch
+        shell: bash
+        run: |
+          mkdir -p staging_items
+          for f in /tmp/rule1_q1401_q1500/*.json; do b=$(basename "$f"); test ! -e "staging_items/$b" || { echo "BLOCKED overwrite staging_items/$b"; exit 1; }; cp "$f" "staging_items/$b"; done
+          test ! -e RULE1_SOURCE_BATCH_1401_1500.json || { echo 'BLOCKED batch index exists'; exit 1; }
+          cp /tmp/RULE1_SOURCE_BATCH_1401_1500.json .
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add staging_items/V2-Q14*.json staging_items/V2-Q1500.json RULE1_SOURCE_BATCH_1401_1500.json
+          test "$(git diff --cached --name-only | wc -l)" -eq 101
+          git commit -m 'Rule 1 stage source snapshots V2-Q1401-V2-Q1500'
+          git push origin HEAD:rule1-q1401-1500-staging
