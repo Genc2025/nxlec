@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 3
       - name: Verify committed canonical DB on main
         shell: bash
         run: |
@@ -42,15 +42,17 @@ jobs:
           ]
 
           head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-          parent=subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip()
+          if subprocess.run(['git','merge-base','--is-ancestor',BATCH_COMMIT,'HEAD']).returncode != 0:
+            raise SystemExit(f'FINAL_GATE_FAIL: batch commit {BATCH_COMMIT} is not an ancestor of current main')
           canonical_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{CANON}'],text=True).strip()
+          batch_canonical_blob=subprocess.check_output(['git','rev-parse',f'{BATCH_COMMIT}:{CANON}'],text=True).strip()
           source_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
-          if parent != BATCH_COMMIT:
-            raise SystemExit(f'FINAL_GATE_FAIL: final-gate commit parent {parent} != batch commit {BATCH_COMMIT}')
-          if source_blob != SOURCE_BLOB:
-            raise SystemExit(f'FINAL_GATE_FAIL: source blob changed {source_blob}')
+          batch_source_blob=subprocess.check_output(['git','rev-parse',f'{BATCH_COMMIT}:{SOURCE}'],text=True).strip()
+          if canonical_blob != batch_canonical_blob:
+            raise SystemExit(f'FINAL_GATE_FAIL: canonical DB changed after batch commit: current={canonical_blob} batch={batch_canonical_blob}')
+          if source_blob != SOURCE_BLOB or batch_source_blob != SOURCE_BLOB:
+            raise SystemExit(f'FINAL_GATE_FAIL: source blob changed current={source_blob} batch={batch_source_blob}')
 
-          # Source DB remains intact and unchanged.
           scon=sqlite3.connect(SOURCE)
           source_integrity=scon.execute('PRAGMA integrity_check').fetchone()[0]
           source_count=scon.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
@@ -89,7 +91,6 @@ jobs:
             if r['source_db_filename']!='NCLEX_COMMERCIAL_MASTER_CURRENT.db' or r['source_db_blob_sha']!=SOURCE_BLOB:
               raise SystemExit(f'FINAL_GATE_FAIL: {uid} source provenance pin mismatch')
             source_pin_ok += 1
-            # Ensure the four JSON-bearing saved fields are parseable and final item has exactly A-D + valid key.
             item=json.loads(r['item_data_json'])
             ans=json.loads(r['correct_answer_json'])
             json.loads(r['source_original_json'])
@@ -115,26 +116,15 @@ jobs:
             raise SystemExit(f'FINAL_GATE_FAIL: committed batch result mismatch {mismatches}')
 
           out={
-            'status':'FINAL_GATE_PASS',
-            'main_head':head,
-            'batch_commit':BATCH_COMMIT,
-            'canonical_blob_after':canonical_blob,
-            'source_blob':source_blob,
-            'canonical_count':total,
-            'canonical_integrity':integrity,
-            'canonical_duplicate_uid_groups':dup,
-            'batch_uid_count':len(rows),
-            'required_fields_verified':required_ok,
-            'final_qa_pass_verified':final_ok,
-            'independent_second_pass_verified':second_ok,
-            'all_14_gates_verified':gate_ok,
-            'source_provenance_pins_verified':source_pin_ok,
-            'final_item_json_and_key_verified':json_ok,
-            'source_count':source_count,
-            'source_integrity':source_integrity,
-            'source_duplicate_uid_groups':source_dup,
-            'result_file_status':report['status'],
-            'next_question':'V2-Q0901'
+            'status':'FINAL_GATE_PASS','main_head':head,'batch_commit':BATCH_COMMIT,
+            'canonical_blob_after':canonical_blob,'source_blob':source_blob,
+            'canonical_count':total,'canonical_integrity':integrity,'canonical_duplicate_uid_groups':dup,
+            'batch_uid_count':len(rows),'required_fields_verified':required_ok,
+            'final_qa_pass_verified':final_ok,'independent_second_pass_verified':second_ok,
+            'all_14_gates_verified':gate_ok,'source_provenance_pins_verified':source_pin_ok,
+            'final_item_json_and_key_verified':json_ok,'source_count':source_count,
+            'source_integrity':source_integrity,'source_duplicate_uid_groups':source_dup,
+            'result_file_status':report['status'],'next_question':'V2-Q0901'
           }
           print('RULE1_FINAL_GATE='+json.dumps(out,sort_keys=True))
           PY
