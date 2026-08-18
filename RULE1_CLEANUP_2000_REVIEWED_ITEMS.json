@@ -68,6 +68,73 @@
           "NCSBN 2026 blueprint category and exact activity statement confirmed"
         ]
       }
+    },
+    "V2-Q0719": {
+      "status": "FINAL_QA_PASS",
+      "reviewed_date_utc": "2026-08-18",
+      "clinical_category": "Reduction of Risk Potential",
+      "difficulty": "easy",
+      "semantic_correction": {
+        "stem": "A client is receiving intermittent intramuscular gentamicin, and a trough serum gentamicin concentration is ordered. When should the nurse obtain the specimen?",
+        "options": {
+          "A": "Immediately before the next scheduled gentamicin dose.",
+          "B": "Thirty to 60 minutes after an intramuscular gentamicin dose.",
+          "C": "At the midpoint of the dosing interval between two gentamicin doses.",
+          "D": "Shortly after the next scheduled gentamicin dose has been administered."
+        },
+        "correct_option": "A",
+        "rationale": "The current gentamicin drug label states that trough concentrations are monitored using a specimen obtained just prior to the next dose. The same label describes 30 to 60 minutes after an intramuscular dose as peak timing, making option B inappropriate for a trough. Mid-interval collection or collection after the next dose does not match the label’s trough timing. Therefore, option A is the uniquely correct answer.",
+        "educational_objective": "Coordinate a gentamicin trough specimen immediately before the next scheduled dose so the result represents the label-defined trough timing.",
+        "source_organization": "DailyMed (National Library of Medicine), FDA drug labeling",
+        "source_document_title": "Gentamicin Injection, USP",
+        "source_version_date": "Revised October 2025; Effective Time 20251031",
+        "source_accessed_date": "2026-08-18",
+        "source_locator": "DOSAGE AND ADMINISTRATION — Patients with Normal Renal Function — Adults; peak and trough serum concentration monitoring",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=84f6eb1c-a287-489a-8c3e-aa5954cf1992",
+        "source_claim_supported": "For gentamicin, trough concentrations are monitored using a serum specimen obtained just prior to the next dose; 30 to 60 minutes after an intramuscular dose is peak timing.",
+        "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+        "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+        "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 13, Related Activity Statements — Monitor the results of diagnostic testing and intervene as needed; Obtain blood specimens",
+        "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+        "blueprint_topic": "Reduction of Risk Potential — timed therapeutic drug monitoring specimen",
+        "correction_summary_append": "RULE1 cleanup: replaced the unsupported generic trough-timing rule with a medication-specific gentamicin item tied directly to the current DailyMed/FDA label; rebuilt distractors to remove absolute-word cueing and added an exact NCSBN blueprint locator.",
+        "audit_findings_append": [
+          {
+            "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+            "uid": "V2-Q0719",
+            "result": "FINAL_QA_PASS",
+            "source_authority": "DailyMed/FDA drug labeling",
+            "source_locator": "DOSAGE AND ADMINISTRATION — gentamicin peak/trough monitoring",
+            "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+            "blueprint_locator": "Reduction of Risk Potential, printed p. 13 — Monitor diagnostic testing; Obtain blood specimens",
+            "finding": "Original item generalized trough timing across medications and used obvious absolute-word distractors. The item was rebuilt around gentamicin, for which the current drug label directly specifies trough collection just prior to the next dose."
+          }
+        ]
+      },
+      "option_audit": {
+        "A": "Correct. Directly matches the gentamicin label’s trough timing.",
+        "B": "Plausible because it is label-supported gentamicin peak timing after IM administration, but it is not trough timing.",
+        "C": "Plausible timed-level distractor, but the label does not define gentamicin trough collection at the midpoint of the dosing interval.",
+        "D": "Plausible sequencing error, but collection after the next dose does not match label-defined trough timing."
+      },
+      "ambiguity_check": "No second defensible answer; A alone matches the medication-specific label timing for a gentamicin trough.",
+      "cueing_check": "No absolute-word distractors; parallel temporal phrasing; correct option is not the longest; no structural or grammatical cue.",
+      "independent_second_pass": {
+        "result": "FINAL_QA_PASS",
+        "checks": [
+          "current DailyMed/FDA label identified",
+          "label revision/effective time confirmed",
+          "exact DOSAGE AND ADMINISTRATION trough locator confirmed",
+          "all numerical timing claims source-checked",
+          "A/B/C/D re-audited individually",
+          "no second answer identified",
+          "no absolute-word cueing identified",
+          "rationale contains no universal trough rule beyond gentamicin",
+          "educational objective is item-specific",
+          "NCSBN 2026 Reduction of Risk Potential mapping confirmed"
+        ]
+      }
     }
   }
 }
