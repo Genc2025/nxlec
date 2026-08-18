@@ -1,0 +1,73 @@
+{
+  "branch": "rule1-cleanup-2000",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "items": {
+    "V2-Q0712": {
+      "status": "FINAL_QA_PASS",
+      "reviewed_date_utc": "2026-08-18",
+      "clinical_category": "Safety and Infection Prevention and Control",
+      "difficulty": "easy",
+      "semantic_correction": {
+        "stem": "The nurse is selecting a needle for an injectable vaccine. Which set of factors should guide the selection?",
+        "options": {
+          "A": "Route of administration, patient age, sex and weight for adults aged 19 years and older, injection site, and injection technique.",
+          "B": "Vaccine brand, vial presentation, expiration date, the client’s dominant arm, prior injection-site soreness, and dose number in the series.",
+          "C": "Patient age, preferred arm, vaccine manufacturer, vial size, history of post-vaccination fever, and number of vaccines due at the visit.",
+          "D": "Route of administration, injection site, dose schedule, storage temperature, lot number, and whether the vaccine is supplied in a vial or syringe."
+        },
+        "correct_option": "A",
+        "rationale": "CDC vaccine-administration guidance lists route of administration, patient age, sex and weight for adults aged 19 years and older, injection site, and injection technique as the factors on which needle selection should be based; it also directs clinicians to use clinical judgment. Option A contains that set. Options B, C, and D mix some vaccine-administration details with factors that are not part of CDC’s listed needle-selection set, so they do not provide the complete guidance for needle selection.",
+        "educational_objective": "Select a vaccine-administration needle using the CDC factors of route, patient age, adult sex and weight, injection site, and injection technique.",
+        "source_organization": "Centers for Disease Control and Prevention (CDC)",
+        "source_document_title": "Vaccine Administration: During Vaccination",
+        "source_version_date": "June 24, 2025",
+        "source_accessed_date": "2026-08-18",
+        "source_locator": "Needle Selection",
+        "source_url": "https://www.cdc.gov/vaccines/hcp/administration/during.html",
+        "source_claim_supported": "Needle selection for injectable vaccines should be based on route of administration, patient age, sex and weight for adults aged 19 years and older, injection site, and injection technique, with clinical judgment used in selection.",
+        "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+        "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+        "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8, Related Activity Statements — Facilitate appropriate and safe use of equipment",
+        "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+        "blueprint_topic": "Safety and Infection Prevention and Control — safe use of equipment",
+        "correction_summary_append": "RULE1 cleanup: removed absolute-word and implausibility cueing from distractors; aligned the stem and rationale to current CDC needle-selection guidance; normalized the CDC URL/date and exact NCSBN blueprint locator.",
+        "audit_findings_append": [
+          {
+            "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+            "uid": "V2-Q0712",
+            "result": "FINAL_QA_PASS",
+            "source_authority": "CDC",
+            "source_locator": "Needle Selection",
+            "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+            "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8 — Facilitate appropriate and safe use of equipment",
+            "finding": "Original correct answer was source-supported, but the original distractors used obvious absolute/cueing language (every/regardless/only/default) and were not acceptable for final bank quality. Distractors were rebuilt with clinically adjacent vaccine-administration details while retaining one uniquely best answer."
+          }
+        ]
+      },
+      "option_audit": {
+        "A": "Correct. Matches the CDC Needle Selection factor set.",
+        "B": "Plausible vaccine-administration context, but does not match the CDC needle-selection factor set.",
+        "C": "Contains patient age but substitutes other vaccine-care details for the required CDC factors; not a complete needle-selection set.",
+        "D": "Contains route and injection site but substitutes schedule/storage/lot/presentation details and omits required patient and technique factors; not the best answer."
+      },
+      "ambiguity_check": "No second defensible answer after rewrite; A is the only option containing the complete CDC-listed factor set.",
+      "cueing_check": "No absolute-word cueing; no unique grammatical structure; correct option is not the longest; option lengths are comparable without mechanical padding.",
+      "independent_second_pass": {
+        "result": "FINAL_QA_PASS",
+        "checks": [
+          "current CDC authority and page date confirmed",
+          "exact CDC Needle Selection locator confirmed",
+          "correct-answer claim confirmed",
+          "A/B/C/D re-audited individually",
+          "no second answer identified",
+          "no absolute-word cueing identified",
+          "rationale limited to supported claims",
+          "educational objective is item-specific",
+          "NCSBN 2026 blueprint category and exact activity statement confirmed"
+        ]
+      }
+    }
+  }
+}
