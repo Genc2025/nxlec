@@ -1,0 +1,54 @@
+name: Rule 1 export source V2-Q1901-V2-Q2000
+on:
+  push:
+    branches: [rule1-q1901-q2000]
+    paths:
+      - '.github/workflows/rule1-export-source-range-1901-2000.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-q1901-q2000
+          fetch-depth: 1
+          sparse-checkout: |
+            NCLEX_COMMERCIAL_MASTER_CURRENT.db
+            NCLEX_CANONICAL.db
+            .github/workflows/rule1-export-source-range-1901-2000.yml
+          sparse-checkout-cone-mode: false
+      - name: Export source snapshots only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; CANONICAL='NCLEX_CANONICAL.db'
+          EXPECTED_SOURCE_BLOB='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANONICAL_BLOB='0f16bf31458b33b5cb158098190aff2c2e394cb5'
+          source_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          canonical_blob=subprocess.check_output(['git','rev-parse',f'HEAD:{CANONICAL}'],text=True).strip()
+          if source_blob != EXPECTED_SOURCE_BLOB: raise SystemExit(f'BLOCKED: source blob changed: {source_blob}')
+          if canonical_blob != EXPECTED_CANONICAL_BLOB: raise SystemExit(f'BLOCKED: canonical blob changed: {canonical_blob}')
+          con=sqlite3.connect(SOURCE); con.row_factory=sqlite3.Row
+          Path('source_snapshots').mkdir(exist_ok=True)
+          manifest=[]
+          for n in range(1901,2001):
+              uid=f'V2-Q{n:04d}'
+              r=con.execute('SELECT * FROM questions WHERE question_uid=?',(uid,)).fetchone()
+              if r is None: raise SystemExit(f'BLOCKED: missing source row {uid}')
+              bp=con.execute('SELECT * FROM nclex_2026_blueprint WHERE category_id=?',(r['category_id'],)).fetchone()
+              doc={'source_blob_expected':source_blob,'canonical_blob_expected':canonical_blob,'source_row':dict(r),'blueprint_row':dict(bp) if bp else None}
+              Path(f'source_snapshots/{uid}.json').write_text(json.dumps(doc,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+              manifest.append(uid)
+          con.close()
+          Path('RULE1_SOURCE_RANGE_1901_2000.json').write_text(json.dumps({'source_blob':source_blob,'canonical_blob':canonical_blob,'uids':manifest},ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          print(json.dumps({'exported':len(manifest),'first':manifest[0],'last':manifest[-1],'source_blob':source_blob,'canonical_blob':canonical_blob}))
+          PY
+          git config user.name 'Genc2025'
+          git config user.email 'gencgrajqevci23@gmail.com'
+          git add --sparse source_snapshots/V2-Q19*.json source_snapshots/V2-Q2000.json RULE1_SOURCE_RANGE_1901_2000.json
+          git commit -m 'Stage source snapshots V2-Q1901-V2-Q2000'
+          git push origin rule1-q1901-q2000
