@@ -1,8 +1,14 @@
 {
   "question_uid": "V2-Q1784",
+  "source_id": 1784,
+  "source_bank": "v2",
+  "source_table": "questions",
+  "stable_sort_key": "07-STANDALONE-01784",
   "category_id": 8,
   "client_need": "Pharmacological and Parenteral Therapies",
   "difficulty": "medium",
+  "clinical_category": "Oncology pharmacology - docetaxel hematologic safety",
+  "blueprint_topic": "Medication administration / laboratory monitoring",
   "stem": "Before a scheduled cycle of IV docetaxel, the nurse reviews a current CBC showing an absolute neutrophil count of 1,200 cells/mm³. Which action is appropriate?",
   "options": {
     "A": "Do not administer the docetaxel and notify the oncology team because the labeled neutrophil requirement for treatment has not been met.",
@@ -11,25 +17,24 @@
     "D": "Independently reduce the docetaxel dose by half and administer it without contacting the prescribing team."
   },
   "correct_option": "A",
-  "rationale": "The current docetaxel prescribing information states that docetaxel should not be administered to patients with neutrophil counts below 1,500 cells/mm³ and that peripheral blood cell counts should be monitored frequently because neutropenia can be severe and may lead to infection. An ANC of 1,200 cells/mm³ is below the labeled treatment threshold, so the nurse should withhold administration and communicate the result to the oncology team. The nurse should not independently create a new reduced dose or proceed while deferring assessment until fever occurs.",
-  "educational_objective": "Use a current CBC/ANC to determine whether labeled hematologic criteria for docetaxel administration are met and withhold the medication when the neutrophil count is below 1,500 cells/mm³.",
+  "rationale": "A is correct. The current DailyMed docetaxel label states not to administer docetaxel when the neutrophil count is below 1,500 cells/mm³ and directs frequent blood-count monitoring because neutropenia may be severe and result in infection. Section 5.3 also states not to retreat with subsequent cycles until neutrophils recover above 1,500 cells/mm³. An ANC of 1,200 cells/mm³ is below the labeled criterion, so the nurse should withhold administration and notify the oncology team. B and C disregard the explicit ANC-based safety criterion. D is outside the nurse's role because the nurse should not independently invent an antineoplastic dose reduction.",
+  "educational_objective": "Use the current docetaxel label and a pre-treatment ANC to determine whether hematologic criteria for administration are met, withholding the drug and notifying the oncology team when the ANC is below 1,500 cells/mm³.",
   "source_organization": "DailyMed, U.S. National Library of Medicine",
-  "source_document_title": "DOCETAXEL injection, for intravenous use — Full Prescribing Information",
-  "source_version_date": "2026-04-15",
+  "source_document_title": "DOCETAXEL — docetaxel anhydrous injection, solution — Full Prescribing Information",
+  "source_version_date": "Updated 2026-04-15; Revised 4/2026",
   "source_accessed_date": "2026-08-18",
-  "source_locator": "Contraindications, Section 4; Section 5.3, Hematologic Effects; Highlights of Prescribing Information",
+  "source_locator": "Highlights of Prescribing Information — neutropenia bullet; Section 4 CONTRAINDICATIONS — neutrophil counts <1,500 cells/mm³; Section 5.3 Hematologic Effects — frequent peripheral blood counts and no subsequent cycle until neutrophils recover >1,500 cells/mm³.",
   "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2992d633-08fa-44f3-b14d-41700f24686b&version=4",
-  "source_claim_supported": "The April 15, 2026 docetaxel label directs frequent blood-count monitoring and states not to administer docetaxel when the neutrophil count is below 1,500 cells/mm³.",
+  "source_claim_supported": "The current docetaxel label prohibits administration below ANC 1,500 cells/mm³, requires frequent blood-count monitoring, and sets recovery above 1,500 cells/mm³ before subsequent cycles.",
   "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
   "blueprint_document_title": "2026 NCLEX-RN Test Plan",
   "blueprint_version": "Effective April 2026",
-  "blueprint_locator": "Pharmacological and Parenteral Therapies — safe medication administration, monitoring laboratory values related to pharmacologic therapy, and recognizing medication-related risk",
+  "blueprint_locator": "Pharmacological and Parenteral Therapies — providing care related to medication and parenteral therapy administration; related activity statements include evaluating medication-order appropriateness/accuracy and preparing/administering medications using medication-administration rights.",
   "blueprint_url": "https://www.ncsbn.org/publications/2026-nclex-rn-test-plan",
-  "blueprint_topic": "Pharmacological and Parenteral Therapies — hematologic safety assessment before docetaxel administration",
-  "correction_summary": "Rebuilt the generic 'CBC before each chemotherapy cycle' item into a docetaxel-specific administration decision supported directly by the current FDA label. Removed the unsupported universal claim that every chemotherapy regimen uses the same pre-cycle CBC rule, anchored the action to the labeled ANC threshold, preserved prescribing-scope boundaries, and remapped the item from Reduction of Risk Potential to Pharmacological and Parenteral Therapies.",
+  "correction_summary": "Rebuilt the generic chemotherapy-CBC item into a docetaxel-specific medication-safety decision anchored to the current DailyMed label, eliminating an unsupported universal pre-cycle rule and remapping the construct to Pharmacological and Parenteral Therapies.",
   "audit_status": "FINAL_QA_PASS",
   "second_pass_status": "PASS",
-  "audit_date_utc": "2026-08-18T09:48:00Z",
+  "audit_date_utc": "2026-08-18T09:55:00Z",
   "audit_reviewer": "OpenAI GPT-5.6 Sol",
   "gates": {
     "source_authority_verified": 1,
@@ -48,10 +53,10 @@
     "no_unresolved_conflict": 1
   },
   "audit_findings": [
-    "Original item broadly asserted that CBC review before every chemotherapy cycle is essential across regimens, which is too generic for exact label-level verification.",
-    "Fresh DailyMed review of the April 15, 2026 docetaxel label directly supports frequent blood counts and a do-not-administer neutrophil threshold below 1,500 cells/mm³.",
-    "The final item tests an actual medication-safety decision using an ANC below the explicit threshold rather than vague marrow-suppression knowledge.",
-    "RN scope is preserved: the nurse withholds and reports rather than independently selecting a reduced antineoplastic dose.",
-    "Independent adversarial review found one uniquely correct action with no ambiguity, second answer, cueing, unsupported universal CBC rule, or unresolved source conflict."
+    "DailyMed label currentness verified directly: page updated 2026-04-15 and revised 4/2026.",
+    "The ANC value 1,200 cells/mm³ is unambiguously below the label's 1,500 cells/mm³ administration threshold.",
+    "The key preserves nursing scope by withholding and notifying rather than independently changing the chemotherapy dose.",
+    "Distractors are realistic medication-safety errors and none is defensible under the label.",
+    "Independent adversarial review found no second answer, cueing, unsupported universal chemotherapy rule, threshold error, source-locator defect, or unresolved conflict."
   ]
 }
