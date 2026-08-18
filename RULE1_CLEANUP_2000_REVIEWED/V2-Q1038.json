@@ -1,0 +1,89 @@
+{
+  "question_uid": "V2-Q1038",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "STEM_DISTRACTOR_AND_SOURCE_REAUDIT",
+  "near_duplicate_resolution": {
+    "paired_uid": "V2-Q0886",
+    "resolution": "Retain V2-Q1038 as the bank's fasting-plasma-glucose diabetes-criterion/confirmation item after cueing correction. V2-Q0886 will be rebuilt into a different Reduction of Risk Potential construct rather than retaining a second fasting-glucose threshold item."
+  },
+  "semantic_correction": {
+    "stem": "A nonpregnant adult without classic hyperglycemic symptoms or hyperglycemic crisis has a fasting plasma glucose of 250 mg/dL after at least 8 hours without caloric intake. Which interpretation is most accurate?",
+    "options": {
+      "A": "The value meets the fasting-plasma-glucose criterion for diabetes, but confirmatory testing is still needed because unequivocal hyperglycemia is absent.",
+      "B": "The value belongs to the impaired-fasting-glucose range, so repeat testing should focus on confirming prediabetes rather than diabetes.",
+      "C": "The value is above the fasting criterion, and this single result is sufficient for diagnosis even without classic symptoms or hyperglycemic crisis.",
+      "D": "The result should be interpreted with the 2-hour oral-glucose-tolerance cut point because fasting plasma glucose is not a diagnostic test."
+    },
+    "correct_option": "A",
+    "rationale": "The ADA Standards of Care in Diabetes—2026 define fasting as no caloric intake for at least 8 hours and list fasting plasma glucose of at least 126 mg/dL as a diagnostic criterion for diabetes in nonpregnant individuals. The client's value of 250 mg/dL therefore exceeds that criterion. However, ADA Recommendation 2.1b and Table 2.1 state that in the absence of unequivocal hyperglycemia, diagnosis requires confirmatory testing. Option A is therefore correct. Option B is incorrect because impaired fasting glucose is 100–125 mg/dL. Option C omits the required confirmation in this explicitly asymptomatic/non-crisis scenario. Option D is incorrect because fasting plasma glucose itself is an accepted diagnostic test and is distinct from the 2-hour OGTT criterion.",
+    "educational_objective": "Interpret an elevated fasting plasma glucose using current ADA diagnostic criteria and recognize when confirmatory testing is required before establishing diabetes.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "2. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes—2026",
+    "source_version_date": "Published December 8, 2025; Diabetes Care 2026;49(Supplement 1):S27–S49",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Diagnostic Tests for Diabetes — Table 2.1; Recommendations 2.1a and 2.1b; Confirming the Diagnosis",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes",
+    "source_claim_supported": "FPG ≥126 mg/dL after at least 8 hours without caloric intake meets a diabetes diagnostic criterion in nonpregnant individuals; FPG 100–125 mg/dL defines impaired fasting glucose/prediabetes; in the absence of unequivocal hyperglycemia, diagnosis requires confirmatory testing.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p. 13 / PDF p. 17, Related Activity Statements — Monitor the results of diagnostic testing and intervene as needed; Monitor the results of laboratory tests and intervene as needed",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — fasting plasma glucose interpretation and confirmation",
+    "correction_summary_append": "RULE1 cleanup: retained the clinically valid fasting-plasma-glucose diagnostic construct but removed conspicuous answer-length cueing, made the absence of unequivocal hyperglycemia explicit, rebuilt all distractors around current ADA diagnostic rules, and refreshed the exact source and NCSBN locators.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1038",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUEING_AND_NEAR_DUPLICATE_OVERLAP",
+        "paired_uid": "V2-Q0886",
+        "finding": "The original answer was source-supported but substantially longer than the distractors, and the item duplicated V2-Q0886's fasting-glucose interpretation task. Q1038 was retained as the higher-value diabetes-threshold/confirmation construct; Q0886 must move to distinct coverage.",
+        "source_authority": "ADA Standards of Care in Diabetes—2026",
+        "source_locator": "Table 2.1; Recommendations 2.1a/2.1b; Confirming the Diagnosis",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 13 / PDF p. 17"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. The FPG exceeds 126 mg/dL, but the stem explicitly excludes unequivocal hyperglycemia, so ADA requires confirmation.",
+    "B": "Plausible threshold-classification error, but 250 mg/dL is not in the ADA impaired-fasting-glucose range of 100–125 mg/dL.",
+    "C": "Plausible because the value is markedly elevated, but magnitude alone does not remove the confirmation requirement in the asymptomatic/non-crisis scenario given.",
+    "D": "Plausible test-confusion distractor, but FPG and 2-hour OGTT are separate accepted ADA diagnostic tests with separate cut points."
+  },
+  "ambiguity_check": "No second defensible answer. The stem explicitly states absence of classic symptoms and hyperglycemic crisis, so A alone applies both the FPG threshold and the ADA confirmation rule correctly.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 152, "B": 135, "C": 147, "D": 138},
+    "note": "All choices are full diagnostic interpretations of comparable length; the correct option is not uniquely detailed and no filler was added for mechanical equality."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The item requires interpretation of an abnormal laboratory result and recognition of needed diagnostic follow-up, directly aligned to Reduction of Risk Potential.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "ADA 2026 article publication/currentness verified",
+      "FPG ≥126 mg/dL diabetes criterion verified directly",
+      "fasting definition of at least 8 hours verified directly",
+      "FPG 100–125 mg/dL prediabetes range verified directly",
+      "Recommendation 2.1b confirmation rule verified directly",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official NCSBN Reduction of Risk Potential locator retained from the verified 2026 test plan",
+      "construct will remain distinct from rebuilt V2-Q0886",
+      "educational objective is item-specific"
+    ]
+  }
+}
