@@ -1,0 +1,76 @@
+name: Rule 1 reconcile V2-Q1801-V2-Q1900
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: write
+concurrency:
+  group: rule1-canonical-main
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    if: github.head_ref == 'rule1-finalize-1801-1900-trigger'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Checkout staging branch for exact extra snapshots
+        uses: actions/checkout@v4
+        with:
+          ref: staging/rule1-v2-q1801-q1900
+          path: stagewrite
+          fetch-depth: 1
+      - name: Reconcile exact eligible sequence and export only additional rows
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SRC='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; CAN='NCLEX_CANONICAL.db'
+          ES='07e335d471ef1b4689406ba41eb98eaa2ca41472'; EC='d4fe487466cf7340702cb19a4069670228b9f2d4'
+          sb=subprocess.check_output(['git','rev-parse',f'HEAD:{SRC}'],text=True).strip(); cb=subprocess.check_output(['git','rev-parse',f'HEAD:{CAN}'],text=True).strip()
+          if sb!=ES or cb!=EC: raise SystemExit(f'BLOCKED blob drift source={sb} canonical={cb}')
+          s=sqlite3.connect(SRC); s.row_factory=sqlite3.Row
+          c=sqlite3.connect(CAN); c.row_factory=sqlite3.Row
+          if s.execute('PRAGMA integrity_check').fetchone()[0]!='ok' or c.execute('PRAGMA integrity_check').fetchone()[0]!='ok': raise SystemExit('BLOCKED integrity')
+          if s.execute('SELECT COUNT(*) FROM questions').fetchone()[0]!=3525 or c.execute('SELECT COUNT(*) FROM questions').fetchone()[0]!=1800: raise SystemExit('BLOCKED count')
+          canon={r[0] for r in c.execute('SELECT question_uid FROM questions')}; c.close()
+          eligible=[]
+          for r in s.execute("SELECT * FROM questions WHERE source_bank='v2' AND mode='standalone' ORDER BY stable_sort_key,question_uid"):
+              if r['question_uid'] not in canon:
+                  eligible.append(dict(r))
+                  if len(eligible)==100: break
+          if len(eligible)!=100: raise SystemExit(f'BLOCKED only {len(eligible)} eligible')
+          audited={f'V2-Q{n:04d}' for n in range(1801,1901)}
+          existing_overlap=sorted(audited & canon)
+          eligible_uids=[r['question_uid'] for r in eligible]
+          covered=[u for u in eligible_uids if u in audited]
+          extra=[u for u in eligible_uids if u not in audited]
+          if len(existing_overlap)+len(covered)!=100: raise SystemExit(f'BLOCKED reconciliation overlap={len(existing_overlap)} covered={len(covered)}')
+          if len(extra)!=len(existing_overlap): raise SystemExit(f'BLOCKED extra mismatch overlap={len(existing_overlap)} extra={len(extra)}')
+          by={r['question_uid']:r for r in eligible}
+          out=Path('stagewrite/extra_source_snapshots'); out.mkdir(exist_ok=True)
+          for uid in extra:
+              p=out/f'{uid}.json'
+              p.write_text(json.dumps({'source_blob_expected':ES,'source_row':by[uid]},ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+          state={'status':'RECONCILED','canonical_count':1800,'canonical_blob':cb,'source_blob':sb,'existing_overlap':existing_overlap,'existing_overlap_count':len(existing_overlap),'next_100_eligible':eligible_uids,'audited_new_covered':covered,'audited_new_covered_count':len(covered),'extra_needed':extra,'extra_needed_count':len(extra)}
+          Path('stagewrite/RULE1_RECONCILE_1801_1900.json').write_text(json.dumps(state,indent=2)+'\n',encoding='utf-8')
+          print('RULE1_RECONCILE='+json.dumps(state,sort_keys=True))
+          s.close()
+          PY
+      - name: Persist reconciliation and extra source snapshots to staging only
+        working-directory: stagewrite
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_RECONCILE_1801_1900.json extra_source_snapshots
+          git diff --cached --quiet && { echo 'BLOCKED no reconciliation changes'; exit 1; }
+          git commit -m 'RULE1 reconcile overlap and export additional eligible source snapshots'
+          git push origin HEAD:staging/rule1-v2-q1801-q1900
