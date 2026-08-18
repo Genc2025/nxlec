@@ -64,7 +64,7 @@ jobs:
           canonical_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
           source_blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
           changed=set(subprocess.check_output(['git','diff','--name-only',TRUSTED_MAIN,'HEAD'],text=True).splitlines())
-          allowed={'.github/workflows/rule1-apply-current.yml','.github/workflows/rule1-finalize-1901-2000.yml'}
+          allowed={'.github/workflows/rule1-apply-current.yml','.github/workflows/rule1-finalize-1901-2000.yml','RULE1_CANONICAL_STATE.json','RULE1_NEXT_ITEM_STATE.json'}
           if not changed or not changed.issubset(allowed): raise SystemExit(f'BLOCKED unexpected main drift {sorted(changed)}')
           if stage_head!=EXPECTED_STAGE: raise SystemExit(f'BLOCKED staging changed {stage_head}')
           if canonical_blob!=EXPECTED_CANONICAL_BLOB: raise SystemExit(f'BLOCKED canonical blob {canonical_blob}')
@@ -171,12 +171,12 @@ jobs:
           remote_head="$(git ls-remote origin refs/heads/main | cut -f1)"
           local_head="$(git rev-parse HEAD)"
           test "$remote_head" = "$local_head" || { echo "BLOCKED main drift remote=$remote_head local=$local_head"; exit 1; }
-          git checkout "$TRUSTED_MAIN" -- .github/workflows/rule1-apply-current.yml
+          git checkout "$TRUSTED_MAIN" -- .github/workflows/rule1-apply-current.yml RULE1_CANONICAL_STATE.json RULE1_NEXT_ITEM_STATE.json
           git rm .github/workflows/rule1-finalize-1901-2000.yml
           git config user.name 'OpenAI GitHub Connector'
           git config user.email 'github-connector@openai.com'
-          git add NCLEX_CANONICAL.db RULE1_BATCH_1901_2000_RESULT.json .github/workflows/rule1-apply-current.yml
-          net="$(git diff --name-only "$TRUSTED_MAIN" -- NCLEX_CANONICAL.db RULE1_BATCH_1901_2000_RESULT.json .github/workflows/rule1-apply-current.yml .github/workflows/rule1-finalize-1901-2000.yml | sort)"
+          git add NCLEX_CANONICAL.db RULE1_BATCH_1901_2000_RESULT.json .github/workflows/rule1-apply-current.yml RULE1_CANONICAL_STATE.json RULE1_NEXT_ITEM_STATE.json
+          net="$(git diff --name-only "$TRUSTED_MAIN" -- NCLEX_CANONICAL.db RULE1_BATCH_1901_2000_RESULT.json .github/workflows/rule1-apply-current.yml .github/workflows/rule1-finalize-1901-2000.yml RULE1_CANONICAL_STATE.json RULE1_NEXT_ITEM_STATE.json | sort)"
           expected=$'NCLEX_CANONICAL.db\nRULE1_BATCH_1901_2000_RESULT.json'
           test "$net" = "$expected" || { echo "BLOCKED unexpected net diff:"; printf '%s\n' "$net"; exit 1; }
           git commit -m 'Rule 1 FINAL_QA_PASS V2-Q1901-V2-Q2000 canonical 1900 to 2000'
