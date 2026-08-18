@@ -1,0 +1,87 @@
+{
+  "question_uid": "V2-Q0073",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "STEM_DISTRACTOR_AND_SOURCE_REAUDIT",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "A nurse identifies a potential medication-safety concern after reviewing new client data. The nurse asks the prescriber to clarify the order. The prescriber reviews the concern but keeps the order unchanged, and the nurse still believes carrying out the order could harm the client. What should the nurse do next?",
+    "options": {
+      "A": "Restate the concern assertively with the relevant data and, if it remains unresolved, involve the supervisor and use the chain of command before proceeding.",
+      "B": "Document the prescriber’s response, carry out the order as written, and submit the safety concern for review after the medication has been given.",
+      "C": "Ask another nurse to review the order and proceed if that nurse sees no problem, while documenting that the prescriber was already contacted.",
+      "D": "Delay the order until the next shift and give a detailed handoff so the oncoming nurse can decide whether additional escalation is needed."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ TeamSTEPPS states that team members should challenge a colleague when clarification has been requested but the response does not ease concern about potential patient harm. Under the Two-Challenge Rule, the challenger assertively voices the concern at least twice; if the outcome remains unacceptable, the challenger takes a stronger course of action and should turn to the supervisor and move up the chain of command if necessary. Option A follows that process. Option B proceeds despite an unresolved safety concern and postpones escalation. Option C substitutes a coworker’s informal agreement for resolution of the safety concern and the escalation process. Option D defers a current safety issue to the next shift rather than resolving or escalating it now. Therefore A is the uniquely best answer.",
+    "educational_objective": "Escalate an unresolved patient-safety concern by restating it assertively and using supervisory or chain-of-command resources when the concern remains unresolved.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ), TeamSTEPPS 3.0",
+    "source_document_title": "Tool: Two-Challenge Rule",
+    "source_version_date": "Content last reviewed May 2023; current AHRQ page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Tool: Two-Challenge Rule — clinical-environment indication; actions when the initial assertion is ignored; stronger course of action; supervisor and chain of command",
+    "source_url": "https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/rule.html",
+    "source_claim_supported": "When clarification does not ease concern about potential patient harm, AHRQ's Two-Challenge Rule calls for assertively voicing the concern at least twice and, if the outcome remains unacceptable, taking a stronger action, including turning to a supervisor and moving up the chain of command if necessary.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Receive, verify and implement health care provider orders; Advocate for client rights and needs; Recognize limitations of self and others and utilize resources; Utilize resources to promote quality client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — escalation of unresolved patient-safety concerns",
+    "correction_summary_append": "RULE1 cleanup: removed the absolute-word distractor and eliminated unnecessary renal-specific wording that could imply an unsourced medication/dose rule. The item was rebuilt around the AHRQ Two-Challenge Rule with four plausible actions, exact escalation language, and a verified 2026 NCSBN Management of Care locator.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0073",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_UNNECESSARY_UNSOURCED_PHARMACOLOGIC_CONTEXT",
+        "finding": "The original item had a valid escalation concept but used an absolute-word distractor and unnecessary renal-dose context without identifying a drug or source for a renal dosing claim. The revised item tests only the source-supported safety-escalation process.",
+        "source_authority": "AHRQ TeamSTEPPS 3.0",
+        "source_locator": "Tool: Two-Challenge Rule — repeat challenge; stronger action; supervisor/chain of command",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — verify provider orders; advocate; utilize resources"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It matches the AHRQ sequence of reasserting an unresolved safety concern and escalating through supervisory/chain-of-command resources if necessary.",
+    "B": "Plausible documentation/reporting behavior, but it carries out the questioned order while the safety concern remains unresolved and postpones the real-time escalation AHRQ describes.",
+    "C": "Plausible use of a peer as a resource, but a coworker's reassurance does not replace resolution with the decision maker or escalation of a persistent safety concern.",
+    "D": "Plausible handoff strategy, but it defers a present safety problem rather than using the current escalation process to resolve it."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone follows the complete AHRQ Two-Challenge sequence for a concern that remains unresolved after clarification; B, C, and D each leave the current concern unresolved or defer appropriate escalation.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 150, "B": 137, "C": 132, "D": 129},
+    "note": "All four options are realistic next-step actions of comparable scope. The correct answer is moderately longer because it contains the source-required two-stage action, but it is not uniquely verbose or padded; the distractors are complete actions rather than fragments."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The newly licensed RN must verify provider orders, advocate for client safety, recognize limitations, and use resources when a concern remains unresolved.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ TeamSTEPPS Two-Challenge Rule page verified",
+      "May 2023 content-review date verified",
+      "indication after clarification fails to ease concern verified directly",
+      "repeat assertive challenge requirement verified directly",
+      "stronger-course-of-action requirement verified directly",
+      "supervisor/chain-of-command escalation verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility, overlap and second-answer risk",
+      "no second defensible answer identified",
+      "no absolute-word or grammatical cue identified",
+      "no medication-specific dose or renal threshold claim remains",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact provider-order/advocacy/resource activity statements verified",
+      "educational objective is item-specific"
+    ]
+  }
+}
