@@ -1,0 +1,32 @@
+name: RULE1 cleanup candidate scan 2000
+on:
+  push:
+    branches: [rule1-cleanup-2000]
+    paths:
+      - 'tools/rule1_cleanup_candidate_scan.py'
+      - '.github/workflows/rule1-cleanup-candidate-scan.yml'
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+          fetch-depth: 0
+      - name: Run read-only candidate scan
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_cleanup_candidate_scan.py
+      - name: Commit scan evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_CLEANUP_2000_SCAN_SUMMARY.json RULE1_CLEANUP_2000_CANDIDATES.jsonl RULE1_CLEANUP_2000_NEAR_DUPLICATES.jsonl RULE1_CLEANUP_2000_LOCATOR_CANDIDATES.jsonl
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'RULE1 materialize read-only cleanup candidate scan'
+          git push origin HEAD:rule1-cleanup-2000
