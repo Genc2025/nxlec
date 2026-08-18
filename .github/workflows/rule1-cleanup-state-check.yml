@@ -1,0 +1,67 @@
+name: RULE1 cleanup SQLite state check
+on:
+  push:
+    branches: [rule1-cleanup-2000]
+    paths:
+      - '.github/workflows/rule1-cleanup-state-check.yml'
+permissions:
+  contents: write
+jobs:
+  state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+          fetch-depth: 0
+      - name: Read both SQLite databases
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,sqlite3,subprocess
+          from pathlib import Path
+          source='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; canonical='NCLEX_CANONICAL.db'
+          def inspect(path):
+              con=sqlite3.connect(f'file:{path}?mode=ro',uri=True); con.row_factory=sqlite3.Row
+              out={
+                'integrity':con.execute('PRAGMA integrity_check').fetchone()[0],
+                'tables':[r['name'] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")],
+                'questions':con.execute('SELECT COUNT(*) FROM questions').fetchone()[0],
+                'duplicate_uid_groups':con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) c FROM questions GROUP BY question_uid HAVING c>1)').fetchone()[0],
+                'question_columns':[r['name'] for r in con.execute('PRAGMA table_info(questions)')]
+              }
+              con.close(); return out
+          s=inspect(source); c=inspect(canonical)
+          scon=sqlite3.connect(f'file:{source}?mode=ro',uri=True); scon.row_factory=sqlite3.Row
+          ccon=sqlite3.connect(f'file:{canonical}?mode=ro',uri=True); ccon.row_factory=sqlite3.Row
+          cuids={r['question_uid'] for r in ccon.execute('SELECT question_uid FROM questions')}
+          v2=list(scon.execute("SELECT question_uid,stable_sort_key FROM questions WHERE source_bank='v2' ORDER BY stable_sort_key,question_uid"))
+          missing=[dict(r) for r in v2 if r['question_uid'] not in cuids]
+          payload={
+            'status':'READ_ONLY_SQLITE_STATE_VERIFIED',
+            'branch':'rule1-cleanup-2000',
+            'head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'source_blob':subprocess.check_output(['git','rev-parse',f'HEAD:{source}'],text=True).strip(),
+            'canonical_blob':subprocess.check_output(['git','rev-parse',f'HEAD:{canonical}'],text=True).strip(),
+            'source':s,'canonical':c,
+            'eligibility_filter':"source_bank='v2'",
+            'v2_source_count':len(v2),
+            'v2_canonical_count':ccon.execute("SELECT COUNT(*) FROM questions WHERE source_bank='v2'").fetchone()[0],
+            'v2_source_minus_canonical_count':len(missing),
+            'first_v2_source_minus_canonical':missing[0] if missing else None
+          }
+          scon.close(); ccon.close()
+          Path('RULE1_CLEANUP_2000_SQLITE_STATE.json').write_text(json.dumps(payload,indent=2,sort_keys=True)+'\n')
+          print('RULE1_SQLITE_STATE='+json.dumps(payload,sort_keys=True,separators=(',',':')))
+          PY
+      - name: Commit state evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_CLEANUP_2000_SQLITE_STATE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'RULE1 materialize cleanup SQLite state'
+          git push origin HEAD:rule1-cleanup-2000
