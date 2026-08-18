@@ -1,0 +1,117 @@
+{
+  "review_type": "READ_ONLY_BANK_LEVEL_REVIEW",
+  "canonical_blob_reviewed": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_blob_reviewed": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "canonical": {
+    "count": 2000,
+    "integrity": "ok",
+    "duplicate_uid_count": 0,
+    "duplicate_stable_sort_key_groups": 0,
+    "final_qa_pass": "2000/2000",
+    "independent_second_pass": "2000/2000",
+    "all_14_gates": "2000/2000",
+    "required_field_missing": 0,
+    "malformed_correct_answer": 0,
+    "malformed_options": 0,
+    "exact_duplicate_stem_groups": 0,
+    "normalized_duplicate_stem_groups": 0,
+    "exact_stem_plus_options_duplicate_groups": 0,
+    "unique_blueprint_topics": 1650,
+    "mode": {"standalone": 2000},
+    "item_type_raw": {"multiple_choice": 2000},
+    "cjmm_skill": {"NULL": 2000},
+    "case_item_count": 0,
+    "distinct_case_uid_count": 0,
+    "official_case_slot_count": 0,
+    "correct_option_counts": {"A": 1256, "B": 329, "C": 226, "D": 189},
+    "correct_option_percent": {"A": 62.8, "B": 16.45, "C": 11.3, "D": 9.45},
+    "longest_same_key_run": {"option": "A", "length": 161, "from_uid": "V2-Q1618", "to_uid": "V2-Q1778"},
+    "correct_is_unique_longest_option": {"count": 1148, "percent": 57.4},
+    "correct_without_absolute_but_distractor_has_absolute": {"count": 793, "percent": 39.65},
+    "client_need_counts_raw": {
+      "Management of Care": 313,
+      "Safety & Infection Prevention and Control": 247,
+      "Safety and Infection Prevention and Control": 38,
+      "Health Promotion and Maintenance": 139,
+      "Psychosocial Integrity": 124,
+      "Basic Care and Comfort": 105,
+      "Pharmacological and Parenteral Therapies": 435,
+      "Reduction of Risk Potential": 282,
+      "Physiological Adaptation": 317
+    },
+    "client_need_percent_after_safety_name_normalization": {
+      "Management of Care": 15.65,
+      "Safety and Infection Prevention and Control": 14.25,
+      "Health Promotion and Maintenance": 6.95,
+      "Psychosocial Integrity": 6.2,
+      "Basic Care and Comfort": 5.25,
+      "Pharmacological and Parenteral Therapies": 21.75,
+      "Reduction of Risk Potential": 14.1,
+      "Physiological Adaptation": 15.85
+    },
+    "difficulty_counts": {"easy": 588, "medium": 899, "moderate": 289, "hard": 224},
+    "blueprint_document_title_variants": {"2026 NCLEX-RN Test Plan": 1941, "2026 NCLEX-RN® Test Plan": 59},
+    "short_source_locator_uids": ["V2-Q0970", "V2-Q0972", "V2-Q0712", "V2-Q0719", "V2-Q0984"],
+    "near_semantic_duplicate_review_candidates": [
+      ["V2-Q0239", "V2-Q1468"],
+      ["V2-Q0231", "V2-Q1159"],
+      ["V2-Q0679", "V2-Q1934"],
+      ["V2-Q1944", "V2-Q1028"],
+      ["V2-Q1912", "V2-Q0442"],
+      ["V2-Q0653", "V2-Q1387"],
+      ["V2-Q0941", "V2-Q1568"]
+    ]
+  },
+  "source_remainder": {
+    "source_total": 3525,
+    "remaining_total": 1525,
+    "remaining_mode": {"case_study": 525, "standalone": 1000},
+    "remaining_case_item_count": 525,
+    "remaining_distinct_case_uid_count": 75,
+    "remaining_official_case_slot_count": 525,
+    "remaining_item_types": {
+      "highlight": 75,
+      "extended_multiple_response": 75,
+      "matrix_grid": 75,
+      "bowtie": 75,
+      "cloze_dropdown": 75,
+      "extended_drag_drop": 75,
+      "trend": 75,
+      "multiple_choice": 1000
+    },
+    "remaining_cjmm_skills": {
+      "Recognize Cues": 150,
+      "Analyze Cues": 75,
+      "Prioritize Hypotheses": 75,
+      "Generate Solutions": 75,
+      "Take Actions": 75,
+      "Evaluate Outcomes": 75,
+      "NULL": 1000
+    },
+    "remaining_client_need_counts": {
+      "Management of Care": 262,
+      "Safety & Infection Prevention and Control": 99,
+      "Health Promotion and Maintenance": 164,
+      "Psychosocial Integrity": 183,
+      "Basic Care and Comfort": 124,
+      "Pharmacological and Parenteral Therapies": 115,
+      "Reduction of Risk Potential": 142,
+      "Physiological Adaptation": 436
+    }
+  },
+  "interpretation": {
+    "item_level_evidence_qa": "STRONG",
+    "technical_integrity": "STRONG",
+    "complete_modern_nclex_bank_10_of_10_now": false,
+    "main_reasons": [
+      "The first 2000 canonical items contain no case-study/NGN/CJMM items yet.",
+      "Stored answer positions are heavily biased toward A unless the delivery layer independently shuffles choices with correct-key remapping.",
+      "Option-length and absolute-word patterns show bank-level cueing signatures that require semantic review, especially later batches.",
+      "Client Need metadata has one naming inconsistency and the first-2000 pool is Basic-Care-light and Pharmacology-heavy relative to 2026 exam ranges; exam-level sampling should enforce the official blueprint rather than assuming the bank itself is an exam form.",
+      "Difficulty and blueprint-version metadata use equivalent but inconsistent labels.",
+      "Several near-semantic duplicate pairs should be reviewed to maximize unique coverage."
+    ],
+    "direction_after_remainder_scan": "RECOVERABLE_AND_GOOD_IF_NGN_IS_PRIORITIZED_NEXT",
+    "recommended_next_step": "Do not blindly continue the next 1000 standalone MCQs. Audit and integrate the 75 remaining NGN case studies (525 items) under RULE 1, then continue standalone items with bank-level anti-cueing and blueprint-balancing gates."
+  }
+}
