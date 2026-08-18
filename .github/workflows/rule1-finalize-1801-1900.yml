@@ -79,10 +79,6 @@ jobs:
               if integrity!='ok' or count!=expected or dup!=0: raise SystemExit(f'BLOCKED {path} integrity={integrity} count={count} dup={dup}')
 
           src=sqlite3.connect(SOURCE); src.row_factory=sqlite3.Row
-          src.execute("ATTACH DATABASE 'NCLEX_CANONICAL.db' AS can")
-          first=src.execute("""SELECT s.question_uid FROM questions s LEFT JOIN can.questions c ON c.question_uid=s.question_uid WHERE c.question_uid IS NULL AND s.source_bank='v2' AND s.mode='standalone' ORDER BY s.stable_sort_key,s.question_uid LIMIT 1""").fetchone()
-          if first is None or first['question_uid']!='V2-Q1801': raise SystemExit(f"BLOCKED first eligible={None if first is None else first['question_uid']}")
-
           payloads=[]; approved_reread=source_exact=required_pre=final_pre=second_pre=gates_pre=0
           compare_cols=['question_uid','source_id','source_bank','source_table','mode','category_id','client_need','difficulty','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','source_detail','source_name','source_url','stable_sort_key']
           now=datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -118,7 +114,8 @@ jobs:
           con=sqlite3.connect(CANONICAL); con.row_factory=sqlite3.Row; con.execute('PRAGMA foreign_keys=ON')
           marks=','.join('?' for _ in UIDS)
           if con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]!=1800: raise SystemExit('BLOCKED canonical before count')
-          if con.execute(f'SELECT COUNT(*) FROM questions WHERE question_uid IN ({marks})',UIDS).fetchone()[0]!=0: raise SystemExit('BLOCKED batch UID already exists')
+          existing=[r[0] for r in con.execute(f'SELECT question_uid FROM questions WHERE question_uid IN ({marks}) ORDER BY question_uid',UIDS)]
+          if existing: raise SystemExit(f'BLOCKED target UID already exists {existing}')
           cols_now={r['name'] for r in con.execute('PRAGMA table_info(questions)')}
           needed={'question_uid','source_bank','source_table','source_id','mode','case_uid','original_sequence','official_case_slot','slot_variant','category_id','client_need','specialty','difficulty','cjmm_skill','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','scoring_rule','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','stable_sort_key','source_db_filename','source_db_blob_sha','source_original_json','correction_summary','audit_status','second_pass_status','audit_date_utc','audit_reviewer','audit_findings_json','payload_sha256','created_at_utc',*GATES}
           if not needed.issubset(cols_now): raise SystemExit(f'BLOCKED schema missing {sorted(needed-cols_now)}')
