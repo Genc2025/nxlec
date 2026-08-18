@@ -1,0 +1,86 @@
+{
+  "question_uid": "V2-Q0074",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DOCUMENTATION_PRECISION_FULL_CONSTRUCT_REBUILD",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "A hospitalized client falls while walking to the bathroom and sustains a small laceration. After assessing the client and providing immediate care, which nursing documentation is most appropriate in the health record?",
+    "options": {
+      "A": "Promptly document the post-fall assessment, laceration findings, treatment provided, client response, and data needed to monitor the condition.",
+      "B": "Wait for risk-management review before charting so the health-record entry reflects the organization’s final determination of why the fall occurred.",
+      "C": "Enter a brief note that a safety-event form was submitted and place the assessment and treatment details in the event-reporting system.",
+      "D": "Document the presumed cause of the fall first, then add the assessment and treatment details after the investigation confirms the cause."
+    },
+    "correct_option": "A",
+    "rationale": "Current 42 CFR 482.24 requires hospital medical records to be accurately written and promptly completed. Medical-record entries must be complete, dated, timed, and authenticated, and the record must include nursing notes, reports of treatment, vital signs, and other information necessary to monitor the patient's condition. Option A therefore best reflects appropriate clinical documentation after the fall. Option B delays documentation pending an organizational review. Option C substitutes an event-reporting entry for the clinical assessment and treatment information that belongs in the medical record. Option D begins with an unconfirmed causal conclusion rather than contemporaneous clinical findings and care. Therefore A is the uniquely best answer.",
+    "educational_objective": "Document post-event clinical findings and care promptly in the health record, including the assessment, treatment, client response, and information needed to monitor the client’s condition.",
+    "source_organization": "Electronic Code of Federal Regulations (eCFR), Centers for Medicare & Medicaid Services regulations",
+    "source_document_title": "42 CFR § 482.24 — Condition of participation: Medical record services",
+    "source_version_date": "eCFR Title 42 up to date as of August 6, 2026; section reflects amendments through May 1, 2020",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "§ 482.24(b) Form and retention of record; § 482.24(c) Content of record; § 482.24(c)(1); § 482.24(c)(4)(vi)",
+    "source_url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.24",
+    "source_claim_supported": "Hospital medical records must be accurately written and promptly completed; entries must be complete, dated, timed and authenticated; the record includes nursing notes, treatment reports, vital signs and other information necessary to monitor the patient's condition.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Use approved terminology when documenting care; Utilize resources to promote quality client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — accurate and timely clinical documentation",
+    "correction_summary_append": "RULE1 cleanup: the original item used absolute-word distractors and overgeneralized the relationship between the health record and a separate facility event-reporting system. The item was rebuilt to test the federally supported clinical-record documentation obligation directly, using current eCFR requirements and the exact 2026 NCSBN documentation activity statement.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0074",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_ORGANIZATIONAL_WORKFLOW_OVERGENERALIZATION",
+        "finding": "The prior answer combined clinical charting with a separate safety-event report as though the exact workflow were universal. Because reporting-system configuration and policy can vary, the revised item tests only the current federal medical-record requirements that are nationally supportable.",
+        "source_authority": "eCFR / CMS hospital Conditions of Participation",
+        "source_locator": "42 CFR 482.24(b), (c), (c)(1), and (c)(4)(vi)",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Use approved terminology when documenting care"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It captures prompt, complete clinical documentation of assessment, treatment, response, and information needed to monitor the client, consistent with 42 CFR 482.24.",
+    "B": "Plausible risk-management workflow confusion, but federal medical-record requirements call for prompt completion rather than waiting for a later organizational review.",
+    "C": "Plausible because facilities use safety-event reporting systems, but an event-reporting entry does not replace the clinical information required in the patient's medical record.",
+    "D": "Plausible investigation-related documentation error, but it prioritizes an unconfirmed causal conclusion and delays the contemporaneous assessment/treatment record."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone fulfills the federal medical-record requirements without depending on local event-reporting policy or an unconfirmed investigation result.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 143, "B": 148, "C": 135, "D": 136},
+    "note": "Exact option strings were counted before storage. All four choices are complete documentation strategies of comparable length; the correct answer is not the longest and no filler was added."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Accurate documentation of nursing assessment and care is directly represented in the NCSBN Management of Care activity statements.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current eCFR Section 482.24 page verified",
+      "Title 42 current-through date verified",
+      "accurately written and promptly completed requirement verified directly",
+      "complete/dated/timed/authenticated entry requirement verified directly",
+      "nursing notes/treatment/vital-signs/monitoring-information content requirement verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility, overlap and second-answer risk",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "local incident-report workflow was intentionally excluded from the correct-answer requirement",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact documentation activity statement verified",
+      "educational objective is item-specific"
+    ]
+  }
+}
