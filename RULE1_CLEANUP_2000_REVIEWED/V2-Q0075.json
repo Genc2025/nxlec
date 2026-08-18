@@ -1,0 +1,87 @@
+{
+  "question_uid": "V2-Q0075",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "SOURCE_SCOPE_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "A hospitalized client with opioid use disorder reports severe postoperative pain. A team member dismisses the report as 'drug-seeking.' Which action by the nurse is most appropriate?",
+    "options": {
+      "A": "Reassess pain and status, address the stigmatizing comment, and advocate for an individualized multimodal plan that balances pain relief and safety.",
+      "B": "Document the pain report and wait for objective physiologic signs before asking the team to reconsider the current postoperative analgesia plan.",
+      "C": "Request an addiction-treatment consultation and defer changes to the acute pain plan until the substance use disorder has been reassessed.",
+      "D": "Use nonpharmacologic comfort measures and avoid revisiting the team member’s comment unless the client continues to report severe pain."
+    },
+    "correct_option": "A",
+    "rationale": "The HHS Pain Management Best Practices Inter-Agency Task Force Report identifies postoperative pain as acute pain and recommends thorough evaluation, risk-benefit assessment, and individualized patient-centered treatment; it also supports multimodal acute-pain approaches. The report describes stigma as a barrier to pain care and notes that stigma can be exacerbated when pain intersects with substance use disorders. Option A therefore best combines reassessment, nonstigmatizing advocacy, and individualized pain planning while preserving safety considerations. Option B conditions reconsideration of the plan on later physiologic signs rather than performing the recommended clinical reevaluation now. Option C may identify a useful additional service, but it postpones the acute-pain plan rather than addressing both current pain and the coexisting SUD. Option D uses a legitimate pain modality but leaves the stigmatizing barrier and individualized treatment plan unaddressed. Therefore A is the uniquely best answer.",
+    "educational_objective": "Provide nonstigmatizing nursing advocacy for a hospitalized client with opioid use disorder by reassessing acute postoperative pain and supporting an individualized, multimodal, safety-conscious pain plan.",
+    "source_organization": "U.S. Department of Health and Human Services (HHS), Pain Management Best Practices Inter-Agency Task Force",
+    "source_document_title": "Pain Management Best Practices Inter-Agency Task Force Report: Updates, Gaps, Inconsistencies, and Recommendations",
+    "source_version_date": "Report date May 9, 2019; remains listed by HHS as a clinician pain-management resource on a page last reviewed January 23, 2026",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Introduction, report p. 13 / PDF p. 19 — stigma intensified by SUD comorbidity and patient-centered therapeutic alliance; §2.1.1 Acute and Chronic Pain, report pp. 21-22 / PDF pp. 27-28 — postoperative acute pain, thorough evaluation, risk-benefit assessment, individualized and multimodal treatment; §3.2 Stigma, report pp. 56-58 / PDF pp. 62-64 — stigma as a barrier to pain care",
+    "source_url": "https://www.hhs.gov/sites/default/files/pmtf-final-report-2019-05-23.pdf",
+    "source_claim_supported": "HHS identifies postoperative pain as acute pain; recommends thorough reevaluation, risk-benefit assessment, individualized patient-centered and multimodal pain management; and identifies stigma, including stigma intensified by substance use comorbidity, as a barrier to effective pain care.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Advocate for client rights and needs; Utilize resources to promote quality client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — advocacy and individualized care in the presence of stigma",
+    "correction_summary_append": "RULE1 cleanup: the original CDC 2022 source was not appropriate as the sole authority for an inpatient postoperative scenario because that guideline excludes inpatient care from its recommendation scope. The item was rebuilt around the HHS Pain Management Best Practices report, which directly addresses perioperative acute pain, individualized/multimodal management, and stigma; all absolute-word distractors were removed and A/B/C/D were re-audited.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0075",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SOURCE_SCOPE_MISMATCH_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The prior CDC prescribing guideline did not apply to inpatient hospital care, so it could not serve as the primary authority for this postoperative inpatient item. HHS federal pain-management guidance with explicit perioperative acute-pain and stigma content was substituted, and the item was rewritten without dosing claims or stigmatizing/absolute distractors.",
+        "source_authority": "HHS Pain Management Best Practices Inter-Agency Task Force",
+        "source_locator": "Introduction p.13; §2.1.1 pp.21-22; §3.2 pp.56-58",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Advocate for client rights and needs; Utilize resources"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It combines immediate reassessment, response to a documented stigma barrier, and individualized multimodal pain planning while preserving safety considerations supported by HHS.",
+    "B": "Plausible because additional objective clinical data can inform safety assessment, but waiting for such signs before reconsidering the plan conflicts with the need for current thorough evaluation and individualized treatment planning.",
+    "C": "Plausible because addiction expertise may be useful, but deferring the acute pain plan until a separate SUD reassessment does not address the client's current postoperative pain and integrated care needs.",
+    "D": "Plausible because nonpharmacologic modalities are valid components of multimodal pain care, but the option does not address the stigmatizing team barrier or the need for an individualized comprehensive plan."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone addresses all three relevant dimensions supported by the source—current reassessment, stigma-related barrier, and individualized multimodal pain planning—without making a medication-specific treatment claim.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 148, "B": 144, "C": 138, "D": 135},
+    "note": "Exact option lengths were computed from the stored strings. All four options are complete nursing actions of comparable length; the correct answer is not conspicuously longer and no mechanical padding was used."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The item tests nursing advocacy, use of resources, and response to a barrier affecting quality client care rather than prescriber-level opioid selection or dosing.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "CDC 2022 inpatient-scope conflict identified and removed from primary sourcing",
+      "HHS report date May 9, 2019 verified",
+      "current HHS Pain Management Options page last reviewed January 23, 2026 verified as continuing to list the report",
+      "postoperative acute-pain applicability verified directly",
+      "thorough evaluation and risk-benefit assessment claims verified directly",
+      "individualized/multimodal acute-pain planning claims verified directly",
+      "stigma and SUD-comorbidity barrier claims verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility, ambiguity and overlap",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "no dose, opioid choice, interval, or universal pharmacologic rule introduced",
+      "NCSBN Management of Care advocacy/resource locator retained from the verified 2026 official test plan",
+      "educational objective is item-specific"
+    ]
+  }
+}
