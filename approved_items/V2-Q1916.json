@@ -31,10 +31,10 @@
   "blueprint_version": "Effective April 2026",
   "blueprint_locator": "Safety and Infection Prevention and Control client-needs subcategory (10–16% of items), within Safe and Effective Care Environment; includes safe use and interpretation of client-care equipment and prevention of harm.",
   "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
-  "correction_summary": "Substantive rebuild. The generic FDA medical-devices landing page was replaced with current FDA pulse-oximeter guidance and an exact accuracy-limitation locator. The correct option was narrowed to factors explicitly listed by FDA, and unsupported or vague distractor wording was removed.",
+  "correction_summary": "Substantive rebuild. The generic FDA medical-devices landing page was replaced with current FDA pulse-oximeter guidance and an exact accuracy-limitation locator. The correct option was narrowed to factors explicitly listed by FDA, and unsupported or vague distractor wording was removed. Final batch metadata normalization corrected the audit timestamp only; the clinical payload and QA decision were unchanged.",
   "audit_status": "FINAL_QA_PASS",
   "second_pass_status": "PASS",
-  "audit_date_utc": "2026-08-18T15:24:00Z",
+  "audit_date_utc": "2026-08-18T18:29:50Z",
   "audit_reviewer": "OpenAI GPT-5.6 Sol",
   "gates": {
     "source_authority_verified": 1,
@@ -57,6 +57,7 @@
     "Current FDA guidance directly lists poor circulation, skin pigmentation, skin temperature, and fingernail polish among factors affecting accuracy.",
     "The final item avoids converting evolving evidence about skin-tone performance into a universal direction or fixed error magnitude.",
     "The original motion-artifact wording was not needed for the correct answer and was removed rather than overclaimed from a non-specific locator.",
-    "Independent adversarial second pass found one uniquely correct option, no unsupported numeric threshold, no cueing, no second answer, and no unresolved conflict."
+    "Independent adversarial second pass found one uniquely correct option, no unsupported numeric threshold, no cueing, no second answer, and no unresolved conflict.",
+    "Final batch metadata normalization corrected only audit_date_utc; no clinical field or gate result changed."
   ]
 }
