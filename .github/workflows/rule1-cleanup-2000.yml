@@ -14,18 +14,36 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+      - name: Materialize and preflight reviewed correction map
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_materialize_cleanup_spec.py
+          python3 - <<'PY'
+          import json
+          p=json.load(open('RULE1_CLEANUP_2000_CORRECTIONS.json'))
+          sem=p['semantic_corrections']; required=set(p['required_semantic_review_uids']); reviewed=set(p['semantic_reviewed_uids'])
+          assert len(sem)==502, len(sem)
+          assert required==reviewed==set(sem), (len(required),len(reviewed),len(sem))
+          print({'semantic_correction_count':len(sem),'required_reviewed':'502/502'})
+          PY
       - name: Apply reviewed cleanup map atomically
         shell: bash
         run: |
           set -euo pipefail
           python3 tools/rule1_cleanup_2000.py
+      - name: Post-write full-bank regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_cleanup_2000_regression.py
       - name: Commit staging cleanup result
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'OpenAI GitHub Connector'
           git config user.email 'github-connector@openai.com'
-          git add NCLEX_CANONICAL.db RULE1_CLEANUP_2000_RESULT.json
+          git add NCLEX_CANONICAL.db RULE1_CLEANUP_2000_RESULT.json RULE1_CLEANUP_2000_REGRESSION.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'RULE1 cleanup 2000 staging result'
           git push origin HEAD:${{ github.head_ref }}
