@@ -1,0 +1,84 @@
+{
+  "question_uid": "V2-Q0972",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-18",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "FULL_CONSTRUCT_REBUILD",
+  "semantic_correction": {
+    "stem": "A nursing unit tests a new bedside handoff checklist for 1 week. After the test is completed, the RN joins the quality-improvement team for the Study phase of the Plan-Do-Study-Act cycle. Which action should the team take during this phase?",
+    "options": {
+      "A": "Review the selected metrics, assess how well the plan worked, and identify problems or potential solutions.",
+      "B": "Define the improvement goal, select success metrics, and draft the plan for testing the checklist.",
+      "C": "Implement the checklist on the selected unit and document what occurs during the test.",
+      "D": "Use the lessons from the test to decide how the checklist or the next improvement cycle should be adapted."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ describes the Study phase of the PDSA cycle as reviewing and monitoring the selected metrics, assessing how well the plan works, and identifying problems and potential solutions. Option A therefore matches the Study phase. Option B describes Plan, option C describes Do, and option D describes Act, in which lessons from the cycle are integrated to determine adaptations and next steps.",
+    "educational_objective": "Differentiate the Study phase of a PDSA quality-improvement cycle from the Plan, Do, and Act phases by identifying its focus on reviewing metrics and analyzing test results.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "The Improvement Cycle: Plan-Do-Study-Act",
+    "source_version_date": "Content last reviewed March 2026",
+    "source_accessed_date": "2026-08-18",
+    "source_locator": "The cycle has four main parts — Study",
+    "source_url": "https://www.ahrq.gov/cahps/improvement-guide/improvement-models/plan-do-study-act.html",
+    "source_claim_supported": "In PDSA, Study involves reviewing and monitoring selected metrics, assessing how well the plan works, and identifying problems and potential solutions; Plan defines goals/metrics/action plan, Do implements the test, and Act integrates lessons to adapt next steps.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Participate in performance improvement projects and quality improvement processes",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — quality improvement processes",
+    "correction_summary_append": "RULE1 cleanup: replaced the original organizational Transition-to-Practice outcome-research item with an entry-level RN quality-improvement construct directly mapped to the 2026 Management of Care activity statement; rebuilt all four options from authoritative AHRQ PDSA phases.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0972",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "BLUEPRINT_ROLE_MISMATCH_AND_WEAK_DISTRACTORS",
+        "finding": "The original item asked about outcome measures used in an NCSBN transition-to-practice research study, which was not sufficiently aligned to an entry-level RN Management of Care activity. The item was rebuilt around direct participation in a PDSA quality-improvement process.",
+        "source_authority": "AHRQ",
+        "source_locator": "The Improvement Cycle: Plan-Do-Study-Act — Study",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 — Participate in performance improvement projects and quality improvement processes"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. This is AHRQ's Study phase: review/monitor metrics, assess performance, and identify problems or potential solutions.",
+    "B": "Plausible and source-supported PDSA activity, but it belongs to Plan rather than Study.",
+    "C": "Plausible and source-supported PDSA activity, but implementing the planned test belongs to Do.",
+    "D": "Plausible and source-supported PDSA activity, but integrating lessons to adapt next steps belongs to Act."
+  },
+  "ambiguity_check": "No second defensible answer. Each distractor maps to a different named PDSA phase, and A alone matches the Study definition in AHRQ guidance.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 107, "B": 98, "C": 86, "D": 106},
+    "note": "All choices are parallel QI actions derived from real PDSA phases; the correct answer is not conspicuously longer and no mechanical padding was used."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The stem places the RN as a participant in a unit quality-improvement project, matching the explicit Management of Care activity statement.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ page and March 2026 review date verified",
+      "exact PDSA Study-phase locator verified",
+      "Plan/Do/Study/Act claims verified individually",
+      "2026 NCLEX-RN Management of Care quality-improvement activity statement verified",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word cueing identified",
+      "no conspicuous length cue identified",
+      "rationale contains only phase distinctions supported by AHRQ",
+      "educational objective is item-specific",
+      "construct is distinct from V2-Q0970 scope/competence/resource decision"
+    ]
+  }
+}
