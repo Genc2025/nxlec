@@ -6,7 +6,7 @@
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
   "clinical_category": "Physiological Adaptation",
   "difficulty": "medium",
-  "change_class": "STEM_AND_DISTRACTOR_REBUILD",
+  "change_class": "STEM_DISTRACTOR_AND_SOURCE_REBUILD",
   "near_duplicate_resolution": {
     "paired_uid": "V2-Q0679",
     "resolution": "V2-Q0679 was rebuilt into cardiogenic-shock recognition. V2-Q1934 retains the distinct acute cardiogenic pulmonary-edema recognition construct after a fresh source, distractor, ambiguity, cueing, blueprint, and second-pass audit."
@@ -20,44 +20,44 @@
       "D": "Acute respiratory distress syndrome"
     },
     "correct_option": "A",
-    "rationale": "NCBI Bookshelf guidance on heart failure describes acute decompensation with respiratory distress and pulmonary rales, with frothy or blood-tinged sputum appearing as pulmonary congestion becomes more severe. Its pulmonary-edema review notes that dyspnea, hypoxia and crackles are common in pulmonary edema and that pink frothy sputum, an S3, elevated jugular venous pressure and other cardiac findings support a cardiogenic etiology. In a client with heart failure, the combined pattern in the stem therefore most strongly supports acute cardiogenic pulmonary edema. Pulmonary embolism, multifocal pneumonia and acute respiratory distress syndrome can cause acute respiratory compromise, but they do not fit the full heart-failure congestion pattern in this stem as closely as option A.",
+    "rationale": "NCBI Bookshelf's Pulmonary Edema review states that dyspnea and crackles occur in pulmonary edema and that pink frothy sputum, an S3 gallop, and elevated jugular venous pressure point toward a cardiogenic etiology. The same review distinguishes noncardiogenic pulmonary edema/ARDS and notes pneumonia as an important infectious context, while pulmonary embolism or infarction is included in the differential diagnosis. In this client with heart failure, the combined congestion pattern therefore most strongly supports cardiogenic pulmonary edema. Options B, C, and D are plausible causes of acute respiratory deterioration but do not fit the full cardiac-congestion pattern as closely as option A.",
     "educational_objective": "Recognize acute cardiogenic pulmonary edema in a client with heart failure by integrating sudden respiratory distress with bilateral crackles and cardiac-congestion findings such as elevated jugular venous pressure, an S3, and pink frothy sputum.",
     "source_organization": "National Library of Medicine (NCBI Bookshelf/StatPearls)",
-    "source_document_title": "Heart Failure (Congestive Heart Failure); Pulmonary Edema",
-    "source_version_date": "Heart Failure last updated February 26, 2025; Pulmonary Edema last updated April 7, 2023; current StatPearls Internet edition accessed 2026",
+    "source_document_title": "Pulmonary Edema",
+    "source_version_date": "Last updated April 7, 2023; current StatPearls Internet edition accessed 2026-08-19",
     "source_accessed_date": "2026-08-19",
-    "source_locator": "Heart Failure (Congestive Heart Failure) — History and Physical, Clinical History and Physical Examination Findings; Pulmonary Edema — History and Physical and Differential Diagnosis",
-    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK430873/",
-    "source_claim_supported": "Acute heart failure may present with overt respiratory distress and pulmonary congestion; pulmonary rales and frothy/blood-tinged sputum occur as congestion worsens. In pulmonary edema, pink frothy sputum, an S3, elevated jugular venous pressure and cardiac findings support a cardiogenic etiology.",
+    "source_locator": "Etiology; History and Physical; Differential Diagnosis — cardiogenic versus noncardiogenic pulmonary edema, S3/elevated JVP/pink frothy sputum, pneumonia/ARDS context, and pulmonary embolism or infarct differential",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK557611/",
+    "source_claim_supported": "Pulmonary edema may present with dyspnea and crackles; pink frothy sputum, an S3 gallop, and elevated jugular venous pressure support a cardiogenic etiology. ARDS is a noncardiogenic process that may occur with pneumonia, and pulmonary embolism or infarction is included in the pulmonary-edema differential.",
     "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
     "blueprint_document_title": "2026 NCLEX-RN Test Plan",
     "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
     "blueprint_locator": "Physiological Adaptation, printed p. 14 / PDF p. 18, Related Activity Statements — Manage the care of a client with impaired ventilation/oxygenation; Identify pathophysiology related to an acute or chronic condition; Recognize signs and symptoms of client complications and intervene",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_topic": "Physiological Adaptation — recognition of acute cardiogenic pulmonary edema",
-    "correction_summary_append": "RULE1 cleanup: retained the clinically valid pulmonary-edema recognition construct after moving V2-Q0679 to cardiogenic shock, but rebuilt V2-Q1934's stem and distractors so all four choices are plausible acute respiratory differentials and the correct answer is supported by specific heart-failure congestion findings; source and NCSBN locators were refreshed.",
+    "correction_summary_append": "RULE1 cleanup: retained the clinically valid pulmonary-edema recognition construct after moving V2-Q0679 to cardiogenic shock, rebuilt V2-Q1934's stem and distractors so all four choices are plausible acute respiratory differentials, and corrected source integrity so the stored NCBI URL and exact locator directly support the cardiogenic clues and differential claims used by the item.",
     "audit_findings_append": [
       {
         "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
         "uid": "V2-Q1934",
         "result": "FINAL_QA_PASS",
-        "failure_mode_corrected": "NONCOMPETITIVE_DISTRACTORS_AND_NEAR_DUPLICATE_OVERLAP",
+        "failure_mode_corrected": "NONCOMPETITIVE_DISTRACTORS_NEAR_DUPLICATE_OVERLAP_AND_SOURCE_LOCATOR_MISMATCH",
         "paired_uid": "V2-Q0679",
-        "finding": "The original correct answer was supported, but its distractors included stable chronic heart failure, uncomplicated URI, and improving filling pressures and were not competitive. After V2-Q0679 was reassigned to cardiogenic shock, V2-Q1934 was rebuilt with pulmonary embolism, multifocal pneumonia, and ARDS as acute respiratory differentials and re-audited from zero.",
+        "finding": "The original correct answer was supported, but its distractors were not competitive and the first cleanup payload cited two NCBI chapters while storing only one chapter URL. After V2-Q0679 was reassigned to cardiogenic shock, V2-Q1934 was rebuilt with pulmonary embolism, pneumonia, and ARDS differentials and the source was normalized to the single Pulmonary Edema chapter that directly supports the cardiogenic clues and differential context.",
         "source_authority": "NCBI Bookshelf/StatPearls",
-        "source_locator": "Heart Failure — History and Physical; Pulmonary Edema — History and Physical/Differential Diagnosis",
+        "source_locator": "Pulmonary Edema — Etiology; History and Physical; Differential Diagnosis",
         "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
         "blueprint_locator": "Physiological Adaptation, printed p. 14 — impaired ventilation/oxygenation; pathophysiology; complication recognition"
       }
     ]
   },
   "option_audit": {
-    "A": "Correct. The known heart failure plus sudden dyspnea, bilateral crackles, elevated JVP, S3, and pink frothy sputum forms a source-supported cardiogenic pulmonary-congestion pattern.",
-    "B": "Plausible acute cardiopulmonary deterioration, and pulmonary embolism is included in the pulmonary-edema differential, but it does not account for the full congestion pattern as well as A.",
-    "C": "Plausible cause of acute dyspnea and pulmonary findings, but the sudden presentation with JVP elevation, S3 and pink frothy sputum in established heart failure is more consistent with cardiogenic edema.",
+    "A": "Correct. Sudden dyspnea and bilateral crackles plus pink frothy sputum, elevated JVP, and an S3 form a source-supported cardiogenic pulmonary-edema pattern.",
+    "B": "Plausible acute cardiopulmonary deterioration and a listed pulmonary-edema differential, but it does not account for the full cardiac-congestion pattern as well as A.",
+    "C": "Plausible cause of acute respiratory findings and a recognized context for noncardiogenic edema/ARDS, but the JVP elevation, S3, and pink frothy sputum favor cardiogenic edema.",
     "D": "Plausible cause of severe hypoxemic respiratory failure and noncardiogenic pulmonary edema, but no ARDS precipitant is supplied and the cardiac-congestion findings favor A."
   },
-  "ambiguity_check": "No second defensible best answer. Acute respiratory differentials remain plausible, but the stem deliberately includes multiple independent cardiac-congestion findings—known heart failure, elevated JVP and S3—together with bilateral crackles and pink frothy sputum, making cardiogenic pulmonary edema uniquely best.",
+  "ambiguity_check": "No second defensible best answer. The distractors remain clinically plausible, but the stem includes multiple independent cardiac-congestion findings—known heart failure, elevated JVP, S3, bilateral crackles, and pink frothy sputum—making cardiogenic pulmonary edema uniquely best.",
   "cueing_check": {
     "result": "PASS",
     "absolute_word_cueing": false,
@@ -73,17 +73,17 @@
   "independent_second_pass": {
     "result": "FINAL_QA_PASS",
     "checks": [
-      "NCBI Heart Failure chapter last-update date and current 2026 Bookshelf edition verified",
-      "acute-HF respiratory distress, rales, and frothy/blood-tinged sputum claims verified",
-      "NCBI Pulmonary Edema cardiogenic clues including pink frothy sputum, S3 and elevated JVP verified",
-      "pulmonary embolism identified in the pulmonary-edema differential",
+      "current NCBI Pulmonary Edema chapter location and publication history verified",
+      "dyspnea/crackles and cardiogenic-clue claims verified directly",
+      "pink frothy sputum, S3, and elevated JVP claims verified directly",
+      "pneumonia/ARDS relationship and pulmonary embolism differential verified directly",
       "A/B/C/D independently re-audited for plausibility and uniqueness",
       "no second defensible best answer identified",
       "no absolute-word, grammatical, structural, or conspicuous length cue identified",
-      "2026 NCSBN Physiological Adaptation exact page and activity statements verified from the official PDF",
-      "construct is now distinct from rebuilt V2-Q0679",
+      "official NCSBN 2026 Physiological Adaptation page visually verified at printed p. 14 / PDF p. 18",
+      "construct is distinct from rebuilt V2-Q0679",
       "educational objective is item-specific",
-      "no treatment or unsupported numeric precision was introduced"
+      "stored source URL and exact locator now support the claims actually used by the item"
     ]
   }
 }
