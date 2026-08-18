@@ -4,6 +4,7 @@ on:
     branches: [rule1-cleanup-2000]
     paths:
       - 'tools/rule1_cleanup_candidate_scan.py'
+      - 'tools/rule1_cleanup_evidence_refresh.py'
       - '.github/workflows/rule1-cleanup-candidate-scan.yml'
 permissions:
   contents: write
@@ -15,18 +16,19 @@ jobs:
         with:
           ref: rule1-cleanup-2000
           fetch-depth: 0
-      - name: Run read-only candidate scan
+      - name: Run read-only candidate scan and state/spec refresh
         shell: bash
         run: |
           set -euo pipefail
           python3 tools/rule1_cleanup_candidate_scan.py
+          python3 tools/rule1_cleanup_evidence_refresh.py
       - name: Commit scan evidence
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'OpenAI GitHub Connector'
           git config user.email 'github-connector@openai.com'
-          git add RULE1_CLEANUP_2000_SCAN_SUMMARY.json RULE1_CLEANUP_2000_CANDIDATES.jsonl RULE1_CLEANUP_2000_NEAR_DUPLICATES.jsonl RULE1_CLEANUP_2000_LOCATOR_CANDIDATES.jsonl
+          git add RULE1_CLEANUP_2000_SCAN_SUMMARY.json RULE1_CLEANUP_2000_CANDIDATES.jsonl RULE1_CLEANUP_2000_NEAR_DUPLICATES.jsonl RULE1_CLEANUP_2000_LOCATOR_CANDIDATES.jsonl RULE1_CLEANUP_2000_EVIDENCE_REFRESH.json
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'RULE1 materialize read-only cleanup candidate scan'
+          git commit -m 'RULE1 materialize read-only cleanup evidence refresh'
           git push origin HEAD:rule1-cleanup-2000
