@@ -66,9 +66,10 @@
     "source_total": 3525,
     "remaining_total": 1525,
     "remaining_mode": {"case_study": 525, "standalone": 1000},
-    "remaining_case_item_count": 525,
+    "remaining_case_candidate_rows": 525,
     "remaining_distinct_case_uid_count": 75,
-    "remaining_official_case_slot_count": 525,
+    "remaining_official_case_slot_candidate_rows": 525,
+    "case_structure_note": "Each of the 75 source cases has seven candidate rows because official case slot 1 has two variants (A and B); slots 2-6 have one row each. A final NCSBN-style case set should contain six items, so one slot-1 variant must be selected and the other excluded. If all 75 cases are retained, this implies 450 selected final case-study items from 525 source candidates.",
     "remaining_item_types": {
       "highlight": 75,
       "extended_multiple_response": 75,
@@ -112,6 +113,6 @@
       "Several near-semantic duplicate pairs should be reviewed to maximize unique coverage."
     ],
     "direction_after_remainder_scan": "RECOVERABLE_AND_GOOD_IF_NGN_IS_PRIORITIZED_NEXT",
-    "recommended_next_step": "Do not blindly continue the next 1000 standalone MCQs. Audit and integrate the 75 remaining NGN case studies (525 items) under RULE 1, then continue standalone items with bank-level anti-cueing and blueprint-balancing gates."
+    "recommended_next_step": "Do not blindly continue the next 1000 standalone MCQs. Audit the 75 NGN case studies case-by-case under RULE 1. For each case, select exactly one of the two slot-1 Recognize-Cues variants, then audit slots 2-6, yielding a six-item final case set. If all 75 cases pass, this produces 450 selected final case-study items. After NGN integration, continue standalone items with bank-level anti-cueing, metadata-normalization and exam-form blueprint sampling gates."
   }
 }
