@@ -1,0 +1,29 @@
+name: RULE1 extract near duplicate items
+on:
+  push:
+    branches: [rule1-cleanup-2000]
+    paths:
+      - 'tools/rule1_extract_near_duplicate_items.py'
+      - '.github/workflows/rule1-extract-near-duplicates.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+          fetch-depth: 0
+      - name: Extract near duplicate records read only
+        run: python3 tools/rule1_extract_near_duplicate_items.py
+      - name: Commit extracted records
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_CLEANUP_2000_NEAR_DUPLICATE_ITEMS.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'RULE1 materialize near duplicate item records'
+          git push origin HEAD:rule1-cleanup-2000
