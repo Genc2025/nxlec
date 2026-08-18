@@ -1,0 +1,87 @@
+{
+  "question_uid": "V2-Q0026",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_AND_SOURCE_REAUDIT",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "During shift handoff, an unstable client has worsening oxygen needs, a CT result still pending, and the first dose of a new antibiotic just administered. Which information should the off-going nurse prioritize in the handoff?",
+    "options": {
+      "A": "Admission diagnosis, chronic history, consultant names, and the complete medication list, with recent events left for chart review.",
+      "B": "Latest vital signs, oxygen setting, and medication list, with the pending CT result and contingency plan left for later review.",
+      "C": "Current instability, recent oxygen deterioration, the pending CT uncertainty, the new antibiotic, and specific follow-up and contingency actions.",
+      "D": "Baseline assessment, earlier hospital-course events, and prior treatment decisions, with current changes documented for the receiving nurse to find."
+    },
+    "correct_option": "C",
+    "rationale": "AHRQ TeamSTEPPS describes handoff as transfer of information together with authority and responsibility. Its handoff guidance specifically includes the degree of diagnostic uncertainty, response to treatment, recent changes in condition and circumstances, and the care plan including contingencies. Option C prioritizes the client's current instability and recent deterioration, communicates the unresolved CT uncertainty and newly given therapy, and identifies follow-up and contingency actions. Options A and D emphasize background or earlier course while deferring current changes; option B communicates a current snapshot but defers the unresolved diagnostic result and contingency plan. Therefore C best supports safe continuity of care.",
+    "educational_objective": "Prioritize current instability, recent clinical changes, unresolved diagnostic uncertainty, treatment status, and follow-up/contingency actions during nursing handoff.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ), TeamSTEPPS 3.0",
+    "source_document_title": "Tool: Handoff",
+    "source_version_date": "Content last reviewed May 2023; current AHRQ page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Tool: Handoff — definition; How To Use a Handoff Effectively; transfer of uncertainty, response to treatment, recent changes, care plan and contingencies",
+    "source_url": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/handoff.html",
+    "source_claim_supported": "AHRQ describes handoff as transfer of information, authority and responsibility and states that handoff information includes diagnostic uncertainty, response to treatment, recent changes in condition/circumstances, and the care plan including contingencies.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Provide and receive handoff of care (report) on assigned clients; Prioritize the delivery of client care based on acuity",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — safe nursing handoff and continuity of care",
+    "correction_summary_append": "RULE1 cleanup: removed the absolute-word distractor and re-audited the handoff construct against AHRQ TeamSTEPPS rather than relying on a general Joint Commission statement. All four options were rebuilt as realistic handoff strategies, and the exact NCSBN Management of Care handoff activity statement was verified.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0026",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_SOURCE_CLAIM_GRANULARITY",
+        "finding": "The original correct answer was directionally sound, but one distractor used 'only' and the cited source did not directly support every handoff-content claim in the rationale. The item was rebuilt around the explicit AHRQ TeamSTEPPS handoff content elements.",
+        "source_authority": "AHRQ TeamSTEPPS 3.0",
+        "source_locator": "Tool: Handoff — transfer of uncertainty, treatment response, recent changes, care plan/contingencies",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Provide and receive handoff of care"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible because background history and medications may be relevant, but it defers the recent events that AHRQ identifies as handoff content and therefore under-communicates the immediate risk.",
+    "B": "Plausible because current vitals, oxygen, and medications matter, but it defers both unresolved diagnostic uncertainty and contingency planning, which AHRQ explicitly includes in handoff content.",
+    "C": "Correct. It communicates current severity, recent deterioration, unresolved diagnostic uncertainty, new treatment, and the follow-up/contingency plan supported by AHRQ guidance.",
+    "D": "Plausible because earlier course and prior decisions provide context, but it leaves current changes for passive chart discovery rather than transferring them during the handoff."
+  },
+  "ambiguity_check": "No second defensible best answer. C alone includes the full cluster of time-sensitive handoff elements relevant to this unstable client; each distractor omits or defers one or more critical current elements.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 131, "B": 127, "C": 145, "D": 148},
+    "note": "All four choices are parallel handoff strategies of comparable length; the correct answer is not the longest and no mechanical padding was used."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Providing and receiving handoff report is an explicit newly licensed RN Management of Care activity.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ TeamSTEPPS Handoff page verified",
+      "page review date verified",
+      "handoff transfer of information/authority/responsibility verified directly",
+      "diagnostic uncertainty claim verified directly",
+      "response-to-treatment claim verified directly",
+      "recent-changes claim verified directly",
+      "care-plan/contingency claim verified directly",
+      "A/B/C/D independently re-audited for plausibility and uniqueness",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact handoff activity statement verified",
+      "educational objective is item-specific"
+    ]
+  }
+}
