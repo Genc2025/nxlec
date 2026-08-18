@@ -1,0 +1,86 @@
+{
+  "question_uid": "V2-Q0023",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "LEGAL_PRECISION_FULL_CONSTRUCT_REBUILD",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "During admission, a client asks what an advance directive is intended to do. Which explanation by the nurse is most accurate?",
+    "options": {
+      "A": "It records healthcare wishes and/or names a representative for future medical treatment if the client later cannot make decisions.",
+      "B": "It gives a representative authority to replace the client’s current healthcare choices as soon as the document is completed.",
+      "C": "It converts healthcare preferences into medical orders that are implemented without a separate clinical decision-making process.",
+      "D": "It designates a person to control insurance benefits and other financial decisions whenever future healthcare is required."
+    },
+    "correct_option": "A",
+    "rationale": "Current CMS Advance Care Planning guidance describes an advance directive as a written document used to appoint a representative and/or record a person's wishes for future medical treatment in the event the person becomes incapacitated and unable to make decisions. Option A matches that purpose. Option B incorrectly states that completing the document necessarily replaces a capable client's current healthcare choices; activation and representative authority are governed by applicable law and document terms, and state law can differ. Option C confuses an advance directive with a medical order and overstates automatic implementation. Option D confuses a healthcare advance directive with authority over insurance or other financial decisions. Therefore A is the best answer.",
+    "educational_objective": "Explain the core purpose of an advance directive as documenting future healthcare wishes and/or identifying a healthcare representative for circumstances in which the client cannot make decisions.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS), Medicare Coverage Database",
+    "source_document_title": "Advance Care Planning (LCD L38970)",
+    "source_version_date": "Revision effective November 1, 2023; current CMS Medicare Coverage Database page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Coverage Indications, Limitations, and/or Medical Necessity — definition of advance directive and decision-making capacity; CMS National Coverage Policy cites 42 CFR §§ 489.100 and 489.102",
+    "source_url": "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?bc=0&lcdid=38970",
+    "source_claim_supported": "CMS describes an advance directive as a written document used to appoint a representative and/or record wishes for future medical treatment if the patient becomes incapacitated and unable to make decisions; capacity is assessed before deeming a patient unable to speak for themself.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Integrate advance directives into client plan of care; Advocate for client rights and needs; Provide education to clients and staff about client rights and responsibilities",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — advance directives and client rights",
+    "correction_summary_append": "RULE1 cleanup: the original technical flag was an absolute-word distractor, but full legal re-audit identified a more important state-law precision problem: surrogate authority does not universally begin only after incapacity because activation rules and document terms vary. The item was rebuilt around the nationally supportable CMS definition/purpose of an advance directive, all choices were re-authored without absolute-word cueing, and the exact NCSBN Management of Care locator was verified.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0023",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "STATE_LAW_OVERGENERALIZATION_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The original answer stated that the agent speaks when the client cannot do so, which was too universal for a national item because state statutes can permit immediately exercisable surrogate authority while preserving the capable principal's controlling wishes. The construct was narrowed to the CMS-supported purpose of an advance directive rather than making a universal activation-rule claim.",
+        "source_authority": "CMS Medicare Coverage Database",
+        "source_locator": "Advance Care Planning L38970 — advance-directive definition and capacity discussion",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Integrate advance directives into client plan of care"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It matches the CMS description of an advance directive as documenting future healthcare wishes and/or appointing a representative for circumstances in which the person cannot make decisions.",
+    "B": "Plausible confusion about healthcare-agent authority, but it incorrectly says completion itself replaces the capable client's current choices; authority timing is law/document dependent and this is not the CMS definition of the directive's purpose.",
+    "C": "Plausible confusion with portable medical orders, but an advance directive does not by itself convert all preferences into automatically implemented treatment orders without clinical decision-making.",
+    "D": "Plausible confusion with a financial power of attorney, but the cited healthcare advance-directive construct concerns future medical-treatment wishes and/or healthcare representation, not control of insurance or general finances."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone states the CMS-defined healthcare purpose without making a state-specific activation claim; B, C, and D each conflate the document with a different legal or clinical function.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 130, "B": 124, "C": 128, "D": 122},
+    "note": "All four options are parallel descriptions of document purpose/function and are naturally similar in length; no mechanical padding was added."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Explaining and integrating advance directives and protecting client rights are explicit Management of Care activities for the newly licensed RN.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CMS Medicare Coverage Database page verified",
+      "CMS advance-directive definition verified directly",
+      "capacity-related wording verified directly",
+      "CMS page revision effective date verified",
+      "state-law counterexample checked to prevent universal surrogate-activation wording",
+      "A/B/C/D independently re-audited for correctness, plausibility, and overlap",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact advance-directive activity statement verified",
+      "rationale avoids converting state-variable activation rules into a universal national rule",
+      "educational objective is item-specific"
+    ]
+  }
+}
