@@ -1,0 +1,89 @@
+name: Rule 1 preflight and export V2-Q1801-V2-Q1900
+on:
+  push:
+    branches: ['staging/rule1-v2-q1801-q1900']
+    paths:
+      - '.github/workflows/rule1-export-1801-1900.yml'
+permissions:
+  contents: write
+concurrency:
+  group: rule1-stage-1801-1900
+  cancel-in-progress: false
+jobs:
+  preflight-export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: SQLite state truth and export exact source rows
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, sqlite3, subprocess
+          from pathlib import Path
+          SOURCE='NCLEX_COMMERCIAL_MASTER_CURRENT.db'
+          CANON='NCLEX_CANONICAL.db'
+          EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
+          EXPECTED_CANON='d4fe487466cf7340702cb19a4069670228b9f2d4'
+          sb=subprocess.check_output(['git','rev-parse',f'HEAD:{SOURCE}'],text=True).strip()
+          cb=subprocess.check_output(['git','rev-parse',f'HEAD:{CANON}'],text=True).strip()
+          if sb!=EXPECTED_SOURCE: raise SystemExit(f'BLOCKED source blob {sb}')
+          if cb!=EXPECTED_CANON: raise SystemExit(f'BLOCKED canonical blob {cb}')
+
+          sc=sqlite3.connect(SOURCE); sc.row_factory=sqlite3.Row
+          cc=sqlite3.connect(CANON); cc.row_factory=sqlite3.Row
+          sint=sc.execute('PRAGMA integrity_check').fetchone()[0]
+          cint=cc.execute('PRAGMA integrity_check').fetchone()[0]
+          scount=sc.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          ccount=cc.execute('SELECT COUNT(*) FROM questions').fetchone()[0]
+          sdup=sc.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+          cdup=cc.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
+          if sint!='ok' or cint!='ok': raise SystemExit(f'BLOCKED integrity source={sint} canonical={cint}')
+          if scount!=3525 or ccount!=1800 or sdup!=0 or cdup!=0:
+              raise SystemExit(f'BLOCKED state source_count={scount} canonical_count={ccount} source_dup={sdup} canonical_dup={cdup}')
+
+          canon_uids={r[0] for r in cc.execute('SELECT question_uid FROM questions')}
+          first=None
+          for r in sc.execute("SELECT question_uid,stable_sort_key FROM questions WHERE source_bank='v2' AND mode='standalone' ORDER BY stable_sort_key,question_uid"):
+              if r['question_uid'] not in canon_uids:
+                  first=r['question_uid']; break
+          cc.close()
+          if first!='V2-Q1801': raise SystemExit(f'BLOCKED first eligible={first}')
+
+          uids=[f'V2-Q{n:04d}' for n in range(1801,1901)]
+          marks=','.join('?' for _ in uids)
+          rows=sc.execute(f'SELECT * FROM questions WHERE question_uid IN ({marks})',uids).fetchall()
+          sc.close()
+          by={r['question_uid']:dict(r) for r in rows}
+          if len(rows)!=100 or set(by)!=set(uids):
+              missing=sorted(set(uids)-set(by))
+              raise SystemExit(f'BLOCKED source UID set/count rows={len(rows)} unique={len(by)} missing={missing}')
+          out=Path('source_snapshots'); out.mkdir(parents=True,exist_ok=True)
+          batch=[]
+          for uid in uids:
+              r=by[uid]
+              if r.get('source_bank')!='v2' or r.get('mode')!='standalone':
+                  raise SystemExit(f'BLOCKED track mismatch {uid}: {r.get("source_bank")}/{r.get("mode")}')
+              snap={'source_blob_expected':EXPECTED_SOURCE,'source_row':r}
+              p=out/f'{uid}.json'
+              if p.exists(): raise SystemExit(f'BLOCKED overwrite {p}')
+              p.write_text(json.dumps(snap,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
+              batch.append(snap)
+          Path('RULE1_SOURCE_BATCH_1801_1900.json').write_text(json.dumps(batch,ensure_ascii=False,indent=2),encoding='utf-8')
+          state={'status':'PASS','source_blob':sb,'canonical_blob':cb,'source_integrity':sint,'canonical_integrity':cint,'source_count':scount,'canonical_count':ccount,'source_duplicate_uid_count':sdup,'canonical_duplicate_uid_count':cdup,'first_eligible':first,'exported':len(batch)}
+          Path('RULE1_PREFLIGHT_1801_1900.json').write_text(json.dumps(state,indent=2)+'\n',encoding='utf-8')
+          print('RULE1_PREFLIGHT='+json.dumps(state,sort_keys=True))
+          PY
+      - name: Commit preflight and source snapshots to staging only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_PREFLIGHT_1801_1900.json RULE1_SOURCE_BATCH_1801_1900.json
+          for n in $(seq 1801 1900); do git add "$(printf 'source_snapshots/V2-Q%04d.json' "$n")"; done
+          test "$(git diff --cached --name-only | wc -l)" -eq 102
+          git commit -m 'Rule 1 stage source snapshots V2-Q1801-V2-Q1900'
+          git push origin HEAD:staging/rule1-v2-q1801-q1900
