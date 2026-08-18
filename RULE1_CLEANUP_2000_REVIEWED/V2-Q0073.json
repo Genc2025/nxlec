@@ -11,7 +11,7 @@
   "semantic_correction": {
     "stem": "A nurse identifies a potential medication-safety concern after reviewing new client data. The nurse asks the prescriber to clarify the order. The prescriber reviews the concern but keeps the order unchanged, and the nurse still believes carrying out the order could harm the client. What should the nurse do next?",
     "options": {
-      "A": "Restate the concern assertively with the relevant data and, if it remains unresolved, involve the supervisor and use the chain of command before proceeding.",
+      "A": "Restate the concern assertively with the relevant data; if it remains unresolved, use the supervisor and chain of command before proceeding.",
       "B": "Document the prescriber’s response, carry out the order as written, and submit the safety concern for review after the medication has been given.",
       "C": "Ask another nurse to review the order and proceed if that nurse sees no problem, while documenting that the prescriber was already contacted.",
       "D": "Delay the order until the next shift and give a detailed handoff so the oncoming nurse can decide whether additional escalation is needed."
@@ -32,14 +32,14 @@
     "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Receive, verify and implement health care provider orders; Advocate for client rights and needs; Recognize limitations of self and others and utilize resources; Utilize resources to promote quality client care",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_topic": "Management of Care — escalation of unresolved patient-safety concerns",
-    "correction_summary_append": "RULE1 cleanup: removed the absolute-word distractor and eliminated unnecessary renal-specific wording that could imply an unsourced medication/dose rule. The item was rebuilt around the AHRQ Two-Challenge Rule with four plausible actions, exact escalation language, and a verified 2026 NCSBN Management of Care locator.",
+    "correction_summary_append": "RULE1 cleanup: removed the absolute-word distractor and eliminated unnecessary renal-specific wording that could imply an unsourced medication/dose rule. The item was rebuilt around the AHRQ Two-Challenge Rule with four plausible actions, exact escalation language, and a verified 2026 NCSBN Management of Care locator. Adversarial reread also corrected the stored option-length metadata before closure.",
     "audit_findings_append": [
       {
         "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
         "uid": "V2-Q0073",
         "result": "FINAL_QA_PASS",
-        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_UNNECESSARY_UNSOURCED_PHARMACOLOGIC_CONTEXT",
-        "finding": "The original item had a valid escalation concept but used an absolute-word distractor and unnecessary renal-dose context without identifying a drug or source for a renal dosing claim. The revised item tests only the source-supported safety-escalation process.",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_UNNECESSARY_UNSOURCED_PHARMACOLOGIC_CONTEXT_AND_PAYLOAD_METADATA_MISMATCH",
+        "finding": "The original item had a valid escalation concept but used an absolute-word distractor and unnecessary renal-dose context without identifying a drug or source for a renal dosing claim. The revised item tests only the source-supported safety-escalation process. A second-pass reread detected and corrected inaccurate option-length metadata before the item was closed.",
         "source_authority": "AHRQ TeamSTEPPS 3.0",
         "source_locator": "Tool: Two-Challenge Rule — repeat challenge; stronger action; supervisor/chain of command",
         "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
@@ -58,8 +58,8 @@
     "result": "PASS",
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
-    "option_lengths_characters": {"A": 150, "B": 137, "C": 132, "D": 129},
-    "note": "All four options are realistic next-step actions of comparable scope. The correct answer is moderately longer because it contains the source-required two-stage action, but it is not uniquely verbose or padded; the distractors are complete actions rather than fragments."
+    "option_lengths_characters": {"A": 140, "B": 145, "C": 141, "D": 138},
+    "note": "Exact character counts were recalculated from the stored option strings during adversarial reread. All four options are realistic next-step actions of closely comparable length; the correct answer is not the longest and no padding was added."
   },
   "blueprint_audit": {
     "result": "PASS",
@@ -77,7 +77,8 @@
       "supervisor/chain-of-command escalation verified directly",
       "A/B/C/D independently re-audited for correctness, plausibility, overlap and second-answer risk",
       "no second defensible answer identified",
-      "no absolute-word or grammatical cue identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "stored option-length metadata reread and verified against exact option strings",
       "no medication-specific dose or renal threshold claim remains",
       "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
       "exact provider-order/advocacy/resource activity statements verified",
