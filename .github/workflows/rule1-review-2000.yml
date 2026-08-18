@@ -14,133 +14,45 @@ jobs:
         with:
           ref: main
           fetch-depth: 1
-      - name: Audit canonical structure, blueprint distribution, NGN/CJ signals, and duplicates
+      - name: Inspect remaining source bank read-only
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import sqlite3, json, re, hashlib
-          from collections import Counter, defaultdict
-          from urllib.parse import urlparse
-          from pathlib import Path
-          DB=Path('NCLEX_CANONICAL.db')
-          EXPECTED_BLOB='182a1e979e11d62bebc85c5ceb859056b8812963'
-          import subprocess
-          blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
-          if blob!=EXPECTED_BLOB: raise SystemExit(f'BLOCKED canonical blob {blob}')
-          con=sqlite3.connect(f'file:{DB}?mode=ro',uri=True); con.row_factory=sqlite3.Row
-          cols=[r['name'] for r in con.execute('PRAGMA table_info(questions)')]
-          rows=con.execute('SELECT * FROM questions ORDER BY stable_sort_key, question_uid').fetchall()
-          total=len(rows)
-          gates=['source_authority_verified','currentness_verified','exact_locator_verified','stem_verified','correct_answer_verified','distractors_verified','rationale_verified','educational_objective_verified','ambiguity_verified','second_answer_excluded','cueing_verified','blueprint_verified','independent_qa_passed','no_unresolved_conflict']
-          required=['question_uid','client_need','difficulty','stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_source_organization','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_url','blueprint_topic','audit_status','second_pass_status','audit_reviewer','payload_sha256']
-          integrity=con.execute('PRAGMA integrity_check').fetchone()[0]
-          dup_uid=con.execute('SELECT COUNT(*) FROM (SELECT question_uid,COUNT(*) n FROM questions GROUP BY question_uid HAVING n>1)').fetchone()[0]
-          stable_dup=con.execute('SELECT COUNT(*) FROM (SELECT stable_sort_key,COUNT(*) n FROM questions GROUP BY stable_sort_key HAVING n>1)').fetchone()[0]
-          client=Counter(r['client_need'] for r in rows)
-          category=Counter(str(r['category_id']) for r in rows)
-          mode=Counter(r['mode'] for r in rows)
-          itemtype=Counter(r['item_type_raw'] for r in rows)
-          renderer=Counter(r['renderer_type'] for r in rows)
-          difficulty=Counter(r['difficulty'] for r in rows)
-          cj=Counter((r['cjmm_skill'] or 'NULL') for r in rows)
-          case_nonnull=[r for r in rows if r['case_uid'] not in (None,'')]
-          case_ids=sorted(set(r['case_uid'] for r in case_nonnull))
-          case_slots=sum(1 for r in rows if r['official_case_slot'] not in (None,''))
-          blueprint_versions=Counter(r['blueprint_version'] for r in rows)
-          blueprint_docs=Counter(r['blueprint_document_title'] for r in rows)
-          source_orgs=Counter(r['source_organization'] for r in rows)
-          domains=Counter((urlparse(r['source_url']).netloc.lower() if r['source_url'] else '') for r in rows)
-          answer=Counter()
-          malformed_answer=[]
-          malformed_options=[]
-          for r in rows:
-            try:
-              a=json.loads(r['correct_answer_json']); key=a.get('correct_option'); answer[str(key)]+=1
-            except Exception: malformed_answer.append(r['question_uid'])
-            try:
-              o=json.loads(r['item_data_json']).get('options',{})
-              if not isinstance(o,dict) or sorted(o.keys())!=['A','B','C','D']: malformed_options.append(r['question_uid'])
-            except Exception: malformed_options.append(r['question_uid'])
-          missing=defaultdict(list)
-          for r in rows:
-            for k in required:
-              v=r[k]
-              if v is None or (isinstance(v,str) and not v.strip()):
-                if len(missing[k])<25: missing[k].append(r['question_uid'])
-          gate_fail={g:[r['question_uid'] for r in rows if r[g]!=1][:25] for g in gates}
-          status=Counter(r['audit_status'] for r in rows)
-          second=Counter(r['second_pass_status'] for r in rows)
-          def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
-          exact_stem=defaultdict(list); norm_stem=defaultdict(list); exact_item=defaultdict(list)
-          for r in rows:
-            exact_stem[(r['stem'] or '').strip().lower()].append(r['question_uid'])
-            norm_stem[norm(r['stem'])].append(r['question_uid'])
-            try:
-              opts=json.loads(r['item_data_json']).get('options',{})
-            except Exception: opts={}
-            sig=json.dumps({'stem':norm(r['stem']),'options':opts},sort_keys=True,ensure_ascii=False)
-            exact_item[hashlib.sha256(sig.encode()).hexdigest()].append(r['question_uid'])
-          exact_stem_dups=[v for k,v in exact_stem.items() if k and len(v)>1]
-          norm_stem_dups=[v for k,v in norm_stem.items() if k and len(v)>1]
-          exact_item_dups=[v for v in exact_item.values() if len(v)>1]
-          stem_lengths=[len(r['stem'] or '') for r in rows]; rat_lengths=[len(r['rationale'] or '') for r in rows]
-          short_locator=[r['question_uid'] for r in rows if len((r['source_locator'] or '').strip())<25]
-          future_audit=[]
-          # answer streak by stored order
-          keys=[]
-          for r in rows:
-            try: keys.append((r['question_uid'],json.loads(r['correct_answer_json']).get('correct_option')))
-            except: keys.append((r['question_uid'],None))
-          maxrun=(0,None,None,None); run=0; prev=None; start=None
-          for uid,k in keys:
-            if k==prev: run+=1
-            else: prev=k; run=1; start=uid
-            if run>maxrun[0]: maxrun=(run,k,start,uid)
-          official_ranges={
-            'Management of Care':[15,21],
-            'Safety & Infection Prevention and Control':[10,16],
-            'Health Promotion and Maintenance':[6,12],
-            'Psychosocial Integrity':[6,12],
-            'Basic Care and Comfort':[6,12],
-            'Pharmacological and Parenteral Therapies':[13,19],
-            'Reduction of Risk Potential':[9,15],
-            'Physiological Adaptation':[11,17]
-          }
-          dist={}
-          for name,(lo,hi) in official_ranges.items():
-            n=client.get(name,0); pct=round(n*100/total,2) if total else 0
-            dist[name]={'count':n,'pct':pct,'official_range':[lo,hi],'inside_exam_range':lo<=pct<=hi}
-          unknown_client={k:v for k,v in client.items() if k not in official_ranges}
-          report={
-            'canonical_blob':blob,'integrity':integrity,'total':total,'duplicate_uid_count':dup_uid,'duplicate_stable_sort_key_groups':stable_dup,
-            'audit_status':dict(status),'second_pass_status':dict(second),'gate_failures':{g:v for g,v in gate_fail.items() if v},
-            'required_field_missing_samples':dict(missing),'client_need_distribution':dist,'unknown_client_needs':unknown_client,'category_id_counts':dict(category),
-            'mode_counts':dict(mode),'item_type_counts':dict(itemtype),'renderer_counts':dict(renderer),'difficulty_counts':dict(difficulty),
-            'cjmm_skill_counts':dict(cj),'case_item_count':len(case_nonnull),'distinct_case_uid_count':len(case_ids),'official_case_slot_count':case_slots,
-            'blueprint_version_counts':dict(blueprint_versions),'blueprint_document_counts':dict(blueprint_docs),
-            'correct_option_counts':dict(answer),'malformed_correct_answer':malformed_answer[:25],'malformed_options':malformed_options[:25],'max_same_correct_option_run':maxrun,
-            'exact_duplicate_stem_groups_count':len(exact_stem_dups),'exact_duplicate_stem_groups_sample':exact_stem_dups[:20],
-            'normalized_duplicate_stem_groups_count':len(norm_stem_dups),'normalized_duplicate_stem_groups_sample':norm_stem_dups[:20],
-            'exact_stem_plus_options_duplicate_groups_count':len(exact_item_dups),'exact_stem_plus_options_duplicate_groups_sample':exact_item_dups[:20],
-            'stem_length':{'min':min(stem_lengths),'max':max(stem_lengths),'avg':round(sum(stem_lengths)/total,1)},
-            'rationale_length':{'min':min(rat_lengths),'max':max(rat_lengths),'avg':round(sum(rat_lengths)/total,1)},
-            'short_source_locator_count':len(short_locator),'short_source_locator_sample':short_locator[:25],
-            'top_source_organizations':source_orgs.most_common(25),'top_source_domains':domains.most_common(30),
-            'unique_blueprint_topics':len(set(r['blueprint_topic'] for r in rows if r['blueprint_topic']))
-          }
-          # write full review manifest for follow-up inspection
-          fields=['question_uid','category_id','client_need','difficulty','mode','case_uid','official_case_slot','cjmm_skill','item_type_raw','renderer_type','stem','item_data_json','correct_answer_json','rationale','educational_objective','source_organization','source_document_title','source_version_date','source_accessed_date','source_locator','source_url','source_claim_supported','blueprint_document_title','blueprint_version','blueprint_locator','blueprint_topic','correction_summary','audit_status','second_pass_status','audit_reviewer']+gates
-          with open('review2000_manifest.jsonl','w',encoding='utf-8') as f:
-            for r in rows: f.write(json.dumps({k:r[k] for k in fields},ensure_ascii=False)+'\n')
-          with open('review2000_summary.json','w',encoding='utf-8') as f: json.dump(report,f,ensure_ascii=False,indent=2)
-          print('REVIEW2000_SUMMARY='+json.dumps(report,ensure_ascii=False,separators=(',',':')))
-          con.close()
+          import sqlite3,json,subprocess
+          from collections import Counter
+          SRC='NCLEX_COMMERCIAL_MASTER_CURRENT.db'; CAN='NCLEX_CANONICAL.db'
+          exp_src='07e335d471ef1b4689406ba41eb98eaa2ca41472'; exp_can='182a1e979e11d62bebc85c5ceb859056b8812963'
+          sb=subprocess.check_output(['git','rev-parse',f'HEAD:{SRC}'],text=True).strip(); cb=subprocess.check_output(['git','rev-parse',f'HEAD:{CAN}'],text=True).strip()
+          if (sb,cb)!=(exp_src,exp_can): raise SystemExit(f'BLOCKED blobs source={sb} canonical={cb}')
+          s=sqlite3.connect(f'file:{SRC}?mode=ro',uri=True); s.row_factory=sqlite3.Row
+          c=sqlite3.connect(f'file:{CAN}?mode=ro',uri=True); c.row_factory=sqlite3.Row
+          si=s.execute('PRAGMA integrity_check').fetchone()[0]; ci=c.execute('PRAGMA integrity_check').fetchone()[0]
+          sr=s.execute('SELECT * FROM questions ORDER BY stable_sort_key,question_uid').fetchall(); cr=c.execute('SELECT question_uid FROM questions').fetchall(); cu={r[0] for r in cr}
+          rem=[r for r in sr if r['question_uid'] not in cu]
+          def cnt(rows,k,none='NULL'): return dict(Counter((r[k] if r[k] not in (None,'') else none) for r in rows))
+          def dimensions(rows):
+            return {
+              'count':len(rows),
+              'mode':cnt(rows,'mode'),
+              'item_type_raw':cnt(rows,'item_type_raw'),
+              'renderer_type':cnt(rows,'renderer_type'),
+              'client_need':cnt(rows,'client_need'),
+              'category_id':cnt(rows,'category_id'),
+              'difficulty':cnt(rows,'difficulty'),
+              'cjmm_skill':cnt(rows,'cjmm_skill'),
+              'case_item_count':sum(1 for r in rows if r['case_uid'] not in (None,'')),
+              'distinct_case_uid_count':len({r['case_uid'] for r in rows if r['case_uid'] not in (None,'')}),
+              'official_case_slot_count':sum(1 for r in rows if r['official_case_slot'] not in (None,'')),
+              'slot_variant':cnt(rows,'slot_variant'),
+            }
+          out={'source_blob':sb,'canonical_blob':cb,'source_integrity':si,'canonical_integrity':ci,'source_total':len(sr),'canonical_uid_count':len(cu),'remaining_total':len(rem),'full_source':dimensions(sr),'remaining':dimensions(rem),'remaining_first_30':[{'uid':r['question_uid'],'stable_sort_key':r['stable_sort_key'],'mode':r['mode'],'item_type_raw':r['item_type_raw'],'case_uid':r['case_uid'],'cjmm_skill':r['cjmm_skill'],'client_need':r['client_need']} for r in rem[:30]]}
+          print('SOURCE_REMAINDER_SUMMARY='+json.dumps(out,ensure_ascii=False,separators=(',',':')))
+          open('source_remainder_summary.json','w').write(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          s.close(); c.close()
           PY
       - uses: actions/upload-artifact@v4
         with:
-          name: rule1-review-2000
-          path: |
-            review2000_summary.json
-            review2000_manifest.jsonl
+          name: rule1-source-remainder-review
+          path: source_remainder_summary.json
           retention-days: 1
