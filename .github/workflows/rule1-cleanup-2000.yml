@@ -1,0 +1,31 @@
+name: RULE1 cleanup canonical 2000
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    if: github.head_ref == 'rule1-cleanup-2000'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Apply reviewed cleanup map atomically
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_cleanup_2000.py
+      - name: Commit staging cleanup result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_CANONICAL.db RULE1_CLEANUP_2000_RESULT.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'RULE1 cleanup 2000 staging result'
+          git push origin HEAD:${{ github.head_ref }}
