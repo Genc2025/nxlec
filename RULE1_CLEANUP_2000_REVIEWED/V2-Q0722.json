@@ -1,0 +1,103 @@
+{
+  "question_uid": "V2-Q0722",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "SELF_SCHEDULING_WORKFORCE_RESEARCH_TO_PRETRANSFUSION_IDENTITY_SAFETY_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN is performing the required bedside verification before starting a packed red blood cell transfusion. The client's name on the blood-unit documentation matches, but the patient identification number on the unit does not match the client's wristband and transfusion record. Which action is most appropriate?",
+    "options": {
+      "A": "Ask the client to state the full name and date of birth, then begin the transfusion because the blood-unit name already matches the client.",
+      "B": "Do not start the transfusion; keep the unit out of use and resolve the identifier discrepancy with transfusion services according to facility policy.",
+      "C": "Have a second RN confirm that the ABO and Rh types are compatible, then proceed despite the identification-number mismatch on the blood unit.",
+      "D": "Correct the identification number on the blood-unit label at the bedside after comparing the client's wristband with the electronic health record."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly requires client identification according to facility/agency policy before red blood cell or blood-product administration and lists verification elements including the order, correct type, correct client, crossmatching and consent. Current NCBI nursing guidance likewise requires bedside verification of the client's identity and matching of the client's identification number with the blood-product identification before transfusion begins. In this scenario, the identification-number discrepancy remains unresolved even though the name matches. B is therefore the uniquely safest action: do not initiate the transfusion and resolve the mismatch through the facility/transfusion-service process. A relies on partial identity agreement while a required identifier still conflicts. C confirms compatibility but does not correct the patient-product identity mismatch. D inappropriately alters the blood-unit label at the bedside rather than resolving the discrepancy through the controlled transfusion process. Therefore B is correct.",
+    "educational_objective": "Before administering a blood product, resolve any mismatch between the client's identifiers and the blood-product/transfusion record; do not proceed based on a matching name, compatible ABO/Rh type, or bedside relabeling when a required identifier conflicts.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); NCBI Bookshelf / Open RN",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Nursing Responsibilities Related to Blood Product Administration; Administer Blood Products",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; current NCBI Open RN blood-product guidance live-rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Pharmacological and Parenteral Therapies, printed p. 39 / PDF p. 43 — Blood and Blood Products: identify client according to facility/agency policy prior to administration; verify order, correct type, correct client, crossmatching and consent. NCBI Open RN — compare blood unit to order, verify client identity, blood type/Rh and client number against blood-product number before transfusion.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_urls": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK613075/table/ch3hematological.T.nursing_responsibilit/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK594497/"
+    ],
+    "source_claim_supported": "A required patient/blood-product identifier mismatch must be resolved before transfusion begins; ABO/Rh compatibility or a matching name does not override unresolved identity verification.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Pharmacological and Parenteral Therapies, printed p. 39 / PDF p. 43 — Blood and Blood Products",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — pre-transfusion client and product identity verification",
+    "correction_summary_append": "RULE1 cleanup: retired self-scheduling/workforce research because it was organizational staffing theory rather than bedside entry-level nursing care. Rebuilt the item around explicit NCSBN pre-transfusion client/product verification. The final item requires stopping before transfusion when a required patient identifier conflicts and removes the previous extreme correct-answer length cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0722",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_BEDSIDE_WORKFORCE_SCHEDULING_RESEARCH_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests prevention of wrong-patient/wrong-unit blood administration during the required pre-transfusion safety check.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; NCBI Open RN",
+        "source_locator": "Blood and Blood Products — client identification and product verification before administration",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 39 / PDF p. 43"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_facility_two_person_workflow": "Not universalized. The stem states that required bedside verification is being performed; the correct action follows the facility/transfusion-service process for resolving the mismatch.",
+    "ABO_compatibility_as_identity_substitute": "Not endorsed. Product compatibility does not resolve a conflicting required patient identifier.",
+    "bedside_relabeling": "Not endorsed. The RN should not unilaterally alter controlled blood-product identification to make a mismatch appear resolved.",
+    "emergency_uncrossmatched_blood": "Not tested; the scenario is a routine planned transfusion with required verification available."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0720", "V2-Q0627", "V2-Q0621"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0720 tests response after a suspected transfusion reaction begins. V2-Q0627 tests laterality discrepancy before surgery. V2-Q0621 tests an incomplete medication order. V2-Q0722 tests pre-transfusion patient-product identity matching before any blood is administered. Targeted repository search returned no matching blood-product identifier-mismatch item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible use of verbal identifiers but incorrectly treats a matching name as sufficient while another required identifier remains discrepant.",
+    "B": "Correct. It prevents transfusion until the identity discrepancy is resolved through the controlled transfusion-service/facility process.",
+    "C": "Plausible compatibility check but ABO/Rh agreement cannot substitute for correct patient-product identification.",
+    "D": "Plausible documentation correction but bedside relabeling bypasses the controlled process for resolving blood-product identity discrepancies."
+  },
+  "ambiguity_check": "No second defensible best answer. A required identification number conflicts before the transfusion begins. B alone stops progression and resolves the mismatch through the appropriate process. A/C proceed despite unresolved identity; D changes the controlled label rather than resolving the discrepancy.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 139, "B": 149, "C": 141, "D": 146},
+    "note": "Exact character counts were calculated from the stored strings. All options are within ten characters; correct option B is close in length to D and no extreme answer-length cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Client/product identification before blood-product administration is explicit NCSBN Pharmacological and Parenteral Therapies content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Blood and Blood Products page, printed p. 39 / PDF p. 43, was visually inspected on 2026-08-19 and explicitly lists client identification before administration and administration/evaluation of blood products."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN pre-transfusion identity content verified directly and visually",
+      "NCBI bedside patient/product verification guidance verified",
+      "unresolved required identifier mismatch explicitly controlled in stem",
+      "no universal facility-specific staffing/double-check rule invented",
+      "ABO/Rh compatibility not allowed to substitute for patient identity",
+      "A/B/C/D independently re-audited for wrong-patient transfusion risk and second-answer risk",
+      "no second defensible best answer identified",
+      "prior extreme correct-answer length cue removed",
+      "exact option lengths verified as A139/B149/C141/D146",
+      "construct compared with Q0720/Q0627/Q0621 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
