@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0925",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "SAFETY_CULTURE_SURVEY_THEORY_TO_PACEMAKER_FAILURE_TO_CAPTURE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with a permanent ventricular pacemaker reports sudden dizziness and weakness. Telemetry repeatedly shows pacing spikes that are not followed by QRS complexes. The manual pulse is 34/min, blood pressure is 78/46 mm Hg, and the client is cool and clammy. Which action is most appropriate?",
+    "options": {
+      "A": "Continue telemetry and request routine device interrogation because visible pacing spikes show the pacemaker is generating electrical output.",
+      "B": "Activate the emergency response, support perfusion, and begin unstable-bradycardia management while urgent pacemaker evaluation is arranged.",
+      "C": "Place a pacemaker magnet over the generator to restore ventricular capture, then reassess blood pressure before notifying the cardiology team.",
+      "D": "Ask the client to cough forcefully and remain supine while the RN repeats the rhythm strip, then notify the provider if noncapture persists."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes managing the care of a client with a pacing device, monitoring pacemaker function, and intervening for abnormal hemodynamics under Physiological Adaptation. Current StatPearls defines pacemaker failure to capture as a pacing spike that is not followed by the expected evoked P wave or QRS complex and notes that capture failure may cause life-threatening bradyarrhythmias or asystole. The 2025 American Heart Association Adult Advanced Life Support guideline identifies dizziness, hypotension and signs of shock/poor perfusion as manifestations of symptomatic unstable bradycardia and emphasizes immediate stabilization while the underlying cause is evaluated. This client has confirmed electrical noncapture plus profound bradycardia, hypotension and poor perfusion. B is therefore the uniquely best response: activate emergency assistance, support perfusion and initiate the facility/ACLS unstable-bradycardia pathway while urgent pacemaker evaluation occurs. A delays treatment despite instability. C assumes a magnet will restore capture, which is not an appropriate generic response to capture failure and could alter device behavior unpredictably. D delays emergency stabilization and coughing does not correct pacemaker noncapture. Therefore B is correct.",
+    "educational_objective": "Pacing spikes not followed by QRS complexes indicate ventricular failure to capture. When noncapture is accompanied by severe bradycardia, hypotension and poor perfusion, activate emergency assistance and manage the unstable bradycardia while obtaining urgent device evaluation rather than delaying for routine interrogation or attempting unsupervised device manipulation.",
+    "source_organization": "American Heart Association (AHA); NCBI Bookshelf / StatPearls; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2025 American Heart Association Guidelines for CPR and ECC — Adult Advanced Life Support; Pacemaker Malfunction; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "AHA Adult ALS 2025 guideline current in 2026; StatPearls Pacemaker Malfunction published in the 2026 StatPearls Internet edition, chapter last updated July 30, 2023; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "StatPearls Pacemaker Malfunction — Failure to Capture: pacing spike not followed by evoked P/QRS; capture failure may produce life-threatening bradyarrhythmia/asystole. AHA 2025 Adult ALS — Bradycardia: symptomatic bradycardia may present with dizziness, hypotension and shock/poor perfusion and requires emergent stabilization while causes are evaluated. NCSBN Physiological Adaptation, PDF p.17 / printed p.14 and Appendix A p.48 — Manage the care of a client with a pacing device; monitor pacemaker functions.",
+    "source_url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+    "secondary_source_urls": ["https://www.ncbi.nlm.nih.gov/books/NBK553149/","https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"],
+    "source_claim_supported": "Pacemaker failure to capture is pacing output without myocardial depolarization; when accompanied by severe symptomatic bradycardia and hypotension, immediate stabilization and urgent device evaluation are required.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, PDF p.17 / printed p.14 — Manage the care of a client with a pacing device; Appendix A Hemodynamics, printed p.48 — Intervene to improve cardiovascular status and monitor pacemaker functions",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — recognition and emergency management of pacemaker failure to capture",
+    "correction_summary_append": "RULE1 cleanup: retired Hospital SOPS/safety-culture survey theory because it was organizational measurement content rather than a bedside clinical decision. Rebuilt the item around explicit NCSBN pacing-device care and clinically unstable pacemaker failure to capture. Removed the prior key-length cue.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0925","result":"FINAL_QA_PASS","failure_mode_corrected":"ORGANIZATIONAL_SAFETY_CULTURE_MEASUREMENT_AND_KEY_LENGTH_CUE","finding":"The replacement tests recognition and emergency response to ventricular pacemaker noncapture with shock physiology.","source_authority":"AHA 2025 Adult ALS; StatPearls; NCSBN 2026 Test Plan"}]
+  },
+  "scope_exclusions": {
+    "specific_first_line_ACLS_medication": "Not tested. The correct response directs use of the established unstable-bradycardia pathway rather than forcing a drug-versus-pacing choice that depends on protocol, access and response.",
+    "magnet_as_generic_treatment": "Not endorsed. Magnet response varies by device and programming and does not constitute a universal treatment for capture failure.",
+    "telemetry_artifact_only": "The stem confirms a manual pulse of 34/min with hypotension and poor perfusion, so the clinical problem is not based solely on monitor appearance."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0724", "V2-Q0922", "V2-Q0873"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0724 tests generic rapid-response escalation for postoperative deterioration, Q0922 AV-fistula access failure, and Q0873 increased-ICP positioning. Q0925 specifically tests ventricular pacemaker failure to capture with symptomatic unstable bradycardia. Targeted repository search returned no matching pacemaker noncapture item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible device-evaluation response but delays emergency treatment despite confirmed shock physiology.",
+    "B": "Correct. It prioritizes immediate stabilization and unstable-bradycardia management while urgent device evaluation proceeds.",
+    "C": "Plausible device-focused response but magnet application is not a universal corrective action for failure to capture and delays appropriate emergency care.",
+    "D": "Plausible reassessment response but delays treatment and does not address pacemaker capture failure."
+  },
+  "ambiguity_check": "No second defensible best answer. Electrical noncapture is paired with manual bradycardia, hypotension and poor perfusion. B alone immediately treats the unstable clinical state while arranging device evaluation; A/C/D delay or use unsupported maneuvers.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":141,"B":140,"C":142,"D":140},
+    "note": "All four options are within two characters; correct B is tied for shortest and is not signaled by length."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Managing pacing devices, monitoring pacemaker function and responding to abnormal hemodynamics are explicit NCSBN Physiological Adaptation activities.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, PDF p.17 / printed p.14, was visually inspected in this audit sequence and explicitly lists management of clients with pacing devices."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["NCSBN pacing-device activity verified visually","StatPearls failure-to-capture definition verified","manual bradycardia and shock physiology controlled in stem","AHA 2025 symptomatic-bradycardia stabilization guidance verified","no specific drug-vs-pacing sequence overclaimed","A/B/C/D re-audited","no second defensible answer","option lengths A141/B140/C142/D140","targeted duplicate search clean","difficulty medium"]
+  }
+}
