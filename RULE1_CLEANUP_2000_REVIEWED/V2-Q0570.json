@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0570",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "STAFFING_COMMITTEE_TRIVIA_TO_UNRESOLVED_RESULT_HANDOFF_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "At change of shift, a diagnostic test result for an assigned client is still pending and may affect the next care decision. The result is expected after the outgoing RN leaves the unit. Which handoff action is most appropriate?",
+    "options": {
+      "A": "Include the pending result and required follow-up in the handoff, confirm who assumes responsibility, and allow the receiving RN to clarify the plan.",
+      "B": "Enter the pending test in the electronic record and omit it from verbal handoff because the receiving RN can review the chart after the shift begins.",
+      "C": "End the handoff once current assessment findings are reported and let the receiving RN decide later whether any pending results need follow-up.",
+      "D": "Keep responsibility for the result after leaving the unit and call back later, rather than transferring the unresolved issue during the formal handoff."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ TeamSTEPPS defines handoff as transfer of information together with authority and responsibility during transitions in care. AHRQ states that appropriate handoff requires clear transfer of responsibility/accountability, communication of uncertainty and the care plan, confirmation that the receiving person understands and accepts the transfer, and an opportunity to ask questions. It specifically cautions against assuming that the person assuming responsibility will simply read or understand an electronic communication without confirmation. AHRQ discharge-safety guidance also identifies pending tests as a follow-up risk and recommends specifying which results are pending and who will follow them. The 2026 NCSBN NCLEX-RN Test Plan explicitly requires nurses to provide and receive handoff, use records to communicate client information, and follow up on unresolved issues such as laboratory results or client requests. A therefore best preserves continuity: the outgoing RN identifies the unresolved result, communicates the follow-up need, confirms transfer of responsibility, and allows clarification. B relies on the EHR without direct transfer of the unresolved issue. C omits a known follow-up need from handoff. D fails to transfer responsibility through the formal handoff and creates ambiguity after the outgoing RN leaves. Therefore A is correct.",
+    "educational_objective": "During handoff, explicitly communicate unresolved or pending client-care issues, clarify the required follow-up, and confirm who assumes responsibility rather than relying on the electronic record or leaving ownership ambiguous.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "TeamSTEPPS — Tool: Handoff; Re-Engineered Discharge Toolkit — Follow Up on Test or Lab Results That Are Pending at Discharge",
+    "source_version_date": "TeamSTEPPS Handoff current AHRQ page last reviewed May 2023; RED pending-results toolkit current page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "TeamSTEPPS Handoff — transfer of information, authority and responsibility; transfer of responsibility/accountability; appropriate communication; acknowledgment by receiver; opportunity to ask questions; cannot assume receiver will read/understand electronic communication without confirmation. RED Tool 3 — identify pending tests, expected result, and who will follow up and when",
+    "source_url": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/handoff.html",
+    "secondary_source_url": "https://www.ahrq.gov/patient-safety/settings/hospital/red/toolkit/redtool3a.html",
+    "source_claim_supported": "Safe handoff requires explicit transfer of unresolved information and responsibility with receiver acknowledgment; pending results should have clear follow-up ownership rather than being left to passive chart review.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 21 / PDF p. 25 — Continuity of Care: provide and receive handoff of care on assigned clients; use documents to record/communicate client information; follow up on unresolved issues regarding client care (e.g., laboratory results, client requests)",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — handoff ownership and follow-up of unresolved client-care issues",
+    "correction_summary_append": "RULE1 cleanup: retired staffing-committee administration because it overlapped existing staffing/workload constructs and was weakly bedside-focused. Rebuilt the item around an explicit NCSBN continuity-of-care responsibility: communicate a pending result during handoff, transfer follow-up responsibility clearly and confirm receiver understanding. Removed the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0570",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_BEDSIDE_STAFFING_COMMITTEE_TRIVIA_STAFFING_OVERLAP_ABSOLUTE_WORD_CUE_AND_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests continuity of care and ownership of a known unresolved result during shift handoff.",
+        "source_authority": "AHRQ TeamSTEPPS Handoff and RED pending-results guidance",
+        "source_locator": "Transfer responsibility/accountability; receiver acknowledgment; pending result follow-up ownership",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Continuity of Care"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_test_interpretation": "Not tested; the result is described only as potentially relevant to the next care decision.",
+    "outgoing_RN_postshift_ownership": "Not endorsed; responsibility should be transferred clearly at handoff rather than left ambiguous after the shift.",
+    "EHR_as_substitute_for_handoff": "Not endorsed; electronic documentation supports but does not replace clear transfer/acknowledgment of responsibility in this scenario."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0026", "V2-Q0373", "V2-Q0474"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0026 tests general handoff content/communication. V2-Q0373 tests medication-reconciliation discrepancy resolution during transfer. V2-Q0474 tests accurate/timely documentation and avoidance of pre-charting. V2-Q0570 specifically tests explicit ownership and follow-up of a known unresolved pending result at shift handoff. Targeted repository search for pending-result handoff/follow-up returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Correct. It communicates the unresolved issue, follow-up need and transfer of responsibility with receiver clarification.",
+    "B": "Plausible EHR-reliance response, but AHRQ cautions against assuming electronic communication alone establishes understood responsibility.",
+    "C": "Plausible narrow-assessment handoff, but it omits a known unresolved issue that may affect subsequent care.",
+    "D": "Plausible personal-accountability response, but it creates ambiguity by failing to transfer the unresolved issue through the formal handoff."
+  },
+  "ambiguity_check": "No second defensible best answer. The result is known to be pending and potentially relevant. A alone both communicates the unresolved issue and confirms ownership/understanding. B relies on passive chart review, C omits the issue, and D leaves responsibility outside the formal transfer process.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 149, "B": 149, "C": 143, "D": 151},
+    "note": "Exact character counts were calculated from the stored strings. Correct option A is tied with B and shorter than D; the prior uniquely-longest and absolute-word cues are removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Handoff and follow-up of unresolved laboratory/client issues are explicit Management of Care continuity responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Continuity of Care content, printed p. 21 / PDF p. 25, was visually inspected on 2026-08-19 and explicitly includes handoff and follow-up of unresolved issues such as laboratory results."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ TeamSTEPPS Handoff page verified",
+      "transfer of information plus responsibility/accountability verified directly",
+      "receiver acknowledgment/clarification requirement verified directly",
+      "AHRQ caution against passive electronic-handoff assumption verified",
+      "AHRQ pending-test follow-up ownership guidance verified",
+      "official 2026 NCSBN Continuity of Care content visually verified",
+      "A/B/C/D independently re-audited for continuity, ownership and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A149/B149/C143/D151",
+      "construct compared with Q0026/Q0373/Q0474 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
