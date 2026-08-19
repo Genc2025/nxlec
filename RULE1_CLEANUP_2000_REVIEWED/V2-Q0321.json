@@ -1,0 +1,104 @@
+{
+  "question_uid": "V2-Q0321",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "CURRENTNESS_LEGAL_SCOPE_AND_LENGTH_CUE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A 16-year-old seeks confidential evaluation, testing, and treatment for a suspected sexually transmitted infection such as chlamydia and asks whether a parent must consent. Which response by the nurse is most accurate?",
+    "options": {
+      "A": "A parent generally must authorize evaluation and treatment until age 18, although the clinic may provide confidential counseling beforehand.",
+      "B": "CDC reports nationwide minor authority to consent for STI services; also explain the state-specific confidentiality and notification rules for this visit.",
+      "C": "The teen may consent to STI testing, but treatment requires a parent or guardian unless the teen is emancipated under state law.",
+      "D": "Consent is determined by federal HIPAA rules, so state minor-consent laws do not affect whether the clinic can provide STI care."
+    },
+    "correct_option": "B",
+    "rationale": "CDC's current STI Treatment Guidelines, which CDC still identifies as its most current evidence-based STI guidance in 2026, state in the Adolescents section that all 50 states and the District of Columbia explicitly allow minors to consent for their own STI services and that no state requires parental consent for STI care. CDC also emphasizes that confidentiality can be complicated, including by insurance explanations of benefits, and that parental-notification and some age- or service-specific provisions vary. The stem is limited to evaluation, testing, and treatment for a suspected STI such as chlamydia rather than HPV vaccination or HIV-specific services, for which separate age/service provisions may apply. Option B therefore correctly separates the nationwide minor-consent principle from the need to explain current state-specific confidentiality and notification rules. A incorrectly makes parental authorization the default. C incorrectly creates a nationwide testing-versus-treatment split that CDC does not describe. D incorrectly treats HIPAA as replacing state minor-consent law. Therefore B is the uniquely best answer.",
+    "educational_objective": "Explain that minors have nationwide legal authority to consent for STI services while applying current state-specific confidentiality, notification, and service-related provisions to the clinical encounter.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "source_document_title": "Sexually Transmitted Infections Treatment Guidelines, 2021 — Adolescents",
+    "source_version_date": "2021 guideline remains CDC's most current evidence-based STI Treatment Guidelines; CDC Clinical Guidance page dated July 18, 2025 and STI Clinical Guidance page dated March 17, 2026 confirm current use; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Adolescents — Legal Issues and Confidentiality: all 50 states and DC allow minors to consent for their own STI services; no state requires parental consent for STI care; age provisions for specified services and notification/confidentiality issues vary",
+    "source_url": "https://www.cdc.gov/std/treatment-guidelines/adolescents.htm",
+    "source_claim_supported": "CDC states that minors can consent for their own STI services throughout the United States and DC, while confidentiality, parental-notification, and some service/age provisions vary and require jurisdiction-specific application.",
+    "currentness_verification": {
+      "cdc_clinical_guidance_url": "https://www.cdc.gov/sti/hcp/clinical-guidance/index.html",
+      "cdc_clinical_guidance_date": "July 18, 2025",
+      "cdc_2026_resource_url": "https://www.cdc.gov/sti-awareness/resources/sti-clinical-guidance.html",
+      "cdc_2026_resource_date": "March 17, 2026",
+      "finding": "Both current CDC resources continue to direct clinicians to the 2021 STI Treatment Guidelines as CDC clinical guidance."
+    },
+    "secondary_source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "secondary_source_document_title": "For Providers: Teens Visiting a Health Clinic",
+    "secondary_source_version_date": "May 15, 2024; current page accessed 2026-08-19",
+    "secondary_source_locator": "Confidentiality — provide teens clear information about state laws governing consent and confidentiality; billing procedures may affect confidentiality",
+    "secondary_source_url": "https://www.cdc.gov/reproductive-health/hcp/teen-pregnancy-prevention/clinic-visit.html",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Verify the client receives education and consents for care and procedures; Maintain client confidentiality and privacy; Provide care within the legal scope of practice; Appendix A printed pp. 21-22 / PDF pp. 25-26 — Informed Consent, Confidentiality/Information Security, Legal Rights and Responsibilities",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — minor consent, confidentiality, and legal rights in STI care",
+    "correction_summary_append": "RULE1 cleanup: reverified the time-sensitive legal claim against current CDC 2025/2026 guidance, narrowed the scenario away from HPV/HIV-specific consent provisions, separated nationwide STI-consent authority from jurisdiction-specific confidentiality/notification rules, removed the conspicuous answer-length cue, and normalized difficulty from hard to medium.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0321",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "TIME_SENSITIVE_LEGAL_CURRENTNESS_ANSWER_LENGTH_CUE_AND_SERVICE_SCOPE_PRECISION",
+        "finding": "The nationwide STI-consent claim remains explicitly supported by current CDC guidance in 2026, but the original option was conspicuously longest and mixed the broad STI principle with potentially variable service-specific rules. The revised item limits the service context and requires state-specific confidentiality/notification application without mischaracterizing the consent rule.",
+        "source_authority": "CDC STI Treatment Guidelines — Adolescents plus current CDC 2025/2026 guidance pages",
+        "source_locator": "Legal Issues and Confidentiality",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — informed consent, confidentiality/privacy and legal scope"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "hpv_vaccination": "Excluded because CDC notes age provisions for specified services such as HPV vaccination may vary by state.",
+    "hiv_specific_testing_or_treatment": "Excluded from the stem because CDC notes some age/service provisions for HIV testing and treatment vary by state.",
+    "confidentiality_guarantee": "Not promised. Confidentiality, notification, insurance/EOB, and legally required disclosure issues are addressed according to current jurisdiction law and policy."
+  },
+  "option_audit": {
+    "A": "Plausible general-minor-consent misconception, but CDC explicitly states that parental consent is not required for STI care under the nationwide legal framework it summarizes.",
+    "B": "Correct. It preserves the nationwide STI-consent principle and separately instructs the nurse to explain jurisdiction-specific confidentiality/notification provisions.",
+    "C": "Plausible distinction because laws for some adolescent services vary, but CDC does not describe a nationwide rule allowing STI testing while requiring parental consent for STI treatment.",
+    "D": "Plausible HIPAA confusion, but minor authority to consent is grounded in state law; HIPAA does not erase state minor-consent provisions."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem excludes HPV vaccination and HIV-specific service questions and asks about ordinary suspected STI evaluation/testing/treatment. B alone matches CDC's nationwide consent statement while preserving jurisdiction-specific confidentiality and notification requirements.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 140, "B": 154, "C": 128, "D": 128},
+    "note": "Exact character counts were calculated from the stored strings. The correct answer is longer than the shortest distractors but is not remotely comparable to the prior 238-character cue; A is close in length, and all options are complete legal explanations rather than clipped foils."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Consent, confidentiality/privacy and legal-scope recognition are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "CDC Adolescents legal-consent text reverified",
+      "all-50-states-plus-DC minor STI consent statement reverified directly",
+      "no-state-requires-parental-consent-for-STI-care statement reverified directly",
+      "service/age variability statement reverified and controlled by stem exclusions",
+      "confidentiality/EOB and parental-notification complexity reverified",
+      "CDC July 18, 2025 clinical-guidance page confirms 2021 guideline is most current evidence-based STI guidance",
+      "CDC March 17, 2026 STI Clinical Guidance page still directs clinicians to 2021 STI Treatment Guidelines",
+      "A/B/C/D independently re-audited for legal accuracy, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "major prior answer-length cue removed",
+      "NCSBN 2026 informed-consent/confidentiality/legal-scope mapping verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
