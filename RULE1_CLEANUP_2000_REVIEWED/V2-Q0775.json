@@ -1,0 +1,101 @@
+{
+  "question_uid": "V2-Q0775",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "QI_TREND_RECALL_OVERLAP_TO_MEASLES_AIRBORNE_ISOLATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An adult arrives at an outpatient clinic with fever, cough, conjunctivitis, and a new rash that began on the face and is spreading downward. The RN suspects measles, and an airborne infection isolation room is available. Which action is most appropriate?",
+    "options": {
+      "A": "Place the client in a private room with the door closed and use droplet precautions while awaiting laboratory confirmation of measles.",
+      "B": "Place a mask on the client, move the client promptly to an airborne infection isolation room, and use a fit-tested N95 respirator for care.",
+      "C": "Use contact precautions in a private room and add an N95 respirator if the client develops worsening cough or respiratory distress.",
+      "D": "Keep the client separated in the waiting area while arranging laboratory testing, then begin airborne isolation if measles is confirmed."
+    },
+    "correct_option": "B",
+    "rationale": "Current CDC measles infection-control guidance instructs healthcare settings to rapidly identify and isolate patients with known or suspected measles, provide source control, use Standard plus Airborne Precautions, immediately place the patient in an airborne infection isolation room when available, and have healthcare personnel entering the room use respiratory protection at least as protective as a fit-tested NIOSH-certified N95 respirator. The 2026 NCSBN NCLEX-RN Test Plan explicitly places airborne/droplet/contact transmission, isolation, infection-prevention principles, and staff/client infection-prevention education within Safety and Infection Prevention and Control. B is therefore the uniquely best action. A uses droplet rather than airborne precautions. C uses contact precautions and delays appropriate respiratory protection. D delays required isolation until laboratory confirmation even though CDC guidance applies to suspected measles. Therefore B is correct.",
+    "educational_objective": "For suspected measles in a healthcare setting, initiate Airborne Precautions immediately: provide source control, place the client promptly in an AIIR when available, and use appropriate respiratory protection rather than waiting for laboratory confirmation.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Interim Infection Prevention and Control Recommendations for Measles in Healthcare Settings; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current CDC measles infection-control guidance live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "CDC Measles Infection Control — minimize exposures/rapid identification and isolation; Standard and Airborne Precautions; immediately place known or suspected measles in an AIIR; HCP entering room use respiratory protection at least as protective as fit-tested NIOSH-certified N95. NCSBN Appendix A, Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30 — Standard Precautions/Transmission-Based Precautions/Surgical Asepsis: understand airborne/droplet/contact transmission; apply infection-prevention principles including isolation; educate client/staff regarding infection-prevention measures",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/measles/index.html",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Suspected measles requires immediate airborne infection-control measures rather than waiting for confirmation, including prompt AIIR placement when available and appropriate respirator use by healthcare personnel.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30 — Standard Precautions/Transmission-Based Precautions/Surgical Asepsis",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — suspected measles and Airborne Precautions",
+    "correction_summary_append": "RULE1 cleanup: retired repeated quality-measure trend/QI recall because it overlapped existing QI constructs. Rebuilt the item around explicit NCSBN transmission-based precaution content and current CDC measles infection-control guidance. Removed the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0775",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "QI_CONSTRUCT_OVERLAP_ABSOLUTE_WORD_CUE_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests immediate isolation and respiratory-protection decisions for suspected airborne infection.",
+        "source_authority": "CDC measles infection-control guidance; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Suspected measles — Airborne Precautions/AIIR/N95; NCSBN Standard/Transmission-Based Precautions",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "laboratory_confirmation_before_isolation": "Not required; CDC applies Airborne Precautions to known or suspected measles.",
+    "universal_AIIR_unavailability_workaround": "Not tested; the stem explicitly states that an AIIR is available.",
+    "measles_immunity_exception_to_respirator": "Not used; current CDC measles healthcare guidance recommends respiratory protection at least as protective as a fit-tested N95 upon room entry regardless of presumptive immunity status.",
+    "treatment_of_measles": "Not tested; this item evaluates infection-control actions at presentation."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0676", "V2-Q0626", "V2-Q0271"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0676 tests an oxygen-related fire hazard. V2-Q0626 tests occupational needlestick response. V2-Q0271 tests hand hygiene after contact with patient surroundings/equipment. V2-Q0775 tests immediate Airborne Precautions and AIIR placement for suspected measles. Targeted repository search for measles/airborne-isolation content returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible isolation action but uses droplet rather than required airborne precautions.",
+    "B": "Correct. It provides source control, prompt AIIR placement and appropriate respirator use without waiting for confirmation.",
+    "C": "Plausible PPE response but uses the wrong transmission category and delays respirator use based on symptom severity.",
+    "D": "Plausible diagnostic workflow but leaves the suspected measles client outside required airborne isolation while awaiting testing."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem supplies a classic suspected-measles presentation and confirms an AIIR is available. Current CDC guidance applies Airborne Precautions to suspected measles immediately. B alone implements source control, AIIR placement and recommended respiratory protection without delay.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 134, "B": 139, "C": 131, "D": 136},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within eight characters; correct option B is only three characters longer than D and is not conspicuously isolated by length."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Understanding airborne/droplet/contact transmission and applying isolation/infection-prevention principles are explicit Safety and Infection Prevention and Control responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Standard Precautions/Transmission-Based Precautions/Surgical Asepsis page, printed p. 26 / PDF p. 30, was visually inspected on 2026-08-19 and explicitly includes airborne/droplet/contact transmission and isolation/infection-prevention principles."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC suspected-measles healthcare isolation guidance verified",
+      "immediate AIIR placement when available verified",
+      "Airborne Precautions for suspected measles verified",
+      "fit-tested N95-or-better respiratory protection guidance verified",
+      "official 2026 NCSBN transmission-based-precaution page visually verified",
+      "laboratory confirmation not required before isolation",
+      "A/B/C/D independently re-audited for transmission category and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and answer-length cues removed",
+      "exact option lengths verified as A134/B139/C131/D136",
+      "construct compared with Q0676/Q0626/Q0271 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
