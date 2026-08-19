@@ -1,0 +1,111 @@
+{
+  "question_uid": "V2-Q1025",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "HIPAA_FAMILY_DISCLOSURE_REWRITE_TO_REMOVE_LENGTH_AND_IDENTITY_AMBIGUITY",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A competent hospitalized client tells the nurse, \"My daughter helps manage my medicines and can receive information needed for that.\" Later, the daughter calls. After the nurse follows the facility's procedure to verify the caller, which response is consistent with the HIPAA Privacy Rule?",
+    "options": {
+      "A": "Share only health information directly relevant to the daughter's involvement in helping manage the client's medications.",
+      "B": "Provide a complete medical update because the client identified the daughter as someone involved in the client's care.",
+      "C": "Decline to discuss any health information unless the client signs a written HIPAA authorization for this telephone call.",
+      "D": "Share information from any diagnosis in the record if the daughter says it could be useful for future care decisions."
+    },
+    "correct_option": "A",
+    "rationale": "HHS guidance implementing 45 CFR 164.510(b) states that a covered entity may share protected health information with a family member, friend, or other person identified by the patient when the patient agrees or does not object, but the disclosure is limited to information directly relevant to that person's involvement in the patient's care or payment for care. The stem establishes the client's capacity, agreement, and the daughter's medication-management role, and separately controls facility caller-verification procedure. The nurse may therefore share information relevant to the daughter's medication-management involvement, but not the client's entire medical record or unrelated diagnoses. HIPAA itself does not require a written authorization for every routine disclosure to an involved family member when the conditions of 45 CFR 164.510(b) are met. Therefore A is the uniquely best answer.",
+    "educational_objective": "When a capable client permits an involved family member to receive information, limit the HIPAA disclosure to protected health information directly relevant to that person's involvement in the client's care or payment for care.",
+    "source_organization": "U.S. Department of Health and Human Services (HHS), Office for Civil Rights",
+    "source_document_title": "HIPAA FAQ 2086; HIPAA FAQ 2087; HIPAA FAQ 525",
+    "source_version_date": "FAQ 2086 content last reviewed March 5, 2025; FAQ 2087 content last reviewed September 12, 2017; FAQ 525 content last reviewed July 26, 2013; all official HHS pages rechecked August 19, 2026",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "45 CFR 164.510(b) as explained in HHS FAQ 2086 — information directly relevant to the identified person's involvement, patient permission/no objection conditions; HHS FAQ 2087 — disclosures to family/friends involved in care limited to PHI directly relevant to that involvement; HHS FAQ 525 — HIPAA does not require written permission for every such disclosure, though a provider may have its own requirements.",
+    "source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/2086/does-hipaa-privacy-rule-permit-doctor-discuss-patient-s-health-status.html",
+    "secondary_source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/2087/does-hipaa-allow-a-health-care-provider-to-communicate-with-a-patients-family-friends-or-other-persons-who-are-involved-in-the-patient-care.html",
+    "tertiary_source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/525/do-i-have-to-give-permissions-to-share-my-health-information-with-my-family/index.html",
+    "source_claim_supported": "Under HIPAA, when the patient permits or does not object to disclosure to a person involved in care, the covered entity may share PHI directly relevant to that person's involvement; HIPAA does not itself require written authorization for every such routine disclosure.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Confidentiality/Information Security, printed p. 21 / PDF p. 25 — maintain client confidentiality and privacy, including disclosure of information",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — confidentiality, privacy, and permitted disclosure to an involved family member",
+    "correction_summary_append": "RULE1 cleanup: preserved a high-value HIPAA family-disclosure construct but removed the extreme correct-answer length cue and caller-identity ambiguity. The stem now explicitly states the client's permission and role-specific involvement and states that facility verification procedure has already been followed, leaving the legally relevant question: how much information may be disclosed.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1025",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "HIPAA_DISCLOSURE_LENGTH_CUE_AND_CALLER_VERIFICATION_AMBIGUITY",
+        "finding": "The revised item tests the directly-relevant-information limit under 45 CFR 164.510(b) without making caller verification a competing answer and without implying that a family role authorizes the full medical record.",
+        "source_authority": "HHS Office for Civil Rights",
+        "source_locator": "HIPAA FAQs 2086, 2087 and 525; 45 CFR 164.510(b)",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care > Confidentiality/Information Security, printed p. 21 / PDF p. 25"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "caller_verification": "The stem states that facility caller-verification procedure has already been followed. The item does not claim HIPAA itself requires or forbids a particular telephone-verification process.",
+    "personal_representative_status": "The daughter is not described as the client's HIPAA personal representative or legal surrogate. The disclosure basis is the capable client's permission and the daughter's involvement in care under 45 CFR 164.510(b).",
+    "minimum_necessary_rule_generalization": "The rationale uses the specific directly-relevant-to-involvement limitation in 45 CFR 164.510(b), not a blanket claim that every HIPAA disclosure is governed identically by the general minimum-necessary standard.",
+    "state_law_or_facility_policy": "No state-specific privacy rule is asserted. The stem controls facility verification only; any additional applicable state-law or organizational requirements are outside the tested federal HIPAA principle."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for a family-member telephone HIPAA disclosure construct returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It applies the HIPAA limitation that disclosure to an involved family member be directly relevant to that person's involvement in the client's care.",
+    "B": "Plausible because the daughter is authorized to receive some information, but involvement in care does not authorize an unrestricted complete medical update under this disclosure basis.",
+    "C": "Plausible because written authorizations are used for many HIPAA disclosures, but HHS states HIPAA does not require written permission for every routine family/friend disclosure that satisfies 45 CFR 164.510(b).",
+    "D": "Plausible relevance-expansion error, but the daughter's statement that information might be useful does not make unrelated diagnoses directly relevant to her medication-management involvement."
+  },
+  "ambiguity_check": "No second defensible best answer. The client has capacity, has expressly permitted disclosure to the daughter for medication-management involvement, and the caller-verification issue is controlled. A alone limits disclosure to directly relevant information; B and D over-disclose, while C imposes a written-authorization requirement HIPAA does not universally require in this situation.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 121,
+      "B": 118,
+      "C": 120,
+      "D": 117
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four options are within four characters and use parallel disclosure-action phrasing; the correct answer is not uniquely longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The 2026 NCSBN Test Plan explicitly includes maintaining client confidentiality and privacy, including disclosure of information, under Management of Care. The item tests an entry-level RN privacy decision rather than abstract HIPAA terminology.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Test Plan printed p. 21 / PDF p. 25 was visually inspected on 2026-08-19. The page visibly lists Confidentiality/Information Security and maintaining client confidentiality/privacy, including disclosure of information."
+  },
+  "source_visual_verification": {
+    "result": "NOT_APPLICABLE_HTML_PRIMARY_SOURCE",
+    "note": "The HHS HIPAA sources are official HTML pages and were text-verified directly. The NCSBN PDF blueprint page was visually inspected."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "HHS FAQ 2086 rechecked fresh; content last reviewed March 5, 2025 and exact 45 CFR 164.510(b) directly-relevant-information language confirmed",
+      "HHS FAQ 2087 rechecked for patient agreement/no-objection and directly relevant disclosure limitation",
+      "HHS FAQ 525 rechecked for absence of a universal HIPAA written-permission requirement in this family/friend disclosure context",
+      "official NCSBN 2026 Confidentiality/Information Security page visually verified at printed p. 21 / PDF p. 25",
+      "caller-verification ambiguity removed by the stem",
+      "personal-representative status not assumed",
+      "A/B/C/D independently re-audited for over-disclosure, over-restriction, plausibility, and second-answer risk",
+      "no state-specific privacy requirement asserted",
+      "correct answer length cue removed; exact lengths A121/B118/C120/D117",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific to the tested HIPAA disclosure rule"
+    ]
+  }
+}
