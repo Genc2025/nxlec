@@ -1,0 +1,88 @@
+{
+  "question_uid": "V2-Q0227",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "PRIORITY_DISTRACTOR_AND_LENGTH_CUE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "The nurse receives four new reports. Which client should the nurse assess first?",
+    "options": {
+      "A": "A client with COPD reports more shortness of breath after walking; oxygen saturation has returned to the prescribed target after resting.",
+      "B": "A postoperative client reports nausea after an opioid dose; blood pressure, heart rate, and respiratory rate remain at the prior values.",
+      "C": "A client develops sudden facial droop, unilateral arm weakness, and difficulty speaking; symptoms began about 20 minutes ago.",
+      "D": "A client with chronic heart failure reports increased ankle edema and a 1-kg weight gain over 3 days but denies new dyspnea."
+    },
+    "correct_option": "C",
+    "rationale": "CDC identifies sudden unilateral facial or arm weakness and sudden trouble speaking as stroke warning signs and emphasizes that every minute counts because rapid treatment can reduce brain injury. The onset time is also clinically important for emergency stroke evaluation. NCSBN's 2026 Management of Care activity statements require the newly licensed RN to prioritize client care based on acuity. Option C presents new focal neurologic deficits beginning about 20 minutes ago and therefore requires immediate assessment and activation of the facility's stroke response. Option A reports exertional dyspnea that has returned to the prescribed oxygen target after rest. Option B reports nausea with unchanged hemodynamic and respiratory findings. Option D suggests gradual fluid retention without new dyspnea. These clients still require appropriate follow-up, but none has the same immediate time-sensitive threat as C. Therefore C is the uniquely best answer.",
+    "educational_objective": "Prioritize sudden focal neurologic deficits as a time-sensitive emergency requiring immediate nursing assessment and stroke-response activation over stable or nonprogressive reports.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "source_document_title": "Signs and Symptoms of Stroke",
+    "source_version_date": "May 19, 2026; current CDC page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Key points — every minute counts and fast treatment can lessen brain damage; Signs and symptoms — sudden one-sided face/arm/leg weakness and sudden trouble speaking; B.E. F.A.S.T. — note symptom-onset time and seek emergency help",
+    "source_url": "https://www.cdc.gov/stroke/signs-symptoms/index.html",
+    "source_claim_supported": "Sudden unilateral face/arm weakness and difficulty speaking are stroke warning signs requiring urgent emergency action, and symptom-onset time matters for treatment decisions.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Prioritize the delivery of client care based on acuity; Advocate for client rights and needs",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — acuity-based prioritization of a time-sensitive neurologic emergency",
+    "correction_summary_append": "RULE1 cleanup: retained the valid acute-stroke prioritization construct, replaced routine/obvious distractors with clinically plausible but currently less acute reports, and removed the uniquely-longest correct-answer cue while preserving one clear first-assessment priority.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0227",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_LOW_CHALLENGE_DISTRACTORS",
+        "finding": "The original correct answer was conspicuously longest and the other reports were predominantly routine. The revised options are clinically plausible competing needs, but the new focal neurologic deficits remain uniquely time-sensitive under current CDC guidance and NCSBN acuity prioritization.",
+        "source_authority": "CDC Signs and Symptoms of Stroke",
+        "source_locator": "Signs and symptoms; B.E. F.A.S.T.; every-minute-counts guidance",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Prioritize the delivery of client care based on acuity"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible because dyspnea can signal deterioration, but the report states that the exertional symptom resolved to the client's prescribed oxygen target after rest; it requires follow-up but is less acute than new stroke signs.",
+    "B": "Plausible postoperative concern, but nausea with unchanged blood pressure, heart rate and respiratory rate does not indicate the same immediate threat as abrupt focal neurologic deficits.",
+    "C": "Correct. Sudden facial droop, unilateral arm weakness and speech difficulty are classic time-sensitive stroke warning signs, with onset only about 20 minutes ago.",
+    "D": "Plausible heart-failure concern, but gradual ankle edema and 1-kg weight gain over 3 days without new dyspnea are not as immediately time-sensitive as acute focal neurologic deficits."
+  },
+  "ambiguity_check": "No second defensible first-assessment answer. A is described as recovered to prescribed oxygen target, B has unchanged hemodynamic/respiratory findings, and D is gradual fluid retention without new dyspnea. C alone presents abrupt focal neurologic deficits consistent with acute stroke.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 137, "B": 136, "C": 125, "D": 124},
+    "note": "Exact character counts were calculated from the stored strings. The correct answer is shorter than A and B and nearly equal to D; no conspicuous length or absolute-word cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Acuity-based prioritization is an explicit Management of Care activity for newly licensed RNs, and recognizing abrupt stroke warning signs is appropriate first-assessment reasoning.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC stroke page dated May 19, 2026 verified",
+      "sudden unilateral facial/arm weakness claim verified directly",
+      "sudden speech-difficulty claim verified directly",
+      "every-minute-counts and rapid-treatment urgency verified directly",
+      "importance of symptom-onset time verified directly",
+      "A/B/C/D independently re-audited for acuity and second-answer risk",
+      "A explicitly returns to prescribed oxygen target after rest",
+      "B explicitly has unchanged hemodynamic and respiratory findings",
+      "D explicitly lacks new dyspnea and describes gradual weight gain",
+      "no second defensible first-assessment answer identified",
+      "uniquely-longest correct-answer cue removed",
+      "official NCSBN 2026 Management of Care page previously visually verified at printed p. 7 / PDF p. 11",
+      "exact acuity-prioritization activity statement verified",
+      "educational objective is item-specific"
+    ]
+  }
+}
