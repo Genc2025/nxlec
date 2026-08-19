@@ -1,0 +1,110 @@
+{
+  "question_uid": "V2-Q1252",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "REDUNDANT_ACCESS_BARRIER_RESOURCE_COORDINATION_TO_AUTONOMIC_DYSREFLEXIA_EMERGENCY_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client with a chronic cervical spinal cord injury suddenly reports a pounding headache. The nurse notes facial flushing and a blood pressure markedly above the client's usual baseline. An indwelling urinary catheter is present. Which action should the nurse take first?",
+    "options": {
+      "A": "Sit the client upright, loosen constrictive clothing, and inspect the urinary catheter for kinking or obstruction.",
+      "B": "Place the client supine with the legs elevated, then reassess the blood pressure before checking for a trigger.",
+      "C": "Keep the client in the current position and address the headache first before evaluating the urinary drainage system.",
+      "D": "Administer the prescribed antihypertensive first and postpone the search for a triggering stimulus until pressure falls."
+    },
+    "correct_option": "A",
+    "rationale": "The presentation is consistent with autonomic dysreflexia in a client with a high spinal cord injury. Current NCBI/StatPearls guidance identifies sudden hypertension, severe headache and facial flushing among common manifestations and states that immediate nonpharmacologic management includes sitting the client upright, loosening restrictive clothing or devices, and rapidly identifying and removing the triggering stimulus. Bladder distention or impaired urinary drainage is the most common precipitating cause, so the urinary system should be checked promptly. Antihypertensive medication may be required when hypertension remains severe, but it does not replace immediate positioning and trigger evaluation. Supine positioning can worsen the hypertensive response, and treating the headache without correcting the precipitating stimulus delays definitive management. The 2026 NCSBN NCLEX-RN Test Plan includes emergency care procedures, management of altered hemodynamics, and recognition/intervention for acute complications under Physiological Adaptation. Therefore A is the uniquely best first action.",
+    "educational_objective": "Recognize autonomic dysreflexia in a client with high spinal cord injury and immediately sit the client upright, loosen constrictive items, and search for common triggers beginning with impaired bladder drainage.",
+    "source_organization": "NCBI Bookshelf / StatPearls; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Autonomic Dysreflexia; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "StatPearls Autonomic Dysreflexia last updated June 2, 2025 and published in StatPearls 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "NCBI StatPearls Autonomic Dysreflexia > Introduction/Treatment and Management/Pearls — occurs with high spinal cord injury; headache, flushing and marked hypertension are typical; immediate management includes sitting upright, loosening constrictive items and identifying/removing triggers; bladder distention or obstructed urinary drainage is the most common trigger. NCSBN 2026 NCLEX-RN Test Plan > Physiological Adaptation, printed p. 46 / PDF p. 50 — perform emergency care procedures, manage altered hemodynamics/tissue perfusion, and recognize complications and intervene.",
+    "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK482434/?report=classic",
+    "secondary_source_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "source_claim_supported": "Autonomic dysreflexia after high spinal cord injury requires immediate upright positioning, release of constriction, and rapid evaluation/removal of triggers, with bladder dysfunction or catheter obstruction among the first causes to assess.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, printed p. 46 / PDF p. 50 — emergency care procedures; altered hemodynamics/tissue perfusion; recognize complications and intervene",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — immediate management of autonomic dysreflexia",
+    "correction_summary_append": "RULE1 cleanup: retired another financial/transport access-barrier item because that construct was already tested actionably at Q1062. Rebuilt this UID into a distinct neurologic hypertensive emergency requiring recognition and immediate nonpharmacologic management of autonomic dysreflexia.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1252",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ACCESS_BARRIER_RESOURCE_COORDINATION_REDUNDANCY_AND_LENGTH_CUE",
+        "finding": "The replacement tests an acute bedside emergency response. Current NCBI guidance directly supports upright positioning, removal of constrictive stimuli and prompt bladder-trigger evaluation in autonomic dysreflexia.",
+        "source_authority": "NCBI Bookshelf / StatPearls; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Autonomic Dysreflexia Treatment/Management and Pearls; NCSBN Physiological Adaptation printed p. 46 / PDF p. 50",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "blood_pressure_threshold": "No absolute systolic threshold or numerical rise above baseline is used in the item. The stem states only that pressure is markedly elevated above the client's known baseline.",
+    "antihypertensive_choice": "No antihypertensive drug, dose, route, or trigger threshold is generalized. Pharmacologic therapy depends on severity and response to immediate trigger-removal measures.",
+    "catheter_intervention": "The item directs inspection for kinking or obstruction but does not prescribe irrigation volume, catheter replacement technique, or urethral anesthetic use.",
+    "bowel_intervention": "Bowel causes remain possible if urinary triggers are excluded, but the item does not prescribe rectal examination or bowel treatment before the more common urinary source is assessed."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1062"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'autonomic dysreflexia upright bladder catheter headache flushing spinal cord' returned no indexed repository match. Q1062 was manually compared because Q1252 replaces another access-barrier item: Q1062 tests discharge-resource coordination, while Q1252 tests immediate recognition and management of autonomic dysreflexia. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It combines the recommended immediate upright positioning, removal of constriction and rapid investigation of the most common trigger source.",
+    "B": "Plausible for some hypotensive emergencies, but supine positioning and leg elevation are opposite the recommended initial posture for autonomic dysreflexia.",
+    "C": "Plausible symptom-focused care, but treating headache without correcting the trigger leaves the hypertensive emergency unresolved.",
+    "D": "Plausible because antihypertensive therapy may be needed, but trigger identification/removal and upright positioning should not be postponed while medication alone is used."
+  },
+  "ambiguity_check": "No second defensible best answer. A contains the source-supported immediate sequence. B uses the wrong position, C treats a symptom instead of the cause, and D postpones trigger removal. A alone addresses the emergency mechanism without requiring an unprovided blood-pressure threshold.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 114,
+      "B": 111,
+      "C": 117,
+      "D": 120
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four choices are closely balanced multi-step actions and the correct option is not longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Physiological Adaptation directly includes emergency procedures, altered hemodynamics/tissue perfusion and recognition/intervention for complications. Autonomic dysreflexia is a time-sensitive complication requiring direct nursing action.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 46 / PDF p. 50 was visually inspected on 2026-08-20 and visibly lists emergency care procedures, altered hemodynamics/tissue perfusion management and complication recognition/intervention."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_NCBI_HTML",
+    "note": "The relevant NCSBN PDF page was visually inspected. NCBI StatPearls is HTML and was text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NCBI Autonomic Dysreflexia chapter rechecked for high-spinal-cord-injury risk, symptoms and emergency management",
+      "NCBI guidance rechecked for upright positioning, loosening constrictive items and bladder-first trigger evaluation",
+      "official NCSBN 2026 Physiological Adaptation page visually verified at printed p. 46 / PDF p. 50",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no blood-pressure cutoff, antihypertensive drug/dose, catheter irrigation volume or bowel procedure fabricated",
+      "correct answer is not length-cued; exact lengths A114/B111/C117/D120",
+      "Q1062 manually compared and confirmed distinct",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
