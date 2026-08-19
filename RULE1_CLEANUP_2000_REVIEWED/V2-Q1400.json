@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1400",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -25,7 +25,7 @@
     "educational_objective": "Protect a nursing-facility resident by immediately initiating the required abuse-reporting process when abuse is alleged or observed, while maintaining the resident's safety during investigation.",
     "source_organization": "Centers for Medicare & Medicaid Services (CMS), U.S. Department of Health and Human Services (HHS)",
     "source_document_title": "Nursing Homes; 42 CFR §483.12 Freedom from abuse, neglect, and exploitation; Medford Care Center, DAB CR6652 (2025)",
-    "source_version_date": "CMS Nursing Homes page updated July 2026 and last modified July 28, 2026; §483.12(c) exact regulatory text independently rechecked August 20, 2026; HHS DAB CR6652 issued 2025",
+    "source_version_date": "CMS Nursing Homes page updated July 2026 and last modified July 28, 2026; §483.12(c) exact text cross-checked against a current eCFR mirror on August 20, 2026; HHS DAB CR6652 issued 2025",
     "source_accessed_date": "2026-08-20",
     "source_locator": "CMS Nursing Homes: federal LTC participation requirements are 42 CFR part 483, subpart B and current survey guidance is maintained by CMS. 42 CFR §483.12(c)(1): alleged violations involving abuse must be reported immediately through established procedures to the administrator and required officials; §483.12(c)(2): investigate alleged violations; §483.12(c)(3): prevent further potential abuse while investigation is in progress. HHS DAB CR6652, discussion of §483.12(c)(1)-(4), restates these requirements in an official federal adjudicative decision.",
     "source_url": "https://www.cms.gov/medicare/provider-enrollment-and-certification/guidanceforlawsandregulations/nursing-homes",
@@ -80,8 +80,13 @@
     "result": "CMS_AND_HHS_PRIMARY_TEXT_VERIFIED_ECFR_DIRECT_PAGE_ACCESS_BLOCKED",
     "note": "CMS's current July 2026 Nursing Homes page verifies that 42 CFR part 483, subpart B remains the federal LTC participation framework. HHS DAB CR6652 directly reproduces and applies §483.12(c)(1)-(4). The direct eCFR §483.12 web page redirected to an anti-automation Request Access page, so no direct eCFR page-text or visual verification is claimed. The exact current section text was cross-checked against a current eCFR mirror, but the pass does not rely on the mirror alone."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "d6b86b5384fc864a8bf4d9ea9c9a3b352b6da289",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. No unresolved conflict was found in the stem, key, option plausibility, rationale, source scope, blueprint mapping, ambiguity, cueing, or second-answer risk. The reread specifically confirmed that the item does not impose an unverified universal external-reporting route on the bedside nurse and does not depend on numeric injury-severity deadlines."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original stem, A/B/C/D, key, rationale, objective, source metadata, candidate reasons, and stable sort key were reread from the candidate file",
       "CMS July 2026 Nursing Homes page independently rechecked for the current 42 CFR part 483 subpart B framework",
@@ -92,7 +97,8 @@
       "numeric reporting deadlines and state-specific routing rules were deliberately excluded from the tested claim",
       "option lengths balanced at A149/B141/C148/D147",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to immediate abuse reporting and resident protection"
+      "educational objective is specific to immediate abuse reporting and resident protection",
+      "the AUDITING payload was reread from GitHub blob d6b86b5384fc864a8bf4d9ea9c9a3b352b6da289 before FINAL_QA_PASS was assigned"
     ]
   }
 }
