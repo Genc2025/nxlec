@@ -1,0 +1,101 @@
+{
+  "question_uid": "V2-Q0575",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "MULTIRULE_RESTRAINT_ORDER_TRIVIA_TO_BEDSIDE_DISCONTINUATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An adult client was placed in restraint for violent behavior after less restrictive measures were ineffective. On reassessment, the client is calm, redirectable, and no longer poses an immediate safety threat. The restraint order still has time remaining, and hospital policy authorizes a trained RN to discontinue restraint when criteria are no longer met. Which action is most appropriate?",
+    "options": {
+      "A": "Continue the restraint until the ordered time expires because the existing order authorizes use for the full stated period.",
+      "B": "Discontinue the restraint now according to policy, continue appropriate observation, and reassess the client's safety after release.",
+      "C": "Keep the restraint in place and request a PRN restraint order so staff can reapply it later without obtaining a new patient-specific order.",
+      "D": "Leave the restraint in place until the next routine assessment because improvement in behavior does not change the current order."
+    },
+    "correct_option": "B",
+    "rationale": "The current CMS State Operations Manual Appendix A, Rev. 238 issued March 20, 2026, reproduces and interprets 42 CFR §482.13(e). CMS states that restraint or seclusion may only be employed while the unsafe situation continues and must be discontinued at the earliest possible time. The interpretive guidance for §482.13(e)(9) explicitly explains that order time limits do not dictate how long a patient remains restrained; once the unsafe situation ends, restraint or seclusion must be discontinued, regardless of the remaining order duration. CMS also states that hospital policies should define which staff categories are authorized to discontinue restraint in accordance with State law. The stem therefore controls that variable by stating that hospital policy authorizes a trained RN to discontinue when criteria are no longer met. B is the uniquely best response because the RN acts on the current reassessment, discontinues the restraint under policy, and continues appropriate safety observation. A and D incorrectly treat the order duration as a minimum required restraint period. C is incorrect because federal hospital rules prohibit standing or PRN restraint/seclusion orders and a new patient-specific order would be required if restraint later had to be reinitiated. Therefore B is correct.",
+    "educational_objective": "When the unsafe behavior requiring restraint has resolved, discontinue restraint at the earliest safely appropriate time according to authorized hospital policy rather than keeping the client restrained merely because time remains on the order.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "State Operations Manual, Appendix A — Survey Protocol, Regulations and Interpretive Guidelines for Hospitals",
+    "source_version_date": "Rev. 238; issued March 20, 2026; official CMS PDF live-rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "§482.13(e), CMS SOM PDF p. 106-107 — restraint/seclusion only for immediate physical safety and discontinue at earliest possible time; §482.13(e)(6), PDF pp. 124-125 — no standing/PRN restraint or seclusion orders; §482.13(e)(9), PDF pp. 130-131 — discontinue at earliest possible time regardless of order length; hospital policy identifies staff authorized to discontinue in accordance with State law",
+    "source_url": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/downloads/som107ap_a_hospitals.pdf",
+    "secondary_source_url": "https://www.law.cornell.edu/cfr/text/42/482.13",
+    "source_claim_supported": "Federal hospital restraint rules require restraint/seclusion to end at the earliest possible time once the unsafe situation resolves, regardless of remaining order duration; standing/PRN restraint orders are prohibited, and hospital policy defines authorized discontinuation roles consistent with State law.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care — Client Rights/Legal Rights and Responsibilities; Safety and Infection Prevention and Control — safe use of least-restrictive measures and protection of clients from injury, consistent with applicable facility policy and law",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — restraint reassessment and earliest-possible discontinuation",
+    "correction_summary_append": "RULE1 cleanup: retired a multi-rule federal-regulation recall item that bundled PRN prohibition, adult renewal time, State-law caveat and discontinuation into one conspicuously long answer. Rebuilt it as a bedside reassessment decision testing the clinically actionable rule that restraint ends when the unsafe situation resolves. Facility policy explicitly controls RN discontinuation authority.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0575",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "MULTIRULE_REGULATORY_TRIVIA_ANSWER_LENGTH_CUE_AND_ABSOLUTE_WORD_CUE",
+        "finding": "The final item tests a direct RN safety action rather than memorization of several federal order limits. CMS current 2026 SOM confirms that restraint ends at the earliest possible time regardless of order duration.",
+        "source_authority": "CMS State Operations Manual Appendix A Rev. 238",
+        "source_locator": "42 CFR §482.13(e)(9), CMS SOM PDF pp. 130-131",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Client Rights/Legal Responsibilities and client safety"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "universal_RN_discontinuation_authority": "Not asserted. The stem explicitly states that this hospital's policy authorizes the trained RN to discontinue restraint when criteria are no longer met, consistent with applicable law.",
+    "violent_restraint_renewal_time_memory": "Not tested in the final item; the construct is earliest-possible discontinuation based on current reassessment.",
+    "reinitiation_without_order": "Not endorsed. CMS guidance states a new order is required before reinitiating restraint after discontinuation.",
+    "state_law_variability": "Controlled by the stem's policy authorization; no universal state-specific scope claim is made."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0077", "V2-Q0524", "V2-Q0371"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0077 tests the RN's own competence limitation for high-risk therapy. V2-Q0524 tests supervision of unsafe UAP technique. V2-Q0371 tests escalation of possible coworker impairment. V2-Q0575 tests ongoing reassessment and discontinuation of restraint once immediate safety criteria resolve. Targeted repository search for restraint earliest-possible discontinuation returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible order-compliance misconception but incorrectly treats the order duration as a mandatory minimum restraint period.",
+    "B": "Correct. It acts on the reassessment, ends restraint under authorized policy and continues safety observation.",
+    "C": "Plausible contingency-planning response but federal hospital rules prohibit PRN restraint/seclusion orders and reinitiation requires a new patient-specific order.",
+    "D": "Plausible wait-for-next-check response but ignores that current reassessment already shows the unsafe situation has resolved."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem establishes that the immediate safety threat has resolved and that hospital policy authorizes the RN to discontinue. B alone follows the federal earliest-possible discontinuation requirement. A/D prolong restraint because time remains; C proposes a prohibited PRN restraint order.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 123, "B": 132, "C": 139, "D": 129},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not longest and all options are within sixteen characters; the prior 190-character correct-answer cue is eliminated."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Ongoing client safety assessment, legal/client-rights compliance and use of least-restrictive safety measures are appropriate newly licensed RN responsibilities.",
+    "exact_locator_verified": true,
+    "visual_verification": "The official CMS SOM Appendix A PDF was opened and exact restraint text was located on PDF pp. 106-107, 124-125 and 130-131. The required web PDF screenshot command was attempted three times for the relevant page but the screenshot service returned a cache-miss error; no image-only content was used. Parsed official CMS PDF text and current codified regulation text were cross-checked instead, and the limitation is recorded rather than falsely claiming a successful visual screenshot."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official current CMS SOM Appendix A Rev. 238 opened and version/date verified",
+      "earliest-possible discontinuation text verified at §482.13(e) and (e)(9)",
+      "order duration does not dictate restraint duration verified in CMS interpretive guidance",
+      "PRN/standing restraint-order prohibition verified at §482.13(e)(6)",
+      "hospital-policy role authorization caveat verified and controlled in stem",
+      "web PDF screenshot command attempted for relevant page and cache-miss limitation explicitly documented",
+      "current codified 42 CFR §482.13 text cross-checked against a current legal mirror",
+      "A/B/C/D independently re-audited for regulatory accuracy, role scope and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A123/B132/C139/D129",
+      "construct confirmed distinct from Q0077/Q0524/Q0371",
+      "difficulty normalized from hard to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
