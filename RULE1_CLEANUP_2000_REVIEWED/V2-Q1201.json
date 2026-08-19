@@ -13,7 +13,7 @@
   "semantic_correction": {
     "stem": "A hospitalized client develops new unexplained frequent watery diarrhea after receiving antibiotics. Evaluation for Clostridioides difficile infection is underway. Which action should the nurse take now?",
     "options": {
-      "A": "Initiate contact precautions and place the client in a single-patient room with a dedicated toilet while the cause of diarrhea is evaluated.",
+      "A": "Initiate contact precautions and move the client to a single-patient room with a dedicated toilet while the diarrhea is evaluated.",
       "B": "Wait for a positive stool test before starting isolation, but ask the client to remain in the current room until results are available.",
       "C": "Start droplet precautions in the current room because the infectious cause has not yet been confirmed by laboratory testing.",
       "D": "Continue standard precautions and reinforce hand hygiene until the diarrhea persists long enough to confirm that isolation is necessary."
@@ -35,14 +35,14 @@
     "blueprint_locator": "Safety and Infection Prevention and Control > Standard Precautions/Transmission-Based Precautions/Surgical Asepsis, printed p. 26 / PDF p. 30",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_topic": "Safety and Infection Prevention and Control — early Contact Precautions for suspected C. difficile infection",
-    "correction_summary_append": "RULE1 cleanup: retired an abstract 5 Whys/QI-tool identification item because it tested terminology rather than entry-level bedside care and overlapped with an already cleaned QI cluster. Rebuilt the UID into a current CDC-supported infection-control decision requiring early Contact Precautions while CDI evaluation is pending.",
+    "correction_summary_append": "RULE1 cleanup: retired an abstract 5 Whys/QI-tool identification item because it tested terminology rather than entry-level bedside care and overlapped with an already cleaned QI cluster. Rebuilt the UID into a current CDC-supported infection-control decision requiring early Contact Precautions while CDI evaluation is pending. Final reread also removed the remaining answer-length cue.",
     "audit_findings_append": [
       {
         "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
         "uid": "V2-Q1201",
         "result": "FINAL_QA_PASS",
         "failure_mode_corrected": "QI_TOOL_TERMINOLOGY_RECALL_AND_CORRECT_ANSWER_LENGTH_CUE",
-        "finding": "The replacement tests immediate bedside infection-control action. Current CDC guidance explicitly supports isolating patients with diarrhea while evaluation is ongoing and initiating Contact Precautions for suspected CDI.",
+        "finding": "The replacement tests immediate bedside infection-control action. Current CDC guidance explicitly supports isolating patients with diarrhea while evaluation is ongoing and initiating Contact Precautions for suspected CDI. Final reread shortened the correct option to remove residual length cueing.",
         "source_authority": "CDC Clinical Guidance for C. diff Infection Prevention; NCSBN 2026 NCLEX-RN Test Plan",
         "source_locator": "CDC Isolate and initiate contact precautions; NCSBN Standard Precautions/Transmission-Based Precautions printed p. 26 / PDF p. 30",
         "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
@@ -73,12 +73,12 @@
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
     "option_lengths_characters": {
-      "A": 140,
+      "A": 130,
       "B": 135,
       "C": 124,
       "D": 136
     },
-    "note": "All four options are complete infection-control actions of comparable scale; the correct option is not separated by an obvious structural or absolute-word cue."
+    "note": "Exact character counts were calculated from the stored strings. The correct option is not longest and all choices are complete infection-control actions of comparable scale."
   },
   "blueprint_audit": {
     "result": "PASS",
@@ -99,6 +99,7 @@
       "A/B/C/D independently re-audited for transmission category, timing of isolation and second-answer risk",
       "hand-hygiene-method controversy deliberately excluded from the construct",
       "no precaution duration, CDI drug regimen or testing threshold fabricated",
+      "residual answer-length cue removed; exact lengths A130/B135/C124/D136",
       "targeted near-duplicate search performed without broad bank rescan",
       "educational objective is specific and action-oriented"
     ]
