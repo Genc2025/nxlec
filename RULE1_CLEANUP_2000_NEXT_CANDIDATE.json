@@ -2,17 +2,19 @@
   "candidate": {
     "audit_status": "FINAL_QA_PASS",
     "blueprint_document_title": "2026 NCLEX-RN Test Plan",
-    "blueprint_locator": "Management of Care — confidentiality/privacy, client rights, legal and ethical responsibilities, detailed content pp. 19-23.",
-    "blueprint_topic": "Management of Care — HIPAA/privacy of psychotherapy notes",
+    "blueprint_locator": "Management of Care — quality improvement, information technology/resources, client safety and quality care, detailed content pp. 19-23.",
+    "blueprint_topic": "Management of Care — health-IT patient safety/quality improvement",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_version": "Effective April 2026 through March 31, 2029",
     "candidate_detail": {
       "absolute_words": {
         "A": [],
         "B": [
-          "never"
+          "all"
         ],
-        "C": [],
+        "C": [
+          "only"
+        ],
         "D": []
       }
     },
@@ -21,32 +23,32 @@
     ],
     "category_id": 2,
     "client_need": "Management of Care",
-    "correct_option": "C",
+    "correct_option": "A",
     "difficulty": "hard",
-    "educational_objective": "Recognize that HIPAA gives separately maintained psychotherapy notes special protection and generally requires patient authorization for use or disclosure, subject to limited regulatory exceptions.",
+    "educational_objective": "Treat an EHR alert failure as a patient-safety signal requiring investigation, validation, monitoring, and improvement of clinical decision-support safeguards.",
     "options": {
-      "A": "Psychotherapy notes may be disclosed whenever another person requests health information because they receive the same disclosure treatment as routine medical records.",
-      "B": "Psychotherapy notes may be disclosed freely for treatment purposes because HIPAA never requires authorization when information is requested by another clinician.",
-      "C": "Psychotherapy notes receive special protection, and with limited exceptions HIPAA generally requires the patient's authorization before use or disclosure.",
-      "D": "Psychotherapy notes fall outside HIPAA because they are kept separately from the medical record, so federal privacy requirements do not apply to their release."
+      "A": "Investigate the clinical decision-support failure and continue systematic testing, monitoring, and improvement of EHR alerts and order-entry safeguards.",
+      "B": "Disable all medication alerts permanently after this event because one missed warning shows that clinical decision support creates more risk than benefit.",
+      "C": "Return immediately to paper-only ordering throughout the organization because an isolated EHR alert failure proves electronic ordering cannot be made safe.",
+      "D": "Leave the system unchanged if no second failure occurs because clinical decision-support tools do not require ongoing monitoring after implementation."
     },
-    "question_uid": "V2-Q0322",
-    "rationale": "45 CFR §164.508(a)(2) requires a covered entity to obtain authorization for uses or disclosures of psychotherapy notes except for limited enumerated circumstances. HHS also explains that separately maintained psychotherapy notes receive special protection and, with few exceptions, patient authorization is required before disclosure, including treatment disclosure to a clinician other than the note originator. C therefore states the rule accurately. A treats psychotherapy notes like ordinary records, B incorrectly creates a blanket treatment exception, and D incorrectly treats separate maintenance as exclusion from HIPAA.",
+    "question_uid": "V2-Q0323",
+    "rationale": "ONC's 2025 SAFER CPOE with Decision Support guide identifies recommended safety practices for the design, implementation, use, and monitoring of orders, alerts, warnings and clinical decision support. ONC also emphasizes configuration, validation, maintenance, monitoring and improvement of health IT. A therefore addresses the failure as a safety signal requiring investigation and continued system improvement. B, C and D either abandon useful safeguards or ignore the need for ongoing monitoring.",
     "second_pass_status": "PASS",
     "source_accessed_date": "2026-08-16",
-    "source_claim_supported": "Psychotherapy notes are specially protected; a covered entity generally must obtain patient authorization for use or disclosure, subject to limited enumerated exceptions; treatment disclosure to another clinician generally still requires authorization.",
-    "source_document_title": "HIPAA Privacy Rule — 45 CFR §164.508(a)(2); HHS FAQ: Does HIPAA provide extra protections for mental health information compared with other health information?",
-    "source_locator": "45 CFR §164.508(a)(2) Authorization required: psychotherapy notes; HHS FAQ 2088 paragraph explaining special protections and authorization for most disclosures; HHS Summary of the HIPAA Privacy Rule — Psychotherapy Notes.",
-    "source_organization": "U.S. Department of Health and Human Services (HHS), Office for Civil Rights; 45 CFR Part 164",
-    "source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/2088/does-hipaa-provide-extra-protections-mental-health-information-compared-other-health.html",
-    "source_version_date": "Current HIPAA Privacy Rule; HHS medical-record guidance reviewed May 30, 2025 and current federal guidance rechecked 2026-08-16",
-    "stable_sort_key": "01-STANDALONE-00322",
-    "stem": "A family member asks a clinician to release separately maintained psychotherapy notes without the patient's authorization. Which HIPAA principle is most accurate?"
+    "source_claim_supported": "Organizations should optimize the safety and safe use of EHR order entry/CDS through design, implementation, validation, use, monitoring and improvement of alerts, warnings and related safeguards.",
+    "source_document_title": "2025 SAFER Guide: Computerized Provider Order Entry with Decision Support",
+    "source_locator": "ONC SAFER Guides overview — CPOE with Decision Support: design, implementation, use and monitoring of orders/CDS including alerts and warnings; System Management/Using Health IT guidance on configuration, validation, maintenance and improvement.",
+    "source_organization": "Office of the National Coordinator for Health Information Technology (ONC)",
+    "source_url": "https://healthit.gov/resources/2025-safer-guide-computerized-provider-order-entry-with-decision-support/",
+    "source_version_date": "2025 SAFER Guide; ONC resource last updated April 28, 2026",
+    "stable_sort_key": "01-STANDALONE-00323",
+    "stem": "An electronic health record fails to display an expected allergy alert during medication ordering. Which organizational response best supports patient safety?"
   },
   "candidate_uid_count_from_scan": 1322,
   "canonical_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "database_modified": false,
-  "reviewed_staging_uid_count": 39,
+  "reviewed_staging_uid_count": 40,
   "selection_order": "stable_sort_key, question_uid",
   "source_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
   "status": "READ_ONLY_NEXT_CANDIDATE",
