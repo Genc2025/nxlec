@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0524",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "PRECEPTOR_DEFINITION_TO_DELEGATION_SUPERVISION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "Facility policy and the client's mobility plan require a transfer belt during assisted ambulation. An RN assigned a trained UAP to ambulate a stable client and then observes the UAP beginning the transfer without the required belt. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Allow the ambulation to continue and discuss technique afterward because the UAP has already been trained and accepted the assignment.",
+      "B": "Stop the unsafe technique, protect the client, reinforce the required method with the UAP, and follow up on the client's response and task outcome.",
+      "C": "Take over the ambulation without discussing the observed technique with the UAP, because supervision ends once the RN completes the task personally.",
+      "D": "Document the deviation at the end of the shift and wait for the nurse manager to decide whether any immediate feedback or follow-up is needed."
+    },
+    "correct_option": "B",
+    "rationale": "The NCSBN/ANA National Guidelines for Nursing Delegation identify right supervision and evaluation as an ongoing licensed-nurse responsibility. The licensed nurse is responsible for monitoring the delegated activity, following up with the delegatee when the activity is completed, evaluating patient outcomes, remaining available to intervene when necessary, and ensuring appropriate documentation. The guidelines also state that task expectations and limits should be established by policy and that the licensed nurse maintains accountability for the patient. The stem removes variability by specifying that facility policy and the client's mobility plan require the transfer belt. B therefore applies right supervision and evaluation: the RN intervenes before unsafe technique continues, protects the client, reinforces the required method with the UAP, and follows up on the client's response and task outcome. A delays intervention despite an observed safety deviation. C protects the client temporarily but fails to address the delegatee's technique or supervision/feedback need. D delays an immediate supervisory responsibility and incorrectly transfers the decision about immediate feedback to management. Therefore B is the uniquely best answer.",
+    "educational_objective": "Apply right supervision and evaluation by intervening when an assigned or delegated activity is being performed unsafely, protecting the client, reinforcing correct technique, and following up on the client outcome and delegatee performance.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN) and American Nurses Association (ANA)",
+    "source_document_title": "National Guidelines for Nursing Delegation",
+    "source_version_date": "Effective April 29, 2019; current NCSBN delegation resource and official joint guideline accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Five Rights of Delegation, official PDF p. 4 — Right task: written policy expectations/limits; Right supervision and evaluation: licensed nurse monitors delegated activity, follows up at completion, evaluates patient outcomes, is available to intervene and ensures appropriate documentation",
+    "source_url": "https://www.ncsbn.org/public-files/NGND-PosPaper_06.pdf",
+    "secondary_source_url": "https://www.ncsbn.org/nursing-regulation/practice/delegation.page",
+    "source_claim_supported": "The licensed nurse retains responsibility for supervision and evaluation, including monitoring performance, intervening when necessary, following up with the delegatee and evaluating patient outcomes; policy defines task expectations and limits.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Delegate and supervise care provided by others; Appendix A, printed p. 20 / PDF p. 24 — Assignment, Delegation and Supervision: delegate and supervise care; utilize rights of delegation; evaluate delegated tasks and responsibilities; evaluate staff ability/competency",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — right supervision and evaluation after task assignment/delegation",
+    "correction_summary_append": "RULE1 cleanup: retired passive preceptor-versus-mentor definition recall because it lacked a direct NCLEX activity statement. Rebuilt the item around the explicit delegation competency of right supervision and evaluation, with facility policy controlling the required mobility technique and with the correct-answer length/absolute-word cues removed.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0524",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_ROLE_DEFINITION_WEAK_BLUEPRINT_MAPPING_ABSOLUTE_WORD_CUEING_AND_ANSWER_LENGTH_CUE",
+        "finding": "The replacement tests the licensed RN's direct supervisory responsibility when unsafe technique is observed during a task performed by assistive personnel.",
+        "source_authority": "NCSBN/ANA National Guidelines for Nursing Delegation",
+        "source_locator": "Five Rights — Right supervision and evaluation",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Assignment, Delegation and Supervision"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "universal_transfer_belt_rule": "Not asserted. The stem explicitly states that this client's plan and facility policy require the belt.",
+    "task_selection": "Not tested; the task has already been appropriately assigned to a trained UAP for a stable client.",
+    "new_abnormal_finding": "Not the construct; the issue is observed technique deviation during performance rather than new patient data reported after completion."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0420", "V2-Q0273", "V2-Q0077"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0420 tests initial UAP task selection. V2-Q0273 tests RN assessment/judgment after a UAP reports an abnormal vital sign. V2-Q0077 tests the RN's own competence limitation before performing an unfamiliar high-risk therapy. V2-Q0524 tests direct supervision, intervention, feedback and outcome evaluation when unsafe UAP technique is observed during task performance."
+  },
+  "option_audit": {
+    "A": "Plausible delayed-feedback response, but supervision requires intervention when an observed technique creates current safety risk.",
+    "B": "Correct. It combines immediate client protection with correction of technique and follow-up/evaluation of the activity and outcome.",
+    "C": "Plausible immediate safety response, but taking over without addressing the observed technique leaves the delegatee-performance issue and supervisory feedback incomplete.",
+    "D": "Plausible reporting approach, but it delays an immediate supervisory responsibility and treats feedback/follow-up as solely a manager decision."
+  },
+  "ambiguity_check": "No second defensible best answer. The required technique is explicitly established in the stem. B alone includes immediate intervention, client protection, correction/feedback, and follow-up. C protects the client but intentionally omits delegatee feedback; A and D delay necessary intervention or supervision.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 134, "B": 147, "C": 148, "D": 142},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is one character shorter than C and within five of D; no absolute-word or uniquely-longest cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Delegation and supervision of care provided by others are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official NCSBN/ANA Five Rights of Delegation page, PDF p. 4, was visually inspected on 2026-08-19; Right supervision and evaluation explicitly requires monitoring, follow-up, evaluation of outcomes and readiness to intervene."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NCSBN Delegation page verified",
+      "official NCSBN/ANA joint guideline effective date verified",
+      "Right supervision and evaluation text verified directly",
+      "official delegation PDF page visually inspected",
+      "policy-based task expectation controlled in stem",
+      "initial task-selection and abnormal-data constructs excluded",
+      "A/B/C/D independently re-audited for supervision, role scope and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A134/B147/C148/D142",
+      "NCSBN delegation/supervision blueprint mapping retained",
+      "construct compared with Q0420/Q0273/Q0077 and confirmed distinct",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
