@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1399",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -70,8 +70,13 @@
     "result": "OSHA_HTML_TEXT_VERIFIED_NCSBN_PDF_PARTIALLY_VISUALLY_VERIFIED",
     "note": "OSHA primary sources were directly text-verified. NCSBN parsed text was verified for both relevant pages; screenshot p. 27 had CACHE MISS and screenshot p. 28 succeeded."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD_AND_CORRECTION",
+    "auditing_blob_sha": "932ae01e709d177e092cb1e8855d8408459a75cd",
+    "note": "The first GitHub reread identified distractor D as insufficiently plausible. D was corrected while status remained AUDITING, the corrected file was fetched again from GitHub, and the second reread found no unresolved stem, key, rationale, source, blueprint, ambiguity, cueing, or second-answer conflict."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "OSHA Worker Participation independently rechecked for Section 11(c) protection of safety complaints and employer safety concerns",
       "OSHA whistleblower complaint form independently rechecked for protected activity and threats of discipline as adverse actions",
@@ -81,7 +86,8 @@
       "no numeric filing deadline, guaranteed remedy, state-law rule, or unsupported hazard standard was introduced",
       "option lengths balanced at A152/B151/C151/D170",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to protected safety reporting and appropriate escalation"
+      "educational objective is specific to protected safety reporting and appropriate escalation",
+      "corrected AUDITING payload was reread from GitHub blob 932ae01e709d177e092cb1e8855d8408459a75cd before FINAL_QA_PASS was assigned"
     ]
   }
 }
