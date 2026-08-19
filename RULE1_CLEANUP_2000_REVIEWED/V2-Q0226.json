@@ -1,0 +1,91 @@
+{
+  "question_uid": "V2-Q0226",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "QI_MEASURE_INTERPRETATION_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A bedside RN joins a quality-improvement meeting reviewing low HCAHPS scores for nurse communication and staff responsiveness. Which interpretation of these scores should guide the RN's participation?",
+    "options": {
+      "A": "Use the scores as direct evidence of mortality, readmission, and complication rates, and use them to judge whether the unit's clinical outcomes are improving.",
+      "B": "Interpret the scores as standardized patient-reported experience data about hospital care, including communication and staff responsiveness, and use them to guide QI.",
+      "C": "Treat the scores as employee-engagement data because HCAHPS compares staff perceptions of workload, teamwork, leadership, and morale across hospitals.",
+      "D": "Interpret the scores as financial-service data because HCAHPS tracks billing accuracy, insurance processing, and out-of-pocket costs during hospitalization."
+    },
+    "correct_option": "B",
+    "rationale": "CMS describes HCAHPS as a national, standardized, publicly reported survey of patients' perspectives of hospital care. Current survey content includes patients' experience of communication with nurses and doctors, responsiveness of hospital staff, care coordination, hospital environment, communication about medicines, discharge information, overall hospital rating and recommendation. Therefore B correctly interprets the scores as standardized patient-reported experience data that can inform quality-improvement work. A incorrectly treats HCAHPS as a direct clinical-outcome measure such as mortality or readmission. C incorrectly treats it as a staff-satisfaction/employee-engagement survey. D incorrectly treats it as a billing and insurance survey. Therefore B is the uniquely best answer.",
+    "educational_objective": "Interpret HCAHPS results as standardized patient-reported experience data and use relevant domains, such as nurse communication and staff responsiveness, to contribute appropriately to quality-improvement efforts.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "Hospital CAHPS (HCAHPS)",
+    "source_version_date": "Current CMS HCAHPS program page; includes 2025 survey administration/content changes; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Overview — national, standardized, publicly reported survey of patients' perspectives of hospital care; About the survey — communication with nurses/doctors, staff responsiveness, care coordination, environment, medicines, discharge information, overall rating and recommendation",
+    "source_url": "https://www.cms.gov/data-research/research/consumer-assessment-healthcare-providers-systems/hospital-cahps-hcahps",
+    "source_claim_supported": "HCAHPS is a standardized national patient-experience survey and includes communication and staff-responsiveness domains; it is not itself a direct mortality/readmission, employee-engagement, or billing instrument.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Participate in performance improvement projects and quality improvement processes; Utilize resources to promote quality client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — interpretation and use of patient-experience data in quality improvement",
+    "correction_summary_append": "RULE1 cleanup: retained the valid HCAHPS construct but reframed it around a bedside RN's participation in QI, removed the uniquely-longest correct-answer cue, and rebuilt distractors around distinct measurement-domain misconceptions.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0226",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_ADMINISTRATIVE_FRAMING",
+        "finding": "The original item correctly identified HCAHPS but read as a generic survey-definition question and the correct option was uniquely longest. The revised item places HCAHPS interpretation within an explicit bedside-RN QI role and balances the response options.",
+        "source_authority": "CMS Hospital CAHPS (HCAHPS)",
+        "source_locator": "Overview and About the survey",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Participate in performance improvement projects and quality improvement processes"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0220", "V2-Q0223", "V2-Q0972"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0220 tests systems-based error analysis; V2-Q0223 tests evidence-resource use before a practice recommendation; V2-Q0972 tests the Study phase of PDSA. V2-Q0226 tests interpretation of standardized patient-experience data as a QI input."
+  },
+  "option_audit": {
+    "A": "Plausible because hospitals track mortality/readmission/complications for quality, but HCAHPS itself measures patient perspectives of care rather than those direct clinical outcomes.",
+    "B": "Correct. It identifies HCAHPS as standardized patient-reported experience data and uses the relevant communication/responsiveness domains appropriately in QI.",
+    "C": "Plausible because workforce surveys exist, but HCAHPS is completed by patients and does not primarily measure staff workload, teamwork or leadership perceptions.",
+    "D": "Plausible because financial experience can affect satisfaction, but billing and insurance processing are not the principal HCAHPS patient-experience domains described by CMS."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone matches CMS's stated purpose and current domains. A, C and D each substitute a different type of measurement instrument for HCAHPS.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 158, "B": 166, "C": 150, "D": 156},
+    "note": "Exact character counts were calculated from the stored strings. The correct answer is not conspicuously longer and all four options are parallel interpretations of what the measure represents."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Participation in performance improvement and QI is an explicit Management of Care activity; the item asks the RN to interpret a common hospital patient-experience data source rather than manage the HCAHPS program.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CMS Hospital CAHPS page verified",
+      "national/standardized/publicly reported patient-perspective purpose verified directly",
+      "current communication-with-nurses and staff-responsiveness content verified directly",
+      "clinical-outcome/staff-satisfaction/billing distractor claims independently checked against CMS scope",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "uniquely-longest correct-answer cue removed",
+      "option-length and structural cues checked",
+      "official NCSBN 2026 Management of Care page visually verified",
+      "exact performance-improvement/QI activity statement verified",
+      "construct compared with Q0220, Q0223 and Q0972 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}
