@@ -1,0 +1,103 @@
+{
+  "question_uid": "V2-Q0471",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "LICENSURE_RENEWAL_TRIVIA_TO_LANGUAGE_ACCESS_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A hospitalized adult with limited English proficiency is preparing for an elective procedure that requires an informed-consent discussion. A qualified interpreter service is available, and the client's adult daughter offers to interpret. The client has not yet stated a preference. Which nursing action is most appropriate?",
+    "options": {
+      "A": "Use the adult daughter because family members can interpret informed-consent discussions whenever they are willing and the client has not objected.",
+      "B": "Tell the client that a qualified interpreter is available at no cost and use that service for the consent discussion unless the client appropriately declines it.",
+      "C": "Ask the daughter to translate the consent form while the nurse summarizes the procedure, because written consent reduces the need for qualified interpretation.",
+      "D": "Delay the consent process until a bilingual clinician is scheduled, because remote or contracted qualified interpreter services are not appropriate for medical decisions."
+    },
+    "correct_option": "B",
+    "rationale": "HHS Office for Civil Rights guidance for individuals with limited English proficiency explains that covered recipients must provide competent and timely language assistance at no cost when such assistance is required for meaningful access. HHS specifically cautions against relying on friends or family members, particularly when important medical decisions or consent are involved, because competence, confidentiality, accuracy, and conflicts of interest can be concerns. HHS also states that an LEP person may decline the interpreter offered by the recipient and choose a family member or friend, subject to the provider's responsibility to address competence or appropriateness concerns. In this stem, the client has not yet expressed a preference and a qualified service is available. B first informs the client of the no-cost qualified service and uses it for the consent discussion unless the client appropriately declines. A assumes family interpretation without first offering the qualified service. C relies on the daughter for a high-stakes consent communication and incorrectly treats the written form as reducing the need for accurate interpretation. D incorrectly rejects qualified remote or contracted interpreter services categorically. Therefore B is the uniquely best answer.",
+    "educational_objective": "For an informed-consent discussion with a client who has limited English proficiency, offer and use qualified language assistance without cost unless the client appropriately declines, while avoiding automatic reliance on family interpretation.",
+    "source_organization": "U.S. Department of Health and Human Services, Office for Civil Rights (HHS OCR)",
+    "source_document_title": "Limited English Proficiency (LEP); Fact Sheet on HHS Title VI LEP Guidance; Civil Rights FAQ 709",
+    "source_version_date": "Current HHS LEP resources last reviewed in 2025 and accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "LEP rights and language-assistance services; HHS Title VI LEP fact sheet — competent/timely language assistance at no cost and caution using family/friends; FAQ 709 — qualified interpreter definition and heightened concern when important medical decisions or consent are involved",
+    "source_url": "https://www.hhs.gov/civil-rights/for-individuals/special-topics/limited-english-proficiency/index.html",
+    "secondary_source_urls": [
+      "https://www.hhs.gov/civil-rights/for-individuals/special-topics/limited-english-proficiency/fact-sheet-guidance/index.html",
+      "https://www.hhs.gov/civil-rights/for-individuals/faqs/may-an-lep-person-use-a-family-member-as-an-interpreter/709/index.html"
+    ],
+    "source_claim_supported": "When language assistance is required for meaningful access, covered providers should provide competent interpreter services without cost, should not require family/friends to interpret, and should use particular caution for important medical decisions or consent; the client may decline an offered interpreter and choose another interpreter when appropriate.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 22 / PDF p. 26 — Informed Consent: participate in obtaining informed consent and verify client receives education/consents; Legal Rights and Responsibilities: review facility policy and legal considerations when using interpreter services for a client",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — qualified interpreter use for informed consent and language access",
+    "correction_summary_append": "RULE1 cleanup: retired jurisdiction-specific license-renewal administration and rebuilt the item around direct client-care language access during informed consent. Removed the absolute-word distractor pattern and controlled the family-interpreter nuance so the answer offers qualified interpretation without falsely claiming that a client can never choose a family member.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0471",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_BEDSIDE_LICENSURE_ADMINISTRATION_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The original renewal item was administratively focused and weakly tied to newly licensed RN client care. The replacement directly tests an explicit NCSBN legal/interpreter activity and current HHS language-access guidance in a high-stakes consent scenario.",
+        "source_authority": "HHS OCR LEP guidance",
+        "source_locator": "No-cost competent language assistance; family/friend interpreter cautions; consent-related FAQ",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Informed Consent and Legal Rights/Interpreter Services"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "client_choice_of_family_interpreter": "Not categorically prohibited. The answer preserves that the client may decline the qualified service and choose another interpreter when appropriate under policy and competence/conflict considerations.",
+    "emergency_exception": "Not tested; the procedure is elective and a qualified interpreter service is available.",
+    "specific_vendor_or_modality": "Not tested. Qualified onsite, remote, or contracted services may be used as appropriate."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0123", "V2-Q0423", "V2-Q0470"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0123 tests HIPAA disclosure after a competent client objects to sharing with family. V2-Q0423 tests advocacy for a second opinion before elective treatment. V2-Q0470 tests jurisdiction-specific legal scope verification. V2-Q0471 tests qualified language access for informed consent."
+  },
+  "option_audit": {
+    "A": "Plausible because family members may sometimes interpret at the client's request, but the client has not yet chosen that option and the qualified no-cost service should first be offered/used for this important consent communication.",
+    "B": "Correct. It offers qualified language assistance without cost and preserves the client's ability to appropriately decline it.",
+    "C": "Plausible because family support can help, but a written form does not remove the need for accurate, competent communication during informed consent.",
+    "D": "Plausible preference for in-person bilingual staff, but qualified remote or contracted interpreter services are legitimate language-access resources and need not be categorically rejected."
+  },
+  "ambiguity_check": "No second defensible best answer. The client has not requested the daughter as interpreter, the discussion concerns informed consent, and a qualified service is available. B alone both protects meaningful access and preserves client choice. A and C default to family interpretation before the qualified service is offered; D unnecessarily delays care by rejecting qualified interpreter modalities.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 147, "B": 161, "C": 159, "D": 170},
+    "note": "Exact character counts were calculated from the stored strings. B is not longest; C and D are comparable in length and all options are complete consent-communication strategies without absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Interpreter-service legal considerations and informed-consent participation are explicit Management of Care content for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A printed p. 22 / PDF p. 26 was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current HHS LEP landing page verified",
+      "HHS no-cost competent language-assistance requirement verified",
+      "HHS caution regarding family/friend interpreters verified",
+      "HHS specific concern for important medical decisions/consent verified",
+      "client ability to decline provider-supplied interpreter preserved",
+      "qualified remote/contracted interpreter services not falsely excluded",
+      "A/B/C/D independently re-audited for legal accuracy, client choice and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A147/B161/C159/D170",
+      "official NCSBN interpreter/informed-consent mapping visually verified",
+      "construct compared with Q0123/Q0423/Q0470 and confirmed distinct",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
