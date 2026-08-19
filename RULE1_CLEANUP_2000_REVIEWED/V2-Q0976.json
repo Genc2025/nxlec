@@ -1,0 +1,116 @@
+{
+  "question_uid": "V2-Q0976",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "FEDERAL_RIGHTS_RECALL_TO_CLIENT_REFUSAL_NURSING_ACTION_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "An alert hospitalized adult with decision-making capacity refuses a scheduled blood transfusion after the practitioner has explained the indication, major risks, benefits, and alternatives. Which action should the nurse take?",
+    "options": {
+      "A": "Respect the refusal, notify the practitioner, document the decision, and continue other appropriate care.",
+      "B": "Ask the client's designated family contact to authorize the transfusion because the treatment was already prescribed.",
+      "C": "Wait to document the refusal until the client has reconsidered the decision with another member of the care team.",
+      "D": "Continue preparing the transfusion while the charge nurse determines whether the refusal is medically reasonable."
+    },
+    "correct_option": "A",
+    "rationale": "CMS hospital informed-decision guidance states that a patient's participation in the plan of care includes providing consent to, or refusal of, medical or surgical interventions. The 2026 NCSBN NCLEX-RN Test Plan specifically includes recognizing the client's right to refuse treatment or procedures, discussing treatment decisions with the client, respecting client decisions, reporting significant information to other disciplines, and using documents to record and communicate client information. Because this client has decision-making capacity and has already received information about the proposed transfusion, the nurse should respect the refusal, communicate the decision to the responsible practitioner, document it, and continue other appropriate care. A family contact does not replace the decision of a capable adult. Delaying documentation or continuing transfusion preparation as though the refusal were provisional does not respect the client's decision. Therefore A is the uniquely best answer.",
+    "educational_objective": "Protect the rights of a capable adult who refuses treatment by respecting the decision, communicating it to the care team, documenting it, and continuing appropriate care.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "QSO-24-10-Hospitals: Revisions and clarifications to Hospital Interpretive Guidelines for Informed Consent",
+    "source_version_date": "April 1, 2024; effective immediately; official CMS memorandum rechecked August 19, 2026",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "PDF p. 2, Informed Decisions — patient participation in the plan of care includes providing consent to, or refusal of, medical or surgical interventions",
+    "source_url": "https://www.cms.gov/files/document/qso-24-10-hospitals.pdf",
+    "source_page_url": "https://www.cms.gov/medicare/health-safety-standards/quality-safety-oversight-general-information/policy-memos-states-and-cms-locations/revisions-and-clarifications-hospital-interpretive-guidelines-informed-consent",
+    "source_claim_supported": "A hospital patient's informed participation in the plan of care includes consent to or refusal of medical or surgical interventions.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 20 / PDF p. 24 — Advocacy: discuss treatment options and respect client decisions; Client Rights: recognize client's right to refuse treatment/procedures and discuss treatment decisions. Printed p. 21 / PDF p. 25 — Collaboration: identify significant information to report to other disciplines; Continuity of Care: use documents to record and communicate client information",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — client right to refuse treatment, advocacy, communication and documentation",
+    "correction_summary_append": "RULE1 cleanup: replaced a federal-rights recall item with an entry-level nursing action scenario involving an informed, capable client's treatment refusal. Removed absolute-word and answer-length cueing, explicitly established decision-making capacity and prior explanation, and mapped the nursing response to exact NCSBN 2026 Client Rights, Advocacy, Collaboration, and Continuity of Care statements.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0976",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "RIGHTS_RECALL_ABSOLUTE_WORD_CUE_AND_WEAK_DISTRACTORS",
+        "finding": "The original item tested recognition of a federal-rights statement and contained obvious must/only distractors. The revised item tests the nurse's action after a capable, informed client refuses treatment, with the refusal right supported by CMS and the nursing actions mapped directly to NCSBN 2026 activity statements.",
+        "source_authority": "CMS QSO-24-10-Hospitals",
+        "source_locator": "PDF p. 2, Informed Decisions",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed pp. 20-21 / PDF pp. 24-25"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "decision_making_capacity": "The stem explicitly states that the adult client has decision-making capacity. Surrogate decision-making for an incapacitated client is not tested.",
+    "emergency_exception": "Not asserted. The treatment is scheduled and the client has already participated in an informed discussion.",
+    "blood_transfusion_specific_indication": "No claim is made about whether a transfusion is clinically indicated in a particular disease or laboratory state; the transfusion is only the concrete treatment being refused.",
+    "state_specific_refusal_form": "No state-specific requirement for a refusal form, witness, or special documentation format is asserted.",
+    "abandonment_of_care": "The correct answer explicitly continues other appropriate care; refusal of one treatment is not treated as refusal of all care."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q0975"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub searches for 'refuse treatment' and 'right to refuse' returned no indexed repository matches. Q0975 was manually compared because it is the immediately preceding consent-related item: Q0975 tests an unresolved information gap before consent, whereas Q0976 tests nursing response after an informed, capable client affirmatively refuses treatment. The constructs and decision points are distinct. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It respects the capable client's refusal and appropriately communicates and records a treatment decision that changes the plan of care.",
+    "B": "Plausible because family may participate in care, but a designated family contact does not override the treatment decision of an adult who has decision-making capacity.",
+    "C": "Plausible because further discussion may occur, but delaying documentation until the client reconsiders treats the current refusal as invalid rather than recording the client's decision.",
+    "D": "Plausible workflow response, but continuing preparation while another nurse judges whether the refusal is medically reasonable does not respect the capable client's decision."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem establishes decision-making capacity and prior explanation of the proposed treatment. B substitutes a family decision, C delays recognition/documentation, and D continues the treatment workflow pending a nursing judgment about reasonableness. A alone respects and operationalizes the client's informed refusal.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 105,
+      "B": 117,
+      "C": 113,
+      "D": 113
+    },
+    "note": "Exact character counts were calculated from the stored strings. Correct option A is the shortest; all options use parallel action phrasing and no must/always/only cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The 2026 NCSBN Test Plan explicitly includes recognizing the client's right to refuse treatment/procedures and respecting treatment decisions, with related communication and documentation activities. The item therefore tests direct entry-level RN Management of Care practice rather than legal trivia.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Test Plan printed p. 20 / PDF p. 24 and printed p. 21 / PDF p. 25 were visually inspected on 2026-08-19. The pages visibly list Advocacy and Client Rights statements about respecting decisions and treatment refusal, plus Collaboration and Continuity of Care statements supporting reporting significant information and recording/communicating client information."
+  },
+  "source_visual_verification": {
+    "result": "PASS",
+    "note": "Official CMS QSO-24-10-Hospitals PDF p. 2 was visually inspected on 2026-08-19. The Informed Decisions section visibly states that participation in the plan of care includes providing consent to, or refusal of, medical or surgical interventions."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official CMS informed-decision guidance rechecked fresh and exact refusal language verified on PDF p. 2",
+      "CMS PDF p. 2 visually verified",
+      "official NCSBN 2026 Client Rights and Advocacy content visually verified at printed p. 20 / PDF p. 24",
+      "official NCSBN 2026 Collaboration and Continuity of Care content visually verified at printed p. 21 / PDF p. 25",
+      "stem explicitly establishes adult decision-making capacity and prior informed discussion",
+      "A/B/C/D re-audited individually for plausibility and second-answer risk",
+      "family participation is not incorrectly treated as overriding a capable adult",
+      "no state-specific refusal-document rule asserted",
+      "refusal of one treatment is not treated as refusal of all care",
+      "answer-length and absolute-word cueing removed; exact lengths A105/B117/C113/D113",
+      "Q0975 manually compared as the nearest consent-related construct and found distinct",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific to the tested nursing response"
+    ]
+  }
+}
