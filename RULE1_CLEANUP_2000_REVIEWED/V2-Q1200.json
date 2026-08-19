@@ -14,13 +14,13 @@
   "semantic_correction": {
     "stem": "A hospitalized client suddenly develops a generalized tonic-clonic seizure while in bed. Which action should the nurse take during the active seizure?",
     "options": {
-      "A": "Protect the client's head, clear nearby hazards, turn the client gently to the side when possible, and stay with the client.",
+      "A": "Protect the client's head, clear nearby hazards, turn the client gently to the side when feasible, and stay at the bedside.",
       "B": "Hold the client's arms and legs firmly against the bed to prevent injury while the tonic-clonic movements continue.",
-      "C": "Place a padded oral airway between the client's teeth so the tongue cannot obstruct the airway during the seizure.",
+      "C": "Place a padded oral airway between the client's teeth to maintain an open airway while the tonic-clonic movements continue.",
       "D": "Leave the bedside briefly to obtain emergency medication before repositioning the client or clearing nearby hazards."
     },
     "correct_option": "A",
-    "rationale": "Current CDC seizure first-aid guidance directs caregivers to stay with the person, remove nearby hazards, turn the person gently onto the side when possible, and place something soft under the head during a generalized seizure. CDC also specifically advises against holding the person down and against putting anything in the mouth because these actions can cause injury. The 2026 NCSBN NCLEX-RN Test Plan includes providing care to a client who has experienced a seizure under Physiological Adaptation. Therefore A is the uniquely best action during the active seizure. B restrains the client's movements, C places an object in the mouth, and D leaves the client before immediate injury-prevention measures are performed.",
+    "rationale": "Current CDC seizure first-aid guidance directs caregivers to stay with the person, remove nearby hazards, turn the person gently onto the side when possible, and place something soft under the head during a generalized seizure. CDC also specifically advises against holding the person down and against putting anything in the mouth because these actions can cause injury. The 2026 NCSBN NCLEX-RN Test Plan includes providing care to a client who has experienced a seizure under Physiological Adaptation. Therefore A is the uniquely best action during the active seizure. B restrains the client's movements, C places an airway device in the mouth during active tonic-clonic movements, and D leaves the client before immediate injury-prevention measures are performed.",
     "educational_objective": "During a generalized tonic-clonic seizure, protect the client from injury, support airway positioning by turning to the side when possible, stay with the client, and avoid restraints or objects in the mouth.",
     "source_organization": "Centers for Disease Control and Prevention (CDC); National Council of State Boards of Nursing (NCSBN)",
     "source_document_title": "First Aid for Seizures; 2026 NCLEX-RN Test Plan",
@@ -36,14 +36,14 @@
     "blueprint_locator": "Physiological Adaptation > Alterations in Body Systems, printed p. 47 / PDF p. 51 — Provide care to client who has experienced a seizure",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_topic": "Physiological Adaptation — immediate nursing safety care during a generalized tonic-clonic seizure",
-    "correction_summary_append": "RULE1 cleanup: retired another near-miss-reporting item because that construct was already covered actionably at Q1063. Rebuilt this UID into direct bedside seizure-safety care using current CDC first-aid guidance and explicit NCSBN seizure-care blueprint content.",
+    "correction_summary_append": "RULE1 cleanup: retired another near-miss-reporting item because that construct was already covered actionably at Q1063. Rebuilt this UID into direct bedside seizure-safety care using current CDC first-aid guidance and explicit NCSBN seizure-care blueprint content. Final reread also removed residual answer-length cueing and an unnecessary distractor mechanism.",
     "audit_findings_append": [
       {
         "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
         "uid": "V2-Q1200",
         "result": "FINAL_QA_PASS",
-        "failure_mode_corrected": "NEAR_MISS_REPORTING_REDUNDANCY_ABSOLUTE_WORD_PATTERN_AND_LENGTH_CUE",
-        "finding": "The replacement tests immediate injury prevention during an active generalized seizure. CDC directly supports side positioning, hazard removal, head protection, staying with the client, and avoiding restraint or objects in the mouth.",
+        "failure_mode_corrected": "NEAR_MISS_REPORTING_REDUNDANCY_ABSOLUTE_WORD_PATTERN_LENGTH_CUE_AND_UNNECESSARY_DISTRACTOR_MECHANISM",
+        "finding": "The replacement tests immediate injury prevention during an active generalized seizure. CDC directly supports side positioning, hazard removal, head protection, staying with the client, and avoiding restraint or objects in the mouth. Final reread removed residual cueing and unnecessary mechanistic wording from distractor C.",
         "source_authority": "CDC First Aid for Seizures; NCSBN 2026 NCLEX-RN Test Plan",
         "source_locator": "CDC generalized-seizure first aid and what-to-avoid sections; NCSBN Physiological Adaptation printed p. 47 / PDF p. 51",
         "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
@@ -65,7 +65,7 @@
   "option_audit": {
     "A": "Correct. It implements CDC-supported injury prevention and side positioning while the nurse remains with the client.",
     "B": "Plausible protective impulse, but restraining tonic-clonic movements can injure the client or caregiver and is specifically discouraged by CDC.",
-    "C": "Plausible airway-protection misconception, but CDC advises not to place anything in the mouth during a seizure.",
+    "C": "Plausible airway-protection impulse, but CDC advises not to place anything in the mouth during a seizure.",
     "D": "Plausible because rescue medication may later be needed, but leaving before immediate injury-prevention measures are performed is not the best first response."
   },
   "ambiguity_check": "No second defensible best answer. A alone performs the immediate source-supported safety measures. B restrains the client, C places an object in the mouth, and D delays immediate protection by leaving the bedside.",
@@ -74,12 +74,12 @@
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
     "option_lengths_characters": {
-      "A": 124,
+      "A": 123,
       "B": 115,
-      "C": 114,
+      "C": 123,
       "D": 116
     },
-    "note": "Exact character counts were calculated from the stored strings. All choices are comparable bedside action sequences; the correct answer is not uniquely conspicuous by length."
+    "note": "Exact character counts were calculated from the stored strings. The correct option ties another alternative for longest and the choices use parallel bedside action sequences; no answer-length shortcut identifies the key."
   },
   "blueprint_audit": {
     "result": "PASS",
@@ -97,9 +97,10 @@
       "current CDC First Aid for Seizures page rechecked for generalized-seizure injury-prevention actions",
       "CDC prohibition on restraining the person and putting anything in the mouth rechecked",
       "official NCSBN 2026 seizure-care activity visually verified at printed p. 47 / PDF p. 51",
-      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "A/B/C/D independently re-audited for plausibility, unsupported mechanisms and second-answer risk",
       "no seizure-duration cutoff, rescue-medication dose or etiology fabricated",
-      "correct answer is not strongly length-cued; exact lengths A124/B115/C114/D116",
+      "residual answer-length cue removed; exact lengths A123/B115/C123/D116",
+      "unnecessary tongue-obstruction mechanism removed from distractor C",
       "targeted near-duplicate search performed without broad bank rescan",
       "educational objective is specific and action-oriented"
     ]
