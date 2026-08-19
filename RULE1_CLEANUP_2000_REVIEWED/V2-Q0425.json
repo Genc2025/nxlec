@@ -1,0 +1,92 @@
+{
+  "question_uid": "V2-Q0425",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DNR_SCOPE_CLIENT_EDUCATION_AND_CUEING_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A hospitalized client with a do-not-resuscitate (DNR) order asks, 'Does this mean my other treatments stop too?' Which explanation by the nurse is most accurate?",
+    "options": {
+      "A": "It changes the plan to comfort-focused care and ends routine medications, diagnostic testing, and other disease-directed treatment.",
+      "B": "It directs that CPR not be performed if breathing or heartbeat stops; other treatments remain governed by the client's care plan and orders.",
+      "C": "It withholds chest compressions during arrest but still directs defibrillation, airway resuscitation, and resuscitation medications.",
+      "D": "It prevents escalation to higher-acuity treatment whenever the client's condition worsens, even if cardiopulmonary arrest has not occurred."
+    },
+    "correct_option": "B",
+    "rationale": "MedlinePlus, a service of the U.S. National Library of Medicine/NIH, defines a DNR as a medical order instructing health care providers not to perform CPR if a patient's breathing stops or heart stops beating. Its current January 14, 2026 review states that a DNR is specific to CPR and does not by itself provide instructions for other treatments such as pain medicine, other medicines, or nutrition. MedlinePlus also explains that resuscitation can include chest compressions, breathing support, electric shock, airway/oxygen interventions, and medications. Therefore B correctly limits the DNR to CPR during respiratory or cardiac arrest while leaving other treatment decisions to the client's broader care plan and orders. A incorrectly converts DNR status into a comfort-measures-only treatment plan. C incorrectly separates defibrillation, airway resuscitation, and resuscitation medications from the resuscitative interventions addressed by the DNR. D incorrectly treats DNR status as a general prohibition on escalation before cardiopulmonary arrest. Therefore B is the uniquely best answer.",
+    "educational_objective": "Explain that a DNR order addresses cardiopulmonary resuscitation if breathing or heartbeat stops and does not, by itself, discontinue nonresuscitation treatments in the client's care plan.",
+    "source_organization": "MedlinePlus, U.S. National Library of Medicine (NLM), National Institutes of Health",
+    "source_document_title": "Do-not-resuscitate order",
+    "source_version_date": "Review Date January 14, 2026; current page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Introductory definition — DNR instructs providers not to do CPR if breathing stops or heart stops beating; What is a DNR? — DNR is specific to CPR and has no instructions for other treatments such as pain medicine, other medicines, or nutrition; What is Resuscitation? — CPR may include breathing support/chest compressions, electric shock, breathing tubes/oxygen, and medicines",
+    "source_url": "https://medlineplus.gov/ency/patientinstructions/000473.htm",
+    "source_claim_supported": "A DNR is specific to withholding CPR during respiratory or cardiac arrest and does not by itself discontinue other nonresuscitation treatment; CPR includes multiple resuscitative interventions beyond chest compressions.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 20 / PDF p. 24 — Advance Directives/Self-Determination/Life Planning: assess knowledge of advance directives and provide information about advance directives/self-determination/life planning; Client Rights: discuss treatment options/decisions with client and advocate for client rights and needs",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — DNR scope, advance care planning and client education",
+    "correction_summary_append": "RULE1 cleanup: retained the DNR-scope construct but converted it to direct client education, removed the absolute-word and answer-length cues, and ensured the item distinguishes DNR from comfort-measures-only care and from partial resuscitation misconceptions.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0425",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_CORRECT_ANSWER_LENGTH_CUE_AND_DNR_SCOPE_CLARITY",
+        "finding": "The original concept was accurate but answer-form cues were strong. The revised item uses current MedlinePlus 2026 guidance to test the clinically important distinction that DNR concerns CPR and does not itself terminate other treatments.",
+        "source_authority": "MedlinePlus/NLM/NIH Do-not-resuscitate order",
+        "source_locator": "What is a DNR? and What is Resuscitation?",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — advance care planning and client rights"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0175", "V2-Q0270", "V2-Q0424"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0175 tests hospice-election education; V2-Q0270 distinguishes POLST/MOLST portable medical orders from advance directives; V2-Q0424 identifies durable health-care POA. V2-Q0425 specifically tests the scope of a DNR order versus ongoing nonresuscitation treatment."
+  },
+  "option_audit": {
+    "A": "Plausible because DNR may coexist with comfort-focused care, but DNR status alone does not convert the entire treatment plan to comfort measures or stop other therapies.",
+    "B": "Correct. It accurately limits the DNR to CPR in respiratory/cardiac arrest and leaves other treatment decisions governed by the broader plan and orders.",
+    "C": "Plausible partial-code misconception, but MedlinePlus includes electric shock, airway/breathing support and medicines among resuscitative interventions associated with CPR.",
+    "D": "Plausible escalation-of-care misconception, but DNR status does not by itself prohibit treatment escalation before cardiopulmonary arrest."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone matches the current MedlinePlus definition and explicitly separates CPR status from other treatment decisions. A, C and D each broaden or distort the DNR's scope.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 131, "B": 140, "C": 132, "D": 139},
+    "note": "Exact character counts were calculated from the stored strings. Correct B and distractor D differ by one character; C and A are also comparable, and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Advance-care-planning education and discussion of treatment decisions/client rights are explicit Management of Care content for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Advance Directives/Client Rights content was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current MedlinePlus DNR page verified",
+      "January 14, 2026 review date verified",
+      "DNR-specific-to-CPR statement verified directly",
+      "DNR-does-not-instruct-other-treatment statement verified directly",
+      "resuscitation components beyond chest compressions verified directly",
+      "A/B/C/D independently re-audited for scope accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and answer-length cues removed",
+      "exact option lengths verified as A131/B140/C132/D139",
+      "construct compared with Q0175, Q0270 and Q0424 and confirmed distinct",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
