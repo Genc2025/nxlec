@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0527",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "INFORMED_REFUSAL_CUE_BALANCE_AND_ROLE_CLARIFICATION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with decision-making capacity refuses a recommended nonemergency treatment after receiving information about the treatment, expected benefits, material risks, and alternatives. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Respect the refusal, notify the responsible clinician or team, and document the informed decision and follow-up according to policy.",
+      "B": "Proceed with the treatment because the expected clinical benefit outweighs the refusal once the healthcare team recommends the intervention.",
+      "C": "Ask a family member to authorize the treatment instead, because a capable client's refusal can be replaced by a relative's agreement when benefit is expected.",
+      "D": "Record that the client refused and end the discussion without notifying the responsible clinician or documenting the decision-making information."
+    },
+    "correct_option": "A",
+    "rationale": "CMS hospital informed-consent guidance reinforces that hospital consent policies and processes must contain information that allows the patient or representative to make fully informed decisions about care. The 2026 NCSBN NCLEX-RN Test Plan explicitly lists recognizing a client's right to refuse treatment or procedures, discussing treatment options and decisions with the client, advocating for client rights and needs, and documenting/communicating client-care information under Management of Care. The stem establishes decision-making capacity, relevant information, and a nonemergency treatment, so the client's informed refusal should be respected. A is the uniquely best nursing response because it respects the decision, communicates the refusal to the responsible clinician or team, and completes the required documentation and follow-up process. B overrides a capable client's informed refusal solely because clinicians expect benefit. C substitutes family authorization for the decision of a capable client. D acknowledges the refusal but omits necessary communication and documentation of the informed-decision process and follow-up. Therefore A is correct.",
+    "educational_objective": "Respect an informed treatment refusal by a client with decision-making capacity and complete appropriate team communication, documentation, and follow-up rather than overriding the decision or substituting family consent.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "QSO-24-10-Hospitals — Revisions and Clarifications to Hospital Interpretive Guidelines for Informed Consent; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "CMS QSO-24-10 posted April 1, 2024 and current CMS policy listing live-rechecked 2026-08-19; NCSBN 2026 Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "CMS QSO-24-10 memorandum summary — informed-consent policy/process/forms must contain information allowing the patient or representative to make fully informed decisions about care. NCSBN Appendix A printed pp. 20-21 / PDF pp. 24-25 — Client Rights: recognize client's right to refuse treatment/procedures; discuss treatment options/decisions with client; advocate for client rights and needs",
+    "source_url": "https://www.cms.gov/medicare/health-safety-standards/quality-safety-oversight-general-information/policy-memos-states-and-cms-locations/revisions-and-clarifications-hospital-interpretive-guidelines-informed-consent",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "A capable patient must be supported in making fully informed care decisions; NCSBN explicitly recognizes the client's right to refuse treatment/procedures and the RN's advocacy/communication responsibilities.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — advocate for client rights and needs; verify education/consent; initiate/evaluate/update plan of care. Appendix A printed pp. 20-21 / PDF pp. 24-25 — Client Rights: recognize right to refuse treatment/procedures and discuss treatment options/decisions with client",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — informed treatment refusal by a capable client",
+    "correction_summary_append": "RULE1 cleanup: retained the valid informed-refusal construct, removed absolute-word distractor cues and the prior correct-answer length cue, explicitly limited the scenario to a capable client and nonemergency treatment, and clarified the RN's responsibilities for respect, communication, documentation and follow-up without creating a universal family-override or benefit-based exception.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0527",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ANSWER_LENGTH_CUE_ABSOLUTE_WORD_DISTRACTORS_AND_INFORMED_REFUSAL_SCOPE_PRECISION",
+        "finding": "The final item preserves the client's informed refusal and the RN's communication/documentation role while controlling capacity and nonemergency context in the stem.",
+        "source_authority": "CMS QSO-24-10-Hospitals and NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Fully informed care decisions; Client Rights — refusal of treatment/procedures",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Client Rights"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "emergency_exception": "Not tested; the stem explicitly states the treatment is nonemergency.",
+    "impaired_capacity": "Not tested; the stem explicitly establishes decision-making capacity.",
+    "family_override": "Not applicable to this capable client's own informed decision.",
+    "specific_state_document_form": "Not asserted; the correct response follows applicable organizational policy for documentation and follow-up."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0472", "V2-Q0423", "V2-Q0426"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0472 tests lack of informed understanding despite a signed consent form before a procedure. V2-Q0423 tests a capable client's request to pause elective treatment for another opinion. V2-Q0426 tests a verified court-appointed guardian for an incapacitated adult. V2-Q0527 tests a capable client's informed refusal of a recommended nonemergency treatment after adequate information has been provided."
+  },
+  "option_audit": {
+    "A": "Correct. It respects informed refusal and completes appropriate communication, documentation and follow-up.",
+    "B": "Plausible beneficence-driven response but incorrectly treats expected benefit as authority to override a capable client's informed refusal.",
+    "C": "Plausible family-involvement response but incorrectly substitutes a relative's authorization for the capable client's decision.",
+    "D": "Plausible minimal documentation response but omits appropriate team communication and the relevant informed-decision/follow-up record."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly controls capacity, information disclosure and nonemergency context. A alone respects the decision while completing the RN's communication/documentation responsibilities. B overrides autonomy, C substitutes family authority, and D incompletely manages the refusal process.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 132, "B": 140, "C": 158, "D": 145},
+    "note": "Exact character counts were calculated from the stored strings. Correct option A is the shortest; the prior uniquely-longest cue and 'only' distractor pattern are removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Recognizing treatment refusal, discussing decisions and advocating for client rights are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Client Rights/Advocacy content on printed pp. 20-21 / PDF pp. 24-25 was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CMS QSO-24-10 informed-consent guidance verified",
+      "CMS fully-informed-decision requirement verified directly",
+      "official 2026 NCSBN Client Rights refusal statement verified directly and visually",
+      "client decision-making capacity explicitly controlled",
+      "nonemergency context explicitly controlled",
+      "RN communication/documentation role retained without overclaiming specific state forms",
+      "A/B/C/D independently re-audited for autonomy, legal scope and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A132/B140/C158/D145",
+      "construct compared with Q0472/Q0423/Q0426 and confirmed distinct",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
