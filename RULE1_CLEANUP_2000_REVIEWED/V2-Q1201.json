@@ -1,0 +1,106 @@
+{
+  "question_uid": "V2-Q1201",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "QI_TOOL_TERMINOLOGY_RECALL_TO_SUSPECTED_CDI_CONTACT_PRECAUTIONS_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A hospitalized client develops new unexplained frequent watery diarrhea after receiving antibiotics. Evaluation for Clostridioides difficile infection is underway. Which action should the nurse take now?",
+    "options": {
+      "A": "Initiate contact precautions and place the client in a single-patient room with a dedicated toilet while the cause of diarrhea is evaluated.",
+      "B": "Wait for a positive stool test before starting isolation, but ask the client to remain in the current room until results are available.",
+      "C": "Start droplet precautions in the current room because the infectious cause has not yet been confirmed by laboratory testing.",
+      "D": "Continue standard precautions and reinforce hand hygiene until the diarrhea persists long enough to confirm that isolation is necessary."
+    },
+    "correct_option": "A",
+    "rationale": "Current CDC Clinical Guidance for C. difficile Infection Prevention in Acute Care Facilities states that patients with suspected or confirmed CDI should be isolated and placed on Contact Precautions. CDC further directs that patients with diarrhea should be isolated while evaluation for the cause is ongoing and recommends a single-patient room with a dedicated toilet for symptomatic patients. The 2026 NCSBN NCLEX-RN Test Plan includes understanding modes of transmission and applying isolation and transmission-based precautions under Safety and Infection Prevention and Control. Therefore A is the uniquely best action while CDI evaluation is pending. Waiting for a positive test delays indicated precautions, droplet precautions use the wrong transmission category, and standard precautions alone do not provide the CDC-recommended containment for suspected CDI-associated diarrhea.",
+    "educational_objective": "For new unexplained diarrhea with suspected C. difficile infection, initiate Contact Precautions and appropriate isolation while diagnostic evaluation is still underway rather than waiting for laboratory confirmation.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Clinical Guidance for C. diff Infection Prevention in Acute Care Facilities; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "CDC clinical guidance dated May 13, 2026; NCSBN Test Plan published 2025 and effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "CDC Clinical Guidance for C. diff Infection Prevention in Acute Care Facilities > Isolate and initiate contact precautions — isolate and initiate Contact Precautions for suspected or confirmed CDI; patients with diarrhea should be isolated while evaluation for the cause is ongoing; symptomatic patients should be placed on Contact Precautions in a single-patient room with a dedicated toilet. NCSBN 2026 NCLEX-RN Test Plan > Safety and Infection Prevention and Control > Standard Precautions/Transmission-Based Precautions/Surgical Asepsis, printed p. 26 / PDF p. 30 — understand airborne, droplet and contact transmission and apply isolation/infection-prevention principles.",
+    "source_url": "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Suspected CDI-associated diarrhea warrants isolation and Contact Precautions while diagnostic evaluation is ongoing rather than waiting for a positive test.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control > Standard Precautions/Transmission-Based Precautions/Surgical Asepsis, printed p. 26 / PDF p. 30",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — early Contact Precautions for suspected C. difficile infection",
+    "correction_summary_append": "RULE1 cleanup: retired an abstract 5 Whys/QI-tool identification item because it tested terminology rather than entry-level bedside care and overlapped with an already cleaned QI cluster. Rebuilt the UID into a current CDC-supported infection-control decision requiring early Contact Precautions while CDI evaluation is pending.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1201",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "QI_TOOL_TERMINOLOGY_RECALL_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement tests immediate bedside infection-control action. Current CDC guidance explicitly supports isolating patients with diarrhea while evaluation is ongoing and initiating Contact Precautions for suspected CDI.",
+        "source_authority": "CDC Clinical Guidance for C. diff Infection Prevention; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "CDC Isolate and initiate contact precautions; NCSBN Standard Precautions/Transmission-Based Precautions printed p. 26 / PDF p. 30",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "positive_test_requirement": "The item intentionally does not require laboratory confirmation before isolation because CDC recommends precautions while the cause of diarrhea is being evaluated.",
+    "hand_hygiene_method": "The item does not test soap-and-water versus alcohol-based hand rub because current CDC healthcare guidance contains context-specific nuance; the construct is isolation and Contact Precautions.",
+    "precaution_duration": "No duration after diarrhea resolution or hospitalization-wide isolation period is tested.",
+    "antibiotic_treatment": "No CDI treatment drug, dose, duration, or antibiotic-stewardship decision is tested."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'Clostridioides difficile soap water contact precautions gown gloves' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It follows current CDC guidance to isolate suspected CDI-associated diarrhea during evaluation and use Contact Precautions in appropriate placement.",
+    "B": "Plausible diagnostic-confirmation approach, but CDC recommends isolation while evaluation is ongoing rather than waiting for a positive test.",
+    "C": "Plausible because many infections use droplet precautions, but suspected CDI requires Contact Precautions rather than droplet precautions.",
+    "D": "Plausible if diarrhea were considered low-risk, but the stem presents unexplained frequent watery diarrhea under CDI evaluation and CDC recommends isolation during that evaluation."
+  },
+  "ambiguity_check": "No second defensible best answer. CDC directly supports A before confirmation. B delays precautions, C uses the wrong transmission category, and D omits the required Contact Precautions during active evaluation.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 140,
+      "B": 135,
+      "C": 124,
+      "D": 136
+    },
+    "note": "All four options are complete infection-control actions of comparable scale; the correct option is not separated by an obvious structural or absolute-word cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN directly includes understanding contact transmission and applying isolation/transmission-based precautions. Early isolation of suspected CDI-associated diarrhea is a direct entry-level RN infection-prevention action.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 26 / PDF p. 30 was visually inspected on 2026-08-20 and visibly lists Standard Precautions/Transmission-Based Precautions/Surgical Asepsis, including contact transmission and isolation/infection-prevention principles."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_CDC_HTML",
+    "note": "The relevant NCSBN PDF page was visually inspected. CDC C. diff clinical guidance is official HTML and was text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "CDC Clinical Guidance dated May 13, 2026 rechecked for isolation during diarrhea evaluation and Contact Precautions for suspected/confirmed CDI",
+      "CDC single-patient room and dedicated-toilet recommendation rechecked",
+      "official NCSBN 2026 transmission-based precautions page visually verified at printed p. 26 / PDF p. 30",
+      "A/B/C/D independently re-audited for transmission category, timing of isolation and second-answer risk",
+      "hand-hygiene-method controversy deliberately excluded from the construct",
+      "no precaution duration, CDI drug regimen or testing threshold fabricated",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
