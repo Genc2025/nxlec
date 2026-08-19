@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q0271",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "easy",
+  "change_class": "HAND_HYGIENE_DISTRACTOR_AND_LENGTH_CUE_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "metadata_correction": {
+    "client_need": "Safety and Infection Prevention and Control",
+    "category_id": 3,
+    "difficulty": "easy"
+  },
+  "semantic_correction": {
+    "stem": "A nurse adjusts an IV pump in a client's immediate surroundings without touching the client. The nurse's hands are not visibly soiled and there was no blood or body-fluid exposure. What should the nurse do before leaving to care for another client?",
+    "options": {
+      "A": "Wait and perform hand hygiene just before touching the next patient because contact with nearby equipment does not itself create an indication.",
+      "B": "Perform hand hygiene now with alcohol-based hand sanitizer; touching patient surroundings is an indication even without direct patient contact.",
+      "C": "Wash with soap and water now because contact with medical equipment requires soap and water even when the hands are not visibly soiled.",
+      "D": "Perform hand hygiene after the next patient-care task unless the pump was visibly contaminated or blood or body-fluid exposure occurred."
+    },
+    "correct_option": "B",
+    "rationale": "CDC healthcare hand-hygiene guidance lists hand hygiene after touching a patient or the patient's surroundings as a clinical indication. CDC's Isolation Precautions recommendations are even more specific: hand hygiene should be performed after contact with inanimate objects, including medical equipment, in the immediate vicinity of the patient. The stem states that the nurse adjusted an IV pump in the client's immediate surroundings, so hand hygiene is indicated even though the client was not touched directly. CDC also states that alcohol-based hand sanitizer is preferred over soap and water in most clinical situations when hands are not visibly soiled. Therefore B is correct. A incorrectly delays hygiene despite a current indication. C incorrectly makes soap and water mandatory despite the absence of visible soiling or another stated indication for soap and water. D incorrectly conditions hand hygiene on visible contamination or body-fluid exposure and delays it until after another care task.",
+    "educational_objective": "Perform hand hygiene after contact with medical equipment in a client's immediate surroundings even without direct client contact, using alcohol-based hand sanitizer when appropriate and hands are not visibly soiled.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "source_document_title": "Clinical Safety: Hand Hygiene for Healthcare Workers",
+    "source_version_date": "February 27, 2024; current CDC page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Recommendations — Know when to clean your hands: after touching a patient or patient's surroundings; Know when to use alcohol-based hand sanitizer versus soap and water: ABHS preferred in most clinical situations unless hands are visibly soiled",
+    "source_url": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/",
+    "source_claim_supported": "CDC recommends hand hygiene after touching patient surroundings and prefers alcohol-based hand sanitizer over soap and water in most clinical situations when hands are not visibly soiled.",
+    "secondary_source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "secondary_source_document_title": "Summary of Recommendations — Guideline for Isolation Precautions",
+    "secondary_source_locator": "IV.A.3.e — After contact with inanimate objects, including medical equipment, in the immediate vicinity of the patient",
+    "secondary_source_url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/summary-recommendations.html",
+    "secondary_source_claim_supported": "CDC explicitly includes contact with medical equipment in the patient's immediate vicinity as an indication for hand hygiene.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, printed p. 26 / PDF p. 30, Safety and Infection Prevention and Control — Standard Precautions/Transmission-Based Precautions/Surgical Asepsis: Apply principles of infection prevention (e.g., hand hygiene, aseptic technique, isolation, sterile technique, universal/standard enhanced barrier precautions)",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — hand hygiene after environmental/equipment contact",
+    "correction_summary_append": "RULE1 cleanup: retained the valid patient-surroundings hand-hygiene construct, removed the absolute-word distractor and uniquely-longest correct-answer cue, added the CDC-supported ABHS-versus-soap distinction, and rebuilt all options as plausible timing/method decisions.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0271",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The original construct was clinically correct but answerable partly by option form. The revision preserves the environmental-contact indication while requiring the candidate to distinguish immediate hand hygiene from delayed hygiene and to select the CDC-preferred method when hands are not visibly soiled.",
+        "source_authority": "CDC Clinical Safety: Hand Hygiene for Healthcare Workers; CDC Isolation Precautions",
+        "source_locator": "Know when to clean your hands; IV.A.3.e",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Appendix A, printed p. 26 / PDF p. 30 — Standard Precautions/Transmission-Based Precautions/Surgical Asepsis"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible because hand hygiene is also required before touching the next patient, but it ignores the current indication created by contact with equipment in the present patient's surroundings.",
+    "B": "Correct. It performs hygiene at the CDC-indicated time and uses the preferred routine method because the hands are not visibly soiled.",
+    "C": "Plausible because soap and water are appropriate in defined circumstances, but CDC does not require soap and water merely because medical equipment was touched when hands are not visibly soiled.",
+    "D": "Plausible confusion with blood/body-fluid indications, but touching patient surroundings is independently sufficient to trigger hand hygiene and it should not be deferred past another task."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly states environmental equipment contact and no visible soiling/body-fluid exposure. B alone satisfies both the timing indication and CDC's preferred routine method; A and D delay hygiene, while C unnecessarily requires soap and water.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 143, "B": 143, "C": 135, "D": 136},
+    "note": "Exact character counts were calculated from the stored strings. A and B are exactly equal in length, C and D are close, and no absolute-word or structural answer cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Hand hygiene is explicitly listed as an infection-prevention principle under Safety and Infection Prevention and Control for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN PDF printed p. 26 / PDF page 30 visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC Clinical Safety hand-hygiene page verified",
+      "patient-surroundings hand-hygiene indication verified directly",
+      "CDC Isolation Precautions IV.A.3.e medical-equipment wording verified directly",
+      "ABHS preference when hands are not visibly soiled verified directly",
+      "soap-and-water indications reviewed to avoid overstatement",
+      "A/B/C/D independently re-audited for timing, method, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and uniquely-longest answer cues removed",
+      "official NCSBN 2026 Appendix A printed p. 26 visually verified",
+      "exact hand-hygiene/infection-prevention content verified",
+      "difficulty retained as easy based on direct entry-level infection-control knowledge",
+      "educational objective is item-specific"
+    ]
+  }
+}
