@@ -1,0 +1,96 @@
+{
+  "question_uid": "V2-Q0474",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "GENERIC_DOCUMENTATION_DEFINITION_TO_PRECHARTING_DECISION_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN plans to complete a scheduled wound dressing change at 1400. At 1330, the unit becomes busy and the RN considers charting the dressing change as completed now to save time later. Which action is most appropriate?",
+    "options": {
+      "A": "Chart the dressing change now because it is scheduled and expected to be completed later, then edit the entry if the plan changes.",
+      "B": "Perform the dressing change first, then document the assessment, care provided, and client response accurately and promptly in the record.",
+      "C": "Record only that the dressing change was completed and omit the wound findings so the note remains brief and avoids unnecessary detail.",
+      "D": "Wait until the end of the shift to document the dressing change and rely on memory so all routine care can be entered at one time."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly requires the RN to enter computer documentation accurately, completely, and in a timely manner. Federal hospital record requirements at 42 CFR §482.24 require medical records to be accurately written and promptly completed and require entries to be complete, dated, timed, and authenticated by the person responsible for providing or evaluating the service. Open RN/NCBI nursing documentation guidance directly states that documentation should be completed accurately and timely after the task is performed and that care not yet completed must not be charted as completed. In this scenario, charting the 1400 dressing change at 1330 would record an intervention and findings that have not yet occurred. B therefore correctly performs the care first and then documents the relevant assessment, intervention, and response promptly and accurately. A is advance charting of unperformed care. C omits clinically relevant assessment information. D creates an avoidable delay and relies on memory rather than timely documentation. Therefore B is the uniquely best answer.",
+    "educational_objective": "Document nursing care after it is actually performed and record relevant assessment findings, interventions, and client responses accurately and promptly rather than pre-charting expected care or delaying routine documentation unnecessarily.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); Electronic Code of Federal Regulations/CMS; NCBI Bookshelf Open RN",
+    "source_document_title": "2026 NCLEX-RN Test Plan; 42 CFR §482.24 Medical record services; Nursing Fundamentals, 2nd edition — Communication: Documentation",
+    "source_version_date": "2026 NCSBN Test Plan effective April 1, 2026 through March 31, 2029; eCFR Title 42 up to date August 6, 2026; Open RN 2nd edition 2024 current on NCBI; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A printed p. 22 / PDF p. 26 — Information Technology: enter computer documentation accurately, completely and in a timely manner; 42 CFR §482.24(b),(c)(1) — records accurately written/promptly completed and entries complete/dated/timed/authenticated; Open RN Nursing Fundamentals 2.5 Documentation — document accurately/timely after task and do not chart uncompleted care as completed",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_urls": [
+      "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.24",
+      "https://www.ncbi.nlm.nih.gov/books/NBK610828/"
+    ],
+    "source_claim_supported": "Nursing documentation should be accurate, complete, and timely; hospital records must accurately reflect services provided; pre-charting an intervention as completed before it occurs is inconsistent with those requirements and with current Open RN documentation guidance.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 22 / PDF p. 26 — Information Technology: Enter computer documentation accurately, completely and in a timely manner; printed p. 21 / PDF p. 25 — Continuity of Care: use documents to record and communicate client information; use approved terminology when documenting care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — accurate and timely nursing documentation",
+    "correction_summary_append": "RULE1 cleanup: replaced a broad documentation-definition item with a concrete pre-charting decision. Removed the prior answer-length cue and narrowed the tested rule to accurate, timely documentation after care occurs, supported by NCSBN, current federal hospital-record requirements, and NCBI/Open RN guidance.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0474",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "GENERIC_DOCUMENTATION_TRIVIA_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement operationalizes the NCSBN documentation activity in a realistic time-pressure scenario and tests whether the RN avoids charting care before it occurs.",
+        "source_authority": "NCSBN 2026 Test Plan; 42 CFR §482.24; NCBI/Open RN",
+        "source_locator": "NCSBN Information Technology; CFR medical-record accuracy/timeliness; Open RN Legal Documentation",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Information Technology/Documentation"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0074", "V2-Q0373", "V2-Q0473"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0074 tests what clinical information belongs in the health record after a fall. V2-Q0373 tests medication reconciliation during transfer. V2-Q0473 tests response to a staff privacy breach. V2-Q0474 tests pre-charting versus accurate/timely documentation after care is actually performed."
+  },
+  "option_audit": {
+    "A": "Plausible time-saving behavior but incorrect because it records a task as completed before it has occurred.",
+    "B": "Correct. It performs the intervention first and then documents relevant assessment, care, and response accurately and promptly.",
+    "C": "Plausible brevity strategy but omits relevant assessment data associated with the wound-care intervention.",
+    "D": "Plausible batching strategy but unnecessarily delays documentation and increases reliance on memory."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone combines actual completion of care with accurate and prompt documentation. A pre-charts, C incompletely documents the clinical episode, and D delays routine documentation without a stated necessity.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 130, "B": 138, "C": 135, "D": 130},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within eight characters and use parallel documentation strategies; the correct answer is not conspicuously longer."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Accurate, complete, timely electronic documentation is explicitly listed in the 2026 NCLEX-RN Management of Care detailed content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A printed p. 22 / PDF p. 26 was visually inspected on 2026-08-19 and explicitly states 'Enter computer documentation accurately, completely and in a timely manner.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN documentation activity verified directly and visually",
+      "current eCFR 42 CFR §482.24 accuracy/prompt-completion requirements verified",
+      "eCFR current-through date verified as August 6, 2026",
+      "NCBI/Open RN 2nd edition documentation guidance verified",
+      "do-not-document-before-task rule verified directly in Open RN",
+      "A/B/C/D independently re-audited for documentation accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A130/B138/C135/D130",
+      "construct compared with Q0074/Q0373/Q0473 and confirmed distinct",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
