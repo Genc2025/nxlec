@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0922",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "LEADERSHIP_WALKROUNDS_THEORY_TO_HEMODIALYSIS_AVF_ACCESS_ASSESSMENT_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A hospitalized client with an established arteriovenous fistula is scheduled for hemodialysis in 1 hour. During assessment, the RN can neither palpate a thrill nor auscultate a bruit over the fistula. Which action is most appropriate?",
+    "options": {
+      "A": "Ask the dialysis nurse to cannulate the fistula and confirm patency by observing whether blood can be aspirated from the access.",
+      "B": "Do not use the fistula; protect the access arm and promptly notify the dialysis or vascular-access team about the absent thrill and bruit.",
+      "C": "Apply a warm compress and gently massage the fistula for several minutes, then reassess for a thrill before reporting the finding.",
+      "D": "Measure blood pressure on the fistula arm to assess arterial flow, then compare the reading with the opposite arm before dialysis."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes managing the care of a client receiving hemodialysis under Physiological Adaptation. NIDDK describes a functioning hemodialysis access as producing a palpable vibration, and the National Kidney Foundation advises contacting the dialysis team at once when the thrill or bruit is absent or changed. StatPearls likewise emphasizes assessment for fistula thrill and prompt communication when the thrill is lost because this can indicate access malfunction. In this scenario, both the expected thrill and bruit are absent immediately before dialysis. B is therefore the uniquely best action: do not use the access, protect the fistula arm, and obtain prompt dialysis/vascular-access evaluation. A attempts cannulation of a potentially thrombosed or failed access. C delays evaluation and introduces manipulation that is not an appropriate response to absent flow findings. D places a blood-pressure cuff on the fistula arm, which should be avoided to protect the access. Therefore B is correct.",
+    "educational_objective": "An established hemodialysis fistula should have evidence of blood flow such as a palpable thrill and audible bruit; if both are absent, do not use the access and promptly notify the dialysis/vascular-access team while protecting the access arm.",
+    "source_organization": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK); National Kidney Foundation (NKF); NCBI Bookshelf / StatPearls; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Hemodialysis; Key Points About Dialysis for Kidney Failure; Dialysis Fistula; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current NIDDK/NKF resources live-rechecked 2026-08-19; StatPearls Internet 2026 edition live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NIDDK Hemodialysis — functioning access has a palpable vibration. NKF Caring for Your Access — absent or changed thrill/bruit: call dialysis care team at once; avoid BP and blood draws on access arm. StatPearls Dialysis Fistula — nursing assessment of thrill/loss of thrill and prompt escalation. NCSBN Physiological Adaptation, PDF p.17 / printed p.14 — Manage the care of a client receiving hemodialysis or continuous renal replacement therapy.",
+    "source_url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/hemodialysis",
+    "secondary_source_urls": ["https://www.kidney.org/key-points-about-dialysis-kidney-failure","https://www.ncbi.nlm.nih.gov/books/NBK559085/","https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"],
+    "source_claim_supported": "Loss of the expected thrill/bruit in a hemodialysis AV fistula indicates possible access malfunction and requires prompt evaluation rather than cannulation, massage, or blood-pressure measurement on the access arm.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, PDF p.17 / printed p.14 — Manage the care of a client receiving hemodialysis or continuous renal replacement therapy",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — hemodialysis AV fistula assessment and access protection",
+    "correction_summary_append": "RULE1 cleanup: retired leadership-walkrounds safety-culture theory because it was management/process content rather than an entry-level bedside decision. Rebuilt the item around explicit NCSBN hemodialysis care and recognition of an absent AV-fistula thrill/bruit requiring prompt access evaluation. Removed the prior absolute-word cue.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0922","result":"FINAL_QA_PASS","failure_mode_corrected":"MANAGEMENT_SAFETY_CULTURE_THEORY_AND_ABSOLUTE_WORD_CUE","finding":"The replacement tests direct vascular-access assessment and safe escalation before hemodialysis.","source_authority":"NIDDK; NKF; StatPearls; NCSBN 2026 Test Plan"}]
+  },
+  "scope_exclusions": {
+    "diagnosis_of_exact_access_lesion": "Not required. The item tests recognition of absent flow findings and safe escalation, not whether the cause is thrombosis, stenosis, hypotension or another access problem.",
+    "cannulation_to_test_patency": "Not endorsed; a fistula with absent thrill/bruit should be evaluated before use.",
+    "BP_or_venipuncture_on_access_arm": "Not endorsed because these can jeopardize the vascular access."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0722", "V2-Q0921", "V2-Q0872"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0722 tests blood-product identity verification, Q0921 incentive spirometry, and Q0872 chest-tube obstruction. Q0922 specifically tests absent AV-fistula thrill/bruit before hemodialysis. Targeted repository search returned no matching AV-fistula thrill/bruit item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible attempt to confirm access function but risks cannulating a potentially failed access.",
+    "B": "Correct. It avoids use, protects the access, and obtains prompt specialist evaluation for absent flow findings.",
+    "C": "Plausible conservative response but delays evaluation and uses inappropriate access manipulation.",
+    "D": "Plausible vascular assessment but blood-pressure cuffs should not be applied to the fistula arm."
+  },
+  "ambiguity_check": "No second defensible best answer. Both thrill and bruit are absent before dialysis. B alone protects the access and escalates promptly; A attempts use, C delays/manipulates, and D risks the access with a blood-pressure cuff.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":128,"B":138,"C":130,"D":130},
+    "note": "All options are within ten characters; correct B is not structurally unique and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Managing a client receiving hemodialysis is an explicit NCSBN Physiological Adaptation responsibility.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, PDF p.17 / printed p.14, was visually inspected in this audit sequence and explicitly lists management of clients receiving hemodialysis or continuous renal replacement therapy."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["NCSBN hemodialysis activity verified visually","NIDDK functioning-access vibration guidance verified","NKF absent thrill/bruit urgent contact guidance verified","StatPearls loss-of-thrill nursing assessment cross-checked","A/B/C/D re-audited","no second defensible answer","option lengths A128/B138/C130/D130","targeted duplicate search clean","difficulty medium"]
+  }
+}
