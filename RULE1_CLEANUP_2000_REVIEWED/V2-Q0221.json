@@ -1,0 +1,91 @@
+{
+  "question_uid": "V2-Q0221",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_CUEING_AND_CONSTRUCT_DIFFERENTIATION_REAUDIT",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "Two nurses have different clinically relevant information about how to mobilize a client who recently fell, and the disagreement is beginning to affect the care plan. Which action best addresses this informational conflict?",
+    "options": {
+      "A": "Compare the differing clinical findings in a focused discussion, verify what each nurse knows, and work with the team to agree on one current mobility plan.",
+      "B": "Ask the more experienced nurse to choose the mobility plan, then document the decision so the disagreement does not continue during later shifts.",
+      "C": "Document both recommendations and allow each nurse to use the preferred approach during that nurse's shift until the provider selects one plan.",
+      "D": "Begin a formal conduct review before discussing the clinical information, because disagreement about the care plan indicates a professionalism problem."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ TeamSTEPPS describes informational conflict as task-related disagreement involving different information, views, ideas, or opinions and notes that unresolved conflict can interfere with work and undermine quality and patient safety. TeamSTEPPS specifically recommends bringing differing information forward so it can be addressed. Its advocacy-and-assertion framework calls for stating the concern and problem, offering a solution, and reaching agreement on next steps. Option A directly surfaces and reconciles the differing clinical information and aims for one current care plan. Option B substitutes hierarchy for review of the information. Option C preserves inconsistent care rather than resolving the conflict. Option D treats clinical disagreement as misconduct before addressing the underlying information. Therefore A is the uniquely best answer.",
+    "educational_objective": "Resolve informational conflict by openly comparing differing clinical information and reaching a shared, patient-centered plan rather than relying on hierarchy, parallel care plans, or premature disciplinary action.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ), TeamSTEPPS 3.0",
+    "source_document_title": "Concept: Conflict in Teams; Section 1: Overview of Mutual Support Key Concepts and Tools",
+    "source_version_date": "Conflict in Teams content last reviewed July 2023; Mutual Support overview last reviewed July 2023; current AHRQ TeamSTEPPS pages accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Concept: Conflict in Teams — informational versus interpersonal conflict, need to resolve conflict before it undermines work/safety, and bringing differing information forward; Mutual Support Overview — Advocacy and Assertion: state concern/problem, offer solution, reach agreement on next steps",
+    "source_url": "https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/conflict.html",
+    "source_claim_supported": "Informational conflict is task-related disagreement involving differing information and should be addressed before it undermines teamwork or patient safety; TeamSTEPPS supports openly surfacing concerns and information and reaching agreement on next steps.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Manage conflict among clients and staff; Identify and collaborate with multidisciplinary team members when providing client care; Provide and receive handoff of care (report) on assigned clients",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — informational conflict resolution and shared care planning",
+    "correction_summary_append": "RULE1 cleanup: removed the conspicuous correct-answer length cue and narrowed the construct so it does not duplicate V2-Q0073. Q0221 now tests recognition and resolution of informational conflict by surfacing differing clinical information and reaching one shared plan; chain-of-command escalation remains the distinct construct in Q0073.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0221",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ANSWER_LENGTH_CUEING_AND_CROSS_ITEM_CONSTRUCT_OVERLAP",
+        "finding": "The original correct option was much longer than all distractors and included escalation language already tested in Q0073. The revised item focuses on the earlier informational-conflict task: compare the differing information and reach a shared plan.",
+        "source_authority": "AHRQ TeamSTEPPS 3.0",
+        "source_locator": "Conflict in Teams; Mutual Support Advocacy and Assertion",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Manage conflict among clients and staff"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uid": "V2-Q0073",
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0073 tests escalation after an unresolved safety challenge to a decision maker. V2-Q0221 tests initial resolution of informational conflict between team members by surfacing differing clinical information and establishing one shared care plan."
+  },
+  "option_audit": {
+    "A": "Correct. It directly addresses the differing clinical information and seeks shared understanding and agreement on the current care plan.",
+    "B": "Plausible because experience can inform clinical decisions, but seniority does not replace review and resolution of the differing information.",
+    "C": "Plausible as a temporary documentation strategy, but allowing parallel shift-specific plans perpetuates the conflict and inconsistent care.",
+    "D": "Plausible if disruptive behavior were present, but the stem describes task-related informational disagreement, not misconduct; the clinical information should be addressed first."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone resolves the defined informational conflict itself; B relies on hierarchy, C preserves inconsistent plans, and D misclassifies the disagreement as a conduct issue.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 156, "B": 145, "C": 143, "D": 151},
+    "note": "Exact character counts were calculated from the stored strings. All options are complete conflict-management actions of comparable length; the correct answer is not conspicuously longer or structurally unique."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Managing conflict and collaborating with team members are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ TeamSTEPPS Conflict in Teams page verified",
+      "informational-versus-interpersonal conflict distinction verified directly",
+      "need to address conflict before it undermines work/safety verified directly",
+      "TeamSTEPPS use of differing information in informational conflict verified directly",
+      "advocacy/assertion sequence through agreement on next steps verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "conspicuous answer-length cue removed",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact conflict-management activity statement verified",
+      "construct compared with V2-Q0073 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}
