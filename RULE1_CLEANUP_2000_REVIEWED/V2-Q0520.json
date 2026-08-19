@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0520",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "STAFFING_EVIDENCE_TRIVIA_TO_MISSED_CARE_ESCALATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "During a busy shift, one assigned client acutely deteriorates. After stabilizing that client, the RN recognizes that necessary care for other assigned clients is now at risk of being missed because the remaining workload exceeds the available time and resources. Which action is most appropriate?",
+    "options": {
+      "A": "Complete every scheduled task personally before seeking help, even if this delays assessment and treatment of the deteriorating client.",
+      "B": "Prioritize the deteriorating client, notify the charge nurse about the workload and unfinished care, and request help so necessary care is completed.",
+      "C": "Leave the lower-priority care undone without reporting it because urgent care automatically removes responsibility for the remaining planned care.",
+      "D": "Delegate the remaining assessments and clinical decisions to available assistive personnel so the original assignment can still be finished on time."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ PSNet describes missed nursing care as necessary nursing care that is not completed, often because time pressure, competing demands, staffing, workload, and the work environment limit nurses' ability to complete required care. PSNet identifies missed care as a patient-safety and quality threat associated with adverse outcomes. The 2026 NCSBN NCLEX-RN Test Plan requires the newly licensed RN to prioritize care based on acuity, recognize limitations and utilize resources, organize workload to manage time effectively, collaborate with team members, and promote quality client care. In this scenario, the RN appropriately gives immediate priority to the acutely deteriorating client but then recognizes that other necessary care remains at risk. B addresses both responsibilities: it preserves acuity-based prioritization and promptly communicates the workload/unfinished-care risk so resources or assignment support can be mobilized. A reverses priority by making task completion more important than the unstable client. C silently accepts missed necessary care without escalation. D transfers nursing assessments and clinical decisions to assistive personnel rather than using appropriate resources within role boundaries. Therefore B is the uniquely best answer.",
+    "educational_objective": "When an acute event creates workload that places other necessary nursing care at risk of omission, prioritize the unstable client and promptly communicate unfinished-care risk so appropriate assistance or reassignment can be arranged rather than silently accepting missed care.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ), Patient Safety Network (PSNet)",
+    "source_document_title": "Patient Safety Amid Nursing Workforce Challenges; Missed Nursing Care",
+    "source_version_date": "Patient Safety Amid Nursing Workforce Challenges published April 24, 2024; Missed Nursing Care primer updated/reviewed June 15, 2024; current PSNet pages accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Patient Safety Amid Nursing Workforce Challenges — inadequate staffing can lead to missed nursing care and negative outcomes; missed care is necessary nursing care not completed because nurses may lack time; appropriate staffing includes workload/expertise/resources. Missed Nursing Care primer — missed care is a safety/quality threat driven by time pressure and competing demands",
+    "source_url": "https://psnet.ahrq.gov/perspective/patient-safety-amid-nursing-workforce-challenges",
+    "secondary_source_url": "https://psnet.ahrq.gov/primer/missed-nursing-care",
+    "source_claim_supported": "Necessary nursing care can be missed when time pressure, competing demands, workload, or insufficient resources prevent completion; missed care is associated with patient-safety and quality harm and should not be treated as an acceptable silent consequence of workload.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Prioritize delivery of client care based on acuity; Identify and collaborate with multidisciplinary team members; Recognize limitations of self and others and utilize resources; Utilize resources to promote quality client care; Organize workload to manage time effectively",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — acuity prioritization, workload escalation, resource use and prevention of missed necessary care",
+    "correction_summary_append": "RULE1 cleanup: retired nurse-manager interpretation of staffing-outcome evidence because it overlapped V2-Q0427 and was not a direct entry-level nursing action. Rebuilt the item around bedside recognition and escalation of missed-care risk after an acute deterioration, removed the absolute-word and answer-length cues, and preserved nursing assessment/clinical judgment within the RN role.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0520",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "MANAGERIAL_EVIDENCE_INTERPRETATION_STAFFING_OVERLAP_ABSOLUTE_WORD_CUEING_AND_ANSWER_LENGTH_CUE",
+        "finding": "The replacement tests an explicit NCSBN bedside responsibility: prioritize by acuity, recognize workload limits, use resources, and communicate a risk that necessary care will be omitted.",
+        "source_authority": "AHRQ PSNet missed-care resources",
+        "source_locator": "Missed care from time pressure/competing demands and associated patient-safety risk",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care printed p. 7 / PDF p. 11"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "silent_omission": "Not acceptable in the scenario; necessary unfinished care remains a safety issue requiring communication and resource use.",
+    "specific_staffing_ratio": "Not tested; the item addresses the RN's action when actual workload exceeds available time/resources.",
+    "delegation_of_nursing_judgment": "Not permitted by the correct response; assessments and clinical decisions remain with appropriately licensed nursing personnel."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0427", "V2-Q0420", "V2-Q0273"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0427 tests formal ICU assignment reassessment before accepting a second critical-care client. V2-Q0420 tests initial UAP task selection. V2-Q0273 tests RN follow-up after abnormal UAP-collected data. V2-Q0520 tests escalation when an acute event has already created a real risk that necessary care for other assigned clients will be missed."
+  },
+  "option_audit": {
+    "A": "Plausible task-completion impulse, but it violates acuity-based prioritization by allowing routine scheduled work to delay care of the deteriorating client.",
+    "B": "Correct. It preserves acute-care priority and uses the charge nurse/team as a resource so necessary unfinished care can be redistributed or completed.",
+    "C": "Plausible recognition that lower-priority care may be delayed, but it incorrectly treats necessary omitted care as acceptable without reporting or escalation.",
+    "D": "Plausible workload workaround, but it inappropriately transfers nursing assessments and clinical decisions to assistive personnel."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem states that necessary care is at risk of being missed after the acute client has been stabilized. B alone both preserves acuity-based priority and escalates the remaining workload risk so resources can be arranged. A misprioritizes, C silently omits care, and D delegates nursing judgment outside the appropriate role.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 135, "B": 149, "C": 146, "D": 148},
+    "note": "Exact character counts were calculated from the stored strings. B, C and D are within three characters; no conspicuous correct-answer length or absolute-word cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Acuity prioritization, workload organization, recognizing limitations and using resources are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Management of Care printed p. 7 / PDF p. 11 was visually inspected on 2026-08-19 and explicitly lists acuity prioritization, resource use, and workload organization."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ PSNet staffing/workforce perspective verified",
+      "AHRQ definition of missed nursing care verified directly",
+      "AHRQ association of missed care with patient-safety/adverse outcomes verified",
+      "AHRQ time-pressure/competing-demand drivers verified",
+      "official 2026 NCSBN Management of Care page visually verified",
+      "acuity prioritization/resource use/workload management activity statements verified",
+      "RN assessment and clinical judgment not delegated to assistive personnel",
+      "A/B/C/D independently re-audited for role scope, priority and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A135/B149/C146/D148",
+      "construct compared with Q0427/Q0420/Q0273 and confirmed distinct",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
