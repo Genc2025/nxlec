@@ -1,0 +1,94 @@
+{
+  "question_uid": "V2-Q0277",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ACTION_ORIENTED_SDOH_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client is medically stable for discharge and accurately explains the medication plan but reports unstable housing and unreliable transportation to follow-up visits. Which nursing action is most appropriate?",
+    "options": {
+      "A": "Confirm that the client can repeat the medication and follow-up instructions, then proceed with discharge and address housing or transportation if problems occur.",
+      "B": "Assess how housing and transportation affect the plan, involve the appropriate care-coordination team, and connect the client with available community resources.",
+      "C": "Arrange the follow-up appointments before discharge and leave housing and transportation planning to the client because the medical plan is already understood.",
+      "D": "Provide a list of housing and transportation agencies for the client to contact after discharge, while keeping the current follow-up schedule unchanged."
+    },
+    "correct_option": "B",
+    "rationale": "Healthy People 2030 defines social determinants of health as conditions in the environments where people live and identifies housing and transportation among important examples. Its Access to Health Services literature summary states that inconvenient or unreliable transportation can interfere with consistent access to health care and may contribute to negative outcomes. Its Housing Instability summary states that unstable housing can negatively affect health and make access to health care more difficult. The 2026 NCSBN NCLEX-RN Test Plan explicitly expects the newly licensed RN to assess the need for referrals, identify community resources, collaborate with multidisciplinary team members, and support continuity of care. Because this client already understands the medication plan, the remaining problem is not health literacy; it is the client's ability to carry out the plan in the setting of identified access barriers. Option B appropriately assesses the effect of those barriers and brings in care coordination and available resources. A postpones action until failure occurs. C addresses appointment scheduling but leaves the identified social barriers unresolved. D provides information without assessing feasibility or coordinating the plan. Therefore B is the uniquely best answer.",
+    "educational_objective": "Respond to housing and transportation barriers during discharge planning by assessing how they affect the client's ability to carry out care and coordinating appropriate referrals and community resources.",
+    "source_organization": "U.S. Department of Health and Human Services, Office of Disease Prevention and Health Promotion (ODPHP), Healthy People 2030",
+    "source_document_title": "Social Determinants of Health; Access to Health Services; Housing Instability",
+    "source_version_date": "Current Healthy People 2030 federal framework and literature summaries; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Social Determinants of Health — definition and examples including safe housing and transportation; Access to Health Services — Literature Summary: unreliable transportation can interfere with consistent access to care; Housing Instability — Literature Summary: unstable housing may negatively affect health and make health care access more difficult",
+    "source_url": "https://odphp.health.gov/healthypeople/priority-areas/social-determinants-health",
+    "source_claim_supported": "Housing and transportation are social determinants of health; unreliable transportation can limit consistent access to care, and housing instability can negatively affect health and make health care access more difficult.",
+    "secondary_source_urls": [
+      "https://odphp.health.gov/healthypeople/priority-areas/social-determinants-health/literature-summaries/access-health-services",
+      "https://odphp.health.gov/healthypeople/priority-areas/social-determinants-health/literature-summaries/housing-instability"
+    ],
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Assess the need for referrals and obtain necessary orders; Identify and collaborate with multidisciplinary team members; Appendix A printed pp. 20-23 / PDF pp. 24-27 — Case Management: explore resources and identify community resources; Referrals: assess need for referral and identify community resources",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — social barriers, referrals, community resources and continuity of care",
+    "correction_summary_append": "RULE1 cleanup: retained the housing/transportation SDOH construct but converted it from definition recognition to an entry-level nursing action, removed the absolute-word distractor, and mapped the item directly to referral/community-resource and continuity-of-care responsibilities.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0277",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_PASSIVE_DEFINITIONAL_CONSTRUCT",
+        "finding": "The original item correctly identified housing and transportation as SDOH but mainly tested terminology. The revised item asks the RN to act on identified access barriers through assessment, care coordination and resource linkage, which better matches the NCSBN entry-level role.",
+        "source_authority": "HHS/ODPHP Healthy People 2030",
+        "source_locator": "SDOH definition; Access to Health Services and Housing Instability literature summaries",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — referrals, multidisciplinary collaboration and community resources"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uid": "V2-Q0124",
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0124 tests coordination of a safe discharge transition involving home oxygen, caregiver support and transfer of clinical information. V2-Q0277 tests recognition and active mitigation of social-access barriers through referral/resource linkage."
+  },
+  "option_audit": {
+    "A": "Plausible because understanding the plan is important, but it delays response to known housing and transportation barriers until after they cause difficulty.",
+    "B": "Correct. It assesses the effect of the barriers and uses care coordination/community resources to improve the client's ability to carry out the plan.",
+    "C": "Plausible because scheduling follow-up is necessary, but it leaves the stated transportation and housing barriers to the client despite their likely effect on access.",
+    "D": "Plausible because resource information can help, but a list alone does not establish that the resources are feasible or integrated into the discharge plan."
+  },
+  "ambiguity_check": "No second defensible best answer. The client already demonstrates understanding, so the unresolved problem is access/feasibility. B alone combines assessment of both barriers with team coordination and resource linkage before the transition is finalized.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 162, "B": 161, "C": 159, "D": 152},
+    "note": "Exact character counts were calculated from the stored strings. All four choices are comparable discharge actions; the correct answer is not the longest and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Assessing referral needs, identifying community resources and collaborating with team members are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current Healthy People 2030 SDOH page verified",
+      "housing and transportation SDOH examples verified directly",
+      "unreliable transportation and health-care-access relationship verified directly",
+      "housing instability and health/access relationship verified directly",
+      "client health-literacy problem excluded by stem because understanding is demonstrated",
+      "A/B/C/D independently re-audited for feasibility, role scope and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "NCSBN 2026 referral/community-resource/multidisciplinary mapping verified",
+      "construct compared with Q0124 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}
