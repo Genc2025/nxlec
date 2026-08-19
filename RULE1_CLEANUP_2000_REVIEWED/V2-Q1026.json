@@ -1,0 +1,113 @@
+{
+  "question_uid": "V2-Q1026",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "REDUNDANT_INFORMED_CONSENT_RECALL_TO_MEDICATION_ORDER_ACCURACY_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "Before a scheduled medication, the nurse notices that the medication administration record (MAR) lists 20 mg, while the active provider prescription in the electronic record lists 10 mg. No dose has been given. What should the nurse do?",
+    "options": {
+      "A": "Pause administration and resolve which medication order is accurate before preparing or giving the dose.",
+      "B": "Administer 20 mg because the MAR is the medication-administration source currently displayed at the bedside.",
+      "C": "Administer 10 mg because the active provider prescription should take priority over the MAR entry.",
+      "D": "Give the same dose administered on the previous shift, then request correction of the conflicting record."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan identifies evaluation of the appropriateness and accuracy of a medication order as an entry-level Pharmacological and Parenteral Therapies activity and also requires preparation and administration using the rights of medication administration. Here, two current medication sources display conflicting doses before administration. The nurse should not select one value by assumption or rely on the previous shift; the discrepancy must be resolved so the accurate order is known before the medication is prepared or given. Options B and C each choose one conflicting source without resolving the discrepancy, and option D substitutes a prior administration history for verification of the current order. Therefore A is the uniquely best answer.",
+    "educational_objective": "When medication-order sources contain conflicting doses, pause medication administration and resolve the discrepancy before preparing or administering the medication.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Published 2025; effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 — Evaluate appropriateness and accuracy of medication order for client; Prepare and administer medications using rights of medication administration. Detailed content, Medication Administration, printed p. 40 / PDF p. 44 — Evaluate appropriateness and accuracy of medication order for client.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Entry-level RN medication practice includes verifying the appropriateness and accuracy of medication orders before safe medication administration.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16; Medication Administration detailed content, printed p. 40 / PDF p. 44",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — medication-order accuracy and safe administration",
+    "correction_summary_append": "RULE1 cleanup: retired a definitional informed-consent item because the same decision domain had already been addressed in higher-value action items Q0975 and Q0976. Rebuilt this UID into a distinct pre-administration medication-safety decision requiring the RN to resolve a dose discrepancy between the MAR and active provider prescription before giving any medication.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1026",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "REDUNDANT_INFORMED_CONSENT_RECALL_AND_LENGTH_CUE",
+        "finding": "The original item repeated informed-consent principles already tested nearby and had a uniquely longest correct answer. The replacement tests a direct medication-order accuracy decision mapped to explicit 2026 NCSBN activity statements.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16; Medication Administration, printed p. 40 / PDF p. 44",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "drug_specific_dosing": "No medication name, therapeutic dose, maximum dose, formulation, or drug-specific clinical rule is asserted.",
+    "source_priority_rule": "The item does not declare the MAR or provider-order display universally superior. Because the two sources conflict, the tested action is to resolve the discrepancy before administration rather than assume which display is correct.",
+    "facility_workflow": "No specific local reconciliation, pharmacy-callback, prescriber-callback, or electronic correction workflow is asserted; the item tests the universal safety decision to pause until the discrepancy is resolved.",
+    "prior_shift_dose": "A prior administration is not treated as evidence that the same dose remains the current accurate order."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q0975",
+      "V2-Q0976",
+      "V2-Q1024"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'medication order' plus 'discrepancy' returned no indexed repository match. Q0975 and Q0976 were manually compared because the original Q1026 was another informed-consent item; the replacement removes that redundancy. Q1024 was also compared because it is medication-safety related: Q1024 tests client assessment after an error has already occurred, whereas Q1026 tests preventing an error by resolving conflicting dose information before administration. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It pauses administration and resolves the conflicting dose information before medication preparation or administration.",
+    "B": "Plausible because the MAR is used during medication administration, but selecting the MAR value without resolving a known conflict does not verify order accuracy.",
+    "C": "Plausible because the active provider prescription is clinically important, but choosing it without resolving the conflict still bypasses verification of the discrepancy.",
+    "D": "Plausible continuity shortcut, but a previous shift's dose does not establish which current conflicting order display is accurate."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly presents two conflicting current dose displays before any medication has been given. B, C, and D each act on an unverified assumption. A alone resolves the discrepancy before administration.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 104,
+      "B": 108,
+      "C": 98,
+      "D": 105
+    },
+    "note": "Exact character counts were calculated from the stored strings. The correct option is not uniquely longest; all four use parallel action phrasing and are within ten characters."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly identifies evaluating medication-order appropriateness/accuracy and administering medications using medication-administration rights as entry-level RN activities in Pharmacological and Parenteral Therapies.",
+    "exact_locator_verified": true,
+    "visual_verification": "SCREENSHOT_FAILED_CACHE_MISS. The official NCSBN PDF was parsed successfully and the exact activity statements were verified in the PDF text at printed p. 12 / PDF p. 16 and printed p. 40 / PDF p. 44. A screenshot request for the detailed medication-administration page failed with a web-tool cache-miss error on 2026-08-19; no visual verification is claimed."
+  },
+  "source_visual_verification": {
+    "result": "FAILED_TOOL_CACHE_MISS_TEXT_VERIFIED",
+    "note": "The official NCSBN PDF text was directly parsed and the exact locator was verified. Screenshot retrieval failed with cache miss, so this record does not claim successful visual inspection."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN 2026 Test Plan publication/current effective period rechecked fresh",
+      "exact medication-order accuracy and medication-administration activity statements verified in parsed official PDF text",
+      "screenshot failure recorded explicitly rather than represented as successful visual verification",
+      "original informed-consent recall construct removed to avoid redundancy with Q0975/Q0976",
+      "Q1024 manually compared and confirmed distinct as post-error assessment versus pre-administration error prevention",
+      "stem contains conflicting current dose displays and explicitly states no dose has been given",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no drug-specific dose, formulation, or local workflow rule fabricated",
+      "correct answer is not length-cued; exact lengths A104/B108/C98/D105",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
