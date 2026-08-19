@@ -1,0 +1,103 @@
+{
+  "question_uid": "V2-Q0676",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "CANDOR_DISCLOSURE_GUIDANCE_RECALL_TO_OXYGEN_FIRE_HAZARD_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A hospitalized client is receiving prescribed oxygen by nasal cannula. A visitor enters the room and lights a cigarette while standing near the client. No fire has started. Which action should the RN take first?",
+    "options": {
+      "A": "Turn off the client's prescribed oxygen and leave it off until the visitor finishes smoking outside the room and returns without smoking materials.",
+      "B": "Tell the visitor to extinguish the cigarette immediately and remove smoking materials from the oxygen-use area, then reinforce the unit fire-safety rule.",
+      "C": "Move the oxygen equipment farther from the visitor and allow smoking to continue near the doorway as long as the cigarette stays away from the cannula.",
+      "D": "Ask the visitor to open the window and keep the cigarette below waist level so smoke and heat are directed away from the client's oxygen equipment."
+    },
+    "correct_option": "B",
+    "rationale": "The U.S. Fire Administration states that smoking must not occur around medical oxygen because a flame or spark can ignite an oxygen-enriched environment and oxygen can make a fire burn hotter and faster. The Veterans Health Administration similarly identifies cigarettes, lighters and matches as ignition sources in oxygen-rich environments. The 2026 NCSBN NCLEX-RN Test Plan requires newly licensed RNs to protect clients from injury, educate clients about safety concerns and evaluate the client-care environment for fire and environmental hazards. Because no fire has started and the client is receiving medically prescribed oxygen, B is the uniquely best first action: immediately remove the active ignition source and smoking materials from the oxygen-use area, then reinforce/enforce the facility fire-safety rule. A unnecessarily interrupts prescribed oxygen therapy instead of removing the preventable ignition source. C and D continue to permit smoking in the oxygen-use environment and therefore leave the fire hazard active. Therefore B is correct.",
+    "educational_objective": "When smoking or another ignition source is introduced near a client receiving medical oxygen, eliminate the ignition source immediately and enforce the no-smoking/fire-safety process rather than interrupt necessary oxygen therapy or trying to make continued smoking safer.",
+    "source_organization": "U.S. Fire Administration (FEMA); Veterans Health Administration; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Smoking Fire Safety; Oxygen (Compressed Gas) Cylinder Hazard Summary; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current USFA and VHA oxygen/fire-safety resources live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "USFA Smoking Fire Safety — never smoke around medical oxygen; flame/spark near medical oxygen can cause fire and oxygen intensifies burning. VHA Oxygen Cylinder Hazard Summary — oxygen-rich environments increase ignition/burning risk and cigarette lighters/matches are ignition sources. NCSBN Appendix A, Safety and Infection Prevention and Control, printed p. 24 / PDF p. 28 — protect client from injury; educate client on safety concerns; Home Safety: evaluate client care environment for fire and environmental hazards",
+    "source_url": "https://www.usfa.fema.gov/prevention/home-fires/at-risk-audiences/smoking/index.html",
+    "secondary_source_urls": [
+      "https://www.patientsafety.va.gov/professionals/hazards/oxygen.asp",
+      "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"
+    ],
+    "source_claim_supported": "Smoking and open ignition sources must be kept away from medical oxygen; an RN should immediately eliminate the active ignition hazard while protecting the client's prescribed therapy and safety.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Safety and Infection Prevention and Control, printed p. 24 / PDF p. 28 — Protect client from injury; Educate client on safety concerns; Home Safety: Evaluate client care environment for fire and environmental hazards",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — immediate response to an oxygen-related fire hazard",
+    "correction_summary_append": "RULE1 cleanup: retired passive AHRQ CANDOR disclosure-guidance recall because fresh blueprint review found no direct NCSBN disclosure activity statement. Rebuilt the slot around explicit NCSBN fire/environmental-hazard and injury-prevention content using current federal oxygen fire-safety guidance. The final item tests immediate bedside hazard removal and removes the prior absolute-word distractor cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0676",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "WEAK_EXPLICIT_BLUEPRINT_MAPPING_DISCLOSURE_RECALL_AND_ABSOLUTE_WORD_CUE",
+        "finding": "The replacement maps directly to NCSBN fire/environmental-hazard assessment and client injury prevention and tests an immediate bedside safety action.",
+        "source_authority": "U.S. Fire Administration; VHA National Center for Patient Safety; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Medical oxygen smoking/fire hazard; NCSBN fire/environmental-hazard content",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control — Home Safety/fire hazards"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "existing_fire_response": "Not tested; the stem explicitly states that no fire has started. If fire were present, the facility fire-response procedure and immediate rescue/alarm actions would govern.",
+    "independent_discontinuation_of_prescribed_oxygen": "Not endorsed. The immediate preventable hazard is the cigarette/ignition source; the RN does not unnecessarily withhold prescribed oxygen from the client.",
+    "safe_smoking_distance_in_oxygen_room": "Not asserted. The correct response removes smoking from the oxygen-use area rather than proposing a bedside distance that would make smoking acceptable."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0622", "V2-Q0675", "V2-Q0623"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0622 tests malfunctioning equipment removal/reporting. V2-Q0675 tests newborn security/controlled access. V2-Q0623 tests an acute threatening-visitor security response. V2-Q0676 tests immediate removal of a fire ignition source near prescribed medical oxygen. Targeted repository search for oxygen/smoking/fire-hazard content returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible oxygen-safety response but unnecessarily withholds prescribed therapy while failing to identify removal of the active ignition source as the first action.",
+    "B": "Correct. It immediately removes the ignition source from the oxygen-use environment and then reinforces the established safety rule.",
+    "C": "Plausible distance-based risk reduction but still allows smoking within the oxygen-use environment.",
+    "D": "Plausible ventilation-based response but does not eliminate the flame/ignition hazard around medical oxygen."
+  },
+  "ambiguity_check": "No second defensible best answer. No fire has started, the client needs prescribed oxygen, and the active preventable hazard is a lit cigarette near oxygen. B alone immediately removes that hazard without withholding needed therapy. A interrupts therapy; C/D leave smoking active.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 147, "B": 153, "C": 151, "D": 147},
+    "note": "Exact character counts were calculated from the stored strings. All four choices are within six characters; correct option B is only two characters longer than C and is not conspicuously signaled by length."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Fire/environmental-hazard assessment, client injury prevention and safety education are explicit Safety and Infection Prevention and Control activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "The official 2026 NCSBN PDF text for the relevant Safety and Infection Prevention and Control page was verified on 2026-08-19. A web screenshot of PDF p. 28 was attempted but failed with a cache-miss error; this limitation is documented rather than falsely reported as successful visual inspection."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current U.S. Fire Administration medical-oxygen smoking warning verified",
+      "current VHA oxygen fire-hazard guidance cross-checked",
+      "official NCSBN fire/environmental-hazard and injury-prevention text verified",
+      "NCSBN PDF screenshot attempted and cache-miss limitation documented",
+      "no safe bedside smoking distance invented",
+      "prescribed oxygen not unnecessarily discontinued",
+      "A/B/C/D independently re-audited for fire safety and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A147/B153/C151/D147",
+      "construct compared with Q0622/Q0675/Q0623 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
