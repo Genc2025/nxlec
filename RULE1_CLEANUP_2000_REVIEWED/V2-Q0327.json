@@ -1,0 +1,94 @@
+{
+  "question_uid": "V2-Q0327",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "PAYMENT_POLICY_TRIVIA_TO_COST_EFFECTIVE_CARE_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "During morning care, an RN sees that a CBC resulted one hour ago and an identical CBC order has appeared again from a transfer order set. The client is stable and the chart shows no new reason for an immediate repeat. Which action best supports quality and cost-effective care?",
+    "options": {
+      "A": "Collect the second specimen because the order is active, then compare the two results and address the duplication during routine review.",
+      "B": "Review the current result and client's condition, then clarify the apparent duplicate order with the prescribing team before collecting another specimen.",
+      "C": "Cancel the second order independently after confirming the earlier result, because duplicate testing should be removed without contacting the prescriber.",
+      "D": "Leave both orders unchanged and ask the next shift to decide whether the repeat test is needed after reviewing the client's morning condition."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ describes care management as activities intended to improve patient care, reduce unnecessary need for additional medical care, and avoid duplication of care. It also notes that coordination can eliminate duplication of services and improve efficiency. The 2026 NCSBN NCLEX-RN Test Plan expects the newly licensed RN to receive, verify and implement health care provider orders and to practice and advocate for quality and cost-effective care. The stem does not establish that the second CBC is definitely erroneous; it states that it appears duplicative, the same test resulted one hour ago, the client is stable, and no new indication is documented. Therefore B appropriately reviews the current clinical information and clarifies the apparent duplicate with the prescribing team before subjecting the client to another blood draw. A proceeds without clarification and may create unnecessary duplicate testing. C exceeds the RN's role by independently canceling the provider order. D delays resolution and leaves a known potential duplication unaddressed. Therefore B is the uniquely best answer.",
+    "educational_objective": "Support quality and cost-effective care by recognizing a potentially duplicative order, reviewing current clinical information, and clarifying the order with the prescribing team before repeating an unnecessary service.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Care Management; Care Management: Implications for Medical Practice, Health Policy, and Health Services Research",
+    "source_version_date": "Current AHRQ care-management resources rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Care Management — improve patient care, reduce unnecessary additional medical care, avoid duplication of care; Implications report — coordination can eliminate duplication of services and improve efficiency",
+    "source_url": "https://www.ahrq.gov/ncepcr/research/care-management/index.html",
+    "source_claim_supported": "AHRQ identifies reduction of unnecessary additional care and avoidance of duplicated care as care-management goals and describes coordination as a means to eliminate duplication of services.",
+    "secondary_source_url": "https://www.ahrq.gov/ncepcr/care/coordination/mgmt.html",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Receive, verify and implement health care provider orders; Practice and advocate for quality and cost-effective care; Utilize resources to promote quality client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — verification of potential duplicate orders and cost-effective care",
+    "correction_summary_append": "RULE1 cleanup: retired value-based-payment reimbursement trivia and removed the absolute-word distractor. The item now tests a newly licensed RN's source-supported role in identifying an apparent duplicate service, reviewing current information, and clarifying the order before unnecessary repeat testing without independently canceling a provider order.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0327",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_ENTRY_LEVEL_REIMBURSEMENT_POLICY_TRIVIA_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The original item tested a CMS payment-model definition rather than bedside nursing practice. The replacement directly operationalizes the NCSBN quality/cost-effective-care and order-verification activities while using AHRQ's avoidance-of-duplication principle.",
+        "source_authority": "AHRQ Care Management",
+        "source_locator": "Avoid duplication of care / reduce unnecessary additional medical care",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — verify orders and advocate for quality/cost-effective care"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0326", "V2-Q0223"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0326 tests longitudinal reconciliation of conflicting care recommendations. V2-Q0223 tests evidence-resource use before a practice recommendation. V2-Q0327 tests bedside recognition and clarification of an apparent duplicate clinical order to avoid unnecessary repeat care."
+  },
+  "option_audit": {
+    "A": "Plausible because active orders generally require action, but blindly repeating a just-completed test despite an apparent duplicate bypasses order verification and may create unnecessary care.",
+    "B": "Correct. It reviews current clinical information and clarifies the possible duplication with the prescribing team before another specimen is collected.",
+    "C": "Plausible resource-stewardship impulse, but independently canceling a provider order exceeds the action supported by the stem; clarification is required.",
+    "D": "Plausible handoff approach, but it delays resolution of a potential current duplicate order and leaves the present nurse without verifying the order."
+  },
+  "ambiguity_check": "No second defensible best answer. The item intentionally calls the order an apparent duplicate rather than declaring it erroneous. B is the only option that both protects against unnecessary repeat testing and preserves provider-order verification; A proceeds, C cancels independently, and D delays clarification.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 136, "B": 153, "C": 153, "D": 142},
+    "note": "Exact character counts were calculated from the stored strings. B and C are exactly equal in length and all four options are parallel responses; the correct answer is not uniquely longest and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Order verification and advocating for quality/cost-effective care are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Management of Care page was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ Care Management page verified",
+      "avoid-duplication-of-care statement verified directly",
+      "reduce-unnecessary-additional-care statement verified directly",
+      "AHRQ coordination/efficiency support reviewed",
+      "stem controls against declaring the duplicate definitely erroneous",
+      "RN independently canceling provider order excluded from correct response",
+      "A/B/C/D independently re-audited for role scope, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A136/B153/C153/D142",
+      "NCSBN order-verification and quality/cost-effective-care mapping visually verified",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
