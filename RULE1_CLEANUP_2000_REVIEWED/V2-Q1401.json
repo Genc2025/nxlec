@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q1401",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_PLAUSIBILITY_AND_HIPAA_ROLE_BASED_ACCESS_PRECISION_CORRECTION",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern"
+  ],
+  "semantic_correction": {
+    "stem": "A staff nurse caring for a hospitalized client is approached by a nurse from another unit who is not involved in the client's care and says, ‘I heard this client has a serious diagnosis. What is it? I'm just curious.’ Which response is appropriate?",
+    "options": {
+      "A": "Provide only the diagnosis because both nurses are hospital workforce members and the disclosure stays inside the covered entity.",
+      "B": "Provide a brief diagnosis after confirming the other nurse has active EHR credentials, because system access establishes a permitted use.",
+      "C": "Share the diagnosis without additional details because limiting the amount disclosed makes a curiosity request acceptable under minimum necessary.",
+      "D": "Decline to disclose the diagnosis because the other nurse has no job-related need for the information and no treatment purpose for the request."
+    },
+    "correct_option": "D",
+    "rationale": "The HIPAA Privacy Rule requires covered entities to implement role-based policies and procedures that restrict workforce access and internal uses of protected health information according to who needs the information to carry out job duties. HHS also explains that disclosures to or requests by a health care provider for treatment purposes are exempt from the minimum-necessary requirement; however, this scenario expressly states that the other nurse is not involved in the client's care and is asking only from curiosity, so no treatment purpose is present. Therefore D is the best response. Being employed by the same hospital does not by itself establish a job-related need, active EHR credentials do not create a permitted purpose for a curiosity request, and disclosing a smaller amount of PHI does not make an otherwise unnecessary curiosity-driven use or disclosure appropriate.",
+    "educational_objective": "Protect client confidentiality by declining curiosity-driven requests for PHI from workforce members who lack a job-related need or treatment purpose, regardless of same-employer status or technical EHR access.",
+    "source_organization": "U.S. Department of Health and Human Services, Office for Civil Rights (HHS OCR)",
+    "source_document_title": "Minimum Necessary Requirement; Uses and Disclosures for Treatment, Payment, and Health Care Operations; Summary of the HIPAA Privacy Rule",
+    "source_version_date": "Live HHS guidance rechecked August 20, 2026; Minimum Necessary and TPO guidance pages state content last reviewed July 26, 2013; underlying 45 CFR §§164.502(b), 164.506, and 164.514(d) remain the cited regulatory provisions",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "HHS Minimum Necessary Requirement > Background and How the Rule Works: PHI should not be used/disclosed when not necessary for a purpose/function; 45 CFR §§164.502(b), 164.514(d). > Uses and Disclosures of, and Requests for, PHI: policies must identify workforce persons/classes needing access to carry out job duties. HHS TPO guidance > Minimum Necessary: role-based access policies limit workforce access based on who needs access to do their jobs; treatment-purpose provider disclosures/requests are an exception. HHS Summary of Privacy Rule > Limiting Uses and Disclosures to the Minimum Necessary > Access and Uses: internal access/use is restricted based on workforce roles and duties.",
+    "source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/minimum-necessary-requirement/index.html",
+    "secondary_source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/disclosures-treatment-payment-health-care-operations/index.html",
+    "tertiary_source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html",
+    "source_claim_supported": "HIPAA requires role-based limits on workforce access/use of PHI according to job duties; a treatment-purpose exception does not apply when the requester has no treatment role and is asking only from curiosity.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, PDF p. 24 / printed p. 21, Confidentiality/Information Security: assess staff/client understanding of confidentiality requirements; maintain client confidentiality and privacy; intervene appropriately when staff members have breached confidentiality. Overview activity statement at PDF p. 10 also includes maintaining client confidentiality/privacy.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — Confidentiality/Information Security and appropriate workforce access to PHI",
+    "correction_summary_append": "RULE1 cleanup retained the high-value HIPAA confidentiality construct but replaced the original short/easy distractors with comparable-length, plausible misconceptions involving same-workforce status, EHR credentials, and minimum-necessary reasoning. The revised item explicitly establishes that the requester has no care role and is acting from curiosity, eliminating treatment-purpose ambiguity."
+  },
+  "scope_exclusions": {
+    "treatment_exception": "The stem expressly excludes a treatment purpose by stating that the requesting nurse is not involved in the client's care and is asking only from curiosity.",
+    "ehr_authorization": "The item distinguishes technical credentials from a permitted job-related purpose; it does not specify the hospital's detailed access-control configuration or sanction policy.",
+    "breach_reporting": "The item asks whether to disclose PHI, not whether a completed impermissible access/disclosure meets breach-notification criteria under 45 CFR part 164 subpart D.",
+    "minimum_necessary_scope": "The item does not claim that the minimum-necessary standard applies identically to every treatment disclosure; the rationale explicitly preserves the treatment-purpose exception.",
+    "state_privacy_law": "No state-specific medical-privacy law or more-stringent state requirement is tested."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub searches for 'curiosity diagnosis nurse another unit HIPAA' and 'workforce access PHI job duties EHR credentials curiosity' returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because both people are hospital workforce members, but same-employer status alone does not create a job-related need or permitted purpose for PHI access/use.",
+    "B": "Plausible because active credentials establish technical authorization to a system, but credentials do not convert a curiosity request into a job-related or treatment purpose.",
+    "C": "Plausible because minimum necessary limits the amount of PHI where applicable, but reducing the amount does not create a legitimate purpose for an otherwise curiosity-driven request.",
+    "D": "Correct. The requester has neither a job-related need nor treatment purpose, so the nurse should protect confidentiality and decline the disclosure."
+  },
+  "ambiguity_check": "No second defensible best answer. D is the only option consistent with role-based need and the explicitly non-treatment purpose. A relies only on common employer, B relies only on system credentials, and C misuses minimum-necessary reasoning to justify a request with no legitimate purpose.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 129,
+      "B": 137,
+      "C": 146,
+      "D": 143
+    },
+    "note": "All four options are similar-length privacy/workflow interpretations. The correct option is not uniquely longest and no distractor is an absurd or mechanically obvious HIPAA claim."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN explicitly includes confidentiality/information security, maintaining privacy, and staff breaches under Management of Care. The scenario tests an entry-level nurse's handling of a direct PHI request, not specialized privacy-officer procedure.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan PDF p. 24 / printed p. 21 was successfully screenshot on August 20, 2026 and visibly shows Confidentiality/Information Security with maintaining client confidentiality/privacy and intervening when staff breach confidentiality."
+  },
+  "source_verification": {
+    "result": "HHS_PRIMARY_HTML_TEXT_VERIFIED",
+    "note": "HHS OCR Minimum Necessary, TPO, and Privacy Rule Summary pages were directly text-verified. The guidance pages retain older review dates but expressly cite the controlling 45 CFR provisions; the current live HHS pages were rechecked on August 20, 2026. No unsupported claim that a current HHS page was newly revised in 2026 is made."
+  },
+  "independent_second_pass": {
+    "result": "PASS_PENDING_GITHUB_REREAD",
+    "checks": [
+      "original Q1401 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the candidate file",
+      "HHS Minimum Necessary guidance independently rechecked for role-based workforce access and job-duty need",
+      "HHS TPO guidance independently rechecked for role-based access and the treatment-purpose minimum-necessary exception",
+      "HHS Privacy Rule Summary independently rechecked for internal access/use based on specific workforce roles and duties",
+      "official NCSBN 2026 parsed text and screenshot independently verified the Confidentiality/Information Security blueprint locator",
+      "A/B/C/D independently re-audited for correctness, plausibility, ambiguity, cueing, overlap, and second-answer risk",
+      "the stem explicitly removes treatment-purpose ambiguity",
+      "no breach-notification procedure, sanction, state-law rule, or facility-specific EHR control was invented",
+      "option lengths balanced at A129/B137/C146/D143",
+      "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
+      "educational objective is specific to curiosity-driven PHI requests and role-based access"
+    ]
+  }
+}
