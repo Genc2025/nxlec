@@ -1,0 +1,94 @@
+{
+  "question_uid": "V2-Q0270",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "JURISDICTION_SCOPE_AND_LENGTH_CUE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with a serious progressive illness already has an advance directive and asks about a POLST/MOLST-type portable medical-order form that is available in the client's state. Which explanation by the nurse is most accurate?",
+    "options": {
+      "A": "It provides medical orders clinicians can act on in an emergency and supplements the advance directive rather than replacing it.",
+      "B": "It is another advance directive that becomes usable only after the client cannot communicate and supersedes the earlier directive.",
+      "C": "It records broad values for future discussion but does not provide medical orders that clinicians can use during an emergency.",
+      "D": "It is designed mainly for healthy adults planning distant future care and is completed before serious illness develops."
+    },
+    "correct_option": "A",
+    "rationale": "The NIH National Institute on Aging explains that POLST/MOLST-type forms provide guidance about medical care that health professionals can act on immediately in an emergency and that they serve as medical orders in addition to an advance directive. NIA also explains that these forms are typically created when a person is near the end of life or critically ill and that availability varies by state. The stem therefore explicitly states that an applicable form is available in the client's state and avoids imposing a uniform national form or procedure. Option A accurately states the core distinction: the portable form contains actionable medical orders and supplements rather than replaces the advance directive. Option B incorrectly classifies the medical-order form as another advance directive that supersedes the first. Option C incorrectly denies its status as an actionable medical order. Option D reverses the usual population described by NIA. Therefore A is the uniquely best answer.",
+    "educational_objective": "Distinguish a POLST/MOLST-type portable medical order from an advance directive by recognizing that, where available, it contains immediately actionable medical orders and supplements rather than replaces advance care planning documents.",
+    "source_organization": "National Institutes of Health, National Institute on Aging (NIA)",
+    "source_document_title": "Advance Care Planning: Advance Directives for Health Care",
+    "source_version_date": "Content reviewed October 31, 2022; current NIA page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Other advance care planning forms and orders — Physician orders for life-sustaining treatment (POLST) and medical orders for life-sustaining treatment (MOLST) forms",
+    "source_url": "https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care",
+    "source_claim_supported": "NIA states that POLST/MOLST forms are medical orders that can guide clinicians immediately in an emergency, are used in addition to an advance directive, are typically created for people near end of life or critically ill, and may not be available in every state.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, printed p. 20 / PDF p. 24, Management of Care — Advance Directives/Self-Determination/Life Planning: assess knowledge of advance directives; integrate advance directives into plan of care; provide information about advance directives, self-determination and life planning",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — Advance Directives/Self-Determination/Life Planning",
+    "correction_summary_append": "RULE1 cleanup: retained the valid POLST/MOLST-versus-advance-directive construct, explicitly controlled for state availability, removed the conspicuous correct-answer length cue, avoided jurisdiction-specific signer/form rules, and normalized difficulty from hard to medium.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0270",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ANSWER_LENGTH_CUE_AND_JURISDICTIONAL_OVERGENERALIZATION_RISK",
+        "finding": "The original concept was supported by NIA, but the correct option was much longer than distractors and the item needed tighter control of state variability. The revised stem establishes that a POLST/MOLST-type form is available in the client's state and tests only the nationally supportable distinction between advance directives and portable medical orders.",
+        "source_authority": "NIH/NIA Advance Care Planning",
+        "source_locator": "Other advance care planning forms and orders — POLST/MOLST",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Appendix A, printed p. 20 / PDF p. 24 — Advance Directives/Self-Determination/Life Planning"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "state_specific_form_requirements": "Excluded. The stem states that the relevant portable medical-order form is available in the client's state; signer, witnessing, portability and program-specific rules are not tested.",
+    "universal_national_form": "Not claimed. NIA specifically advises checking state availability.",
+    "capacity_activation_rule": "Not used to define POLST/MOLST. The item tests the medical-order versus advance-directive distinction rather than a state-specific activation rule."
+  },
+  "option_audit": {
+    "A": "Correct. NIA describes POLST/MOLST as medical orders actionable in an emergency and used in addition to an advance directive.",
+    "B": "Plausible because both are advance-care-planning documents, but NIA distinguishes POLST/MOLST as medical orders rather than a replacement advance directive.",
+    "C": "Plausible description of values-based planning, but it directly contradicts NIA's statement that clinicians can act on these medical orders immediately in an emergency.",
+    "D": "Plausible confusion with routine advance care planning for all adults, but NIA says POLST/MOLST is typically created near end of life or in critical illness."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone contains both source-supported defining features: actionable medical orders in an emergency and supplementation of the advance directive. B, C and D each contradict a specific NIA statement.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 128, "B": 130, "C": 126, "D": 119},
+    "note": "Exact character counts were calculated from the stored strings. The correct answer is not the longest and all choices are concise parallel explanations without absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes assessing and providing information about advance directives/self-determination/life planning under Management of Care sample content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN PDF printed p. 20 / PDF page 24 visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NIA advance-care-planning page verified",
+      "POLST/MOLST immediate-emergency-action claim verified directly",
+      "medical-order status verified directly",
+      "in-addition-to-advance-directive relationship verified directly",
+      "near-end-of-life/critical-illness context verified directly",
+      "state-availability variability verified directly and controlled in stem",
+      "state-specific form/signature requirements excluded",
+      "A/B/C/D independently re-audited for accuracy, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "official NCSBN 2026 Appendix A printed p. 20 visually verified",
+      "exact advance-directives/self-determination/life-planning content verified",
+      "difficulty reviewed and normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
