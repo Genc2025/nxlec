@@ -1,0 +1,87 @@
+{
+  "question_uid": "V2-Q0124",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "STEM_DISTRACTOR_SOURCE_AND_OBJECTIVE_REAUDIT",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "A hospitalized client will need home oxygen and follow-up services after discharge, and the caregiver is unsure how much support can be provided at home. Which nursing action best supports a safe discharge transition?",
+    "options": {
+      "A": "Assess the client's goals and home-support needs, involve the client and caregiver in planning, and coordinate appropriate services and information.",
+      "B": "Select the usual post-acute services based on hospital workflow, then inform the client and caregiver of the arrangements at discharge.",
+      "C": "Send the medication list and discharge summary at discharge, leaving home-oxygen and caregiver-support needs for the outpatient team to assess.",
+      "D": "Focus on inpatient stability and defer assessment of home needs until after discharge, when community providers can determine the required support."
+    },
+    "correct_option": "A",
+    "rationale": "CMS QSO-23-16-Hospitals reminds hospitals that 42 CFR 482.43 requires an effective discharge-planning process focused on the patient's goals and treatment preferences and including the patient and caregivers or support persons as active partners. The memo specifically identifies durable medical equipment such as oxygen and communication about needs at home and caregiver availability as important transition information, and it states that appropriate post-acute and follow-up providers must receive necessary medical information at discharge. Option A integrates the client's goals, home-support assessment, active client/caregiver participation, and coordination of needed services and information. Option B substitutes routine hospital workflow for patient-centered planning. Option C defers identified equipment and caregiver needs to the outpatient team. Option D postpones assessment of known home needs until after discharge. Therefore A is the uniquely best answer.",
+    "educational_objective": "Coordinate a safe discharge transition by assessing post-discharge and home-support needs, incorporating client goals, involving caregivers as appropriate, and arranging the services and information needed for follow-up care.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS), Quality, Safety & Oversight Group",
+    "source_document_title": "QSO-23-16-Hospitals — Requirements for Hospital Discharges to Post-Acute Care Providers",
+    "source_version_date": "Dated and posted June 6, 2023; effective immediately; current CMS policy-memo page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "QSO-23-16-Hospitals, PDF p. 2 — medications; durable medical equipment including oxygen; patient preferences/goals; communication about home needs and caregiver availability; Discussion — 42 CFR 482.43 effective discharge-planning process, active patient/caregiver participation, and transfer/referral with necessary medical information",
+    "source_url": "https://www.cms.gov/files/document/qso-23-16-hospitals.pdf",
+    "source_claim_supported": "CMS identifies oxygen/DME, home-environment and caregiver needs, patient goals/preferences, active patient/caregiver participation, and transfer/referral of necessary medical information as components relevant to safe hospital discharge planning under 42 CFR 482.43.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Perform procedures necessary to safely admit, transfer and/or discharge a client; Assess the need for referrals and obtain necessary orders; Identify and collaborate with multidisciplinary team members when providing client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — discharge planning, referrals, and continuity of care",
+    "correction_summary_append": "RULE1 cleanup: retained the valid discharge-planning construct but removed the absolute-word distractor, replaced the generic educational objective, and narrowed the timing language so every correct-answer element is directly supported by current CMS discharge guidance and the explicit NCSBN 2026 discharge/referral activity statements.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0124",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_GENERIC_OBJECTIVE_AND_SOURCE_CLAIM_GRANULARITY",
+        "finding": "The original discharge-planning concept was appropriate, but a distractor used 'only,' the educational objective was generic, and the phrase 'early enough' was broader than the cited locator. The revised item uses CMS-supported oxygen/DME, home-support, patient/caregiver participation, goals, referral and information-transfer elements without adding an unsupported timing rule.",
+        "source_authority": "CMS QSO-23-16-Hospitals",
+        "source_locator": "PDF p. 2 — DME/oxygen, home needs, patient goals, active partners, and 42 CFR 482.43 discharge requirements",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — safe discharge; referrals; multidisciplinary collaboration"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It integrates the patient-centered goals, home-support assessment, active client/caregiver planning, and coordination of services/information supported by CMS.",
+    "B": "Plausible because hospitals use standardized workflows, but CMS requires discharge planning to focus on the patient's goals/preferences and active participation rather than simply applying routine arrangements.",
+    "C": "Plausible because medication and discharge information must be communicated, but the option leaves already identified oxygen and caregiver-support needs unresolved until after discharge.",
+    "D": "Plausible because community providers participate in ongoing care, but deferring known home-support needs until after discharge undermines the effective transition process described by CMS."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone addresses the full source-supported transition problem presented in the stem: patient goals, home/caregiver support, oxygen/service needs, active planning, and coordination of follow-up information.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 148, "B": 135, "C": 143, "D": 147},
+    "note": "Exact character counts were calculated from the stored option strings. All four choices are complete discharge-planning actions of comparable length; the correct answer is not uniquely longest or structurally distinct."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Safe discharge, referral assessment and multidisciplinary coordination are explicit Management of Care activities for the newly licensed RN.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CMS policy-memo landing page verified",
+      "QSO-23-16-Hospitals memo identity, June 6, 2023 date and immediate effective status verified",
+      "oxygen/DME claim verified directly on PDF p. 2",
+      "home-environment/caregiver-support claim verified directly on PDF p. 2",
+      "patient-goals/preferences and active-partner requirements verified directly on PDF p. 2",
+      "transfer/referral with necessary medical information verified directly on PDF p. 2",
+      "unsupported generic 'early enough' timing language removed",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact safe-discharge/referral/collaboration activity statements verified",
+      "educational objective is item-specific"
+    ]
+  }
+}
