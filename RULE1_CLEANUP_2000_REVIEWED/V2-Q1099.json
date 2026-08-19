@@ -1,0 +1,112 @@
+{
+  "question_uid": "V2-Q1099",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "CLINICAL_DECISION_SUPPORT_TERMINOLOGY_RECALL_TO_ALERT_RESPONSE_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern"
+  ],
+  "semantic_correction": {
+    "stem": "Before administering a scheduled medication, the electronic health record displays a drug-drug interaction alert involving two of the client's active medications. The record does not show that the alert has been reviewed. What should the nurse do?",
+    "options": {
+      "A": "Pause administration, review the alert with the relevant client and order information, and resolve the concern before giving the medication.",
+      "B": "Override the alert because the order is active, document that the system warning appeared, and administer the medication as scheduled.",
+      "C": "Dismiss the alert after confirming that both medications appeared on an earlier medication list, then continue the scheduled administration.",
+      "D": "Place both medications on hold, remove them from the administration schedule, and wait for new orders without reviewing the alert further."
+    },
+    "correct_option": "A",
+    "rationale": "Current HHS/ONC eCQI guidance identifies drug-drug interaction warnings delivered during electronic workflows as clinical decision support (CDS) alerts and states that CDS is intended to support, not replace, clinician judgment. The 2026 NCSBN NCLEX-RN Test Plan requires the RN to receive, verify and implement health care provider orders, use information-technology resources to promote quality care, evaluate the appropriateness and accuracy of medication orders, review pertinent data before medication administration including potential interactions, and identify actual or potential medication incompatibilities. An unresolved interaction alert therefore requires patient-specific review and order verification before the affected medication is given. Option B overrides the safety signal without review; C relies on historical co-listing rather than current patient/order assessment; and D makes an independent medication-order change without first evaluating the alert. Therefore A is the uniquely best answer.",
+    "educational_objective": "Use electronic drug-interaction alerts as clinical decision-support safety signals: review the patient-specific information, verify the medication order, and resolve an unexplained interaction concern before administration.",
+    "source_organization": "U.S. Department of Health and Human Services — eCQI Resource Center / Office of the National Coordinator for Health Information Technology (ONC); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Clinical decision support (CDS) alerts; Clinical Decision Support; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "eCQI CDS alerts last updated May 13, 2026; eCQI CDS About last updated January 28, 2026; NCSBN Test Plan published 2025 and effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "eCQI Clinical decision support (CDS) alerts — drug-drug interaction alerts are active CDS delivered during workflows such as order entry. eCQI CDS About — CDS assists care-team members and is not intended to replace clinician judgment. NCSBN 2026 NCLEX-RN Test Plan > Management of Care > Information Technology, printed p. 22 / PDF p. 26 — receive, verify and implement health care provider orders; utilize information technology to promote quality client care. Pharmacological and Parenteral Therapies, printed p. 38 / PDF p. 42 — evaluate medication-order accuracy, review pertinent data including potential interactions, identify actual/potential incompatibilities, and monitor anticipated interactions.",
+    "source_url": "https://ecqi.healthit.gov/glossary/clinical-decision-support-cds-alerts",
+    "secondary_source_url": "https://ecqi.healthit.gov/cds/about",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Drug-drug interaction alerts are a form of CDS that supports rather than replaces clinician judgment; entry-level RN medication practice includes verifying orders and reviewing potential medication interactions before administration.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Information Technology, printed p. 22 / PDF p. 26; Pharmacological and Parenteral Therapies, printed p. 38 / PDF p. 42",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — medication interaction review supported by clinical decision support",
+    "correction_summary_append": "RULE1 cleanup: retired a low-value terminology question asking the name of an electronic drug-interaction alert. Rebuilt the UID into a direct medication-safety decision requiring the RN to review and resolve an unexplained CDS interaction alert before administration while preserving clinician judgment and medication-order verification.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1099",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "HEALTH_IT_TERMINOLOGY_RECALL_AND_ABSOLUTE_WORD_DISTRACTOR",
+        "finding": "The replacement tests safe use of CDS in medication administration rather than naming the technology. Current ONC/eCQI guidance supports the CDS role, and NCSBN directly supports order verification and interaction review.",
+        "source_authority": "HHS/ONC eCQI; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "eCQI CDS alerts/CDS About; NCSBN Information Technology printed p. 22 / PDF p. 26 and Pharmacological and Parenteral Therapies printed p. 38 / PDF p. 42",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Information Technology; Pharmacological and Parenteral Therapies"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_interaction": "No medication names, interaction mechanism, severity level, contraindication, dose, or monitoring interval is asserted. The item tests response to an unresolved electronic interaction alert rather than a specific pharmacologic interaction.",
+    "automatic_prescriber_notification": "The item does not claim that every CDS alert universally requires contacting a prescriber. It requires review and resolution of the concern before administration using the appropriate clinical and organizational resources.",
+    "automatic_alert_acceptance": "The alert is treated as a safety signal requiring review, not as proof that the medications are necessarily incompatible or that both orders must be stopped.",
+    "facility_specific_override_policy": "No local override workflow or mandatory alert-response documentation rule is asserted."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1026",
+      "V2-Q1096"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub searches for 'drug interaction alert verify order' and 'clinical decision support alert' returned no indexed repository match. Q1026 tests a discrepancy between current medication-order displays before administration; Q1096 tests medication reconciliation across discharge transition. Q1099 uniquely tests clinical judgment in response to an electronic potential-interaction alert. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It uses the alert as a safety signal, reviews patient/order information and resolves the concern before administration.",
+    "B": "Plausible alert-fatigue behavior, but an active order does not justify overriding an unexplained interaction alert without patient-specific review.",
+    "C": "Plausible because prior co-use may be relevant history, but historical medication-list presence does not substitute for current interaction and order review.",
+    "D": "Plausible overreaction to a safety alert, but the nurse should not independently remove active medication orders without evaluating the alert and current clinical information."
+  },
+  "ambiguity_check": "No second defensible best answer. The alert is explicitly unresolved before administration. B and C proceed without resolving the current warning; D changes the treatment plan without evaluating the warning. A alone combines review, verification and resolution before administration.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 140,
+      "B": 134,
+      "C": 140,
+      "D": 138
+    },
+    "note": "Exact character counts were calculated from the stored strings. All choices are within six characters and use parallel medication-safety action sequences."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes provider-order verification, use of information technology to promote quality care, medication-order evaluation, and review of potential interactions. The rebuilt item tests a direct entry-level RN medication-administration decision.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 22 / PDF p. 26 was visually inspected and shows Information Technology activities including order verification and use of information technology. Printed p. 38 / PDF p. 42 was visually inspected and shows medication-order evaluation, review of potential interactions and identification/monitoring of medication incompatibilities/interactions."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_HHS_HTML",
+    "note": "Both relevant NCSBN PDF pages were visually inspected. HHS/ONC eCQI sources are HTML and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "eCQI CDS alerts page rechecked fresh; last updated May 13, 2026 and drug-drug alerts/order-entry workflow confirmed",
+      "eCQI CDS About rechecked fresh; last updated January 28, 2026 and CDS-not-replacement-for-clinician-judgment principle confirmed",
+      "NCSBN Information Technology page visually verified at printed p. 22 / PDF p. 26",
+      "NCSBN Pharmacological and Parenteral Therapies page visually verified at printed p. 38 / PDF p. 42",
+      "no specific interaction, medication, dose, threshold or monitoring interval fabricated",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "CDS alert is not treated as automatic proof of incompatibility or automatic order cancellation",
+      "correct answer is not length-cued; exact lengths A140/B134/C140/D138",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
