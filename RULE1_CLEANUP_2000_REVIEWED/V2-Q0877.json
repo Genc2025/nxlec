@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0877",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "QUALITY_DASHBOARD_THEORY_TO_NEONATAL_PHOTOTHERAPY_EYE_PROTECTION_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A newborn with unconjugated hyperbilirubinemia is receiving prescribed overhead phototherapy. During assessment, the RN notices that the eye shields have slipped off and the newborn's eyes are exposed to the treatment light. Which action is most appropriate?",
+    "options": {
+      "A": "Continue phototherapy and check the shields at the next scheduled care interval because closed eyelids provide adequate protection.",
+      "B": "Pause the light briefly, replace properly fitted eye shields, then resume prescribed phototherapy and monitor that the shields remain in place.",
+      "C": "Cover the newborn's entire face with a light blanket while phototherapy continues so the eyes are protected without interrupting treatment.",
+      "D": "Remove the eye shields and lower the phototherapy intensity until the next bilirubin measurement so the newborn can be observed more easily."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes implementing and monitoring phototherapy under Physiological Adaptation. Current StatPearls neonatal-jaundice guidance states that effective phototherapy should maximize exposed body surface while the newborn's eyes remain covered to avoid retinal injury, and interruptions should be minimized. In this scenario, the protective eye shields are displaced while the treatment light is active. B is therefore the uniquely best response: briefly stop light exposure while restoring properly fitted eye protection, then promptly resume the prescribed therapy and ensure the shields remain positioned. A leaves the eyes unprotected. C unnecessarily covers the entire face and reduces therapeutic skin exposure rather than correcting the eye protection. D changes the prescribed treatment intensity and intentionally removes required eye protection. Therefore B is correct.",
+    "educational_objective": "During neonatal phototherapy, maintain properly fitted eye protection while maximizing prescribed skin exposure; if eye shields become displaced, promptly restore eye protection and resume therapy rather than leaving the eyes exposed or broadly covering the infant.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); NCBI Bookshelf / StatPearls",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Neonatal Jaundice",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; StatPearls Internet 2026 edition, Neonatal Jaundice chapter last updated February 12, 2024 and live-rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Physiological Adaptation, PDF p. 17 / printed p. 14 — Implement and monitor phototherapy. StatPearls Neonatal Jaundice, Treatment/Management > Phototherapy — maximize exposed body surface, keep eyes covered to avoid retinal injury, and minimize interruptions.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://www.ncbi.nlm.nih.gov/books/NBK532930/",
+    "source_claim_supported": "Phototherapy requires eye protection to reduce retinal injury risk while maximizing therapeutic skin exposure; displaced eye protection should be corrected promptly without unnecessary alteration of the prescribed therapy.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, PDF p. 17 / printed p. 14 — Implement and monitor phototherapy",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — safe implementation and monitoring of neonatal phototherapy",
+    "correction_summary_append": "RULE1 cleanup: retired quality-dashboard/performance-measure theory because it was organizational QI recall and overlapped prior quality-improvement coverage. Rebuilt the item around an explicit NCSBN Physiological Adaptation activity: implementing and monitoring phototherapy, with current neonatal-jaundice guidance for eye protection. Removed the prior extreme correct-answer length cue.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0877","result":"FINAL_QA_PASS","failure_mode_corrected":"ORGANIZATIONAL_QI_THEORY_AND_EXTREME_KEY_LENGTH_CUE","finding":"The replacement directly tests safe bedside management when neonatal phototherapy eye protection becomes displaced.","source_authority":"NCSBN 2026 NCLEX-RN Test Plan; StatPearls Neonatal Jaundice","source_locator":"Implement/monitor phototherapy; eye coverage during phototherapy"}]
+  },
+  "scope_exclusions": {
+    "phototherapy_start_threshold": "Not tested; the newborn already has a valid phototherapy order.",
+    "specific_device_distance_or_irradiance": "Not tested; those parameters depend on the device, prescription and protocol.",
+    "prolonged_treatment_interruption": "Not endorsed. The correct option limits interruption to the brief period needed to restore eye protection."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0875", "V2-Q0876", "V2-Q0675"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0875 tests tracheostomy suctioning, Q0876 NG-tube placement verification, and Q0675 newborn security. Q0877 specifically tests monitoring and restoring eye protection during neonatal phototherapy. Targeted repository search returned no matching phototherapy/eye-shield item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible continuation-focused response but leaves the newborn's eyes exposed to treatment light.",
+    "B": "Correct. It restores required eye protection with minimal interruption and then resumes the prescribed therapy.",
+    "C": "Plausible protection response but unnecessarily covers the face and reduces intended skin exposure instead of correcting the eye shields.",
+    "D": "Plausible attempt to reduce light exposure but changes prescribed therapy and removes eye protection."
+  },
+  "ambiguity_check": "No second defensible best answer. The problem is displaced eye protection during active phototherapy. B alone restores eye protection while minimizing treatment interruption. A leaves exposure ongoing, C broadly covers the infant rather than correcting the shield, and D changes therapy while removing protection.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":131,"B":143,"C":139,"D":140},
+    "note": "All options are comparable action statements; correct B is only three characters longer than D and four longer than C."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Implementing and monitoring phototherapy is an explicit Physiological Adaptation activity for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, PDF p. 17 / printed p. 14, was visually inspected on 2026-08-19 and explicitly lists 'Implement and monitor phototherapy.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["NCSBN phototherapy activity statement verified directly and visually","StatPearls neonatal phototherapy eye-protection guidance verified","prescribed phototherapy already established in stem","no threshold/device-setting claims invented","A/B/C/D re-audited","no second defensible answer","option lengths A131/B143/C139/D140","targeted duplicate search clean","difficulty medium"]
+  }
+}
