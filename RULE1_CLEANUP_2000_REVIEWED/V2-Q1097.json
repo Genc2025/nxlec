@@ -1,0 +1,110 @@
+{
+  "question_uid": "V2-Q1097",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "REDUNDANT_CASE_MANAGEMENT_DISCHARGE_ITEM_TO_OCCUPATIONAL_NEEDLESTICK_RESPONSE_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A nurse sustains a needlestick from a used needle contaminated with client blood. Which response is most appropriate immediately after the exposure?",
+    "options": {
+      "A": "Wash the puncture with soap and water, report the exposure promptly, and obtain immediate medical evaluation.",
+      "B": "Squeeze the puncture until it bleeds, wash it, and wait for the source client's test results before reporting.",
+      "C": "Cover the puncture, finish the medication pass, and report the exposure after the remaining assigned care is completed.",
+      "D": "Wash the puncture with soap and water and return to work without reporting if the site appears normal and pain free."
+    },
+    "correct_option": "A",
+    "rationale": "Current CDC/NIOSH guidance for occupational blood exposure directs health care workers to wash needlestick or sharp punctures with soap and water, report the incident, and immediately seek medical care to evaluate the exposure and determine whether postexposure management is needed. CDC also advises immediate reporting of blood and body-fluid exposures. Option A contains the appropriate immediate response sequence. Option B delays reporting and evaluation while waiting for source testing and adds squeezing of the wound, which CDC does not recommend as a risk-reduction step. Option C delays exposure management until other work is completed. Option D omits required reporting and evaluation based on local wound appearance, which does not determine bloodborne-pathogen risk. Therefore A is the uniquely best answer.",
+    "educational_objective": "After an occupational needlestick involving blood, immediately wash the site, report the exposure, and obtain prompt medical evaluation for postexposure management.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC) / National Institute for Occupational Safety and Health (NIOSH); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Bloodborne Infectious Disease Risk Factors; Management of Potentially Infectious Exposures and Illnesses; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "CDC/NIOSH Bloodborne Infectious Disease Risk Factors dated February 13, 2025; CDC Infection Control exposure-management guidance current and rechecked August 19, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "CDC/NIOSH Bloodborne Infectious Disease Risk Factors > Exposure risk and treatment > Treatment — wash needlestick/sharp punctures with soap and water, report incident to supervisor, immediately seek medical care; Reporting — report blood/body-fluid exposure immediately. CDC Infection Control > Management of Potentially Infectious Exposures and Illnesses — timely reporting and prompt access to evaluation, testing and treatment. NCSBN 2026 NCLEX-RN Test Plan > Safety and Infection Prevention and Control > Standard Precautions/Transmission-Based Precautions/Surgical Asepsis, printed p. 26 / PDF p. 30; overview content includes promoting staff and workplace safety.",
+    "source_url": "https://www.cdc.gov/niosh/healthcare/risk-factors/bloodborne-infectious-diseases.html",
+    "secondary_source_url": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-infrastructure-routine-practices/exposure-managment.html",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "After a needlestick or sharp exposure to blood, immediate care includes washing the puncture with soap and water, prompt incident reporting, and immediate medical evaluation for exposure management.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 24 / PDF p. 28 — promote staff and workplace safety; Standard Precautions/Transmission-Based Precautions/Surgical Asepsis, printed p. 26 / PDF p. 30 — apply principles of infection prevention",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — occupational blood exposure, infection prevention and workplace safety",
+    "correction_summary_append": "RULE1 cleanup: retired a generic case-management/discharge-resource item that duplicated Q1062 and was adjacent to Q1096's transition-of-care construct. Rebuilt the UID into a distinct occupational needlestick-response scenario using current CDC guidance and NCSBN workplace-safety/infection-prevention mapping.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1097",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CASE_MANAGEMENT_REDUNDANCY_ABSOLUTE_WORD_PATTERN_AND_LENGTH_CUE",
+        "finding": "The replacement tests an immediate bedside occupational-exposure response rather than another discharge-planning definition. CDC directly supports washing, prompt reporting and immediate medical evaluation after needlestick exposure.",
+        "source_authority": "CDC/NIOSH; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "CDC Bloodborne Infectious Disease Risk Factors > Treatment/Reporting; CDC exposure-management guidance; NCSBN Safety and Infection Prevention and Control",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_pathogen": "The source client's HIV, HBV and HCV status is not assumed. The item tests the initial response to a potentially infectious blood exposure before pathogen-specific risk assessment.",
+    "pep_regimen": "No drug, dose, timing window, laboratory schedule, or pathogen-specific postexposure prophylaxis regimen is asserted.",
+    "source_testing": "The item does not claim source testing is unnecessary; it rejects waiting for source results before reporting and obtaining exposure evaluation.",
+    "work_restriction": "No universal work-restriction rule is asserted. Occupational-health evaluation determines subsequent management based on the exposure."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'needlestick exposure wash report' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It follows the CDC immediate response: wash the puncture, report the exposure and obtain prompt medical evaluation.",
+    "B": "Plausible because source testing may be part of exposure evaluation, but reporting and clinical evaluation should not wait for those results; squeezing is not a recommended risk-reduction step.",
+    "C": "Plausible workflow temptation, but delaying exposure reporting and evaluation until assigned care is completed conflicts with CDC's prompt-management guidance.",
+    "D": "Plausible because local wound care is appropriate, but normal appearance does not eliminate bloodborne-pathogen exposure risk and does not replace reporting/evaluation."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone combines immediate wound care, prompt reporting and immediate medical evaluation. B, C and D each delay or omit a required component of exposure management.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 109,
+      "B": 110,
+      "C": 119,
+      "D": 116
+    },
+    "note": "All four options are action sequences of comparable length; the correct answer is the shortest-to-midrange rather than uniquely longest and no absolute-word cue identifies it."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Safety and Infection Prevention and Control explicitly protects health care personnel from hazards, includes staff/workplace safety and infection-prevention principles, making occupational exposure response directly relevant to entry-level RN practice.",
+    "exact_locator_verified": true,
+    "visual_verification": "PARTIAL_PASS. Official NCSBN printed p. 26 / PDF p. 30 was visually inspected and shows Standard Precautions/Transmission-Based Precautions/Surgical Asepsis and infection-prevention activities. A screenshot request for the broader printed p. 24 / PDF p. 28 workplace-safety page failed with a cache-miss error; its text locator was verified in parsed official PDF text and no visual verification is claimed for that page."
+  },
+  "source_visual_verification": {
+    "result": "PASS_STANDARD_PRECAUTIONS_PAGE_WORKPLACE_SAFETY_PAGE_SCREENSHOT_FAILED",
+    "note": "The detailed NCSBN Standard Precautions page was visually inspected. The broader workplace-safety screenshot failed with cache miss and is explicitly recorded as not visually verified. CDC sources are HTML and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "CDC/NIOSH Bloodborne Infectious Disease Risk Factors rechecked fresh; page dated February 13, 2025",
+      "CDC immediate wound washing, incident reporting and immediate medical-evaluation steps confirmed",
+      "CDC exposure-management guidance rechecked for timely reporting and prompt access to evaluation/testing/treatment",
+      "official NCSBN 2026 Standard Precautions page visually verified at printed p. 26 / PDF p. 30",
+      "workplace-safety locator verified in parsed NCSBN PDF; screenshot failure recorded rather than concealed",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no pathogen-specific PEP dose, interval or testing schedule fabricated",
+      "correct answer is not length-cued; option lengths A109/B110/C119/D116",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
