@@ -1,0 +1,87 @@
+{
+  "question_uid": "V2-Q0077",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "LEGAL_SCOPE_PRECISION_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "An RN is asked to independently perform a high-risk therapy that the RN has not been educated to perform and for which current competence has not been documented. Which action is most appropriate?",
+    "options": {
+      "A": "Notify the supervisor, clarify the required education and competence, and arrange qualified support before performing the therapy independently.",
+      "B": "Review the unit procedure, begin the therapy independently, and ask an experienced nurse to check the setup after treatment has started.",
+      "C": "Observe an experienced nurse perform the therapy once, then complete it independently if the steps can be repeated without difficulty.",
+      "D": "Accept responsibility for the therapy because it is part of the assignment, and discuss the training gap with the manager after the shift."
+    },
+    "correct_option": "A",
+    "rationale": "The NCSBN-hosted Scope of Nursing Practice Decision-Making Framework asks whether the nurse has completed the education necessary to perform an activity safely, whether there is documented evidence of current competence, and whether appropriate resources are available. A 'no' at the education, competence, or resource steps stops progression through the framework. Option A appropriately surfaces the limitation and uses supervisory/qualified resources before independent performance. Option B substitutes a written procedure and delayed checking for required education and current competence. Option C treats a single observation as sufficient evidence of current competence. Option D assumes that inclusion in an assignment overrides the nurse's education, competence, and accountability. Therefore A is the uniquely best answer.",
+    "educational_objective": "Recognize a competence limitation before independently performing an unfamiliar therapy and use supervisory and qualified resources until education, competence, and support requirements are addressed.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN) / Journal of Nursing Regulation",
+    "source_document_title": "Scope of Nursing Practice Decision-Making Framework",
+    "source_version_date": "Framework approved by the NCSBN Board of Directors July 2016 and published October 2016; current NCSBN resource page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Figure 1, Scope of Nursing Practice Decision-Making Framework — necessary education; documented current competence; appropriate resources; reasonable and prudent nurse; accountability; Context for Use",
+    "source_url": "https://www.ncsbn.org/public-files/2016JNR_Decision-Making-Framework.pdf",
+    "source_claim_supported": "Before performing an activity, the NCSBN framework requires necessary education, documented current competence, appropriate resources, reasonable/prudent practice, and accountability; a negative answer at these decision points stops progression to performance.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Recognize limitations of self and others and utilize resources; Utilize resources to promote quality client care; Provide care within the legal scope of practice",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — competence limitations, resources, and scope-safe performance",
+    "correction_summary_append": "RULE1 cleanup: removed the absolute-word distractor and eliminated unnecessary state-variable assignment/refusal language. The item now tests the NCSBN decision framework directly: required education, documented current competence, and appropriate resources before independent performance of an unfamiliar high-risk therapy.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0077",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_STATE_VARIABLE_ASSIGNMENT_LANGUAGE",
+        "finding": "The original safety concept was sound, but its distractors invoked refusal/abandonment and assignment authority more broadly than the cited national framework supports. The revised construct is limited to the source-supported decision about independent performance when education and documented competence are absent.",
+        "source_authority": "NCSBN-hosted Scope of Nursing Practice Decision-Making Framework",
+        "source_locator": "Figure 1 — education, competence, resources, reasonable/prudent nurse and accountability decision points",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — recognize limitations/utilize resources; legal scope of practice"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It identifies the competence limitation and obtains supervisory/qualified resources before independent performance, consistent with the NCSBN framework.",
+    "B": "Plausible because procedures and experienced nurses are resources, but beginning independently before required education/current competence are established does not satisfy the framework.",
+    "C": "Plausible as an educational exposure, but a single observation is not equivalent to documented evidence of current competence for independent performance.",
+    "D": "Plausible staffing pressure, but assignment inclusion does not replace the framework's education, competence, resource and accountability requirements."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone addresses the known absence of both education and documented current competence before independent performance; B, C and D all proceed or assume responsibility without resolving those deficits.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 144, "B": 136, "C": 134, "D": 138},
+    "note": "Exact character counts were calculated from the stored strings. All four choices are complete next-step actions of comparable length; the correct answer is not conspicuously longer and no filler was added."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Recognizing personal limitations, using resources, and providing care within legal scope are explicit Management of Care activities for the newly licensed RN.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NCSBN Scope of Practice Decision-Making Framework page verified",
+      "framework purpose and applicability to education/licensure/competence verified directly",
+      "necessary-education decision point verified directly",
+      "documented-current-competence decision point verified directly",
+      "appropriate-resources decision point verified directly",
+      "reasonable/prudent nurse and accountability decision points verified directly",
+      "state-variable refusal/abandonment conclusions excluded from the revised construct",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official 2026 NCSBN Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact limitations/resources/legal-scope activity statements verified",
+      "educational objective is item-specific"
+    ]
+  }
+}
