@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0472",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "PEER_REVIEW_DEFINITION_TO_INFORMED_CONSENT_UNDERSTANDING_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client signed a consent form earlier for an elective invasive procedure. Just before transport, the client tells the RN, 'I signed it, but I still don't understand the serious risks or the other choices.' Which action is most appropriate?",
+    "options": {
+      "A": "Proceed with transport because the signed consent form documents that the required informed-consent discussion and understanding already occurred.",
+      "B": "Pause preparation, notify the clinician responsible for consent, and ensure the client's questions and understanding are addressed before proceeding.",
+      "C": "Explain the procedure's risks and alternatives independently, then proceed if the client repeats the nurse's explanation without further questions.",
+      "D": "Ask a family member to reassure the client that the procedure was previously discussed, then continue preparation because the form is already signed."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ's informed-consent training emphasizes that informed consent is a communication process rather than a signature alone. AHRQ notes that patients may sign a form without understanding the procedure, benefits, harms, risks, or alternatives and states that if a patient cannot demonstrate understanding, activity that could cause harm should stop even when forms have already been signed. The 2026 NCSBN NCLEX-RN Test Plan requires the RN to participate in obtaining informed consent and verify that the client receives education and consents for care and procedures. In this scenario the client directly states that important information is not understood. B appropriately pauses preparation, notifies the clinician responsible for the consent discussion, and ensures the client's questions and understanding are addressed before the procedure progresses. A treats the signature as conclusive evidence of informed understanding. C improperly substitutes the RN for the clinician responsible for explaining the procedure-specific risks and alternatives. D uses family reassurance rather than resolving the client's stated lack of understanding. Therefore B is the uniquely best answer.",
+    "educational_objective": "When a client who has signed a consent form states that important risks or alternatives are not understood, pause progression toward the procedure and facilitate clarification by the clinician responsible for informed consent before proceeding.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Making Informed Consent an Informed Choice: Training for Health Care Professionals",
+    "source_version_date": "Current AHRQ informed-consent training resource accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Slide 11 — signed form does not establish informed understanding by itself; Slide 21 and related teach-back content — confirm understanding and reteach when needed; informed-choice section — if patient cannot demonstrate understanding, stop progression even if forms have been signed",
+    "source_url": "https://www.ahrq.gov/health-literacy/professional-training/informed-choice/audio-script.html",
+    "secondary_source_url": "https://www.ahrq.gov/health-literacy/professional-training/informed-choice.html",
+    "source_claim_supported": "Informed consent requires patient understanding, not merely a signature; when the patient demonstrates lack of understanding, the process should pause and clarification should occur before the procedure proceeds.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Verify the client receives education and consents for care and procedures. Appendix A, printed p. 22 / PDF p. 26 — Informed Consent: describe components of informed consent; participate in obtaining informed consent; verify the client receives education and consents for care and procedures",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — informed-consent understanding and preprocedure safety",
+    "correction_summary_append": "RULE1 cleanup: retired passive nursing-peer-review definition recall and rebuilt the item around a direct NCSBN informed-consent responsibility. The correct-answer length cue was removed, and the revised scenario distinguishes a signed form from actual informed understanding without assigning the RN responsibility for independently providing the procedure-specific consent disclosure.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0472",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_PROFESSIONAL_PRACTICE_DEFINITION_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The original peer-review item had indirect NCLEX mapping and tested terminology. The replacement tests a direct preprocedure client-safety responsibility: recognize that a signature does not resolve stated lack of informed understanding and facilitate clarification before proceeding.",
+        "source_authority": "AHRQ informed-consent training",
+        "source_locator": "Signed form versus understanding; stop progression when understanding is inadequate",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Informed Consent"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "provider_specific_legal_duty": "The item does not assign a universal state-law title to the consent provider; it refers to the clinician responsible for the informed-consent discussion under the applicable procedure and policy.",
+    "nurse_education_role": "The RN may reinforce education within scope but is not asked to replace the procedure-specific disclosure and decision discussion when the client states that material risks/alternatives remain unclear.",
+    "emergency_consent": "Not tested; the procedure is elective."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0426", "V2-Q0471", "V2-Q0423"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0426 tests the legally authorized decision-maker for an incapacitated adult. V2-Q0471 tests qualified interpreter use during informed consent for LEP. V2-Q0423 tests advocacy when a client wants another opinion. V2-Q0472 tests stated lack of understanding despite a signed consent form immediately before an elective procedure."
+  },
+  "option_audit": {
+    "A": "Plausible documentation misconception, but the client's direct statement of nonunderstanding means the signature cannot be treated as sufficient evidence of informed consent.",
+    "B": "Correct. It pauses progression and facilitates clarification by the responsible clinician before the elective procedure continues.",
+    "C": "Plausible nursing-education response, but it makes the RN independently substitute for the procedure-specific informed-consent discussion rather than escalating the client's unresolved questions.",
+    "D": "Plausible reassurance response, but family reassurance does not resolve the client's stated lack of understanding of material risks and alternatives."
+  },
+  "ambiguity_check": "No second defensible best answer. The client explicitly states that serious risks and alternatives remain unclear immediately before an elective procedure. B alone pauses the process and routes clarification to the responsible clinician without assuming that the signature, family reassurance, or RN-only explanation cures the informed-consent defect.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 146, "B": 149, "C": 147, "D": 149},
+    "note": "Exact character counts were calculated from the stored strings. B and D are equal in length; A/C are within three characters, eliminating the prior answer-length cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Verifying that the client receives education and consents for care/procedures is an explicit Management of Care activity for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Informed Consent content, printed p. 22 / PDF p. 26, was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ informed-consent training resource verified",
+      "signature-does-not-equal-understanding principle verified directly",
+      "teach-back/understanding confirmation principle verified directly",
+      "AHRQ stop-progression language when understanding is inadequate verified directly",
+      "elective-procedure context controlled in stem",
+      "RN does not independently substitute for the responsible consent clinician",
+      "A/B/C/D independently re-audited for informed-consent accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A146/B149/C147/D149",
+      "official NCSBN informed-consent mapping visually verified",
+      "construct compared with Q0426/Q0471/Q0423 and confirmed distinct",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
