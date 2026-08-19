@@ -1,0 +1,93 @@
+{
+  "question_uid": "V2-Q0326",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "PASSIVE_MODEL_DEFINITION_TO_LONGITUDINAL_COORDINATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client with multiple chronic conditions receives care from primary care, specialists, and home-health services. At follow-up, the client reports conflicting instructions and is unsure which plan to follow. Which nursing action best supports coordinated longitudinal care?",
+    "options": {
+      "A": "Ask each service to continue its own plan and tell the client to contact each clinician separately whenever instructions or goals conflict.",
+      "B": "Gather current recommendations, clarify conflicts with involved clinicians, include the client's preferences, and communicate one updated care plan.",
+      "C": "Follow the most recent specialist's instructions and postpone primary-care coordination until the next scheduled visit if the client remains stable.",
+      "D": "Ask the client to select the plan that seems easiest to follow, then notify the involved clinicians of that choice at the next routine follow-up."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ describes care coordination as deliberately organizing patient-care activities and sharing information among all participants concerned with a patient's care so that care is safer and more effective. It emphasizes that patient needs and preferences should be known and communicated at the right time to the right people across units or sites of care. AHRQ's patient-centered medical home framework similarly describes coordinated care across specialty care, hospitals, home health, community services, patients, and families. In the stem, the client has conflicting instructions across multiple longitudinal care sources. B addresses the actual coordination failure by gathering current recommendations, clarifying conflicts with the involved clinicians, including the client's preferences, and communicating one updated plan. A leaves fragmented plans in place. C substitutes one specialist's instructions for coordination. D transfers reconciliation of conflicting professional plans to the client and delays communication. Therefore B is the uniquely best answer.",
+    "educational_objective": "Coordinate longitudinal care by reconciling conflicting recommendations across care settings, incorporating the client's preferences, and communicating one updated plan among involved participants.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Care Coordination; Defining the Patient-Centered Medical Home",
+    "source_version_date": "AHRQ care-coordination and PCMH resources current and rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Care Coordination — deliberate organization of patient-care activities, sharing information, and communicating patient needs/preferences across units or sites; Defining the PCMH — Coordinated Care across specialty care, hospitals, home health and community services",
+    "source_url": "https://www.ahrq.gov/ncepcr/research/care-coordination/index.html",
+    "source_claim_supported": "Coordinated care requires deliberate organization and information sharing among participants, including communication of patient needs and preferences across sites and services.",
+    "secondary_source_url": "https://www.ahrq.gov/ncepcr/research/care-coordination/pcmh/define.html",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Identify and collaborate with multidisciplinary team members when providing client care; Initiate, evaluate and update client plan of care; Assess the need for referrals and obtain necessary orders",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — longitudinal care coordination and shared plan reconciliation",
+    "correction_summary_append": "RULE1 cleanup: retired passive memorization of the five PCMH functions and removed the absolute-word distractor. The item now tests an entry-level RN's coordination of conflicting longitudinal care recommendations across primary care, specialists and home health while incorporating client preferences.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0326",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_ADMINISTRATIVE_MODEL_TRIVIA_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The original PCMH item tested recall of a model definition rather than an RN action. The revision uses AHRQ's care-coordination principles to test longitudinal reconciliation and communication across services, directly aligned to NCSBN collaboration and plan-of-care responsibilities.",
+        "source_authority": "AHRQ Care Coordination / PCMH",
+        "source_locator": "Care Coordination definition and PCMH Coordinated Care",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — multidisciplinary collaboration and plan of care"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0224", "V2-Q0124", "V2-Q0277"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0224 tests formation of a shared interprofessional plan during one acute-care episode. V2-Q0124 tests discharge transition with oxygen/caregiver needs. V2-Q0277 tests social-access barriers and resource linkage. V2-Q0326 tests longitudinal reconciliation of conflicting recommendations across multiple ongoing care sources."
+  },
+  "option_audit": {
+    "A": "Plausible because each service retains discipline-specific responsibility, but leaving separate conflicting plans in place fails to coordinate care or information.",
+    "B": "Correct. It organizes information across participants, resolves conflicts, includes the client's preferences, and communicates one updated plan.",
+    "C": "Plausible because specialist recommendations may be important, but recency alone does not reconcile conflicting plans across the client's broader care team.",
+    "D": "Plausible shared-decision misconception, but the client should not be asked to independently reconcile conflicting professional care plans or wait until a later visit for team communication."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone performs the full coordination task required by the stem. A preserves fragmentation, C privileges one plan without reconciliation, and D transfers professional coordination responsibility to the client and delays communication.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 139, "B": 148, "C": 148, "D": 145},
+    "note": "Exact character counts were calculated from the stored strings. B and C are exactly equal in length; all four are complete parallel coordination strategies and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Multidisciplinary collaboration and initiating/evaluating/updating the plan of care are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Management of Care page was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ Care Coordination page verified",
+      "deliberate-organization and information-sharing definition verified directly",
+      "patient-needs/preferences communication across sites verified directly",
+      "AHRQ PCMH coordinated-care across specialty/hospital/home-health/community services verified",
+      "passive PCMH five-function recall removed from tested construct",
+      "A/B/C/D independently re-audited for coordination quality and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A139/B148/C148/D145",
+      "NCSBN multidisciplinary-collaboration and plan-of-care mapping retained",
+      "construct compared with Q0224, Q0124 and Q0277 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}
