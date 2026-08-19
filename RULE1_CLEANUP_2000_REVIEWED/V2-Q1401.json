@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1401",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,8 +71,15 @@
     "result": "HHS_PRIMARY_HTML_TEXT_VERIFIED",
     "note": "HHS OCR Minimum Necessary, TPO, and Privacy Rule Summary pages were directly text-verified. The guidance pages retain older review dates but expressly cite the controlling 45 CFR provisions; the current live HHS pages were rechecked on August 20, 2026. No unsupported claim that a current HHS page was newly revised in 2026 is made."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREADS_AND_CORRECTIONS",
+    "initial_auditing_blob_sha": "c52bb9a4a58f9735012b3a206d3620075d47c44d",
+    "first_corrected_blob_sha": "eb8fe438b601477831836885c1506d2fcff9fc93",
+    "final_auditing_blob_sha": "5895d9f87b8086317488ce21568f5390898645d4",
+    "note": "The first GitHub reread identified technically imprecise same-entity 'disclosure' wording in distractor A. After correction, the next adversarial reread found the same terminology risk in C and D. Those options were neutralized to 'share/shared' while status remained AUDITING. The final corrected payload was fetched again from GitHub and no unresolved stem, key, rationale, source, blueprint, ambiguity, cueing, or second-answer conflict remained."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1401 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the candidate file",
       "HHS Minimum Necessary guidance independently rechecked for role-based workforce access and job-duty need",
@@ -84,7 +91,8 @@
       "no breach-notification procedure, sanction, state-law rule, or facility-specific EHR control was invented",
       "option lengths balanced at A138/B137/C142/D140",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to curiosity-driven PHI requests and role-based access"
+      "educational objective is specific to curiosity-driven PHI requests and role-based access",
+      "final corrected AUDITING payload was reread from GitHub blob 5895d9f87b8086317488ce21568f5390898645d4 before FINAL_QA_PASS was assigned"
     ]
   }
 }
