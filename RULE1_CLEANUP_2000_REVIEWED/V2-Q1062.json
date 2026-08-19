@@ -1,0 +1,111 @@
+{
+  "question_uid": "V2-Q1062",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "FIVE_RIGHTS_DELEGATION_RECALL_TO_DISCHARGE_BARRIER_CASE_MANAGEMENT_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern"
+  ],
+  "semantic_correction": {
+    "stem": "A client scheduled for discharge today says, \"I will not be able to pay for my new medications, and I have no transportation to my follow-up visit.\" The client is otherwise medically ready for discharge. Which action should the nurse take?",
+    "options": {
+      "A": "Assess the specific barriers and coordinate appropriate interdisciplinary or community resources before discharge.",
+      "B": "Complete discharge because medical criteria are met and tell the client to call the clinic if barriers prevent follow-up.",
+      "C": "Focus the discharge plan on the barrier the client identifies as more important and defer the other concern to follow-up.",
+      "D": "Provide contact numbers for community agencies and ask the client to arrange needed services after returning home."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan places resource coordination and referral within Management of Care. Under Case Management, the RN is expected to explore resources that assist the client, plan individualized care based on need, and provide discharge information. Under Referrals, the RN should assess the need for referrals and identify community resources. The client has identified two concrete barriers that could interfere with carrying out the discharge plan. The nurse should assess those barriers and coordinate appropriate interdisciplinary or community resources before discharge rather than simply proceeding, addressing only one barrier, or shifting the entire coordination burden to the client after leaving the facility. Therefore A is the uniquely best answer.",
+    "educational_objective": "When discharge barriers may prevent a client from carrying out the plan of care, assess the barriers and coordinate appropriate interdisciplinary or community resources before discharge.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Published 2025; effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Management of Care > Case Management, printed p. 20 / PDF p. 24 — Explore resources available to assist client; plan individualized care based on need; provide client with information on discharge procedures. Management of Care > Referrals, printed p. 22 / PDF p. 26 — Assess the need for referrals and obtain necessary orders; identify community resources for the client.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Entry-level RN Management of Care includes assessing client needs that affect discharge, exploring resources, individualizing care, and identifying or coordinating referrals/community resources.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Case Management, printed p. 20 / PDF p. 24; Referrals, printed p. 22 / PDF p. 26",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — case management, discharge barriers, referrals and community resources",
+    "correction_summary_append": "RULE1 cleanup: retired a Five Rights of Delegation definition item because delegation had already been tested in an action-based scope/competency scenario at Q1023. Rebuilt this UID into a distinct case-management decision in which a medically ready client identifies medication-cost and transportation barriers that must be assessed and addressed through resource coordination before discharge.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1062",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "DELEGATION_TERMINOLOGY_RECALL_AND_REDUNDANCY",
+        "finding": "The replacement tests direct RN case-management action rather than recognition of a delegation-right definition. It is supported by exact NCSBN 2026 Case Management and Referrals activity statements.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Case Management printed p. 20 / PDF p. 24; Referrals printed p. 22 / PDF p. 26",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_financial_program": "No specific medication-assistance, insurance, transportation, social-service, or charity program is named or assumed to be universally available.",
+    "discharge_order_cancellation": "The item does not assert that the nurse independently cancels or indefinitely delays a medical discharge order. It tests assessment and coordination of identified barriers as part of safe discharge planning.",
+    "medication_selection": "The item does not ask the nurse to choose which medication is most important or recommend omission of prescribed therapy because of cost.",
+    "transportation_entitlement": "No universal entitlement to a particular transportation service is asserted; the nurse coordinates appropriate available resources based on assessment."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1023",
+      "V2-Q1027"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'cannot afford' plus 'transportation' plus discharge returned no indexed repository match. Q1023 was manually compared because the original Q1062 was another delegation item; the rebuilt item removes that redundancy. Q1027 was compared because it also occurs during discharge, but Q1027 tests interpreter/language access while Q1062 tests case-management resource coordination for financial and transportation barriers. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It assesses both stated barriers and coordinates resources before the client leaves, matching NCSBN Case Management and Referrals activities.",
+    "B": "Plausible because the client is medically ready for discharge, but proceeding without addressing known barriers risks leaving the discharge plan impracticable.",
+    "C": "Plausible prioritization approach, but both identified barriers affect the discharge plan and deferring one known barrier leaves an unresolved care need.",
+    "D": "Plausible because community-agency information can be useful, but simply handing off contact numbers after discharge does not provide the assessment and coordination needed for already identified barriers."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem supplies two explicit barriers that may prevent execution of the discharge plan. B proceeds without addressing them, C knowingly defers one, and D transfers coordination to the client after discharge. A alone assesses and coordinates resources for both barriers before discharge.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 114,
+      "B": 121,
+      "C": 121,
+      "D": 114
+    },
+    "note": "Exact character counts were calculated from the stored strings. The correct option ties for shortest; all options use parallel action phrasing and differ by no more than seven characters."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes resource exploration, individualized care, discharge procedures, referral assessment and community resources under Management of Care. The scenario tests a direct entry-level RN discharge-planning decision.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official 2026 NCSBN Test Plan printed p. 20 / PDF p. 24 was visually inspected for Case Management resource and discharge statements. Printed p. 22 / PDF p. 26 was visually inspected for Referrals and community-resource statements."
+  },
+  "source_visual_verification": {
+    "result": "PASS",
+    "note": "Both relevant official NCSBN PDF pages were visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN 2026 Test Plan current effective period rechecked",
+      "Case Management statements visually verified at printed p. 20 / PDF p. 24",
+      "Referrals/community-resource statements visually verified at printed p. 22 / PDF p. 26",
+      "original Five Rights delegation recall removed to avoid redundancy with Q1023",
+      "stem identifies concrete discharge barriers without assuming a particular resource program",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no unsupported claim that the nurse independently cancels discharge or selects medications based on cost",
+      "correct answer is not length-cued; exact lengths A114/B121/C121/D114",
+      "Q1027 manually compared and confirmed distinct despite both occurring during discharge",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
