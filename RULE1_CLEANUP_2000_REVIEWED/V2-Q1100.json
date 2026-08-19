@@ -1,0 +1,110 @@
+{
+  "question_uid": "V2-Q1100",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "CMS_PROCESS_MEASURE_RECALL_TO_FRONTLINE_FALL_PREVENTION_QI_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A medical unit is implementing an evidence-based fall-prevention quality-improvement initiative. A client's assessment identifies specific fall-risk factors that differ from those of other clients. Which nursing action best supports the initiative?",
+    "options": {
+      "A": "Use the fall-risk findings to tailor the client's prevention plan, carry the plan out consistently, and document the client's response.",
+      "B": "Use the same standard fall-prevention actions for every client so unit adherence can be compared without changing plans for individual risks.",
+      "C": "Wait for an actual fall before revising the prevention plan because identified risk factors alone do not establish that an intervention is needed.",
+      "D": "Document the fall-risk category, then allow each shift to select whichever prevention actions fit its workflow rather than maintaining one plan."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ's Fall TIPS patient-centered fall-prevention toolkit describes fall prevention as a three-step process: assess fall risk, develop a personalized prevention plan based on the identified risks, and execute that plan consistently. The 2026 NCSBN NCLEX-RN Test Plan places performance improvement within Management of Care and includes participation in quality-improvement processes and evaluation of the impact of improvement measures. Option A applies the patient's identified risks to an individualized plan, carries the intervention out consistently, and preserves outcome information that can be evaluated. Option B removes the individualized component; C waits for harm rather than acting on identified risk; and D undermines consistent implementation of one patient-specific plan. Therefore A is the uniquely best answer.",
+    "educational_objective": "Participate in fall-prevention quality improvement by translating identified patient-specific risks into an individualized plan, implementing the plan consistently, and documenting the patient's response for evaluation.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Fall TIPS: A Patient-Centered Fall Prevention Toolkit; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "AHRQ Fall TIPS page last reviewed February 2021 and remains listed in current AHRQ hospital patient-safety resources; NCSBN Test Plan published 2025 and effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "AHRQ Fall TIPS > Background — fall prevention is a three-step process of assessing fall risk, developing a personalized prevention plan, and executing the plan consistently. NCSBN 2026 NCLEX-RN Test Plan > Management of Care > Performance Improvement (Quality Improvement), printed p. 22 / PDF p. 26 — participate in performance-improvement projects and quality-improvement processes; utilize research/references for improvement actions; evaluate the impact of improvement measures.",
+    "source_url": "https://www.ahrq.gov/patient-safety/settings/hospital/fall-tips/index.html",
+    "secondary_source_url": "https://www.ahrq.gov/patient-safety/settings/hospital/index.html",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Patient-centered fall prevention uses risk assessment, a tailored prevention plan and consistent execution; entry-level RN Management of Care includes participation in and evaluation of quality-improvement processes.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Performance Improvement (Quality Improvement), printed p. 22 / PDF p. 26",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — frontline participation in performance improvement and patient-safety implementation",
+    "correction_summary_append": "RULE1 cleanup: retired an abstract CMS process-measure definition item with obvious distractor cueing. Rebuilt the UID into a frontline RN quality-improvement scenario requiring patient-specific fall-risk assessment to be translated into a tailored, consistently implemented prevention plan whose response can be evaluated.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1100",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "QUALITY_MEASURE_TERMINOLOGY_RECALL_ABSOLUTE_WORD_CUE_AND_LENGTH_CUE",
+        "finding": "The replacement tests bedside implementation of an evidence-based quality-improvement process rather than recognition of CMS measure terminology.",
+        "source_authority": "AHRQ Fall TIPS; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "AHRQ Fall TIPS Background; NCSBN Performance Improvement printed p. 22 / PDF p. 26",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care > Performance Improvement"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_fall_score": "No named fall-risk scale, score, cutoff or numerical threshold is asserted. The stem states only that patient-specific risk factors have been identified.",
+    "specific_intervention": "No single toileting, alarm, staffing or equipment intervention is universalized. The item tests tailoring prevention to the patient's identified risks.",
+    "universal_toolkit_mandate": "The item does not claim every hospital must use the branded Fall TIPS toolkit. AHRQ Fall TIPS supplies the evidence-supported process used to construct the scenario.",
+    "outcome_precision": "No percentage reduction or numerical performance target from the AHRQ toolkit is used in the item or rationale."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub searches for 'toileting fall risk assistance' and 'fall prevention tailored plan' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It applies the identified risks to a patient-specific plan, implements the plan consistently and records the response for evaluation.",
+    "B": "Plausible standardization error, but the AHRQ process requires prevention to be tailored to the individual patient's identified risks rather than identical for every client.",
+    "C": "Plausible reactive-safety error, but identified risk is used to prevent falls before harm occurs; waiting for a fall defeats the prevention process.",
+    "D": "Plausible workflow variation, but changing the prevention approach by shift undermines consistent execution of the individualized plan."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly asks for support of an evidence-based fall-prevention QI initiative after patient-specific risks have been identified. A alone preserves all three AHRQ elements and supports outcome evaluation; B removes tailoring, C delays prevention until harm, and D removes consistent execution.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 135,
+      "B": 141,
+      "C": 146,
+      "D": 144
+    },
+    "note": "Exact character counts were calculated from the stored strings. The correct option is the shortest; all four choices are parallel plan-of-care actions and no absolute-word cue identifies the key."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes participation in performance-improvement projects and quality-improvement processes and evaluation of their impact. The scenario gives the RN a direct implementation role rather than asking for managerial definitions.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS for the blueprint locator. Official NCSBN 2026 Test Plan printed p. 22 / PDF p. 26 was visually inspected and shows Performance Improvement (Quality Improvement) activities. A separate screenshot request for a detailed fall-risk page failed with a cache-miss error; that failed screenshot is not used as visual evidence for this item."
+  },
+  "source_visual_verification": {
+    "result": "PASS_QI_PAGE_FALL_RISK_SCREENSHOT_FAILED_NOT_REQUIRED",
+    "note": "The NCSBN QI blueprint page was visually inspected. The additional fall-risk screenshot failed with cache miss and no visual claim is made from it. AHRQ Fall TIPS is HTML and was text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "AHRQ Fall TIPS process rechecked fresh for assessment, personalized prevention plan and consistent execution",
+      "current AHRQ hospital resources rechecked and still lists Fall TIPS as a hospital patient-safety resource",
+      "official NCSBN 2026 Performance Improvement page visually verified at printed p. 22 / PDF p. 26",
+      "additional fall-risk screenshot failure recorded rather than represented as successful visual verification",
+      "no named fall score, threshold, or numerical outcome fabricated",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "correct answer is not length-cued; exact lengths A135/B141/C146/D144",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
