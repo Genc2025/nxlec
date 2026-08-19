@@ -14,12 +14,12 @@
     "stem": "The nurse receives a vial labeled 'Potassium Chloride for Injection Concentrate' for a client with a valid order for intravenous potassium replacement. Which action is appropriate?",
     "options": {
       "A": "Pause administration and ensure the concentrate is diluted in an appropriate larger-volume IV fluid before infusion.",
-      "B": "Administer the concentrate undiluted through a central venous line using a pump because central access prevents local irritation.",
+      "B": "Administer the concentrate undiluted through a central venous line using an infusion pump with continuous observation.",
       "C": "Give the concentrate by slow intravenous push through a patent peripheral line, then flush with compatible IV fluid.",
-      "D": "Connect the concentrate to secondary tubing and infuse it separately from the maintenance IV fluid to avoid mixing errors."
+      "D": "Connect the concentrate to secondary tubing and infuse it separately from the maintenance IV fluid without further dilution."
     },
     "correct_option": "A",
-    "rationale": "The current DailyMed label for Hospira Potassium Chloride for Injection Concentrate states that the product is for intravenous infusion only and must be diluted before administration. The warning section states that direct patient injection at the concentrated strength may be instantaneously fatal and that fatal cardiac arrhythmia and cardiac arrest have occurred with undiluted administration. The dosage-and-administration section again requires dilution and complete mixing with the larger-volume fluid. The 2026 NCSBN NCLEX-RN Test Plan includes evaluating medication-order accuracy, preparing and administering medications using medication-administration rights, monitoring intravenous infusions, and safely handling high-risk medications. Therefore A is the uniquely appropriate action. Central access, slow IV push, or separate secondary tubing does not remove the label requirement to dilute the concentrate before IV infusion.",
+    "rationale": "The current DailyMed label for Hospira Potassium Chloride for Injection Concentrate states that the product is for intravenous infusion only and must be diluted before administration. The warning section states that direct patient injection at the concentrated strength may be instantaneously fatal and that fatal cardiac arrhythmia and cardiac arrest have occurred with undiluted administration. The dosage-and-administration section again requires dilution and complete mixing with the larger-volume fluid. The 2026 NCSBN NCLEX-RN Test Plan includes evaluating medication-order accuracy, preparing and administering medications using medication-administration rights, monitoring intravenous infusions, and safely handling high-risk medications. Therefore A is the uniquely appropriate action. Central venous access with a pump, slow IV push, or secondary tubing does not remove the label requirement to dilute the concentrate before IV infusion.",
     "educational_objective": "Never administer potassium chloride injection concentrate directly; ensure the concentrate is appropriately diluted and administered by intravenous infusion according to the verified order and product labeling.",
     "source_organization": "DailyMed / U.S. National Library of Medicine (official FDA labeling); National Council of State Boards of Nursing (NCSBN)",
     "source_document_title": "Potassium Chloride for Injection Concentrate, USP — Hospira, Inc.; 2026 NCLEX-RN Test Plan",
@@ -35,14 +35,14 @@
     "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_topic": "Pharmacological and Parenteral Therapies — high-risk medication preparation and safe IV administration",
-    "correction_summary_append": "RULE1 cleanup: retired another fall-prevention quality-improvement item because the construct was already covered by Q1100 and Q1102 had also been rebuilt away from that cluster. Rebuilt this UID into a high-risk IV potassium safety decision supported directly by the current DailyMed label and NCSBN 2026 medication-safety activities.",
+    "correction_summary_append": "RULE1 cleanup: retired another fall-prevention quality-improvement item because the construct was already covered by Q1100 and Q1102 had also been rebuilt away from that cluster. Rebuilt this UID into a high-risk IV potassium safety decision supported directly by the current DailyMed label and NCSBN 2026 medication-safety activities. Final reread also removed an unsupported distractor mechanism about central access and local irritation.",
     "audit_findings_append": [
       {
         "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
         "uid": "V2-Q1145",
         "result": "FINAL_QA_PASS",
-        "failure_mode_corrected": "REDUNDANT_FALL_QI_CONSTRUCT_AND_ABSOLUTE_WORD_CUEING",
-        "finding": "The replacement tests direct high-risk medication safety. It uses no dose, rate, laboratory threshold or monitoring interval; the only medication-specific rule tested is the current label's explicit requirement that potassium chloride concentrate be diluted and administered by IV infusion rather than direct injection.",
+        "failure_mode_corrected": "REDUNDANT_FALL_QI_CONSTRUCT_ABSOLUTE_WORD_CUEING_AND_UNSUPPORTED_DISTRACTOR_MECHANISM",
+        "finding": "The replacement tests direct high-risk medication safety. It uses no dose, rate, laboratory threshold or monitoring interval; the only medication-specific rule tested is the current label's explicit requirement that potassium chloride concentrate be diluted and administered by IV infusion rather than direct injection. A distractor mechanism not directly supported by the cited source was removed during final reread.",
         "source_authority": "DailyMed official FDA labeling; NCSBN 2026 NCLEX-RN Test Plan",
         "source_locator": "DailyMed SPL/Description/Warnings/Dosage and Administration; NCSBN Pharmacological and Parenteral Therapies printed p. 12 / PDF p. 16",
         "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
@@ -53,7 +53,7 @@
   "scope_exclusions": {
     "dose_and_rate": "No potassium dose, concentration, infusion rate, daily maximum or serum-potassium threshold is used in the item or rationale.",
     "compatible_fluid_selection": "The item does not name a specific diluent or claim one solution is universally appropriate; it requires an appropriate larger-volume IV fluid consistent with the verified order and product labeling.",
-    "central_vs_peripheral_access": "The item does not establish a universal access-site rule. Option B is wrong because it proposes undiluted administration, not because central access is inherently inappropriate.",
+    "central_vs_peripheral_access": "The item does not establish a universal access-site rule. Option B is wrong because it proposes undiluted administration, not because of a claim about central venous access itself.",
     "monitoring_requirement": "No universal cardiac-monitoring rule is attached to all potassium infusions; monitoring depends on the clinical context, dose/rate and applicable orders/policy.",
     "indication": "The item does not infer the cause or severity of the client's potassium deficit."
   },
@@ -64,7 +64,7 @@
   },
   "option_audit": {
     "A": "Correct. It follows the current product label by requiring dilution in a larger-volume IV fluid before intravenous infusion.",
-    "B": "Plausible because central access and pumps are used for some concentrated infusions, but the label still prohibits direct undiluted administration of this concentrate.",
+    "B": "Plausible because central venous access and infusion pumps are used for many IV therapies, but this option still administers the potassium chloride concentrate undiluted, contrary to the current label.",
     "C": "Plausible because slow IV push is used for some medications, but potassium chloride concentrate is labeled for IV infusion only after dilution, not IV push.",
     "D": "Plausible because secondary tubing is common for IV medications, but separate tubing does not satisfy the requirement to dilute the concentrate before infusion."
   },
@@ -75,9 +75,9 @@
     "grammatical_or_structural_cue": false,
     "option_lengths_characters": {
       "A": 116,
-      "B": 129,
+      "B": 118,
       "C": 116,
-      "D": 122
+      "D": 124
     },
     "note": "Exact character counts were calculated from the stored strings. The correct option ties for shortest, and all four choices use parallel medication-administration actions."
   },
@@ -99,9 +99,9 @@
       "label Warnings verified for potentially fatal direct undiluted administration",
       "label Dosage and Administration verified for dilution and complete mixing before administration",
       "official NCSBN 2026 Pharmacological and Parenteral Therapies page visually verified at printed p. 12 / PDF p. 16",
-      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "A/B/C/D independently re-audited for plausibility, unsupported mechanisms and second-answer risk",
       "no dose, rate, serum threshold, daily maximum or universal monitoring requirement introduced",
-      "correct answer is not length-cued; exact lengths A116/B129/C116/D122",
+      "correct answer is not length-cued; exact lengths A116/B118/C116/D124",
       "targeted near-duplicate search performed without broad bank rescan",
       "educational objective is specific and action-oriented"
     ]
