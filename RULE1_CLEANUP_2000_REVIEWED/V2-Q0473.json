@@ -1,0 +1,102 @@
+{
+  "question_uid": "V2-Q0473",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "REDUNDANT_STAFFING_MIX_TO_CONFIDENTIALITY_BREACH_RESPONSE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN sees a coworker's public personal social-media post containing a hospitalized client's name, room number, and diagnosis. The client did not authorize the disclosure, and facility policy requires suspected privacy incidents to be reported through the privacy process. Which action is most appropriate?",
+    "options": {
+      "A": "Ask the coworker to delete the post and take no further action if it is removed before the client or anyone else reports a concern.",
+      "B": "Report the suspected privacy incident promptly through the supervisor or privacy process and follow policy for containment and organizational assessment.",
+      "C": "Share a screenshot with unit coworkers to confirm that the post contains protected information before deciding whether formal reporting is needed.",
+      "D": "Wait to see whether the client complains or the post causes harm before reporting it, because deletion may resolve the privacy concern without review."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly lists maintaining client confidentiality/privacy, including social-media and disclosure issues, and intervening appropriately when staff members have breached confidentiality under Management of Care. HHS states that the HIPAA Privacy Rule establishes safeguards and limits on uses and disclosures of protected health information without authorization. Under the HIPAA Breach Notification Rule, an impermissible use or disclosure is generally presumed to be a breach unless the covered entity or business associate demonstrates a low probability that PHI was compromised after the required risk assessment or an exception applies. The RN is not responsible for making the organization's final breach determination or notifying HHS independently. The stem therefore supplies the facility reporting process. B appropriately reports the suspected privacy incident promptly and follows policy so containment and organizational assessment can occur. A treats deletion as sufficient and bypasses required review. C further redistributes the exposed information to additional unauthorized people. D makes reporting contingent on a complaint or demonstrable harm rather than the identified impermissible disclosure. Therefore B is the uniquely best answer.",
+    "educational_objective": "When a staff member appears to have disclosed identifiable client information improperly, protect confidentiality by promptly reporting the suspected privacy incident through the organization's designated process and supporting containment and formal assessment rather than independently deciding that deletion resolves the event.",
+    "source_organization": "U.S. Department of Health and Human Services, Office for Civil Rights (HHS OCR)",
+    "source_document_title": "The HIPAA Privacy Rule; Breach Notification Rule; Guidance on Significant Aspects of the Privacy Rule",
+    "source_version_date": "HHS Privacy Rule resources current; Significant Aspects guidance last reviewed April 7, 2026; current pages accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "The HIPAA Privacy Rule — national standards/safeguards and limits on unauthorized uses/disclosures of PHI; Breach Notification Rule — impermissible use/disclosure generally presumed breach unless low probability after risk assessment or exception; administrative requirements — written breach policies/procedures and workforce training",
+    "source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html",
+    "secondary_source_urls": [
+      "https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html",
+      "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/significant-aspects/index.html"
+    ],
+    "source_claim_supported": "HIPAA requires safeguards and limits impermissible PHI disclosures; suspected impermissible disclosures require organizational evaluation under the Breach Notification framework rather than an individual workforce member independently deciding that no further action is necessary.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 21 / PDF p. 25 — Confidentiality/Information Security: assess staff/client understanding of confidentiality requirements; maintain client confidentiality and privacy including social media/disclosure of information; intervene appropriately when staff members have breached confidentiality",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — response to staff confidentiality/privacy breach",
+    "correction_summary_append": "RULE1 cleanup: retired the staffing-skill-mix construct because it overlapped V2-Q0427 and V2-Q0420. Rebuilt the item around an explicit NCSBN confidentiality activity: appropriate frontline response to a staff privacy breach. The revised stem supplies the facility reporting process and avoids assigning the RN responsibility for the organization's formal HIPAA breach determination or external notification.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0473",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CROSS_ITEM_STAFFING_REDUNDANCY_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The original staffing-mix item substantially duplicated existing workload/assignment constructs. The replacement directly tests the NCSBN activity 'intervene appropriately when staff members have breached confidentiality' using current HHS privacy/breach guidance and a controlled internal reporting process.",
+        "source_authority": "HHS OCR HIPAA Privacy and Breach Notification Rules",
+        "source_locator": "Privacy safeguards/limits and breach-assessment framework",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Confidentiality/Information Security, printed p. 21 / PDF p. 25"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "formal_breach_determination": "Not assigned to the bedside RN. The organization performs the applicable HIPAA risk assessment and determines notification obligations.",
+    "external_HHS_notification": "Not tested as an RN action. The item requires internal reporting through the facility privacy process.",
+    "authorized_social_media_use": "Not implicated. The stem states identifiable client information was posted publicly on a personal account without client authorization."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0123", "V2-Q0276", "V2-Q0322", "V2-Q0427"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0123 tests withholding diagnosis from family after a competent client's objection. V2-Q0276 tests professional boundaries after a former patient's personal friend request. V2-Q0322 tests special HIPAA protection for psychotherapy notes. V2-Q0427 tests ICU staffing workload. V2-Q0473 tests frontline response to an observed staff privacy incident involving public disclosure of identifiable PHI."
+  },
+  "option_audit": {
+    "A": "Plausible immediate-containment response, but deletion does not eliminate the requirement supplied in the stem to report the suspected privacy incident for organizational review.",
+    "B": "Correct. It uses the designated internal process so containment and the organization's formal privacy/breach assessment can occur without the RN exceeding role authority.",
+    "C": "Plausible evidence-gathering impulse, but redistributing the screenshot to unit coworkers unnecessarily expands disclosure of the client's information.",
+    "D": "Plausible wait-and-see response, but reporting is not contingent on a client complaint or proven harm when an unauthorized disclosure has already been identified."
+  },
+  "ambiguity_check": "No second defensible best answer. Facility policy explicitly requires suspected privacy incidents to be reported. B alone promptly activates that process while supporting containment. A stops after deletion, C creates further unnecessary disclosure, and D delays reporting despite the observed event.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 131, "B": 153, "C": 146, "D": 150},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is within three characters of D and seven of C; the prior 205-character correct-answer cue is eliminated."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly requires the newly licensed RN to maintain confidentiality/privacy and intervene appropriately when staff members have breached confidentiality.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A printed p. 21 / PDF p. 25 was visually inspected on 2026-08-19 and explicitly states 'Intervene appropriately when staff members have breached confidentiality.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current HHS HIPAA Privacy Rule page verified",
+      "HHS Significant Aspects guidance current through April 7, 2026 verified",
+      "HHS Breach Notification Rule impermissible-disclosure presumption and risk-assessment framework verified",
+      "organizational responsibility for breach assessment/notification preserved",
+      "facility internal reporting requirement explicitly controlled in stem",
+      "NCSBN confidentiality-breach activity visually verified",
+      "A/B/C/D independently re-audited for privacy accuracy, role scope and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A131/B153/C146/D150",
+      "construct compared with Q0123/Q0276/Q0322/Q0427 and confirmed distinct",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
