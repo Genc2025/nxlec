@@ -1,0 +1,93 @@
+{
+  "question_uid": "V2-Q0426",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "GUARDIAN_SCOPE_AND_LENGTH_CUE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An adult client cannot make the health care decision now required. The chart contains a verified court order specifically granting a court-appointed guardian authority for this decision. A sibling disagrees and demands to decide instead. Which nursing action is most appropriate?",
+    "options": {
+      "A": "Use the guardian as the authorized decision-maker for this decision under the verified court order and communicate the sibling's concerns to the care team.",
+      "B": "Let the sibling make the treatment decision because close family involvement gives relatives priority when they disagree with a court-appointed guardian.",
+      "C": "Delay the decision until the sibling and guardian agree, because neither person's preference can be followed while a family conflict remains unresolved.",
+      "D": "Ask the relative who is present at the bedside to decide, because immediate availability is sufficient to establish temporary health care authority."
+    },
+    "correct_option": "A",
+    "rationale": "HHS guidance for 45 CFR 164.502(g) explains that a personal representative's authority derives from State or other applicable law and identifies a court-appointed legal guardian as an example when that person has legal authority to make health care decisions. HHS further emphasizes that the scope of representation follows the scope of the underlying legal authority. The 2026 NCSBN NCLEX-RN Test Plan requires the newly licensed RN to identify the appropriate person to provide informed consent and to provide care within legal scope. The stem removes the variable that would otherwise require a jurisdiction-specific legal analysis: it states that a verified court order specifically grants this guardian authority for the decision now required. A therefore follows the verified legal authority while appropriately communicating the sibling's concern to the care team. B substitutes family relationship for the specific court-granted authority. C makes agreement between an authorized and unauthorized decision-maker a prerequisite that the stem does not establish. D treats physical presence as decision-making authority. Therefore A is the uniquely best answer.",
+    "educational_objective": "When a verified court order specifically grants a guardian authority for the health care decision at issue, recognize that decision-maker within the granted scope while communicating family concerns through the care team.",
+    "source_organization": "U.S. Department of Health and Human Services (HHS), Office for Civil Rights",
+    "source_document_title": "Personal Representatives",
+    "source_version_date": "Current HHS guidance for 45 CFR 164.502(g); accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Background and How the Rule Works — authority derives from State or other applicable law; adult personal representative may include a court-appointed legal guardian with authority to make health care decisions; scope of personal-representative authority follows the scope of the underlying legal authority",
+    "source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/personal-representatives/index.html",
+    "source_claim_supported": "A court-appointed guardian can function as the legally authorized health care decision-maker within the scope granted by applicable law/court authority; family relationship alone does not substitute for that specified authority.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 22 / PDF p. 26 — Informed Consent: identify appropriate person to provide informed consent for client; Legal Rights and Responsibilities: identify legal issues affecting the client and provide care within legal scope of practice",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — legally authorized decision-maker and informed consent",
+    "correction_summary_append": "RULE1 cleanup: retained the guardian/consent construct but removed the answer-length cue, made the court-order scope explicit, and avoided a universal guardian-versus-family hierarchy claim outside the specific authority supplied in the stem.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0426",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_GUARDIAN_AUTHORITY_SCOPE_PRECISION",
+        "finding": "The revised item fixes legal authority in the stem through a verified court order specific to the current decision. The answer follows that limited authority rather than asserting a general priority rule for every guardian/family conflict.",
+        "source_authority": "HHS Personal Representatives / 45 CFR 164.502(g)",
+        "source_locator": "Authority under applicable law and scope of representation",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Informed Consent and Legal Rights and Responsibilities"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "guardian_authority_not_verified": "Not tested. The stem states that the court order is verified and specifically grants authority for this health care decision.",
+    "state_default_surrogate_hierarchy": "Not tested. The item does not ask who would decide if no legally authorized guardian existed.",
+    "abuse_neglect_endangerment_exception": "Not implicated by the stem; no facts suggest a personal-representative safety exception."
+  },
+  "option_audit": {
+    "A": "Correct. It follows the verified court-granted authority for this decision while allowing the sibling's concerns to be heard by the care team.",
+    "B": "Plausible family-involvement misconception, but close relationship does not displace the specific legal authority established in the stem.",
+    "C": "Plausible conflict-resolution response, but it incorrectly gives the sibling veto power over a decision-maker whose authority for this decision has already been verified.",
+    "D": "Plausible urgency shortcut, but physical presence does not create temporary health care decision authority."
+  },
+  "ambiguity_check": "No second defensible best answer. The court order is verified and specifically covers the current decision. A alone follows that authority while preserving appropriate family communication; B, C and D substitute family status, consensus, or presence for legal authority.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 155, "B": 153, "C": 152, "D": 148},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within seven characters; the correct answer is not conspicuously longer and there are no absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Identifying the appropriate decision-maker for informed consent and practicing within legal scope are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Informed Consent and Legal Rights and Responsibilities page was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current HHS Personal Representatives guidance verified",
+      "authority-derived-from-applicable-law statement verified directly",
+      "court-appointed guardian example verified directly",
+      "scope-of-authority limitation verified directly",
+      "court order and decision-specific authority explicitly controlled in stem",
+      "state default-surrogate hierarchy excluded from construct",
+      "A/B/C/D independently re-audited for legal scope and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A155/B153/C152/D148",
+      "NCSBN informed-consent/legal-scope mapping visually verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
