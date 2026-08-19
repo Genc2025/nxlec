@@ -12,15 +12,15 @@
     "correct_answer_uniquely_longest"
   ],
   "semantic_correction": {
-    "stem": "A client preparing for discharge says, \"At home I take metoprolol 50 mg twice daily.\" The discharge medication list shows metoprolol 25 mg twice daily, and the chart does not explain the dose change. What should the nurse do before discharge?",
+    "stem": "A client is preparing for discharge. The verified home medication list and the new discharge medication list show different doses for the same medication, and the chart does not explain the change. What should the nurse do before discharge?",
     "options": {
-      "A": "Clarify the dose discrepancy with the prescriber before teaching and ensure the final discharge list is reconciled.",
-      "B": "Teach 25 mg twice daily because it appears on the discharge list and instruct the client to stop the prior home dose.",
-      "C": "Teach 50 mg twice daily because it is the client's established home regimen and ask the prescriber to review it later.",
-      "D": "List both doses in the discharge instructions and tell the client to use the dose that was tolerated best at home."
+      "A": "Clarify whether the dose change is intentional before teaching and ensure the final discharge list is reconciled.",
+      "B": "Teach the discharge dose as written and tell the client to stop using the home dose without further clarification.",
+      "C": "Teach the prior home dose because it was previously tolerated and ask the prescriber to review the change later.",
+      "D": "Include both doses in the discharge instructions and tell the client to choose the one that matches the home supply."
     },
     "correct_option": "A",
-    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes participation in medication reconciliation under Pharmacological and Parenteral Therapies. AHRQ's MATCH medication-reconciliation toolkit defines reconciliation as comparing the patient's current medication regimen with admission, transfer, or discharge orders to identify discrepancies and states that discrepancies should be discussed with the prescriber and the order modified if necessary. Here, the home dose and discharge dose differ and the chart does not establish that the change was intentional. The nurse should therefore clarify the discrepancy before teaching and ensure the final discharge medication list reflects the reconciled regimen. Options B and C each assume that one conflicting dose is correct without reconciliation, while D transfers an unresolved prescribing discrepancy to the client. Therefore A is the uniquely best answer.",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes participation in medication reconciliation under Pharmacological and Parenteral Therapies. AHRQ's MATCH medication-reconciliation toolkit defines reconciliation as comparing the patient's current medication regimen with admission, transfer, or discharge orders to identify discrepancies and states that discrepancies should be discussed with the prescriber and the order modified if necessary. Here, the verified home medication list and discharge medication list contain different doses and the record does not establish that the change was intentional. The nurse should therefore clarify the discrepancy before teaching and ensure the final discharge medication list reflects the reconciled regimen. Options B and C each assume that one conflicting dose is correct without reconciliation, while D transfers an unresolved medication-order discrepancy to the client. Therefore A is the uniquely best answer.",
     "educational_objective": "During discharge medication reconciliation, identify unexplained differences between the home regimen and discharge orders, clarify the discrepancy before teaching, and ensure the final medication list reflects the resolved regimen.",
     "source_organization": "Agency for Healthcare Research and Quality (AHRQ); National Council of State Boards of Nursing (NCSBN)",
     "source_document_title": "Medications at Transitions and Clinical Handoffs (MATCH) Toolkit for Medication Reconciliation; Medication Reconciliation; 2026 NCLEX-RN Test Plan",
@@ -37,14 +37,14 @@
     "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16; detailed Pharmacological and Parenteral Therapies content, printed p. 38 / PDF p. 42 — Participate in medication reconciliation process",
     "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
     "blueprint_topic": "Pharmacological and Parenteral Therapies — medication reconciliation during transition to discharge",
-    "correction_summary_append": "RULE1 cleanup: retired a generic multidisciplinary discharge-planning item that overlapped with Q1062 and had a uniquely longest correct answer. Rebuilt the UID into a medication-reconciliation decision at discharge, requiring clarification of an unexplained dose discrepancy before client teaching.",
+    "correction_summary_append": "RULE1 cleanup: retired a generic multidisciplinary discharge-planning item that overlapped with Q1062 and had a uniquely longest correct answer. Rebuilt the UID into a medication-reconciliation decision at discharge. Final reread then removed unsupported numeric dose precision entirely so the item tests only the reconciliation process and contains no unverified drug-specific dose claim.",
     "audit_findings_append": [
       {
         "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
         "uid": "V2-Q1096",
         "result": "FINAL_QA_PASS",
-        "failure_mode_corrected": "GENERIC_DISCHARGE_COLLABORATION_REDUNDANCY_AND_LENGTH_CUE",
-        "finding": "The replacement tests an explicit NCSBN medication-reconciliation activity and an AHRQ-supported discrepancy-resolution step during transition to discharge, rather than generic multidisciplinary collaboration.",
+        "failure_mode_corrected": "GENERIC_DISCHARGE_COLLABORATION_REDUNDANCY_LENGTH_CUE_AND_UNSUPPORTED_DOSE_PRECISION",
+        "finding": "The replacement tests an explicit NCSBN medication-reconciliation activity and an AHRQ-supported discrepancy-resolution step during transition to discharge. Numeric medication doses present in the first staged revision were removed after final reread because RULE 1 requires direct verification of every numerical medication claim.",
         "source_authority": "AHRQ MATCH; NCSBN 2026 NCLEX-RN Test Plan",
         "source_locator": "MATCH Introduction/Appendix Medication Reconciliation; NCSBN Pharmacological and Parenteral Therapies printed p. 12 / PDF p. 16 and printed p. 38 / PDF p. 42",
         "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
@@ -53,8 +53,8 @@
     ]
   },
   "scope_exclusions": {
-    "correct_metoprolol_dose": "The item does not claim that either 25 mg or 50 mg is clinically correct. The unexplained discrepancy itself is the safety issue that must be reconciled.",
-    "drug_specific_indication": "No indication, target heart rate, blood pressure threshold, contraindication, or titration rule for metoprolol is asserted.",
+    "correct_dose": "The item intentionally provides no medication name or numerical dose. It does not claim that either the home dose or discharge dose is clinically correct; the unexplained discrepancy itself is the safety issue that must be reconciled.",
+    "drug_specific_indication": "No indication, target, contraindication, interaction, formulation, or titration rule for any medication is asserted.",
     "prescriber_only_process": "The item does not claim that the nurse independently changes the prescription. It tests nursing participation in reconciliation by identifying and clarifying a discrepancy before discharge teaching.",
     "discharge_delay_rule": "No universal duration or administrative discharge rule is asserted; the medication discrepancy is resolved before the client is taught which regimen to follow."
   },
@@ -78,10 +78,10 @@
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
     "option_lengths_characters": {
-      "A": 115,
-      "B": 117,
-      "C": 118,
-      "D": 114
+      "A": 113,
+      "B": 114,
+      "C": 112,
+      "D": 116
     },
     "note": "Exact character counts were calculated from the stored strings. All choices are within four characters and use parallel discharge-medication actions."
   },
@@ -101,11 +101,11 @@
       "AHRQ MATCH Introduction rechecked fresh for comparison of current regimen with discharge orders and prescriber clarification of discrepancies",
       "AHRQ MATCH Appendix rechecked fresh for discharge reconciliation against pre-admission medications",
       "official NCSBN 2026 medication-reconciliation activity visually verified at printed p. 12 / PDF p. 16 and printed p. 38 / PDF p. 42",
-      "no claim made that either metoprolol dose is clinically correct",
+      "unsupported medication name and numeric dose precision removed after final reread",
       "A/B/C/D independently re-audited for plausibility and second-answer risk",
       "Q1026 manually compared and confirmed distinct as pre-administration order verification versus transition medication reconciliation",
       "Q1062 manually compared and confirmed distinct as discharge-resource coordination",
-      "correct answer is not length-cued; exact lengths A115/B117/C118/D114",
+      "correct answer is not length-cued; exact lengths A113/B114/C112/D116",
       "targeted near-duplicate search performed without broad bank rescan",
       "educational objective is specific and action-oriented"
     ]
