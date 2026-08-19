@@ -1,0 +1,92 @@
+{
+  "question_uid": "V2-Q0422",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "TELEPHONE_TRIAGE_LENGTH_CUE_AND_SCOPE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A telephone-triage RN receives a caller reporting new chest pressure with shortness of breath that began about 10 minutes ago. Which action is most appropriate?",
+    "options": {
+      "A": "Tell the caller the symptoms are probably cardiac and recommend being driven to the nearest emergency department for evaluation.",
+      "B": "Use focused triage questions to recognize the possible emergency and direct immediate EMS activation according to the authorized protocol.",
+      "C": "Obtain a complete medical and family history before deciding whether the caller needs emergency transport or a same-day clinic visit.",
+      "D": "Advise the caller to take aspirin and rest for 15 minutes, then activate EMS if the chest pressure and shortness of breath do not improve."
+    },
+    "correct_option": "B",
+    "rationale": "NHLBI identifies chest pain, heaviness, or discomfort and shortness of breath as heart-attack warning symptoms and advises calling 9-1-1 for emergency medical care even when the person is not certain that a heart attack is occurring. NHLBI also states that an ambulance is the safest way to reach the hospital and that calling 9-1-1 should not be delayed to take aspirin or try another measure first. The 2026 NCSBN NCLEX-RN Test Plan expects the RN to prioritize care based on acuity, assess referral needs, use resources, and practice within legal scope. Option B uses focused triage only to identify the time-sensitive risk and directs EMS activation under the authorized protocol without making a definitive remote diagnosis. A labels the symptoms as probably cardiac and substitutes private transport for EMS. C delays emergency action for a comprehensive history that is not needed before referral. D delays EMS while trying aspirin and rest first. Therefore B is the uniquely best answer.",
+    "educational_objective": "In telephone triage, recognize new chest pressure with shortness of breath as a possible time-sensitive emergency and direct immediate EMS activation according to authorized protocol without making a definitive remote diagnosis or delaying for treatment trials.",
+    "source_organization": "National Heart, Lung, and Blood Institute (NHLBI), National Institutes of Health",
+    "source_document_title": "Heart Attack — Symptoms",
+    "source_version_date": "Page last updated March 24, 2022; current NHLBI guidance accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "What are the symptoms of a heart attack? — chest pain/heaviness/discomfort and shortness of breath; When to call 9-1-1 — call even if unsure, ambulance is safest, do not delay calling 9-1-1 to take aspirin or try other measures",
+    "source_url": "https://www.nhlbi.nih.gov/health/heart-attack/symptoms",
+    "source_claim_supported": "New chest pressure/discomfort with shortness of breath can represent a heart attack and warrants immediate 9-1-1/EMS evaluation even when the diagnosis is uncertain; EMS should not be delayed for aspirin or private transport.",
+    "secondary_source_organization": "National Heart, Lung, and Blood Institute (NHLBI), National Institutes of Health",
+    "secondary_source_document_title": "Heart Attack — What Is a Heart Attack?",
+    "secondary_source_url": "https://www.nhlbi.nih.gov/health/heart-attack",
+    "secondary_source_claim_supported": "Heart attack is a life-threatening emergency requiring immediate treatment; suspected heart attack warrants calling 9-1-1 right away.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Prioritize the delivery of client care based on acuity; Assess the need for referrals and obtain necessary orders; Recognize limitations of self and others and utilize resources; Provide care within the legal scope of practice",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — telephone-triage acuity recognition, emergency referral and legal scope",
+    "correction_summary_append": "RULE1 cleanup: retained the valid telephone-triage emergency construct, removed the uniquely-longest correct-answer cue, normalized difficulty from hard to medium, and rebuilt the responses so the RN recognizes a possible emergency and activates EMS under authorized protocol without diagnosing ACS or delaying emergency referral for history-taking or aspirin.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0422",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_TELEPHONE_TRIAGE_SCOPE_PRECISION",
+        "finding": "The original answer was conspicuously longest. The revised item preserves the NHLBI-supported emergency referral while explicitly keeping the RN within triage recognition/protocol scope rather than remote diagnosis or unauthorized treatment.",
+        "source_authority": "NHLBI Heart Attack — Symptoms",
+        "source_locator": "Symptoms and When to call 9-1-1",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — acuity prioritization, referrals/resources, legal scope"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible because urgent emergency-department evaluation is appropriate, but the nurse should not make even a probable cardiac diagnosis from the call, and NHLBI identifies EMS/ambulance as the safest transport for suspected heart attack.",
+    "B": "Correct. It performs only enough triage to recognize the possible emergency and immediately routes the caller to EMS under an authorized protocol.",
+    "C": "Plausible because history is part of triage, but a complete lifetime/family history would delay emergency referral despite current warning symptoms.",
+    "D": "Plausible because aspirin can be used in some cardiac emergencies, but NHLBI explicitly advises not delaying the 9-1-1 call to take aspirin or try another measure first."
+  },
+  "ambiguity_check": "No second defensible best answer. The caller has new chest pressure plus shortness of breath. B is the only option that recognizes the possible emergency without making a definitive diagnosis and initiates immediate EMS referral. A uses private transport and diagnostic labeling; C and D delay EMS.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 128, "B": 138, "C": 133, "D": 138},
+    "note": "Exact character counts were calculated from the stored strings. B and D are exactly equal in length and all four options are complete triage responses; the correct answer is not uniquely longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Acuity prioritization, referral/resource use and legal-scope practice are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Management of Care printed p. 7 / PDF p. 11 was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NHLBI Heart Attack Symptoms page verified",
+      "chest pressure/discomfort warning symptom verified directly",
+      "shortness-of-breath warning symptom verified directly",
+      "call-9-1-1-even-if-unsure instruction verified directly",
+      "ambulance-is-safest transport statement verified directly",
+      "do-not-delay-9-1-1-for-aspirin statement verified directly",
+      "A/B/C/D independently re-audited for urgency, scope and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A128/B138/C133/D138",
+      "official NCSBN acuity/referral/legal-scope mapping visually verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
