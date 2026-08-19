@@ -1,0 +1,103 @@
+{
+  "question_uid": "V2-Q0773",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "INTERSTATE_TELEHEALTH_LICENSURE_RECALL_TO_PERIPHERAL_IV_INFILTRATION_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client is receiving 0.9% sodium chloride through a peripheral IV. The RN finds the insertion site swollen, cool, and tight, and the infusion pump is alarming for downstream occlusion. The solution is nonvesicant. Which action is most appropriate?",
+    "options": {
+      "A": "Reduce the infusion rate, elevate the arm, and keep the catheter in place while reassessing the site for worsening swelling or pain.",
+      "B": "Stop the infusion, remove the catheter, assess the site, and follow the facility infiltration protocol before starting IV therapy at a new site.",
+      "C": "Flush the catheter with normal saline to confirm patency, then resume the infusion if resistance is not felt and the swelling does not increase.",
+      "D": "Continue the infusion while another IV is started because the current solution is nonvesicant and the catheter can be removed after new access is ready."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes inserting, maintaining, or removing a peripheral intravenous line under Reduction of Risk Potential. NCBI/Open RN describes peripheral-IV infiltration as inadvertent administration of a nonvesicant solution into surrounding tissue; findings include swelling, cool skin, tightness, pain, leaking, altered flow, and pump alarms. Its recommended immediate management is to stop the infusion, remove the cannula, and follow agency policy for infiltration. The stem intentionally identifies the infusate as nonvesicant 0.9% sodium chloride so this is an infiltration item rather than a vesicant-extravasation item requiring aspiration/antidote-specific management. B is therefore the uniquely best response. A leaves the infiltrated catheter in place and continues exposure at a slower rate. C attempts to flush a compromised site, which can worsen tissue infiltration. D continues infusion into tissue despite objective infiltration findings. Therefore B is correct.",
+    "educational_objective": "Recognize peripheral-IV infiltration from swelling, coolness/tightness and altered flow, then stop the nonvesicant infusion, remove the peripheral catheter, assess the site and follow the facility infiltration protocol before establishing new access as needed.",
+    "source_organization": "NCBI Bookshelf / Open RN; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Nursing Advanced Skills — Initiate IV Therapy; Nursing Skills — IV Therapy Management; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Open RN Nursing Advanced Skills 2023 and Nursing Skills 2nd ed. 2023, current NCBI pages rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCBI/Open RN, Local Complications of Peripheral IV Therapy — infiltration: nonvesicant fluid in surrounding tissue; signs include pain/swelling/coolness/tightness/flow change/pump alarms; stop infusion, remove cannula, follow agency policy. NCSBN Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Insert, maintain or remove a peripheral intravenous line",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK594499/",
+    "secondary_source_urls": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK596734/",
+      "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"
+    ],
+    "source_claim_supported": "Peripheral-IV infiltration of a nonvesicant solution presents with local swelling/coolness/tightness or altered flow and requires stopping the infusion, removing the catheter and following the facility infiltration protocol.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Insert, maintain or remove a peripheral intravenous line",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — recognition and immediate management of peripheral-IV infiltration",
+    "correction_summary_append": "RULE1 cleanup: retired interstate telehealth-licensure principle recall because it was state-law/remote-practice content and overlapped the existing telehealth state-requirement construct. Rebuilt the item around explicit NCSBN peripheral-IV care and a concrete nonvesicant infiltration complication. The stem controls infusate type to prevent extravasation-management ambiguity and removes the prior extreme correct-answer length cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0773",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "REMOTE_PRACTICE_LAW_RECALL_OVERLAP_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests recognition and immediate management of a common peripheral-IV complication.",
+        "source_authority": "NCBI/Open RN; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Peripheral IV infiltration signs/management; NCSBN peripheral IV activity",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 42 / PDF p. 46"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "vesicant_extravasation": "Explicitly excluded. The stem identifies the infusate as nonvesicant 0.9% sodium chloride; vesicant extravasation may require leaving access in place temporarily for aspiration/antidote management according to the specific drug protocol.",
+    "warm_or_cold_compress": "Not tested because compress selection can depend on infusate and facility protocol.",
+    "severity_grading": "Not required; the clinical findings are sufficient to recognize infiltration and stop further infusion.",
+    "new_IV_site_selection": "Not prescribed beyond establishing new access as needed according to the ongoing therapy and facility practice."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0725", "V2-Q0622", "V2-Q0625"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0725 tests damp/loose central-line dressing maintenance. V2-Q0622 tests malfunctioning infusion-pump removal/reporting. V2-Q0625 tests interception of an unsafe potassium IV-push order. V2-Q0773 tests recognition and immediate management of nonvesicant peripheral-IV infiltration. Targeted repository search returned no matching infiltration/extravasation item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible conservative treatment but leaves the infiltrated catheter in place and does not stop the source of tissue exposure.",
+    "B": "Correct. It stops further infiltration, removes the compromised peripheral catheter and uses the facility protocol for local management/new access.",
+    "C": "Plausible patency check but flushing a site with infiltration findings can increase fluid delivery into tissue.",
+    "D": "Plausible continuity-of-therapy response but knowingly continues infusion through an infiltrated site."
+  },
+  "ambiguity_check": "No second defensible best answer. The site has classic infiltration findings and the infusate is explicitly nonvesicant. B alone stops further tissue exposure and removes the compromised catheter. A/C/D continue, test or delay stopping the infiltrated access.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 132, "B": 144, "C": 144, "D": 152},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is tied with C and shorter than D; no conspicuous correct-answer length cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Insertion, maintenance and removal of peripheral IV lines is an explicit Reduction of Risk Potential activity for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Reduction of Risk Potential page, printed p. 42 / PDF p. 46, was visually inspected on 2026-08-19 and explicitly lists 'Insert, maintain or remove a peripheral intravenous line.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "NCBI/Open RN infiltration definition verified",
+      "swelling/coolness/tightness/flow-alarm signs verified",
+      "stop-infusion/remove-cannula management verified",
+      "official NCSBN peripheral-IV activity verified directly and visually",
+      "nonvesicant infusate explicitly controlled to exclude extravasation protocol",
+      "A/B/C/D independently re-audited for infiltration safety and second-answer risk",
+      "no second defensible best answer identified",
+      "prior correct-answer length cue removed",
+      "exact option lengths verified as A132/B144/C144/D152",
+      "construct compared with Q0725/Q0622/Q0625 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
