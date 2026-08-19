@@ -1,0 +1,102 @@
+{
+  "question_uid": "V2-Q0624",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "MEANINGFUL_RECOGNITION_WORK_ENVIRONMENT_TRIVIA_TO_EHR_WORKSTATION_SECURITY_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN is documenting in the EHR at a shared workstation outside client rooms. The RN is called away to assist in another room, and no authorized user will remain at the workstation. The facility EHR has a screen-lock function that preserves the current session. Which action is most appropriate before the RN leaves the workstation?",
+    "options": {
+      "A": "Minimize the EHR window and leave the workstation logged in because client information will not be visible on the main screen.",
+      "B": "Lock the workstation before leaving, then resume documentation after returning and reauthenticating with the RN's own credentials.",
+      "C": "Ask a nearby staff member to watch the screen while the RN is away so the current EHR session can remain open for faster charting.",
+      "D": "Leave the session active and rely on the system's automatic timeout because the workstation is located inside the clinical unit."
+    },
+    "correct_option": "B",
+    "rationale": "The HIPAA Security Rule requires regulated entities to implement workstation-use and workstation-security safeguards that restrict access to electronic protected health information to authorized users. HHS audit guidance specifically addresses preventing unauthorized access to unattended workstations and limiting unauthorized viewing of sensitive information. The 2026 NCSBN NCLEX-RN Test Plan explicitly places Confidentiality/Information Security within Management of Care and requires the newly licensed RN to maintain client confidentiality and privacy and to apply facility regulations when accessing client records. Because the RN is leaving a shared workstation unattended and the facility provides a screen-lock function, B is the uniquely best action: secure the active session before leaving and reauthenticate with the RN's own credentials on return. A hides the main window but leaves the authenticated session available. C relies on another person watching the workstation rather than securing access. D leaves ePHI accessible until a later automatic timeout and therefore does not protect the unattended session promptly. Therefore B is correct.",
+    "educational_objective": "When leaving a shared EHR workstation unattended, secure the active session immediately using the facility's approved lock/logoff safeguard and resume access only after reauthentication rather than relying on screen minimization, another person's observation, or a later timeout.",
+    "source_organization": "U.S. Department of Health and Human Services (HHS); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "HIPAA Security Rule Audit Protocol / Summary of the HIPAA Security Rule; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current HHS HIPAA Security Rule guidance live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "HHS HIPAA Audit Protocol — 45 CFR 164.310(b) Workstation Use and 164.310(c) Workstation Security: prevent unauthorized access to unattended workstations and restrict workstation access to authorized users. HHS Security Rule Summary — workstation use/security and access controls. NCSBN Appendix A, Management of Care, printed p. 21 / PDF p. 25 — Confidentiality/Information Security: maintain client confidentiality and privacy; intervene appropriately after confidentiality breaches",
+    "source_url": "https://www.hhs.gov/hipaa/for-professionals/compliance-enforcement/audit/protocol/index.html",
+    "secondary_source_urls": [
+      "https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html",
+      "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"
+    ],
+    "source_claim_supported": "Unattended workstations that access ePHI must be safeguarded against unauthorized access; entry-level RNs are responsible for maintaining client confidentiality/privacy and following facility rules when accessing client records.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 21 / PDF p. 25 — Confidentiality/Information Security: assess understanding of confidentiality requirements; maintain client confidentiality and privacy; intervene appropriately when staff breach confidentiality",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — EHR workstation confidentiality and access security",
+    "correction_summary_append": "RULE1 cleanup: retired AACN meaningful-recognition/work-environment theory because it did not test a direct entry-level client-care responsibility. Rebuilt the item around a concrete EHR confidentiality decision at an unattended shared workstation. Removed the prior correct-answer length cue and grounded the action in current HHS workstation-security requirements plus the NCSBN Confidentiality/Information Security blueprint.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0624",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_CLINICAL_WORK_ENVIRONMENT_THEORY_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests protection of client information when a shared EHR workstation would otherwise be left unattended.",
+        "source_authority": "HHS HIPAA Security Rule guidance; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "HHS Workstation Use/Security; NCSBN Confidentiality/Information Security",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Confidentiality/Information Security"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "automatic_logoff_as_universal_required_method": "Not asserted. The stem states that this facility provides an approved screen-lock function; HHS notes that specific implementation choices such as automatic logoff are risk- and policy-dependent while access-control and workstation-security standards still apply.",
+    "specific_vendor_EHR_behavior": "Not assumed beyond the stem's explicit statement that the facility system can lock the active session and require reauthentication.",
+    "emergency_access_exception": "Not tested; the RN can secure the workstation before responding and no scenario-specific exception is asserted."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0123", "V2-Q0322", "V2-Q0474"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0123 tests HIPAA disclosure to family. V2-Q0322 tests psychotherapy-note authorization. V2-Q0474 tests accurate/timely documentation and avoidance of pre-charting. V2-Q0624 tests workstation access security when an authenticated EHR session would be left unattended. Targeted repository search returned no matching unattended/shared-workstation construct before staging."
+  },
+  "option_audit": {
+    "A": "Plausible privacy shortcut but minimizing a window does not secure the authenticated EHR session from unauthorized access.",
+    "B": "Correct. It uses the facility's access-control safeguard before the workstation becomes unattended and requires reauthentication on return.",
+    "C": "Plausible teamwork response but observation by another staff member does not replace securing the authenticated session.",
+    "D": "Plausible reliance on system controls but leaves the session exposed until a later timeout rather than securing it immediately."
+  },
+  "ambiguity_check": "No second defensible best answer. The workstation will be unattended, no authorized user remains there, and a facility-approved lock function is available. B alone immediately restricts access to the authenticated EHR session. A/C do not secure access, and D delays protection until a later timeout.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 126, "B": 130, "C": 130, "D": 128},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is tied with C and all four choices are within four characters."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Maintaining confidentiality/privacy and applying facility rules when accessing client records are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A printed p. 21 / PDF p. 25 was visually inspected on 2026-08-19; Confidentiality/Information Security explicitly includes maintaining client confidentiality and privacy and intervening after breaches."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current HHS HIPAA Security Rule workstation safeguards verified",
+      "unattended-workstation unauthorized-access language verified in HHS audit guidance",
+      "current NCSBN Confidentiality/Information Security content verified directly and visually",
+      "facility lock-function capability explicitly controlled in stem",
+      "no universal automatic-logoff implementation claim made",
+      "A/B/C/D independently re-audited for confidentiality, access control and second-answer risk",
+      "no second defensible best answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A126/B130/C130/D128",
+      "construct compared with Q0123/Q0322/Q0474 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
