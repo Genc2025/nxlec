@@ -1,0 +1,109 @@
+{
+  "question_uid": "V2-Q1197",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "GENERIC_EHR_DOWNTIME_RECALL_TO_MEDICATION_DOWNTIME_WORKFLOW_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "During a scheduled medication pass, the electronic health record becomes unavailable. The unit's approved downtime materials are available, including the backup process for verifying current medication orders and documenting administration. What should the nurse do?",
+    "options": {
+      "A": "Use the approved downtime workflow to verify the medication order, document on the designated backup record, and continue care safely.",
+      "B": "Give the medication from memory because it was administered on the prior shift, then enter the details after the EHR returns.",
+      "C": "Delay the medication until the EHR is restored even though the approved downtime record shows a verified current order and due time.",
+      "D": "Write the medication details in a personal note, administer it, and copy the note into the EHR when electronic access returns."
+    },
+    "correct_option": "A",
+    "rationale": "Current ONC SAFER guidance addresses planned and unplanned EHR unavailability and emphasizes contingency processes that allow clinical care to continue safely during downtime. The federal Health IT Playbook specifically describes a well-designed paper-based backup system for documenting clinical activities and ordering medications, tests, and procedures when the EHR is unavailable. The 2026 NCSBN NCLEX-RN Test Plan requires the RN to receive, verify, and implement health care provider orders, enter documentation accurately, completely, and in a timely manner, and use policies, procedures, and information-technology resources to promote quality care. Because the facility's approved downtime workflow and backup medication record are available, the nurse should use that process to verify the current order, document on the designated backup record, and continue safe care. Administering from memory, unnecessarily delaying a verified due medication, or creating an unauthorized personal record bypasses the established safety process. Therefore A is the uniquely best answer.",
+    "educational_objective": "During EHR downtime, use the organization's approved backup workflow to verify current medication orders, document on the designated record, and continue safe care rather than relying on memory or improvised documentation.",
+    "source_organization": "Office of the National Coordinator for Health Information Technology (ONC), HealthIT.gov; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2025 SAFER Guide: Contingency Planning; Health IT Playbook — Quality & Patient Safety; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "ONC SAFER Contingency Planning resource last updated May 6, 2026; ONC SAFER Guides current in 2026; NCSBN Test Plan published 2025 and effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "ONC SAFER Guides > Infrastructure Guides > Contingency Planning — recommended safety practices for planned or unplanned EHR unavailability. Health IT Playbook > Quality & Patient Safety — use a well-designed paper-based system to document activities and order medications/tests/procedures when the EHR is unavailable. NCSBN 2026 NCLEX-RN Test Plan > Management of Care > Information Technology, printed p. 22 / PDF p. 26 — receive, verify and implement health care provider orders; enter computer documentation accurately, completely and in a timely manner; utilize resources including information technology, policies and procedures to promote quality client care.",
+    "source_url": "https://healthit.gov/clinical-quality-and-safety/safer-guides/",
+    "secondary_source_url": "https://playbook.healthit.gov/playbook/quality-and-patient-safety/",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Safe EHR downtime management uses an established contingency workflow with backup documentation/order processes rather than memory, delayed documentation, or unauthorized personal records.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Information Technology, printed p. 22 / PDF p. 26",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — safe medication-order verification and documentation during EHR downtime",
+    "correction_summary_append": "RULE1 cleanup: retained the clinically relevant EHR-downtime construct but replaced a generic contingency-plan recall item with a medication-pass scenario requiring the RN to use an approved backup order-verification and documentation workflow. The rebuild removes the original length cue and weak distractors.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1197",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "GENERIC_EHR_DOWNTIME_RECALL_WEAK_DISTRACTORS_AND_LENGTH_CUE",
+        "finding": "The replacement tests a direct safety decision during EHR downtime. ONC supports established contingency and paper-based backup workflows, and NCSBN directly supports order verification and accurate/timely documentation.",
+        "source_authority": "ONC SAFER / Health IT Playbook; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "ONC Contingency Planning and Quality & Patient Safety; NCSBN Information Technology printed p. 22 / PDF p. 26",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care > Information Technology"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_downtime_form": "No universal paper MAR, binder, software, or form name is required. The stem explicitly provides the facility's approved downtime materials and designated backup record.",
+    "medication_specifics": "No medication name, dose, route, interaction, hold parameter, or timing threshold is asserted. The item tests workflow safety rather than pharmacology.",
+    "automatic_delay": "The item does not claim every medication must be administered during downtime regardless of clinical circumstances. In this scenario the approved downtime system contains a verified current order and due time, so EHR unavailability alone is not a reason to bypass the established process or wait indefinitely.",
+    "reconciliation_after_recovery": "The item does not prescribe a universal post-recovery reconciliation sequence; organizations define how downtime records are incorporated into the restored EHR."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'EHR downtime medication paper eMAR' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It follows the established contingency workflow, verifies the current order, uses the designated backup record, and maintains continuity of care.",
+    "B": "Plausible shortcut during downtime, but prior-shift memory is not a substitute for current order verification or contemporaneous approved documentation.",
+    "C": "Plausible caution, but the scenario states that the approved downtime process contains the verified current order and due time; EHR outage alone does not require abandoning the contingency workflow.",
+    "D": "Plausible attempt to preserve information, but an unauthorized personal note bypasses the approved clinical record and downtime process."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly states that the approved downtime materials and backup order/documentation process are available. B uses memory, C ignores the available verified contingency process, and D creates an unauthorized record. A alone follows the established safety workflow.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 134,
+      "B": 125,
+      "C": 132,
+      "D": 126
+    },
+    "note": "Exact character counts were calculated from the stored strings. All options are comparable multi-step downtime actions; the correct answer is not uniquely longest and no absolute-word cue identifies it."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Information Technology directly includes order verification, accurate/complete/timely documentation, and use of policies/procedures and information-technology resources. The scenario tests an entry-level RN's safe response to EHR downtime during medication administration.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 22 / PDF p. 26 was visually inspected on 2026-08-20 and visibly lists provider-order verification, accurate/complete/timely computer documentation, and use of information technology, policies and procedures to promote quality client care."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_ONC_HTML",
+    "note": "The relevant NCSBN PDF page was visually inspected. ONC SAFER and Health IT Playbook sources are official HTML pages and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current ONC SAFER resources rechecked fresh for planned/unplanned EHR unavailability and contingency planning",
+      "ONC Health IT Playbook rechecked for paper-based backup documentation and ordering during EHR unavailability",
+      "official NCSBN 2026 Information Technology page visually verified at printed p. 22 / PDF p. 26",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no medication-specific dose, route, timing threshold or universal downtime form fabricated",
+      "correct answer is not uniquely longest; exact lengths A134/B125/C132/D126",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}
