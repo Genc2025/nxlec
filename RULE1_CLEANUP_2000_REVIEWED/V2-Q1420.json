@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1420",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -72,10 +72,25 @@
     "note": "The current NTSP Basic Care and Emergency Care pages were rechecked August 20, 2026. The linked Adult Bedside Equipment PDF was text-read and visually screenshot-verified on both pages; p.2 visibly shows suction plus same-size and one-size-smaller spare tubes at bedside. The older PDF date is not misrepresented as a 2026 revision."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_BACKUP_SIZE_PRECISION_ISSUE_CORRECTED",
-    "first_auditing_blob_sha": "d90229a78b3885e692a7f51d75abeb63be373e12"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "d90229a78b3885e692a7f51d75abeb63be373e12",
+    "corrected_auditing_blob_sha": "3f3a962a9bd4c6628e5e57250330d8a96e541161",
+    "note": "The first GitHub reread found that the key said only ‘smaller’ rather than the NTSP-specified one-size-smaller backup tube. The wording was corrected while still AUDITING, the corrected payload was fetched back from GitHub, and no unresolved source, currentness, equipment-location, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1420 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "current NTSP Basic Care page independently confirms emergency-equipment preparation before an emergency",
+      "NTSP Adult Bedside Equipment PDF p.2 independently confirms suction plus same-size and one-size-smaller spare tubes at bedside and shift-start equipment checks",
+      "NTSP Adult Bedside Equipment PDF p.1 and current emergency-care e-learning independently support oxygenation and ventilation equipment availability",
+      "both pages of the linked NTSP PDF were visually screenshot-verified in the current session",
+      "the older PDF date is explicitly preserved rather than misrepresented as a 2026 revision",
+      "official NCSBN 2026 Reduction of Risk Potential page had already been text-verified and screenshot-verified in the current RULE1 session",
+      "A/B/C/D independently re-audited for clinical plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A130/B128/C137/D130 with no absolute-word distractor pattern",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob 3f3a962a9bd4c6628e5e57250330d8a96e541161 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
