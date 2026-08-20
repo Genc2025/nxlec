@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1418",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,10 +73,24 @@
     "note": "The 2023 AABB stable-adult recommendation was directly verified in the JAMA guideline abstract and AABB’s current clinical-practice resource. AABB’s 2025 AMI-specific update was separately verified and explicitly excluded from the stem."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_RESIDUAL_KEY_LENGTH_CUE_CORRECTED",
-    "first_auditing_blob_sha": "6c9b4a2f22daa6f38062f3ae78e581338f0ba293"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "6c9b4a2f22daa6f38062f3ae78e581338f0ba293",
+    "corrected_auditing_blob_sha": "a1365fa2e25bb6929ee156597f52aa4cc1675d17",
+    "note": "The first GitHub reread found a residual answer-length cue. B was shortened without changing its clinical meaning, the corrected AUDITING payload was fetched back from GitHub, and the full item was reread with no unresolved source, currentness, scope, ambiguity, cueing, or second-answer issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1418 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "2023 AABB Recommendation 1 independently verified for hemodynamically stable hospitalized adults and <7 g/dL consideration threshold",
+      "2023 AABB guideline independently verified for clinical-context individualization",
+      "2025 AABB AMI-specific liberal-transfusion guidance independently verified and excluded by stem scope",
+      "active bleeding, preexisting cardiovascular disease, cardiac surgery, and orthopedic surgery threshold exceptions are not tested",
+      "official NCSBN 2026 Reduction of Risk Potential page was text-verified and visually verified by screenshot",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A136/B133/C131/D143 and the key is not the longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob a1365fa2e25bb6929ee156597f52aa4cc1675d17 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
