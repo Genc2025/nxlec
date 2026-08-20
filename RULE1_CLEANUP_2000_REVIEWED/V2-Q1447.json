@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1447",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,23 @@
     "note": "The primary ADA Standards of Care in Diabetes—2026 article was directly rechecked August 20, 2026. Recommendations 5.1–5.5 and the DSMES discussion support participation for all people with diabetes, provision at diagnosis and other critical times, and individualized problem-solving/goal-setting/self-care support."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "78ff5c5d20e2995b8c6a567afd555c08d2cf6eca",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. DSMES-at-diagnosis, whole-need matching, referral scope, MNT/medication-management partial-referral distractors, option balance, and blueprint mapping remained internally consistent; no correction was required."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1447 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the read-only technical selector",
+      "ADA Standards of Care in Diabetes—2026 Recommendation 5.1 independently rechecked for DSMES participation by all people with diabetes",
+      "Recommendation 5.2 independently rechecked for DSMES at diagnosis and other critical times",
+      "Recommendations 5.3–5.5 and accompanying text independently rechecked for individualized outcomes, behavioral strategies, goal setting, problem-solving, self-care behaviors, and active collaboration",
+      "medical nutrition therapy and medication-management distractors independently re-audited as legitimate but narrower than the multi-domain need stated in the stem",
+      "official NCSBN 2026 Management of Care printed p.7 and detailed Referrals printed p.22 were text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A155/B173/C175/D157 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 78ff5c5d20e2995b8c6a567afd555c08d2cf6eca before FINAL_QA_PASS was assigned"
+    ]
   }
 }
