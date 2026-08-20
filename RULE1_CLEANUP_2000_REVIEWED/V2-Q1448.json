@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1448",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -72,10 +72,23 @@
     "note": "The primary ADA Standards of Care in Diabetes—2026 Sections 1 and 4 were rechecked August 20, 2026. Section 1 directly supports specialist referrals as appropriate for complications/comorbidities, and Section 4 supports individualized assessment plus referrals as needed/necessary rather than one universal endocrinology rule."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_OVERLY_TRANSPARENT_DISTRACTOR_CORRECTED",
-    "first_auditing_blob_sha": "3d23cca2d0c6f51da01b55cf86e51626a9f60993"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "3d23cca2d0c6f51da01b55cf86e51626a9f60993",
+    "corrected_auditing_blob_sha": "276d5b297357b37914fd5802bcb3a87348444b97",
+    "note": "The first GitHub reread identified D as overly transparent. D was rebuilt while the item remained AUDITING, the corrected payload was fetched back from GitHub, and the second reread found no unresolved source, blueprint, ambiguity, cueing, or second-answer issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1448 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate blob",
+      "ADA 2026 Section 1 independently rechecked for specialist referrals as appropriate and available for diabetes-related complications or comorbidities",
+      "ADA 2026 Section 4 Recommendations 4.3–4.4 and Table 4.2 independently rechecked for individualized assessment, medical-specialist referral as needed, and additional referrals as necessary",
+      "no universal endocrinology referral requirement or single A1C referral threshold was introduced",
+      "official NCSBN 2026 Management of Care printed p.7 and detailed Referrals printed p.22 were text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited after D was rebuilt for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A153/B155/C149/D169 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob 276d5b297357b37914fd5802bcb3a87348444b97 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
