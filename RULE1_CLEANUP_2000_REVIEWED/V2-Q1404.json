@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1404",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,8 +71,13 @@
     "result": "AHRQ_PSNET_PRIMARY_HTML_TEXT_VERIFIED",
     "note": "AHRQ/PSNet HTML sources were directly text-verified. Reporting Patient Safety Events displays a March 15, 2025 update and states it was last reviewed in 2025; the live page was rechecked August 20, 2026."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "72629e1aab3995873fe5fc30f83bdcb1b74c4e19",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The reread confirmed that A is the only option that uses the stipulated hospital safety-event system for the intercepted near miss; B, C, and D remain plausible but each omits, delays, or substitutes another process for formal capture. No unresolved source-scope, blueprint, ambiguity, cueing, or second-answer conflict remained."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1404 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the real candidate data",
       "AHRQ PSNet Reporting Patient Safety Events independently rechecked for near-miss surveillance, structured review, and process improvement",
@@ -84,7 +89,8 @@
       "no universal legal mandate, medication-specific rule, discipline rule, or root-cause-analysis duty was invented",
       "option lengths balanced at A131/B131/C129/D123",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to near-miss reporting and process improvement"
+      "educational objective is specific to near-miss reporting and process improvement",
+      "AUDITING payload was reread from GitHub blob 72629e1aab3995873fe5fc30f83bdcb1b74c4e19 before FINAL_QA_PASS was assigned"
     ]
   }
 }
