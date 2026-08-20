@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1427",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,9 +73,23 @@
     "note": "VA USPV and current Joint Commission policy/FAQ pages were directly rechecked August 20, 2026. The file preserves the distinction between current 2026 Sentinel Event policy and the announced 2027 alignment changes."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "fb1c16516eeb6f4ec2030bd55a927ffb6342ac06",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. Postvention support, systems analysis, voluntary external reporting, 2026-versus-2027 policy scope, blueprint mapping, and distractor logic remained internally consistent; no residual length, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1427 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "VA USPV independently rechecked for immediate and ongoing support after suicide loss and support for providers/workplaces",
+      "Joint Commission 2026 Sentinel Event Policy independently rechecked for investigation/systematic analysis and corrective action to reduce risk",
+      "current Joint Commission Sentinel Event FAQs independently rechecked for examination of root causes and contributing factors plus improvements to mitigate recurrence",
+      "current FAQs independently confirm voluntary external reporting and the upcoming January 1, 2027 alignment without removing the systems-learning expectation",
+      "official NCSBN 2026 Psychosocial Integrity grief/loss page and Management of Care performance-improvement page were text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A157/B152/C152/D162 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob fb1c16516eeb6f4ec2030bd55a927ffb6342ac06 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
