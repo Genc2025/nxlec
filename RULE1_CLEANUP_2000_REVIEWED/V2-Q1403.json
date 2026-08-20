@@ -1,0 +1,88 @@
+{
+  "question_uid": "V2-Q1403",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_BALANCE_AND_EPCS_ROLE_PRECISION_CORRECTION",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "In an outpatient clinic, a DEA-registered prescriber is preparing an electronic prescription for a controlled substance. The prescriber asks the registered nurse to use the prescriber's authentication factor to help sign the prescription while the prescriber speaks with another client. Which action should the nurse take?",
+    "options": {
+      "A": "Enter the prescription details at the prescriber's direction, then use the prescriber's authentication factor after verbal confirmation.",
+      "B": "Verify the prescription on screen and use the prescriber's authentication factor while the prescriber remains present for the review.",
+      "C": "Decline to use the prescriber's authentication factor and have the prescribing practitioner personally complete the required authentication.",
+      "D": "Ask another authorized prescriber to review the prescription and then use the original prescriber's authentication factor to sign it."
+    },
+    "correct_option": "C",
+    "rationale": "DEA's Electronic Prescriptions for Controlled Substances (EPCS) requirements make completion of the required authentication protocol the prescribing practitioner's legal electronic signature. DEA states that a practitioner must retain control of applicable authentication factors, must not share a password or other knowledge factor, and must not allow another person to use the token or enter the practitioner's identification means to sign controlled-substance prescriptions. DEA also permits a staff member, acting at the practitioner's direction, to enter prescription information before the practitioner reviews and approves it; that delegation of data entry does not extend to the practitioner's authentication or signature. Therefore C is the best action. A correctly reflects that staff may enter prescription information but becomes incorrect when the nurse uses the prescriber's authentication factor. B remains impermissible even if the prescriber is physically present. D cannot be cured by having another authorized prescriber review the order because one practitioner may not use another practitioner's authentication factor to sign the original prescription.",
+    "educational_objective": "Protect controlled-substance prescribing integrity by distinguishing permissible staff data entry from the prescribing practitioner's nondelegable use of personal EPCS authentication factors to legally sign the prescription.",
+    "source_organization": "U.S. Drug Enforcement Administration (DEA), Diversion Control Division",
+    "source_document_title": "Electronic Prescriptions for Controlled Substances (EPCS) Q&A; DEA Guidance Documents index",
+    "source_version_date": "EPCS Q&A entries display EO-DEA022R1 / DEA-DC-9 R1 dated July 24, 2023; DEA Guidance Documents index lists DEA-DC-9R1 as revised July 25, 2023; live DEA sources rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "DEA EPCS Q&A > 'Is it permissible for an individual practitioner to have the office manager or other staff maintain custody of the individual practitioner's hard token?': practitioner must retain sole possession where applicable, must not share password/knowledge factor, and must not allow another person to use the token or enter the knowledge factor or other identification means to sign controlled-substance prescriptions. > 'Is a practitioner required to review a prescription before signing it?': practitioner has the same legal responsibility whether information is entered by practitioner or staff. > 'Is it permissible to have a staff person ... complete all of the required information ... and then have the practitioner review, sign, and authorize transmission?': yes, staff may enter information before practitioner review/approval. > 'How is an electronic controlled substance prescription signed?': the prescribing practitioner initiates and completes the required authentication protocol, which legally signs the prescription. See also 21 CFR part 1311, subpart C.",
+    "source_url": "https://www.deadiversion.usdoj.gov/faq/epcs-faq.html",
+    "secondary_source_url": "https://apps.deadiversion.usdoj.gov/guidance/",
+    "source_claim_supported": "For EPCS, staff may enter prescription information at a practitioner's direction, but the prescribing practitioner must personally control and use the required authentication factors to legally sign the controlled-substance prescription; another person may not use or enter those factors for the practitioner.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, PDF p. 10 / printed p. 7 and PDF p. 22 / printed p. 19: receive, verify and implement health care provider orders; recognize limitations of self and others; provide care within legal scope of practice. PDF p. 25 / printed p. 22: Information Technology and Legal Rights and Responsibilities. Cross-link: Pharmacological and Parenteral Therapies, PDF p. 15 / printed p. 12: evaluate appropriateness/accuracy of medication orders and handle/administer controlled substances within regulatory guidelines.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — legal accountability, medication-order workflow, information technology, and secure controlled-substance prescribing credentials",
+    "correction_summary_append": "RULE1 cleanup retained the EPCS credential-integrity construct, balanced all four options, and made the key test the precise boundary between permissible staff prescription-data entry and the prescriber's nondelegable authentication/signature. No dose, schedule-specific prescribing rule, state e-prescribing mandate, or facility-specific workflow was added."
+  },
+  "scope_exclusions": {
+    "state_law": "The item does not test state electronic-prescribing mandates or state-specific prescriptive authority; it is limited to the federal DEA EPCS authentication rule.",
+    "prescriptive_authority": "The stem stipulates that the prescriber is DEA-registered and authorized for the prescription; the nurse is not asked to evaluate the prescriber's underlying scope or DEA registration status.",
+    "medication_details": "No drug, dose, schedule, quantity, refill rule, or indication is tested.",
+    "authentication_technology": "The item does not require a particular token, biometric, device, cryptographic standard, or software implementation; it tests only the personal/nondelegable nature of the prescriber's authentication factors.",
+    "facility_policy": "No facility-specific credentialing, access-control, audit-log, or reporting workflow is prescribed."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub searches for 'EPCS authentication factor nurse prescriber controlled substance' and 'two-factor authentication sign controlled substance prescription staff nurse' returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because DEA permits staff to enter prescription information at the practitioner's direction; the option becomes wrong only when the nurse crosses the line and uses the practitioner's personal authentication factor.",
+    "B": "Plausible because direct prescriber presence and nurse verification may seem to preserve supervision, but another person still may not use the practitioner's authentication factor to sign.",
+    "C": "Correct. It preserves the nondelegable authentication/signature while returning the signing step to the prescribing practitioner.",
+    "D": "Plausible because another authorized prescriber can independently prescribe within applicable authority, but cannot use the original prescriber's personal authentication factor to sign that practitioner's prescription."
+  },
+  "ambiguity_check": "No second defensible best answer. C alone respects the exact DEA boundary. A contains a permissible data-entry step but then violates credential control; B incorrectly treats supervision as a substitute for personal authentication; D incorrectly treats another prescriber's authorization as permission to use the original practitioner's credential.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 136, "B": 133, "C": 140, "D": 133},
+    "note": "The correct answer is not uniquely long in a conspicuous way, and all alternatives are parallel actions built around realistic EPCS workflow misconceptions."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "The construct is narrower than routine medication administration but remains appropriate as a legal/safety boundary for an RN interacting with controlled-substance prescribing workflow. NCSBN explicitly includes health-care-provider orders, legal scope, information technology, and controlled substances within regulatory guidelines.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan PDF p. 15 / printed p. 12 was successfully screenshot on August 20, 2026 and visibly includes evaluation of medication orders and handling/administering controlled substances within regulatory guidelines. Management of Care parsed-text locators for orders/legal scope/Information Technology were also directly verified."
+  },
+  "source_verification": {
+    "result": "DEA_PRIMARY_HTML_TEXT_VERIFIED",
+    "note": "The live DEA EPCS Q&A was directly text-verified on August 20, 2026, including staff data entry, practitioner review/signature, personal control of authentication factors, and prohibition on another person using or entering those factors. The DEA Guidance Documents index was also rechecked and lists DEA-DC-9R1 as a revised EPCS practitioner Q&A."
+  },
+  "independent_second_pass": {
+    "result": "PASS_PENDING_GITHUB_REREAD",
+    "checks": [
+      "original Q1403 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the real candidate data",
+      "DEA live EPCS Q&A independently rechecked for sole control of authentication factors and prohibition on another person using/entering them",
+      "DEA live EPCS Q&A independently rechecked for the distinct rule permitting staff prescription-data entry before practitioner review and signature",
+      "DEA Guidance Documents index independently rechecked for current listing of revised DEA-DC-9R1 EPCS practitioner Q&A",
+      "official NCSBN 2026 parsed text and screenshot independently verified the relevant legal/order/controlled-substance blueprint links",
+      "A/B/C/D independently re-audited for correctness, plausibility, ambiguity, overlap, cueing, and second-answer risk",
+      "no drug, dose, schedule-specific rule, state e-prescribing mandate, or facility-specific credential workflow was introduced",
+      "option lengths balanced at A136/B133/C140/D133",
+      "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
+      "educational objective is specific to permissible staff data entry versus nondelegable EPCS authentication/signature"
+    ]
+  }
+}
