@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1447",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_DSMES_REFERRAL_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client newly diagnosed with type 2 diabetes understands the medication prescription but says, ‘I don’t know how to fit glucose monitoring, meals, activity, and problem-solving into daily life.’ Which referral would most directly address this need?",
+    "options": {
+      "A": "Refer the client to a diabetes self-management education and support service for individualized self-care skills, goal setting, and problem-solving support.",
+      "B": "Refer the client for medical nutrition therapy focused on meal planning, while leaving glucose monitoring, activity planning, and broader self-management for routine visits.",
+      "C": "Refer the client to a medication-management service focused on prescription review, while deferring daily self-care skills and behavior-change planning to later follow-up.",
+      "D": "Delay an education referral until the client has difficulty meeting treatment goals, then arrange structured self-management teaching as a response to that problem."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 American Diabetes Association Standards of Care advise all people with diabetes to participate in diabetes self-management education and support (DSMES) and specifically identify diagnosis as a critical time to provide DSMES. DSMES supports informed decision-making, self-care behaviors, problem-solving, active collaboration with the health care team, goal setting, and behavior-change strategies. The client is asking how to integrate multiple self-management tasks into daily life, so A most directly addresses the stated need. B can be valuable for nutrition but is narrower than the client's combined monitoring, activity, and problem-solving needs. C focuses on medication review even though the client already understands the prescription and does not provide the broader self-management support requested. D incorrectly postpones DSMES despite diagnosis itself being a recommended time for participation.",
+    "educational_objective": "Refer clients with diabetes to DSMES for individualized education and support in self-care skills, problem-solving, goal setting, and sustainable health behaviors beginning at diagnosis and again at other critical times of need.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "5. Facilitating Positive Health Behaviors and Well-being to Improve Health Outcomes: Standards of Care in Diabetes—2026",
+    "source_version_date": "Diabetes Care 2026;49(Supplement 1):S89–S124; published December 8, 2025; live article rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "DSMES Recommendations 5.1–5.5 and accompanying text: advise all people with diabetes to participate in DSMES; provide DSMES at diagnosis and other critical times; DSMES supports informed decision-making, self-care behaviors, problem-solving, active collaboration, goal setting, behavioral strategies, and individualized person-centered care.",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S89/163932/5-Facilitating-Positive-Health-Behaviors-and-Well",
+    "source_claim_supported": "DSMES is recommended for people with diabetes beginning at diagnosis and directly supports the combined self-management, problem-solving, goal-setting, and behavior-change needs described in the stem.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p.7 (official PDF pageno 10): identify and collaborate with multidisciplinary team members; assess the need for referrals and obtain necessary orders; recognize limitations and utilize resources. Detailed Referrals content, printed p.22 (official PDF pageno 25): assess the need to refer clients for assistance with existing or potential problems; assess need for referrals and obtain necessary orders; identify community resources.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — referral for diabetes self-management education and support",
+    "correction_summary_append": "RULE1 cleanup retained the DSMES-referral construct, removed the original all/only distractor cues, rebuilt the alternatives as plausible competing referral pathways, and removed the uniquely-long correct answer while preserving diagnosis as an ADA-supported critical time for DSMES."
+  },
+  "scope_exclusions": {
+    "credential": "The item does not require a specific professional credential or claim that one credential alone defines every DSMES program.",
+    "prescribing_scope": "No universal prescribing-authority or state scope-of-practice claim is tested.",
+    "nutrition": "Medical nutrition therapy is valuable diabetes care but is presented as narrower than the combined self-management needs explicitly stated in this stem.",
+    "coverage": "No insurance, reimbursement, referral-authorization, or payer rule is tested.",
+    "frequency": "The item tests referral at diagnosis; it does not require memorization of every later DSMES reassessment interval.",
+    "treatment_plan": "The client already understands the medication prescription, so the construct is self-management education/support rather than medication selection or titration."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘DSMES diagnosis problem-solving goal setting diabetes self-management referral’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. DSMES is specifically designed to integrate self-care knowledge, skills, problem-solving, goals, and sustained behavior support beginning at diagnosis.",
+    "B": "Plausible because nutrition therapy is important in type 2 diabetes, but it does not by itself most directly cover the full monitoring, activity, and problem-solving need stated in the stem.",
+    "C": "Plausible because medication management is part of diabetes care, but it does not match the client's expressed gap after medication understanding is already established.",
+    "D": "Plausible because DSMES is also appropriate when treatment goals are not met, but ADA identifies diagnosis itself as a critical time rather than requiring delay."
+  },
+  "ambiguity_check": "No second defensible best answer. B and C are legitimate partial referrals but are intentionally narrower than the client's explicit multi-domain self-management need. D delays an intervention recommended at diagnosis. A is the only option that directly addresses the whole need described.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 155, "B": 173, "C": 175, "D": 157},
+    "note": "The key is not longest; all four options are referral decisions with comparable detail and no all/only/always/never/every cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN explicitly includes assessing referral needs, collaborating with multidisciplinary team members, and using referral/community resources under Management of Care, making this an entry-level RN coordination-of-care construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshots were successfully retrieved August 20, 2026 for PDF pageno 10 / printed p.7 (Management of Care activity statements) and PDF pageno 25 / printed p.22 (detailed Referrals content)."
+  },
+  "source_verification": {
+    "result": "ADA_2026_DSMES_RECOMMENDATIONS_VERIFIED",
+    "note": "The primary ADA Standards of Care in Diabetes—2026 article was directly rechecked August 20, 2026. Recommendations 5.1–5.5 and the DSMES discussion support participation for all people with diabetes, provision at diagnosis and other critical times, and individualized problem-solving/goal-setting/self-care support."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
