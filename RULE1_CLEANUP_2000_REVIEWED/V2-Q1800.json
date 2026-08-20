@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1800",
   "stable_sort_key": "01-STANDALONE-01800",
-  "status": "AUDITING",
-  "audit_status": "AUDITING",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — informed consent, client rights, and understanding of randomization in a phase 3 cancer treatment trial",
@@ -31,7 +31,7 @@
   "blueprint_locator": "Management of Care Appendix A, PDF file page index 23-25 / printed pages 20-22: Client Rights includes treatment options/decisions, understanding, and advocacy; Informed Consent at file page index 25 / printed page 22 includes describing components, participating in obtaining informed consent, and verifying that the client receives education and consents for care/procedures.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan PDF file page index 25 / printed page 22 was visually verified by screenshot on 2026-08-20. The screenshot visibly shows the Informed Consent section, including describing consent components, participating in consent, and verifying client education/consent.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'randomized phase 3 standard treatment assignment by chance leave study consent' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "Rebuilt all four alternatives to remove the original absolute-word distractors and uniquely-long correct answer. The final distractors preserve realistic partial knowledge: physician-selected assignment despite withdrawal rights, voluntary participation misread as freedom to switch randomized arms, and correct randomization paired with the false belief that signing binds the participant through study completion.",
+  "correction_summary": "Rebuilt all four alternatives to remove the original absolute-word distractors and uniquely-long correct answer. The final distractors preserve realistic partial knowledge: physician-selected assignment despite withdrawal rights, voluntary participation misread as freedom to switch randomized arms, and correct randomization paired with the false belief that signing binds the participant through study completion. Post-fetch adversarial reread found no further defect requiring another rewrite.",
   "option_audit": {
     "A": "Correct; both clauses are directly supported by NCI: randomized assignment is by chance and signed consent does not remove the right to leave the study.",
     "B": "Plausible shared-decision/randomization confusion; incorrect because NCI explicitly states that neither the participant nor the doctor chooses the randomized group.",
@@ -40,10 +40,10 @@
   },
   "cueing_audit": {
     "absolute_words": "No option relies on always/never/only/all/must-type distractor absolutes.",
-    "answer_length": "Final option lengths are reasonably balanced and the correct answer is not uniquely longest; distractors contain comparable detail and mixed true/false concepts.",
+    "answer_length": "Final option lengths are A 137, B 154, C 154, D 149 characters; the correct answer is not the longest and all choices contain comparable clinical/research detail.",
     "grammatical_lexical": "All four alternatives are first-person statements about treatment-group assignment and/or continuing participant choice after consent.",
-    "second_answer_risk": "No defensible second answer identified in the pre-stage audit. B, C, and D each contain one specific claim contradicted by NCI guidance. Post-fetch adversarial reread remains required."
+    "second_answer_risk": "No defensible second answer identified after post-fetch adversarial reread. B, C, and D each contain one specific claim contradicted by NCI guidance."
   },
-  "independent_second_pass": "PENDING — must be performed after GitHub fetch/reread of this staged AUDITING record.",
-  "second_pass_status": "PENDING"
+  "independent_second_pass": "Fresh independent adversarial second pass was performed after fetching the staged AUDITING record. It rechecked the stem, A/B/C/D, rationale, educational objective, NCI source currentness and exact locators, phase 3 comparison structure, randomization by chance, participant/physician non-selection of treatment arm, continuing voluntariness after signature, withdrawal-versus-arm-switch distinction, option-length/absolute-word cueing, second-answer risk, and NCSBN informed-consent/client-rights blueprint fit. No unsupported precision, ambiguity, or unresolved conflict remains.",
+  "second_pass_status": "PASS"
 }
