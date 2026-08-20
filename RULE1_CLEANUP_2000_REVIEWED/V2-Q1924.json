@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1924",
   "stable_sort_key": "01-STANDALONE-01924",
-  "status": "AUDITING",
-  "audit_status": "AUDITING",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — interprofessional coordination for guideline-based diagnostic evaluation of suspected idiopathic pulmonary fibrosis",
@@ -30,20 +30,20 @@
   "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
   "blueprint_locator": "Safe and Effective Care Environment — Management of Care: identify and collaborate with multidisciplinary team members, assess referral needs, coordinate care, communicate client information, and utilize resources to promote quality client care.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan evidence was visually verified earlier in this cleanup session. Q1924 currentness and clinical claims were verified using current ATS/Oxford/PubMed HTML; no new PDF evidence was analyzed for this resumed audit.",
-  "correction_summary": "Q1924 was previously BLOCKED because ATS/current-source retrieval repeatedly failed. Fresh retrieval succeeded on 2026-08-20: the ATS implementation page is readable, the current ATS CPG index lists both the 2018 diagnostic guideline and 2022 update, the 2018 official publication directly supports MDD and the serum-biomarker recommendation, and the 2022 official PubMed record shows MDD remains in the diagnostic algorithm. The item was rebuilt to remove simplistic distractors and to test integration of clinical/HRCT/pathology information versus biomarker, imaging-only, or empiric-treatment shortcuts.",
+  "correction_summary": "Q1924 was previously BLOCKED because ATS/current-source retrieval repeatedly failed. Fresh retrieval succeeded on 2026-08-20: the ATS implementation page is readable, the current ATS CPG index lists both the 2018 diagnostic guideline and 2022 update, the 2018 official publication directly supports MDD and the serum-biomarker recommendation, and the 2022 official PubMed record shows MDD remains in the diagnostic algorithm. The item was rebuilt to remove simplistic distractors and to test integration of clinical/HRCT/pathology information versus biomarker, imaging-only, or empiric-treatment shortcuts. Independent post-fetch reread found no unresolved source, clinical, currentness, ambiguity, cueing, blueprint, or second-answer conflict.",
   "option_audit": {
-    "A": "Correct; directly reflects guideline-supported multidisciplinary integration of clinical and HRCT information, with pathology incorporated when available.",
+    "A": "Correct; directly reflects guideline-supported multidisciplinary integration of clinical and HRCT information, with pathology incorporated when available and without implying biopsy is mandatory in every case.",
     "B": "Plausible biomarker shortcut; incorrect because the guideline recommends against using specified serum biomarkers such as MMP-7 solely to distinguish IPF from other ILDs.",
-    "C": "Plausible imaging-centric shortcut; incorrect because IPF diagnosis is not assigned by radiology alone when multidisciplinary integration is indicated.",
+    "C": "Plausible imaging-centric shortcut; incorrect because guideline-based IPF diagnosis uses multidisciplinary integration rather than assigning the final diagnosis to radiology alone.",
     "D": "Plausible empiric-treatment shortcut; incorrect because diagnostic MDD should not be deferred merely to assess response to disease-specific therapy."
   },
   "cueing_audit": {
     "absolute_words": "No option relies on only/all/always/never/must-type absolute wording.",
-    "answer_length": "Final option lengths are substantially balanced and the correct answer is not uniquely longest; exact lengths will be verified after GitHub reread.",
+    "answer_length": "Final option lengths: A 142, B 144, C 148, D 149 characters; the correct answer is the shortest of the four by a small margin and there is no length cue.",
     "grammatical_lexical": "All four choices describe credible diagnostic-coordination strategies and differ in the evidence-integration pathway rather than obvious tone.",
-    "second_answer_risk": "No defensible second answer identified in the resumed pre-stage audit. B conflicts with the biomarker recommendation, C removes required multidisciplinary integration, and D substitutes treatment response for diagnostic review. Post-fetch adversarial reread remains required."
+    "second_answer_risk": "Independent adversarial reread found no defensible second answer. B conflicts with the specified serum-biomarker recommendation, C substitutes imaging-only judgment for multidisciplinary integration, and D substitutes treatment response for diagnostic review; A is uniquely best."
   },
-  "independent_second_pass": "PENDING — must be performed after GitHub fetch/reread of this resumed AUDITING record.",
-  "second_pass_status": "PENDING",
+  "independent_second_pass": "PASS — post-fetch adversarial reread independently rechecked stem, all A/B/C/D alternatives, key, rationale, objective, the 2018 MDD and biomarker recommendations, current ATS indexing, the 2022 update scope and MDD-containing diagnostic algorithm, NCSBN Management of Care fit, option balance and second-answer risk. The final item does not claim histopathology is mandatory for every suspected-IPF case and does not treat the 2018 guideline as superseded where the 2022 update continues the MDD pathway. No unresolved conflict identified.",
+  "second_pass_status": "PASS",
   "database_modified": false
 }
