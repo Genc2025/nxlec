@@ -10,7 +10,13 @@ LEDGER=Path('RULE1_CLEANUP_2000_REVIEWED_ITEMS.json')
 OUT=Path('RULE1_CLEANUP_2000_NEXT_CANDIDATE.json')
 EXPECTED_CANONICAL='182a1e979e11d62bebc85c5ceb859056b8812963'
 EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
-SELECTOR_VERSION='2026-08-19bu'  # inert workflow refresh marker
+SELECTOR_VERSION='2026-08-20-status-compat'
+
+
+def is_final(item):
+    if not isinstance(item, dict):
+        return False
+    return item.get('status') == 'FINAL_QA_PASS' or item.get('audit_status') == 'FINAL_QA_PASS'
 
 
 def reviewed_uids():
@@ -19,14 +25,14 @@ def reviewed_uids():
         for p in REVIEW_DIR.glob('V2-Q*.json'):
             try:
                 d=json.loads(p.read_text(encoding='utf-8'))
-                if d.get('status')=='FINAL_QA_PASS' and d.get('question_uid'):
+                if is_final(d) and d.get('question_uid'):
                     out.add(d['question_uid'])
             except Exception:
                 pass
     if LEDGER.exists():
         d=json.loads(LEDGER.read_text(encoding='utf-8'))
         for uid,item in (d.get('items') or {}).items():
-            if isinstance(item,dict) and item.get('status')=='FINAL_QA_PASS':
+            if is_final(item):
                 out.add(uid)
     return out
 
@@ -68,6 +74,7 @@ def main():
       'reviewed_staging_uid_count':len(reviewed),
       'candidate_uid_count_from_scan':len(candidates),
       'selection_order':'stable_sort_key, question_uid',
+      'selector_version':SELECTOR_VERSION,
       'candidate':chosen,
       'warning':'Technical candidate selection only. This file is not clinical audit evidence and does not establish PASS or FAIL.'
     }
