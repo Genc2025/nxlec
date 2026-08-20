@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1430",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,23 @@
     "note": "The live DailyMed Wegovy label updated June 18, 2026 was directly rechecked August 20, 2026. The current label contains both injection and tablet formulations, and both support the adult obesity weight-management claim tested here."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "e380e7b7b45c5c92646660cb50ea4d0cb284d040",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The current 2026 label supports the adult-obesity indication across current Wegovy injection and tablet formulations, and the item contains no formulation-specific dosing, contraindication, or interchangeability claim that could create a second answer or scope conflict."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1430 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "current DailyMed Wegovy label independently rechecked and confirmed updated June 18, 2026 / Revised 6/2026",
+      "Section 1 independently rechecked for reduction of excess body weight and long-term maintenance in adults with obesity without a diabetes prerequisite",
+      "current label independently confirms both Wegovy injection and tablets carry the adult obesity weight-management indication used in this item",
+      "no dose, formulation-selection, cardiovascular-risk, MASH, contraindication, or semaglutide-product interchangeability claim is tested",
+      "official NCSBN 2026 Pharmacological and Parenteral Therapies page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A143/B160/C150/D148 and the key is shortest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob e380e7b7b45c5c92646660cb50ea4d0cb284d040 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
