@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1436",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "ABSOLUTE_CUE_REMOVAL_AND_GLUCAGON_GLYCOGEN_DEPLETION_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client with diabetes develops severe hypoglycemia after prolonged poor oral intake and receives glucagon for injection, but the blood glucose does not improve as expected. Which explanation is most appropriate?",
+    "options": {
+      "A": "Prolonged poor intake may have depleted hepatic glycogen, so glucagon may not raise glucose effectively and treatment with glucose may be needed.",
+      "B": "Glucagon lowers glucose by stimulating insulin release, so persistent hypoglycemia after the dose is an expected pharmacologic response.",
+      "C": "Glucagon supplies glucose directly into the circulation, so failure to respond indicates that the administered dose contained too little glucose.",
+      "D": "Glucagon becomes ineffective when a client has diabetes because hepatic glucose release is impaired by the diagnosis itself rather than by glycogen stores."
+    },
+    "correct_option": "A",
+    "rationale": "Current U.S. glucagon-for-injection labeling states that glucagon is effective for hypoglycemia only if sufficient hepatic glycogen is present. Patients in states of starvation may not have adequate hepatic glycogen for glucagon to be effective, and the label directs that such patients should be treated with glucose. Therefore A is correct. B reverses the therapeutic effect of glucagon. C incorrectly describes glucagon as exogenous glucose rather than a hormone whose effect depends on available hepatic glycogen. D incorrectly attributes treatment failure to diabetes itself; glucagon is specifically indicated for severe hypoglycemia in people with diabetes, while depleted glycogen stores are a recognized reason for poor response.",
+    "educational_objective": "Recognize that glucagon requires sufficient hepatic glycogen to raise blood glucose and may be ineffective after starvation or prolonged poor intake, requiring glucose treatment instead.",
+    "source_organization": "U.S. National Library of Medicine DailyMed / U.S. Food and Drug Administration labeling",
+    "source_document_title": "Glucagon for Injection Prescribing Information",
+    "source_version_date": "DailyMed page updated February 6, 2026; prescribing information revised February 2026; live label rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 5.4 Lack of Efficacy in Patients with Decreased Hepatic Glycogen: glucagon for injection is effective in treating hypoglycemia only if sufficient hepatic glycogen is present; patients in states of starvation, adrenal insufficiency, or chronic hypoglycemia may not have adequate hepatic glycogen; such patients should be treated with glucose. Section 1.1 confirms the indication for severe hypoglycemia in patients with diabetes.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=34c3c58a-3d17-4a12-b592-971bdd41aeca",
+    "source_claim_supported": "Glucagon's antihypoglycemic effect depends on sufficient hepatic glycogen; starvation can deplete glycogen and reduce efficacy, in which case glucose treatment is recommended.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p.12 (official PDF pageno 15): review pertinent data prior to medication administration; educate client about medications; evaluate client response to medication; handle and administer high-risk medications safely.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — glucagon treatment failure with depleted hepatic glycogen",
+    "correction_summary_append": "RULE1 cleanup retained the glucagon-treatment-failure construct, removed the original absolute-word distractor cue, and rebuilt A/B/C/D around the current 2026 label's direct warning that adequate hepatic glycogen is required for efficacy."
+  },
+  "scope_exclusions": {
+    "dose": "No glucagon dose, route selection, or redosing interval is tested.",
+    "other_causes": "Adrenal insufficiency and chronic hypoglycemia are recognized label examples but are not part of the stem; the item focuses on prolonged poor intake/starvation.",
+    "emergency_protocol": "The item does not specify a numeric glucose threshold or a detailed IV/oral glucose protocol.",
+    "mechanism_detail": "The key does not require receptor-level signaling or a detailed glycogenolysis pathway; it tests the clinically relevant dependence on hepatic glycogen.",
+    "diagnosis": "The item does not claim that all clients with poor intake have depleted glycogen; the lack of expected response plus prolonged poor intake supports the tested explanation.",
+    "diabetes": "Diabetes itself is not presented as a contraindication; the label specifically includes severe hypoglycemia in patients with diabetes as an indication."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘glucagon starvation hepatic glycogen severe hypoglycemia glucose’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It directly applies the labeled decreased-hepatic-glycogen warning to prolonged poor intake and treatment failure.",
+    "B": "Plausible to a learner who confuses glucagon with an insulin-stimulating drug, but it reverses glucagon's intended antihypoglycemic effect.",
+    "C": "Plausible because glucose administration directly raises blood glucose, but glucagon itself is not exogenous glucose.",
+    "D": "Plausible because diabetes alters glucose regulation, but diabetes is an indication for glucagon rather than the reason it fails in this scenario."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone explains the poor response using the specific clinical context and current label warning; B and C misstate pharmacology, and D conflicts with the labeled indication.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 143, "B": 133, "C": 137, "D": 148},
+    "note": "The key is not longest; all four options are mechanism-based explanations of comparable length and no only/always/never/every cue is used."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "Evaluating medication response and recognizing why a rescue medication may fail in a high-risk clinical situation are directly relevant to entry-level RN medication safety and clinical judgment.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 15 / printed p.12 was successfully retrieved August 20, 2026 and visibly shows the cited Pharmacological and Parenteral Therapies activity statements."
+  },
+  "source_verification": {
+    "result": "CURRENT_GLUCAGON_DAILYMED_LABEL_VERIFIED",
+    "note": "The live DailyMed glucagon label was rechecked August 20, 2026. It is revised February 2026 and directly states the hepatic-glycogen requirement, starvation risk, and glucose-treatment recommendation."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
