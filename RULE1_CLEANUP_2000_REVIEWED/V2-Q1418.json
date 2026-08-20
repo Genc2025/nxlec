@@ -1,0 +1,81 @@
+{
+  "question_uid": "V2-Q1418",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_BALANCE_AND_TRANSFUSION_SCOPE_PRECISION",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A hospitalized adult medical client is hemodynamically stable, has no active bleeding, no acute myocardial infarction or acute coronary syndrome, no known cardiovascular disease, and no symptoms attributable to anemia. The hemoglobin is 7.4 g/dL. Which interpretation best reflects current red-blood-cell transfusion guidance?",
+    "options": {
+      "A": "Recommend transfusion because a hemoglobin of 7.4 g/dL is below the laboratory reference range even without symptoms or active bleeding.",
+      "B": "Continue a restrictive strategy; the hemoglobin value alone does not mandate transfusion, and the decision should include the overall clinical context.",
+      "C": "Use a liberal strategy and transfuse to keep hemoglobin above 10 g/dL because hospitalization itself increases oxygen requirements.",
+      "D": "Defer any transfusion decision until hypotension develops because hemoglobin should not influence treatment in a hemodynamically stable client."
+    },
+    "correct_option": "B",
+    "rationale": "The 2023 AABB International Guidelines recommend a restrictive red-blood-cell transfusion strategy for hospitalized adults who are hemodynamically stable, considering transfusion when hemoglobin is less than 7 g/dL for most such adults. The guideline also emphasizes overall clinical context rather than a laboratory value alone. This client is stable, asymptomatic, not actively bleeding, has no known cardiovascular disease, and is explicitly outside the acute-MI/ACS population addressed by the newer 2025 AABB liberal-transfusion recommendation. Therefore a hemoglobin of 7.4 g/dL alone does not mandate transfusion, making B the best answer. A uses the normal reference range as a transfusion trigger. C invents a routine >10 g/dL target. D incorrectly discards hemoglobin from the decision until hypotension occurs.",
+    "educational_objective": "Apply a restrictive RBC-transfusion strategy in a hemodynamically stable hospitalized adult outside acute MI/ACS, using hemoglobin together with symptoms and clinical context rather than transfusing solely to normalize the laboratory value.",
+    "source_organization": "AABB (Association for the Advancement of Blood & Biotherapies)",
+    "source_document_title": "Red Blood Cell Transfusion: 2023 AABB International Guidelines",
+    "source_version_date": "Published October 12, 2023; AABB clinical-practice resource rechecked August 20, 2026; 2025 AABB AMI transfusion guideline separately rechecked for scope",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Recommendation 1 / JAMA abstract: for hospitalized adult patients who are hemodynamically stable, recommend a restrictive transfusion strategy considering transfusion when hemoglobin is <7 g/dL; clinicians may select 7.5 g/dL for cardiac surgery and 8 g/dL for orthopedic surgery or preexisting cardiovascular disease; conclusions emphasize overall clinical context and alternatives. AABB 2025 AMI guidance recommends a separate liberal strategy for hospitalized patients with acute myocardial infarction, so the stem explicitly excludes acute MI/ACS.",
+    "source_url": "https://jamanetwork.com/journals/jama/article-abstract/2810754",
+    "secondary_source_url": "https://www.aabb.org/news-resources/resources/clinical-practice-resources",
+    "currentness_source_url": "https://www.aabb.org/news-resources/news/article/2025/08/20/expert-panel-recommends-liberal-transfusion-strategy-for-hospitalized-patients-with-ami",
+    "source_claim_supported": "For most hemodynamically stable hospitalized adults outside special populations, AABB recommends a restrictive strategy and consideration of transfusion when hemoglobin is <7 g/dL, with decisions individualized to clinical context; acute MI has separate 2025 AABB guidance.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p. 13 (official PDF pageno 16): recognize trends and changes in client condition and intervene as needed; monitor results of diagnostic testing and intervene as needed; evaluate client responses to procedures and treatments.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — hemoglobin interpretation and restrictive RBC transfusion strategy",
+    "correction_summary_append": "RULE1 cleanup retained the restrictive-transfusion construct, balanced option length, and explicitly excluded acute MI/ACS to prevent conflict with AABB’s 2025 AMI-specific liberal-transfusion guidance."
+  },
+  "scope_exclusions": {
+    "acute_mi_acs": "Explicitly excluded because AABB issued separate 2025 guidance favoring a liberal transfusion strategy for hospitalized patients with acute myocardial infarction.",
+    "active_bleeding": "Explicitly excluded; the item does not apply the stable-patient threshold to active hemorrhage.",
+    "cardiac_or_orthopedic_surgery": "Not present in the stem; no 7.5 or 8 g/dL surgical threshold is tested.",
+    "preexisting_cardiovascular_disease": "Explicitly excluded because the 2023 guideline permits a higher restrictive threshold in that population.",
+    "symptoms": "The client has no symptoms attributable to anemia; the item does not claim hemoglobin alone should override symptoms or clinical context.",
+    "transfusion_target": "No normal-range hemoglobin target is endorsed."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘hemoglobin 7.4 restrictive transfusion stable adult no active bleeding’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because 7.4 g/dL is markedly below the normal reference range, but AABB does not use the normal range alone as the transfusion trigger in this stable population.",
+    "B": "Correct. It preserves the restrictive strategy and explicitly includes overall clinical context without converting 7 g/dL into an absolute automatic threshold.",
+    "C": "Plausible to learners familiar with historical liberal transfusion practice, but the guideline does not recommend routine transfusion to maintain >10 g/dL in this population.",
+    "D": "Plausible because hemodynamics matter, but hemoglobin remains an important decision variable and transfusion assessment is not deferred until hypotension appears."
+  },
+  "ambiguity_check": "No second defensible best answer. B matches the stable-adult AABB recommendation and preserves clinical-context individualization. A uses the reference range as the trigger, C invents a liberal target, and D incorrectly removes hemoglobin from decision-making.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 136, "B": 151, "C": 131, "D": 143},
+    "note": "The key is not uniquely long in a way that materially cues the answer; all alternatives are full clinical interpretations with comparable structure and detail."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN Reduction of Risk Potential explicitly includes monitoring diagnostic results, recognizing trends, and intervening based on client condition; hemoglobin/transfusion interpretation directly maps to these entry-level RN activities.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 16 was successfully retrieved August 20, 2026 and visibly shows printed p. 13 Reduction of Risk Potential with the cited activity statements."
+  },
+  "source_verification": {
+    "result": "AABB_2023_GUIDELINE_VERIFIED_WITH_2025_AMI_SCOPE_CROSSCHECK",
+    "note": "The 2023 AABB stable-adult recommendation was directly verified in the JAMA guideline abstract and AABB’s current clinical-practice resource. AABB’s 2025 AMI-specific update was separately verified and explicitly excluded from the stem."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
