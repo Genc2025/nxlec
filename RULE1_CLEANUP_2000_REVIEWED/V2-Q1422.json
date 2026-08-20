@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1422",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -74,9 +74,24 @@
     "note": "KQ6 was directly rechecked in the published guideline. The official EHS page still lists the 2022 update. A targeted August 20, 2026 currentness search also identified newer systematic-review evidence on binder outcomes but did not identify a replacement EHS/AHS abdominal-wall closure guideline; no exhaustive-currentness claim is made."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "2c78a7a584fb040c5aeb183d66e127d6c9c96824",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. No unsupported prevention claim appears in the key, the 2025 pain/mobility evidence is kept separate from dehiscence/incisional-hernia outcomes, the nursing assessment claim is grounded separately in the NCSBN blueprint, and no residual ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1422 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate data",
+      "EHS/AHS guideline KQ6 independently rechecked for lack of data on burst abdomen/incisional hernia and inability to recommend for or against binders for those outcomes",
+      "EHS/AHS guideline independently rechecked for limited postoperative-pain benefit evidence",
+      "2025 randomized-trial meta-analysis independently rechecked for postoperative pain and mobility benefit",
+      "2024 systematic review independently rechecked for no demonstrated reduction in abdominal dehiscence or incisional hernia",
+      "official EHS page independently confirms the 2022 updated guideline remains listed",
+      "official NCSBN 2026 Basic Care and Comfort page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for clinical plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A144/B136/C143/D132 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 2c78a7a584fb040c5aeb183d66e127d6c9c96824 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
