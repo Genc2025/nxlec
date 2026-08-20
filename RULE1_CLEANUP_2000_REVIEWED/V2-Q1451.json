@@ -1,0 +1,80 @@
+{
+  "question_uid": "V2-Q1451",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Health Promotion and Maintenance",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_TEACH_BACK_SHOW_ME_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A nurse teaches a client how to use a new home blood glucose meter. The client appears uncertain but says, ‘Yes, I understand.’ Which nursing action best evaluates whether the teaching was clear?",
+    "options": {
+      "A": "Ask the client to demonstrate the glucose check and explain the key steps in the client’s own words, then reteach any unclear points using plain language.",
+      "B": "Ask the client to review the printed meter instructions and point out any confusing steps, then document understanding after the questions are answered.",
+      "C": "Repeat the meter demonstration more slowly and ask whether each step now makes sense, then provide written instructions for the client to use at home.",
+      "D": "Ask the client several factual questions about the meter setup and testing sequence, then consider the teaching successful if the answers are correct."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ's Health Literacy Universal Precautions Toolkit, 3rd Edition, recommends teach-back to confirm that information was explained in a way the patient understands. Teach-back asks the patient to state in the patient's own words what needs to be known or done, and the related show-me method verifies that the patient can perform a specific task. AHRQ specifically cautions that yes/no questions such as ‘Do you understand?’ do not establish comprehension and recommends clarifying, reteaching with a different approach, and checking again when misunderstanding is found. Tool 4 also recommends plain, nonmedical language. Therefore A best evaluates both understanding and performance of the new glucose-meter task. B may identify questions but does not directly verify performance or understanding in the client's own words. C repeats teaching but again relies on the client's report that it makes sense. D tests recall of facts rather than confirming that the client can perform and explain the actual self-care task.",
+    "educational_objective": "Use teach-back and show-me methods to verify client understanding and performance of a new self-care skill, then reteach unclear points using plain language rather than relying on yes/no confirmation or passive review.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Health Literacy Universal Precautions Toolkit, 3rd Edition — Use the Teach-Back Method: Tool 5; Communicate Clearly: Tool 4",
+    "source_version_date": "AHRQ Publication No. 23-0075, March 2024; Tool 5 and Tool 4 content last reviewed April 2024; toolkit landing page last reviewed January 2025; live pages rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Tool 5 Overview and Action: teach-back checks understanding by asking patients to state in their own words what they need to know or do; show-me confirms ability to follow specific instructions; avoid yes/no questions such as ‘Do you understand?’; if misunderstanding is found, clarify/reteach and check again. Tool 4 Actions: use plain, nonmedical language and other clear-communication strategies.",
+    "source_url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool5.html",
+    "secondary_source_url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool4.html",
+    "source_claim_supported": "AHRQ recommends teach-back and show-me to confirm understanding and task performance, with reteaching when needed and plain language rather than relying on yes/no statements of understanding.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Health Promotion and Maintenance, printed p.9 (official PDF pageno 12): assess client readiness to learn, learning preferences and barriers to learning; provide care and education for adult clients; assess client ability to manage care in the home environment and plan care accordingly. Detailed Health Promotion/Disease Prevention, printed p.28 (official PDF pageno 31): assess readiness to learn/preferences/barriers; provide resources to minimize communication barriers; evaluate client understanding of health-promotion behaviors/activities.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Health Promotion and Maintenance — evaluating understanding of home self-care education using teach-back and show-me",
+    "correction_summary_append": "RULE1 cleanup retained the health-literacy/teach-back construct, removed the original ‘only’ distractor cue, rebuilt A/B/C/D to comparable length, and made the key explicitly combine show-me task performance, teach-back in the client’s own words, and reteaching with plain language."
+  },
+  "scope_exclusions": {
+    "meter_brand": "No specific glucose-meter brand, strip type, calibration process, or device-specific sequence is tested.",
+    "glucose_targets": "No blood-glucose target, testing frequency, or treatment threshold is tested.",
+    "health_literacy_label": "The item does not diagnose the client with limited health literacy; AHRQ universal precautions support using clear communication and teach-back broadly.",
+    "memory_test": "Teach-back is not framed as a memory test; the key asks the client to explain and demonstrate the task and allows reteaching as needed.",
+    "written_materials": "Written instructions may reinforce education but are not presented as a substitute for interactive verification of understanding and performance.",
+    "language_services": "Interpreter needs are not part of this stem; no language-access claim is tested."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘teach-back show-me glucose meter own words plain language’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It combines the AHRQ-supported show-me method, teach-back in the client's own words, and corrective reteaching with plain language.",
+    "B": "Plausible because written instructions and questions can support learning, but this approach does not directly verify the client's ability to perform the glucose check or explain it in the client's own words.",
+    "C": "Plausible because slower repetition and written support can help, but the evaluation still relies on the client's yes/no-style report rather than demonstration or teach-back.",
+    "D": "Plausible because factual questioning can assess some knowledge, but correct answers do not establish that the client can perform and explain the self-care task."
+  },
+  "ambiguity_check": "No second defensible best answer. A directly verifies both performance and understanding and includes appropriate reteaching. B, C, and D may contribute to education but do not provide the same direct confirmation of the client's ability to carry out and explain the task.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 154, "B": 152, "C": 150, "D": 150},
+    "note": "All four alternatives are parallel evaluation/teaching actions with comparable length; the key is only two characters longer than B and no only/all/always/never/every cue is used."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_TEXT_VERIFICATION_AND_SCREENSHOT_CACHE_MISS",
+    "entry_level_relevance": "NCSBN explicitly includes learning assessment, adult client education, home self-care ability, communication barriers, and evaluation of client understanding under Health Promotion and Maintenance, directly supporting this entry-level teaching-evaluation construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "CACHE MISS. Screenshot attempt for official 2026 NCLEX-RN Test Plan pageno 12 / printed p.9 returned CACHE MISS on August 20, 2026. The cited Health Promotion and Maintenance statements were verified from parsed official-PDF text. No visual verification is claimed for this item."
+  },
+  "source_verification": {
+    "result": "CURRENT_AHRQ_TOOLKIT_VERIFIED",
+    "note": "AHRQ Health Literacy Universal Precautions Toolkit, 3rd Edition pages were rechecked August 20, 2026. Tool 5 directly supports teach-back, show-me, avoidance of yes/no comprehension checks, and reteaching; Tool 4 directly supports plain language."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
