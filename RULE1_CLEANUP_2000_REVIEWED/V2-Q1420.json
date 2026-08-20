@@ -13,7 +13,7 @@
     "options": {
       "A": "Keep a same-size spare tracheostomy tube and suction at bedside, with the smaller backup tube stored on the unit’s emergency cart.",
       "B": "Keep same-size and one-size-larger spare tracheostomy tubes at bedside, with suction and oxygen equipment available on the unit.",
-      "C": "Keep same-size and smaller spare tubes and suction at bedside, with oxygenation and manual-ventilation equipment immediately available.",
+      "C": "Keep same-size and one-size-smaller spare tubes and suction at bedside, with oxygenation and ventilation equipment immediately available.",
       "D": "Keep suction and oxygen at bedside, but store replacement tracheostomy tubes outside the room for use by the airway-response team."
     },
     "correct_option": "C",
@@ -34,7 +34,7 @@
     "blueprint_locator": "Reduction of Risk Potential, printed p. 13 (official PDF pageno 16): reduce complications related to existing conditions, treatments, or procedures; recognize trends and changes in client condition and intervene as needed; evaluate client responses to procedures and treatments. Cross-link: Physiological Adaptation for emergency airway management.",
     "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
     "blueprint_topic": "Reduction of Risk Potential — tracheostomy emergency equipment and airway preparedness",
-    "correction_summary_append": "RULE1 cleanup retained the tracheostomy-readiness construct, removed absolute-word distractor cueing, balanced option length, and tightened the answer to the NTSP-supported bedside requirements and immediately available airway-rescue equipment."
+    "correction_summary_append": "RULE1 cleanup retained the tracheostomy-readiness construct, removed absolute-word distractor cueing, balanced option length, and after GitHub reread corrected the key from nonspecific ‘smaller’ to the NTSP-specified one-size-smaller backup tube."
   },
   "scope_exclusions": {
     "tube_brand": "No manufacturer-specific tracheostomy tube brand or model is tested.",
@@ -48,9 +48,9 @@
     "note": "Targeted GitHub search for ‘tracheostomy same size one size smaller suction oxygen manual ventilation bedside’ returned no indexed repository match. No broad bank scan was performed."
   },
   "option_audit": {
-    "A": "Plausible because it includes a same-size spare and suction, but the recommended smaller backup should also be at bedside rather than stored elsewhere.",
+    "A": "Plausible because it includes a same-size spare and suction, but the recommended one-size-smaller backup should also be at bedside rather than stored elsewhere.",
     "B": "Plausible because oxygen and suction are appropriate emergency resources, but NTSP specifies one same-size and one one-size-smaller backup tube, not a larger tube.",
-    "C": "Correct. It includes the two recommended backup tube sizes and suction at bedside and preserves immediate access to oxygenation/manual-ventilation equipment.",
+    "C": "Correct. It includes the two recommended backup tube sizes and suction at bedside and preserves immediate access to oxygenation/ventilation equipment.",
     "D": "Plausible because an airway-response team may assist in an emergency, but removing spare tracheostomy tubes from bedside delays immediate management of obstruction or decannulation."
   },
   "ambiguity_check": "No second defensible best answer. C is the only option containing both recommended spare-tube sizes and suction at bedside while also preserving immediate oxygenation/ventilation capability.",
@@ -58,8 +58,8 @@
     "result": "PASS",
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
-    "option_lengths_characters": {"A": 130, "B": 128, "C": 135, "D": 130},
-    "note": "The key is not uniquely verbose and no distractor relies on ‘only/always/never’ cueing."
+    "option_lengths_characters": {"A": 130, "B": 128, "C": 137, "D": 130},
+    "note": "The key is only modestly longer and not uniquely detailed; no distractor relies on ‘only/always/never’ cueing."
   },
   "blueprint_audit": {
     "result": "PASS_WITH_VISUAL_VERIFICATION",
@@ -72,7 +72,8 @@
     "note": "The current NTSP Basic Care and Emergency Care pages were rechecked August 20, 2026. The linked Adult Bedside Equipment PDF was text-read and visually screenshot-verified on both pages; p.2 visibly shows suction plus same-size and one-size-smaller spare tubes at bedside. The older PDF date is not misrepresented as a 2026 revision."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "FIRST_REREAD_FOUND_BACKUP_SIZE_PRECISION_ISSUE_CORRECTED",
+    "first_auditing_blob_sha": "d90229a78b3885e692a7f51d75abeb63be373e12"
   },
   "independent_second_pass": {
     "result": "PENDING"
