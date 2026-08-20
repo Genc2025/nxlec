@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1761",
   "stable_sort_key": "01-STANDALONE-01761",
-  "status": "AUDITING",
-  "audit_status": "AUDITING",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — client advocacy, second-opinion referral, and continuity of clinical information",
@@ -31,10 +31,10 @@
   "blueprint_locator": "Management of Care, PDF file page index 10 / printed page 7: advocate for client rights and needs; identify/collaborate with multidisciplinary team members; assess the need for referrals and obtain necessary orders. Appendix A detailed Management of Care, PDF file page index 23-25 / printed pages 20-22: Advocacy includes discussing identified treatment options and respecting client decisions; Continuity of Care includes use of medical record/referral forms to communicate client information; Referrals includes identifying which documents to include when referring a client, such as the medical record and referral form.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan PDF file page index 10 / printed page 7 was visually verified by screenshot on 2026-08-20 for Management of Care referral/advocacy activity statements. The detailed Referrals page, PDF file page index 25 / printed page 22, was also visually verified by screenshot on 2026-08-20 and visibly states to assess referral needs and identify which documents to include when referring a client, including the medical record/referral form. NCI clinical evidence is current HTML, so no NCI PDF screenshot was required.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'second opinion cancer treatment medical records pathology imaging' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "Rebuilt all four alternatives to remove the original uniquely-long correct answer and absolute-word distractor pattern. The first post-fetch adversarial reread then removed unnecessary pathology-specific wording from the correct option so that every listed record example mirrors the general NCI locator directly: test results, x-rays, and other medical records. The final distractors test delaying a second opinion until treatment response, withholding records to preserve independence, and restricting second opinions to diagnosis rather than treatment-plan review.",
+  "correction_summary": "Rebuilt all four alternatives to remove the original uniquely-long correct answer and absolute-word distractor pattern. The first post-fetch adversarial reread then removed unnecessary pathology-specific wording from the correct option so that every listed record example mirrors the general NCI locator directly: test results, x-rays, and other medical records. The corrected record was re-fetched and independently re-audited before finalization.",
   "option_audit": {
     "A": "Correct; directly reflects NCI guidance to support a pre-treatment second opinion and make relevant case materials/medical records such as test results and x-rays available for specialist review.",
-    "B": "Plausible timing misconception; incorrect because NCI explicitly describes obtaining another opinion before treatment begins.",
+    "B": "Plausible timing misconception; incorrect because NCI explicitly describes obtaining another opinion before treatment begins and the client has requested review before starting treatment.",
     "C": "Plausible independence misconception; incorrect because NCI states that the reviewing doctor needs the relevant medical records/materials rather than being intentionally deprived of them.",
     "D": "Plausible scope misconception; incorrect because NCI defines second opinion as review that may confirm or question both diagnosis and treatment plan and offer other treatment options."
   },
@@ -42,8 +42,8 @@
     "absolute_words": "No option relies on always/never/only/all/must-type distractor absolutes.",
     "answer_length": "Final option lengths are closely balanced (A 148, B 157, C 154, D 157 characters); the correct option is not uniquely identifiable by length.",
     "grammatical_lexical": "All four alternatives are parallel nursing explanations/actions addressing timing, information transfer, or scope of a second-opinion review.",
-    "second_answer_risk": "No defensible second answer identified after correction; fresh GitHub reread and independent second pass remain required before FINAL_QA_PASS."
+    "second_answer_risk": "No defensible second answer identified after correction and re-fetch. A uniquely supports the client's informed pre-treatment review with required information continuity; B, C, and D each conflict with current NCI guidance."
   },
-  "independent_second_pass": "PENDING — correction made after first post-fetch adversarial reread; must be re-fetched and independently re-audited before FINAL_QA_PASS.",
-  "second_pass_status": "PENDING"
+  "independent_second_pass": "Fresh independent adversarial second pass was performed after fetching the corrected AUDITING record. It rechecked the stem, all four alternatives, rationale and educational objective against current NCI Finding Cancer Care, the NCI Dictionary of Cancer Terms definition of second opinion, and the visually verified 2026 NCSBN Management of Care/Referrals pages. The pass specifically tested pre-treatment timing, scope of second-opinion review, availability of existing medical records, RN advocacy/referral and continuity role, distractor plausibility, answer-length and lexical cueing, second-answer risk, exact locator/currentness, and zero unsupported precision. No unresolved conflict remains.",
+  "second_pass_status": "PASS"
 }
