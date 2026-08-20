@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1415",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -28,7 +28,7 @@
     "secondary_source_url": "https://www.acc.org/Latest-in-Cardiology/ten-points-to-remember/2022/10/10/23/15/2022-ACC-Expert-Consensus-on-Chest-Pain",
     "tertiary_source_url": "https://www.acc.org/latest-in-cardiology/ten-points-to-remember/2022/07/14/18/12/high-sensitivity-ctn-and-2021-chest-pain",
     "currentness_source_url": "https://professional.heart.org/en/science-news/2025-guideline-for-the-management-of-patients-with-acute-coronary-syndromes",
-    "source_claim_supported": "A single non-elevated hs-cTn obtained during a very early presentation (<2 hours from symptom onset) cannot independently rule out MI; serial hs-cTn testing within a validated chest-pain clinical decision pathway, integrated with ECG and clinical assessment, is required for appropriate evaluation.",
+    "source_claim_supported": "A single non-elevated hs-cTn obtained during a very early presentation (<2 hours from symptom onset) cannot independently rule out MI; serial hs-cTn testing within a validated chest-pain clinical decision pathway, integrated with ECG and clinical assessment, is appropriate for ongoing evaluation.",
     "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
     "blueprint_document_title": "2026 NCLEX-RN Test Plan",
     "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
@@ -39,7 +39,7 @@
   },
   "scope_exclusions": {
     "assay_cutoff": "No assay-specific LoD, LoQ, 99th-percentile value, or delta threshold is tested; those values vary by hs-cTn assay and clinical pathway.",
-    "repeat_interval": "No specific 0/1-hour, 0/2-hour, or other repeat interval is prescribed in the answer; the item directs use of the facility's validated chest-pain pathway.",
+    "repeat_interval": "No specific 0/1-hour, 0/2-hour, or other repeat interval is prescribed in the answer; the item directs use of a validated chest-pain pathway.",
     "stemi": "The stem states that the ECG does not show ST-segment elevation so the item does not delay or condition a STEMI reperfusion pathway on troponin results.",
     "disposition": "The item does not authorize discharge, admission, stress testing, angiography, or another disposition decision based on the single biomarker result.",
     "diagnosis": "A non-elevated initial hs-cTn does not establish a noncardiac diagnosis, and an elevated value alone would indicate myocardial injury rather than independently establish type 1 MI."
@@ -72,8 +72,13 @@
     "result": "ACC_AHA_PRIMARY_GUIDANCE_VERIFIED_AND_CURRENTNESS_CROSSCHECKED",
     "note": "Official ACC/AHA chest-pain guidance and ACC expert consensus were directly text-verified for the exact hs-cTn claims. The 2025 ACC/AHA ACS guideline was independently rechecked as the current ACS guideline; no unsupported claim is made that it replaces the specific 2021/2022 diagnostic chest-pain pathway language used for this item."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "c3b131cdfb613b640e7f44a70011b69db9d30c39",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The reread confirmed that the <2-hour timing is directly supported by ACC very-early-presenter guidance; B remains the sole best answer without inventing an assay cutoff or repeat interval; and A, C, and D each reflect a plausible but incorrect interpretation. No unresolved source, currentness, blueprint, ambiguity, cueing, or second-answer conflict remained."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1415 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reasons, and stable sort key were reread from the real candidate data",
       "2021 AHA/ACC chest-pain guidance independently rechecked for serial cTn and hs-cTn preference",
@@ -85,7 +90,8 @@
       "no assay-specific cutoff, delta, repeat interval, or disposition rule was invented",
       "option lengths balanced at A140/B138/C123/D140",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to very-early hs-cTn interpretation and serial pathway-based evaluation"
+      "educational objective is specific to very-early hs-cTn interpretation and serial pathway-based evaluation",
+      "AUDITING payload was reread from GitHub blob c3b131cdfb613b640e7f44a70011b69db9d30c39 before FINAL_QA_PASS was assigned"
     ]
   }
 }
