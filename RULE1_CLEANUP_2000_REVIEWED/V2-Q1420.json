@@ -1,0 +1,80 @@
+{
+  "question_uid": "V2-Q1420",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_TRACHEOSTOMY_EMERGENCY_READINESS_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "At the start of a shift, a nurse checks emergency preparedness for an adult inpatient with a tracheostomy. Which setup best supports an immediate response to tracheostomy obstruction or accidental decannulation?",
+    "options": {
+      "A": "Keep a same-size spare tracheostomy tube and suction at bedside, with the smaller backup tube stored on the unit’s emergency cart.",
+      "B": "Keep same-size and one-size-larger spare tracheostomy tubes at bedside, with suction and oxygen equipment available on the unit.",
+      "C": "Keep same-size and smaller spare tubes and suction at bedside, with oxygenation and manual-ventilation equipment immediately available.",
+      "D": "Keep suction and oxygen at bedside, but store replacement tracheostomy tubes outside the room for use by the airway-response team."
+    },
+    "correct_option": "C",
+    "rationale": "The National Tracheostomy Safety Project states that emergency equipment must be immediately available for patients with a tracheostomy. Its adult bedside-equipment guidance specifies suction plus spare tracheostomy tubes at bedside, including one tube of the same size and one tube one size smaller. NTSP emergency guidance also identifies basic airway equipment for oxygenation and ventilation, including oxygen masks and self-inflating bags, as emergency equipment that must be available, and its emergency approach includes basic oxygenation and ventilation. Therefore C best supports immediate readiness. A places the smaller backup away from the bedside, B substitutes a larger tube for the recommended smaller backup, and D removes both spare tubes from the bedside.",
+    "educational_objective": "Maintain immediate adult tracheostomy emergency readiness with same-size and one-size-smaller spare tubes and functioning suction at bedside, plus immediately available equipment for oxygenation and manual ventilation.",
+    "source_organization": "National Tracheostomy Safety Project (NTSP)",
+    "source_document_title": "Basic Care (Adults) — Kit Checklist and Daily Checks; Adult Bedside Equipment; Emergency Care (Adults) — Essential Emergency Equipment",
+    "source_version_date": "Current NTSP website rechecked August 20, 2026; Adult Bedside Equipment PDF is an older NTSP manual document that remains directly linked from the current 2026 Basic Care page; current NTSP emergency-care/e-learning pages independently corroborate the equipment requirements",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Current Basic Care (Adults), ‘Maintaining a Safe Environment’: essential bedside/emergency equipment should be available before an emergency. Adult Bedside Equipment PDF p.2: bedside suction; spare tracheostomy tubes — one same size and one one-size smaller; check all equipment at beginning of every shift. PDF p.1 and NTSP Emergency Care essential-equipment page: basic airway equipment includes oxygen masks and self-inflating bags; essential emergency equipment should be available for tracheostomy patients. Emergency-care approach explicitly includes basic oxygenation and basic ventilation.",
+    "source_url": "https://tracheostomy.org.uk/healthcare-staff/basic-care/kit-checklist-and-daily-checks",
+    "secondary_source_url": "https://tracheostomy.org.uk/storage/files/Adult%20bedside%20equipment.pdf",
+    "tertiary_source_url": "https://tracheostomy.org.uk/e-learning-files/NTSP_01_002-Emergency_Care_lo_pack/d/ELFH_Session_4_11_0/782/tab_880.html",
+    "source_claim_supported": "For an adult inpatient with a tracheostomy, emergency readiness includes same-size and one-size-smaller spare tracheostomy tubes and suction at bedside, with airway equipment for immediate oxygenation/ventilation available before an emergency occurs.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p. 13 (official PDF pageno 16): reduce complications related to existing conditions, treatments, or procedures; recognize trends and changes in client condition and intervene as needed; evaluate client responses to procedures and treatments. Cross-link: Physiological Adaptation for emergency airway management.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — tracheostomy emergency equipment and airway preparedness",
+    "correction_summary_append": "RULE1 cleanup retained the tracheostomy-readiness construct, removed absolute-word distractor cueing, balanced option length, and tightened the answer to the NTSP-supported bedside requirements and immediately available airway-rescue equipment."
+  },
+  "scope_exclusions": {
+    "tube_brand": "No manufacturer-specific tracheostomy tube brand or model is tested.",
+    "tube_change_procedure": "The item tests preparedness, not the step-by-step technique for emergency tube change or stoma intubation.",
+    "upper_airway_patency": "The item does not assume whether the upper airway is patent; emergency oxygenation route depends on the client’s anatomy and problem.",
+    "advanced_airway": "The item does not require the bedside nurse to independently perform advanced airway procedures outside competence or local policy.",
+    "location_language": "Spare tubes and suction are explicitly bedside requirements; other airway equipment is described as immediately available rather than claiming every advanced item must physically sit at bedside."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘tracheostomy same size one size smaller suction oxygen manual ventilation bedside’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because it includes a same-size spare and suction, but the recommended smaller backup should also be at bedside rather than stored elsewhere.",
+    "B": "Plausible because oxygen and suction are appropriate emergency resources, but NTSP specifies one same-size and one one-size-smaller backup tube, not a larger tube.",
+    "C": "Correct. It includes the two recommended backup tube sizes and suction at bedside and preserves immediate access to oxygenation/manual-ventilation equipment.",
+    "D": "Plausible because an airway-response team may assist in an emergency, but removing spare tracheostomy tubes from bedside delays immediate management of obstruction or decannulation."
+  },
+  "ambiguity_check": "No second defensible best answer. C is the only option containing both recommended spare-tube sizes and suction at bedside while also preserving immediate oxygenation/ventilation capability.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 130, "B": 128, "C": 135, "D": 130},
+    "note": "The key is not uniquely verbose and no distractor relies on ‘only/always/never’ cueing."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "Checking emergency airway equipment at shift start is a direct RN complication-prevention task for a therapeutic airway device.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. The official 2026 NCLEX-RN Reduction of Risk Potential page was screenshot-verified earlier in this current RULE1 session."
+  },
+  "source_verification": {
+    "result": "NTSP_CURRENT_SITE_VERIFIED_WITH_PDF_VISUAL_VERIFICATION",
+    "note": "The current NTSP Basic Care and Emergency Care pages were rechecked August 20, 2026. The linked Adult Bedside Equipment PDF was text-read and visually screenshot-verified on both pages; p.2 visibly shows suction plus same-size and one-size-smaller spare tubes at bedside. The older PDF date is not misrepresented as a 2026 revision."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
