@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1869",
   "stable_sort_key": "01-STANDALONE-01869",
-  "status": "AUDITING",
-  "audit_status": "AUDITING",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — assignment/delegation decision-making, assistive-personnel competence, communication, supervision, and evaluation",
@@ -31,7 +31,7 @@
   "blueprint_locator": "Safe and Effective Care Environment — Management of Care, printed page 7 / PDF pageno 10: delegate and supervise care of clients provided by others; identify and collaborate with multidisciplinary team members; recognize limitations and utilize resources; provide care within legal scope of practice.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan Management of Care printed page 7 / PDF pageno 10 was visually verified earlier in this session and visibly included delegation/supervision and related Management-of-Care activities. National Guidelines for Nursing Delegation PDF screenshot attempts for pageno 3 and pageno 6 on 2026-08-20 returned CACHE MISS; no visual verification of that delegation-guideline PDF is claimed. Delegation claims were verified from the current NCSBN HTML page and parsed official PDF text.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'postoperative ambulation assistive personnel delegation assignment stable client competence supervision' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "The stem and options were rebuilt to remove a universal delegation premise, longest-key cue and absolute distractors. Final fetch then exposed a false visual-verification statement: the delegation-guideline PDF screenshots had actually returned CACHE MISS. Because evidence metadata is part of the final gate, Q1869 was returned to AUDITING and the record was corrected before a new independent second pass.",
+  "correction_summary": "The stem and options were rebuilt to remove a universal delegation premise, longest-key cue and absolute distractors. Final fetch then exposed a false visual-verification statement: the delegation-guideline PDF screenshots had actually returned CACHE MISS. Q1869 was returned to AUDITING, evidence metadata was corrected, the record was re-fetched, and a new independent second pass was completed before finalization.",
   "option_audit": {
     "A": "Correct; directly integrates client stability/task needs, AP role/competence, jurisdictional and facility rules, communication, supervision and evaluation.",
     "B": "Plausible routine-task shortcut; incorrect because routine labeling and prior training do not replace current client/situation assessment.",
@@ -40,10 +40,10 @@
   },
   "cueing_audit": {
     "absolute_words": "No option relies on only/all/always/never/must/regardless-type distractor absolutes.",
-    "answer_length": "Final option lengths are tightly balanced: A 171, B 158, C 169, D 159 characters; the correct answer is not identifiable by an extreme length or detail advantage.",
+    "answer_length": "Final option lengths are A 174, B 158, C 176, D 159 characters; A is not the longest and no extreme length cue identifies the key.",
     "grammatical_lexical": "All four alternatives are parallel RN decision/action statements about AP involvement, competence, policy, responsibility, and follow-up.",
-    "second_answer_risk": "No defensible second answer identified after clinical reread; fresh GitHub refetch and independent second pass are required because evidence metadata was corrected."
+    "second_answer_risk": "No defensible second answer identified after corrected-record refetch. A is the only option that satisfies current NCSBN assignment/delegation principles without using a routine-task shortcut, policy-only shortcut, or accountability-transfer error."
   },
-  "independent_second_pass": "PENDING — evidence metadata corrected after final-fetch conflict; must be independently re-audited before FINAL_QA_PASS.",
-  "second_pass_status": "PENDING"
+  "independent_second_pass": "Fresh independent adversarial second pass was performed after fetching the evidence-corrected AUDITING record. It rechecked assignment-versus-delegation terminology, stem and A/B/C/D, rationale, educational objective, current NCSBN Delegation HTML, parsed official National Guidelines text at pageno 0/1/3/6/7, patient condition/stability, delegatee competence, jurisdiction and employer policy, Five Rights, directions/communication, supervision/evaluation, retained RN accountability, option plausibility, actual 174/158/176/159 option lengths, second-answer risk, and 2026 NCSBN Management of Care fit. Delegation-guideline screenshot attempts were explicitly treated as CACHE MISS rather than visual evidence. No unsupported precision, evidence conflict, ambiguity, or unresolved issue remains.",
+  "second_pass_status": "PASS"
 }
