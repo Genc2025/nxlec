@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1435",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,23 @@
     "note": "The live DailyMed NovoLog label was rechecked August 20, 2026. Section 2.2 and the Highlights both retain the 5–10 minute premeal instruction for subcutaneous NovoLog."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "03559530f9783869187c8a61adbc823f039cc68f",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The item remains strictly subcutaneous-NovoLog-specific, preserves the 5–10 minute labeled interval, removes the original absolute-word cue, and contains no unresolved ambiguity or second-answer issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1435 stem, A/B/C/D, key, rationale, source metadata, candidate reason, and stable sort key were reread from technical candidate data",
+      "current NovoLog DailyMed page independently rechecked and remains live as of August 20, 2026",
+      "Section 2.2 independently rechecked for subcutaneous administration within 5 to 10 minutes before a meal",
+      "Highlights independently rechecked and repeat the same 5–10 minute premeal instruction",
+      "item scope independently checked to avoid generalizing timing to Fiasp, other insulin-aspart products, or all mealtime insulins",
+      "official NCSBN 2026 Pharmacological and Parenteral Therapies page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A145/B140/C141/D139",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 03559530f9783869187c8a61adbc823f039cc68f before FINAL_QA_PASS was assigned"
+    ]
   }
 }
