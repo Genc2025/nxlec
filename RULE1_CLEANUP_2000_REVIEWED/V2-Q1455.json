@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1455",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,22 @@
     "note": "The primary ADA 2026 Section 12 article was directly rechecked August 20, 2026. Recommendation 12.4 and the screening discussion directly support an initial dilated comprehensive eye examination at type 2 diabetes diagnosis and the clinical importance of screening despite absent visual symptoms."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "97b3743d2ac492b183dc4cf4efa16cc5259e7bff",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The key preserves the exact timing and method of initial retinopathy screening; B, C, and D remain plausible but incorrect without creating a second answer; no unresolved source, blueprint, cueing, scope, or ambiguity issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1455 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate blob",
+      "ADA 2026 Recommendation 12.4 independently rechecked for an initial dilated comprehensive eye examination at type 2 diabetes diagnosis",
+      "ADA 2026 retinopathy screening discussion independently rechecked that clinically important or vision-threatening retinopathy may be asymptomatic and may already be present at type 2 diabetes diagnosis",
+      "no A1C threshold, symptom requirement, annual-delay rule, or visual-acuity substitution was introduced",
+      "official NCSBN 2026 Health Promotion and Maintenance printed p.9 was text-verified and visually screenshot-verified for targeted vision screening and preventive-care education",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A159/B161/C149/D162 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 97b3743d2ac492b183dc4cf4efa16cc5259e7bff before FINAL_QA_PASS was assigned"
+    ]
   }
 }
