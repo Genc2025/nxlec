@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1499",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,9 +73,23 @@
     "note": "Fresh web verification on August 20, 2026 confirmed the live ACOG Committee Opinion No. 794 page with quantitative-versus-visual accuracy, cumulative-record, and ongoing-active-bleeding language; the live ACOG Postpartum Hemorrhage page remains reaffirmed 2024 and lists a July 2025 Clinical Practice Update; the current AIM Obstetric Hemorrhage bundle directly requires quantitative and cumulative blood-loss measurement and communication."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "bc554a00c6fef182e700a3a405d59b3650a8f5d3",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. Quantitative-versus-visual accuracy, cumulative tracking during active bleeding, integration with vital signs and clinical status, currentness, blueprint fit, cueing, and second-answer risk were all independently rechecked; no correction was required."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1499 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the refreshed technical selector payload",
+      "live ACOG Committee Opinion No. 794 independently rechecked for quantitative methods being more accurate than visual estimation, direct measurement plus cumulative postdelivery records, and ongoing assessment while active bleeding persists",
+      "current AIM Obstetric Hemorrhage bundle independently rechecked for measuring and communicating cumulative blood loss using quantitative approaches",
+      "live ACOG Postpartum Hemorrhage page independently rechecked for reaffirmation in 2024 and July 2025 Clinical Practice Update status",
+      "no single quantitative technique or numeric threshold was promoted as universally determinative",
+      "official NCSBN 2026 Reduction of Risk Potential activity statements were text-verified; required screenshot attempt returned CACHE MISS and no visual-verification claim was made",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A159/B164/C154/D157 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob bc554a00c6fef182e700a3a405d59b3650a8f5d3 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
