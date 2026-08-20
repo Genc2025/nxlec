@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1435",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "ABSOLUTE_CUE_REMOVAL_AND_NOVOLOG_PRODUCT_SPECIFIC_TIMING_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client is prescribed subcutaneous NovoLog (insulin aspart) with meals. Which statement by the client shows correct understanding of administration timing?",
+    "options": {
+      "A": "I should inject NovoLog within 5 to 10 minutes before starting the meal so the rapid-acting dose is coordinated with the food I am about to eat.",
+      "B": "I should inject NovoLog about 30 to 60 minutes before starting the meal, using the longer lead time associated with slower mealtime insulin.",
+      "C": "I should inject NovoLog after finishing the meal and wait about 30 minutes so I can confirm how much food I consumed before giving the dose.",
+      "D": "I should inject NovoLog at the same fixed clock time each day regardless of when the meal begins because its action is not linked to meal timing."
+    },
+    "correct_option": "A",
+    "rationale": "Current U.S. NovoLog prescribing information directs subcutaneous NovoLog to be injected within 5 to 10 minutes before a meal. Therefore A is correct. B uses a substantially longer premeal interval that is not the labeled timing for NovoLog. C delays the dose until after the meal rather than using the labeled premeal interval. D incorrectly treats NovoLog as a fixed-clock medication independent of meal timing. The item is deliberately product-specific and does not generalize NovoLog timing to every insulin-aspart formulation or every mealtime insulin.",
+    "educational_objective": "Teach clients using subcutaneous NovoLog to administer it within 5 to 10 minutes before a meal and to follow product-specific insulin instructions rather than generalizing timing across mealtime insulin products.",
+    "source_organization": "U.S. National Library of Medicine DailyMed / U.S. Food and Drug Administration labeling",
+    "source_document_title": "NOVOLOG (insulin aspart) Prescribing Information",
+    "source_version_date": "DailyMed page updated December 9, 2023; prescribing information revised December 2023; live label rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 2.2 Preparation and Administration Instructions for the Approved Routes of Administration — Subcutaneous Injection: inject NOVOLOG subcutaneously within 5 to 10 minutes before a meal. Highlights repeat the same 5–10 minute premeal timing.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e172b4f8-9b25-4019-8e09-afc10b2f30c9",
+    "source_claim_supported": "Subcutaneous NovoLog is labeled for injection within 5 to 10 minutes before a meal.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p.12 (official PDF pageno 15): prepare and administer medications using rights of medication administration; review pertinent data prior to medication administration; educate client about medications; evaluate client response to medication; handle and administer high-risk medications safely.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — product-specific rapid-acting insulin administration timing",
+    "correction_summary_append": "RULE1 cleanup retained the NovoLog meal-timing construct, removed the original ‘all’ distractor cue, rebuilt A/B/C/D to parallel statements, and narrowed the tested claim to the current NovoLog label without cross-product timing generalization."
+  },
+  "scope_exclusions": {
+    "dose": "No insulin dose, carbohydrate ratio, correction factor, or titration calculation is tested.",
+    "other_products": "The item does not claim that Fiasp, other insulin-aspart products, regular insulin, or other mealtime insulins share NovoLog's timing.",
+    "route": "The stem specifies subcutaneous NovoLog and does not test pump or intravenous administration.",
+    "missed_dose": "No missed-meal or missed-dose protocol is tested.",
+    "meal_consumption": "The item assumes a planned meal and does not address delayed intake, nausea, NPO status, or uncertain food availability.",
+    "hypoglycemia": "Hypoglycemia risk is clinically relevant to insulin but is not the primary construct tested here."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘NovoLog 5 to 10 minutes before meal insulin aspart timing’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It matches the labeled 5–10 minute premeal timing for subcutaneous NovoLog.",
+    "B": "Plausible because longer premeal lead times are familiar from other insulin teaching, but this is not the labeled NovoLog interval.",
+    "C": "Plausible because post-meal dosing can be considered with some products or situations, but it is not the labeled routine timing tested for NovoLog.",
+    "D": "Plausible to a learner who confuses mealtime insulin with scheduled basal therapy, but NovoLog dosing is coordinated with meals."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone matches the product-specific labeled timing. B, C, and D use timing patterns inconsistent with the NovoLog subcutaneous label.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 145, "B": 140, "C": 141, "D": 139},
+    "note": "All four options are parallel first-person timing statements with comparable length and no all/only/always/never/every cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "Safe medication administration and medication teaching are explicit 2026 NCLEX-RN activities, and insulin administration timing is a high-value entry-level medication-safety construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 15 / printed p.12 was successfully retrieved August 20, 2026 and visibly shows the cited Pharmacological and Parenteral Therapies activity statements."
+  },
+  "source_verification": {
+    "result": "CURRENT_NOVOLOG_DAILYMED_LABEL_VERIFIED",
+    "note": "The live DailyMed NovoLog label was rechecked August 20, 2026. Section 2.2 and the Highlights both retain the 5–10 minute premeal instruction for subcutaneous NovoLog."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
