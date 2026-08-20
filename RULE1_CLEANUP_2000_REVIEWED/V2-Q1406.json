@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1406",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -72,8 +72,13 @@
     "result": "NCBI_STATPEARLS_TEXT_VERIFIED",
     "note": "The NCBI Bookshelf StatPearls pages were directly text-verified. Right Heart Failure is the primary source for the key; Physiology, Edema, Cardiogenic Pulmonary Edema, and Ascites were used only to verify the distinct distractor mechanisms."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "e4de73a14f2384b0b4223a7c276a2bcaab0a8c28",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The reread confirmed that A uniquely explains the stipulated right-heart-failure systemic venous-congestion pattern, while B, C, and D are medically real but etiologically distinct fluid-accumulation mechanisms. No unresolved source, distractor, blueprint, ambiguity, cueing, or second-answer conflict remained."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1406 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the real candidate data",
       "NCBI Right Heart Failure independently rechecked for impaired right-ventricular pumping, systemic venous congestion, JVD, peripheral edema, and ascites",
@@ -83,7 +88,8 @@
       "no diagnostic threshold, treatment dose, hemodynamic number, or unsupported universal rule was introduced",
       "option lengths balanced at A135/B138/C150/D141",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to systemic venous congestion from right-sided heart failure"
+      "educational objective is specific to systemic venous congestion from right-sided heart failure",
+      "AUDITING payload was reread from GitHub blob e4de73a14f2384b0b4223a7c276a2bcaab0a8c28 before FINAL_QA_PASS was assigned"
     ]
   }
 }
