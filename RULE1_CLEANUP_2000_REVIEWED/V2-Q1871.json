@@ -1,33 +1,49 @@
 {
   "question_uid": "V2-Q1871",
   "stable_sort_key": "01-STANDALONE-01871",
-  "status": "BLOCKED",
-  "audit_status": "BLOCKED",
+  "status": "AUDITING",
+  "audit_status": "AUDITING",
   "category_id": 2,
   "client_need": "Management of Care",
-  "topic": "Occupational-therapy referral for self-care/ADL limitations after orthopedic surgery",
-  "blocked_at": "source_verification_currentness_exact_locator",
-  "blocked_reason": "Current primary-source verification could not be completed. Multiple attempts to retrieve the official AOTA pages on 2026-08-20 returned a public web-retrieval 503 Service Unavailable; an independent direct HTTPS attempt also failed DNS resolution. The selector's pre-existing AOTA metadata is not being treated as proof under RULE 1. Without a real current read of the primary source, the item cannot advance to claim-by-claim audit or FINAL_QA_PASS.",
-  "source_intended": {
-    "organization": "American Occupational Therapy Association (AOTA)",
-    "documents": [
-      "What is occupational therapy?",
-      "Occupations & everyday activities",
-      "Occupational Therapy and Musculoskeletal Conditions"
-    ],
-    "urls": [
-      "https://www.aota.org/about/what-is-ot",
-      "https://www.aota.org/practice/domain-and-process/occupations-everyday-activities",
-      "https://www.aota.org/practice/clinical-topics/musculoskeletal-conditions"
-    ]
+  "blueprint_topic": "Management of Care — occupational-therapy referral for self-care limitations, adaptive equipment, and daily function",
+  "difficulty": "medium",
+  "stem": "A client recovering from hip surgery can ambulate safely with a walker but cannot dress the lower body, manage toileting, or perform bathing tasks within the prescribed movement restrictions. Which referral should the nurse prioritize?",
+  "options": {
+    "A": "Occupational therapy, to assess self-care performance and teach adaptive techniques or equipment for dressing, toileting, and bathing.",
+    "B": "Physical therapy, to make gait and lower-extremity strengthening the primary intervention for the dressing, toileting, and bathing limitations.",
+    "C": "Social work, to arrange ongoing personal-care assistance for these daily tasks before rehabilitation focuses on adapting the client's self-care.",
+    "D": "Home-health nursing, to provide direct help with bathing and dressing as the primary strategy for the client's self-care limitations."
   },
-  "selector_candidate_stem_for_orientation_only": "A client recovering from hip surgery can ambulate with a walker but cannot safely dress the lower body, manage toileting, or perform bathing tasks within the prescribed movement restrictions. Which referral should the nurse prioritize?",
-  "selector_candidate_key_for_orientation_only": "A — Occupational therapy",
-  "clinical_audit_completed": false,
-  "claim_by_claim_completed": false,
-  "option_audit_completed": false,
-  "independent_second_pass": "NOT PERFORMED — primary-source gate is blocked.",
-  "second_pass_status": "BLOCKED",
-  "canonical_modified": false,
-  "note": "Do not convert this record to FINAL_QA_PASS from selector/cache metadata. Resume Q1871 first when current AOTA primary-source content is readable, then rebuild A/B/C/D, fetch the staged AUDITING record, perform adversarial reread and independent second-pass QA."
+  "correct_option": "A",
+  "rationale": "A is correct. Current AOTA guidance states that occupational therapy enables participation in daily living and specifically includes activities of daily living such as bathing and dressing, adaptive equipment that makes daily tasks easier, caregiver training, routines, and home safety/accessibility. The client's basic ambulation is already safe, while the unresolved limitations are self-care activities and adaptation within movement restrictions, making occupational-therapy evaluation the best referral. B is incorrect because gait and strengthening may be physical-therapy goals, but the priority problem described is self-care performance rather than basic ambulation. C is incorrect because social-work support may help with resources or services, but arranging ongoing assistance does not replace assessment of whether adaptive techniques/equipment can improve independence. D is incorrect because home-health nursing may support care after discharge, but direct assistance alone does not address the rehabilitation need to assess and improve self-care performance and adaptation.",
+  "educational_objective": "Prioritize occupational-therapy referral when an orthopedic client has self-care limitations in dressing, toileting, bathing, or adaptive-equipment use despite adequate basic ambulation.",
+  "source_organization": "American Occupational Therapy Association (AOTA); National Council of State Boards of Nursing (NCSBN)",
+  "source_document_title": "What is occupational therapy?; Occupations & everyday activities; 2026 NCLEX-RN Test Plan",
+  "source_version_date": "Current AOTA web content rechecked 2026-08-20; pages do not display a specific publication/review date; 2026 NCLEX-RN Test Plan effective April 2026",
+  "source_accessed_date": "2026-08-20",
+  "source_url": "https://www.aota.org/about/what-is-ot",
+  "supporting_source_url": "https://www.aota.org/practice/domain-and-process/occupations-everyday-activities ; https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+  "source_locator": "AOTA 'What is occupational therapy?' current page lines 301-324: OT enables participation in daily living; services include individualized evaluation/intervention for daily activities; recommendations include activities of daily living such as bathing and dressing, adaptive equipment, caregiver/family training, daily routines, falls prevention and home safety/accessibility. AOTA 'Occupations & everyday activities': occupational therapy practitioners help people perform everyday occupations and the OTPF-4 occupation categories include activities of daily living and instrumental activities of daily living. NCSBN 2026 NCLEX-RN Test Plan — Management of Care: identify/collaborate with multidisciplinary team members, assess need for referrals, and utilize resources to promote quality client care.",
+  "source_claim_supported": "Current official AOTA sources directly support OT evaluation/intervention for ADLs, including bathing and dressing, adaptive equipment and daily-function participation. NCSBN directly supports the nurse's role in recognizing referral needs and coordinating multidisciplinary resources.",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "Effective April 2026",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+  "blueprint_locator": "Safe and Effective Care Environment — Management of Care, printed page 7 / PDF pageno 10: identify/collaborate with multidisciplinary team members, assess the need for referrals, initiate/evaluate/update the plan of care, and utilize resources to promote quality client care.",
+  "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan Management of Care printed page 7 / PDF pageno 10 was visually verified earlier in this session. AOTA evidence used here is current HTML, so no AOTA PDF screenshot is required.",
+  "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'hip surgery dressing toileting bathing occupational therapy adaptive equipment walker referral' returned no indexed matching file; no near-duplicate identified by the targeted check.",
+  "correction_summary": "Q1871 was initially BLOCKED because current AOTA pages could not be retrieved. After fresh AOTA retrieval succeeded, the item was resumed as AUDITING. A/B/C/D were rebuilt to remove the original longest-key and absolute-word cues and to compare realistic referral alternatives while keeping OT uniquely best for self-care/adaptive-equipment deficits with basic ambulation already safe.",
+  "option_audit": {
+    "A": "Correct; directly matches AOTA-supported OT evaluation/intervention for ADLs and adaptive techniques/equipment.",
+    "B": "Plausible rehabilitation-role confusion; incorrect because the stem establishes safe basic ambulation and the priority deficit is self-care performance.",
+    "C": "Plausible support-resource response; incorrect because arranging assistance is not the first-line rehabilitative assessment of whether the client can regain safer independent self-care through adaptation.",
+    "D": "Plausible postdischarge-service response; incorrect because direct assistance does not replace OT assessment and training for the described ADL limitations."
+  },
+  "cueing_audit": {
+    "absolute_words": "No option relies on only/all/always/never/must-type distractor absolutes.",
+    "answer_length": "Final option lengths are tightly balanced: A 134, B 143, C 144, D 133 characters; the correct answer is not the longest.",
+    "grammatical_lexical": "All four alternatives name a plausible interdisciplinary service and state the proposed purpose of the referral.",
+    "second_answer_risk": "No defensible second answer identified in the pre-stage audit; B targets mobility/strength despite safe ambulation, while C and D provide support rather than the adaptive self-care rehabilitation directly supported by AOTA. Post-fetch adversarial reread remains required."
+  },
+  "independent_second_pass": "PENDING — must be performed after GitHub fetch/reread of this resumed AUDITING record.",
+  "second_pass_status": "PENDING"
 }
