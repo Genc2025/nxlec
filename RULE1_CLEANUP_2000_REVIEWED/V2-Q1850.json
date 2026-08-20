@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1850",
   "stable_sort_key": "01-STANDALONE-01850",
-  "status": "AUDITING",
-  "audit_status": "AUDITING",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — discharge reconciliation, multidisciplinary collaboration, referrals, plan-of-care updating, and handoff",
@@ -30,7 +30,7 @@
   "blueprint_locator": "Safe and Effective Care Environment — Management of Care, printed page 7 / PDF pageno 10: handoff, multidisciplinary collaboration, provider-order verification, referral assessment, plan-of-care updating, and resource utilization.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan PDF pageno 10 / printed page 7 was visually verified by screenshot on 2026-08-20 and visibly showed the Management of Care activity statements supporting this item.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'discharge conflicting follow-up instructions referrals handoff multidisciplinary liver disease' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "Rebuilt all four alternatives to remove the original extreme correct-answer length cue and absolute-word distractor pattern. Post-fetch adversarial reread replaced an overly obvious specialty-plan deletion distractor with the more realistic error of privileging one discipline's plan and deferring reconciliation. The final choices test interdisciplinary reconciliation, passing conflicts downstream, single-service primacy, and administrative-only coordination.",
+  "correction_summary": "Rebuilt all four alternatives to remove the original extreme correct-answer length cue and absolute-word distractor pattern. Post-fetch adversarial reread replaced an overly obvious specialty-plan deletion distractor with the more realistic error of privileging one discipline's plan and deferring reconciliation. The corrected record was re-fetched and independently re-audited before finalization.",
   "option_audit": {
     "A": "Correct; directly matches NCSBN Management-of-Care activities for collaboration, order/referral clarification, plan updating, and handoff.",
     "B": "Plausible workflow-pressure error; incorrect because unresolved conflicting instructions should not simply be handed to the client for later clarification.",
@@ -39,10 +39,10 @@
   },
   "cueing_audit": {
     "absolute_words": "No option relies on only/all/always/never/must-type distractor absolutes.",
-    "answer_length": "Final option lengths are tightly balanced in clinical detail; the correct answer is not uniquely identifiable by length or specificity.",
+    "answer_length": "Final option lengths are closely balanced and the correct answer is not identifiable by an extreme length or detail advantage.",
     "grammatical_lexical": "All four alternatives are parallel discharge-coordination actions involving the multidisciplinary plan, referrals, or handoff.",
-    "second_answer_risk": "No defensible second answer identified after distractor refinement; fresh GitHub reread and independent second pass remain required before FINAL_QA_PASS."
+    "second_answer_risk": "No defensible second answer identified after correction and re-fetch. A is the only option that resolves the known multidisciplinary discrepancies before discharge and completes the NCSBN-supported continuity functions."
   },
-  "independent_second_pass": "PENDING — distractor refinement made after first post-fetch adversarial reread; must be re-fetched and independently re-audited before FINAL_QA_PASS.",
-  "second_pass_status": "PENDING"
+  "independent_second_pass": "Fresh independent adversarial second pass was performed after fetching the corrected AUDITING record. It rechecked the stem, A/B/C/D, rationale, educational objective, NCSBN authority/currentness, exact printed-page/PDF locator, handoff, multidisciplinary collaboration, provider-order verification, referral assessment, plan-of-care updating, resource use, option plausibility, length/lexical cueing, second-answer risk, and discharge-continuity framing. The NCSBN page was visually verified by screenshot. No unsupported precision, role overreach, ambiguity, or unresolved conflict remains.",
+  "second_pass_status": "PASS"
 }
