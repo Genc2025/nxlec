@@ -14,10 +14,10 @@
       "A": "Match the referral to the client’s complications, comorbidities, treatment burden, and specific needs, using the appropriate specialist or team resource.",
       "B": "Use endocrinology as the default referral at diagnosis, then add other specialists later if a complication becomes the main issue requiring specialty care.",
       "C": "Base endocrinology referral mainly on the latest A1C result, using glycemic control rather than complication-specific needs to choose specialty care.",
-      "D": "Manage diabetes-related problems in primary care first and arrange specialty referral after routine measures fail, even when a specific complication needs expertise."
+      "D": "Keep specialty referrals focused on glycemic management, and manage diabetes-related complications through routine primary care unless glucose targets remain above goal."
     },
     "correct_option": "A",
-    "rationale": "The 2026 American Diabetes Association Standards of Care use individualized, team-based referral rather than one universal endocrinology pathway. Section 1 lists specialist referrals as appropriate and available for people with diabetes-related complications or comorbidities, with the specific professional chosen according to the clinical need. Section 4 directs referral to diabetes education and medical specialists as needed, states that additional referrals should be arranged as necessary, and emphasizes assessment of complications, comorbidities, overall health, treatment burden, and person-specific needs during care planning. Therefore A is correct. B makes endocrinology a default pathway that the standards do not require for every new diagnosis. C reduces referral selection to one glycemic marker even though diabetes care and referral planning extend beyond glycemia. D unnecessarily delays referral when a complication or comorbidity already creates a specialty need.",
+    "rationale": "The 2026 American Diabetes Association Standards of Care use individualized, team-based referral rather than one universal endocrinology pathway. Section 1 lists specialist referrals as appropriate and available for people with diabetes-related complications or comorbidities, with the specific professional chosen according to the clinical need. Section 4 directs referral to diabetes education and medical specialists as needed, states that additional referrals should be arranged as necessary, and emphasizes assessment of complications, comorbidities, overall health, treatment burden, and person-specific needs during care planning. Therefore A is correct. B makes endocrinology a default pathway that the standards do not require for every new diagnosis. C reduces referral selection to one glycemic marker even though diabetes care and referral planning extend beyond glycemia. D incorrectly centers specialty referral on glycemic management and delays complication-specific specialty involvement until glucose targets remain above goal, even though specialty referral may be appropriate because of the complication itself.",
     "educational_objective": "Coordinate diabetes specialty referrals according to the client’s actual complications, comorbidities, treatment burden, and individual needs, selecting the appropriate specialist or team resource rather than applying a universal endocrinology rule or single laboratory cutoff.",
     "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
     "source_document_title": "1. Improving Care and Promoting Health in Populations: Standards of Care in Diabetes—2026; 4. Comprehensive Medical Evaluation and Assessment of Comorbidities: Standards of Care in Diabetes—2026",
@@ -33,7 +33,7 @@
     "blueprint_locator": "Management of Care, printed p.7 (official PDF pageno 10): identify and collaborate with multidisciplinary team members; assess the need for referrals and obtain necessary orders; recognize limitations and utilize resources. Detailed Referrals content, printed p.22 (official PDF pageno 25): assess the need to refer clients for assistance with existing or potential problems; assess need for referrals and obtain necessary orders; identify community resources.",
     "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
     "blueprint_topic": "Management of Care — individualized specialty referral and interprofessional coordination",
-    "correction_summary_append": "RULE1 cleanup retained the individualized specialty-referral construct but replaced the old obvious universal-rule distractors with plausible competing referral strategies, while removing the uniquely-long correct-answer cue."
+    "correction_summary_append": "RULE1 cleanup retained the individualized specialty-referral construct, replaced the old absolute/universal-rule distractors, and after the first GitHub reread strengthened D so it is a realistic glycemia-centered referral misconception rather than an obviously self-defeating statement."
   },
   "scope_exclusions": {
     "universal_endocrinology": "The item does not claim endocrinology is unnecessary; it tests that endocrinology is one of several specialty resources selected according to clinical need rather than a mandatory default for every diagnosis.",
@@ -51,14 +51,14 @@
     "A": "Correct. It matches the ADA's need-based, team-oriented referral approach and integrates complications, comorbidities, treatment burden, and individual needs.",
     "B": "Plausible because endocrinology is an important diabetes specialty, but the standards do not make it the default referral for every newly diagnosed adult before a clinical need is identified.",
     "C": "Plausible because A1C is central to glycemic assessment, but referral planning also depends on complications, comorbidities, treatment burden, and other care needs.",
-    "D": "Plausible because primary care manages much diabetes care, but an identified complication or comorbidity may warrant timely specialty involvement rather than waiting for routine measures to fail."
+    "D": "Plausible because glycemic management is a major part of diabetes care and much care occurs in primary care, but complication-specific specialty referral can be appropriate independently of whether glucose remains above goal."
   },
-  "ambiguity_check": "No second defensible best answer. A alone reflects individualized referral selection. B overuses one specialty as a default, C reduces referral to one glycemic metric, and D delays specialty expertise despite an established need.",
+  "ambiguity_check": "No second defensible best answer. A alone reflects individualized referral selection. B overuses one specialty as a default, C reduces referral to one glycemic metric, and D incorrectly conditions complication-related specialty involvement on persistent glycemic failure.",
   "cueing_check": {
     "result": "PASS",
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
-    "option_lengths_characters": {"A": 153, "B": 155, "C": 149, "D": 165},
+    "option_lengths_characters": {"A": 153, "B": 155, "C": 149, "D": 169},
     "note": "The key is not longest. All four options are parallel referral strategies of comparable length and none relies on all/only/always/never/every cueing."
   },
   "blueprint_audit": {
@@ -72,7 +72,8 @@
     "note": "The primary ADA Standards of Care in Diabetes—2026 Sections 1 and 4 were rechecked August 20, 2026. Section 1 directly supports specialist referrals as appropriate for complications/comorbidities, and Section 4 supports individualized assessment plus referrals as needed/necessary rather than one universal endocrinology rule."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "FIRST_REREAD_FOUND_OVERLY_TRANSPARENT_DISTRACTOR_CORRECTED",
+    "first_auditing_blob_sha": "3d23cca2d0c6f51da01b55cf86e51626a9f60993"
   },
   "independent_second_pass": {
     "result": "PENDING"
