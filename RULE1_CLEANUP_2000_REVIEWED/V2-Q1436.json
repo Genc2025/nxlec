@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1436",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,23 @@
     "note": "The live DailyMed glucagon label was rechecked August 20, 2026. It is revised February 2026 and directly states the hepatic-glycogen requirement, starvation risk, and glucose-treatment recommendation."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "906fbe4d01991f4638a3e637e098da6f1371de40",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The key uses conditional language for glycogen depletion rather than treating poor intake as definitive proof, preserves the label's glucose-treatment recommendation, and contains no residual ambiguity, cueing, or second-answer issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1436 stem, A/B/C/D, key, rationale, source metadata, candidate reason, and stable sort key were reread from technical candidate data",
+      "current DailyMed glucagon label independently rechecked and confirmed updated February 6, 2026 / revised February 2026",
+      "Section 5.4 independently rechecked that efficacy requires sufficient hepatic glycogen",
+      "Section 5.4 independently rechecked that starvation can leave inadequate hepatic glycogen and such patients should be treated with glucose",
+      "Section 1.1 independently rechecked that severe hypoglycemia in patients with diabetes is an indication, excluding diabetes itself as the reason for failure",
+      "official NCSBN 2026 Pharmacological and Parenteral Therapies page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A143/B133/C137/D148 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 906fbe4d01991f4638a3e637e098da6f1371de40 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
