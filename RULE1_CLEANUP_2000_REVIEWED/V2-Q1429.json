@@ -1,0 +1,81 @@
+{
+  "question_uid": "V2-Q1429",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_CGM_BACKUP_MONITORING_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with type 1 diabetes is learning to use a personal continuous glucose monitor (CGM). Which statement by the client shows correct understanding?",
+    "options": {
+      "A": "My CGM shows sensor glucose values and trends, but I still need a blood glucose meter when sensor data seem inaccurate, unavailable, or do not fit how I feel.",
+      "B": "My CGM continuously measures my A1C, so I can use the sensor value instead of reviewing daily glucose patterns or periodic laboratory A1C results.",
+      "C": "My CGM measures glucose directly in arterial blood, so a difference between the sensor value and a blood glucose result means the sensor has failed.",
+      "D": "My CGM replaces blood glucose monitoring once the sensor is active, so I should use the sensor value even when my symptoms and the displayed glucose do not agree."
+    },
+    "correct_option": "A",
+    "rationale": "The American Diabetes Association 2026 Standards of Care state that people using CGM must also have access to blood glucose monitoring at all times. The ADA describes backup BGM situations that include suspected CGM inaccuracy, sensor warm-up or transmission interruption, calibration or warning situations when applicable, supply gaps, and rapidly changing glucose; the guideline also notes that CGM measures interstitial glucose and may lag behind plasma glucose when glucose is changing rapidly. FDA device information likewise describes current CGM sensors as monitoring glucose in interstitial fluid and displaying glucose values and trends. Therefore A is correct: CGM provides sensor glucose trends but does not eliminate the need to keep BGM available when sensor information is unavailable or clinically discordant. B confuses CGM glucose data with A1C. C incorrectly describes direct arterial-blood measurement and treats any difference as device failure. D incorrectly removes backup BGM precisely when symptoms and sensor data do not agree.",
+    "educational_objective": "Teach clients using personal CGM to interpret sensor glucose values and trends while retaining access to blood glucose monitoring for backup or confirmation when CGM data are unavailable, suspected to be inaccurate, or discordant with the clinical situation.",
+    "source_organization": "American Diabetes Association (ADA), corroborated by U.S. Food and Drug Administration (FDA)",
+    "source_document_title": "7. Diabetes Technology: Standards of Care in Diabetes—2026; FDA continuous glucose monitoring device information",
+    "source_version_date": "ADA Standards of Care in Diabetes—2026 published December 8, 2025 for the 2026 standard year and rechecked August 20, 2026; FDA CGM information rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "ADA 2026 Section 7, Recommendation 7.10: people using CGM must also have access to BGM at all times. Blood Glucose Monitoring discussion: backup BGM is needed in circumstances such as suspected CGM inaccuracy, warm-up, transmission disruption, calibration or warning situations when applicable, supply delays, or rapidly changing glucose. CGM discussion: CGM measures interstitial glucose, which correlates with plasma glucose but can lag during rapid glucose changes. FDA Simplera overview: the sensor monitors glucose in interstitial fluid and provides glucose values and trend information; product-specific situations can still require blood glucose testing.",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S150/163922/7-Diabetes-Technology-Standards-of-Care-in",
+    "secondary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690173/",
+    "fda_source_url": "https://www.fda.gov/medical-devices/recently-approved-devices/simplera-system-p160007s047",
+    "source_claim_supported": "Personal CGM provides interstitial/sensor glucose values and trends, but ADA requires CGM users to retain access to BGM and identifies backup/confirmation circumstances rather than treating CGM as eliminating BGM in all situations.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p.13 (official PDF pageno 16): recognize trends and changes in client condition and intervene as needed; monitor results of diagnostic testing and intervene as needed; evaluate client responses to procedures and treatments; educate client about treatments and procedures.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — safe interpretation of continuous glucose monitoring and backup blood glucose monitoring",
+    "correction_summary_append": "RULE1 cleanup retained the CGM-teaching construct, removed the absolute-word distractor pattern, balanced A/B/C/D length, and narrowed the key to the ADA-supported requirement for BGM access and backup use without falsely implying that every modern CGM requires finger-stick confirmation for every treatment decision."
+  },
+  "scope_exclusions": {
+    "routine_confirmation": "The item does not claim that all current CGM values must be confirmed by finger-stick before every insulin dose or treatment decision.",
+    "device_specific_rules": "Product-specific warm-up, calibration, interference, and treatment-decision rules remain governed by the specific device labeling.",
+    "a1c": "The item only distinguishes sensor glucose monitoring from A1C; it does not prescribe an A1C testing interval or target.",
+    "glucose_difference": "The item does not claim that every difference between CGM and BGM represents device failure; interstitial and blood glucose can differ, particularly when glucose is changing rapidly.",
+    "hospital_use": "The stem is personal outpatient-style CGM education and does not test inpatient CGM protocols or hospital point-of-care confirmation requirements.",
+    "fda_scope": "FDA device pages are used to corroborate interstitial-fluid sensing and trend information, not to generalize one product’s adjunctive or nonadjunctive labeling to all CGM systems."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘continuous glucose monitor CGM interstitial glucose trends blood glucose meter backup symptoms mismatch’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It accurately combines CGM trend information with continued BGM availability for suspected inaccuracy, unavailability, or clinical discordance.",
+    "B": "Plausible because CGM summarizes glucose patterns over time, but it measures sensor glucose rather than continuously measuring A1C.",
+    "C": "Plausible to a learner who assumes the sensor samples blood, but current CGM sensors measure glucose in interstitial fluid and a difference from BGM does not by itself prove device failure.",
+    "D": "Plausible because some current CGM products can support treatment decisions without routine finger-sticks, but ADA still requires access to BGM and discordant symptoms/readings are a reason for backup assessment rather than ignoring the mismatch."
+  },
+  "ambiguity_check": "No second defensible best answer. A preserves both the value of CGM and the ADA backup-BGM requirement. B misidentifies the measured variable, C misidentifies the sampling compartment and overcalls device failure, and D incorrectly eliminates BGM in a discordant clinical situation.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 158, "B": 146, "C": 148, "D": 162},
+    "note": "The key is not the longest option and no distractor relies on ‘always/never/only/every/all’ cueing. All four are parallel first-person teaching statements."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "The item requires the RN to teach safe interpretation of monitoring technology, recognize clinically discordant findings, and preserve backup testing access, consistent with Reduction of Risk Potential activities involving trends, diagnostic testing, treatment response, and client education.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 16 / printed p.13 was successfully retrieved August 20, 2026 and visibly shows the cited Reduction of Risk Potential activity statements."
+  },
+  "source_verification": {
+    "result": "ADA_2026_PRIMARY_GUIDELINE_VERIFIED_WITH_FDA_CORROBORATION",
+    "note": "The ADA 2026 Section 7 recommendation and CGM/BGM discussion were directly rechecked August 20, 2026 through the indexed version of the primary guideline. FDA current device information independently corroborates interstitial-fluid sensing and glucose-trend display. No universal claim is made from a single device classification."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
