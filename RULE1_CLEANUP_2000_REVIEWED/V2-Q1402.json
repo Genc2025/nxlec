@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q1402",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_CUEING_AND_HIPAA_ELECTRONIC_ACCESS_PRECISION_CORRECTION",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client asks a HIPAA-covered hospital for an electronic copy of protected health information (PHI) in a designated record set that the hospital maintains electronically. Which response by the nurse best reflects the client's HIPAA right of access?",
+    "options": {
+      "A": "Explain that the hospital may use its usual paper-copy process unless the client states a clinical reason for needing an electronic format.",
+      "B": "Explain that a requested electronic format should be used if readily producible; otherwise, use an agreed readable alternative electronic format.",
+      "C": "Explain that the hospital may choose any electronic format it routinely uses, even when the client's requested format is readily producible.",
+      "D": "Explain that electronic access applies only to the EHR portion of the record, not to other electronically maintained PHI in the designated record set."
+    },
+    "correct_option": "B",
+    "rationale": "Under 45 CFR §164.524, an individual generally has a right to access PHI about the individual in a designated record set. HHS states that when a covered entity maintains the requested PHI electronically, the individual generally has a right to an electronic copy. The covered entity must provide the requested electronic form and format when it is readily producible; if it is not readily producible in that requested form and format, the entity must provide a readable alternative electronic format agreed to by the individual and covered entity. Therefore B is the best response. A is incorrect because the individual does not have to state a purpose or clinical reason for access, and paper is not the default substitute when electronically maintained PHI can be provided in an acceptable electronic format. C is incorrect because a covered entity cannot simply prefer its routine format when the requested format is readily producible. D is incorrect because the HIPAA access right extends to PHI in designated record sets and is not limited only to the EHR portion of the record.",
+    "educational_objective": "Recognize that HIPAA generally gives individuals access to PHI in designated record sets and, for electronically maintained PHI, a right to a requested readily producible electronic format or an agreed readable alternative electronic format, subject to limited denial grounds.",
+    "source_organization": "U.S. Department of Health and Human Services, Office for Civil Rights (HHS OCR)",
+    "source_document_title": "Individuals’ Right under HIPAA to Access their Health Information — 45 CFR §164.524; FAQ 2054 — Under the HIPAA Privacy Rule, do individuals have the right to an electronic copy of their PHI?; Important Notice Regarding Individuals’ Right of Access to Health Records",
+    "source_version_date": "HHS FAQ 2054 content last reviewed May 30, 2025; live HHS right-of-access guidance and Ciox notice rechecked August 20, 2026; Ciox notice last reviewed January 28, 2020",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "HHS Right of Access > General Right: access to PHI in one or more designated record sets; Providing Access > Form and Format and Manner of Access: 45 CFR §164.524(c)(2)(ii), requested electronic form/format if readily producible, otherwise agreed readable alternative electronic format. FAQ 2054, lines 84-93 in current HHS page: electronically maintained PHI generally carries a right to an electronic copy, requested readily producible format, otherwise readable alternative electronic format; content last reviewed May 30, 2025. HHS Ciox Notice: the individual's right to access the individual's own records remains undisturbed and in effect.",
+    "source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html",
+    "secondary_source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/2054/under-the-hipaa-privacy-rule-do-individuals/index.html",
+    "tertiary_source_url": "https://www.hhs.gov/hipaa/court-order-right-of-access/index.html",
+    "source_claim_supported": "Individuals generally may access PHI in designated record sets; when requested PHI is maintained electronically, the individual generally has a right to an electronic copy in the requested electronic form and format if readily producible, or an agreed readable alternative electronic format if not, subject to limited grounds for denial.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, PDF p. 23 / printed p. 20: Client Rights; PDF p. 24 / printed p. 21: provide education about client rights and advocate for client rights and needs; PDF p. 25 / printed p. 22: Information Technology — apply knowledge of facility regulations when accessing client records; Legal Rights and Responsibilities — identify legal issues affecting the client and educate client/staff on legal issues.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — client rights, legal responsibilities, and access to electronically maintained health information",
+    "correction_summary_append": "RULE1 cleanup retained the HIPAA electronic-access construct but replaced cue-heavy absolute distractors with parallel, plausible misconceptions about paper-default workflow, facility-format preference, and EHR-only scope. The answer was tightened to the exact HHS readily-producible/alternative-electronic-format rule without adding timing, fee, or third-party-directive details."
+  },
+  "scope_exclusions": {
+    "third_party_directive": "The item concerns the individual's request for the individual's own copy, not a request to direct PHI to a third party. HHS states that Ciox did not disturb the individual's own-record access right.",
+    "timing": "No response deadline or extension period is tested.",
+    "fees": "No fee amount, cost formula, or fee limitation is tested.",
+    "denial_details": "The item acknowledges that limited denial grounds exist but does not require the candidate to identify or apply a specific denial ground.",
+    "technical_standard": "The item does not require a specific file type, API standard, portal, device, encryption method, or software purchase.",
+    "state_law": "No state-specific access right or more-stringent state requirement is tested."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub searches for 'HIPAA electronic copy designated record set readily producible' and 'electronic copy PHI requested format right of access' returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because paper release workflows are common, but HIPAA does not require the client to justify a clinical purpose and does not permit paper to replace an acceptable electronic copy merely because paper is the usual workflow.",
+    "B": "Correct. It tracks the HHS rule for electronically maintained PHI: requested electronic form/format when readily producible, otherwise an agreed readable alternative electronic format.",
+    "C": "Plausible because covered entities have technical limitations, but facility preference does not override a requested format that is readily producible.",
+    "D": "Plausible because EHRs are a common source of electronic records, but the access right applies to PHI in designated record sets and is not confined only to the EHR portion."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone states both branches of the controlling electronic-format rule. A adds an unsupported purpose requirement and paper default, C substitutes facility preference for readily-producible capability, and D improperly narrows designated-record-set access to the EHR portion.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 139,
+      "B": 145,
+      "C": 140,
+      "D": 150
+    },
+    "note": "All four options are parallel explanatory statements with comparable length. The key is neither uniquely longest nor isolated by conspicuous absolute wording."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN Management of Care explicitly includes Client Rights and legal/information-technology responsibilities around client records. Explaining a client's basic federal access right is appropriate entry-level RN advocacy and client-rights content.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshots were successfully retrieved August 20, 2026 for PDF p. 23 / printed p. 20 showing Client Rights and for PDF p. 25 / printed p. 22 showing Information Technology and Legal Rights and Responsibilities."
+  },
+  "source_verification": {
+    "result": "HHS_PRIMARY_HTML_TEXT_VERIFIED",
+    "note": "HHS Right of Access, FAQ 2054, and the official Ciox notice were directly text-verified. FAQ 2054 reports content last reviewed May 30, 2025. The live pages were rechecked on August 20, 2026, and the item is limited to the individual's own-record access right that HHS states remains undisturbed by Ciox."
+  },
+  "independent_second_pass": {
+    "result": "PASS_PENDING_GITHUB_REREAD",
+    "checks": [
+      "original Q1402 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reasons, and stable sort key were reread from the real candidate data",
+      "HHS current Right of Access guidance independently rechecked for designated-record-set access and electronic form/format requirements",
+      "HHS FAQ 2054 independently rechecked for electronic-copy right and May 30, 2025 content-review date",
+      "HHS Ciox notice independently rechecked and confirmed that the individual's right to access the individual's own records remains undisturbed",
+      "official NCSBN 2026 parsed text and screenshots independently verified Client Rights plus Information Technology/Legal Rights and Responsibilities",
+      "A/B/C/D independently re-audited for correctness, plausibility, ambiguity, overlap, cueing, and second-answer risk",
+      "no deadline, fee amount, third-party-directive rule, technical file type, or state-law detail was introduced",
+      "option lengths balanced at A139/B145/C140/D150",
+      "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
+      "educational objective is specific to electronic right of access and readily-producible format rules"
+    ]
+  }
+}
