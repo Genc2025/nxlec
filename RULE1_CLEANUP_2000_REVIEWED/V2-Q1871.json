@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1871",
   "stable_sort_key": "01-STANDALONE-01871",
-  "status": "AUDITING",
-  "audit_status": "AUDITING",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — occupational-therapy referral for self-care limitations, adaptive equipment, and daily function",
@@ -31,7 +31,7 @@
   "blueprint_locator": "Safe and Effective Care Environment — Management of Care, printed page 7 / PDF pageno 10: identify/collaborate with multidisciplinary team members, assess the need for referrals, initiate/evaluate/update the plan of care, and utilize resources to promote quality client care.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan Management of Care printed page 7 / PDF pageno 10 was visually verified earlier in this session. The AOTA 2025 OT Home Health Evaluation Checklist PDF was parsed successfully and used for claim-specific support, but screenshot attempts for PDF pageno 1 and pageno 2 both returned CACHE MISS on 2026-08-20; therefore no visual verification is claimed for the AOTA PDF.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'hip surgery dressing toileting bathing occupational therapy adaptive equipment walker referral' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "Q1871 was initially BLOCKED because current AOTA pages could not be retrieved. After fresh AOTA retrieval succeeded, the item was resumed as AUDITING. A/B/C/D were rebuilt to remove the original longest-key and absolute-word cues and to compare realistic referral alternatives while keeping OT uniquely best for self-care/adaptive-equipment deficits with basic ambulation already safe. A fresh official AOTA 2025 OT Home Health Evaluation Checklist read added direct claim-specific support for lower-body dressing, bathing, toilet transfer/toileting hygiene; screenshot attempts returned CACHE MISS and that limitation is explicitly recorded.",
+  "correction_summary": "Q1871 was initially BLOCKED because current AOTA pages could not be retrieved. After fresh AOTA retrieval succeeded, the item was resumed as AUDITING. A/B/C/D were rebuilt to remove the original longest-key and absolute-word cues and to compare realistic referral alternatives while keeping OT uniquely best for self-care/adaptive-equipment deficits with basic ambulation already safe. A fresh official AOTA 2025 OT Home Health Evaluation Checklist read added direct claim-specific support for lower-body dressing, bathing, toilet transfer/toileting hygiene; screenshot attempts returned CACHE MISS and that limitation is explicitly recorded. Post-fetch adversarial reread found no unresolved source, clinical, ambiguity, cueing, or second-answer conflict.",
   "option_audit": {
     "A": "Correct; directly matches AOTA-supported OT evaluation/intervention for ADLs and adaptive techniques/equipment, with the 2025 AOTA checklist explicitly covering lower-body dressing, bathing, toilet transfer and toileting hygiene.",
     "B": "Plausible rehabilitation-role confusion; incorrect because the stem establishes safe basic ambulation and the priority deficit is self-care performance. The AOTA checklist also separates ambulation/mobility items from self-care items.",
@@ -42,8 +42,8 @@
     "absolute_words": "No option relies on only/all/always/never/must-type distractor absolutes.",
     "answer_length": "Final option lengths are tightly balanced: A 134, B 143, C 144, D 133 characters; the correct answer is not the longest.",
     "grammatical_lexical": "All four alternatives name a plausible interdisciplinary service and state the proposed purpose of the referral.",
-    "second_answer_risk": "No defensible second answer identified in the pre-stage audit: the stem intentionally establishes safe basic ambulation while isolating unresolved dressing/toileting/bathing adaptation needs, making OT the unique best referral; B targets mobility/strength, while C and D provide assistance/support rather than adaptive self-care rehabilitation. Post-fetch adversarial reread remains required."
+    "second_answer_risk": "Independent adversarial reread found no defensible second answer: the stem intentionally establishes safe basic ambulation while isolating unresolved dressing/toileting/bathing adaptation needs, making OT the unique best referral; B targets mobility/strength, while C and D provide assistance/support rather than adaptive self-care rehabilitation."
   },
-  "independent_second_pass": "PENDING — must be performed after GitHub fetch/reread of this updated AUDITING record.",
-  "second_pass_status": "PENDING"
+  "independent_second_pass": "PASS — independent post-fetch reread rechecked the stem, all A/B/C/D alternatives, correct key, rationale, objective, AOTA claim support, source/currentness metadata, blueprint fit, cueing, role overlap, and second-answer risk. The movement restriction is scenario-specific and does not assert a universal hip-precaution rule. AOTA PDF screenshot limitation remains honestly recorded as CACHE MISS. No unresolved conflict identified.",
+  "second_pass_status": "PASS"
 }
