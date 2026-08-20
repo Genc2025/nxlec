@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1497",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -74,10 +74,23 @@
     "note": "Fresh search on August 20, 2026 rechecked the live ACOG Committee Opinion No. 590 page, which directly states designated roles and standardized communication for rapid-response emergencies. The page did not present a withdrawn/superseded banner in the retrieved content. Current ACOG ECO training and the current AIM Obstetric Hemorrhage bundle independently preserve teamwork, communication, designated rapid-response roles, and standardized emergency planning, reducing reliance on the older publication date alone."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_LEXICAL_ECHO_CUE_CORRECTED",
-    "first_auditing_blob_sha": "dce9d19271a87e20e245446ef39d6d7d895c77fb"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "dce9d19271a87e20e245446ef39d6d7d895c77fb",
+    "corrected_auditing_blob_sha": "ae8c49fe2b572b7181c38c56c31a3f63c2bca212",
+    "note": "The first GitHub reread found a lexical cue because the key repeated the stem word ‘coordinated.’ A was rewritten while the item remained AUDITING, the corrected payload was fetched back from GitHub, and the second reread found no unresolved source, currentness, blueprint, scope, cueing, ambiguity, or second-answer issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1497 stem, A/B/C/D, key, rationale, source metadata, candidate reason, and stable sort key were reread from the technical selector payload",
+      "live ACOG Committee Opinion No. 590 independently rechecked for designated emergency-team roles, early briefs, standardized SBAR/closed-loop communication, and the conclusion supporting designated roles plus streamlined communication",
+      "current ACOG ECO page independently rechecked for teamwork, communication, and performance of key responsibilities during simulated obstetric emergencies",
+      "current AIM Obstetric Hemorrhage bundle independently rechecked for a designated rapid-response team and standardized emergency management planning",
+      "official NCSBN 2026 Management of Care printed p.7 was text-verified and screenshot-verified; detailed team-role content on printed p.21 was text-verified after screenshot CACHE MISS and no visual claim was made for that page",
+      "A/B/C/D independently re-audited after lexical-cue correction for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A146/B149/C147/D148 and the key is shortest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob ae8c49fe2b572b7181c38c56c31a3f63c2bca212 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
