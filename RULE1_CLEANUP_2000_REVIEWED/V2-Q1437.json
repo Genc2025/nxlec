@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1437",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "ABSOLUTE_CUE_REMOVAL_AND_METFORMIN_ER_ADMINISTRATION_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client is starting metformin hydrochloride extended-release tablets for type 2 diabetes. Which teaching should the nurse include?",
+    "options": {
+      "A": "Take the tablet with the evening meal, swallow it whole, and follow gradual dose increases made according to glycemic control and tolerability.",
+      "B": "Take the tablet with the evening meal, split it if swallowing is difficult, and increase the dose the next day if glucose remains above the target range.",
+      "C": "Take the tablet whole before breakfast on an empty stomach, and expect dose increases every day or two until the glucose goal is reached.",
+      "D": "Take the tablet with the evening meal, chew it thoroughly for better absorption, and keep the starting dose unchanged despite later prescriber adjustments."
+    },
+    "correct_option": "A",
+    "rationale": "Current U.S. metformin extended-release labeling directs patients to swallow the extended-release tablets whole and not crush, cut, or chew them. The labeled starting regimen is once daily with the evening meal, and dose increases are made in 500-mg weekly increments based on glycemic control and tolerability. Therefore A is correct. B includes the correct meal timing but incorrectly permits splitting and next-day self-escalation. C uses the wrong meal timing and an excessively rapid titration schedule. D includes the evening meal but incorrectly advises chewing the extended-release tablet and disregarding later prescribed dose adjustments.",
+    "educational_objective": "Teach clients starting metformin extended-release to take the medication with the evening meal, swallow the tablet whole, and follow gradual prescribed titration based on glycemic response and tolerability.",
+    "source_organization": "U.S. National Library of Medicine DailyMed / U.S. Food and Drug Administration labeling",
+    "source_document_title": "Metformin Hydrochloride Extended-Release Tablets Prescribing Information",
+    "source_version_date": "DailyMed page updated June 10, 2026; prescribing information revised June 2026; live label rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 2.1 Adult Dosage and Administration / Highlights: swallow metformin hydrochloride extended-release tablets whole and never crush, cut, or chew; starting dose 500 mg once daily with the evening meal; increase the dose in increments of 500 mg weekly based on glycemic control and tolerability, up to the labeled maximum.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a84c550-aed8-4058-961f-351a5e4cf7a1",
+    "source_claim_supported": "Metformin extended-release is swallowed whole, taken with the evening meal, and titrated gradually in 500-mg weekly increments based on glycemic control and tolerability.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p.12 (official PDF pageno 15): prepare and administer medications using rights of medication administration; review pertinent data prior to medication administration; educate client about medications; evaluate client response to medication.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — metformin extended-release administration and titration teaching",
+    "correction_summary_append": "RULE1 cleanup retained the metformin-ER teaching construct, removed the original absolute-word distractor cue, balanced option length, and anchored the key to the June 2026 label's evening-meal, whole-tablet, and weekly-titration instructions."
+  },
+  "scope_exclusions": {
+    "renal_function": "The item does not test eGFR thresholds, renal contraindications, or initiation restrictions.",
+    "lactic_acidosis": "The current boxed warning and April 2026 label change are acknowledged by currentness review but are not part of this administration-teaching construct.",
+    "contrast": "Iodinated-contrast interruption rules are not tested.",
+    "maximum_dose": "No maximum daily dose is required to answer the item.",
+    "self_titration": "The key describes prescribed gradual titration; it does not authorize the client to change the dose independently.",
+    "immediate_release": "The item is specific to the extended-release formulation and does not generalize the administration schedule to immediate-release metformin."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘metformin extended release evening meal swallow whole 500 mg weekly’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It accurately combines the three labeled teaching points while preserving clinician-directed titration.",
+    "B": "Plausible because the evening-meal timing is correct, but extended-release tablets should not be split and dose escalation is not a next-day client decision.",
+    "C": "Plausible because some medications are taken fasting and diabetes therapy is titrated, but both the meal timing and titration interval are incorrect.",
+    "D": "Plausible because the evening meal is correct, but chewing is incompatible with the extended-release instructions and later prescribed adjustments should be followed."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone has correct meal timing, formulation handling, and gradual titration. Each distractor contains a material administration or titration error.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 139, "B": 151, "C": 133, "D": 146},
+    "note": "The key is not longest; all four are parallel multi-part teaching statements and no only/always/never/every cue is used."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "Medication administration and client medication education are explicit 2026 NCLEX-RN activities, and recognizing formulation-specific administration is a core entry-level medication-safety task.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 15 / printed p.12 was successfully retrieved August 20, 2026 and visibly shows the cited Pharmacological and Parenteral Therapies activity statements."
+  },
+  "source_verification": {
+    "result": "CURRENT_METFORMIN_ER_DAILYMED_LABEL_VERIFIED",
+    "note": "The live DailyMed label was rechecked August 20, 2026. It was updated June 10, 2026 / revised June 2026 and directly supports whole-tablet administration, the evening meal, and 500-mg weekly titration."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
