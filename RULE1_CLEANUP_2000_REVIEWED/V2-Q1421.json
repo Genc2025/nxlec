@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1421",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,10 +71,25 @@
     "note": "The live CDC Summary of Recommendations and Prevention Strategies pages were rechecked August 20, 2026. The file accurately distinguishes the older underlying guideline date from the current CDC webpage publication/update date and does not claim a 2026 guideline revision."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_ABSOLUTE_WORD_CUE_CORRECTED",
-    "first_auditing_blob_sha": "87b0415bc29da8c271f398f91bd8d7f0306f82df"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "87b0415bc29da8c271f398f91bd8d7f0306f82df",
+    "corrected_auditing_blob_sha": "c7d34efdd7882a9a4b2e9e4cfe2a765c30037663",
+    "note": "The first staged reread identified the residual absolute word ‘every’ in distractor C, contradicting the cueing audit. C was corrected while still AUDITING, the revised payload was fetched back from GitHub, and no unresolved source, blueprint, currentness, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1421 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "CDC hand-hygiene and aseptic-technique recommendations independently rechecked",
+      "CDC recommendation allowing either clean or sterile gloves for intravascular-catheter dressing changes independently rechecked",
+      "CDC CVC dressing-change skin antisepsis recommendation independently rechecked, including chlorhexidine alternatives when contraindicated",
+      "CDC sterile catheter-site dressing recommendation independently rechecked",
+      "CDC maximal sterile-barrier recommendation independently confirmed as an insertion/guidewire-exchange requirement rather than a routine-dressing requirement",
+      "official 2026 NCSBN Safety and Infection Prevention and Control page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A144/B146/C145/D149 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob c7d34efdd7882a9a4b2e9e4cfe2a765c30037663 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
