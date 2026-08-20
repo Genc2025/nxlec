@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1437",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,23 @@
     "note": "The live DailyMed label was rechecked August 20, 2026. It was updated June 10, 2026 / revised June 2026 and directly supports whole-tablet administration, the evening meal, and 500-mg weekly titration."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "5c81f5fa4f3b511b95dca0faa82c123e471e4177",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The key remains clinician-directed rather than self-titrated, preserves the extended-release formulation requirements, and contains no residual length, ambiguity, cueing, or second-answer issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1437 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "current DailyMed page independently rechecked and confirmed updated June 10, 2026 / revised June 2026",
+      "Section 2.1 independently rechecked for whole-tablet administration without crushing, cutting, or chewing",
+      "Section 2.1 independently rechecked for the evening-meal starting regimen",
+      "Section 2.1 independently rechecked for 500-mg weekly increments based on glycemic control and tolerability",
+      "official NCSBN 2026 Pharmacological and Parenteral Therapies page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A139/B151/C133/D146 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 5c81f5fa4f3b511b95dca0faa82c123e471e4177 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
