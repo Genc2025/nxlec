@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1449",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,22 @@
     "note": "The primary ADA Standards of Care in Diabetes—2026 Section 5 was rechecked August 20, 2026. Recommendation 5.2 and its supporting text directly support DSMES reassessment during transitions in life and care and describe DSMES as ongoing rather than one-time education."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "fc53d502c2f3c689dd0a78f0aab7e21e6c1f2718",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The transition-of-care trigger, ongoing DSMES concept, discharge/referral blueprint mapping, option balance, and absence of a required glycemic-failure trigger remained internally consistent; no correction was required."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1449 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate blob",
+      "ADA 2026 Recommendation 5.2 independently rechecked for DSMES at transitions in life and care",
+      "supporting text independently rechecked that DSMES is ongoing rather than a one-time occurrence and that critical-time needs should be evaluated with referrals as needed",
+      "the stem's hospital discharge with a new insulin regimen was independently re-audited as a care transition without adding a dose or product-specific insulin claim",
+      "official NCSBN 2026 Management of Care printed p.7 and detailed Referrals printed p.22 were text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A151/B156/C149/D154 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob fc53d502c2f3c689dd0a78f0aab7e21e6c1f2718 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
