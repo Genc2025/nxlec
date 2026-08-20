@@ -1,0 +1,81 @@
+{
+  "question_uid": "V2-Q1453",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_CGM_FINANCIAL_ACCESS_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client using continuous glucose monitoring says, ‘My insurance changed and I may not be able to afford the sensors next month.’ Which nursing action best supports equitable diabetes care?",
+    "options": {
+      "A": "Assess the coverage barrier now, involve the diabetes team and insurance or social-service resources, and work to preserve sensor access before supplies run out.",
+      "B": "Change the plan to blood glucose testing now and stop pursuing CGM coverage, because an insurance change makes continued sensor access a personal financial decision.",
+      "C": "Continue the current plan without addressing coverage until the remaining sensors are used, then contact the care team if the client cannot obtain the next supply.",
+      "D": "Recommend paying out of pocket for the next sensor supply first, then review coverage options later if the expense becomes difficult for the client to sustain."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 American Diabetes Association Standards of Care direct clinicians to assess social determinants that affect diabetes management, including financial barriers, health insurance, and health care access, and to connect people with appropriate community resources. ADA diabetes-technology guidance also recommends continued access to CGM across third-party payors and emphasizes uninterrupted access to supplies because treatment gaps can undermine effective use. ADA pharmacologic-care discussion further emphasizes screening for cost-related barriers and engaging interprofessional team members to identify cost-saving opportunities for diabetes treatment and durable medical equipment. Therefore A best addresses the barrier proactively before sensor access is interrupted. B may describe a possible backup monitoring method if CGM becomes unavailable, but it abandons efforts to preserve clinically effective technology access and treats the barrier as solely the client's responsibility. C waits until the interruption is imminent or has occurred rather than addressing a known barrier early. D may create additional financial burden and delays coordinated coverage/resource review.",
+    "educational_objective": "Identify financial and insurance barriers to diabetes technology early and coordinate insurance, diabetes-team, social-service, and other appropriate resources to reduce avoidable interruption of effective therapy.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "1. Improving Care and Promoting Health in Populations: Standards of Care in Diabetes—2026; 7. Diabetes Technology: Standards of Care in Diabetes—2026; 9. Pharmacologic Approaches to Glycemic Treatment: Standards of Care in Diabetes—2026",
+    "source_version_date": "Diabetes Care 2026;49(Supplement 1); published December 8, 2025; primary articles rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 1 Recommendation 1.7 and social/structural-barrier discussion: assess financial barriers, health insurance, and health care access to inform treatment decisions and refer to appropriate community resources; team-based support can include care coordination, social services, insurance specialists, and community resources. Section 7 Recommendation 7.5: people using CGM/CSII/AID should have continued access across third-party payors; Recommendation 7.16 and accompanying text emphasize consistent/uninterrupted access to CGM supplies and describe adverse effects of access interruption. Section 9 Financial Considerations discussion: screen for financial concerns and cost-related barriers and engage appropriate team members to identify cost-saving opportunities for diabetes medications and durable medical equipment.",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S13/163920/1-Improving-Care-and-Promoting-Health-in",
+    "technology_source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S150/163922/7-Diabetes-Technology-Standards-of-Care-in",
+    "financial_source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S183/163934/9-Pharmacologic-Approaches-to-Glycemic-Treatment",
+    "source_claim_supported": "Current ADA standards support assessing financial/insurance barriers, coordinating appropriate resources, and preserving continued CGM access when clinically appropriate rather than waiting for supplies to run out or treating affordability as solely the client's responsibility.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p.7 (official PDF pageno 10): advocate for client rights and needs; identify and collaborate with multidisciplinary team members; provide unbiased care and promote equal access to client care; assess the need for referrals and obtain necessary orders; recognize limitations and utilize resources; advocate for quality and cost-effective care.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — financial barriers, equitable access, referral, and continuity of diabetes technology",
+    "correction_summary_append": "RULE1 cleanup retained the CGM financial-access construct, removed the original absolute-word and length cues, rebuilt A/B/C/D as plausible access-management choices, and narrowed the key to proactive barrier assessment and resource coordination without promising coverage or a specific assistance program."
+  },
+  "scope_exclusions": {
+    "coverage_guarantee": "The item does not promise that a particular insurer, manufacturer, assistance program, or community resource will pay for CGM supplies.",
+    "clinical_indication": "The stem assumes the client is currently using CGM; the item does not independently determine whether CGM remains clinically indicated.",
+    "backup_bgm": "Blood glucose monitoring may be necessary as backup if CGM becomes unavailable, but a backup plan does not remove the responsibility to address a known access barrier when continued CGM is appropriate.",
+    "out_of_pocket": "The item does not claim that paying out of pocket is never reasonable; it tests that coordinated barrier assessment is the better first response to a stated affordability problem.",
+    "payer_rules": "No plan-specific formulary, prior authorization, Medicare, Medicaid, commercial-insurance, or state-specific coverage rule is tested.",
+    "device_brand": "No CGM brand, sensor duration, transmitter, reader, or automated-insulin-delivery system is tested."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘CGM insurance financial barrier sensors continued access social services’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It proactively assesses the known affordability/coverage barrier and coordinates appropriate team and resource support before access is interrupted.",
+    "B": "Plausible because BGM can serve as backup monitoring, but immediately abandoning CGM coverage efforts does not address equitable access or the known financial barrier.",
+    "C": "Plausible because the client still has sensors, but waiting until the supply is exhausted risks an avoidable interruption despite advance warning of the barrier.",
+    "D": "Plausible as a short-term bridge for some clients, but requiring out-of-pocket purchase first may worsen financial burden and does not address coverage/resources proactively."
+  },
+  "ambiguity_check": "No second defensible best answer. A is the only option that addresses the known barrier before interruption while preserving clinically appropriate access. B abandons access advocacy, C delays action, and D shifts cost to the client before coordinated resource review.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 161, "B": 165, "C": 163, "D": 159},
+    "note": "The key is not longest; all four options are complete access-management actions of comparable length and no only/all/always/never/every cue is used."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN Management of Care explicitly includes advocacy, equal access, multidisciplinary collaboration, referral assessment, resource use, and cost-effective care, directly supporting an entry-level RN response to a financial barrier that threatens continuity of prescribed diabetes technology.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 10 / printed p.7 was successfully retrieved August 20, 2026 and visibly shows the cited Management of Care activity statements."
+  },
+  "source_verification": {
+    "result": "ADA_2026_SECTIONS_1_7_9_VERIFIED",
+    "note": "Primary ADA Standards of Care in Diabetes—2026 Sections 1, 7, and 9 were rechecked August 20, 2026. Exact numbered claims are limited to Section 1 Recommendation 1.7 and Section 7 Recommendations 7.5 and 7.16; the Section 9 cost-barrier support is cited as discussion text rather than an unverified recommendation number."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
