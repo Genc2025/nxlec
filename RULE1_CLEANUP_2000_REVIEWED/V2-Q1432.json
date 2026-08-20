@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1432",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,23 @@
     "note": "The live DailyMed label was rechecked August 20, 2026. Section 2.1 directly supports breakfast/first-meal administration; Section 5.1 directly supports severe-hypoglycemia risk and patient education to recognize and manage hypoglycemia."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "2a52b88b0677fd2166f47a9bdc7c53f81c143e84",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. Meal timing, severe-hypoglycemia risk, patient-education scope, extended-release formulation specificity, option balance, ambiguity, and second-answer risk remained internally consistent; no correction was required after reread."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1432 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "current DailyMed glipizide ER label independently rechecked and confirmed updated January 8, 2026",
+      "Section 2.1 independently rechecked for administration with breakfast or the first meal of the day",
+      "Section 5.1 independently rechecked that sulfonylureas including glipizide ER can produce severe hypoglycemia",
+      "Section 5.1 independently rechecked for patient education to recognize and manage hypoglycemia",
+      "official NCSBN 2026 Pharmacological and Parenteral Therapies page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A154/B157/C158/D166 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 2a52b88b0677fd2166f47a9bdc7c53f81c143e84 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
