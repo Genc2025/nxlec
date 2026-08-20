@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1432",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_BALANCE_AND_GLIPIZIDE_ER_SAFETY_TEACHING_PRECISION",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A nurse is teaching a client who is starting glipizide extended-release for type 2 diabetes. Which statement should the nurse include?",
+    "options": {
+      "A": "Take the extended-release tablet with breakfast or the first meal of the day, and learn how to recognize and manage hypoglycemia because it can be severe.",
+      "B": "Take the extended-release tablet at bedtime without regard to meals, and expect symptomatic hypoglycemia mainly when the medication is combined with insulin.",
+      "C": "Take the extended-release tablet on an empty stomach for faster absorption, and treat mild low-glucose symptoms by delaying food until the next scheduled meal.",
+      "D": "Take the extended-release tablet when the glucose is above the target range, and skip the next dose after a low reading rather than following the prescribed daily schedule."
+    },
+    "correct_option": "A",
+    "rationale": "Current U.S. prescribing information directs glipizide extended-release tablets to be administered with breakfast or the first meal of the day. The same label states that all sulfonylureas, including glipizide extended-release, are capable of producing severe hypoglycemia and specifically directs clinicians to educate patients to recognize and manage hypoglycemia. Therefore A is correct. B conflicts with the labeled meal timing and incorrectly implies that clinically important hypoglycemia is primarily limited to combination therapy with insulin. C conflicts with the labeled administration timing and gives unsafe advice for low-glucose symptoms. D incorrectly converts a scheduled once-daily medication into symptom- or glucose-triggered dosing and advises unsupervised dose skipping rather than following the prescribed regimen and seeking individualized guidance when hypoglycemia occurs.",
+    "educational_objective": "Teach clients starting glipizide extended-release to take it with breakfast or the first meal of the day and to recognize and manage hypoglycemia because sulfonylurea-associated hypoglycemia can be severe.",
+    "source_organization": "U.S. National Library of Medicine DailyMed / U.S. Food and Drug Administration labeling",
+    "source_document_title": "GLIPIZIDE Extended-Release Tablets Prescribing Information",
+    "source_version_date": "DailyMed label updated January 8, 2026; live label rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 2.1 Recommended Dosing: administer glipizide extended-release with breakfast or the first meal of the day. Section 5.1 Hypoglycemia: all sulfonylureas, including glipizide extended-release tablets, are capable of producing severe hypoglycemia; educate patients to recognize and manage hypoglycemia.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=84794a52-b717-488c-8533-6425c83d405f",
+    "source_claim_supported": "Glipizide extended-release is administered with breakfast or the first meal of the day, and its labeling warns that severe hypoglycemia can occur and requires patient education about recognition and management.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p.12 (official PDF pageno 15): prepare and administer medications using rights of medication administration; review pertinent data prior to medication administration; educate client about medications; evaluate client response to medication; handle and administer high-risk medications safely.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — glipizide extended-release administration and hypoglycemia teaching",
+    "correction_summary_append": "RULE1 cleanup retained the glipizide-ER medication-teaching construct and rebuilt all four options to remove the uniquely-long correct answer while preserving the two label-supported teaching points: meal timing and severe-hypoglycemia education."
+  },
+  "scope_exclusions": {
+    "dose": "No starting dose, maximum dose, or titration interval is tested.",
+    "risk_subgroups": "The item does not test special starting doses for older adults, renal impairment, hepatic impairment, malnutrition, or combination therapy.",
+    "hypoglycemia_treatment_protocol": "No numeric glucose threshold or specific carbohydrate treatment amount is tested.",
+    "drug_interactions": "The item does not test miconazole, fluconazole, beta blockers, alcohol, or other interactions that can alter hypoglycemia risk.",
+    "formulation": "The stem and key are specific to extended-release glipizide and do not generalize administration timing to immediate-release formulations.",
+    "self_adjustment": "The key does not instruct the client to self-adjust dosing after hypoglycemia; medication changes require individualized clinical guidance."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘glipizide extended-release breakfast first meal severe hypoglycemia’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It states both directly labeled teaching points without adding a dose, threshold, or subgroup rule.",
+    "B": "Plausible because bedtime dosing and insulin-associated hypoglycemia are familiar diabetes concepts, but both the meal timing and the implied risk restriction are incorrect for glipizide ER.",
+    "C": "Plausible because fasting administration can affect absorption for some drugs, but it contradicts labeled meal timing and gives unsafe hypoglycemia advice.",
+    "D": "Plausible to a learner thinking glucose-lowering medication should track individual readings, but glipizide ER is prescribed on a regular schedule rather than used as correctional medication."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone matches the labeled meal timing and hypoglycemia teaching. B, C, and D each contain a materially incorrect administration or safety statement.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 154, "B": 157, "C": 158, "D": 166},
+    "note": "The key is not longest; all four are parallel two-part medication-teaching statements with comparable detail and no only/always/never/every cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "Medication administration, client medication education, review of pertinent medication data, and safe handling of high-risk medications are explicit 2026 NCLEX-RN activities under Pharmacological and Parenteral Therapies.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 15 / printed p.12 was successfully retrieved August 20, 2026 and visibly shows the cited Pharmacological and Parenteral Therapies activity statements."
+  },
+  "source_verification": {
+    "result": "CURRENT_DAILYMED_LABEL_VERIFIED",
+    "note": "The live DailyMed label was rechecked August 20, 2026. Section 2.1 directly supports breakfast/first-meal administration; Section 5.1 directly supports severe-hypoglycemia risk and patient education to recognize and manage hypoglycemia."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
