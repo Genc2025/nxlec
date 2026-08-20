@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1433",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "ABSOLUTE_CUE_REMOVAL_AND_PIOGLITAZONE_HEART_FAILURE_CONTRAINDICATION_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client with established NYHA class III heart failure has a new prescription to start pioglitazone for type 2 diabetes. Which action should the nurse take before the first dose?",
+    "options": {
+      "A": "Administer a reduced starting dose because established class III heart failure calls for dose limitation and close monitoring rather than avoiding initiation.",
+      "B": "Hold the first dose and clarify the prescription because starting pioglitazone in established NYHA class III heart failure is contraindicated.",
+      "C": "Administer the first dose and monitor daily weight and edema because the heart-failure warning is managed by surveillance after treatment begins.",
+      "D": "Administer as prescribed if glucose remains above target because the need for glycemic treatment outweighs the heart-failure concern at initiation."
+    },
+    "correct_option": "B",
+    "rationale": "Current U.S. pioglitazone labeling carries a boxed warning for congestive heart failure. It states that thiazolidinediones, including pioglitazone, can cause or exacerbate heart failure and that initiation of pioglitazone in patients with established NYHA class III or IV heart failure is contraindicated. Therefore the nurse should hold the first dose and clarify the prescription before initiation. A incorrectly treats the class III condition as a dose-reduction situation; the label's reduced initial-dose approach applies to NYHA class I or II heart failure, whereas class III or IV is a contraindication to initiation. C incorrectly substitutes post-initiation monitoring for a pre-initiation contraindication. D incorrectly prioritizes glycemic treatment over an explicit labeled contraindication.",
+    "educational_objective": "Recognize the boxed-warning heart-failure risk of pioglitazone and clarify a new order before initiation in a client with established NYHA class III or IV heart failure.",
+    "source_organization": "U.S. National Library of Medicine DailyMed / U.S. Food and Drug Administration labeling",
+    "source_document_title": "PIOGLITAZONE Tablets Prescribing Information",
+    "source_version_date": "DailyMed page updated January 19, 2026; prescribing information revised September 2024; live label rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Boxed Warning ‘Congestive Heart Failure’: thiazolidinediones including pioglitazone cause or exacerbate CHF; pioglitazone is not recommended in symptomatic HF; initiation in established NYHA class III or IV HF is contraindicated. Section 4 Contraindications repeats the initiation contraindication. Section 5.1 states fluid retention may occur and can exacerbate or lead to CHF. Section 2.1 distinguishes NYHA class I or II, for which the initial dose is limited to 15 mg daily.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=22569835-bc9f-7787-e063-6394a90a6232",
+    "source_claim_supported": "Pioglitazone can cause fluid retention and exacerbate congestive heart failure; initiation is contraindicated in established NYHA class III or IV heart failure, while class I or II is handled differently in labeled dosing guidance.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p.12 (official PDF pageno 15): evaluate appropriateness and accuracy of medication order; review pertinent data prior to medication administration including contraindications; educate client about medications; evaluate client response to medication.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — pioglitazone contraindication and heart-failure risk",
+    "correction_summary_append": "RULE1 cleanup retained the pioglitazone/NYHA III safety construct, removed the original absolute-word distractor cue, and rebuilt A/B/C/D around the clinically important distinction between class I/II dose limitation and class III/IV contraindication to initiation."
+  },
+  "scope_exclusions": {
+    "existing_therapy": "The item tests initiation in a client with established NYHA class III HF; it does not address a client who develops HF after already taking pioglitazone.",
+    "class_I_II": "NYHA class I/II is used only to make a distractor plausible and explain the label distinction; no dose calculation is tested.",
+    "dose": "No specific pioglitazone dose is required for the correct answer.",
+    "other_warnings": "Bladder cancer, fractures, hepatic effects, macular edema, ovulation, and hypoglycemia interactions are not tested.",
+    "heart_failure_diagnosis": "The stem stipulates established NYHA class III HF; the nurse is not being asked to diagnose or classify HF.",
+    "alternative_drug": "The item does not select a replacement antihyperglycemic medication."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘pioglitazone NYHA class III heart failure contraindicated fluid retention’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because the label does use a lower starting dose in NYHA class I/II HF, but that approach does not apply to established class III/IV HF.",
+    "B": "Correct. It directly follows the boxed warning and Section 4 contraindication for initiation in established NYHA class III HF.",
+    "C": "Plausible because monitoring weight, dyspnea, and edema is part of pioglitazone safety, but monitoring does not override a contraindication to initiation.",
+    "D": "Plausible because glycemic control is clinically important, but it cannot justify administering a drug whose initiation is explicitly contraindicated in the stated condition."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone responds appropriately to the pre-initiation contraindication. A misapplies class I/II dosing, C substitutes monitoring for contraindication screening, and D ignores the contraindication.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 151, "B": 142, "C": 143, "D": 137},
+    "note": "The key is not longest; all four are action-plus-rationale statements with comparable detail and no only/always/never/every cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "The 2026 test plan explicitly requires evaluation of medication-order appropriateness and review of contraindications before medication administration, directly matching the nursing decision tested here.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 15 / printed p.12 was successfully retrieved August 20, 2026 and visibly shows the cited Pharmacological and Parenteral Therapies statements."
+  },
+  "source_verification": {
+    "result": "CURRENT_DAILYMED_LABEL_VERIFIED",
+    "note": "The live DailyMed page was rechecked August 20, 2026. The page was updated January 19, 2026 and displays prescribing information revised September 2024; the boxed warning, Section 4 contraindication, and Section 5.1 heart-failure risk remain present."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
