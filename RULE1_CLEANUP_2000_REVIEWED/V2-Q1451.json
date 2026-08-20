@@ -11,7 +11,7 @@
   "semantic_correction": {
     "stem": "A nurse teaches a client how to use a new home blood glucose meter. The client appears uncertain but says, ‘Yes, I understand.’ Which nursing action best evaluates whether the teaching was clear?",
     "options": {
-      "A": "Ask the client to demonstrate the glucose check and explain the key steps in the client’s own words, then reteach any unclear points using plain language.",
+      "A": "Have the client demonstrate the glucose check and explain the key steps in the client’s own words, then reteach unclear points in plain language.",
       "B": "Ask the client to review the printed meter instructions and point out any confusing steps, then document understanding after the questions are answered.",
       "C": "Repeat the meter demonstration more slowly and ask whether each step now makes sense, then provide written instructions for the client to use at home.",
       "D": "Ask the client several factual questions about the meter setup and testing sequence, then consider the teaching successful if the answers are correct."
@@ -33,7 +33,7 @@
     "blueprint_locator": "Health Promotion and Maintenance, printed p.9 (official PDF pageno 12): assess client readiness to learn, learning preferences and barriers to learning; provide care and education for adult clients; assess client ability to manage care in the home environment and plan care accordingly. Detailed Health Promotion/Disease Prevention, printed p.28 (official PDF pageno 31): assess readiness to learn/preferences/barriers; provide resources to minimize communication barriers; evaluate client understanding of health-promotion behaviors/activities.",
     "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
     "blueprint_topic": "Health Promotion and Maintenance — evaluating understanding of home self-care education using teach-back and show-me",
-    "correction_summary_append": "RULE1 cleanup retained the health-literacy/teach-back construct, removed the original ‘only’ distractor cue, rebuilt A/B/C/D to comparable length, and made the key explicitly combine show-me task performance, teach-back in the client’s own words, and reteaching with plain language."
+    "correction_summary_append": "RULE1 cleanup retained the health-literacy/teach-back construct, removed the original absolute-word cue, rebuilt A/B/C/D to comparable length, and after GitHub reread shortened A so the original uniquely-longest-answer pattern is fully eliminated."
   },
   "scope_exclusions": {
     "meter_brand": "No specific glucose-meter brand, strip type, calibration process, or device-specific sequence is tested.",
@@ -58,8 +58,8 @@
     "result": "PASS",
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
-    "option_lengths_characters": {"A": 154, "B": 152, "C": 150, "D": 150},
-    "note": "All four alternatives are parallel evaluation/teaching actions with comparable length; the key is only two characters longer than B and no only/all/always/never/every cue is used."
+    "option_lengths_characters": {"A": 145, "B": 152, "C": 150, "D": 150},
+    "note": "The key is not longest; all four alternatives are parallel evaluation/teaching actions with comparable length and no only/all/always/never/every cue is used."
   },
   "blueprint_audit": {
     "result": "PASS_WITH_TEXT_VERIFICATION_AND_SCREENSHOT_CACHE_MISS",
@@ -72,7 +72,8 @@
     "note": "AHRQ Health Literacy Universal Precautions Toolkit, 3rd Edition pages were rechecked August 20, 2026. Tool 5 directly supports teach-back, show-me, avoidance of yes/no comprehension checks, and reteaching; Tool 4 directly supports plain language."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "FIRST_REREAD_FOUND_RESIDUAL_KEY_LENGTH_CUE_CORRECTED",
+    "first_auditing_blob_sha": "7a5032e33410b48b269232543a5dd977a263cbf2"
   },
   "independent_second_pass": {
     "result": "PENDING"
