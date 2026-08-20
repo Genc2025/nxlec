@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1449",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_DSMES_TRANSITION_REASSESSMENT_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with type 2 diabetes completed diabetes self-management education several years ago. The client is now being discharged after a hospitalization with a new insulin regimen and says, ‘I already had diabetes education when I was diagnosed.’ Which nursing response is best?",
+    "options": {
+      "A": "Reassess DSMES needs and arrange updated support for the new regimen because a transition in care is a critical time to revisit self-management skills.",
+      "B": "Rely on the prior DSMES because the diagnosis has not changed, and use routine discharge instructions to cover the new insulin regimen after returning home.",
+      "C": "Repeat DSMES after discharge if the client later has poor glycemic control, because transition to a new regimen does not itself justify reassessment.",
+      "D": "Provide written insulin instructions now and defer structured DSMES unless the client asks for additional education during follow-up after returning home."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 American Diabetes Association Standards of Care state that DSMES should be provided at diagnosis, annually and/or when treatment goals are not being met, when complicating factors develop, and when transitions in life and care occur. The same section describes DSMES as an ongoing process rather than a one-time occurrence and notes that needs should be reevaluated at these critical times, with referrals made as needed. A hospital discharge with a new insulin regimen is a transition in care that can alter medication-taking, monitoring, problem-solving, and other self-management demands. Therefore A is correct. B treats prior education as permanently sufficient. C incorrectly requires later poor glycemic control before reassessment despite the current transition. D substitutes written instructions and client-initiated follow-up for proactive reassessment of DSMES needs.",
+    "educational_objective": "Recognize DSMES as ongoing support that should be reassessed and provided at critical times, including transitions in life and care such as discharge with a substantially changed diabetes regimen.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "5. Facilitating Positive Health Behaviors and Well-being to Improve Health Outcomes: Standards of Care in Diabetes—2026",
+    "source_version_date": "Diabetes Care 2026;49(Supplement 1):S89–S124; published December 8, 2025; rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Recommendation 5.2: provide DSMES at diagnosis, annually and/or when not meeting treatment goals, when complicating factors develop, and when transitions in life and care occur. Accompanying DSMES text: DSMES should be thought of as an ongoing process, not a one-time occurrence; at critical time points the health care professional/interprofessional team should evaluate DSMES needs and make referrals as needed. DSMES content includes taking medication, monitoring, reducing risk, problem-solving, and behavior-change strategies.",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S89/163932/5-Facilitating-Positive-Health-Behaviors-and-Well",
+    "source_claim_supported": "Current ADA standards treat DSMES as ongoing support and identify transitions in life and care as a critical time to reassess and provide DSMES rather than assuming education at diagnosis is permanently sufficient.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p.7 (official PDF pageno 10): safely admit/transfer/discharge a client; identify and collaborate with multidisciplinary team members; assess the need for referrals and obtain necessary orders; initiate, evaluate and update the client plan of care. Detailed Referrals, printed p.22 (official PDF pageno 25): assess the need to refer clients for assistance with existing or potential problems and obtain necessary orders.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — discharge transition, referral, and updated diabetes self-management support",
+    "correction_summary_append": "RULE1 cleanup retained the DSMES-transition construct, removed the old only/one-time distractor cues, and rebuilt all alternatives so the correct response is not uniquely longest while preserving the ADA 2026 transition-of-care trigger."
+  },
+  "scope_exclusions": {
+    "automatic_program_enrollment": "The item supports reassessing DSMES needs and arranging updated support/referral as appropriate; it does not claim every transition requires an identical program intensity.",
+    "insulin_dose": "No insulin dose, titration, injection technique, or product-specific teaching is tested.",
+    "glycemic_threshold": "Poor glycemic control is not required before DSMES reassessment during a transition in care.",
+    "one_time_discharge_teaching": "Routine discharge instructions may be necessary but are not treated as equivalent to individualized DSMES reassessment and support.",
+    "payer_rules": "No insurance or reimbursement requirement is tested.",
+    "timing": "No fixed number of days after discharge is prescribed for the DSMES encounter."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘DSMES transition care new insulin discharge ongoing education’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It applies the ADA transition-in-care trigger and ongoing-process concept to the new insulin regimen and discharge setting.",
+    "B": "Plausible because prior DSMES and routine discharge teaching both matter, but prior education does not eliminate the need to reassess support during a major care transition.",
+    "C": "Plausible because unmet glycemic goals are another DSMES trigger, but the current transition itself is already a recommended time for reassessment.",
+    "D": "Plausible because written insulin instructions are useful, but structured self-management support should not depend solely on the client later requesting it."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone proactively reassesses DSMES at the current transition. B assumes old education is sufficient, C waits for a different trigger, and D defers individualized support unless the client initiates it.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 151, "B": 156, "C": 149, "D": 154},
+    "note": "The key is not longest; all four are parallel nursing responses with comparable detail and no only/all/always/never/every cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN explicitly includes discharge, multidisciplinary collaboration, plan-of-care updating, and referral assessment under Management of Care, directly supporting this transition/referral construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshots were successfully retrieved August 20, 2026 for PDF pageno 10 / printed p.7 and PDF pageno 25 / printed p.22, visibly showing the cited discharge and referral activity statements."
+  },
+  "source_verification": {
+    "result": "ADA_2026_DSMES_TRANSITION_GUIDANCE_VERIFIED",
+    "note": "The primary ADA Standards of Care in Diabetes—2026 Section 5 was rechecked August 20, 2026. Recommendation 5.2 and its supporting text directly support DSMES reassessment during transitions in life and care and describe DSMES as ongoing rather than one-time education."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
