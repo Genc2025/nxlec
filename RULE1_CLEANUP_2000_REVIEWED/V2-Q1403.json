@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1403",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -64,25 +64,31 @@
     "result": "PASS_WITH_VISUAL_VERIFICATION",
     "entry_level_relevance": "The construct is narrower than routine medication administration but remains appropriate as a legal/safety boundary for an RN interacting with controlled-substance prescribing workflow. NCSBN explicitly includes health-care-provider orders, legal scope, information technology, and controlled substances within regulatory guidelines.",
     "exact_locator_verified": true,
-    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan PDF p. 15 / printed p. 12 was successfully screenshot on August 20, 2026 and visibly includes evaluation of medication orders and handling/administering controlled substances within regulatory guidelines. Management of Care parsed-text locators for orders/legal scope/Information Technology were also directly verified."
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan PDF p. 15 / printed p. 12 was successfully screenshot on August 20, 2026 and visibly includes evaluation of medication orders and handling/administering controlled substances within regulatory guidelines. PDF p. 25 / printed p. 22 was also successfully screenshot in the same session and visibly shows Information Technology and Legal Rights and Responsibilities."
   },
   "source_verification": {
     "result": "DEA_PRIMARY_HTML_TEXT_VERIFIED",
     "note": "The live DEA EPCS Q&A was directly text-verified on August 20, 2026, including staff data entry, practitioner review/signature, personal control of authentication factors, and prohibition on another person using or entering those factors. The DEA Guidance Documents index was also rechecked and lists DEA-DC-9R1 as a revised EPCS practitioner Q&A."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "22129da6501d7b96cb69f565ef73ee797bb98405",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The reread confirmed that A contains a legitimately permissible staff data-entry component but is wrong at the authentication step; B and D remain plausible but cannot authorize use of another practitioner's credential; C remains the sole best answer. No unresolved source, scope, blueprint, ambiguity, cueing, or second-answer conflict remained."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1403 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the real candidate data",
       "DEA live EPCS Q&A independently rechecked for sole control of authentication factors and prohibition on another person using/entering them",
       "DEA live EPCS Q&A independently rechecked for the distinct rule permitting staff prescription-data entry before practitioner review and signature",
       "DEA Guidance Documents index independently rechecked for current listing of revised DEA-DC-9R1 EPCS practitioner Q&A",
-      "official NCSBN 2026 parsed text and screenshot independently verified the relevant legal/order/controlled-substance blueprint links",
+      "official NCSBN 2026 parsed text and screenshots independently verified the relevant legal/order/controlled-substance blueprint links",
       "A/B/C/D independently re-audited for correctness, plausibility, ambiguity, overlap, cueing, and second-answer risk",
       "no drug, dose, schedule-specific rule, state e-prescribing mandate, or facility-specific credential workflow was introduced",
       "option lengths balanced at A136/B133/C140/D133",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to permissible staff data entry versus nondelegable EPCS authentication/signature"
+      "educational objective is specific to permissible staff data entry versus nondelegable EPCS authentication/signature",
+      "AUDITING payload was reread from GitHub blob 22129da6501d7b96cb69f565ef73ee797bb98405 before FINAL_QA_PASS was assigned"
     ]
   }
 }
