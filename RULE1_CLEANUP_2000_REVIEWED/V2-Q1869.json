@@ -1,8 +1,8 @@
 {
   "question_uid": "V2-Q1869",
   "stable_sort_key": "01-STANDALONE-01869",
-  "status": "FINAL_QA_PASS",
-  "audit_status": "FINAL_QA_PASS",
+  "status": "AUDITING",
+  "audit_status": "AUDITING",
   "category_id": 2,
   "client_need": "Management of Care",
   "blueprint_topic": "Management of Care — assignment/delegation decision-making, assistive-personnel competence, communication, supervision, and evaluation",
@@ -23,15 +23,15 @@
   "source_accessed_date": "2026-08-20",
   "source_url": "https://www.ncsbn.org/nursing-regulation/practice/delegation.page",
   "supporting_source_url": "https://www.ncsbn.org/public-files/NGND-PosPaper_06.pdf ; https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
-  "source_locator": "NCSBN Delegation page — Delegation Model and jurisdiction paragraph: delegation is multifaceted, involves employer/nurse leader, licensed nurse and delegatee responsibilities, effective communication, and jurisdiction-specific laws/rules. National Guidelines for Nursing Delegation — PDF pageno 0, lines 20-27: RN assignment/delegation decision depends on patient condition, team competence and required supervision and jurisdictions differ; PDF pageno 1, lines 39-62: assignment versus delegation definitions and RN overall accountability; PDF pageno 3, Five Rights: right task, circumstance, person, directions/communication, supervision/evaluation; PDF pageno 6, Licensed Nurse Responsibilities lines 162-194: patient needs/stability, delegatee competence, state/jurisdiction provisions, employer policy, communication and the final delegation decision. 2026 NCLEX-RN Test Plan — printed page 7 / PDF pageno 10: delegate and supervise care provided by others and collaborate/use resources within Management of Care.",
+  "source_locator": "NCSBN Delegation page — Delegation Model and jurisdiction paragraph: delegation is multifaceted, involves employer/nurse leader, licensed nurse and delegatee responsibilities, effective communication, and jurisdiction-specific laws/rules. National Guidelines for Nursing Delegation — PDF pageno 0 lines 20-27: assignment/delegation decision depends on patient condition, team competence and required supervision and jurisdictions differ; PDF pageno 1 lines 39-62: assignment versus delegation definitions and licensed-nurse overall accountability; PDF pageno 3 lines 79-102: Five Rights, including right circumstance, person, directions/communication, supervision/evaluation; PDF pageno 6 lines 162-194: patient needs/stability, delegatee competence, state/jurisdiction provisions, employer policy, retained accountability and communication; PDF pageno 7 lines 195-204: availability, follow-up and retained accountability. 2026 NCLEX-RN Test Plan — printed page 7 / PDF pageno 10: delegate and supervise care provided by others and related Management-of-Care activities.",
   "source_claim_supported": "Official NCSBN guidance directly supports individualized assessment of the client/task, verification of delegatee competence and both jurisdiction/facility rules, clear communication, supervision/evaluation, and continued RN overall accountability. It also supports avoiding a universal claim that a routine AP activity is always technically delegation rather than assignment.",
   "blueprint_document_title": "2026 NCLEX-RN Test Plan",
   "blueprint_version": "Effective April 2026",
   "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
   "blueprint_locator": "Safe and Effective Care Environment — Management of Care, printed page 7 / PDF pageno 10: delegate and supervise care of clients provided by others; identify and collaborate with multidisciplinary team members; recognize limitations and utilize resources; provide care within legal scope of practice.",
-  "pdf_visual_verification": "NCSBN/ANA National Guidelines for Nursing Delegation PDF pageno 6 was visually verified by screenshot on 2026-08-20 and visibly showed Licensed Nurse Responsibilities for client condition/stability, delegatee competence, jurisdiction/employer policy, accountability and communication. NCSBN 2026 NCLEX-RN Test Plan PDF pageno 10 / printed page 7 was also visually verified by screenshot and visibly showed delegation/supervision and Management-of-Care activity statements.",
+  "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan Management of Care printed page 7 / PDF pageno 10 was visually verified earlier in this session and visibly included delegation/supervision and related Management-of-Care activities. National Guidelines for Nursing Delegation PDF screenshot attempts for pageno 3 and pageno 6 on 2026-08-20 returned CACHE MISS; no visual verification of that delegation-guideline PDF is claimed. Delegation claims were verified from the current NCSBN HTML page and parsed official PDF text.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'postoperative ambulation assistive personnel delegation assignment stable client competence supervision' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "Rebuilt the stem to remove a technical premise error that labeled routine AP ambulation as delegation in every setting. Rebuilt A/B/C/D to remove the original longest-key cue and absolute-word distractors. Post-fetch review further changed the key to require both jurisdictional and facility rules and removed residual absolute-style wording from C. The corrected record was re-fetched and independently re-audited before finalization.",
+  "correction_summary": "The stem and options were rebuilt to remove a universal delegation premise, longest-key cue and absolute distractors. Final fetch then exposed a false visual-verification statement: the delegation-guideline PDF screenshots had actually returned CACHE MISS. Because evidence metadata is part of the final gate, Q1869 was returned to AUDITING and the record was corrected before a new independent second pass.",
   "option_audit": {
     "A": "Correct; directly integrates client stability/task needs, AP role/competence, jurisdictional and facility rules, communication, supervision and evaluation.",
     "B": "Plausible routine-task shortcut; incorrect because routine labeling and prior training do not replace current client/situation assessment.",
@@ -40,10 +40,10 @@
   },
   "cueing_audit": {
     "absolute_words": "No option relies on only/all/always/never/must/regardless-type distractor absolutes.",
-    "answer_length": "Final option lengths are tightly balanced and the correct answer is not identifiable by an extreme length or detail advantage.",
+    "answer_length": "Final option lengths are tightly balanced: A 171, B 158, C 169, D 159 characters; the correct answer is not identifiable by an extreme length or detail advantage.",
     "grammatical_lexical": "All four alternatives are parallel RN decision/action statements about AP involvement, competence, policy, responsibility, and follow-up.",
-    "second_answer_risk": "No defensible second answer identified after correction and re-fetch. A is the only option that satisfies the current NCSBN delegation/assignment decision process without a shortcut or accountability error."
+    "second_answer_risk": "No defensible second answer identified after clinical reread; fresh GitHub refetch and independent second pass are required because evidence metadata was corrected."
   },
-  "independent_second_pass": "Fresh independent adversarial second pass was performed after fetching the corrected AUDITING record. It rechecked the stem's assignment-versus-delegation terminology, A/B/C/D, rationale, educational objective, current NCSBN Delegation page, National Guidelines for Nursing Delegation definitions and Licensed Nurse Responsibilities, Five Rights, jurisdiction/employer-policy requirements, client stability, AP competence, communication, supervision/evaluation, RN accountability, option plausibility, length/lexical cueing, second-answer risk, and 2026 NCSBN Management of Care blueprint fit. Relevant NCSBN PDFs were visually verified by screenshot. No universal role claim, unsupported precision, ambiguity, or unresolved conflict remains.",
-  "second_pass_status": "PASS"
+  "independent_second_pass": "PENDING — evidence metadata corrected after final-fetch conflict; must be independently re-audited before FINAL_QA_PASS.",
+  "second_pass_status": "PENDING"
 }
