@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1413",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -70,8 +70,13 @@
     "result": "CURRENT_GUIDELINE_HTML_TEXT_VERIFIED",
     "note": "The sixth-edition European trauma guideline was directly text-verified through Critical Care and NIH/PubMed Central. A targeted current search on August 20, 2026 did not identify a newer European edition; no claim is made beyond that targeted retrieval result."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "16d9c6e2a5c22ed261ce50a218f4309fb9c970a7",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The reread confirmed that A preserves base deficit as a nonspecific adjunct requiring clinical reassessment; B reverses the acid-base trend; C mistakes an alternative cause/confounder for a specific diagnosis; and D incorrectly discards the marker based on blood pressure alone. No unresolved source, blueprint, ambiguity, cueing, or second-answer conflict remained."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1413 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reason, and stable sort key were reread from the real candidate data",
       "European trauma guideline Recommendation 10 independently rechecked for lactate preference and base-deficit alternative use in bleeding/tissue hypoperfusion",
@@ -82,7 +87,8 @@
       "no numeric cutoff, resuscitation target, transfusion threshold, or treatment protocol was introduced",
       "option lengths balanced at A149/B148/C143/D151",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to contextual interpretation of worsening base deficit during traumatic hemorrhage resuscitation"
+      "educational objective is specific to contextual interpretation of worsening base deficit during traumatic hemorrhage resuscitation",
+      "AUDITING payload was reread from GitHub blob 16d9c6e2a5c22ed261ce50a218f4309fb9c970a7 before FINAL_QA_PASS was assigned"
     ]
   }
 }
