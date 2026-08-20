@@ -1,0 +1,79 @@
+{
+  "question_uid": "V2-Q1430",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_WEGOVY_INDICATION_CURRENTNESS_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An adult client with obesity and no diabetes is prescribed Wegovy (semaglutide) as part of a weight-management plan. The client says, ‘I thought semaglutide was a diabetes medication.’ Which response by the nurse is most accurate?",
+    "options": {
+      "A": "Wegovy is FDA-approved with diet and activity for long-term weight reduction in adults with obesity, including adults who do not have diabetes.",
+      "B": "Wegovy is used for obesity because weight loss can occur during treatment, but its FDA indication remains type 2 diabetes rather than chronic weight management.",
+      "C": "Wegovy is intended for short-term weight loss during calorie restriction, and treatment is stopped after the initial weight-reduction goal is reached.",
+      "D": "Wegovy’s weight-management indication requires type 2 diabetes in addition to obesity, so a client without diabetes would be receiving it off-label."
+    },
+    "correct_option": "A",
+    "rationale": "The current U.S. Wegovy prescribing information lists semaglutide injection and semaglutide tablets as Wegovy products. Both are indicated, in combination with a reduced-calorie diet and increased physical activity, to reduce excess body weight and maintain weight reduction long term in adults with obesity; diabetes is not required for that indication. Therefore A is correct. B and D incorrectly restrict Wegovy’s FDA indication to clients with type 2 diabetes. C incorrectly describes the labeled use as short-term treatment and omits long-term maintenance of weight reduction. The item does not depend on formulation-specific dosing because the tested adult-obesity weight-management indication is present for both current Wegovy injection and tablets.",
+    "educational_objective": "Recognize Wegovy as an FDA-labeled semaglutide product for long-term reduction of excess body weight and maintenance of weight reduction in adults with obesity, together with reduced-calorie diet and increased physical activity, without requiring a diagnosis of diabetes.",
+    "source_organization": "U.S. National Library of Medicine DailyMed / U.S. Food and Drug Administration labeling",
+    "source_document_title": "WEGOVY (semaglutide) injection and WEGOVY (semaglutide) tablets Prescribing Information",
+    "source_version_date": "DailyMed label updated June 18, 2026; Revised 6/2026; live label rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 1, Indications and Usage: WEGOVY injection is indicated with a reduced-calorie diet and increased physical activity to reduce excess body weight and maintain weight reduction long term in adults with obesity and in adults with overweight plus at least one weight-related comorbid condition. WEGOVY tablets carry the adult obesity/overweight long-term weight-reduction indication as well. Diabetes is not listed as a prerequisite for the adult obesity indication. Highlights list current injection and tablet formulations and recent label changes through June 2026.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ee06186f-2aa3-4990-a760-757579d8f77b",
+    "source_claim_supported": "Current U.S. Wegovy labeling includes an FDA-approved non-diabetes indication for reduction of excess body weight and long-term maintenance of weight reduction in adults with obesity, used with reduced-calorie diet and increased physical activity.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p.12 (official PDF pageno 15): evaluate appropriateness and accuracy of medication order; review pertinent data prior to medication administration; educate client about medications; evaluate client response to medication.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — Wegovy indication and medication teaching",
+    "correction_summary_append": "RULE1 cleanup retained the Wegovy non-diabetes weight-management construct, removed ‘only/all’ distractor cueing, balanced option length, and updated currentness to the June 2026 label that includes both injection and tablet formulations without introducing formulation-specific dosing claims."
+  },
+  "scope_exclusions": {
+    "formulation": "The item does not test injection-versus-tablet dosing, administration, switching, or formulation selection; both current formulations carry the tested adult weight-management indication.",
+    "eligibility_thresholds": "The stem specifies adult obesity, so no BMI threshold or overweight-comorbidity threshold is tested.",
+    "other_indications": "Current Wegovy cardiovascular-risk and MASH indications are not tested and do not affect the correctness of the adult-obesity weight-management claim.",
+    "contraindications": "The item tests indication recognition, not screening for MTC/MEN2, pregnancy, pancreatitis, or other contraindications/warnings before administration.",
+    "product_interchangeability": "The item does not claim that different semaglutide products are interchangeable or have identical indications.",
+    "dose": "No semaglutide dose, titration schedule, or maintenance dose is tested."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘Wegovy semaglutide obesity no diabetes weight reduction reduced calorie diet physical activity’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It states the labeled long-term adult-obesity indication and correctly notes that diabetes is not required.",
+    "B": "Plausible because semaglutide is also used in diabetes products and can produce weight loss, but Wegovy itself has an FDA-labeled chronic weight-management indication.",
+    "C": "Plausible because weight-management drugs are paired with calorie reduction, but the label explicitly includes maintenance of weight reduction long term rather than a short-term stopping rule.",
+    "D": "Plausible because semaglutide is strongly associated with diabetes treatment, but type 2 diabetes is not a prerequisite for Wegovy’s adult-obesity weight-management indication."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone matches the current Wegovy indication. B and D incorrectly require diabetes; C incorrectly converts a long-term labeled indication into short-term therapy.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 143, "B": 160, "C": 150, "D": 148},
+    "note": "The key is the shortest option and no distractor relies on ‘only/all/always/never/every’ cueing. All four are parallel medication-teaching statements."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN explicitly includes evaluating medication-order appropriateness, reviewing medication data, educating clients about medications, and evaluating medication response under Pharmacological and Parenteral Therapies.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 15 / printed p.12 was successfully retrieved August 20, 2026 and visibly shows the cited Pharmacological and Parenteral Therapies activity statements."
+  },
+  "source_verification": {
+    "result": "CURRENT_DAILYMED_LABEL_VERIFIED",
+    "note": "The live DailyMed Wegovy label updated June 18, 2026 was directly rechecked August 20, 2026. The current label contains both injection and tablet formulations, and both support the adult obesity weight-management claim tested here."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
