@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1423",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,9 +73,23 @@
     "note": "Multiple live CDC overdose-prevention pages were rechecked August 20, 2026. A current 2026 CDC toolkit independently confirms that naloxone remains a bystander-usable opioid-overdose reversal medication."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "f06ee8bf3d5d284b1e1bf6d7ce1db67e752d38f6",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The key matches the current CDC bystander-response sequence, no naloxone dose or observation-time claim was introduced, no legal immunity claim is tested, and the prior length/absolute-word cueing pattern is resolved."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1423 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate data",
+      "CDC suspected-overdose response steps independently rechecked: administer naloxone if available, call 911, support breathing, side-position, and remain until emergency assistance arrives",
+      "CDC independently rechecked that anyone can carry and administer naloxone",
+      "CDC independently rechecked that naloxone cannot be taken in advance to prevent an overdose",
+      "current 2026 CDC overdose-awareness material independently confirms continued bystander naloxone use",
+      "official NCSBN 2026 Health Promotion and Maintenance page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A149/B142/C149/D156 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob f06ee8bf3d5d284b1e1bf6d7ce1db67e752d38f6 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
