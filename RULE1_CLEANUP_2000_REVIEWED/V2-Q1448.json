@@ -1,0 +1,80 @@
+{
+  "question_uid": "V2-Q1448",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_REBUILD_AND_INDIVIDUALIZED_SPECIALTY_REFERRAL_PRECISION",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A nurse is participating in care planning for an adult with type 2 diabetes. Which approach to specialty referral best reflects current diabetes standards?",
+    "options": {
+      "A": "Match the referral to the client’s complications, comorbidities, treatment burden, and specific needs, using the appropriate specialist or team resource.",
+      "B": "Use endocrinology as the default referral at diagnosis, then add other specialists later if a complication becomes the main issue requiring specialty care.",
+      "C": "Base endocrinology referral mainly on the latest A1C result, using glycemic control rather than complication-specific needs to choose specialty care.",
+      "D": "Manage diabetes-related problems in primary care first and arrange specialty referral after routine measures fail, even when a specific complication needs expertise."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 American Diabetes Association Standards of Care use individualized, team-based referral rather than one universal endocrinology pathway. Section 1 lists specialist referrals as appropriate and available for people with diabetes-related complications or comorbidities, with the specific professional chosen according to the clinical need. Section 4 directs referral to diabetes education and medical specialists as needed, states that additional referrals should be arranged as necessary, and emphasizes assessment of complications, comorbidities, overall health, treatment burden, and person-specific needs during care planning. Therefore A is correct. B makes endocrinology a default pathway that the standards do not require for every new diagnosis. C reduces referral selection to one glycemic marker even though diabetes care and referral planning extend beyond glycemia. D unnecessarily delays referral when a complication or comorbidity already creates a specialty need.",
+    "educational_objective": "Coordinate diabetes specialty referrals according to the client’s actual complications, comorbidities, treatment burden, and individual needs, selecting the appropriate specialist or team resource rather than applying a universal endocrinology rule or single laboratory cutoff.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "1. Improving Care and Promoting Health in Populations: Standards of Care in Diabetes—2026; 4. Comprehensive Medical Evaluation and Assessment of Comorbidities: Standards of Care in Diabetes—2026",
+    "source_version_date": "Diabetes Care 2026;49(Supplement 1); both Standards sections published December 8, 2025 and rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Section 1 team-based care table: individuals with diabetes-related complications or comorbidities receive specialist referrals as appropriate and available, with examples matched to clinical need. Section 4 Recommendations 4.3–4.4 and Table 4.2: evaluate complications, comorbid conditions, overall health, and continuing-care needs; therapeutic plans include referral to diabetes education and medical specialists as needed; additional referrals should be arranged as necessary; clinicians should account for complications, comorbidities, and treatment burden.",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S13/163920/1-Improving-Care-and-Promoting-Health-in",
+    "secondary_source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S61/163931/4-Comprehensive-Medical-Evaluation-and-Assessment",
+    "source_claim_supported": "Current ADA standards support individualized, team-based specialty referral according to complications, comorbidities, treatment burden, and specific needs; they do not establish a universal endocrinology referral requirement or a single A1C-based referral rule for all adults with type 2 diabetes.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p.7 (official PDF pageno 10): identify and collaborate with multidisciplinary team members; assess the need for referrals and obtain necessary orders; recognize limitations and utilize resources. Detailed Referrals content, printed p.22 (official PDF pageno 25): assess the need to refer clients for assistance with existing or potential problems; assess need for referrals and obtain necessary orders; identify community resources.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — individualized specialty referral and interprofessional coordination",
+    "correction_summary_append": "RULE1 cleanup retained the individualized specialty-referral construct but replaced the old obvious universal-rule distractors with plausible competing referral strategies, while removing the uniquely-long correct-answer cue."
+  },
+  "scope_exclusions": {
+    "universal_endocrinology": "The item does not claim endocrinology is unnecessary; it tests that endocrinology is one of several specialty resources selected according to clinical need rather than a mandatory default for every diagnosis.",
+    "a1c_threshold": "No A1C cutoff for referral is asserted because the ADA standards used here do not establish one universal endocrinology-referral threshold.",
+    "specific_complication": "The stem does not name a particular complication, so the item tests referral strategy rather than choosing nephrology, cardiology, ophthalmology, podiatry, behavioral health, or another specific service.",
+    "primary_care": "The item does not diminish the role of primary care; it tests when specialty resources should be integrated based on need.",
+    "treatment_burden": "Treatment burden is used as part of individualized assessment and care planning, not as a stand-alone automatic trigger for one specialty.",
+    "scope_of_practice": "No state-specific professional scope or prescribing-authority claim is tested."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘specialty referral diabetes complications comorbidities A1C endocrinology’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It matches the ADA's need-based, team-oriented referral approach and integrates complications, comorbidities, treatment burden, and individual needs.",
+    "B": "Plausible because endocrinology is an important diabetes specialty, but the standards do not make it the default referral for every newly diagnosed adult before a clinical need is identified.",
+    "C": "Plausible because A1C is central to glycemic assessment, but referral planning also depends on complications, comorbidities, treatment burden, and other care needs.",
+    "D": "Plausible because primary care manages much diabetes care, but an identified complication or comorbidity may warrant timely specialty involvement rather than waiting for routine measures to fail."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone reflects individualized referral selection. B overuses one specialty as a default, C reduces referral to one glycemic metric, and D delays specialty expertise despite an established need.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 153, "B": 155, "C": 149, "D": 165},
+    "note": "The key is not longest. All four options are parallel referral strategies of comparable length and none relies on all/only/always/never/every cueing."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN explicitly includes multidisciplinary collaboration, referral assessment, and resource use under Management of Care, making individualized coordination of specialty care an entry-level RN care-management construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshots were retrieved August 20, 2026 for PDF pageno 10 / printed p.7 and PDF pageno 25 / printed p.22 and visibly show the cited Management of Care and Referrals activity statements."
+  },
+  "source_verification": {
+    "result": "ADA_2026_SECTIONS_1_AND_4_VERIFIED",
+    "note": "The primary ADA Standards of Care in Diabetes—2026 Sections 1 and 4 were rechecked August 20, 2026. Section 1 directly supports specialist referrals as appropriate for complications/comorbidities, and Section 4 supports individualized assessment plus referrals as needed/necessary rather than one universal endocrinology rule."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
