@@ -1,0 +1,77 @@
+{
+  "question_uid": "V2-Q1417",
+  "status": "AUDITING",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_BALANCE_AND_OCCULT_HYPOPERFUSION_PRECISION",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with penetrating trauma has a blood pressure and heart rate near the client’s usual baseline after initial stabilization, but the serum lactate remains elevated. Which interpretation is most appropriate?",
+    "options": {
+      "A": "Treat the near-baseline blood pressure and heart rate as evidence that tissue perfusion is adequate despite the elevated lactate.",
+      "B": "Interpret the elevated lactate as possible ongoing tissue hypoperfusion and trend it with the client’s clinical response to resuscitation.",
+      "C": "Attribute the elevated lactate to acute kidney injury unless hypotension or tachycardia develops during continued observation.",
+      "D": "Consider the lactate unrelated to perfusion after initial stabilization and rely primarily on blood pressure and heart rate trends."
+    },
+    "correct_option": "B",
+    "rationale": "The European guideline on major bleeding after trauma recommends blood lactate as a sensitive test to estimate and monitor bleeding and tissue hypoperfusion. It also notes that serial lactate measurements provide an early objective assessment of response to therapy and that lactate can be particularly important in penetrating trauma because blood pressure, heart rate, and respiratory rate do not reliably reflect injury severity. Therefore B is the best interpretation: an elevated lactate despite near-baseline vital signs can support concern for ongoing or occult hypoperfusion and should be interpreted serially with the client’s resuscitation response and overall clinical picture. A and D incorrectly allow reassuring vital signs to override the abnormal perfusion marker. C incorrectly assigns a nonspecific lactate elevation to acute kidney injury without supporting evidence.",
+    "educational_objective": "Use elevated and serial lactate values as adjuncts to detect and monitor tissue hypoperfusion after trauma, recognizing that near-baseline vital signs do not reliably exclude occult hypoperfusion in penetrating injury.",
+    "source_organization": "Task Force for Advanced Bleeding Care in Trauma",
+    "source_document_title": "The European guideline on management of major bleeding and coagulopathy following trauma: sixth edition",
+    "source_version_date": "Published March 1, 2023; official indexed full text rechecked August 20, 2026; targeted search on August 20, 2026 did not identify a seventh edition",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "Recommendation 10 and rationale, ‘Blood lactate and base deficit’: blood lactate is recommended as a sensitive test to estimate and monitor bleeding and tissue hypoperfusion; serial lactate measurements provide an early objective evaluation of response to therapy; lactate may be particularly important in penetrating trauma because blood pressure, heart rate, and respiratory rate do not reliably reflect injury severity.",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9977110/",
+    "source_claim_supported": "In bleeding trauma, lactate is a sensitive adjunct for estimating and monitoring tissue hypoperfusion, and serial lactate can remain clinically important when routine vital signs appear relatively reassuring, particularly in penetrating trauma.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p. 13 (official PDF pageno 16): assess and respond to changes and trends in client vital signs; recognize trends and changes in client condition and intervene as needed; monitor results of diagnostic testing and intervene as needed; evaluate client responses to procedures and treatments.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — lactate interpretation and occult hypoperfusion after penetrating trauma",
+    "correction_summary_append": "RULE1 cleanup retained the lactate/occult-hypoperfusion construct and rebuilt A/B/C/D to comparable length while preserving the source-supported penetrating-trauma limitation of apparently reassuring vital signs."
+  },
+  "scope_exclusions": {
+    "lactate_threshold": "No numeric lactate cutoff is tested.",
+    "clearance_target": "No lactate-clearance percentage or time target is prescribed.",
+    "etiology": "The item does not claim lactate is specific for hemorrhage or one diagnosis; it is interpreted as an adjunct in the stated trauma context.",
+    "vital_signs": "The item does not claim blood pressure or heart rate are unimportant; it tests that they cannot independently exclude tissue hypoperfusion in this setting."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub search for ‘elevated lactate occult tissue hypoperfusion penetrating trauma vital signs’ returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Plausible because normalized vital signs are reassuring after resuscitation, but trauma guidance specifically warns that vital signs can underrepresent injury severity in penetrating trauma.",
+    "B": "Correct. It treats lactate as a nonspecific but sensitive perfusion adjunct and preserves serial interpretation with clinical response.",
+    "C": "Plausible because kidney dysfunction can coexist in trauma, but the stem gives no evidence that acute kidney injury explains the lactate and lactate is not specific for AKI.",
+    "D": "Plausible because vital-sign trends remain important, but it incorrectly dismisses lactate as a perfusion marker after initial stabilization."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone integrates the abnormal lactate with serial reassessment and clinical context. A and D over-rely on vital signs; C assigns a nonspecific biomarker to an unsupported diagnosis.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 129, "B": 138, "C": 126, "D": 131},
+    "note": "The key is not uniquely verbose; all four options are clinically framed interpretations of the same data."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN Reduction of Risk Potential explicitly includes vital-sign trends, diagnostic-test monitoring, condition trends, and response to treatment; serial lactate interpretation after trauma directly maps to those activities.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshot pageno 16 was successfully retrieved August 20, 2026 and visibly shows printed p. 13 Reduction of Risk Potential with the cited activity statements."
+  },
+  "source_verification": {
+    "result": "PRIMARY_GUIDELINE_VERIFIED",
+    "note": "Recommendation 10 and its rationale were directly verified in the indexed full text. A targeted currentness search on August 20, 2026 did not identify a seventh edition; no stronger claim of exhaustive currentness is made."
+  },
+  "github_adversarial_reread": {
+    "result": "PENDING_REAL_REREAD"
+  },
+  "independent_second_pass": {
+    "result": "PENDING"
+  }
+}
