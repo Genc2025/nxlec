@@ -11,7 +11,7 @@
   "semantic_correction": {
     "stem": "During a community meeting, a resident asks a public health nurse why the local health department supports a comprehensive syringe services program (SSP). Which response is most accurate?",
     "options": {
-      "A": "They provide sterile injection equipment and safe disposal, testing and vaccination, and links to treatment while reducing infectious-disease risk without increasing drug use or crime.",
+      "A": "They provide sterile injection equipment and disposal, testing and vaccination, and links to treatment, with reduced infection risk and no increase in drug use or crime.",
       "B": "They provide sterile injection equipment as a substitute for substance-use treatment, so participants generally do not need referral for treatment or other medical services.",
       "C": "They reduce blood-borne infection mainly by requiring participants to stop injecting drugs before sterile equipment, testing, vaccination, or referral services are provided.",
       "D": "They are designed mainly to identify people who inject drugs for law-enforcement referral, with sterile equipment and health services used chiefly to support that process."
@@ -35,7 +35,7 @@
     "blueprint_locator": "Health Promotion and Maintenance, printed p.9 (official PDF pageno 12): plan and/or participate in community health education; educate client about prevention and treatment of high-risk health behaviors; assess and educate clients about health risks based on family, population and community.",
     "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
     "blueprint_topic": "Health Promotion and Maintenance — community harm reduction and prevention of blood-borne infection",
-    "correction_summary_append": "RULE1 cleanup retained the SSP public-health construct and rebuilt A/B/C/D so the correct response is not uniquely longest while preserving CDC-supported sterile-equipment, prevention-service, linkage-to-care, and safety claims."
+    "correction_summary_append": "RULE1 cleanup retained the SSP public-health construct, rebuilt A/B/C/D for comparable detail, and after GitHub reread shortened the key so the original uniquely-longest-answer cue is fully removed."
   },
   "scope_exclusions": {
     "local_legality": "The item does not test whether SSP operation is authorized under a particular state or local law.",
@@ -59,8 +59,8 @@
     "result": "PASS",
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
-    "option_lengths_characters": {"A": 184, "B": 173, "C": 173, "D": 171},
-    "note": "The key is only modestly longer than the distractors and all four options contain comparable detail and structure; the original extreme length cue is removed."
+    "option_lengths_characters": {"A": 169, "B": 173, "C": 173, "D": 171},
+    "note": "The key is no longer the longest; all four options contain comparable detail and structure."
   },
   "blueprint_audit": {
     "result": "PASS_WITH_VISUAL_VERIFICATION",
@@ -73,7 +73,8 @@
     "note": "Multiple live CDC SSP/PWID pages were rechecked August 20, 2026. Current 2026 CDC HIV surveillance content independently continues to describe SSPs as community-based prevention programs that provide sterile syringes and linkage to treatment and other prevention services."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "FIRST_REREAD_FOUND_RESIDUAL_KEY_LENGTH_CUE_CORRECTED",
+    "first_auditing_blob_sha": "af6e0ec5ba965974f9115c68c32fef319c00c18f"
   },
   "independent_second_pass": {
     "result": "PENDING"
