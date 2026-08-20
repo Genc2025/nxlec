@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1425",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -74,9 +74,24 @@
     "note": "NPG #8 and current Joint Commission standards FAQs were directly rechecked August 20, 2026. The latest applicability FAQ used here was updated June 24, 2026."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "f572250beb15210cf1231bdea0ceadd5185cbacb",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The Joint Commission population scope, validated-screening requirement, positive-screen follow-up, and non-universal-screening limitation remained internally consistent; no residual absolute-word, length, ambiguity, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1425 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "Joint Commission NPG #8 independently rechecked for validated suicidal-ideation screening in patients treated primarily for behavioral health conditions",
+      "Joint Commission NPG #8 independently rechecked for evidence-based assessment after a positive screen",
+      "Joint Commission HAP/CAH FAQ independently rechecked that the NPG does not require universal screening of all hospital patients",
+      "Joint Commission evidence-based-assessment FAQ independently rechecked and was last updated April 22, 2026",
+      "Joint Commission applicability FAQ independently rechecked and was last updated June 24, 2026",
+      "official NCSBN 2026 Psychosocial Integrity page was text-verified and visually screenshot-verified, with no false claim that the page explicitly says suicide/self-harm",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A158/B156/C158/D151 and the key is not uniquely longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob f572250beb15210cf1231bdea0ceadd5185cbacb before FINAL_QA_PASS was assigned"
+    ]
   }
 }
