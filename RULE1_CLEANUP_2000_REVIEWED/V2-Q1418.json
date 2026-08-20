@@ -12,7 +12,7 @@
     "stem": "A hospitalized adult medical client is hemodynamically stable, has no active bleeding, no acute myocardial infarction or acute coronary syndrome, no known cardiovascular disease, and no symptoms attributable to anemia. The hemoglobin is 7.4 g/dL. Which interpretation best reflects current red-blood-cell transfusion guidance?",
     "options": {
       "A": "Recommend transfusion because a hemoglobin of 7.4 g/dL is below the laboratory reference range even without symptoms or active bleeding.",
-      "B": "Continue a restrictive strategy; the hemoglobin value alone does not mandate transfusion, and the decision should include the overall clinical context.",
+      "B": "Use a restrictive strategy; this hemoglobin value alone does not mandate transfusion, and clinical context should guide the decision.",
       "C": "Use a liberal strategy and transfuse to keep hemoglobin above 10 g/dL because hospitalization itself increases oxygen requirements.",
       "D": "Defer any transfusion decision until hypotension develops because hemoglobin should not influence treatment in a hemodynamically stable client."
     },
@@ -34,7 +34,7 @@
     "blueprint_locator": "Reduction of Risk Potential, printed p. 13 (official PDF pageno 16): recognize trends and changes in client condition and intervene as needed; monitor results of diagnostic testing and intervene as needed; evaluate client responses to procedures and treatments.",
     "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
     "blueprint_topic": "Reduction of Risk Potential — hemoglobin interpretation and restrictive RBC transfusion strategy",
-    "correction_summary_append": "RULE1 cleanup retained the restrictive-transfusion construct, balanced option length, and explicitly excluded acute MI/ACS to prevent conflict with AABB’s 2025 AMI-specific liberal-transfusion guidance."
+    "correction_summary_append": "RULE1 cleanup retained the restrictive-transfusion construct, explicitly excluded acute MI/ACS to prevent conflict with AABB’s 2025 AMI-specific guidance, and after GitHub reread shortened the key so it is no longer the uniquely longest option."
   },
   "scope_exclusions": {
     "acute_mi_acs": "Explicitly excluded because AABB issued separate 2025 guidance favoring a liberal transfusion strategy for hospitalized patients with acute myocardial infarction.",
@@ -50,7 +50,7 @@
   },
   "option_audit": {
     "A": "Plausible because 7.4 g/dL is markedly below the normal reference range, but AABB does not use the normal range alone as the transfusion trigger in this stable population.",
-    "B": "Correct. It preserves the restrictive strategy and explicitly includes overall clinical context without converting 7 g/dL into an absolute automatic threshold.",
+    "B": "Correct. It preserves the restrictive strategy and clinical-context individualization without converting 7 g/dL into an automatic threshold.",
     "C": "Plausible to learners familiar with historical liberal transfusion practice, but the guideline does not recommend routine transfusion to maintain >10 g/dL in this population.",
     "D": "Plausible because hemodynamics matter, but hemoglobin remains an important decision variable and transfusion assessment is not deferred until hypotension appears."
   },
@@ -59,8 +59,8 @@
     "result": "PASS",
     "absolute_word_cueing": false,
     "grammatical_or_structural_cue": false,
-    "option_lengths_characters": {"A": 136, "B": 151, "C": 131, "D": 143},
-    "note": "The key is not uniquely long in a way that materially cues the answer; all alternatives are full clinical interpretations with comparable structure and detail."
+    "option_lengths_characters": {"A": 136, "B": 133, "C": 131, "D": 143},
+    "note": "The key is not the longest option. All alternatives are full clinical interpretations with comparable structure and detail."
   },
   "blueprint_audit": {
     "result": "PASS_WITH_VISUAL_VERIFICATION",
@@ -73,7 +73,8 @@
     "note": "The 2023 AABB stable-adult recommendation was directly verified in the JAMA guideline abstract and AABB’s current clinical-practice resource. AABB’s 2025 AMI-specific update was separately verified and explicitly excluded from the stem."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "FIRST_REREAD_FOUND_RESIDUAL_KEY_LENGTH_CUE_CORRECTED",
+    "first_auditing_blob_sha": "6c9b4a2f22daa6f38062f3ae78e581338f0ba293"
   },
   "independent_second_pass": {
     "result": "PENDING"
