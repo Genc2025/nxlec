@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1454",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,9 +73,23 @@
     "note": "The 2024 ADA school-setting statement and current 2026 Standards Sections 14 and 7 were directly rechecked August 20, 2026. The current school statement explicitly requires DMMP update when the care plan or diabetes management changes; the 2026 Standards independently support individualized DMMP-based school care and prescribed diabetes-technology use at school."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "5f202b51fba6c65d56e7147abadd93b538844434",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The item preserves the health-care-professional DMMP source, the update-on-management-change requirement, trained-school-staff role boundaries, and current-technology scope without introducing a state-specific delegation claim or second answer."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1454 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate blob",
+      "current ADA 2024 school-setting statement independently rechecked for individualized DMMP development and update annually or whenever the care plan/diabetes management changes",
+      "ADA 2026 Section 14 independently rechecked that school personnel care according to the individualized DMMP",
+      "ADA 2026 Sections 14 and 7 independently rechecked for support of prescribed diabetes technology including CGM and insulin-delivery devices at school",
+      "school-nurse action independently re-audited to avoid independent prescribing, district-specific policy, or universal delegation claims",
+      "official NCSBN 2026 Management of Care printed p.7 was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A155/B142/C155/D166 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob 5f202b51fba6c65d56e7147abadd93b538844434 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
