@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1502",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -71,9 +71,21 @@
     "note": "The live CDC Obstetric Professionals — HEAR HER page was directly rechecked August 20, 2026. Its Address Health Inequities section explicitly supports social/structural determinant assessment, referrals, interpreter access, recognition of stereotyping, avoidance of individual-choice-only attribution, and attention to implicit bias."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "b01fb9f041165576ac4e1d34f446c88c88eeeb14",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. The reread specifically checked for biological essentialism, causal overreach, political framing, individual-behavior reductionism, equal-versus-equitable access ambiguity, cueing, and second-answer risk. The item remains a systems-level clinical quality-improvement question grounded in CDC and NCSBN guidance with no unresolved issue."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1502 stem, A/B/C/D, key, rationale, source metadata, candidate reason, and stable sort key were reread from the refreshed technical selector payload",
+      "live CDC Obstetric Professionals — HEAR HER page independently rechecked for social and structural determinants, referrals, interpreter access, stereotyping, avoidance of individual-choice-only attribution, respectful care, and implicit bias",
+      "the item was independently checked to ensure race/ethnicity is not framed as a biological cause and no specific factor is asserted to explain an individual outcome",
+      "official NCSBN 2026 Management of Care printed p.7 was text-verified and screenshot-verified for quality improvement, unbiased/equal-access care, multidisciplinary collaboration, referrals, and evidence-based resources",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A161/B152/C163/D157 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob b01fb9f041165576ac4e1d34f446c88c88eeeb14 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
