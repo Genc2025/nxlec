@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1424",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,10 +73,24 @@
     "note": "Multiple live CDC SSP/PWID pages were rechecked August 20, 2026. Current 2026 CDC HIV surveillance content independently continues to describe SSPs as community-based prevention programs that provide sterile syringes and linkage to treatment and other prevention services."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_RESIDUAL_KEY_LENGTH_CUE_CORRECTED",
-    "first_auditing_blob_sha": "af6e0ec5ba965974f9115c68c32fef319c00c18f"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "af6e0ec5ba965974f9115c68c32fef319c00c18f",
+    "corrected_auditing_blob_sha": "5130444c43126d2d05eb8b5af695188f584773ab",
+    "note": "The first GitHub reread found that A remained modestly the longest option. The key was shortened while still AUDITING without changing its clinical content, the corrected payload was fetched back from GitHub, and no unresolved source, blueprint, scope, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1424 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate data",
+      "CDC independently rechecked SSP core services: sterile equipment/disposal, testing/vaccination, and linkage to infectious-disease and substance-use treatment",
+      "CDC independently rechecked that comprehensive SSPs reduce infectious-disease risk and do not increase illegal drug use or crime",
+      "current 2026 CDC HIV surveillance content independently confirms continued description of SSPs as community-based prevention programs with sterile-syringe and treatment-linkage services",
+      "the item does not introduce a numeric effect size or state/local legality claim",
+      "official NCSBN 2026 Health Promotion and Maintenance page was text-verified and visually screenshot-verified",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A169/B173/C173/D171 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob 5130444c43126d2d05eb8b5af695188f584773ab before FINAL_QA_PASS was assigned"
+    ]
   }
 }
