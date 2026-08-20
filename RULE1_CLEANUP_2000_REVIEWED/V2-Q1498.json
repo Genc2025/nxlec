@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1498",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,9 +73,24 @@
     "note": "The current AIM MEWS webpage and PDF were rechecked August 20, 2026. Parsed PDF text directly supports postpartum applicability, prompt evaluation/escalation, provider notification, differential diagnosis, monitoring/re-evaluation, and escalation processes. Screenshot attempts for AIM PDF pageno 2 and pageno 12 returned tool internal/cache errors; therefore no visual-verification claim is made for the AIM PDF. Live ACOG guidance independently supports protocol-defined further action and full evaluation after an early-warning trigger."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "b745c87d317806b613481da17f5d89e0a94e0816",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. Postpartum applicability, trigger-versus-diagnosis framing, continued assessment after escalation, source currentness, blueprint fit, cueing, and second-answer risk were all rechecked; no correction was required."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1498 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the refreshed technical selector payload",
+      "current AIM MEWS resource-kit page independently rechecked for pregnant and postpartum scope and facility protocol implementation",
+      "AIM MEWS PDF introduction independently rechecked for early recognition leading to effective escalation and prompt evaluation",
+      "AIM MEWS trigger and example-protocol sections independently rechecked for provider notification, escalation, differential diagnosis, bedside evaluation, monitoring/re-evaluation, and further escalation",
+      "live ACOG early-warning guidance independently rechecked that triggers mandate further action according to protocol and require full evaluation rather than establishing a diagnosis",
+      "official NCSBN 2026 Management of Care printed p.7 was text-verified and screenshot-verified",
+      "AIM PDF screenshot attempts returned internal/cache errors and no visual-verification claim was made for that PDF",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A152/B154/C153/D148 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob b745c87d317806b613481da17f5d89e0a94e0816 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
