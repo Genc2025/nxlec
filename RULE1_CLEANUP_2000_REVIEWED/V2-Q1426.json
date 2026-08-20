@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1426",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -73,9 +73,23 @@
     "note": "Current VA MIRECC Safety Planning Intervention and CPG Recommendation Resource 7 pages were directly rechecked August 20, 2026. The VA/DoD 2024 suicide-risk CPG remains the current guideline listed on the official VA CPG site."
   },
   "github_adversarial_reread": {
-    "result": "PENDING_REAL_REREAD"
+    "result": "PASS_AFTER_REAL_REREAD",
+    "auditing_blob_sha": "e55dbd998890a52d106e85b7c0260923acee7e07",
+    "note": "The staged AUDITING payload was fetched back from GitHub and reread adversarially. Collaboration, the core safety-plan components, the no-harm-contract limitation, and the discharge-after-assessment scope remained internally consistent; no residual length, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1426 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from technical candidate data",
+      "current VA MIRECC Safety Planning Intervention page independently rechecked for collaborative and patient-centered structure",
+      "VA MIRECC Safety Planning Intervention independently rechecked for warning signs, internal coping, social contacts, family/friends, professionals/agencies, and environmental safety",
+      "VA MIRECC CPG Recommendation Resource 7 independently rechecked for collaboration and recommendation over no-harm contracts that lack research support",
+      "official VA CPG site independently rechecked that the 2024 VA/DoD suicide-risk CPG remains current",
+      "official NCSBN 2026 Psychosocial Integrity page had been text-verified and screenshot-verified immediately before this item, with no false claim that it explicitly names suicide safety planning",
+      "A/B/C/D independently re-audited for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A151/B155/C163/D159 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "AUDITING payload was reread from GitHub blob e55dbd998890a52d106e85b7c0260923acee7e07 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
