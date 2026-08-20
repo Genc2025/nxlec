@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1417",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -70,10 +70,24 @@
     "note": "Recommendation 10 and its rationale were directly verified in the indexed full text. A targeted currentness search on August 20, 2026 did not identify a seventh edition; no stronger claim of exhaustive currentness is made."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_WEAK_DISTRACTOR_C_CORRECTED",
-    "first_auditing_blob_sha": "23c17efbadc4f9e82d07875a7cf0601b68a693e1"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "23c17efbadc4f9e82d07875a7cf0601b68a693e1",
+    "corrected_auditing_blob_sha": "93a91bd20c232552f0cf02097b2ef47a00c26a30",
+    "note": "The first staged reread identified a weaker AKI distractor. C was replaced while still AUDITING, the corrected payload was fetched back from GitHub, and the full item was reread. No unresolved source, blueprint, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1417 stem, choices, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate data",
+      "Recommendation 10 independently supports lactate for estimating and monitoring bleeding and tissue hypoperfusion",
+      "guideline rationale independently supports serial lactate for evaluating response to therapy",
+      "penetrating-trauma rationale independently supports caution that routine vital signs may not reflect injury severity",
+      "the item does not introduce a lactate cutoff, clearance target, transfusion threshold, or claim of lactate specificity",
+      "official NCSBN 2026 Reduction of Risk Potential page was text-verified and visually verified by screenshot",
+      "A/B/C/D independently re-audited for clinical plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A129/B138/C131/D131",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob 93a91bd20c232552f0cf02097b2ef47a00c26a30 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
