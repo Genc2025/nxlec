@@ -11,7 +11,7 @@
   "options": {
     "A": "Prioritize prompt clinical evaluation and clearly identify the client as receiving chemotherapy because this fever may signal a life-threatening infection.",
     "B": "Keep the client at routine triage priority when no other infection symptoms are present, and reassess if additional signs of infection develop.",
-    "C": "Obtain the current white blood cell count before changing triage priority, then expedite evaluation if the result confirms neutropenia.",
+    "C": "Obtain a current white blood cell count before changing triage priority, and expedite evaluation after the laboratory result confirms neutropenia.",
     "D": "Have the client contact the oncology service from the waiting area and keep routine priority unless the oncology team requests faster evaluation."
   },
   "correct_option": "A",
@@ -31,7 +31,7 @@
   "blueprint_locator": "Reduction of Risk Potential, PDF file page index 16 / printed page 13: assess and respond to changes and trends in client vital signs; perform focused assessments; recognize changes in client condition and intervene as needed; evaluate client responses to procedures and treatments; use precautions to prevent injury/complications associated with treatment or diagnosis. Appendix A further lists potential complications of treatments/procedures and recognition/intervention for changes in condition.",
   "pdf_visual_verification": "NCSBN 2026 NCLEX-RN Test Plan PDF file page index 16 / printed page 13 was visually verified by screenshot on 2026-08-20 and visibly shows Reduction of Risk Potential activity statements for vital-sign changes, focused assessment, changes in condition, treatment response, and prevention of treatment-related complications. CDC evidence is current HTML, so no CDC PDF screenshot was required.",
   "targeted_near_duplicate_check": "Repository-targeted GitHub search for 'chemotherapy fever 100.4 38 emergency department seen quickly' returned no indexed matching file; no near-duplicate identified by the targeted check.",
-  "correction_summary": "Rebuilt all four alternatives to remove the original uniquely-long correct answer and absolute-word distractor. The final options test realistic triage errors: treating isolated fever as routine, waiting for laboratory confirmation before prioritizing, and leaving the client in routine triage while seeking oncology direction.",
+  "correction_summary": "Rebuilt all four alternatives to remove the original uniquely-long correct answer and absolute-word distractor. The first post-fetch adversarial reread found no clinical defect but identified residual option-length cueing, so C was expanded without changing its clinical claim. Final options test treating isolated fever as routine, waiting for laboratory confirmation before prioritizing, and leaving the client in routine triage while seeking oncology direction.",
   "option_audit": {
     "A": "Correct; directly mirrors CDC's ED instruction to identify active chemotherapy, treat fever as a medical emergency, and see the client quickly.",
     "B": "Plausible symptom-counting error; incorrect because CDC states fever may be the only sign of infection during chemotherapy.",
@@ -40,10 +40,10 @@
   },
   "cueing_audit": {
     "absolute_words": "No option relies on only/all/always/never/must-type distractor absolutes.",
-    "answer_length": "Final option lengths are reasonably balanced (A 155, B 143, C 135, D 145 characters); the correct option is not uniquely identifiable by an extreme length difference.",
+    "answer_length": "Final option lengths are tightly balanced (A 155, B 143, C 146, D 145 characters); the correct option is not uniquely identifiable by an extreme length difference.",
     "grammatical_lexical": "All four alternatives are parallel triage actions involving priority, evaluation, laboratory gating, or oncology communication.",
-    "second_answer_risk": "No defensible second answer identified in the pre-stage audit; only A satisfies CDC's explicit emergency and rapid-ED-evaluation guidance. Post-fetch adversarial reread remains required."
+    "second_answer_risk": "No defensible second answer identified after cueing correction; fresh GitHub reread and independent second pass remain required before FINAL_QA_PASS."
   },
-  "independent_second_pass": "PENDING — must be performed after GitHub fetch/reread of this staged AUDITING record.",
+  "independent_second_pass": "PENDING — cueing correction made after first post-fetch adversarial reread; must be re-fetched and independently re-audited before FINAL_QA_PASS.",
   "second_pass_status": "PENDING"
 }
