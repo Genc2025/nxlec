@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1402",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -23,7 +23,7 @@
     "source_document_title": "Individuals’ Right under HIPAA to Access their Health Information — 45 CFR §164.524; FAQ 2054 — Under the HIPAA Privacy Rule, do individuals have the right to an electronic copy of their PHI?; Important Notice Regarding Individuals’ Right of Access to Health Records",
     "source_version_date": "HHS FAQ 2054 content last reviewed May 30, 2025; live HHS right-of-access guidance and Ciox notice rechecked August 20, 2026; Ciox notice last reviewed January 28, 2020",
     "source_accessed_date": "2026-08-20",
-    "source_locator": "HHS Right of Access > General Right: access to PHI in one or more designated record sets; Providing Access > Form and Format and Manner of Access: 45 CFR §164.524(c)(2)(ii), requested electronic form/format if readily producible, otherwise agreed readable alternative electronic format. FAQ 2054, current HHS page: electronically maintained PHI generally carries a right to an electronic copy assuming no applicable denial ground; requested readily producible format, otherwise readable alternative electronic format; content last reviewed May 30, 2025. HHS Ciox Notice: the individual's right to access the individual's own records remains undisturbed and in effect.",
+    "source_locator": "HHS Right of Access > General Right: access to PHI in one or more designated record sets; Providing Access > Form and Format and Manner of Access: 45 CFR §164.524(c)(2)(ii), requested electronic form/format if readily producible, otherwise agreed readable alternative electronic format. FAQ 2054: electronically maintained PHI generally carries a right to an electronic copy assuming no applicable denial ground; requested readily producible format, otherwise readable alternative electronic format; content last reviewed May 30, 2025. HHS Ciox Notice: the individual's right to access the individual's own records remains undisturbed and in effect.",
     "source_url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html",
     "secondary_source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/2054/under-the-hipaa-privacy-rule-do-individuals/index.html",
     "tertiary_source_url": "https://www.hhs.gov/hipaa/court-order-right-of-access/index.html",
@@ -72,8 +72,14 @@
     "result": "HHS_PRIMARY_HTML_TEXT_VERIFIED",
     "note": "HHS Right of Access, FAQ 2054, and the official Ciox notice were directly text-verified. FAQ 2054 reports content last reviewed May 30, 2025. The live pages were rechecked on August 20, 2026, and the item is limited to the individual's own-record access right that HHS states remains undisturbed by Ciox."
   },
+  "github_adversarial_reread": {
+    "result": "PASS_AFTER_REAL_REREAD_AND_CORRECTION",
+    "initial_auditing_blob_sha": "4d9a9748c79aaad126e72a89fe947afd00dc4045",
+    "final_auditing_blob_sha": "6156104581ef769fe288294ec74e8d0cbb3c681d",
+    "note": "The first GitHub reread identified that the key's electronic-copy rule lacked an explicit qualifier preserving applicable denial grounds. B, the rationale, objective, source-supported claim, and audit text were corrected while status remained AUDITING. The corrected file was fetched again from GitHub, and the second reread found no unresolved stem, answer, distractor, rationale, source-scope, blueprint, ambiguity, cueing, or second-answer conflict."
+  },
   "independent_second_pass": {
-    "result": "PASS_PENDING_GITHUB_REREAD",
+    "result": "FINAL_QA_PASS",
     "checks": [
       "original Q1402 stem, A/B/C/D, key, rationale, objective, source metadata, candidate reasons, and stable sort key were reread from the real candidate data",
       "HHS current Right of Access guidance independently rechecked for designated-record-set access and electronic form/format requirements",
@@ -84,7 +90,8 @@
       "no deadline, fee amount, third-party-directive rule, technical file type, or state-law detail was introduced",
       "option lengths balanced at A139/B150/C140/D150",
       "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
-      "educational objective is specific to electronic right of access and readily-producible format rules"
+      "educational objective is specific to electronic right of access and readily-producible format rules",
+      "corrected AUDITING payload was reread from GitHub blob 6156104581ef769fe288294ec74e8d0cbb3c681d before FINAL_QA_PASS was assigned"
     ]
   }
 }
