@@ -1,6 +1,6 @@
 {
   "question_uid": "V2-Q1451",
-  "status": "AUDITING",
+  "status": "FINAL_QA_PASS",
   "reviewed_date_utc": "2026-08-20",
   "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
@@ -72,10 +72,23 @@
     "note": "AHRQ Health Literacy Universal Precautions Toolkit, 3rd Edition pages were rechecked August 20, 2026. Tool 5 directly supports teach-back, show-me, avoidance of yes/no comprehension checks, and reteaching; Tool 4 directly supports plain language."
   },
   "github_adversarial_reread": {
-    "result": "FIRST_REREAD_FOUND_RESIDUAL_KEY_LENGTH_CUE_CORRECTED",
-    "first_auditing_blob_sha": "7a5032e33410b48b269232543a5dd977a263cbf2"
+    "result": "PASS_AFTER_CORRECTION_AND_REAL_REREAD",
+    "first_auditing_blob_sha": "7a5032e33410b48b269232543a5dd977a263cbf2",
+    "corrected_auditing_blob_sha": "b18af00acd5af73fad7e342e5629fdb25e43d8b9",
+    "note": "The first GitHub reread found that the correct answer remained two characters longer than the next-longest distractor. A was shortened while the item remained AUDITING, the corrected file was fetched back from GitHub, and no unresolved source, blueprint, ambiguity, cueing, or second-answer issue remained."
   },
   "independent_second_pass": {
-    "result": "PENDING"
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original Q1451 stem, A/B/C/D, key, rationale, source metadata, candidate reasons, and stable sort key were reread from the technical candidate blob",
+      "AHRQ Tool 5 independently rechecked for teach-back in the patient's own words, show-me task verification, avoidance of yes/no comprehension checks, and reteaching/checking again when misunderstanding is found",
+      "AHRQ Tool 4 independently rechecked for plain nonmedical language",
+      "AHRQ Toolkit 3rd Edition current landing page independently rechecked; Toolkit publication March 2024 and landing page last reviewed January 2025",
+      "official NCSBN 2026 Health Promotion and Maintenance statements were text-verified; screenshot attempt returned CACHE MISS and no visual claim was made",
+      "A/B/C/D independently re-audited after key shortening for plausibility, correctness, ambiguity, cueing, and second-answer risk",
+      "option lengths balanced at A145/B152/C150/D150 and the key is not longest",
+      "targeted near-duplicate search found no indexed match and no broad bank scan was performed",
+      "corrected AUDITING payload was reread from GitHub blob b18af00acd5af73fad7e342e5629fdb25e43d8b9 before FINAL_QA_PASS was assigned"
+    ]
   }
 }
