@@ -1,0 +1,67 @@
+{
+  "question_uid": "V2-Q1060",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "semantic_correction": {
+    "stem": "During a hospital medication-storage check, a nurse finds a Schedule II controlled medication in an unlocked drawer accessible to unauthorized personnel. Which action is consistent with 42 CFR § 482.25(b)(2)?",
+    "options": {
+      "A": "Move the medication to a locked secure area and restrict access to authorized personnel.",
+      "B": "Leave it in the drawer if the unit remains continuously staffed by licensed personnel.",
+      "C": "Place it with nonscheduled medications as long as the drawer is inside a medication room.",
+      "D": "Keep the drawer unlocked but add a sign identifying the medication as a controlled substance."
+    },
+    "correct_option": "A",
+    "rationale": "Current federal hospital Conditions of Participation require all drugs and biologicals to be kept in a secure area and locked when appropriate. Section 482.25(b)(2)(ii) specifically requires Schedule II, III, IV, and V drugs to be locked within a secure area, and paragraph (iii) limits access to locked areas to authorized personnel. Therefore, a Schedule II medication found in an unlocked drawer accessible to unauthorized personnel must be moved to compliant locked secure storage with access restricted to authorized personnel.",
+    "educational_objective": "Store Schedule II–V controlled medications in a locked secure area and limit access to authorized personnel in accordance with federal hospital requirements.",
+    "source_organization": "Electronic Code of Federal Regulations (eCFR), Centers for Medicare & Medicaid Services regulation",
+    "source_document_title": "42 CFR § 482.25 — Condition of participation: Pharmaceutical services",
+    "source_version_date": "Title 42 up to date August 19, 2026; last amended August 13, 2026",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "42 CFR § 482.25(b)(2)(i)–(iii), especially § 482.25(b)(2)(ii) — Schedule II–V drugs locked within a secure area; § 482.25(b)(2)(iii) — only authorized personnel may access locked areas",
+    "source_url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.25",
+    "source_claim_supported": "Federal hospital regulations require Schedule II–V controlled drugs to be locked within a secure area and restrict access to locked medication areas to authorized personnel.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 — Handle and administer controlled substances within regulatory guidelines; Handle and maintain medication in a safe and controlled environment",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — secure storage of controlled medications",
+    "correction_summary_append": "RULE1 cleanup: rebuilt the item from a near-duplicate expired-medication construct into a distinct controlled-substance storage scenario supported directly by § 482.25(b)(2)(ii)–(iii); all options are parallel storage actions and the correct answer is not uniquely longest.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1060",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "eCFR / CMS hospital Conditions of Participation",
+        "source_locator": "42 CFR § 482.25(b)(2)(ii)–(iii)",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12",
+        "finding": "The source record duplicated an expired-medication concept already represented elsewhere in the reviewed pool. The revised item tests a distinct, directly regulated medication-safety construct: locked storage and authorized access for Schedule II–V drugs."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It implements both the locked-secure-area requirement and the authorized-access restriction.",
+    "B": "Incorrect. Continuous staffing does not replace the explicit locked-storage requirement for Schedule II–V drugs.",
+    "C": "Incorrect. Location inside a medication room does not satisfy the specific requirement that Schedule II–V drugs be locked within a secure area.",
+    "D": "Incorrect. Labeling does not substitute for locked secure storage or authorized-access controls."
+  },
+  "ambiguity_check": "No second defensible answer. A alone satisfies both § 482.25(b)(2)(ii) and (iii) in the scenario.",
+  "cueing_check": "All four options are medication-storage actions of comparable length and specificity; no absolute-word or unique-length cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current eCFR Title 42 date freshly verified",
+      "§ 482.25(b)(2)(ii) Schedule II–V locked-storage requirement verified directly",
+      "§ 482.25(b)(2)(iii) authorized-access restriction verified directly",
+      "duplicate expired-medication construct avoided",
+      "A/B/C/D re-audited individually",
+      "no unsupported state-specific storage rule introduced",
+      "no second answer identified",
+      "cueing and answer-length balance rechecked",
+      "NCSBN 2026 controlled-substance and safe-medication-storage mapping freshly verified"
+    ]
+  }
+}
