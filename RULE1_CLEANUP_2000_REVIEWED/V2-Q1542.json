@@ -1,0 +1,68 @@
+{
+  "question_uid": "V2-Q1542",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "semantic_correction": {
+    "stem": "Before patient-specific culture results are available, a hospital team reviews the facility antibiogram when choosing empiric therapy. What information does the antibiogram provide?",
+    "options": {
+      "A": "Aggregate local percentages of isolates susceptible to specific organism-antimicrobial combinations.",
+      "B": "The current client's allergy history and prior medication adverse reactions.",
+      "C": "A patient-specific susceptibility result before the infecting organism has been cultured.",
+      "D": "Hospital drug-acquisition costs without microbiologic susceptibility information."
+    },
+    "correct_option": "A",
+    "rationale": "CDC NHSN describes the facility-wide antibiogram as a table displaying calculated percent susceptible values for organism-antimicrobial combinations over a specified time period. CDC MDRO recommendations also advise hospitals and long-term care facilities to review local susceptibility patterns, or antibiograms, to foster appropriate antimicrobial use and guide prescribing. An antibiogram is aggregate facility-level microbiology information; it does not contain a particular client's allergy history and does not replace patient-specific culture and susceptibility testing.",
+    "educational_objective": "Use a hospital antibiogram as an aggregate summary of local organism-antimicrobial susceptibility patterns to inform empiric therapy while awaiting patient-specific microbiology.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC), National Healthcare Safety Network (NHSN)",
+    "source_document_title": "FAQs: Antimicrobial Resistance (AR) Option; Management of Multidrug-Resistant Organisms — Summary of Recommendations",
+    "source_version_date": "NHSN AR FAQ current 2025-2026; MDRO recommendations current; accessed August 21, 2026",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "NHSN AR FAQ Q9 — facility-wide antibiogram displays calculated percent susceptible (%S) for each organism-antimicrobial combination. MDRO Summary V.A.3.a-b.i — review local susceptibility patterns (antibiograms) and provide susceptibility reports/trend analysis to guide antimicrobial prescribing",
+    "source_url": "https://www.cdc.gov/nhsn/faqs/faq-ar.html ; https://www.cdc.gov/infection-control/hcp/mdro-management/summary-recommendations.html",
+    "source_claim_supported": "A facility antibiogram summarizes aggregate local organism-antimicrobial susceptibility percentages and is used to support empiric antimicrobial selection and stewardship, but it is not an individual patient's susceptibility test.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control — use infection-control and microbiologic information to support safe evidence-based care; Pharmacological and Parenteral Therapies — evaluate medication therapy and relevant diagnostic information",
+    "blueprint_url": "https://www.ncsbn.org/publications/2026-nclex-rn-test-plan",
+    "blueprint_topic": "Safety and Infection Prevention and Control — interpreting facility antibiograms",
+    "correction_summary_append": "RULE1 cleanup: shortened the uniquely long correct answer, aligned all alternatives to information types, and anchored the construct to the current NHSN definition of percent-susceptible organism-antimicrobial combinations.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1542",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "CDC NHSN",
+        "source_locator": "AR Option FAQ Q9; MDRO Summary V.A.3.a-b.i",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety/Infection Prevention and Pharmacological Therapies",
+        "finding": "The original answer was uniquely longest. The revised item tests exactly what a facility antibiogram contains and avoids implying it substitutes for patient-specific cultures."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. NHSN explicitly defines the facility-wide antibiogram in terms of percent susceptible values for organism-antimicrobial combinations.",
+    "B": "Incorrect. Allergy and adverse-reaction history are patient-specific clinical data, not antibiogram content.",
+    "C": "Incorrect. Aggregate susceptibility surveillance cannot provide a definitive susceptibility result for an uncultured patient-specific organism.",
+    "D": "Incorrect. An antibiogram is a microbiologic susceptibility summary, not a medication-cost report."
+  },
+  "ambiguity_check": "No second defensible answer. A alone describes the data displayed by the NHSN facility-wide antibiogram.",
+  "cueing_check": "All four choices describe categories of information of comparable length and specificity; no unique-length or absolute-word cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC NHSN AR FAQ freshly verified",
+      "facility-wide antibiogram definition verified directly",
+      "percent-susceptible metric verified directly",
+      "organism-antimicrobial combination structure verified directly",
+      "CDC MDRO local-susceptibility prescribing guidance cross-checked",
+      "A/B/C/D re-audited individually",
+      "aggregate-versus-patient-specific distinction preserved",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "NCSBN 2026 infection/pharmacology mapping confirmed"
+    ]
+  }
+}
