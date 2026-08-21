@@ -1,0 +1,67 @@
+{
+  "question_uid": "V2-Q0967",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "easy",
+  "semantic_correction": {
+    "stem": "During a scheduled readiness check of a Defibtech DDU-2000 Series AED, the nurse finds that the connected electrode pads are past the expiration date printed on the package. What should the nurse do?",
+    "options": {
+      "A": "Take the expired pads out of service and replace them with unexpired compatible pads.",
+      "B": "Keep the expired pads attached until the AED displays a pad-connection error.",
+      "C": "Reserve the expired pads for the next emergency and replace them after use.",
+      "D": "Leave the pads in service when the sealed package appears physically intact."
+    },
+    "correct_option": "A",
+    "rationale": "The FDA-approved Defibtech DDU-2000 Series AED user manual instructs users to check pad and battery expiration dates and states that once an accessory is past its expiration date, it should be taken out of service and replaced as soon as possible. The manual also states that the pad package expiration date is printed on the sealed package. Therefore, option A follows the approved device instructions; package appearance or absence of another error does not override the labeled expiration date.",
+    "educational_objective": "During AED readiness checks, follow the device's approved labeling by removing expired electrode pads from service and replacing them with unexpired compatible pads.",
+    "source_organization": "U.S. Food and Drug Administration (FDA), approved device labeling",
+    "source_document_title": "Defibtech DDU-2000 Series Automated External Defibrillator User Manual; Automated External Defibrillators (AEDs)",
+    "source_version_date": "FDA-approved PMA labeling; current FDA AED/accessory page accessed August 21, 2026",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "DDU-2000 Series User Manual — Checking Pad and Battery Pack Expiration Dates: expired accessory taken out of service and replaced; FDA AED page — FDA-Approved AED Accessories",
+    "source_url": "https://www.accessdata.fda.gov/cdrh_docs/pdf16/P160032D.pdf ; https://www.fda.gov/medical-devices/cardiovascular-devices/automated-external-defibrillators-aeds",
+    "source_claim_supported": "For the Defibtech DDU-2000 Series AED, the FDA-approved user manual directs that pads and battery expiration dates be checked and that an accessory past its expiration date be removed from service and replaced.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 24 — Facilitate appropriate and safe use of equipment; Assess client care environment; Protect client from injury",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — AED readiness and expired accessory replacement",
+    "correction_summary_append": "RULE1 cleanup: removed the unsupported generic claim about all AED accessory shelf-life frameworks by making the device model explicit and tying the action to FDA-approved Defibtech labeling; rebuilt all choices as parallel readiness actions and removed answer-length cueing.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0967",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "FDA-approved device labeling",
+        "source_locator": "Defibtech DDU-2000 manual — Checking Pad and Battery Pack Expiration Dates",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 24 — safe use of equipment",
+        "finding": "The original item generalized an expiration rule from FDA device/accessory information and had a uniquely long answer. The revised item is explicitly product-specific to the FDA-approved manual that directly states the expiration action, eliminating unsupported generalization."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. The FDA-approved manual states that an accessory past its expiration date should be taken out of service and replaced.",
+    "B": "Incorrect. The labeled expiration date itself triggers replacement; another error message is not required.",
+    "C": "Incorrect. The approved instructions do not direct use of an expired pad in the next emergency.",
+    "D": "Incorrect. An intact package does not override the printed expiration date in the approved instructions."
+  },
+  "ambiguity_check": "No second defensible answer. A is the only option that follows the model-specific FDA-approved labeling.",
+  "cueing_check": "All four options are readiness-check actions of comparable length and specificity; no absolute-word or uniquely long correct answer identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current FDA AED/accessory page freshly verified",
+      "FDA-approved Defibtech manual located and reviewed",
+      "pad-package expiration-date statement verified",
+      "expired-accessory removal/replacement instruction verified directly",
+      "A/B/C/D re-audited individually",
+      "generic all-AED expiration claim intentionally avoided",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "NCSBN 2026 equipment-safety mapping freshly verified"
+    ]
+  }
+}
