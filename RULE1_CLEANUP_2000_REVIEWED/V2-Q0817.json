@@ -1,0 +1,68 @@
+{
+  "question_uid": "V2-Q0817",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "easy",
+  "semantic_correction": {
+    "stem": "A client is on Contact Precautions. The nurse enters the room to adjust a bed rail near the client without planning direct client contact. Which action follows CDC guidance?",
+    "options": {
+      "A": "Don gloves upon room entry before touching the bed rail.",
+      "B": "Enter without gloves because direct client contact is not planned.",
+      "C": "Touch the bed rail first and don gloves if visible contamination is found.",
+      "D": "Use a mask instead of gloves because the task involves the client's environment."
+    },
+    "correct_option": "A",
+    "rationale": "CDC Contact Precautions guidance states that healthcare personnel should wear gloves when touching the patient's intact skin or surfaces and articles in close proximity to the patient, such as medical equipment and bed rails, and should don gloves upon entry into the room or cubicle. Because the nurse plans to touch a bed rail in the client's immediate environment, option A is correct. Direct client contact and visible contamination are not required before glove use under Contact Precautions, and a mask does not substitute for gloves for this contact exposure.",
+    "educational_objective": "For a client on Contact Precautions, don gloves upon room entry when contact with the client or nearby potentially contaminated environmental surfaces such as bed rails is expected.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "source_document_title": "Guideline for Isolation Precautions: Preventing Transmission of Infectious Agents in Healthcare Settings — Recommendations",
+    "source_version_date": "Current CDC recommendations page accessed August 21, 2026; guideline PDF last update September 2024",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Section V.B.3.a — Contact Precautions, Use of personal protective equipment, Gloves (Category IB)",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/recommendations.html",
+    "source_claim_supported": "For Contact Precautions, wear gloves when touching the patient or surfaces/articles in close proximity such as bed rails, and don gloves upon entry into the room or cubicle.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8, Related Activity Statements — Apply principles of infection prevention (e.g., isolation); Facilitate appropriate and safe use of equipment",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — glove use for Contact Precautions",
+    "correction_summary_append": "RULE1 cleanup: removed the uniquely long combined glove-and-gown answer and avoided gown-use nuance by rebuilding the item around CDC's explicit V.B.3.a glove requirement for contact with nearby environmental surfaces; all distractors were rewritten and the NCSBN 2026 locator normalized.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0817",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "CDC",
+        "source_locator": "V.B.3.a — Contact Precautions, Gloves (Category IB)",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8",
+        "finding": "The original correct answer combined glove and gown requirements and was uniquely longest. CDC's narrative and recommendation wording around gown use can be interpreted at different levels of generality, so the revised item isolates the explicit glove-on-entry requirement for contact with a bed rail, eliminating ambiguity while preserving the Contact Precautions construct."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. CDC V.B.3.a specifically includes bed rails and directs glove donning upon room entry.",
+    "B": "Incorrect. Contact with nearby environmental surfaces is sufficient to require gloves under Contact Precautions even without direct client contact.",
+    "C": "Incorrect. Glove use is based on anticipated contact with the patient environment, not on waiting to see visible contamination.",
+    "D": "Incorrect. A mask does not replace gloves for the contact exposure described."
+  },
+  "ambiguity_check": "No second defensible answer. The stem specifies planned contact with a bed rail, an example explicitly named by CDC V.B.3.a, making glove donning on entry uniquely correct.",
+  "cueing_check": "All options are room-entry PPE actions of comparable length; no absolute-word or unique-length cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC isolation recommendations freshly verified",
+      "V.B.3.a Category IB exact bed-rail example verified",
+      "gloves-upon-entry wording verified",
+      "direct-contact requirement checked and excluded",
+      "gown-use ambiguity intentionally removed from construct",
+      "A/B/C/D re-audited individually",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "educational objective is item-specific",
+      "NCSBN 2026 isolation/equipment mapping confirmed"
+    ]
+  }
+}
