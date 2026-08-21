@@ -2,21 +2,11 @@
 from __future__ import annotations
 import json, sqlite3, subprocess
 from pathlib import Path
-
-DB=Path('NCLEX_CANONICAL.db')
-CAND=Path('RULE1_CLEANUP_2000_CANDIDATES.jsonl')
-REVIEW_DIR=Path('RULE1_CLEANUP_2000_REVIEWED')
-LEDGER=Path('RULE1_CLEANUP_2000_REVIEWED_ITEMS.json')
-OUT=Path('RULE1_CLEANUP_2000_NEXT_CANDIDATE.json')
-EXPECTED_CANONICAL='182a1e979e11d62bebc85c5ceb859056b8812963'
-EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'
-SELECTOR_VERSION='2026-08-20-status-compat-r127'
-
-
+DB=Path('NCLEX_CANONICAL.db'); CAND=Path('RULE1_CLEANUP_2000_CANDIDATES.jsonl'); REVIEW_DIR=Path('RULE1_CLEANUP_2000_REVIEWED'); LEDGER=Path('RULE1_CLEANUP_2000_REVIEWED_ITEMS.json'); OUT=Path('RULE1_CLEANUP_2000_NEXT_CANDIDATE.json')
+EXPECTED_CANONICAL='182a1e979e11d62bebc85c5ceb859056b8812963'; EXPECTED_SOURCE='07e335d471ef1b4689406ba41eb98eaa2ca41472'; SELECTOR_VERSION='2026-08-20-status-compat-r128'
 def is_final(item):
     if not isinstance(item, dict): return False
     return item.get('status') == 'FINAL_QA_PASS' or item.get('audit_status') == 'FINAL_QA_PASS'
-
 def reviewed_uids():
     out=set()
     if REVIEW_DIR.exists():
@@ -30,7 +20,6 @@ def reviewed_uids():
         for uid,item in (d.get('items') or {}).items():
             if is_final(item): out.add(uid)
     return out
-
 def main():
     cb=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip(); sb=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_COMMERCIAL_MASTER_CURRENT.db'],text=True).strip()
     if cb!=EXPECTED_CANONICAL or sb!=EXPECTED_SOURCE: raise SystemExit(f'BLOCKED blob change canonical={cb} source={sb}')
