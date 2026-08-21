@@ -1,0 +1,68 @@
+{
+  "question_uid": "V2-Q1092",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "semantic_correction": {
+    "stem": "A flexible gastrointestinal endoscope contacts mucous membranes but does not enter normally sterile tissue. After meticulous cleaning, what is the minimum reprocessing level required before use on another client?",
+    "options": {
+      "A": "High-level disinfection because the endoscope is a semicritical device.",
+      "B": "Low-level disinfection because the endoscope does not enter sterile tissue.",
+      "C": "Sterilization because all reusable devices that contact mucosa are critical devices.",
+      "D": "Cleaning alone because visible soil has already been removed from the device."
+    },
+    "correct_option": "A",
+    "rationale": "CDC uses the Spaulding classification to match reprocessing level to device use. Semicritical equipment that contacts mucous membranes or nonintact skin, including gastrointestinal endoscopes, requires at least high-level disinfection after cleaning. Critical devices that enter normally sterile tissue or the vascular system require sterilization, while low-level disinfection is used for noncritical devices that contact intact skin. Because the stem asks for the minimum level for a GI endoscope that contacts mucosa but not sterile tissue, high-level disinfection is the uniquely correct answer.",
+    "educational_objective": "Classify a flexible gastrointestinal endoscope that contacts mucous membranes as semicritical equipment requiring at least high-level disinfection after cleaning.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "source_document_title": "Recommendations for Disinfection and Sterilization in Healthcare Facilities",
+    "source_version_date": "CDC summary page December 7, 2023; guideline recommendations current and accessed August 21, 2026",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Recommendation 2.b — meticulous cleaning before high-level disinfection/sterilization; Recommendation 3.a — critical devices require sterilization; Recommendation 3.b — semicritical equipment including gastrointestinal endoscopes requires at least high-level disinfection; Recommendation 3.c — noncritical equipment receives low-level disinfection",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/disinfection-sterilization/summary-recommendations.html",
+    "source_claim_supported": "CDC recommends at least high-level disinfection for semicritical patient-care equipment, including gastrointestinal endoscopes, that contacts mucous membranes or nonintact skin; critical devices require sterilization and noncritical devices receive low-level disinfection.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 24 — Apply principles of infection prevention; Facilitate appropriate and safe use of equipment; detailed printed p. 26 — Standard Precautions/Transmission-Based Precautions/Surgical Asepsis",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — reprocessing semicritical equipment",
+    "correction_summary_append": "RULE1 cleanup: preserved the CDC Spaulding-classification construct but replaced trivial/absolute distractors with adjacent legitimate reprocessing levels tied to critical, semicritical, and noncritical device categories.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1092",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "CDC",
+        "source_locator": "Disinfection/Sterilization Summary Recommendations 2.b and 3.a–3.c",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed pp. 24 and 26",
+        "finding": "The original correct answer was valid but distractors were too weak. The revised alternatives represent real Spaulding categories, making the item discriminate device classification rather than recognition of obviously unsafe options."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. CDC explicitly lists gastrointestinal endoscopes as semicritical equipment requiring at least high-level disinfection.",
+    "B": "Incorrect but plausible. Low-level disinfection is appropriate for noncritical equipment that contacts intact skin, not mucous membranes.",
+    "C": "Incorrect but plausible. Sterilization is required for critical devices entering sterile tissue or the vascular system; it is not the minimum for the semicritical device described.",
+    "D": "Incorrect. Cleaning is required before reprocessing but does not by itself meet the minimum disinfection requirement for a semicritical endoscope."
+  },
+  "ambiguity_check": "No second defensible answer. The word 'minimum' and the explicit mucosal-but-not-sterile-tissue use make high-level disinfection the sole correct Spaulding classification response.",
+  "cueing_check": "All four choices pair a reprocessing level with a classification rationale and are comparable in length and specificity; no absolute-word or unique-length cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC summary recommendations freshly verified",
+      "cleaning-before-reprocessing recommendation verified",
+      "critical-device sterilization rule verified",
+      "semicritical GI-endoscope high-level-disinfection rule verified",
+      "noncritical low-level-disinfection rule verified",
+      "minimum-level wording checked against possible sterilization over-treatment ambiguity",
+      "A/B/C/D re-audited individually",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "NCSBN 2026 infection-prevention/equipment mapping freshly verified"
+    ]
+  }
+}
