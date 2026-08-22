@@ -1,0 +1,104 @@
+{
+  "question_uid": "V2-Q0726",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "CLINICAL_LADDER_CAREER_THEORY_TO_UNNECESSARY_URINARY_CATHETER_REMOVAL_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An adult is 30 hours after uncomplicated surgery. An indwelling urinary catheter was placed for intraoperative monitoring. The client is now hemodynamically stable and ambulatory, has no urinary retention or urologic indication, and no longer requires hourly urine measurement. The facility has a nurse-driven protocol authorizing catheter removal when no indication remains. Which action is most appropriate?",
+    "options": {
+      "A": "Keep the catheter until discharge because continuous urine measurement is more accurate than asking the client to void after surgery.",
+      "B": "Remove the catheter now under the nurse-driven protocol and monitor the client's ability to void after removal according to facility practice.",
+      "C": "Clamp the catheter for several hours before removal to retrain the bladder, then remove it if the client reports a strong urge to void.",
+      "D": "Replace the current catheter with a new sterile catheter to reduce infection risk while preserving convenient postoperative urine measurement."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes inserting, maintaining, or removing a urinary catheter under Reduction of Risk Potential. Current CDC CAUTI guidance states that urinary catheters should be used only when needed and removed as soon as the patient no longer needs them; prolonged catheter use is the most important CAUTI risk factor. CDC's guideline also supports nurse-directed protocols for removal of unnecessary urinary catheters and states that clamping an indwelling catheter before removal is not necessary. The stem removes scope and indication ambiguity by stating that the client no longer has an appropriate indication and that the facility protocol authorizes RN removal. B is therefore the uniquely best action: remove the unnecessary catheter promptly and monitor post-removal voiding according to facility practice. A prolongs catheter exposure for convenience rather than a valid indication. C adds bladder-training clamping that CDC says is unnecessary. D replaces an unnecessary device and continues exposure instead of eliminating it. Therefore B is correct.",
+    "educational_objective": "When an indwelling urinary catheter no longer has a valid indication and a nurse-driven removal protocol applies, remove it promptly and monitor post-removal voiding rather than retaining or replacing the catheter for convenience or clamping it for routine bladder training.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Clinical Safety: Preventing Catheter-associated Urinary Tract Infections; Summary of Recommendations for CAUTI Prevention; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "CDC Clinical Safety page dated June 27, 2025 and current CAUTI recommendation pages live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "CDC CAUTI Clinical Safety — only use urinary catheters when needed and remove as soon as no longer needed; prolonged use is the most important CAUTI risk factor. CDC Summary of Recommendations — leave catheter in place only as long as needed; nurse-directed removal protocols are effective QI strategies; clamping before removal is not necessary. NCSBN Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Insert, maintain or remove a urinary catheter",
+    "source_url": "https://www.cdc.gov/uti/hcp/clinical-safety/index.html",
+    "secondary_source_urls": [
+      "https://www.cdc.gov/infection-control/hcp/cauti/summary-of-recommendations.html",
+      "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"
+    ],
+    "source_claim_supported": "An indwelling urinary catheter should be removed promptly when no appropriate indication remains; nurse-directed removal protocols are appropriate, and routine clamping before removal is unnecessary.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Insert, maintain or remove a urinary catheter",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — prompt removal of an indwelling urinary catheter when no longer indicated",
+    "correction_summary_append": "RULE1 cleanup: retired clinical-ladder/career-framework theory because it was staff-development content rather than a direct entry-level bedside decision. Rebuilt the item around explicit NCSBN urinary-catheter removal and current CDC CAUTI prevention guidance. The final stem controls continued indication and RN authority while removing the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0726",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_BEDSIDE_CAREER_DEVELOPMENT_THEORY_ABSOLUTE_WORD_CUE_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests timely removal of an unnecessary indwelling urinary catheter to reduce procedure-related risk.",
+        "source_authority": "CDC CAUTI guidance; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Remove urinary catheter as soon as no longer needed; Reduction of Risk Potential — urinary catheter",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 42 / PDF p. 46"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "RN_removal_authority": "Explicitly controlled in the stem by the facility nurse-driven removal protocol.",
+    "ongoing_valid_indication": "Explicitly excluded. The client is stable, ambulatory, without retention/urologic indication and no longer needs hourly output measurement.",
+    "routine_clamping_before_removal": "Not endorsed; CDC states clamping before removal is not necessary.",
+    "post_removal_retention_protocol": "Not universalized. The correct response says to monitor voiding according to facility practice rather than inventing one threshold or bladder-scan schedule."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0725", "V2-Q0626", "V2-Q0674"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0725 tests central-line dressing maintenance. V2-Q0626 tests occupational needlestick exposure. V2-Q0674 tests disaster-related inpatient discharge selection. V2-Q0726 tests prompt removal of an unnecessary indwelling urinary catheter under an authorized nurse-driven protocol. Targeted repository search returned no matching unnecessary-Foley/CAUTI-removal item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible monitoring convenience but prolongs catheter exposure without a valid indication.",
+    "B": "Correct. It removes an unnecessary catheter through an explicitly authorized protocol and preserves appropriate post-removal monitoring.",
+    "C": "Plausible bladder-training practice but routine catheter clamping before removal is unnecessary.",
+    "D": "Plausible infection-control replacement but continues an unnecessary indwelling catheter instead of eliminating the exposure."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly establishes that no catheter indication remains and that the RN is authorized to remove it. B alone reduces unnecessary catheter exposure promptly. A/D retain an unnecessary device and C adds an unnecessary clamping step.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 133, "B": 142, "C": 135, "D": 142},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is tied with D; all options are within nine characters and the previous cue pattern is removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Insertion, maintenance and removal of urinary catheters are explicit Reduction of Risk Potential activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Reduction of Risk Potential page, printed p. 42 / PDF p. 46, was visually inspected on 2026-08-19 and explicitly lists 'Insert, maintain or remove a urinary catheter.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC CAUTI clinical-safety page verified",
+      "remove-as-soon-as-no-longer-needed recommendation verified directly",
+      "CDC nurse-directed removal strategy verified",
+      "CDC no-routine-clamping-before-removal recommendation verified",
+      "official NCSBN urinary-catheter activity verified directly and visually",
+      "continued-indication and RN-authority variables explicitly controlled in stem",
+      "A/B/C/D independently re-audited for CAUTI risk, scope and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and prior correct-answer-length cues removed",
+      "exact option lengths verified as A133/B142/C135/D142",
+      "construct compared with Q0725/Q0626/Q0674 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty normalized from easy to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "question_uid": "V2-Q1016",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "semantic_correction": {
+    "stem": "An adult client has a short-term central venous catheter covered with a sterile transparent semipermeable dressing. When should the dressing be replaced according to current CDC guidance?",
+    "options": {
+      "A": "At least every 7 days, and earlier if the dressing becomes damp, loose, or visibly soiled.",
+      "B": "Every 2 days, using the routine interval CDC specifies for short-term CVC gauze dressings.",
+      "C": "No more than once each week until the site heals, using the schedule for tunneled or implanted CVCs.",
+      "D": "When damp, loose, or visibly soiled, with no scheduled replacement interval for an intact transparent dressing."
+    },
+    "correct_option": "A",
+    "rationale": "CDC Catheter Site Dressing Regimen recommendations state that transparent dressings on short-term CVC sites should be replaced at least every 7 days and that any catheter-site dressing should be replaced earlier if it becomes damp, loosened, or visibly soiled. The 2-day interval applies to gauze dressings on short-term CVCs, while the no-more-than-once-per-week recommendation until healing applies to transparent dressings on tunneled or implanted CVC sites. Therefore, option A is uniquely correct for the adult short-term CVC and transparent dressing described.",
+    "educational_objective": "Replace a transparent dressing on an adult short-term CVC at least every 7 days and sooner if it becomes damp, loose, or visibly soiled.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC)",
+    "source_document_title": "Guidelines for the Prevention of Intravascular Catheter-Related Infections — Summary of Recommendations",
+    "source_version_date": "Current CDC summary page accessed August 21, 2026; recommendations include 2011 guidance with listed updates",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Section 6. Catheter Site Dressing Regimens — Recommendations 3, 6, 7, and 8; especially Recommendation 7 (Category IB)",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html",
+    "source_claim_supported": "Replace transparent dressings on short-term CVC sites at least every 7 days and replace any catheter-site dressing earlier if it becomes damp, loosened, or visibly soiled; 2-day replacement applies to short-term CVC gauze dressings and a different weekly interval applies to tunneled/implanted CVC dressings until healing.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 24 — Apply principles of infection prevention; Facilitate appropriate and safe use of equipment",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — central-line dressing infection prevention",
+    "correction_summary_append": "RULE1 cleanup: preserved the directly supported CDC 7-day rule but replaced obvious distractors with adjacent CDC dressing-regimen intervals for gauze and tunneled/implanted CVCs; removed absolute-word cueing and normalized exact CDC and NCSBN locators.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1016",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "CDC",
+        "source_locator": "Catheter Site Dressing Regimens, Recommendations 3, 6–8",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 24",
+        "finding": "The original answer was correct but uniquely longest and distractors were trivial. The revised distractors use real CDC intervals that belong to different dressing/catheter contexts, increasing discrimination while preserving one uniquely correct answer."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It combines CDC Recommendations 7 and 3 for a transparent dressing on a short-term CVC.",
+    "B": "Incorrect but plausible. Every 2 days is CDC's interval for gauze dressings on short-term CVC sites, not transparent dressings.",
+    "C": "Incorrect but plausible. This wording belongs to transparent dressings on tunneled or implanted CVC sites until healing.",
+    "D": "Incorrect. CDC specifies a scheduled minimum replacement frequency for transparent dressings on short-term CVCs in addition to condition-triggered changes."
+  },
+  "ambiguity_check": "No second defensible answer. The stem fixes adult age, short-term CVC, and transparent dressing, so only A matches the corresponding CDC regimen.",
+  "cueing_check": "All four choices describe legitimate or near-legitimate dressing schedules with comparable length and clinical detail; no absolute-word or unique-length cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC summary page freshly verified",
+      "Recommendation 3 damp/loose/soiled trigger verified",
+      "Recommendation 6 short-term CVC gauze interval verified",
+      "Recommendation 7 short-term CVC transparent interval verified",
+      "Recommendation 8 tunneled/implanted transparent interval verified",
+      "adult stem avoids pediatric dislodgement exception",
+      "A/B/C/D re-audited individually",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "NCSBN 2026 infection-prevention/equipment mapping freshly verified"
+    ]
+  }
+}

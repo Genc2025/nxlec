@@ -1,0 +1,101 @@
+{
+  "question_uid": "V2-Q0572",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "SHARED_DECISION_DEFINITION_TO_TRADEOFF_SUPPORT_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with decision-making capacity is choosing between two reasonable nonemergency treatment options with different benefits, harms, and lifestyle trade-offs. The client says, 'I'm not sure which fits what matters most to me.' Which nursing action best supports shared decision making?",
+    "options": {
+      "A": "Encourage the client to choose whichever option the clinician recommends first, because professional expertise should determine the final choice.",
+      "B": "Help the client compare benefits and harms, clarify what matters most, and bring those preferences and questions into the discussion with the clinician.",
+      "C": "Give the client written descriptions of the options, then leave the decision to the client without discussing personal goals, concerns, or clinical trade-offs further.",
+      "D": "Select the option with the best average outcome and present it as the preferred choice before asking how the client values the trade-offs."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ defines shared decision making as a collaborative process in which patients and clinicians make healthcare decisions informed by evidence, the care team's knowledge and experience, and the patient's values, goals, preferences, and circumstances. AHRQ states that clinicians should help patients explore and compare options and their trade-offs, encourage patients to identify what matters to them, and work together toward the best path forward. The 2026 NCSBN NCLEX-RN Test Plan places advocacy and client participation in treatment decisions within Management of Care, including discussing identified treatment options with the client, respecting client decisions, acting as client advocate, and collaborating with the multidisciplinary team. B therefore best supports shared decision making: it helps the client understand comparative benefits and harms, clarifies personal values/preferences, and brings those elements into the clinician-client decision conversation. A makes clinician preference determinative. C supplies information but removes the collaborative discussion and preference clarification that define shared decision making. D selects an option from population-average outcomes before eliciting how the individual client values the trade-offs. Therefore B is correct.",
+    "educational_objective": "Support shared decision making by helping a capable client compare reasonable options, clarify personal values and trade-offs, and communicate those preferences and questions within the clinician-client decision process rather than directing or abandoning the decision.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "About Shared Decision Making; The SHARE Approach: Shared Decisionmaking Tools and Training",
+    "source_version_date": "Current AHRQ shared-decision resources accessed 2026-08-19; SHARE resource page last reviewed February 2025",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "About Shared Decision Making — collaborative process informed by evidence, care-team knowledge/experience, and patient values/goals/preferences/circumstances; clinicians discuss options, ensure understanding of trade-offs, and encourage patients to share what matters. SHARE Approach — explore/compare benefits, harms and risks; assess patient values/preferences; reach a decision together",
+    "source_url": "https://www.ahrq.gov/sdm/about/index.html",
+    "secondary_source_url": "https://www.ahrq.gov/evidencenow/tools/share-approach.html",
+    "source_claim_supported": "Shared decision making requires collaborative comparison of reasonable options and their trade-offs together with explicit incorporation of the patient's values, goals and preferences.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed pp. 20-21 / PDF pp. 24-25 — Advocacy: discuss identified treatment options with client and respect their decisions; act in role of client advocate; use advocacy resources appropriately. Client Rights: discuss treatment options/decisions with client. Collaboration: identify significant information to report and collaborate with multidisciplinary team members",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — shared decision support, advocacy and client participation in treatment decisions",
+    "correction_summary_append": "RULE1 cleanup: retained the valid shared-decision-making domain but replaced passive definition recall with a preference-sensitive treatment-choice scenario. Removed the absolute-word distractor and correct-answer length cues and clarified the RN's supportive role without making the nurse the treatment decision-maker.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0572",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_SHARED_DECISION_DEFINITION_ABSOLUTE_WORD_CUE_AND_ANSWER_LENGTH_CUE",
+        "finding": "The revised item tests an actual shared-decision behavior: compare options/trade-offs, clarify what matters to the client, and carry those preferences/questions into collaborative decision making.",
+        "source_authority": "AHRQ Shared Decision Making and SHARE Approach",
+        "source_locator": "Collaborative decision process; compare benefits/harms; assess values/preferences",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Advocacy and Client Rights"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "RN_as_final_treatment_decision_maker": "Not asserted. The RN supports understanding, values clarification and communication within the clinician-client decision process.",
+    "single_medically_required_option": "Not tested; the stem explicitly states that two reasonable nonemergency options exist.",
+    "incapacity_or_surrogate_decision": "Not tested; the client has decision-making capacity."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0526", "V2-Q0423", "V2-Q0472"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0526 tests advocacy when an existing care plan does not reflect a capable client's stated goals. V2-Q0423 tests advocacy for another opinion before an elective plan. V2-Q0472 tests lack of informed understanding despite a signed consent form. V2-Q0572 tests the pre-decision process of comparing two reasonable options and integrating the client's values/preferences into the treatment choice. Targeted repository search for 'shared decision' returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible deference to clinician expertise but incorrectly makes the clinician's recommendation determinative rather than integrating the client's values and preferences.",
+    "B": "Correct. It compares benefits/harms, clarifies what matters to the client and supports collaborative clinician-client discussion.",
+    "C": "Plausible autonomy-focused response but removes the collaborative preference/trade-off discussion central to shared decision making.",
+    "D": "Plausible evidence-focused response but applies population-average outcomes before eliciting the individual client's valuation of trade-offs."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem deliberately presents reasonable options with preference-sensitive trade-offs. B alone integrates evidence/trade-offs, client values and collaborative discussion. A and D make clinician/evidence preference dominant; C leaves the client alone with information without the collaborative process.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 145, "B": 152, "C": 167, "D": 138},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not longest; the prior 'must' distractor cue and uniquely-longest answer pattern are removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Discussion of treatment options/decisions, client advocacy and respect for client decisions are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Advocacy and Client Rights content, printed pp. 20-21 / PDF pp. 24-25, was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ About Shared Decision Making page verified",
+      "evidence plus clinician knowledge plus client values/goals/preferences definition verified",
+      "option trade-off discussion requirement verified",
+      "current AHRQ SHARE resource reviewed with February 2025 review date",
+      "official NCSBN Advocacy/Client Rights content visually verified",
+      "two reasonable nonemergency options and client capacity controlled in stem",
+      "RN supportive role preserved without independently choosing treatment",
+      "A/B/C/D independently re-audited for shared-decision accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A145/B152/C167/D138",
+      "construct compared with Q0526/Q0423/Q0472 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty normalized from hard to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

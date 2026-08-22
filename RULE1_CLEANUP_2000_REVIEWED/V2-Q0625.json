@@ -1,0 +1,101 @@
+{
+  "question_uid": "V2-Q0625",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "UNIT_ORIENTATION_THEORY_TO_UNSAFE_POTASSIUM_ORDER_INTERCEPTION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A stable hospitalized client has a serum potassium level of 2.9 mEq/L. A new order reads, 'potassium chloride 20 mEq IV push now.' The unit stocks potassium chloride for injection concentrate. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Dilute the potassium chloride in a small syringe and give it slowly by IV push because the client is currently stable.",
+      "B": "Hold the medication and clarify the order with the prescriber, then verify a diluted IV-infusion order before administration.",
+      "C": "Give half of the ordered dose by IV push, reassess the rhythm and potassium level, and administer the remainder if tolerated.",
+      "D": "Ask another RN to verify the dose calculation and administer the order as written if the prescribed milliequivalents are correct."
+    },
+    "correct_option": "B",
+    "rationale": "The current DailyMed official label for potassium chloride for injection concentrate states that the product is for intravenous infusion only, must be diluted before administration, and that direct injection of the concentrated product may be instantaneously fatal because fatal cardiac arrhythmia and cardiac arrest have occurred with undiluted intravenous administration. The 2026 NCSBN NCLEX-RN Test Plan requires newly licensed RNs to evaluate the appropriateness and accuracy of medication orders, review pertinent data before medication administration, and handle/administer high-risk medications safely. Because the order explicitly directs IV-push administration of potassium chloride concentrate, the RN should not attempt to make the unsafe route acceptable by using a smaller syringe, slower push, partial dose, or independent double-check. B is the uniquely best action: withhold the unsafe order, contact the prescriber for clarification/correction, and verify a patient-specific diluted IV-infusion order before administration. A still gives potassium by IV push. C exposes the client to the same prohibited direct-injection risk. D verifies arithmetic but does not address the unsafe route. Therefore B is correct.",
+    "educational_objective": "Intercept an unsafe potassium chloride IV-push order by withholding administration and obtaining a corrected, patient-specific diluted IV-infusion order rather than modifying or double-checking an unsafe direct-injection route.",
+    "source_organization": "DailyMed, U.S. National Library of Medicine / official FDA labeling; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Potassium Chloride for Injection Concentrate, USP — Official Drug Label; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "DailyMed label updated July 1, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "DailyMed setid 559a0a8c-a8fe-40a5-b196-21f9308780ab — label states CONCENTRATE MUST BE DILUTED BEFORE USE; FOR INTRAVENOUS INFUSION ONLY; warnings describe potentially fatal cardiac reactions with undiluted direct administration. NCSBN Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 — evaluate appropriateness/accuracy of medication order; review pertinent data; handle/administer high-risk medications safely",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=559a0a8c-a8fe-40a5-b196-21f9308780ab",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Potassium chloride for injection concentrate is not for direct IV push; it must be diluted and administered by IV infusion, so an IV-push order is unsafe and requires clarification/correction before administration.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 — Evaluate appropriateness and accuracy of medication order for client; Review pertinent data prior to medication administration; Handle and administer high-risk medications safely",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — interception of an unsafe high-risk medication order",
+    "correction_summary_append": "RULE1 cleanup: retired unit-orientation/staff-competence theory because it was not a direct bedside entry-level nursing decision. Rebuilt the item around an explicit unsafe potassium chloride IV-push order requiring medication-order evaluation, withholding, prescriber clarification and verification of a corrected diluted-infusion order. Removed the prior absolute-word and extreme correct-answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0625",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_BEDSIDE_ORIENTATION_THEORY_ABSOLUTE_WORD_CUE_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests recognition and interception of a potentially fatal high-risk medication route error before administration.",
+        "source_authority": "DailyMed official potassium chloride label; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "DailyMed IV-infusion-only/dilution warning; NCSBN high-risk medication/order-accuracy activities",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_replacement_rate_or_concentration": "Not tested. The final safe dose, dilution, concentration and infusion rate must be patient-specific and supplied through the corrected order/process.",
+    "emergency_override": "Not asserted; the client is stable and the unsafe IV-push route must be corrected before administration.",
+    "independent_nurse_rewriting_of_order": "Not endorsed. The RN withholds and clarifies the order rather than independently converting it to an infusion prescription."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0621", "V2-Q0373", "V2-Q0077"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0621 tests an incomplete medication order with a missing dose. V2-Q0373 tests medication reconciliation after transfer. V2-Q0077 tests nurse competence/scope for high-risk therapy. V2-Q0625 tests recognition of a complete-but-unsafe potassium chloride IV-push route and interception before administration. Targeted repository search for potassium chloride/IV-push content returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible attempt to make administration safer by dilution/slower delivery, but it still uses the prohibited direct IV-push route.",
+    "B": "Correct. It withholds the unsafe route, obtains clarification/correction and verifies the safe patient-specific infusion order before administration.",
+    "C": "Plausible dose-reduction strategy but still exposes the client to direct IV-push potassium and is therefore unsafe.",
+    "D": "Plausible high-risk double-check behavior but confirms arithmetic rather than correcting the unsafe route."
+  },
+  "ambiguity_check": "No second defensible best answer. The order specifically says IV push and the stocked product is potassium chloride concentrate. DailyMed identifies direct concentrated administration as potentially fatal and requires diluted IV infusion. B alone stops the unsafe route and obtains a corrected order; A/C still push potassium and D leaves the route error intact.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 118, "B": 125, "C": 125, "D": 129},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is tied with C and shorter than D; the prior extreme correct-answer length and absolute-word cues are removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Evaluating medication-order appropriateness/accuracy and safely handling high-risk medications are explicit Pharmacological and Parenteral Therapies responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Pharmacological and Parenteral Therapies page, printed p. 12 / PDF p. 16, was visually inspected on 2026-08-19 and explicitly lists medication-order accuracy review and safe handling/administration of high-risk medications."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current DailyMed potassium chloride label verified and dated July 1, 2026",
+      "IV-infusion-only statement verified directly",
+      "must-be-diluted requirement verified directly",
+      "potentially fatal direct/undiluted administration warning verified directly",
+      "official NCSBN Pharmacological and Parenteral Therapies page visually verified",
+      "stable-client context explicitly controlled",
+      "no replacement rate/concentration invented",
+      "A/B/C/D independently re-audited for route safety and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A118/B125/C125/D129",
+      "construct compared with Q0621/Q0373/Q0077 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

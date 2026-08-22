@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0875",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "CANDOR_RISK_MANAGEMENT_ROLE_TRIVIA_TO_TRACHEOSTOMY_SUCTIONING_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client with a tracheostomy develops coarse gurgling breath sounds, visible secretions in the tracheostomy tube, an ineffective cough, and an oxygen saturation decline from 96% to 90%. Which action is most appropriate?",
+    "options": {
+      "A": "Encourage oral fluids and reassess in 30 minutes because visible tracheal secretions should be managed conservatively before suctioning.",
+      "B": "Perform tracheostomy suctioning according to facility procedure, support oxygenation as indicated, and reassess breath sounds and oxygen saturation.",
+      "C": "Remove and replace the entire tracheostomy tube immediately because any drop in oxygen saturation indicates that the tube has become obstructed.",
+      "D": "Increase supplemental oxygen and avoid suctioning until the client can no longer cough, because suctioning is reserved for complete airway obstruction."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes performing suctioning, providing tracheal ostomy care and education, managing impaired ventilation/oxygenation, and recognizing complications under Physiological Adaptation. Current NCBI/Open RN tracheostomy guidance identifies visible airway secretions, deterioration in oxygen saturation, ineffective spontaneous cough, and respiratory distress as indications for tracheostomy suctioning. This client has several direct indications at the same time. B is therefore the uniquely best response because it removes obstructing secretions using the established suctioning procedure, supports oxygenation as needed, and requires reassessment of the client's response. A delays an indicated airway intervention. C treats the findings as proof that the entire tube must be replaced, which is not established by the stem and introduces unnecessary airway manipulation. D provides oxygen but intentionally leaves clinically significant secretions in place until complete obstruction develops. Therefore B is correct.",
+    "educational_objective": "When a tracheostomy client has visible secretions, coarse/gurgling breath sounds, an ineffective cough, and declining oxygen saturation, perform indicated tracheostomy suctioning using the facility procedure and reassess oxygenation and breath sounds rather than delaying suctioning or replacing the tube without evidence of displacement or tube failure.",
+    "source_organization": "NCBI Bookshelf / Open RN; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Nursing Skills — Chapter 22 Tracheostomy Care & Suctioning; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Open RN Nursing Skills 2nd edition 2023, current NCBI Bookshelf content rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCBI Open RN Chapter 22.3-22.5 — tracheostomy suctioning indications include visible secretions, oxygen-saturation deterioration, ineffective cough and respiratory distress; suctioning maintains airway patency and oxygenation. NCSBN Appendix A, Physiological Adaptation, printed p. 46 / PDF p. 50 — Perform suctioning; Provide ostomy care and education (e.g., tracheal, enteral); Manage the care of a client with impaired ventilation/oxygenation",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK596713/",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Visible tracheostomy secretions, declining oxygen saturation and ineffective cough are accepted indications for suctioning; suctioning is used to maintain airway patency and improve oxygenation and should be followed by reassessment.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Physiological Adaptation, printed p. 46 / PDF p. 50 — Perform suctioning; Provide ostomy care and education (e.g., tracheal, enteral); Manage the care of a client with impaired ventilation/oxygenation",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — recognizing indications for and performing tracheostomy suctioning",
+    "correction_summary_append": "RULE1 cleanup: retired AHRQ CANDOR risk-management role recall because it was organizational/process trivia with weak bedside NCLEX value. Rebuilt the item around explicit NCSBN suctioning/tracheal-care content and concrete physiologic indications for tracheostomy suctioning. Removed the prior absolute-word distractor pattern.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0875",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ORGANIZATIONAL_RISK_MANAGEMENT_ROLE_TRIVIA_AND_ABSOLUTE_WORD_CUE",
+        "finding": "The replacement directly tests recognition and treatment of secretion-related tracheostomy airway compromise.",
+        "source_authority": "NCBI/Open RN tracheostomy suctioning guidance; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Visible secretions/SpO2 decline/ineffective cough as suction indications; NCSBN perform suctioning/tracheal care",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation, printed p. 46 / PDF p. 50"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "automatic_tracheostomy_tube_replacement": "Not endorsed. The findings establish secretion burden and impaired clearance, not tube displacement or structural tube failure.",
+    "routine_suctioning_without_indication": "Not endorsed. The stem supplies multiple clinical indications for suctioning.",
+    "specific_suction_pressure_or_duration": "Not tested; technique parameters should follow facility policy, equipment, client age and current procedural guidance.",
+    "complete_airway_obstruction": "Not required before suctioning. The item tests intervention when clinically significant secretions and oxygenation decline are already present."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0872", "V2-Q0873", "V2-Q0874"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0872 tests a kinked chest-tube drainage system. V2-Q0873 tests positioning for increased intracranial pressure. V2-Q0874 tests postoperative abdominal evisceration. V2-Q0875 tests recognition of secretion-related tracheostomy airway compromise and indicated suctioning. Targeted repository search for tracheostomy-suctioning/secretions content returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible conservative secretion-management response but delays an indicated airway intervention despite falling oxygen saturation and ineffective cough.",
+    "B": "Correct. The client meets several recognized indications for tracheostomy suctioning and requires airway clearance plus reassessment.",
+    "C": "Plausible obstruction response but overinterprets secretion findings as proof of tube failure and introduces unnecessary tube replacement.",
+    "D": "Plausible oxygen-support response but leaves obstructing secretions untreated and incorrectly reserves suctioning for complete obstruction."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem gives visible tracheal secretions, coarse/gurgling sounds, ineffective cough and oxygen-saturation decline. B alone addresses the identified secretion burden directly while supporting oxygenation and reassessing. A/D delay secretion removal; C escalates to tube replacement without evidence that replacement is needed.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 136, "B": 148, "C": 144, "D": 151},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not the longest; all four options are comparable action statements without absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Performing suctioning, providing tracheal ostomy care and managing impaired ventilation/oxygenation are explicit Physiological Adaptation activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, printed p. 46 / PDF p. 50, was visually inspected on 2026-08-19 and explicitly lists Perform suctioning, tracheal ostomy care, and management of impaired ventilation/oxygenation."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN suctioning/tracheal-care activity statements verified directly and visually",
+      "NCBI/Open RN tracheostomy suctioning indications verified",
+      "visible secretions, oxygen-saturation decline and ineffective cough explicitly controlled in stem",
+      "automatic tube replacement not inferred",
+      "A/B/C/D independently re-audited for airway management and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A136/B148/C144/D151",
+      "construct confirmed distinct from Q0872/Q0873/Q0874",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

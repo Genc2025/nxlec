@@ -1,0 +1,104 @@
+{
+  "question_uid": "V2-Q0824",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "SURGE_PLANNING_FRAMEWORK_RECALL_TO_HEMODIALYSIS_ACCESS_PROTECTION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client receiving maintenance hemodialysis has a functioning arteriovenous fistula in the left forearm. The right arm is available for routine measurements. The RN sees assistive personnel preparing to place a blood-pressure cuff on the left arm. Which action is most appropriate?",
+    "options": {
+      "A": "Allow the blood-pressure measurement on the fistula arm because the cuff will be inflated for only a brief period of time.",
+      "B": "Stop the measurement and use the other arm, protecting the fistula arm from blood-pressure cuffs and routine venipuncture.",
+      "C": "Place the cuff above the fistula instead of over it, because pressure proximal to the access will not affect fistula blood flow.",
+      "D": "Use the fistula arm for blood pressure but avoid venipuncture there, because needle puncture is the main threat to the access."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes managing the care of clients receiving hemodialysis under Physiological Adaptation. Current National Kidney Foundation vascular-access guidance instructs patients and healthcare teams to protect a hemodialysis fistula or graft by avoiding blood-pressure cuffs and blood draws on the access arm; the other arm should be used when available. NIDDK likewise emphasizes preservation and protection of arm vessels for dialysis access. Because this client has a functioning left-arm fistula and the right arm is available, B is the uniquely best response. A permits unnecessary compression of the access arm. C still places cuff pressure on the access extremity and invents a safe location on the same arm. D incorrectly treats venipuncture as the only relevant threat while still exposing the access arm to cuff compression. Therefore B is correct.",
+    "educational_objective": "Protect a functioning hemodialysis AV fistula or graft by avoiding routine blood-pressure cuff compression and venipuncture on the access arm when another site is available.",
+    "source_organization": "National Kidney Foundation (NKF); National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Key Points: About Dialysis for Kidney Failure; Hemodialysis Access; Hemodialysis; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current NKF and NIDDK dialysis-access guidance live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NKF Caring for Your Access — do not measure blood pressure or draw blood on fistula/graft access arm; use other arm. NIDDK Hemodialysis — protect arm blood vessels/vascular access. NCSBN Appendix A, Physiological Adaptation, printed p. 46 / PDF p. 50 — Manage the care of a client receiving hemodialysis or continuous renal replacement therapy",
+    "source_url": "https://www.kidney.org/key-points-about-dialysis-kidney-failure",
+    "secondary_source_urls": [
+      "https://www.kidney.org/kidney-topics/hemodialysis-access",
+      "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/hemodialysis",
+      "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"
+    ],
+    "source_claim_supported": "A functioning hemodialysis fistula/graft arm should be protected from routine blood-pressure cuff compression and venipuncture when another site is available.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Physiological Adaptation, printed p. 46 / PDF p. 50 — Manage the care of a client receiving hemodialysis or continuous renal replacement therapy",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — protection of a hemodialysis arteriovenous access",
+    "correction_summary_append": "RULE1 cleanup: retired ASPR surge-capacity framework recall because disaster/system-planning coverage was already represented by stronger action-based items. Rebuilt the slot around explicit NCSBN hemodialysis-care content and current NKF/NIDDK vascular-access guidance. Removed the prior absolute-word distractor pattern.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0824",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_BEDSIDE_SURGE_FRAMEWORK_RECALL_AND_ABSOLUTE_WORD_CUE",
+        "finding": "The replacement directly tests protection of a functioning hemodialysis access from avoidable compression/venipuncture.",
+        "source_authority": "NKF/NIDDK dialysis-access guidance; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "No BP/blood draw on access arm; hemodialysis client management",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation, printed p. 46 / PDF p. 50"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "emergency_no_alternative_site": "Not tested. The stem explicitly states that the other arm is available for routine measurement.",
+    "leg_blood_pressure": "Not prescribed; the other arm is available, so no alternate lower-extremity site decision is required.",
+    "temporary_dialysis_catheter": "Not tested; the client has a functioning AV fistula.",
+    "fistula_assessment": "Thrill/bruit assessment is important but is not the decision being tested in this item."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0823", "V2-Q0622", "V2-Q0724"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0823 tests PD-associated peritonitis. V2-Q0622 tests malfunctioning equipment. V2-Q0724 tests acute deterioration escalation. V2-Q0824 tests protection of a functioning hemodialysis AV fistula from BP cuff/venipuncture. Targeted repository search returned no matching hemodialysis-access protection item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible because cuff use is brief, but access-arm compression is avoidable and contrary to vascular-access protection guidance.",
+    "B": "Correct. It protects the access arm and uses the available nonaccess arm.",
+    "C": "Plausible attempt to avoid direct fistula compression but still exposes the access extremity to cuff pressure and invents a safe same-arm position.",
+    "D": "Plausible partial access protection but incorrectly permits cuff compression and treats venipuncture as the sole risk."
+  },
+  "ambiguity_check": "No second defensible best answer. The other arm is explicitly available. B alone follows established access-protection guidance by avoiding both BP cuff use and routine venipuncture on the fistula arm.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 122, "B": 122, "C": 128, "D": 126},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is tied with A for shortest; all choices are within six characters."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Managing the care of a client receiving hemodialysis is an explicit Physiological Adaptation activity for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, printed p. 46 / PDF p. 50, was visually inspected on 2026-08-19 and explicitly includes management of clients receiving hemodialysis/continuous renal replacement therapy."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN hemodialysis activity statement verified directly and visually",
+      "current NKF no-BP-on-access-arm guidance verified",
+      "current NKF no-blood-draw-on-access-arm guidance verified",
+      "NIDDK vascular-access protection guidance cross-checked",
+      "alternate nonaccess arm explicitly available in stem",
+      "A/B/C/D independently re-audited for access protection and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A122/B122/C128/D126",
+      "construct confirmed distinct from Q0823/Q0622/Q0724",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

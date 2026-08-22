@@ -1,0 +1,68 @@
+{
+  "question_uid": "V2-Q1393",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "semantic_correction": {
+    "stem": "During NHSN SSI surveillance, an infection first met superficial-incisional criteria and later, within the same surveillance period, meets deep-incisional SSI criteria. How should the infection-prevention nurse report the event?",
+    "options": {
+      "A": "Edit the event type and date to reflect the deeper tissue level where SSI criteria are now met.",
+      "B": "Keep the original superficial classification because the first reported tissue level remains fixed.",
+      "C": "Change the event automatically to organ/space SSI because any progression beyond superficial tissue is organ/space.",
+      "D": "Delete the event because an SSI that changes tissue level during surveillance is no longer reportable."
+    },
+    "correct_option": "A",
+    "rationale": "CDC NHSN SSI FAQ Q25 states that when a superficial-incisional SSI progresses and meets criteria at a deeper tissue level within the designated surveillance period, the event type and date of event must be edited to reflect the deepest tissue level where SSI criteria are met. FAQ Q26 separately distinguishes deep-incisional from organ/space infection, so progression to deep tissue does not automatically make the event organ/space. Therefore the existing event should be updated to the deep-incisional level and corresponding event date.",
+    "educational_objective": "During NHSN SSI surveillance, update the event type and date when an SSI progresses to a deeper tissue level that meets criteria within the surveillance period.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC), National Healthcare Safety Network (NHSN)",
+    "source_document_title": "FAQs: Surgical Site Infections (SSI) Events",
+    "source_version_date": "Last reviewed January 2, 2026",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Event Detail — Level of SSI and Application of Site-Specific Definition, Q25: superficial SSI progressing deeper within surveillance period requires editing event type and date to deepest tissue level meeting criteria; Q26: distinguish deep-incisional from organ/space based on tissue involvement",
+    "source_url": "https://www.cdc.gov/nhsn/faqs/faq-ssi.html",
+    "source_claim_supported": "NHSN requires an SSI that progresses to a deeper qualifying tissue level during the surveillance period to be edited so the event type and date reflect the deepest tissue level meeting criteria.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control — participate in infection surveillance and prevention activities; recognize and communicate infection-control findings",
+    "blueprint_url": "https://www.ncsbn.org/publications/2026-nclex-rn-test-plan",
+    "blueprint_topic": "Safety and Infection Prevention and Control — NHSN surgical-site-infection surveillance",
+    "correction_summary_append": "RULE1 cleanup: removed the 'never' distractor and unique-length cue, reduced the answer to the exact NHSN reporting action, and used FAQ Q25/Q26 to distinguish deeper incisional progression from organ/space infection.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1393",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "CDC NHSN",
+        "source_locator": "SSI FAQ Q25–Q26, last reviewed Jan. 2, 2026",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control — infection surveillance",
+        "finding": "The original correct answer was uniquely longest and one distractor used an absolute. The revised item directly tests the NHSN event-editing rule with balanced reporting alternatives."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. NHSN Q25 explicitly requires editing both event type and event date to the deepest qualifying tissue level.",
+    "B": "Incorrect. NHSN does not freeze the original superficial classification when deeper criteria are later met within surveillance.",
+    "C": "Incorrect. Deep-incisional and organ/space SSI criteria are distinct; deeper progression is not automatically organ/space.",
+    "D": "Incorrect. Progression does not make the event nonreportable; NHSN directs the event to be updated."
+  },
+  "ambiguity_check": "No second defensible answer. A alone follows the current NHSN Q25 instruction for progression within the surveillance period.",
+  "cueing_check": "All four options are reporting actions of comparable length and specificity; no absolute-word or unique-length cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NHSN SSI FAQ freshly verified",
+      "January 2, 2026 review date verified",
+      "Q25 deeper-progression rule verified directly",
+      "event-type edit requirement verified directly",
+      "event-date edit requirement verified directly",
+      "Q26 deep-incisional versus organ/space distinction cross-checked",
+      "A/B/C/D re-audited individually",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "NCSBN 2026 infection-surveillance mapping confirmed"
+    ]
+  }
+}

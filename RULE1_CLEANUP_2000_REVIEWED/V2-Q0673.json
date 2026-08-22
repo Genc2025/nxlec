@@ -1,0 +1,104 @@
+{
+  "question_uid": "V2-Q0673",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "NPA_PRINCIPLE_RECALL_TO_EXPLICIT_SCOPE_CONFLICT_ACTION_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A stable client needs a nonemergency clinical activity. The unit policy lists the activity as an RN task, but the current board-of-nursing rule in the jurisdiction where the RN is practicing explicitly states that RNs are not authorized to perform it. Because of a staffing shortage, the supervisor asks the RN to proceed. Which action is most appropriate?",
+    "options": {
+      "A": "Perform the activity because unit policy lists it as an RN task and the supervisor has accepted responsibility for the assignment and outcome.",
+      "B": "Ask another RN to perform the activity instead, because a second licensed nurse can resolve the scope conflict created by the board rule.",
+      "C": "Do not perform the activity; notify the supervisor of the board-rule conflict and arrange for a clinician who is legally authorized to provide it.",
+      "D": "Document the concern about the board rule but proceed under the facility policy so the client's care is not delayed by the current staffing shortage."
+    },
+    "correct_option": "C",
+    "rationale": "NCSBN's current Nurse Practice Act Toolkit states that state nurse practice acts and board rules/regulations guide and govern nursing practice, that enacted rules have the force and effect of law, and that safe competent nursing practice is grounded in the applicable NPA and rules. NCSBN's Scope of Practice Decision-Making Framework is intended to help nurses and employers determine whether an activity is permitted under the nurse's education, licensure and competence while meeting the standards established by the nurse practice act and rules/regulations of the state or jurisdiction. The 2026 NCLEX-RN Test Plan also requires newly licensed RNs to provide care within legal scope and recognize limitations/use resources. The stem removes jurisdictional uncertainty by explicitly stating that the current board rule in the RN's jurisdiction prohibits RNs from performing this activity. C is therefore the uniquely best action: the RN should not perform the legally excluded activity, should communicate the conflict to the supervisor and should arrange care by an appropriately authorized clinician. A and D incorrectly treat employer policy or supervisory direction as authority to expand legal scope. B substitutes another RN who is subject to the same explicit rule. Therefore C is correct.",
+    "educational_objective": "When an applicable board-of-nursing rule explicitly excludes an activity from RN scope, do not perform it even if facility policy or staffing pressure suggests otherwise; escalate the conflict and arrange care by an authorized clinician.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Nurse Practice Act Toolkit; Scope of Practice Decision-Making Framework; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current NCSBN regulatory resources live-rechecked 2026-08-19; NCLEX-RN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Nurse Practice Act Toolkit — NPA and rules guide/govern nursing practice; rules must be consistent with the NPA and enacted rules have force/effect of law; safe competent practice is grounded in NPA/rules. Scope of Practice Decision-Making Framework — determine whether activities are permitted under education/licensure/competence while meeting state/jurisdiction NPA and rules. NCSBN 2026 Test Plan, Management of Care — provide care within legal scope; recognize limitations and utilize resources",
+    "source_url": "https://www.ncsbn.org/policy-gov/npa-toolkit.page",
+    "secondary_source_urls": [
+      "https://www.ncsbn.org/nursing-regulation/practice/decision-making-framework.page",
+      "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"
+    ],
+    "source_claim_supported": "Applicable nurse practice acts and board rules/regulations legally govern nursing scope; employer policy, supervisor direction or staffing shortage cannot authorize an RN to perform an activity explicitly prohibited by the governing rule.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 22 / PDF p. 26 — Legal Rights and Responsibilities: recognize limitations of self and others and utilize resources; provide care within legal scope of practice. Management of Care related activity statements, printed p. 19 / PDF p. 23 — practice within legal scope",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — legal scope conflict between facility policy and governing board rule",
+    "correction_summary_append": "RULE1 cleanup: retained the nurse-practice-act domain but replaced passive legal-principle recall with a concrete scope conflict. The final stem explicitly establishes the governing jurisdictional rule and requires the RN to stop the prohibited activity, communicate the conflict and secure an authorized clinician. Removed the prior correct-answer length cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0673",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_NPA_PRINCIPLE_RECALL_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The revised item tests an actual legal-scope decision under an explicit jurisdictional board rule rather than asking the candidate to identify the governing principle.",
+        "source_authority": "NCSBN Nurse Practice Act Toolkit and Scope of Practice Decision-Making Framework",
+        "source_locator": "NPA/rules govern practice; activity must fit state/jurisdiction scope standards",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Legal Rights and Responsibilities"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "guessing_state_specific_scope": "Not required. The stem explicitly supplies the relevant board rule in the jurisdiction; the candidate is not expected to infer a state's law.",
+    "employer_policy_as_scope_expansion": "Not endorsed. Employer policy may be more restrictive but cannot authorize conduct that the governing law/rule explicitly excludes.",
+    "emergency_exception": "Not tested; the client is stable and the activity is nonemergency.",
+    "supervisor_liability_transfer": "Not endorsed; a supervisor's direction does not remove the individual RN's duty to practice within legal scope."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0077", "V2-Q0670", "V2-Q0621"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0077 tests a nurse's competence limitation for a high-risk therapy even when the role may otherwise be permitted. V2-Q0670 tests conscience-based objection. V2-Q0621 tests an incomplete provider order. V2-Q0673 tests a facility-policy assignment that directly conflicts with an explicit jurisdictional board rule governing RN scope. Targeted repository search returned no matching policy-versus-board-rule construct before staging."
+  },
+  "option_audit": {
+    "A": "Plausible reliance on employer policy/supervisor accountability but incorrectly treats those as authority to expand legal scope.",
+    "B": "Plausible staffing workaround but another RN remains subject to the same explicit jurisdictional scope restriction.",
+    "C": "Correct. It avoids the legally prohibited activity, communicates the conflict and secures an appropriately authorized clinician.",
+    "D": "Plausible continuity-focused response but documentation does not make an out-of-scope act lawful and staffing pressure does not override the board rule."
+  },
+  "ambiguity_check": "No second defensible best answer. The governing board rule is explicitly supplied and prohibits RNs from the activity. C alone complies with legal scope while preserving client care through escalation and authorized coverage. A/D improperly elevate facility policy or staffing pressure; B transfers the same prohibited task to another RN.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 142, "B": 137, "C": 146, "D": 149},
+    "note": "Exact character counts were calculated from the stored strings. Correct option C is not longest; all options are within twelve characters and are parallel action responses."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Practicing within legal scope and recognizing limitations/use of resources are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "The current 2026 NCSBN Test Plan legal-scope and resource-use activity statements were rechecked on 2026-08-19; the exact source text is preserved in the audit locator."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NCSBN Nurse Practice Act Toolkit verified",
+      "NPA/rules governing-practice statement verified",
+      "rules force/effect-of-law statement verified",
+      "current NCSBN Scope of Practice Decision-Making Framework verified",
+      "jurisdiction-specific variability explicitly controlled in stem",
+      "stable/nonemergency context controlled",
+      "A/B/C/D independently re-audited for legal-scope authority and second-answer risk",
+      "no second defensible best answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A142/B137/C146/D149",
+      "construct compared with Q0077/Q0670/Q0621 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty normalized from easy to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "question_uid": "V2-Q0984",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-18",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "easy",
+  "change_class": "DISTRACTOR_AND_STEM_REBUILD",
+  "semantic_correction": {
+    "stem": "After strenuous work in hot weather, a worker who has been sweating heavily develops painful spasms in both calves. The worker is alert and oriented and reports no dizziness, nausea, generalized weakness, or dark urine. Which heat-related condition is most consistent with these findings?",
+    "options": {
+      "A": "Heat cramps",
+      "B": "Heat exhaustion",
+      "C": "Rhabdomyolysis",
+      "D": "Heat stroke"
+    },
+    "correct_option": "A",
+    "rationale": "CDC/NIOSH states that heat cramps usually affect workers who sweat heavily during strenuous activity and cause muscle cramps, pain, or spasms in the abdomen, arms, or legs. The worker’s isolated painful calf spasms after heavy sweating therefore most closely match heat cramps. Heat exhaustion commonly includes symptoms such as headache, nausea, dizziness, weakness, thirst, heavy sweating, and elevated body temperature. Rhabdomyolysis can cause muscle cramps or pain but is also associated with findings such as dark urine, weakness, and exercise intolerance. Heat stroke is characterized by severe heat illness with findings such as altered mental status, loss of consciousness, seizures, or very high body temperature. Option A is the best answer for the presentation given.",
+    "educational_objective": "Differentiate heat cramps from other heat-related illnesses by recognizing painful muscle spasms after strenuous activity and heavy sweating in the absence of neurologic or systemic findings suggesting more severe illness.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC), National Institute for Occupational Safety and Health (NIOSH)",
+    "source_document_title": "Heat-related Illnesses",
+    "source_version_date": "March 3, 2026",
+    "source_accessed_date": "2026-08-18",
+    "source_locator": "Types — Heat cramps > Symptoms; Heat exhaustion > Symptoms; Rhabdomyolysis > Symptoms; Heat stroke > Symptoms",
+    "source_url": "https://www.cdc.gov/niosh/heat-stress/about/illnesses.html",
+    "source_claim_supported": "Heat cramps commonly occur after heavy sweating during strenuous activity and cause painful muscle cramps or spasms in the abdomen, arms, or legs; heat exhaustion, rhabdomyolysis, and heat stroke have additional distinguishing symptom patterns described by NIOSH.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, printed p. 14 / PDF p. 18, Related Activity Statements — Maintain optimal temperature of client; Identify pathophysiology related to an acute or chronic condition",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — heat-related illness recognition",
+    "correction_summary_append": "RULE1 cleanup: retained the source-supported heat-cramps construct but rebuilt the stem to distinguish competing heat illnesses and replaced cold-exposure distractors with clinically plausible heat exhaustion, rhabdomyolysis, and heat stroke alternatives; exact CDC/NIOSH and NCSBN locators were normalized.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0984",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "OUT_OF_CONSTRUCT_DISTRACTORS",
+        "finding": "The original correct answer was supported by CDC/NIOSH, but frostbite and hypothermia were noncompetitive cold-exposure distractors. The item was rebuilt so all distractors are heat-related conditions and the stem contains discriminating findings that preserve one best answer.",
+        "source_authority": "CDC/NIOSH",
+        "source_locator": "Heat-related Illnesses — Heat cramps/Heat exhaustion/Rhabdomyolysis/Heat stroke symptom sections",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation, printed p. 14 — Maintain optimal temperature of client"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. Heavy sweating with strenuous activity plus painful leg spasms directly matches the NIOSH heat-cramps description.",
+    "B": "Plausible because heat exhaustion also follows heat exposure and sweating, but the stem lacks the typical systemic features such as dizziness, nausea, weakness, or headache.",
+    "C": "Plausible because rhabdomyolysis can cause muscle cramps or pain after exertion, but the stem lacks dark urine, weakness, or exercise intolerance and more closely matches heat cramps.",
+    "D": "Plausible heat-related emergency, but the alert and oriented worker lacks the altered mental status, loss of consciousness, seizures, or very high temperature characteristic of heat stroke."
+  },
+  "ambiguity_check": "No second defensible best answer. Heat cramps is the direct symptom-pattern match; the stem deliberately excludes key competing findings for heat exhaustion, rhabdomyolysis, and heat stroke without relying on hidden assumptions.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 11, "B": 15, "C": 14, "D": 11},
+    "note": "All four options are concise diagnostic labels from the same heat-illness construct; the correct answer has no length or wording advantage."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Recognizing heat-related illness from presenting findings is consistent with entry-level management of acute physiological alterations and temperature-related conditions.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC/NIOSH page dated March 3, 2026 verified",
+      "exact Heat cramps symptom locator verified",
+      "heat exhaustion symptom claims verified",
+      "rhabdomyolysis symptom claims verified",
+      "heat stroke symptom claims verified",
+      "A/B/C/D independently re-audited",
+      "cold-exposure distractors removed",
+      "no second defensible best answer identified",
+      "no absolute-word or length cue identified",
+      "2026 NCLEX-RN Physiological Adaptation locator verified",
+      "educational objective is item-specific"
+    ]
+  }
+}

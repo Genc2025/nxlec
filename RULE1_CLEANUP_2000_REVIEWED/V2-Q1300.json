@@ -1,0 +1,106 @@
+{
+  "question_uid": "V2-Q1300",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "GENERIC_MULTIDISCIPLINARY_COLLABORATION_RECALL_TO_SUSPECTED_HIT_MEDICATION_SAFETY_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client receiving a continuous intravenous heparin infusion develops a substantial new decrease in platelet count and new unilateral leg swelling concerning for thrombosis. Heparin-induced thrombocytopenia is strongly suspected. Which action should the nurse take?",
+    "options": {
+      "A": "Stop the heparin infusion, avoid all heparin flushes, notify the clinical team, and prepare for a non-heparin anticoagulant plan.",
+      "B": "Continue the heparin infusion while repeating the platelet count, then stop it only if the laboratory trend worsens further.",
+      "C": "Stop the infusion but continue heparin catheter flushes because the small flush doses do not meaningfully contribute to HIT.",
+      "D": "Reduce the heparin infusion rate and monitor for bleeding because thrombocytopenia may reflect excessive anticoagulation."
+    },
+    "correct_option": "A",
+    "rationale": "Current official DailyMed heparin labeling identifies heparin-induced thrombocytopenia as a serious immune-mediated reaction that may progress to venous or arterial thrombosis. The current Hospira label, updated May 12, 2026, states that once HIT or HITT is diagnosed or strongly suspected, all heparin sources, including heparin flushes, should be discontinued and an alternative anticoagulant used. The client's substantial platelet decline plus a new finding concerning for thrombosis creates a high-risk pattern in which continuing, merely reducing, or retaining heparin flushes would prolong exposure to the suspected trigger. The nurse should stop heparin exposure, notify the clinical team, and prepare for the ordered non-heparin anticoagulation plan rather than waiting for further decline. The 2026 NCSBN NCLEX-RN Test Plan includes evaluating client response to medication, recognizing adverse effects, monitoring intravenous infusions, and safely handling high-risk medications. Therefore A is the uniquely best response.",
+    "educational_objective": "When HIT is strongly suspected during heparin therapy, stop all heparin exposure including flushes, promptly escalate the finding, and prepare for a non-heparin anticoagulation plan rather than reducing or continuing heparin.",
+    "source_organization": "DailyMed / U.S. National Library of Medicine official FDA labeling; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Heparin Sodium in Sodium Chloride Injection — Hospira, Inc.; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "DailyMed label updated May 12, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "DailyMed setid 32e34077-aff1-4ec7-f9b0-b8e240768fb8 > Warnings and Precautions 5.2 Heparin-Induced Thrombocytopenia and Heparin-Induced Thrombocytopenia With Thrombosis — HIT is immune mediated and may progress to venous/arterial thrombosis; once HIT/HITT is diagnosed or strongly suspected, discontinue all heparin sources including heparin flushes and use an alternative anticoagulant. NCSBN 2026 NCLEX-RN Test Plan > Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 and detailed printed p. 38 / PDF p. 42 — evaluate medication response, monitor IV infusions, assess adverse effects, and handle/administer high-risk medications safely.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=32e34077-aff1-4ec7-f9b0-b8e240768fb8",
+    "secondary_source_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "source_claim_supported": "Strongly suspected HIT/HITT requires discontinuation of all heparin sources, including flushes, with prompt clinical evaluation and transition to a non-heparin anticoagulation strategy as ordered.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16; detailed content printed p. 38 / PDF p. 42",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — recognition and immediate response to suspected heparin-induced thrombocytopenia",
+    "correction_summary_append": "RULE1 cleanup: retired a generic multidisciplinary-collaboration recall item because continuity/care-coordination constructs were already repeatedly covered. Rebuilt the UID into a distinct high-risk anticoagulant safety scenario requiring immediate removal of all heparin exposure when HIT is strongly suspected.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1300",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "GENERIC_MULTIDISCIPLINARY_COLLABORATION_RECALL_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement tests a direct medication-safety decision. Current official DailyMed labeling explicitly requires discontinuing all heparin sources, including flushes, when HIT/HITT is diagnosed or strongly suspected.",
+        "source_authority": "DailyMed official FDA labeling; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "DailyMed Heparin Sodium Warnings and Precautions 5.2; NCSBN Pharmacological and Parenteral Therapies",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "platelet_threshold": "No absolute platelet-count threshold, percentage decline, timing window, or diagnostic scoring system is required; the stem explicitly states a substantial new decline plus a new thrombotic concern and that HIT is strongly suspected.",
+    "alternative_anticoagulant": "No specific non-heparin anticoagulant, dose, route, monitoring target, or duration is prescribed; selection is made by the treating team according to the clinical situation.",
+    "diagnostic_testing": "No PF4 immunoassay, functional assay, or other diagnostic test result is required before stopping heparin when HIT is already strongly suspected in the scenario.",
+    "bleeding_mechanism": "The item does not treat HIT as simple over-anticoagulation or bleeding toxicity; the clinically important risk includes thrombosis."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'heparin HIT thrombocytopenia thrombosis stop all heparin flushes' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It removes all heparin exposure, escalates the suspected immune-mediated adverse reaction, and prepares for the source-supported non-heparin treatment plan.",
+    "B": "Plausible laboratory-monitoring response, but waiting for further decline while continuing heparin conflicts with the label when HIT is already strongly suspected.",
+    "C": "Plausible attempt to stop therapeutic exposure while maintaining line patency, but the current label specifically includes heparin flushes among sources that must be discontinued.",
+    "D": "Plausible if thrombocytopenia were due to dose-related bleeding toxicity, but HIT is an immune-mediated prothrombotic reaction and reducing the rate does not remove the trigger."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly states that HIT is strongly suspected and includes a new thrombotic concern. B and D continue heparin exposure, while C retains heparin flush exposure. A alone follows the current label's all-heparin discontinuation requirement.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 129,
+      "B": 124,
+      "C": 124,
+      "D": 121
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four options are closely balanced anticoagulation-management actions; the correct option is not conspicuously separated by length."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Pharmacological and Parenteral Therapies includes medication-response evaluation, adverse-effect recognition, IV-infusion monitoring and safe use of high-risk medications. Suspected HIT during active heparin therapy is a direct entry-level RN medication-safety emergency.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan Pharmacological and Parenteral Therapies content at printed p. 12 / PDF p. 16 and detailed printed p. 38 / PDF p. 42 was visually inspected during prior current-session medication-safety audits and remains the verified blueprint locator used here; no broad PDF rescan was performed."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_DAILYMED_HTML",
+    "note": "The relevant NCSBN blueprint pages had already been visually verified in the current cleanup session. The current DailyMed heparin label is official HTML and was text-verified directly on August 20, 2026."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current Hospira DailyMed heparin label updated May 12, 2026 rechecked for HIT/HITT and all-heparin-source discontinuation",
+      "heparin flushes specifically confirmed as included in the discontinuation requirement",
+      "verified NCSBN 2026 Pharmacological and Parenteral Therapies blueprint locator reused without broad PDF rescan",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no platelet threshold, timing window, diagnostic assay, alternative-anticoagulant choice or dose fabricated",
+      "option lengths tightly balanced: A129/B124/C124/D121",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

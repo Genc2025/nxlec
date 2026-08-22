@@ -1,0 +1,111 @@
+{
+  "question_uid": "V2-Q0975",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "INFORMED_CONSENT_STRONG_CONSTRUCT_DISTRACTOR_AND_CUE_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A nurse is asked to witness an adult client's signature on the consent form for an elective procedure. The client says, \"No one explained the major risks or the alternatives to me.\" Which action should the nurse take?",
+    "options": {
+      "A": "Pause the consent process and notify the responsible practitioner that the client reports missing information.",
+      "B": "Witness the signature and notify the practitioner afterward because the client has already chosen to proceed.",
+      "C": "Ask the charge nurse to review the consent form, then witness the signature if the client still agrees.",
+      "D": "Have the client sign now but hold the form until the practitioner answers the questions before the procedure."
+    },
+    "correct_option": "A",
+    "rationale": "CMS hospital informed-consent guidance states that patients must receive adequate information in a manner they can understand so they can make informed decisions, and that the informed-consent process must provide the information and disclosures needed for the decision. CMS also states that a properly executed consent form should reflect the consent process and includes, among its minimum elements, a statement that anticipated benefits, material risks, and alternative therapies were explained. NCSBN's 2026 NCLEX-RN Test Plan places informed consent within Management of Care and specifically includes participating in obtaining informed consent and verifying that the client receives education and consents for care and procedures. A client who reports that major risks and alternatives were never explained has identified an unresolved information gap, so the nurse should pause the consent process and notify the responsible practitioner rather than treating a signature alone as sufficient. Options B and D obtain a signature before the identified information gap is resolved. Option C substitutes review by another nurse for addressing the missing consent information through the responsible practitioner. Therefore A is the uniquely best answer.",
+    "educational_objective": "When a client reports that material risks or alternatives have not been explained, pause the consent process and escalate the unresolved information need before witnessing the client's consent.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "QSO-24-10-Hospitals: Revisions and clarifications to Hospital Interpretive Guidelines for Informed Consent",
+    "source_version_date": "April 1, 2024; effective immediately; official CMS page and memorandum rechecked August 19, 2026",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "PDF p. 2, Informed Decisions — adequate understandable information and informed-consent process; PDF pp. 2-3, Informed Consent Forms — properly executed form reflects the consent process and includes explanation of anticipated benefits, material risks, and alternative therapies",
+    "source_url": "https://www.cms.gov/files/document/qso-24-10-hospitals.pdf",
+    "source_page_url": "https://www.cms.gov/medicare/health-safety-standards/quality-safety-oversight-general-information/policy-memos-states-and-cms-locations/revisions-and-clarifications-hospital-interpretive-guidelines-informed-consent",
+    "source_claim_supported": "Hospital informed-consent processes must provide patients with adequate understandable information needed to make an informed decision; a properly executed consent form reflects that process and includes a statement that anticipated benefits, material risks, and alternatives were explained.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Informed Consent, printed p. 22 / PDF p. 26 — Participate in obtaining informed consent; Verify the client receives education and consents for care and procedures",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — informed consent and verification of client education/consent",
+    "correction_summary_append": "RULE1 cleanup: retained the clinically relevant informed-consent construct but removed a uniquely longest correct answer and obviously implausible distractors. Reframed the stem around witnessing consent after the client explicitly reports missing risk/alternative information, aligned the rationale to current CMS informed-consent guidance, and upgraded the blueprint locator to the exact NCSBN 2026 Informed Consent subsection.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0975",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_WEAK_DISTRACTORS",
+        "finding": "The original construct was NCLEX-relevant, but the correct option was uniquely longest and the distractors were obvious. The revised item preserves the informed-consent decision point while making all alternatives plausible nursing actions and limiting legal claims to current CMS and NCSBN guidance.",
+        "source_authority": "CMS QSO-24-10-Hospitals",
+        "source_locator": "PDF p. 2 Informed Decisions; PDF pp. 2-3 Informed Consent Forms",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care > Informed Consent, printed p. 22 / PDF p. 26"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "state_specific_consent_law": "Not asserted. CMS expressly notes that applicable state law may add informed-consent requirements; this item tests the federal hospital consent-process principle and NCLEX nursing role, not a jurisdiction-specific rule.",
+    "exclusive_practitioner_role": "The item does not claim that nurses can never provide or reinforce education. It tests the response to an explicitly unresolved information gap involving major risks and alternatives and directs the nurse to the responsible practitioner rather than independently treating the form or another nurse's review as completion of the consent process.",
+    "signature_as_consent": "The item does not treat a signature alone as proof of informed consent; CMS guidance states that a properly executed form should reflect the consent process.",
+    "emergency_exception": "Not applicable because the stem specifies an elective procedure."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub code search for the exact phrase 'informed consent' returned no indexed repository match. The existing RULE1_CLEANUP_2000_NEAR_DUPLICATES.jsonl artifact contains no consent-related pair. These technical searches were used only to identify possible comparators and were not treated as proof of semantic uniqueness."
+  },
+  "option_audit": {
+    "A": "Correct. The client's statement identifies missing information central to informed consent; pausing and notifying the responsible practitioner resolves the gap before witnessing consent.",
+    "B": "Plausible sequencing error, but witnessing first treats the client's decision as complete despite the stated lack of information about major risks and alternatives.",
+    "C": "Plausible chain-of-command action, but another nurse's review of the form does not resolve the identified missing consent information through the responsible practitioner.",
+    "D": "Plausible attempt to preserve workflow, but it still obtains the signature before the identified information gap has been addressed."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly states that the client reports no explanation of major risks or alternatives. B and D obtain the signature before resolving that gap; C substitutes another nurse's form review. A alone pauses the consent process and escalates the missing information before witnessing consent.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 110,
+      "B": 109,
+      "C": 103,
+      "D": 109
+    },
+    "note": "Exact character counts were calculated from the stored strings. Correct option A differs from B/D by one character and all four options are within seven characters; no answer-length cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The 2026 NCSBN Test Plan explicitly places Informed Consent under Management of Care and includes participating in obtaining informed consent and verifying that the client receives education and consents for care and procedures. This is a direct entry-level RN action construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Test Plan printed p. 22 / PDF p. 26 was visually inspected on 2026-08-19. The page visibly lists the Informed Consent subsection and the activity statements 'Participate in obtaining informed consent' and 'Verify the client receives education and consents for care and procedures.'"
+  },
+  "source_visual_verification": {
+    "result": "PASS",
+    "note": "Official CMS QSO-24-10-Hospitals PDF pp. 2-3 were visually inspected on 2026-08-19. Page 2 states the adequate-information and informed-decision requirements and begins the informed-consent-form elements; page 3 continues the benefits/material-risks/alternative-therapies explanation element."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official CMS QSO-24-10-Hospitals page and memorandum rechecked fresh",
+      "CMS memorandum date, effective status, and exact Informed Decisions/Informed Consent Forms locators confirmed",
+      "CMS PDF pp. 2-3 visually verified",
+      "official 2026 NCSBN Informed Consent subsection visually verified at printed p. 22 / PDF p. 26",
+      "stem specifies an elective procedure so emergency-consent exceptions do not compete",
+      "A/B/C/D re-audited individually for plausibility and second-answer risk",
+      "no claim made that nurses are categorically prohibited from all consent education",
+      "no state-specific consent rule asserted",
+      "signature is not treated as sufficient when the client reports missing information",
+      "answer-length cue removed; exact lengths A110/B109/C103/D109",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is item-specific and action-oriented"
+    ]
+  }
+}

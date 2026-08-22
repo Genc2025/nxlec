@@ -1,0 +1,90 @@
+{
+  "question_uid": "V2-Q0239",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-18",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "NEAR_DUPLICATE_FULL_CONSTRUCT_REBUILD",
+  "near_duplicate_resolution": {
+    "paired_uid": "V2-Q1468",
+    "original_overlap": "Both original items asked the nurse to interpret a markedly elevated A1C against usual adult glycemic goals.",
+    "resolution": "Retain the richer A1C interpretation/limitations construct in V2-Q1468 and rebuild V2-Q0239 into recognition and initial treatment of hypoglycemia."
+  },
+  "semantic_correction": {
+    "stem": "A client with diabetes who uses insulin becomes shaky and diaphoretic. Capillary glucose is 52 mg/dL. The client is awake, follows commands, and can swallow safely. Which action should the nurse take first?",
+    "options": {
+      "A": "Give oral glucose or another fast-acting carbohydrate that contains glucose.",
+      "B": "Administer glucagon immediately even though the client is awake and able to swallow.",
+      "C": "Recheck the glucose in 15 minutes before giving any carbohydrate treatment.",
+      "D": "Give a high-fat snack as the initial treatment to slow absorption and prevent recurrence."
+    },
+    "correct_option": "A",
+    "rationale": "The ADA Standards of Care in Diabetes—2026 define glucose below 54 mg/dL as level 2 hypoglycemia, which requires immediate action. For a conscious individual with glucose below 70 mg/dL, glucose is the preferred treatment, although another carbohydrate containing glucose may be used. The client is awake and can swallow, so oral glucose or another fast-acting glucose-containing carbohydrate is the best first action. Glucagon is used when the person cannot or will not consume carbohydrate by mouth. Waiting 15 minutes before initial treatment delays indicated care; the 15-minute interval is used to reassess after treatment. Foods or beverages high in fat or protein should not be used for initial treatment because they can delay the glycemic response.",
+    "educational_objective": "Recognize level 2 hypoglycemia in an awake client who can swallow and initiate prompt oral glucose treatment before reassessing the glucose response.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "6. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises: Standards of Care in Diabetes—2026",
+    "source_version_date": "Standards of Care in Diabetes—2026; Diabetes Care 49(Supplement 1), December 2025",
+    "source_accessed_date": "2026-08-18",
+    "source_locator": "Hypoglycemia Assessment, Prevention, and Treatment — Recommendation 6.15; Hypoglycemia Definitions and Event Rates — Table 6.4; Hypoglycemia Treatment",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic",
+    "source_claim_supported": "Level 2 hypoglycemia is glucose <54 mg/dL and requires immediate action; for a conscious individual with glucose <70 mg/dL, glucose is the preferred treatment, carbohydrate containing glucose may be used, reassessment occurs after initial treatment, high-fat/high-protein foods are not preferred initially, and glucagon is used when oral carbohydrate cannot or will not be consumed.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p. 13 / PDF p. 17, Related Activity Statements — Assess and respond to changes and trends in client vital signs; Perform focused assessments; Recognize trends and changes in client condition and intervene as needed; Monitor the results of diagnostic testing and intervene as needed",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — recognition and immediate response to hypoglycemia",
+    "correction_summary_append": "RULE1 cleanup: resolved semantic near-duplication with V2-Q1468 by replacing the original elevated-A1C interpretation item with an entry-level hypoglycemia recognition and immediate-treatment construct sourced to ADA 2026; all options were rebuilt and re-audited.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0239",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_NEAR_DUPLICATE",
+        "paired_uid": "V2-Q1468",
+        "finding": "The original V2-Q0239 and V2-Q1468 both tested interpretation of a markedly elevated A1C. V2-Q0239 was rebuilt into an acute hypoglycemia recognition/treatment item to add distinct clinically meaningful coverage.",
+        "source_authority": "American Diabetes Association Standards of Care in Diabetes—2026",
+        "source_locator": "Recommendation 6.15; Table 6.4; Hypoglycemia Treatment",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 13 — recognize changes and intervene; monitor diagnostic testing and intervene"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. The client is conscious, can swallow, and has glucose well below 70 mg/dL; ADA recommends glucose as the preferred treatment.",
+    "B": "Plausible emergency therapy for hypoglycemia, but glucagon is not the best first action when the client is conscious and can safely take oral carbohydrate.",
+    "C": "Plausible because ADA uses a 15-minute reassessment interval, but that interval follows initial treatment rather than preceding it.",
+    "D": "Plausible as a later snack strategy, but ADA advises against high-fat/high-protein foods or beverages for initial hypoglycemia treatment because they may delay the glycemic response."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly establishes that the client is conscious and can swallow, making oral glucose the source-supported first treatment while eliminating glucagon as the preferred initial route.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 76, "B": 84, "C": 75, "D": 89},
+    "note": "All options are plausible treatment-sequence decisions; the correct answer is not the longest and no mechanical padding was used."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The item requires the entry-level RN to recognize an abnormal glucose result and intervene promptly, directly matching Reduction of Risk Potential activity statements.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "ADA 2026 source and current Standards issue verified",
+      "level 2 hypoglycemia threshold verified directly",
+      "conscious-person oral glucose recommendation verified directly",
+      "glucagon indication relative to oral carbohydrate verified",
+      "15-minute reassessment sequencing verified",
+      "high-fat/high-protein initial-treatment warning verified",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word or conspicuous length cue identified",
+      "NCSBN 2026 Reduction of Risk Potential locator verified",
+      "near-duplicate relationship to V2-Q1468 resolved by changing construct rather than wording"
+    ]
+  }
+}

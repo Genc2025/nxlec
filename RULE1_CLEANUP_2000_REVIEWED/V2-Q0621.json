@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0621",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "NURSE_MANAGER_SPAN_RESEARCH_TO_INCOMPLETE_ORDER_VERIFICATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A stable hospitalized client has a new electronic medication order that reads, 'acetaminophen PO now,' but no dose is specified. The medication has not been administered. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Administer the medication using the unit's usual adult dose because the route and timing are already specified in the order.",
+      "B": "Hold the medication and contact the prescriber to clarify the missing dose, then verify the complete order before administration.",
+      "C": "Ask the pharmacist to select a reasonable dose and administer it without obtaining a clarified patient-specific order from the prescriber.",
+      "D": "Document that the dose was missing and wait until the next scheduled medication round before deciding whether clarification is needed."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly requires the newly licensed RN to receive, verify and implement health care provider orders. Current Open RN/NCBI medication-administration guidance likewise instructs nurses to clarify any order or procedure that is unclear, verify uncertain information with the appropriate prescriber/pharmacist/charge nurse resources, and resolve questions before medication administration. In this stem the medication, route and timing are present but the patient-specific dose is absent. B is therefore the uniquely best action: do not guess or substitute a customary dose; contact the prescriber to clarify the missing element and verify the completed order before giving the medication. A invents a dose from unit custom. C asks the pharmacist to create the patient-specific prescribed dose rather than clarify the prescriber's incomplete order. D appropriately avoids administration but unnecessarily delays clarification of an active medication order. Therefore B is correct.",
+    "educational_objective": "When a medication order is incomplete or unclear, withhold administration long enough to clarify the missing information with the prescriber and verify the completed patient-specific order rather than guessing, substituting a customary dose, or delaying clarification unnecessarily.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); NCBI Bookshelf/Open Resources for Nursing (Open RN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Nursing Skills — Summary of Safe Medication Administration Guidelines",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; current NCBI/Open RN medication-administration guidance accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Management of Care, printed p. 22 / PDF p. 26 — Information Technology: receive, verify and implement health care provider orders. NCBI/Open RN Safe Medication Administration Guidelines — clarify an order or procedure that is unclear; verify uncertain information and resolve questions before medication administration",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://www.ncbi.nlm.nih.gov/books/NBK596740/table/ch15adminentmed.T.summary_of_safe_medica/?report=objectonly",
+    "source_claim_supported": "A nurse should verify provider orders before implementation and clarify an incomplete or unclear medication order before administration rather than guessing a missing dose.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 22 / PDF p. 26 — Information Technology: Receive, verify and implement health care provider orders",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — verification and clarification of an incomplete provider order",
+    "correction_summary_append": "RULE1 cleanup: retired nurse-manager span-of-control research because it was managerial and not a direct newly licensed RN activity. Rebuilt the item around the explicit NCSBN order-verification competency using a concrete medication order with a missing dose. Removed the prior absolute-word and extreme answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0621",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_ENTRY_LEVEL_MANAGERIAL_RESEARCH_ABSOLUTE_WORD_CUE_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests safe verification and clarification of an incomplete provider order before medication administration.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; NCBI/Open RN medication-administration guidance",
+        "source_locator": "NCSBN Information Technology — receive, verify and implement provider orders",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 22 / PDF p. 26"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_acetaminophen_dose": "Not tested and not supplied. The item intentionally requires clarification rather than calculation or use of a customary dose.",
+    "emergency_exception": "Not tested; the client is stable and there is time to clarify safely.",
+    "pharmacist_prescribing_authority": "Not assumed. Pharmacy is an appropriate medication-safety resource, but the missing patient-specific prescribed dose in this scenario is clarified through the responsible prescriber/order process."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0327", "V2-Q0373", "V2-Q0323"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0327 tests verification of an apparent duplicate laboratory order before repeating a specimen. V2-Q0373 tests medication reconciliation during transfer. V2-Q0323 tests response to a health-IT allergy-alert near miss. V2-Q0621 tests an incomplete medication order with a missing dose before first administration. Targeted repository search returned no matching missing-dose clarification item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible efficiency response but invents a patient-specific dose from unit custom.",
+    "B": "Correct. It withholds an incomplete order from implementation, obtains clarification and verifies the completed order before administration.",
+    "C": "Plausible interprofessional medication-safety response but asks pharmacy to create rather than verify/clarify the missing prescribed dose.",
+    "D": "Plausible cautious response but delays clarification of an active order without a clinical reason."
+  },
+  "ambiguity_check": "No second defensible best answer. The dose is absent and the client is stable. B alone both avoids unsafe guessing and promptly resolves the incomplete order. D withholds administration but fails to address the active order promptly; A and C substitute an unauthorized dose-selection pathway.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 124, "B": 129, "C": 138, "D": 134},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not longest; all choices are within fourteen characters and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Receiving, verifying and implementing health care provider orders is an explicit Management of Care activity for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A printed p. 22 / PDF p. 26 was visually inspected on 2026-08-19 and explicitly states 'Receive, verify and implement health care provider orders.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN provider-order verification statement verified directly and visually",
+      "current NCBI/Open RN unclear-order clarification guidance verified",
+      "missing dose explicitly controlled in stem",
+      "stable/nonemergency context controlled in stem",
+      "no specific medication dose invented",
+      "A/B/C/D independently re-audited for order authority and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A124/B129/C138/D134",
+      "construct compared with Q0327/Q0373/Q0323 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

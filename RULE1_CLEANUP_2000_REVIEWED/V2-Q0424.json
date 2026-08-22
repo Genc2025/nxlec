@@ -1,0 +1,93 @@
+{
+  "question_uid": "V2-Q0424",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ADVANCE_DIRECTIVE_ACTIVATION_SCOPE_AND_CUEING_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client asks how a durable power of attorney for health care differs from documents that manage finances or state treatment preferences. Which explanation by the nurse is most accurate?",
+    "options": {
+      "A": "It gives the agent authority over banking and property matters, while health care decisions remain with clinicians and family members.",
+      "B": "It names a health care agent for medical decisions; the agent's scope and when that authority operates depend on the document and state law.",
+      "C": "It records the client's treatment preferences but does not name another person to participate in health care decisions.",
+      "D": "It serves as a medical order for resuscitation and other emergency treatments rather than naming a decision-making representative."
+    },
+    "correct_option": "B",
+    "rationale": "The NIH National Institute on Aging describes a durable power of attorney for health care as an advance-directive document used to name a health care proxy, also called a representative, surrogate, or agent, who can make health care decisions on the person's behalf under the applicable document and legal framework. NIA separately distinguishes a living will, which records treatment preferences, and notes that state forms and requirements for health care proxies vary. This item intentionally does not assert a universal activation rule because the exact scope and timing of an agent's authority can depend on the document and jurisdiction. B therefore states the durable health-care POA's defining function while preserving state/document variability. A describes financial/property authority rather than health-care agency. C describes a preferences document such as a living will but omits the defining proxy role. D describes a medical-order concept rather than a document naming a health care decision-maker. Therefore B is the uniquely best answer.",
+    "educational_objective": "Distinguish a durable power of attorney for health care by recognizing that it names a health care agent for medical decision-making while the agent's scope and activation are governed by the document and applicable state law.",
+    "source_organization": "National Institutes of Health, National Institute on Aging (NIA)",
+    "source_document_title": "Advance Care Planning: Advance Directives for Health Care; Choosing A Health Care Proxy",
+    "source_version_date": "Current NIA advance-care-planning resources accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Advance Care Planning — What are advance directives? Durable power of attorney for health care names a health care proxy; Choosing A Health Care Proxy — durable power of attorney for health care is the advance directive used to name the proxy; state form requirements and permitted responsibilities vary",
+    "source_url": "https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care",
+    "source_claim_supported": "A durable power of attorney for health care is an advance-directive mechanism for naming a health care proxy/agent; the applicable form, responsibilities, and related requirements depend on the document and state law.",
+    "secondary_source_url": "https://www.nia.nih.gov/health/advance-care-planning/choosing-health-care-proxy",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 20 / PDF p. 24 — Advance Directives/Self-Determination/Life Planning: assess knowledge of advance directives including health care agent/proxy and power of attorney for health care; integrate advance directives into plan of care; provide information about advance directives/self-determination/life planning",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — durable power of attorney for health care and health care proxy",
+    "correction_summary_append": "RULE1 cleanup: retained the durable-health-care-POA construct but removed absolute-word and answer-length cues, avoided repeating Q0023's prior activation-timing overgeneralization, and tested the defining proxy function while explicitly preserving document/state-law variability.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0424",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_ANSWER_LENGTH_CUE_AND_STATE_VARIABLE_ACTIVATION_OVERGENERALIZATION_RISK",
+        "finding": "The original item risked treating incapacity-based activation as a uniform national rule. The revision tests only the nationally supportable defining function of durable health-care POA and states that scope/activation depend on document and state law.",
+        "source_authority": "NIH/NIA Advance Care Planning and Choosing A Health Care Proxy",
+        "source_locator": "Durable power of attorney for health care / health care proxy sections",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Advance Directives/Self-Determination/Life Planning"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0023", "V2-Q0270"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0023 tests the general purpose of an advance directive. V2-Q0270 distinguishes POLST/MOLST-type portable medical orders from advance directives. V2-Q0424 identifies the specific function of a durable power of attorney for health care: naming a health care agent, while avoiding a universal activation-timing rule."
+  },
+  "option_audit": {
+    "A": "Plausible confusion with financial power of attorney, but the tested document specifically concerns designation of a health care decision-making agent.",
+    "B": "Correct. It identifies the defining proxy/agent function and appropriately preserves state/document variability in scope and activation.",
+    "C": "Plausible description of a living will or values/preference document, but it omits the defining feature of durable health-care POA: naming another person to act as health care agent.",
+    "D": "Plausible confusion with DNR/POLST-type medical orders, but durable health-care POA names a decision-making representative rather than serving as the treatment order itself."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone identifies the specific health-care-agent function without importing a universal state-law activation rule. A is financial authority, C is a preferences document, and D is a medical-order concept.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 134, "B": 140, "C": 119, "D": 130},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not conspicuously longer; all options are complete parallel document descriptions and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes health care agent/proxy and power of attorney for health care under Management of Care advance-directive content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Advance Directives/Advocacy page was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NIA advance-care-planning page verified",
+      "durable-health-care-POA names health care proxy statement verified directly",
+      "NIA Choosing A Health Care Proxy page verified",
+      "state-form and proxy-responsibility variability verified",
+      "universal activation-timing claim excluded from the tested answer",
+      "A/B/C/D independently re-audited for document classification and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and answer-length cues removed",
+      "exact option lengths verified as A134/B140/C119/D130",
+      "construct compared with Q0023 and Q0270 and confirmed distinct",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

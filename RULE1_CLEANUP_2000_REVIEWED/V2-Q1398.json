@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q1398",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_CUEING_AND_EMTALA_SCOPE_PRECISION_CORRECTION",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "An uninsured adult arrives at a Medicare-participating hospital emergency department reporting severe chest pain. Registration staff begin asking about payment before the client has been medically screened. Which action should the nurse take?",
+    "options": {
+      "A": "Ensure the medical screening examination proceeds now and ask registration to handle insurance or payment questions without delaying the evaluation.",
+      "B": "Allow registration to complete financial clearance first because EMTALA screening requirements begin after an emergency medical condition is confirmed.",
+      "C": "Arrange transfer to a lower-cost outpatient setting after nursing triage if the client appears clinically stable despite reporting severe chest pain.",
+      "D": "Ask the client to sign a payment agreement before the screening examination so the hospital can confirm financial responsibility before evaluating the chest pain."
+    },
+    "correct_option": "A",
+    "rationale": "EMTALA requires a Medicare-participating hospital that offers emergency services to provide an appropriate medical screening examination when an individual presents requesting examination or treatment for a possible emergency medical condition, regardless of ability to pay. CMS also states that a hospital may ask about insurance at check-in only if doing so does not delay the examination or treatment, and the screening examination must be offered even when the person is uninsured. If the examination identifies an emergency medical condition, the hospital must provide stabilizing treatment within its capability or arrange an appropriate transfer when required. Therefore A is the best action. B reverses the sequence because the screening examination is what determines whether an emergency medical condition exists. C substitutes nursing triage and financial redirection for the required medical screening examination. D makes financial clearance a prerequisite to the screening examination and therefore delays the protected evaluation.",
+    "educational_objective": "Protect emergency-care access by ensuring that insurance or payment questions do not delay an EMTALA-required medical screening examination and by recognizing that stabilization or appropriate transfer follows when an emergency medical condition is identified.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "Emergency Medical Treatment & Labor Act (EMTALA); You have rights in an emergency room under EMTALA; EMTALA Requirements & Conflicting Payor Requirements or Collection Practices",
+    "source_version_date": "CMS EMTALA page last modified March 10, 2026; CMS Emergency Room Rights page last modified June 12, 2025; CMS collection-practices memorandum remains published by CMS and was rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "CMS EMTALA page: public access regardless of ability to pay; Medicare-participating hospitals offering emergency services must provide an MSE when examination or treatment for a possible EMC is requested; stabilizing treatment or appropriate transfer follows if an EMC exists. CMS Emergency Room Rights > 'Give you an appropriate medical screening exam': insurance may be asked about only if it does not delay examination or treatment, and screening must be offered even without insurance. CMS S&C Letter 14-06: collection practices may not make on-the-spot payment precede protected EMTALA services.",
+    "source_url": "https://www.cms.gov/medicare/regulations-guidance/legislation/emergency-medical-treatment-labor-act",
+    "secondary_source_url": "https://www.cms.gov/Priorities/your-patient-rights/emergency-room-rights",
+    "tertiary_source_url": "https://www.cms.gov/medicare/provider-enrollment-and-certification/surveycertificationgeninfo/policy-and-memos-to-states-and-regions-items/survey-and-cert-letter-14-06",
+    "source_claim_supported": "At a covered hospital emergency department, an appropriate medical screening examination may not be delayed for insurance or ability-to-pay issues; if an emergency medical condition is found, stabilizing treatment or an appropriate transfer is required as applicable.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, PDF p. 23 / printed p. 20: Advocacy and Client Rights; PDF p. 24 / printed p. 21: advocate for client rights and needs; PDF p. 25 / printed p. 22: Legal Rights and Responsibilities — identify legal issues affecting the client and educate clients/staff on legal issues.",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — emergency-care access, client advocacy, and legal rights under EMTALA",
+    "correction_summary_append": "RULE1 cleanup retained the high-value EMTALA emergency-access construct but removed cue-heavy, obviously absolute distractors and tightened the covered-hospital scope. The revised item tests the nurse's immediate duty to prevent financial screening from delaying the medical screening examination."
+  },
+  "scope_exclusions": {
+    "abortion_litigation": "Current CMS litigation notices concerning EMTALA and abortion are outside this item. The scenario is severe chest pain and does not rely on any pregnancy-specific interpretation affected by current injunctions.",
+    "screening_personnel": "The item does not prescribe which professional must perform the MSE beyond the hospital's qualified-personnel requirements; it tests the nurse's role in preventing delay and facilitating access.",
+    "transfer_mechanics": "No accepting-facility process, transport modality, certification form, transfer documentation sequence, or specialty-capability rule is tested.",
+    "financial_workflow": "The item does not prohibit ordinary registration or insurance questions; it prohibits making those processes delay the protected examination or treatment."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub searches for 'EMTALA medical screening payment insurance' and 'severe chest pain uninsured emergency medical screening' returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It preserves immediate access to the EMTALA medical screening examination while permitting registration questions only if they do not delay evaluation.",
+    "B": "Plausible as a registration-first workflow, but incorrect because the MSE is required to determine whether an EMC exists; EMTALA screening duties do not begin only after an EMC is already confirmed.",
+    "C": "Plausible as cost-conscious disposition after triage, but nursing triage is not a substitute for the required MSE and uninsured status does not authorize pre-screening diversion.",
+    "D": "Plausible as routine financial consent, but the option explicitly makes payment agreement completion precede the MSE, creating the delay CMS says must not occur."
+  },
+  "ambiguity_check": "No second defensible best answer. A is the only option that permits ordinary registration activity without making it a gate to the MSE. B, C, and D each delay, replace, or condition the protected screening examination.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 148,
+      "B": 151,
+      "C": 149,
+      "D": 162
+    },
+    "note": "All alternatives are comparable-length workflow actions. The correct option is not uniquely longest and no distractor is based on an absurd mechanism or conspicuous absolute-word cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_VISUAL_VERIFICATION",
+    "entry_level_relevance": "NCSBN Management of Care includes client advocacy, client rights, equal access to care, and legal rights/responsibilities. Ensuring that financial processes do not obstruct required emergency evaluation is an entry-level RN advocacy and safety responsibility.",
+    "exact_locator_verified": true,
+    "visual_verification": "VERIFIED. Official 2026 NCLEX-RN Test Plan screenshots were successfully retrieved on August 20, 2026 for PDF p. 23 / printed p. 20 showing Advocacy and Client Rights, and PDF p. 25 / printed p. 22 showing Legal Rights and Responsibilities."
+  },
+  "source_visual_verification": {
+    "result": "CMS_HTML_TEXT_VERIFIED_AND_NCSBN_PDF_VISUALLY_VERIFIED",
+    "note": "CMS sources are HTML and were directly text-verified. The official NCSBN 2026 PDF was both parsed-text verified and visually verified by successful screenshots of the relevant pages."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "CMS main EMTALA page independently rechecked for MSE regardless of ability to pay and stabilization/appropriate transfer after an EMC is identified",
+      "CMS Emergency Room Rights page independently rechecked for insurance questions being permissible only when they do not delay examination or treatment and for screening despite lack of insurance",
+      "CMS collection-practices memorandum rechecked as supporting authority against payment collection before protected EMTALA services",
+      "current CMS Texas-abortion injunction notice reviewed and confirmed irrelevant to this chest-pain construct",
+      "official NCSBN 2026 Management of Care parsed text and screenshots verified for Advocacy, Client Rights, and Legal Rights and Responsibilities",
+      "A/B/C/D independently re-audited for legal correctness, plausibility, ambiguity, overlap, cueing, and second-answer risk",
+      "no response deadline, numeric threshold, financial amount, screening-personnel rule, or transfer-procedure detail was invented",
+      "option lengths balanced at A148/B151/C149/D162",
+      "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
+      "educational objective is specific to EMTALA screening access and the nurse's advocacy role"
+    ]
+  }
+}

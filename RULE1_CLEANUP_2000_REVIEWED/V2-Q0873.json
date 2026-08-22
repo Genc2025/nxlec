@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0873",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "TEAMSTEPPS_HUDDLE_RECALL_TO_INCREASED_ICP_POSITIONING_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client with traumatic brain injury has increased intracranial pressure. Blood pressure is stable, the cervical spine has been cleared, and no procedure requires a different position. Which positioning action is most appropriate?",
+    "options": {
+      "A": "Lower the head of the bed flat and rotate the head to the side so secretions can drain without raising intracranial pressure.",
+      "B": "Elevate the head of the bed about 30 degrees and keep the head and neck in neutral midline alignment to promote cerebral venous drainage.",
+      "C": "Flex the client's hips and neck slightly while elevating the knees so venous blood is redirected away from the cerebral circulation.",
+      "D": "Place the client in Trendelenburg position with the head turned laterally to increase cerebral perfusion while intracranial pressure is elevated."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes providing care for a client experiencing increased intracranial pressure under Physiological Adaptation. Current NCBI/StatPearls guidance for increased ICP recommends elevating the head of the bed to approximately 30 degrees and maintaining the neck in a neutral midline position to facilitate cerebral venous drainage. Neck flexion or rotation can restrict jugular venous outflow and increase intracranial pressure. The stem controls important exceptions by stating that the client's blood pressure is stable, the cervical spine has been cleared, and no procedure requires another position. B is therefore the uniquely best action. A keeps the client flat and rotates the head. C adds neck/hip flexion that can impair venous return from the brain. D uses head-down positioning and lateral head rotation, both contrary to the goal of facilitating cranial venous drainage. Therefore B is correct.",
+    "educational_objective": "For a hemodynamically stable client with increased intracranial pressure and no spinal-positioning restriction, elevate the head of the bed about 30 degrees and keep the head/neck neutral and midline to support cerebral venous drainage.",
+    "source_organization": "NCBI Bookshelf / StatPearls; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Increased Intracranial Pressure; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "StatPearls Increased Intracranial Pressure chapter updated/current in 2025-2026 and live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "StatPearls Increased Intracranial Pressure — keep neck neutral midline, avoid flexion/rotation that restricts jugular outflow, elevate HOB approximately 30 degrees to promote venous drainage/lower cerebral blood volume. NCSBN Appendix A, Physiological Adaptation, printed p. 47 / PDF p. 51 — Provide care for client experiencing increased intracranial pressure",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482119/",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "In a stable client with increased ICP and no contraindication to position change, approximately 30-degree head elevation with neutral midline head/neck alignment supports cerebral venous outflow and avoids position-related ICP elevation.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Physiological Adaptation, printed p. 47 / PDF p. 51 — Provide care for client experiencing increased intracranial pressure",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — positioning a client with increased intracranial pressure",
+    "correction_summary_append": "RULE1 cleanup: retired TeamSTEPPS huddle terminology recall because it repeated the same low-value teamwork-tool pattern as the preceding debrief item and overlapped existing coordination coverage. Rebuilt the item around explicit NCSBN increased-ICP care using current NCBI/StatPearls positioning guidance. The stem controls hemodynamic and cervical-spine variables and removes the prior correct-answer length cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0873",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "TEAMWORK_TOOL_TERMINOLOGY_RECALL_REDUNDANCY_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests an evidence-based bedside positioning decision for increased intracranial pressure.",
+        "source_authority": "NCBI/StatPearls Increased Intracranial Pressure; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "HOB approximately 30 degrees/head-neck neutral midline; NCSBN increased-ICP care",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation, printed p. 47 / PDF p. 51"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "cervical_spine_instability": "Explicitly excluded; the cervical spine has been cleared.",
+    "hemodynamic_instability": "Explicitly excluded; blood pressure is stable. Positioning in hypotension or impaired cerebral perfusion requires individualized management.",
+    "procedure_specific_positioning": "Explicitly excluded; no procedure requires a different position.",
+    "osmotherapy_or_ventilation_strategy": "Not tested; the item isolates a nursing positioning intervention rather than comprehensive ICP-crisis management."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0724", "V2-Q0677", "V2-Q0872"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0724 tests rapid-response escalation for acute postoperative deterioration. V2-Q0677 tests active seizure safety. V2-Q0872 tests chest-tube drainage obstruction. V2-Q0873 tests therapeutic positioning for established increased ICP. Targeted repository search for increased-ICP/head-midline/30-degree positioning returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible secretion-management positioning but flat positioning and head rotation do not optimize cerebral venous drainage.",
+    "B": "Correct. It uses head elevation and neutral midline alignment to facilitate venous outflow.",
+    "C": "Plausible attempt to alter venous flow but neck/hip flexion can impair venous return and raise ICP.",
+    "D": "Plausible perfusion-focused response but head-down positioning and lateral rotation can worsen intracranial venous congestion."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly controls blood pressure, cervical-spine status, and procedure restrictions. B alone matches recommended ICP positioning. A/C/D contain position components that can impair cerebral venous drainage.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 125, "B": 137, "C": 132, "D": 145},
+    "note": "Exact character counts were calculated from the stored strings. Correct B is not longest; D is longer and C is close in length."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Providing care to a client experiencing increased intracranial pressure is an explicit Physiological Adaptation responsibility for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, printed p. 47 / PDF p. 51, was visually inspected on 2026-08-19 and explicitly lists 'Provide care for client experiencing increased intracranial pressure.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN increased-ICP activity statement verified directly and visually",
+      "current StatPearls approximate-30-degree head elevation guidance verified",
+      "current StatPearls neutral-midline head/neck guidance verified",
+      "neck flexion/rotation venous-outflow concern verified",
+      "blood pressure/cervical spine/procedure exceptions explicitly controlled",
+      "A/B/C/D independently re-audited for ICP physiology and second-answer risk",
+      "no second defensible best answer identified",
+      "prior answer-length cue removed",
+      "exact option lengths verified as A125/B137/C132/D145",
+      "construct confirmed distinct from Q0724/Q0677/Q0872",
+      "targeted repository duplicate search returned no match",
+      "difficulty normalized from easy to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

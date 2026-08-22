@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q0573",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "CASE_MANAGEMENT_DEFINITION_TO_PRE_DISCHARGE_RESOURCE_GAP_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A client is expected to discharge tomorrow with new functional limitations. During discharge review, the RN learns that the client still lacks needed home equipment and follow-up services identified in the plan of care. Which action is most appropriate?",
+    "options": {
+      "A": "Assess the unmet equipment and service needs now, coordinate the appropriate referrals and resources, and update the discharge plan before the transition.",
+      "B": "Proceed with discharge as scheduled and tell the client to contact community agencies independently after arriving home if the needed resources are unavailable.",
+      "C": "Arrange the same standard home services used for similar diagnoses without reassessing this client's functional needs, goals, or available supports.",
+      "D": "Delay resource planning until the first outpatient visit because discharge coordination is complete once the inpatient treatment goals have been met."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan places case management and continuity responsibilities within Management of Care. Its detailed Case Management content directs the RN to explore resources that assist the client in achieving or maintaining independence, assess the client's need for materials and equipment, plan individualized care based on need, provide discharge information, and initiate, evaluate and update the client plan of care. In this scenario, the RN identifies a concrete resource gap before discharge. A is therefore the uniquely best response because it reassesses the unmet needs, coordinates appropriate referrals/resources and updates the plan before the care transition. B proceeds despite a known unresolved discharge need and shifts coordination to the client after discharge. C substitutes a diagnosis-based standard package for individualized assessment. D delays an identified transition need until after discharge rather than using the available pre-discharge window to coordinate care. Therefore A is correct.",
+    "educational_objective": "When needed equipment or services remain unresolved before discharge, reassess the client's individualized needs, coordinate appropriate resources/referrals, and update the discharge plan before the transition rather than deferring the gap until after discharge.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Appendix A, Management of Care, printed p. 20 / PDF p. 24 — Case Management: explore resources available to assist client with achieving/maintaining independence; assess need for materials/equipment; plan individualized care; provide discharge information; initiate, evaluate and update client plan of care",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Case-management responsibilities for the newly licensed RN include individualized assessment of resource/equipment needs, coordination of resources/referrals, discharge planning and updating the plan of care before transition.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care — Case Management and Continuity of Care, printed pp. 20-21 / PDF pp. 24-25",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — individualized pre-discharge resource coordination",
+    "correction_summary_append": "RULE1 cleanup: replaced passive case-management role recognition with a direct pre-discharge resource-gap decision. Removed the absolute-word and answer-length cues and required individualized assessment, resource coordination and plan update before transition rather than generic standardized services or post-discharge deferral.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0573",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_CASE_MANAGEMENT_DEFINITION_CARE_COORDINATION_OVERLAP_ABSOLUTE_WORD_CUE_AND_ANSWER_LENGTH_CUE",
+        "finding": "The revised item tests a concrete case-management action when an unresolved equipment/service gap is found before discharge.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Management of Care — Case Management",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Appendix A printed p. 20 / PDF p. 24"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_equipment_type": "Not tested; the construct is assessment and coordination of an identified equipment/service gap.",
+    "automatic_discharge_delay": "Not universally asserted; the RN must address and coordinate the unresolved need before transition and follow the individualized plan/team process.",
+    "standardized_service_package": "Not endorsed; NCSBN case management is individualized to client need and plan of care."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0326", "V2-Q0124", "V2-Q0277"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0326 tests longitudinal coordination across clinicians/settings. V2-Q0124 tests a specific home-oxygen/caregiver transition. V2-Q0277 tests housing/transportation social barriers and community-resource linkage. V2-Q0573 tests a newly identified unresolved equipment/service gap immediately before discharge and the RN's duty to coordinate and update the discharge plan."
+  },
+  "option_audit": {
+    "A": "Correct. It addresses the unresolved gap before transition through individualized reassessment, coordination and plan update.",
+    "B": "Plausible client-self-management response but shifts a known unresolved discharge need to the client after transition.",
+    "C": "Plausible efficiency strategy but ignores individualized functional needs, goals and supports.",
+    "D": "Plausible outpatient follow-up strategy but unnecessarily defers an identified pre-discharge coordination need."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly identifies unmet equipment/services before discharge. A alone reassesses, coordinates and updates the plan before transition. B and D defer a known gap, while C bypasses individualized assessment.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 154, "B": 160, "C": 148, "D": 149},
+    "note": "Exact character counts were calculated from the stored strings. Correct option A is not longest and all options are closely balanced without absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Assessment of materials/equipment needs, individualized care planning, resource coordination and discharge planning are explicit NCSBN Management of Care activities.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Case Management content on printed p. 20 / PDF p. 24 was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN Case Management activity statements verified directly",
+      "equipment/material-needs assessment verified",
+      "resource/independence support verified",
+      "individualized care planning and plan update verified",
+      "official NCSBN Case Management page visually inspected",
+      "A/B/C/D independently re-audited for transition safety and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A154/B160/C148/D149",
+      "construct compared with Q0326/Q0124/Q0277 and confirmed distinct",
+      "difficulty normalized from easy to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

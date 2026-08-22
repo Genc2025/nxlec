@@ -1,0 +1,110 @@
+{
+  "question_uid": "V2-Q1095",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "CHARGE_NURSE_ASSIGNMENT_RECALL_TO_BEDSIDE_ACUITY_PRIORITIZATION_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "The nurse receives report on four clients. Which client should the nurse assess first?",
+    "options": {
+      "A": "A client 2 hours after thyroidectomy who has new inspiratory stridor and increasing neck tightness.",
+      "B": "A client with pneumonia who reports fatigue after walking to the bathroom and is now resting in bed.",
+      "C": "A client with heart failure who has mild bilateral ankle edema unchanged from the prior assessment.",
+      "D": "A client with diabetes who is waiting for discharge teaching about home glucose monitoring and diet."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan directs the RN to establish priorities using pathophysiology and client acuity. NCBI/StatPearls identifies postoperative hemorrhage after thyroidectomy as a potentially life-threatening complication that can rapidly cause hematoma and airway compromise, and NCBI WebM&M describes neck tightness and stridor after thyroid surgery as warning findings of cervical hematoma and airway compromise that require prompt evaluation. Client A therefore has the highest-acuity airway threat and must be assessed first. The other clients have needs that require care, but the stem describes them as resting after exertion, unchanged from a prior assessment, or awaiting discharge teaching rather than having a new threat to airway or breathing. Therefore A is the uniquely best answer.",
+    "educational_objective": "When prioritizing multiple clients, assess a client with new postoperative stridor and neck tightness first because these findings can indicate rapidly progressive airway compromise after thyroid surgery.",
+    "source_organization": "NCBI Bookshelf / StatPearls; NCBI Bookshelf WebM&M; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Thyroidectomy; Respiratory Distress after Neck Surgery: Two Cases of Postoperative Cervical Hematoma; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "StatPearls Thyroidectomy last update November 25, 2024 and hosted in StatPearls 2026; WebM&M current page rechecked August 19, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "StatPearls Thyroidectomy > Complications — postoperative hemorrhage may rapidly produce hematoma and airway compromise. WebM&M Respiratory Distress after Neck Surgery > Commentary — cervical hematoma can cause rapid stridor and airway collapse; neck tightness/swelling and stridor are warning manifestations and prompt evaluation is necessary. NCSBN 2026 NCLEX-RN Test Plan > Management of Care > Establishing Priorities, printed p. 21 / PDF p. 25 — apply pathophysiology when establishing priorities for multiple clients and prioritize care based on acuity.",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK563279/",
+    "secondary_source_url": "https://www.ncbi.nlm.nih.gov/books/NBK611023/",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "New stridor and neck tightness after thyroid surgery can signal rapidly progressive postoperative airway compromise; NCSBN directs RNs to prioritize multiple-client care using pathophysiology and acuity.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Establishing Priorities, printed p. 21 / PDF p. 25; Physiological Adaptation > Illness Management/Medical Emergencies, printed p. 48 / PDF p. 52",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — establishing priorities using acuity and pathophysiology",
+    "correction_summary_append": "RULE1 cleanup: retired a managerial charge-nurse assignment item with weak distractors and a uniquely longest correct answer. Rebuilt the UID into a direct bedside multiple-client prioritization item centered on recognition of an acute postoperative airway threat.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1095",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "MANAGERIAL_ASSIGNMENT_RECALL_LOW_DISCRIMINATION_AND_LENGTH_CUE",
+        "finding": "The replacement tests entry-level bedside prioritization rather than staffing management. New post-thyroidectomy stridor and neck tightness create a source-supported acute airway threat that clearly outranks the other explicitly stable/non-urgent client needs.",
+        "source_authority": "NCBI Bookshelf / StatPearls; NCBI WebM&M; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Thyroidectomy > Complications; Respiratory Distress after Neck Surgery > Commentary; NCSBN Establishing Priorities printed p. 21 / PDF p. 25",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care > Establishing Priorities"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "hematoma_diagnosis": "The item does not require the nurse to establish a definitive hematoma diagnosis. The tested decision is priority assessment of a client with source-supported postoperative airway-warning findings.",
+    "emergency_procedure_sequence": "The item asks which client to assess first and does not prescribe wound opening, intubation, oxygen flow rate, or another emergency procedure sequence.",
+    "other_client_diagnoses": "The distractor clients are described only to establish current acuity. No universal claim is made that pneumonia, heart failure, or diabetes are inherently low priority.",
+    "timing_precision": "The two-hour postoperative timing is scenario context and is not used as a universal threshold for hematoma occurrence or mandatory monitoring."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub searches for 'thyroidectomy stridor' and 'stridor postoperative assess first' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. New post-thyroidectomy stridor and increasing neck tightness indicate an acute airway-warning pattern requiring prompt evaluation.",
+    "B": "Plausible because pneumonia can deteriorate, but this client is described as fatigued after activity and now resting, without a new airway or breathing emergency in the stem.",
+    "C": "Plausible because heart failure can worsen, but the edema is explicitly mild and unchanged from the prior assessment, making it lower acuity than a new airway threat.",
+    "D": "Plausible because discharge teaching is necessary, but it is not more urgent than assessment of a new postoperative airway-warning sign."
+  },
+  "ambiguity_check": "No second defensible best answer. A has a new postoperative airway-warning pattern. B is resting after exertion, C is unchanged from baseline, and D is awaiting teaching. The stem therefore supplies a clear acuity hierarchy without requiring hidden assumptions.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 99,
+      "B": 100,
+      "C": 99,
+      "D": 100
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four choices are within one character and use parallel client-description phrasing."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly requires the RN to apply pathophysiology and acuity when establishing priorities among multiple clients. The rebuilt item tests a direct bedside prioritization decision.",
+    "exact_locator_verified": true,
+    "visual_verification": "PARTIAL_PASS. Official NCSBN 2026 Test Plan printed p. 21 / PDF p. 25 was visually inspected and shows Establishing Priorities statements about pathophysiology and acuity. A screenshot request for the detailed Physiological Adaptation page failed with a web-tool cache-miss error; its text locator was verified in the parsed official PDF and no visual verification is claimed for that page."
+  },
+  "source_visual_verification": {
+    "result": "PASS_PRIORITY_PAGE_PHYSIOLOGICAL_PAGE_SCREENSHOT_FAILED",
+    "note": "The NCSBN priority page was visually inspected. The detailed Physiological Adaptation screenshot failed with cache miss and is explicitly recorded as not visually verified. NCBI clinical sources are HTML and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current official 2026 NCSBN Test Plan publication/effective period rechecked",
+      "NCSBN Establishing Priorities page visually verified at printed p. 21 / PDF p. 25",
+      "detailed Physiological Adaptation locator verified in parsed PDF text; screenshot failure recorded rather than concealed",
+      "NCBI StatPearls Thyroidectomy complications rechecked fresh for postoperative hemorrhage and airway compromise",
+      "NCBI WebM&M cervical hematoma guidance rechecked fresh for neck tightness, stridor, rapid airway compromise and prompt evaluation",
+      "A/B/C/D independently re-audited for acuity, plausibility and second-answer risk",
+      "no emergency procedure sequence or diagnostic certainty fabricated",
+      "correct answer is not length-cued; exact lengths A99/B100/C99/D100",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

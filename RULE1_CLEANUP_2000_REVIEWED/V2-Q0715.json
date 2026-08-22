@@ -1,0 +1,69 @@
+{
+  "question_uid": "V2-Q0715",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "easy",
+  "semantic_correction": {
+    "stem": "A hospital has identified a scheduled medication as time-critical under its medication-administration policy. The dose is scheduled for 1000. Which administration time is within the CMS time window for a time-critical scheduled medication?",
+    "options": {
+      "A": "0945, which is 15 minutes before the scheduled time.",
+      "B": "0920, which is 40 minutes before the scheduled time.",
+      "C": "1045, which is 45 minutes after the scheduled time.",
+      "D": "1110, which is 70 minutes after the scheduled time."
+    },
+    "correct_option": "A",
+    "rationale": "CMS defines time-critical scheduled medications as medications for which administration more than 30 minutes early or late might cause harm or significantly affect the intended therapeutic or pharmacological effect. A medication identified by the hospital as time-critical must be administered within 30 minutes before or after its scheduled dosing time. For a 1000 dose, 0945 is within that window. The times in options B, C, and D fall outside the CMS window.",
+    "educational_objective": "Administer a hospital-identified time-critical scheduled medication within the CMS window of 30 minutes before or 30 minutes after its scheduled dosing time.",
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "Updated Guidance on Medication Administration, Hospital Appendix A of the State Operations Manual",
+    "source_version_date": "Memo 12-05-Hospital posted November 18, 2011 and revised December 2, 2011; CMS Hospital compliance page last modified April 10, 2026 continues to direct users to current State Operations Manual Appendix A",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Timing of Medication Administration — Time-critical scheduled medications",
+    "source_url": "https://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/SurveyCertificationGenInfo/Policy-and-Memos-to-States-and-Regions-Items/CMS1254234",
+    "source_claim_supported": "Hospital-identified time-critical scheduled medications must be administered within 30 minutes before or after the scheduled dosing time, for a total one-hour window.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 — Prepare and administer medications using rights of medication administration; Handle and administer high-risk medications safely",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — timely administration of time-critical scheduled medications",
+    "correction_summary_append": "RULE1 cleanup: replaced vague organization-defined timing language and weak absolute distractors with a CMS-grounded application item using the exact federal 30-minute time-critical medication window; normalized the NCSBN 2026 medication-administration blueprint locator.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0715",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "CMS",
+        "source_locator": "Timing of Medication Administration — Time-critical scheduled medications",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 — Prepare/administer medications; high-risk medication safety",
+        "finding": "The original item cited ISMP but did not test a concrete, verifiable timing rule. The revised item uses CMS's official hospital medication-administration guidance and tests the exact 30-minutes-before/after window without extrapolating to a specific drug. Currentness was checked against CMS's Hospital compliance page modified April 10, 2026 and the current SOM pathway."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. Fifteen minutes early is within the CMS ±30-minute window.",
+    "B": "Plausible timing error but incorrect; 40 minutes early is outside the CMS window.",
+    "C": "Plausible timing error but incorrect; 45 minutes late is outside the CMS window.",
+    "D": "Plausible workflow delay but incorrect; 70 minutes late is outside the CMS window."
+  },
+  "ambiguity_check": "No second defensible answer. Only 0945 falls within 30 minutes before or after the 1000 scheduled time.",
+  "cueing_check": "All options use the same time-plus-offset structure and comparable length; no absolute-word cueing or unique grammatical pattern identifies the correct answer.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "CMS authority verified",
+      "current CMS Hospital/SOM pathway verified in 2026",
+      "exact time-critical medication definition verified",
+      "30-minutes-before/after window verified directly",
+      "time arithmetic independently checked",
+      "A/B/C/D re-audited individually",
+      "no second answer identified",
+      "no cueing or option-overlap issue identified",
+      "rationale contains no unsupported medication-specific claim",
+      "educational objective is item-specific",
+      "NCSBN 2026 Pharmacological and Parenteral Therapies mapping verified"
+    ]
+  }
+}

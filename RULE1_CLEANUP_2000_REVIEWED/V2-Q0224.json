@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q0224",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_PLAUSIBILITY_AND_CUEING_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A client with a new stroke needs nursing care, physical therapy, nutrition planning and discharge-resource coordination, and has stated personal recovery goals. Which approach best reflects effective interprofessional collaboration?",
+    "options": {
+      "A": "Bring the disciplines and client together to agree on recovery goals, clarify each member's role, and coordinate one plan that reflects the client's priorities.",
+      "B": "Ask each discipline to document its recommendations separately, then have nursing reconcile conflicting goals after the individual evaluations are complete.",
+      "C": "Have the primary provider set the recovery goals, then ask each discipline to adapt its plan to those goals and update the client after the team agrees.",
+      "D": "Begin with the client's stated goals, then let each discipline manage its assigned portion separately and communicate when a conflict or delay appears."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ TeamSTEPPS states that a patient care team is not complete without the patient and that patients and family caregivers contribute to and collaborate in creating the care plan. Team leadership guidance also emphasizes establishing a patient care plan supported by the team, identifying roles and responsibilities, communicating the plan to all team members, and monitoring/modifying it as needed. The TeamSTEPPS brief specifically addresses team membership and roles, clinical status, the care plan, expected outcomes and who will perform each part of the plan. Option A directly integrates the client's recovery goals with shared team goals, clarified roles and one coordinated plan. Option B leaves disciplines working in parallel and reconciles conflicts only afterward. Option C centralizes goal setting in one provider and delays direct client participation. Option D acknowledges client goals but still fragments execution and communication. Therefore A is the uniquely best answer.",
+    "educational_objective": "Coordinate interprofessional care by including the client in shared goal setting, clarifying team roles and responsibilities, and maintaining one communicated care plan across disciplines.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ), TeamSTEPPS 3.0",
+    "source_document_title": "Section 2: Explanation of Key Team Leadership Concepts and Tools",
+    "source_version_date": "Page last reviewed July 2023; current AHRQ TeamSTEPPS page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Teams and Team Structure — patient is an essential team member and collaborates in creating the care plan; Team Leadership — establish a care plan supported by the team, identify roles/responsibilities, communicate and monitor the plan; Defining the Patient Care Plan",
+    "source_url": "https://www.ahrq.gov/teamstepps-program/curriculum/team/tools/index.html",
+    "source_claim_supported": "Effective teamwork includes the patient as a care-team member, incorporates patient participation in care-plan development, and coordinates a shared plan with defined goals, roles and responsibilities.",
+    "secondary_source_organization": "Agency for Healthcare Research and Quality (AHRQ), TeamSTEPPS 3.0",
+    "secondary_source_document_title": "Sharing the Care Plan: Brief",
+    "secondary_source_version_date": "Page last reviewed December 2023; accessed 2026-08-19",
+    "secondary_source_locator": "Brief content — team membership and roles, clinical status, patient care plan, expected outcomes and who is to do it; clear goals and roles",
+    "secondary_source_url": "https://www.ahrq.gov/teamstepps-program/curriculum/team/tools/briefs.html",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Identify and collaborate with multidisciplinary team members when providing client care; Initiate, evaluate and update client plan of care; Advocate for client rights and needs",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — interprofessional collaboration, client participation and coordinated care planning",
+    "correction_summary_append": "RULE1 cleanup: retained the valid interprofessional-collaboration construct, removed the absolute-word cue and rebuilt all distractors to be plausible coordination alternatives rather than obvious anti-teamwork extremes.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0224",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_LOW_PLAUSIBILITY_DISTRACTORS",
+        "finding": "The core answer was source-supported, but the original distractors were extreme and one used 'only.' The revised options test realistic differences in interprofessional coordination, shared goal setting and client participation.",
+        "source_authority": "AHRQ TeamSTEPPS 3.0",
+        "source_locator": "Team Structure; Team Leadership; Defining the Patient Care Plan; Sharing the Care Plan: Brief",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Identify and collaborate with multidisciplinary team members"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0221", "V2-Q0124"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0221 tests resolution of informational conflict. V2-Q0124 tests discharge-transition coordination. V2-Q0224 tests formation of a shared interprofessional care plan with direct client participation in recovery goals."
+  },
+  "option_audit": {
+    "A": "Correct. It includes the client, establishes shared goals, clarifies roles and coordinates one communicated plan across disciplines.",
+    "B": "Plausible because discipline-specific assessments are needed, but separate planning followed by later reconciliation delays shared goal alignment and coordination.",
+    "C": "Plausible because a primary provider contributes medical goals, but effective interprofessional planning is not a one-provider plan with delayed client participation.",
+    "D": "Plausible because disciplines have distinct responsibilities, but fragmented execution with communication mainly when problems emerge does not create a shared care plan."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone combines direct client participation, shared goals, explicit role clarification and one coordinated plan. B, C and D each omit or delay a core TeamSTEPPS collaboration element.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 160, "B": 156, "C": 152, "D": 151},
+    "note": "Exact character counts were calculated from the stored strings. All four options are comparable coordination approaches; no absolute-word trap remains and the correct answer is not conspicuously longer."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Collaborating with multidisciplinary team members and initiating/updating the client plan of care are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ TeamSTEPPS Team Leadership page verified",
+      "patient-as-essential-team-member claim verified directly",
+      "patient collaboration in care-plan creation verified directly",
+      "shared care plan and role/responsibility requirements verified directly",
+      "TeamSTEPPS Brief goals/roles/outcomes/plan elements verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "option-length and structural cues checked",
+      "official NCSBN 2026 Management of Care page visually verified",
+      "exact multidisciplinary-collaboration and plan-of-care activity statements verified",
+      "construct compared with Q0221 and Q0124 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}

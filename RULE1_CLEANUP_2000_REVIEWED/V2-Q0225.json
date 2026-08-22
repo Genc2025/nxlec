@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q0225",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "LEGAL_SCOPE_PRECISION_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "After an adult client's death, the organ procurement organization (OPO) confirms valid donor-registry authorization for ordinary deceased organ donation. A relative asks whether bedside staff need a new family consent before the donation process continues. Which response is most accurate?",
+    "options": {
+      "A": "Explain that the family should make a new donation decision because registry status records a preference but does not authorize recovery after death.",
+      "B": "Ask the bedside nurse to obtain next-of-kin consent before the OPO continues, even though the registry authorization has already been confirmed.",
+      "C": "Have the primary provider decide whether the registry authorization is valid, then ask the OPO to proceed after the family agrees with that decision.",
+      "D": "Explain that valid donor-registry authorization serves as legal consent and coordinate with the OPO rather than seeking replacement bedside family consent."
+    },
+    "correct_option": "D",
+    "rationale": "HRSA's current Deceased Donation resource states that the OPO evaluates potential deceased donors, searches organ-donor databases and obtains authorization for donation. Under its Consent section, if the deceased had registered as a donor, that registration serves as legal consent for donation; if the deceased was not registered and there is no other legal consent, the OPO asks next of kin for consent. The stem explicitly states that the OPO has already confirmed valid donor-registry authorization for ordinary deceased organ donation. Therefore D accurately explains that bedside staff should coordinate with the OPO rather than seek a replacement family consent. A incorrectly treats registry authorization as a nonbinding preference. B adds a redundant bedside next-of-kin consent despite confirmed legal authorization. C incorrectly assigns validation of the donor authorization to the primary provider and conditions the process on a new family agreement. Therefore D is the uniquely best answer.",
+    "educational_objective": "Recognize confirmed donor-registry authorization as legal consent for ordinary deceased organ donation and coordinate the process through the OPO rather than obtaining redundant bedside family consent.",
+    "source_organization": "Health Resources and Services Administration (HRSA), Organ Procurement and Transplantation Network",
+    "source_document_title": "Deceased Donation",
+    "source_version_date": "Date Last Reviewed: December 2025; current HRSA page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Evaluation — OPO evaluates potential deceased donors and gets authorization; Consent — OPO searches donor databases, registered donor status serves as legal consent, and next-of-kin consent is sought when no registry or other legal consent exists",
+    "source_url": "https://www.hrsa.gov/optn/patients/organ-donation/deceased-donation",
+    "source_claim_supported": "For ordinary deceased organ donation, HRSA states that confirmed donor-registry registration serves as legal consent; when no registry or other legal consent exists, the OPO asks next of kin for consent, and the OPO coordinates authorization and donation activities.",
+    "secondary_source_organization": "Health Resources and Services Administration (HRSA), OPTN",
+    "secondary_source_document_title": "Donor Matching System",
+    "secondary_source_version_date": "Date Last Reviewed: December 2025; accessed 2026-08-19",
+    "secondary_source_locator": "OPO staff responsibilities — ensure donation is based on informed authorization/consent, manage donor care after authorization, arrange recovery, provide follow-up",
+    "secondary_source_url": "https://www.hrsa.gov/optn/patients/organ-donation/donor-matching-system",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Advocate for client rights and needs; Identify and collaborate with multidisciplinary team members when providing client care; Provide care within the legal scope of practice",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — legal authorization and coordination with the organ procurement organization",
+    "correction_summary_append": "RULE1 cleanup: retained the deceased-donation authorization construct, explicitly limited it to ordinary deceased organ donation after death with OPO-confirmed valid registry authorization, removed absolute-word and conspicuous answer-length cues, and rebuilt all options to distinguish OPO coordination from redundant bedside family consent.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0225",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_CORRECT_ANSWER_LENGTH_CUE_AND_LEGAL_SCOPE_PRECISION",
+        "finding": "The original HRSA claim was substantively supported but the correct option was conspicuously longest and the distractors were overly absolute. The revised stem fixes the legal context by specifying ordinary deceased donation after death and an OPO-confirmed valid registry authorization, avoiding VCA and pre-mortem consent issues.",
+        "source_authority": "HRSA Deceased Donation",
+        "source_locator": "Evaluation and Consent",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — advocacy, multidisciplinary collaboration and legal scope"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "vascularized_composite_allograft": "Excluded. VCA authorization may require explicit, specific authorization and is not tested by this item.",
+    "premortem_procedures": "Excluded. The stem begins after death and does not treat organ-donation authorization as consent for procedures performed on a living patient.",
+    "authorization_validity_determination": "Excluded from bedside nursing judgment. The stem states the OPO has already confirmed valid donor-registry authorization."
+  },
+  "option_audit": {
+    "A": "Plausible family-autonomy misconception, but HRSA explicitly states that donor-registry registration serves as legal consent for donation.",
+    "B": "Plausible bedside-process misconception, but HRSA places authorization review with the OPO and seeks next-of-kin consent when no registry or other legal consent exists.",
+    "C": "Plausible hierarchy misconception, but the stem states the OPO has confirmed valid authorization; a primary provider does not replace that OPO authorization function with a new family vote.",
+    "D": "Correct. It accurately states HRSA's legal-consent rule for confirmed registry authorization and coordinates the process with the OPO."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem deliberately fixes the disputed variables: adult donor, death has occurred, ordinary deceased organ donation, and OPO-confirmed valid registry authorization. D alone follows the HRSA authorization pathway without inventing a new bedside consent requirement.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 149, "B": 144, "C": 149, "D": 155},
+    "note": "Exact character counts were calculated from the stored strings. All options are comparable legal/process responses; the correct answer is only six characters longer than A/C and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The item tests client-rights/legal-scope recognition and appropriate collaboration with a specialized organization rather than transplant-procurement technical management.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current HRSA Deceased Donation page verified",
+      "December 2025 last-reviewed date verified",
+      "OPO evaluation/authorization role verified directly",
+      "donor-registry registration serves as legal consent claim verified directly",
+      "next-of-kin consent pathway when no legal authorization exists verified directly",
+      "VCA-specific authorization issue explicitly excluded from construct",
+      "pre-mortem procedure consent explicitly excluded from construct",
+      "A/B/C/D independently re-audited for legal accuracy, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and conspicuous answer-length cues removed",
+      "official NCSBN 2026 Management of Care page visually verified",
+      "advocacy/collaboration/legal-scope mapping verified",
+      "educational objective is item-specific"
+    ]
+  }
+}

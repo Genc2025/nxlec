@@ -1,0 +1,113 @@
+{
+  "question_uid": "V2-Q1251",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "REDUNDANT_POSTDISCHARGE_MEDICATION_RECONCILIATION_TO_IV_ANTIBIOTIC_ANAPHYLAXIS_RESPONSE_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "During an intravenous antibiotic infusion, a client suddenly develops generalized hives, facial swelling, wheezing, and dizziness. Which action should the nurse take first?",
+    "options": {
+      "A": "Stop the antibiotic infusion, activate the emergency response, and administer intramuscular epinephrine per protocol.",
+      "B": "Slow the antibiotic infusion, give the prescribed antihistamine, and reassess the wheezing before considering epinephrine.",
+      "C": "Stop the antibiotic infusion and wait for the prescribing clinician to examine the client before giving emergency medication.",
+      "D": "Continue the antibiotic infusion, apply supplemental oxygen, and monitor whether the hives and wheezing resolve without medication."
+    },
+    "correct_option": "A",
+    "rationale": "The client has an acute multisystem reaction with skin findings, facial swelling, wheezing, and dizziness during exposure to an intravenous medication, creating a high-risk anaphylaxis pattern. Current official DailyMed labeling identifies epinephrine as emergency treatment for anaphylaxis, and contemporary emergency-medicine guidance identifies intramuscular epinephrine as the immediate treatment. NIAID-sponsored anaphylaxis guidance also places removal of the inciting trigger, intramuscular epinephrine, and summoning emergency help among the initial concurrent management steps. Therefore the nurse should stop the antibiotic exposure, activate emergency support, and administer intramuscular epinephrine according to the emergency protocol rather than delaying epinephrine for an antihistamine, clinician arrival, or spontaneous improvement. The 2026 NCSBN NCLEX-RN Test Plan includes medication-response evaluation, adverse-effect recognition, high-risk medication safety, emergency care procedures, and management of impaired ventilation/oxygenation. Therefore A is the uniquely best first response.",
+    "educational_objective": "Recognize a multisystem anaphylactic reaction during IV medication administration and immediately stop the trigger, activate emergency support, and administer intramuscular epinephrine according to the emergency protocol.",
+    "source_organization": "DailyMed / U.S. National Library of Medicine (official FDA labeling); PubMed-indexed emergency medicine literature; NIAID-sponsored Expert Panel; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Epinephrine Injection — CIVICA, Inc.; Anaphylaxis: Emergency Department Treatment; Guidelines for the Diagnosis and Management of Food Allergy in the United States: Summary of the NIAID-Sponsored Expert Panel Report; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "DailyMed epinephrine label updated July 10, 2026; emergency-department anaphylaxis review published August 2023; NIAID-sponsored guideline summary remains an authoritative foundational source; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "DailyMed epinephrine injection setid 4a79ad00-405b-4454-a692-7f1daac4adec — Indications and Usage: emergency treatment of allergic reactions including anaphylaxis; Dosage and Administration: anaphylaxis treatment by IM/SC administration to the anterolateral thigh. PubMed Anaphylaxis: Emergency Department Treatment abstract — IM epinephrine is the immediate treatment of anaphylaxis. NIAID-sponsored Expert Panel summary > anaphylaxis management — eliminate additional allergen exposure, give IM epinephrine, and summon emergency help as initial concurrent steps. NCSBN 2026 NCLEX-RN Test Plan > Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 — evaluate medication response, monitor IV infusion, handle high-risk medications safely; Physiological Adaptation, printed p. 46 / PDF p. 50 — emergency care procedures and management of impaired ventilation/oxygenation.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=4a79ad00-405b-4454-a692-7f1daac4adec",
+    "secondary_source_url": "https://pubmed.ncbi.nlm.nih.gov/37394252/",
+    "tertiary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4249938/",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "source_claim_supported": "Anaphylaxis requires immediate epinephrine treatment; when the reaction occurs during an IV medication exposure, the trigger should be stopped and emergency help activated without delaying epinephrine for adjunctive therapy or diagnostic confirmation.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16; Physiological Adaptation, printed p. 46 / PDF p. 50",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — immediate response to medication-associated anaphylaxis",
+    "correction_summary_append": "RULE1 cleanup: retired a postdischarge medication-discrepancy item because medication reconciliation was already tested actionably at Q1096. Rebuilt this UID into a distinct acute medication emergency requiring recognition and immediate treatment of anaphylaxis during an IV antibiotic infusion.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1251",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "MEDICATION_RECONCILIATION_REDUNDANCY_ABSOLUTE_WORD_PATTERN_AND_LENGTH_CUE",
+        "finding": "The replacement tests an immediate bedside medication-reaction response. Current DailyMed labeling and anaphylaxis guidance support epinephrine as emergency treatment, with trigger removal and emergency activation performed promptly.",
+        "source_authority": "DailyMed official FDA labeling; PubMed/NIAID anaphylaxis guidance; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "DailyMed Indications/Dosage; emergency anaphylaxis treatment guidance; NCSBN Pharmacological and Parenteral Therapies and Physiological Adaptation",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies; Physiological Adaptation"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "epinephrine_dose": "No epinephrine dose, concentration, repeat interval, syringe type, or patient-weight threshold is used in the item; administration follows the applicable emergency protocol and product formulation.",
+    "antibiotic_identity": "No antibiotic class or specific allergen is assumed beyond the temporal association with the IV infusion.",
+    "adjunctive_therapy": "Antihistamines, oxygen, fluids, bronchodilators, corticosteroids, and airway interventions may be indicated depending on the clinical response, but none should delay the initial epinephrine-centered emergency response tested here.",
+    "diagnostic_testing": "No tryptase level or other diagnostic test is required before emergency treatment."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1096"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'anaphylaxis IV antibiotic epinephrine wheezing facial swelling stop infusion' returned no indexed repository match. Q1096 was manually compared because both involve medications: Q1096 tests discharge medication reconciliation, whereas Q1251 tests immediate management of an acute IV medication-associated anaphylactic reaction. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It removes the active trigger, activates emergency support, and gives the immediate treatment for anaphylaxis.",
+    "B": "Plausible because antihistamines can be adjunctive therapy, but slowing rather than stopping the trigger and delaying epinephrine are unsafe in this multisystem reaction.",
+    "C": "Plausible because clinician notification is appropriate, but waiting for examination before emergency medication delays treatment of a potentially life-threatening reaction.",
+    "D": "Plausible because oxygen may support respiratory distress, but continuing the trigger and withholding epinephrine fail to treat the underlying emergency."
+  },
+  "ambiguity_check": "No second defensible best answer. B, C and D all delay epinephrine and B/D continue some degree of exposure or observation despite a high-risk multisystem reaction. A alone performs the immediate trigger-removal and epinephrine-centered emergency response.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 117,
+      "B": 122,
+      "C": 125,
+      "D": 131
+    },
+    "note": "Exact character counts were calculated from the stored strings. The correct option is shortest-to-midrange and all four choices are parallel acute medication-reaction actions."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN directly includes evaluating medication response, recognizing adverse effects, monitoring IV infusions, performing emergency care, and managing impaired ventilation/oxygenation. The scenario tests a direct entry-level RN response to a life-threatening medication reaction.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 12 / PDF p. 16 and printed p. 46 / PDF p. 50 were visually inspected on 2026-08-20 and visibly show medication-response/IV safety activities and emergency/ventilation activities."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_DAILYMED_PUBMED_HTML",
+    "note": "Relevant NCSBN PDF pages were visually inspected. DailyMed, PubMed and PMC sources are HTML and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current DailyMed epinephrine label updated July 10, 2026 rechecked for emergency treatment of anaphylaxis",
+      "PubMed emergency-department anaphylaxis review rechecked for immediate IM epinephrine treatment",
+      "NIAID-sponsored anaphylaxis guidance rechecked for trigger removal, IM epinephrine and summoning emergency help",
+      "official NCSBN 2026 Pharmacological and Physiological Adaptation pages visually verified",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no epinephrine dose, concentration, repeat interval, antibiotic identity or diagnostic-test threshold fabricated",
+      "correct answer is not length-cued; exact lengths A117/B122/C125/D131",
+      "Q1096 manually compared and confirmed distinct",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0420",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "COMPETENCY_OVERLAP_TO_UAP_TASK_SELECTION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "Facility policy permits a trained UAP to measure and record routine intake and output for stable clients. Which task is most appropriate for the RN to assign to the UAP?",
+    "options": {
+      "A": "Perform the first neurologic assessment after a client falls and decide whether the findings require provider notification.",
+      "B": "Teach a client with newly diagnosed heart failure how to monitor daily weight and evaluate the client's teach-back.",
+      "C": "Measure and record urine output from a stable client with an indwelling catheter and report the amount to the RN.",
+      "D": "Reassess pain and sedation after an IV opioid and determine whether the client's response supports the next planned dose."
+    },
+    "correct_option": "C",
+    "rationale": "The NCSBN/ANA National Guidelines for Nursing Delegation define routine care, activities, and procedures that are part of assistive personnel's routine functions as assignments. They state that clinical reasoning, nursing judgment, and critical decision making cannot be delegated. The Five Rights further require the right task, right circumstance, right person, directions/communication, and supervision/evaluation; the licensed nurse's decision depends on the patient's condition, staff competence, jurisdictional rules, and employer policy. The stem explicitly establishes that facility policy permits the trained UAP to measure and record routine intake/output for stable clients. C is therefore an appropriate routine assignment: collect and report objective urine-output data for a stable client. A requires an initial post-fall nursing assessment and a decision about escalation. B requires client education and evaluation of learning. D requires reassessment and clinical judgment after IV opioid administration. Therefore C is the uniquely best answer.",
+    "educational_objective": "Select an appropriate UAP assignment by matching a routine, policy-authorized task for a stable client to trained assistive personnel while retaining nursing assessment, teaching, evaluation, and clinical judgment with the RN.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN) and American Nurses Association (ANA)",
+    "source_document_title": "National Guidelines for Nursing Delegation",
+    "source_version_date": "Effective April 29, 2019; current NCSBN delegation resource accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "PDF pp. 2-4 — assignment definition; nursing judgment/critical decision making cannot be delegated; Five Rights of Delegation including right task, right circumstance and right person; PDF p. 7 — licensed nurse responsibilities based on patient needs, stability, competence, jurisdiction and employer policy",
+    "source_url": "https://www.ncsbn.org/public-files/NGND-PosPaper_06.pdf",
+    "source_claim_supported": "Routine functions within assistive personnel's role may be assigned, but nursing judgment cannot be delegated; safe task selection depends on patient stability, delegatee competence, policy, jurisdiction and supervision.",
+    "jurisdiction_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "jurisdiction_source_document_title": "Delegation",
+    "jurisdiction_source_url": "https://www.ncsbn.org/nursing-regulation/practice/delegation.page",
+    "jurisdiction_source_claim_supported": "Delegation laws and rules vary by jurisdiction; licensed nurses must know what is permitted where they practice.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Management of Care, printed p. 20 / PDF p. 24 — Assignment, Delegation and Supervision: identify tasks for assignment/delegation based on client needs; assign appropriate tasks to personnel with competency to perform them; utilize the five rights of delegation; evaluate staff ability/competency",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — Assignment, Delegation and Supervision: appropriate UAP task selection",
+    "correction_summary_append": "RULE1 cleanup: retired the floated-RN specialty-competency construct because it overlapped V2-Q0077. Rebuilt the item around initial selection of a routine UAP assignment with facility-policy permission explicitly supplied, removed the absolute-word and answer-length cues, and kept nursing assessment, teaching, evaluation and clinical judgment with the RN.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0420",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CROSS_ITEM_COMPETENCY_OVERLAP_ABSOLUTE_WORD_CUEING_AND_ANSWER_LENGTH_CUE",
+        "finding": "The original float-to-PICU item repeated the same personal competency/resource decision already tested in V2-Q0077. The replacement tests a distinct Assignment/Delegation/Supervision competency: choosing a routine, policy-authorized task for trained UAP while retaining nursing judgment with the RN.",
+        "source_authority": "NCSBN/ANA National Guidelines for Nursing Delegation",
+        "source_locator": "Assignment definition; nondelegable nursing judgment; Five Rights; Licensed Nurse Responsibilities",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — Assignment, Delegation and Supervision"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0077", "V2-Q0273"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0077 tests the RN's own competence limitation before an unfamiliar high-risk therapy. V2-Q0273 tests RN follow-up after a UAP reports a new abnormal vital sign. V2-Q0420 tests initial task selection: which routine stable-client activity is appropriate to assign to trained UAP under stated facility policy."
+  },
+  "option_audit": {
+    "A": "Not appropriate for UAP assignment because it requires a first post-fall neurologic nursing assessment and a judgment about provider notification.",
+    "B": "Not appropriate because initial client education and evaluation of teach-back require nursing assessment, teaching, and judgment.",
+    "C": "Correct. The stem explicitly establishes policy authorization, UAP training, a stable client, and a routine objective data-collection task with reporting back to the RN.",
+    "D": "Not appropriate because reassessing response to an IV opioid and deciding whether the response supports the next dose require nursing assessment and clinical judgment."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly authorizes routine I&O measurement by trained UAP for stable clients. C alone is routine objective data collection. A, B, and D each require nursing assessment, education/evaluation, or clinical decision making that the NCSBN/ANA guideline does not permit the RN to transfer to assistive personnel.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 123, "B": 115, "C": 113, "D": 121},
+    "note": "Exact character counts were calculated from the stored strings. Correct option C is the shortest, not the longest, and all choices are parallel task descriptions without absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Assignment/delegation/supervision and matching tasks to client needs and staff competency are explicit Management of Care content for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "NCSBN/ANA Five Rights of Delegation and Licensed Nurse Responsibilities were visually inspected in the official PDF on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NCSBN Delegation page verified",
+      "jurisdictional-variation caveat verified directly",
+      "official NCSBN/ANA National Guidelines PDF effective date verified",
+      "assignment definition verified directly",
+      "nursing judgment/critical decision making nondelegation rule verified directly",
+      "Five Rights including patient stability/right circumstance visually verified",
+      "licensed-nurse task-selection responsibilities visually verified",
+      "facility policy and trained-UAP permission explicitly controlled in stem",
+      "A/B/C/D independently re-audited for role scope and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A123/B115/C113/D121",
+      "construct compared with Q0077 and Q0273 and confirmed distinct",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "question_uid": "V2-Q1027",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ADVANCE_DIRECTIVE_TERMINOLOGY_RECALL_TO_LANGUAGE_ACCESS_ACTION_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern"
+  ],
+  "semantic_correction": {
+    "stem": "During discharge teaching, a client with limited English proficiency tells the nurse that the instructions are not understood. The nurse knows only a few phrases in the client's language, and the facility's approved interpreter service is immediately available. What should the nurse do?",
+    "options": {
+      "A": "Use the approved interpreter service for the teaching and then evaluate the client's understanding.",
+      "B": "Use the nurse's basic knowledge of the language and ask the client to nod if each instruction is understood.",
+      "C": "Give translated written instructions and ask the client to review them independently before leaving.",
+      "D": "Postpone teaching until a bilingual staff member from another unit is available to translate informally."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan places interpreter use within Management of Care. Under Advocacy, the RN is expected to use advocacy resources appropriately, including an interpreter, and under Legal Rights and Responsibilities the RN should review facility policy and legal considerations when using interpreter services. The client's statement identifies an unmet communication need, and an approved interpreter service is immediately available. Using that service allows the nurse to provide the teaching through an appropriate communication resource and then evaluate whether the client understands. Basic phrases and nodding do not adequately evaluate understanding; a translated handout can support teaching but does not replace interactive communication and evaluation; and delaying care for an informal translator is unnecessary when the approved service is available. Therefore A is the uniquely best answer.",
+    "educational_objective": "When a client with limited English proficiency does not understand essential teaching, use the approved interpreter resource and then evaluate the client's understanding rather than relying on limited language skills or written material alone.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); U.S. Department of Health and Human Services (HHS), Office for Civil Rights",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Limited English Proficiency (LEP)",
+    "source_version_date": "NCSBN Test Plan published 2025 and effective April 1, 2026 through March 31, 2029; HHS LEP page content last reviewed July 18, 2025 and rechecked August 19, 2026",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Management of Care > Advocacy, printed p. 20 / PDF p. 24 — Use advocacy resources appropriately (e.g., social worker, chain of command, interpreter). Management of Care > Legal Rights and Responsibilities, printed p. 22 / PDF p. 26 — Review facility policy and legal considerations when using interpreter services for a client. HHS OCR > Limited English Proficiency — language access services and current federal language-access framework for covered programs.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://www.hhs.gov/civil-rights/for-individuals/special-topics/limited-english-proficiency/index.html",
+    "source_claim_supported": "Entry-level RN Management of Care includes appropriate use of interpreter resources and consideration of facility/legal requirements for interpreter services; current HHS OCR guidance continues to recognize language-access services for individuals with limited English proficiency in covered health programs.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Advocacy, printed p. 20 / PDF p. 24; Legal Rights and Responsibilities, printed p. 22 / PDF p. 26",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — advocacy, interpreter resources, and language-access communication",
+    "correction_summary_append": "RULE1 cleanup: retired a basic terminology item asking whether a living will and health care proxy are advance directives because Q0977 already tests advance-directive understanding in a higher-value nursing action scenario. Rebuilt this UID into a distinct language-access decision during discharge teaching, using current NCSBN interpreter-resource activity statements and current HHS OCR language-access guidance.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1027",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ADVANCE_DIRECTIVE_TERMINOLOGY_RECALL_REDUNDANCY",
+        "finding": "The replacement tests the nurse's action when a client identifies an unmet language need and an approved interpreter resource is immediately available, rather than recognition of document terminology.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; HHS OCR LEP guidance",
+        "source_locator": "NCSBN Advocacy printed p. 20 / PDF p. 24; Legal Rights and Responsibilities printed p. 22 / PDF p. 26; HHS OCR Limited English Proficiency page",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_interpreter_vendor_or_modality": "No claim is made that a particular in-person, telephone, or video modality is universally required. The stem states only that the facility's approved interpreter service is immediately available.",
+    "family_interpreter_rule": "The item does not test whether a family member may ever interpret and does not make a categorical legal claim about family interpreters.",
+    "written_translation_sufficiency": "Translated written material is not characterized as useless; option C is wrong because it is used alone despite an expressed lack of understanding and without interactive evaluation.",
+    "federal_coverage_universality": "The item does not claim that every health care setting is subject to identical federal funding-based language-access requirements. HHS guidance is supplementary; the tested nursing action is directly supported by NCSBN."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q0977"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'interpreter' plus 'discharge' returned no indexed repository match. Q0977 was manually compared because the original Q1027 duplicated advance-directive terminology; Q0977 tests education about an existing advance directive, whereas rebuilt Q1027 tests language-access communication during discharge teaching. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It uses the approved interpreter resource for essential teaching and includes evaluation of the client's understanding.",
+    "B": "Plausible because limited shared-language skills may help with rapport, but the nurse already knows the client does not understand and nodding is not an adequate evaluation of teaching comprehension.",
+    "C": "Plausible because translated written material may support education, but independent reading alone does not address the stated communication gap or verify understanding.",
+    "D": "Plausible because bilingual staff may sometimes assist according to policy, but waiting for an informal translator unnecessarily delays teaching when the approved interpreter service is immediately available."
+  },
+  "ambiguity_check": "No second defensible best answer. The client explicitly states that the teaching is not understood, the nurse has limited language proficiency, and an approved interpreter service is immediately available. B and C do not adequately address and evaluate the communication gap, while D delays an available approved resource. A alone directly addresses the stated need and evaluates understanding.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 99,
+      "B": 108,
+      "C": 100,
+      "D": 104
+    },
+    "note": "Exact character counts were calculated from the stored strings. All choices use parallel action phrasing, are within nine characters, and the correct option is not uniquely longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes interpreters as advocacy resources and interpreter-service policy/legal considerations under Management of Care. The scenario asks for a direct bedside nursing action during routine discharge teaching.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official 2026 NCSBN Test Plan printed p. 20 / PDF p. 24 was visually inspected and shows 'Use advocacy resources appropriately (e.g., social worker, chain of command, interpreter).' Printed p. 22 / PDF p. 26 was visually inspected and shows 'Review facility policy and legal considerations when using interpreter services for a client.'"
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_HTML_HHS",
+    "note": "The relevant NCSBN PDF pages were visually inspected. The HHS OCR LEP source is HTML and was text-verified directly; no PDF visual claim is made for HHS."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN 2026 Test Plan current effective period rechecked fresh",
+      "NCSBN Advocacy interpreter statement visually verified at printed p. 20 / PDF p. 24",
+      "NCSBN Legal Rights and Responsibilities interpreter-services statement visually verified at printed p. 22 / PDF p. 26",
+      "current HHS OCR LEP page rechecked; content last reviewed July 18, 2025",
+      "advance-directive terminology recall removed to avoid redundancy with Q0977",
+      "stem explicitly establishes an unmet language need, limited nurse language proficiency, and immediate availability of an approved interpreter resource",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no categorical family-interpreter or modality rule asserted",
+      "correct answer is not length-cued; exact lengths A99/B108/C100/D104",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

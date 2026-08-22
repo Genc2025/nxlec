@@ -1,0 +1,68 @@
+{
+  "question_uid": "V2-Q0917",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "easy",
+  "semantic_correction": {
+    "stem": "A nurse programs an IV medication on a smart infusion pump. Which function of the smart pump's medication-error prevention software is described by FDA?",
+    "options": {
+      "A": "It alerts the operator when a programmed pump setting is outside preconfigured limits.",
+      "B": "It selects the medication and dose without the nurse entering or verifying them.",
+      "C": "It changes an out-of-range setting automatically without operator review.",
+      "D": "It replaces the need to verify the medication, dose, route, and pump settings."
+    },
+    "correct_option": "A",
+    "rationale": "FDA defines a smart pump as an infusion pump equipped with IV medication error-prevention software that alerts operators when a pump setting is programmed outside preconfigured limits. FDA risk-reduction guidance also directs clinicians to use the drug library when applicable, respond to alerts and cautions, and continue the usual medication-safety checks. Therefore, option A accurately describes the software's function; it does not independently select therapy, automatically correct every setting, or replace nursing verification.",
+    "educational_objective": "Recognize that smart-pump medication-error prevention software alerts the operator when programmed settings fall outside preconfigured limits while nursing verification remains necessary.",
+    "source_organization": "U.S. Food and Drug Administration (FDA)",
+    "source_document_title": "Infusion Pump: Glossary; Infusion Pump Risk Reduction Strategies for Clinicians",
+    "source_version_date": "Current FDA webpages accessed August 21, 2026",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Infusion Pump Glossary — SMART PUMP definition; Risk Reduction Strategies for Clinicians — use drug library, respond to displayed alerts/cautions, medication-safety checks",
+    "source_url": "https://www.fda.gov/medical-devices/infusion-pumps/infusion-pump-glossary ; https://www.fda.gov/medical-devices/infusion-pumps/infusion-pump-risk-reduction-strategies-clinicians",
+    "source_claim_supported": "FDA defines a smart pump as an infusion pump with IV medication error-prevention software that alerts operators when a programmed setting is outside preconfigured limits; clinicians must still use drug-library alerts and medication-safety checks appropriately.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 — Prepare and administer medications using rights of medication administration; Monitor intravenous infusion and maintain site; Handle and administer high-risk medications safely",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — smart-pump safety during IV medication administration",
+    "correction_summary_append": "RULE1 cleanup: retained the FDA smart-pump construct, shortened the correct option to the FDA-defined function, rebuilt all distractors as parallel software-function claims, and corrected the blueprint/client-need mapping to Pharmacological and Parenteral Therapies.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0917",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "FDA",
+        "source_locator": "Infusion Pump Glossary — SMART PUMP; clinician risk-reduction guidance",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12",
+        "finding": "The original correct answer was uniquely longest and the item was mapped to Safety/Infection. FDA directly defines the alert function and separately emphasizes continued clinician response and safe medication practice. The revised item eliminates length cueing and aligns with IV medication administration."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. This is FDA's smart-pump definition: medication-error prevention software alerts operators to settings outside preconfigured limits.",
+    "B": "Incorrect. FDA does not define smart-pump software as independently choosing the medication and dose without clinician input.",
+    "C": "Incorrect. The defining function is to alert the operator, not to automatically change every out-of-range setting.",
+    "D": "Incorrect. FDA risk-reduction guidance continues to require clinician medication-safety verification and response to alerts."
+  },
+  "ambiguity_check": "No second defensible answer. A alone matches the FDA definition of a smart pump's medication-error prevention software.",
+  "cueing_check": "All four options are software-function statements of comparable length and structure; no absolute-word or uniquely long correct answer remains.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current FDA Infusion Pump Glossary freshly verified",
+      "SMART PUMP definition verified directly",
+      "outside-preconfigured-limits alert function verified directly",
+      "clinician risk-reduction guidance cross-checked for drug-library and alert response",
+      "A/B/C/D re-audited individually",
+      "no claim that the technology eliminates all programming errors added",
+      "no second answer identified",
+      "cueing and answer-length balance rechecked",
+      "clinical category remapped to Pharmacological and Parenteral Therapies",
+      "NCSBN 2026 printed p. 12 IV/high-risk medication mapping freshly verified"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0622",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "EXIT_INTERVIEW_HR_TRIVIA_TO_MALFUNCTIONING_EQUIPMENT_SAFETY_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "During an infusion, an RN notices that the electronic pump intermittently shuts off and restarts unexpectedly. The RN stops the infusion, disconnects the suspect pump, assesses the client, and confirms that the client is stable. Which action should the RN take next?",
+    "options": {
+      "A": "Reset the pump and return it to use if the display appears normal afterward, documenting the event only if the malfunction happens again.",
+      "B": "Remove the pump from the client-care area, follow facility procedure to identify it as malfunctioning, and report the problem to appropriate personnel.",
+      "C": "Place the pump in the clean equipment area for the next shift to test during routine care, because the current client was not injured.",
+      "D": "Submit an individual FDA report before notifying the facility, because bedside nurses are responsible for determining federal device-reporting requirements."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly lists safe equipment use under Safety and Infection Prevention and Control. Its detailed Safe Use of Equipment content directs the RN to inspect equipment for safety hazards, facilitate appropriate and safe use of equipment, and remove malfunctioning equipment from the client-care area and report the problem to appropriate personnel. FDA medical-device reporting guidance likewise states that healthcare professionals in device user facilities should follow their institution's procedures for reporting device adverse events or product problems; FDA also encourages voluntary reporting of significant device malfunctions and product problems. In this scenario, immediate client safety has already been addressed and the pump is suspected of malfunctioning. B is therefore the uniquely best next action because it prevents the suspect device from returning to patient care and activates the facility's equipment-safety reporting process. A returns a suspect device to use after an informal reset. C leaves malfunctioning equipment available for possible reuse. D incorrectly makes the bedside RN personally responsible for determining and completing federal reporting before the facility's own required process. Therefore B is correct.",
+    "educational_objective": "After immediate client safety is secured, remove suspected malfunctioning equipment from the client-care area and report it through the facility's designated equipment-safety process rather than returning the device to use or leaving it available for another clinician.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); U.S. Food and Drug Administration (FDA)",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Medical Device Reporting (MDR): How to Report Medical Device Problems",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; current FDA device-reporting guidance accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30 — Safe Use of Equipment: inspect equipment for safety hazards; facilitate appropriate and safe use of equipment; remove malfunctioning equipment from client care area and report the problem to appropriate personnel. FDA MDR guidance — healthcare professionals within user facilities should follow institutional reporting procedures; voluntary MedWatch reporting is available for device malfunctions/product problems",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://www.fda.gov/medical-devices/medical-device-safety/medical-device-reporting-mdr-how-report-medical-device-problems",
+    "source_claim_supported": "A suspected malfunctioning device should be removed from the client-care area and reported to appropriate facility personnel; bedside clinicians should follow institutional device-reporting procedures rather than return the device to care or independently bypass the facility process.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30 — Safe Use of Equipment",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — response to malfunctioning equipment",
+    "correction_summary_append": "RULE1 cleanup: retired exit-interview/retention HR trivia because it was not an entry-level client-care activity. Rebuilt the item around the explicit NCSBN Safe Use of Equipment responsibility after a suspected pump malfunction. Removed the prior absolute-word and answer-length cues and controlled the sequence by stating that immediate client assessment/safety actions have already occurred.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0622",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_CLINICAL_HR_TRIVIA_ABSOLUTE_WORD_CUE_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The replacement directly tests removal and reporting of malfunctioning clinical equipment after immediate client safety is secured.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; FDA MDR guidance",
+        "source_locator": "NCSBN Safe Use of Equipment, printed p. 26 / PDF p. 30",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control — Safe Use of Equipment"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_device_failure_diagnosis": "Not required; the stem establishes a suspected malfunction based on unexpected pump behavior.",
+    "federal_reporting_determination_by_bedside_RN": "Not asserted. FDA directs healthcare professionals in user facilities to follow institutional reporting procedures, while regulatory reporting obligations may rest with the facility/manufacturer depending on the event.",
+    "immediate_client_rescue": "Already completed in the stem; the item asks for the next equipment-safety action after the client is stable."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0323", "V2-Q0274", "V2-Q0524"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0323 tests health-IT allergy-alert failure after a near miss. V2-Q0274 tests medication-error safety-event reporting after an error reaches the client. V2-Q0524 tests RN supervision of unsafe UAP technique. V2-Q0622 tests removal and reporting of malfunctioning clinical equipment itself. Targeted repository search returned no matching malfunctioning-equipment item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible troubleshooting response but returns a suspect pump to patient care without formal equipment-safety evaluation.",
+    "B": "Correct. It removes the suspect device from care and activates the facility's designated equipment-safety reporting process.",
+    "C": "Plausible deferral response but leaves malfunctioning equipment accessible for possible reuse during patient care.",
+    "D": "Plausible safety-reporting response but incorrectly bypasses the facility process and assigns the bedside RN responsibility for determining federal reporting requirements."
+  },
+  "ambiguity_check": "No second defensible best answer. Immediate client safety is already secured. B alone both prevents reuse of the suspect device and reports the problem through the appropriate institutional process. A/C leave the device available for reuse; D bypasses the facility process and overstates bedside regulatory responsibility.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 137, "B": 151, "C": 134, "D": 156},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is shorter than D and the previous extreme correct-answer length and absolute-word cues are removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly requires newly licensed RNs to facilitate safe equipment use and remove/report malfunctioning equipment.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Safe Use of Equipment content, printed p. 26 / PDF p. 30, was visually inspected on 2026-08-19 and explicitly states to remove malfunctioning equipment from the client-care area and report the problem to appropriate personnel."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN Safe Use of Equipment activity verified directly and visually",
+      "FDA current device-reporting guidance verified",
+      "FDA institutional reporting-process guidance for user-facility healthcare professionals verified",
+      "immediate client safety explicitly completed before the tested action",
+      "no federal mandatory-reporting duty falsely assigned to bedside RN",
+      "A/B/C/D independently re-audited for equipment safety and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and correct-answer-length cues removed",
+      "exact option lengths verified as A137/B151/C134/D156",
+      "construct compared with Q0323/Q0274/Q0524 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0322",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "HIPAA_EXCEPTION_SCOPE_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A family member asks the nurse to obtain and release separately maintained psychotherapy notes. The patient has not authorized disclosure, and no court order, mandatory-reporting duty, serious and imminent threat, or other HIPAA exception is known. Which response is most appropriate?",
+    "options": {
+      "A": "Release the notes to a family member involved in care because treatment-related sharing is permitted without authorization for ordinary clinical information.",
+      "B": "Ask the family member to sign an authorization for the patient, then release the notes after confirming the requester's identity and relationship.",
+      "C": "Do not release the notes based on the family request; psychotherapy notes generally require the patient's authorization unless a HIPAA exception applies.",
+      "D": "Release the notes after removing diagnostic details because redacting some clinical content changes them into ordinary records that can be shared for treatment."
+    },
+    "correct_option": "C",
+    "rationale": "Current 45 CFR §164.508(a)(2) requires a covered entity to obtain authorization for uses or disclosures of psychotherapy notes except for limited enumerated circumstances, including use by the originator for treatment, certain training or legal-defense uses, and specified disclosures permitted or required elsewhere in the Privacy Rule. HHS explains that psychotherapy notes are specially protected and that, with few exceptions, authorization is required before disclosure, including for treatment by a health care provider other than the originator. The stem explicitly states that no known regulatory exception applies. C therefore correctly withholds disclosure based solely on the family request while preserving the possibility of a valid HIPAA exception. A incorrectly imports the broader treatment-disclosure rule for ordinary PHI into psychotherapy notes. B incorrectly allows the family member to authorize for the patient without establishing legal personal-representative authority. D incorrectly assumes redaction changes the legal status of separately maintained psychotherapy notes. Therefore C is the uniquely best answer.",
+    "educational_objective": "Protect separately maintained psychotherapy notes by recognizing that HIPAA generally requires the patient's authorization for use or disclosure unless a specific regulatory exception applies.",
+    "source_organization": "Electronic Code of Federal Regulations / U.S. Department of Health and Human Services",
+    "source_document_title": "45 CFR §164.508 — Uses and disclosures for which an authorization is required",
+    "source_version_date": "eCFR Title 45 up to date as of August 6, 2026; Title 45 last amended August 4, 2026; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "§164.508(a)(2) — Authorization required: Psychotherapy notes; §164.508(a)(2)(i)-(ii) — enumerated exceptions",
+    "source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.508",
+    "source_claim_supported": "A covered entity generally must obtain authorization for use or disclosure of psychotherapy notes, subject to specific enumerated exceptions.",
+    "secondary_source_organization": "U.S. Department of Health and Human Services, Office for Civil Rights",
+    "secondary_source_document_title": "Does HIPAA provide extra protections for mental health information compared with other health information?; Your Medical Records",
+    "secondary_source_version_date": "FAQ last reviewed September 12, 2017; Your Medical Records last reviewed May 30, 2025; current pages accessed 2026-08-19",
+    "secondary_source_locator": "Psychotherapy notes special protections; authorization for most disclosures including treatment disclosure to another provider; Provider's Psychotherapy Notes",
+    "secondary_source_url": "https://www.hhs.gov/hipaa/for-professionals/faq/2088/does-hipaa-provide-extra-protections-mental-health-information-compared-other-health.html",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Maintain client confidentiality and privacy (e.g., social media, disclosure of information); Provide care within the legal scope of practice; Practice in a manner consistent with the nurses' code of ethics",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — confidentiality/privacy and legal handling of psychotherapy notes",
+    "correction_summary_append": "RULE1 cleanup: retained the psychotherapy-notes privacy construct but removed the absolute-word distractor, explicitly controlled known HIPAA exceptions in the stem, distinguished psychotherapy notes from ordinary mental-health information, and normalized difficulty from hard to medium.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0322",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ABSOLUTE_WORD_CUEING_AND_EXCEPTION_SCOPE_PRECISION",
+        "finding": "The original core rule was correct, but a distractor used 'never' and the item risked turning a qualified authorization rule into an absolute prohibition. The revised stem excludes known exceptions and the answer preserves the regulatory exception structure.",
+        "source_authority": "45 CFR §164.508(a)(2) / HHS OCR",
+        "source_locator": "Authorization required: Psychotherapy notes and enumerated exceptions",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — confidentiality/privacy and legal scope"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "ordinary_mental_health_record": "Not equated with psychotherapy notes. Medication information, diagnosis, treatment plans, progress summaries and other medical-record content are governed under ordinary PHI rules rather than the psychotherapy-note exception merely because they relate to mental health.",
+    "mandatory_reporting_and_serious_threat": "Explicitly excluded from the stem so the item does not conflict with disclosures required or permitted under applicable HIPAA exceptions and other law.",
+    "personal_representative_authority": "Not assumed. A family member's relationship alone does not establish authority to execute the patient's HIPAA authorization."
+  },
+  "option_audit": {
+    "A": "Plausible because ordinary PHI may often be shared for treatment without authorization, but psychotherapy notes have a specific authorization rule and special exceptions.",
+    "B": "Plausible because a valid authorization can permit disclosure, but the stem does not establish that the family member is the patient's lawful personal representative.",
+    "C": "Correct. It follows §164.508(a)(2), preserves the limited exceptions, and does not disclose based solely on the family request.",
+    "D": "Plausible redaction misconception, but removing some content does not itself convert separately maintained psychotherapy notes into ordinary medical-record PHI."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem states that the notes are separately maintained psychotherapy notes, the patient has not authorized disclosure, and no known HIPAA exception applies. C alone follows the qualified authorization rule without inventing family authority or a treatment/redaction exception.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 157, "B": 146, "C": 153, "D": 160},
+    "note": "Exact character counts were calculated from the stored strings. Correct option C is not longest; A/C/D are tightly clustered and B remains a complete plausible response. No absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Maintaining client confidentiality/privacy and practicing within legal scope are explicit Management of Care responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN PDF printed p. 7 / PDF p. 11 visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current eCFR Title 45 current-through date verified",
+      "§164.508(a)(2) psychotherapy-note authorization rule verified directly",
+      "enumerated exceptions reviewed directly",
+      "HHS psychotherapy-note special-protection guidance verified",
+      "HHS treatment-disclosure-to-other-provider authorization distinction verified",
+      "ordinary mental-health information distinguished from psychotherapy notes",
+      "known exception scenarios explicitly excluded from the stem",
+      "A/B/C/D independently re-audited for legal accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A157/B146/C153/D160",
+      "official NCSBN 2026 Management of Care page visually verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

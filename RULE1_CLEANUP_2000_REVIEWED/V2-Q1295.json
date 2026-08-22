@@ -1,0 +1,106 @@
+{
+  "question_uid": "V2-Q1295",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "CONTRACT_STAFF_HR_POLICY_TO_HEAT_STROKE_EMERGENCY_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern"
+  ],
+  "semantic_correction": {
+    "stem": "After prolonged work in a very hot environment, a client becomes confused and unsteady with hot skin and marked weakness. The nurse suspects heat stroke. Which action is most appropriate?",
+    "options": {
+      "A": "Activate emergency medical response, move the client to a cool area, remove excess clothing, and begin rapid cooling.",
+      "B": "Move the client to a cool area and offer frequent oral fluids, then reassess mental status before escalating care.",
+      "C": "Obtain a repeat temperature after a period of rest before initiating active cooling or emergency transfer.",
+      "D": "Cover the client with dry blankets to prevent shivering and wait for the confusion to improve before cooling."
+    },
+    "correct_option": "A",
+    "rationale": "Current CDC/NIOSH guidance identifies heat stroke as the most serious heat-related illness and a potentially fatal emergency. Altered mental status such as confusion is a key warning sign. CDC first-aid guidance directs responders to call for emergency medical care, move the person to a shaded or cool area, remove outer or excess clothing, and cool the person quickly rather than delaying treatment for repeat temperature measurement or observation. Oral fluids are appropriate in some less severe heat illnesses and may be considered when a person is able to drink safely, but confusion in suspected heat stroke requires emergency treatment and rapid cooling rather than a trial of oral hydration followed by reassessment. The 2026 NCSBN NCLEX-RN Test Plan includes emergency care procedures and maintaining optimal client temperature under Physiological Adaptation. Therefore A is the uniquely best answer.",
+    "educational_objective": "Recognize altered mental status after heat exposure as possible heat stroke and immediately activate emergency care while beginning rapid cooling rather than delaying for oral hydration or repeat measurement.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC) / National Institute for Occupational Safety and Health (NIOSH); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Heat-related Illnesses; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "CDC/NIOSH Heat-related Illnesses dated March 3, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "CDC/NIOSH Heat-related Illnesses > Heat stroke > Symptoms/First aid — confusion or altered mental status is a heat-stroke symptom; call emergency medical care, stay with the person, move to a shaded/cool area, remove outer clothing, and cool quickly. NCSBN 2026 NCLEX-RN Test Plan > Physiological Adaptation, printed p. 46 / PDF p. 50 — perform emergency care procedures and maintain optimal temperature of client.",
+    "source_url": "https://www.cdc.gov/niosh/heat-stress/about/illnesses.html",
+    "secondary_source_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "source_claim_supported": "Suspected heat stroke with altered mental status requires emergency medical response and prompt active cooling; treatment should not be delayed for repeat temperature measurement or observation.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, printed p. 46 / PDF p. 50 — emergency care procedures and optimal temperature management",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — emergency recognition and cooling of heat stroke",
+    "correction_summary_append": "RULE1 cleanup: retired a contract-staff orientation/HR policy item because it tested administrative policy and overlapped with delegation/competency constructs. Rebuilt the UID into a direct heat-stroke emergency requiring recognition of altered mental status and immediate emergency cooling.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1295",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CONTRACT_STAFF_ADMINISTRATIVE_POLICY_AND_ABSOLUTE_WORD_DISTRACTOR_PATTERN",
+        "finding": "The replacement tests an entry-level emergency response. Current CDC/NIOSH guidance directly supports emergency activation and rapid cooling for suspected heat stroke with altered mental status.",
+        "source_authority": "CDC/NIOSH 2026; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "CDC Heat-related Illnesses > Heat stroke; NCSBN Physiological Adaptation printed p. 46 / PDF p. 50",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "temperature_threshold": "No core-temperature cutoff or measurement route is used to make the decision; the item relies on heat exposure plus altered mental status and other compatible findings.",
+    "cooling_method": "No single cooling technique, water temperature, ice placement pattern, or target temperature is universalized; the item requires prompt active cooling using available appropriate methods.",
+    "oral_fluids": "The item does not claim fluids are never used in heat illness. It rejects delaying emergency treatment of a confused client with suspected heat stroke for an oral-hydration trial.",
+    "etiology": "No medication, infection, endocrine disorder, or other alternative cause is assumed beyond the presented heat-exposure emergency pattern."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'heat stroke confusion rapid cooling emergency remove clothing' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It activates emergency care and begins the rapid cooling sequence recommended for suspected heat stroke.",
+    "B": "Plausible for heat exhaustion or a fully alert person who can safely drink, but confusion indicates a heat-stroke emergency that should not wait for an oral-fluid trial.",
+    "C": "Plausible diagnostic-confirmation approach, but repeat temperature measurement should not delay emergency cooling in a compatible heat-stroke presentation.",
+    "D": "Plausible concern about shivering during cooling, but adding dry blankets and delaying cooling conflicts with the need for rapid heat removal."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly provides prolonged heat exposure plus altered mental status. B delays emergency care for oral hydration, C delays cooling for repeat measurement, and D delays cooling while adding insulation. A alone follows current emergency first-aid guidance.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 117,
+      "B": 114,
+      "C": 106,
+      "D": 109
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four alternatives are similar multi-step emergency actions and the correct option is not conspicuously longer."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Physiological Adaptation directly includes emergency procedures and temperature management. Recognition and immediate cooling of suspected heat stroke are direct entry-level nursing safety actions.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 46 / PDF p. 50 was visually inspected on 2026-08-20 and visibly lists emergency care procedures and maintenance of optimal client temperature."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_CDC_HTML",
+    "note": "The relevant NCSBN PDF page was visually inspected. CDC/NIOSH heat-stroke guidance is official HTML and was text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC/NIOSH Heat-related Illnesses page dated March 3, 2026 rechecked for heat-stroke symptoms and first aid",
+      "altered mental status/confusion and emergency rapid-cooling response confirmed",
+      "official NCSBN 2026 Physiological Adaptation page visually verified at printed p. 46 / PDF p. 50",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no temperature threshold, cooling-water temperature, target temperature or specific cooling-device claim fabricated",
+      "correct answer is not strongly length-cued; exact lengths A117/B114/C106/D109",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

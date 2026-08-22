@@ -1,0 +1,114 @@
+{
+  "question_uid": "V2-Q1063",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "NEAR_MISS_REPORTING_REBUILD_TO_STOCKING_SYSTEM_HAZARD_SCENARIO",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A nurse scans a unit-dose package and discovers that the wrong medication was stocked in a client's medication drawer. The nurse does not administer it, obtains the correct medication, and the client is unharmed. Which action best supports patient-safety follow-up?",
+    "options": {
+      "A": "Report the intercepted medication error and stocking discrepancy through the facility's safety-event process.",
+      "B": "Return the wrong package to the pharmacy and close the issue because the client did not receive the medication.",
+      "C": "Record the event in the client's chart as an administered medication error so the discrepancy is visible.",
+      "D": "Tell the oncoming nurse about the stocking problem and defer formal reporting while staff watch for recurrence."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ's current patient-safety reporting guidance describes near misses and unsafe conditions as events that can be captured through reporting systems and emphasizes their value for identifying hazards and supporting organizational learning. AHRQ also notes that no-harm incidents are commonly classified as near misses or close calls and warrant further evaluation. The 2026 NCSBN NCLEX-RN Test Plan explicitly includes acknowledging and documenting practice errors and near misses under Safety and Infection Prevention and Control. Because the wrong medication was intercepted before administration, the event did not harm the client, but the stocking discrepancy remains a system safety hazard that should be reported through the facility's safety-event process. Returning the package, documenting a medication as administered when it was not, or relying on informal handoff alone does not substitute for formal near-miss reporting. Therefore A is the uniquely best answer.",
+    "educational_objective": "Report intercepted medication errors and related system hazards as near misses through the organization's safety-event process even when the client was not harmed.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ) — PSNet; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Reporting Patient Safety Events; Responding to Patient Safety Events; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "AHRQ Reporting Patient Safety Events last reviewed 2025; Responding to Patient Safety Events published February 26, 2025; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "AHRQ PSNet Reporting Patient Safety Events > Background and Characteristics of Incident Reporting Systems — reporting systems capture near misses/unsafe conditions and frontline reports. AHRQ PSNet Responding to Patient Safety Events > System Improvement — no-harm incidents are typically near misses/close calls and should undergo further evaluation. NCSBN 2026 NCLEX-RN Test Plan > Safety and Infection Prevention and Control > Reporting of Incident/Event/Irregular Occurrence/Variance, printed p. 25 / PDF p. 29 — acknowledge and document practice errors and near misses.",
+    "source_url": "https://psnet.ahrq.gov/primer/reporting-patient-safety-events",
+    "secondary_source_url": "https://psnet.ahrq.gov/primer/responding-patient-safety-events",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Near misses and unsafe conditions are reportable patient-safety signals used for evaluation and learning, and NCSBN explicitly includes acknowledging and documenting practice errors and near misses in entry-level RN safety practice.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control > Reporting of Incident/Event/Irregular Occurrence/Variance, printed p. 25 / PDF p. 29",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — near misses, event reporting and system hazards",
+    "correction_summary_append": "RULE1 cleanup: preserved the important near-miss reporting construct but replaced a low-discrimination question whose distractors made reporting contingent on harm. The rebuilt scenario requires recognition that an intercepted wrong medication plus a stocking discrepancy remains a reportable safety signal even though the client received no wrong dose.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1063",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "LOW_DISCRIMINATION_NEAR_MISS_RECALL_LENGTH_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The replacement tests system-safety follow-up after an intercepted medication event and removes the original option-length and harm-contingent cueing.",
+        "source_authority": "AHRQ PSNet 2025; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "AHRQ event reporting/system improvement; NCSBN Reporting of Incident/Event/Irregular Occurrence/Variance printed p. 25 / PDF p. 29",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "client_harm": "The stem explicitly states that the wrong medication was not administered and the client was unharmed. The tested issue is near-miss/system-hazard reporting, not treatment of an adverse drug event.",
+    "specific_pharmacy_workflow": "No universal pharmacy return, quarantine, inventory-correction, or automated-dispensing workflow is asserted. Those actions may occur under local policy but do not replace the safety-event reporting process tested here.",
+    "medical_record_false_documentation": "Option C is incorrect because it would inaccurately characterize a medication as administered when the stem states it was intercepted before administration.",
+    "mandatory_external_reporting": "No claim is made that the event must be reported to an external regulator, manufacturer, or law-enforcement body. The item concerns the organization's safety-event process."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1024"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'wrong medication' plus 'stocked' returned no indexed repository match. Q1024 was manually compared because both involve medication safety events: Q1024 tests the immediate client assessment after a wrong dose has already been administered; Q1063 tests formal safety follow-up for an intercepted near miss with no client exposure. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It formally reports both the intercepted medication event and the stocking system hazard for organizational follow-up.",
+    "B": "Plausible because the package should be corrected or returned according to local workflow, but doing only that fails to capture the near miss for the safety system.",
+    "C": "Plausible documentation impulse, but the stem states that no wrong medication was administered; documenting it as an administered medication error would be inaccurate.",
+    "D": "Plausible team-communication step, but informal handoff and passive observation for recurrence do not replace formal reporting of the identified near miss/system hazard."
+  },
+  "ambiguity_check": "No second defensible best answer. The client received no wrong medication, so C is factually inaccurate. B corrects the immediate package problem but omits safety-system capture; D relies on informal communication and delayed action. A alone addresses the near miss and system hazard through formal safety follow-up.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 109,
+      "B": 111,
+      "C": 105,
+      "D": 111
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four options are within six characters and the correct option is not uniquely longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN directly includes acknowledging/documenting practice errors and near misses and identifying when incident/event reporting is appropriate under Safety and Infection Prevention and Control. The scenario tests a bedside RN response to a common medication-system hazard.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official 2026 NCSBN Test Plan printed p. 25 / PDF p. 29 was visually inspected on 2026-08-19 and visibly lists the Reporting of Incident/Event/Irregular Occurrence/Variance subsection, including acknowledging and documenting practice errors and near misses."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_AHRQ_HTML",
+    "note": "The relevant NCSBN PDF page was visually inspected. AHRQ PSNet sources are HTML and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "AHRQ Reporting Patient Safety Events rechecked fresh; last reviewed 2025 and near-miss/unsafe-condition reporting confirmed",
+      "AHRQ Responding to Patient Safety Events rechecked fresh; 2025 no-harm near-miss evaluation/system-learning guidance confirmed",
+      "official NCSBN 2026 near-miss reporting subsection visually verified at printed p. 25 / PDF p. 29",
+      "stem explicitly states interception before administration and no client harm",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no external mandatory-reporting requirement fabricated",
+      "pharmacy workflow not universalized",
+      "correct answer is not length-cued; exact lengths A109/B111/C105/D111",
+      "Q1024 manually compared and confirmed distinct as post-administration client assessment versus no-harm near-miss system reporting",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

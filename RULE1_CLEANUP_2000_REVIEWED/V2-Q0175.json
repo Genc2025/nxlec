@@ -1,0 +1,102 @@
+{
+  "question_uid": "V2-Q0175",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Psychosocial Integrity",
+  "difficulty": "medium",
+  "change_class": "BLUEPRINT_REMAP_STEM_DISTRACTOR_AND_SOURCE_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "metadata_correction": {
+    "client_need": "Psychosocial Integrity",
+    "category_id": 5,
+    "difficulty": "medium"
+  },
+  "semantic_correction": {
+    "stem": "A Medicare beneficiary with a terminal illness asks, 'If I choose hospice, does that mean every treatment for all of my health problems must stop?' Which response by the nurse is most accurate?",
+    "options": {
+      "A": "No. Hospice shifts care for the terminal illness and related conditions toward palliation; care for unrelated conditions is not automatically excluded.",
+      "B": "Yes. Hospice requires treatment for the terminal illness and every unrelated condition to stop before the Medicare benefit can begin.",
+      "C": "No. Hospice permits Medicare payment for curative treatment of the terminal illness from any outside provider while the election remains active.",
+      "D": "Yes. After hospice election, the benefit is limited to counseling and home support; medications, equipment, and nursing care are excluded."
+    },
+    "correct_option": "A",
+    "rationale": "Current 42 CFR §418.24 requires the hospice election statement to acknowledge the palliative rather than curative nature of hospice care as it relates to the terminal illness and related conditions. During the election, the beneficiary waives Medicare payment for specified services related to treatment of the terminal condition or related conditions except for listed hospice-arranged or attending-physician exceptions. The regulation separately recognizes conditions, items, services and drugs determined to be unrelated to the terminal illness and related conditions, so hospice election does not itself require every treatment for every unrelated health problem to stop. CMS's current Hospice page likewise describes hospice as shifting the focus to comfort/palliative care for the terminal illness and includes nursing care, medications for symptom management and medical equipment within the benefit. Therefore A is the uniquely accurate explanation. B imposes a universal stop on unrelated care, C incorrectly preserves unrestricted outside Medicare payment for curative terminal-illness treatment, and D falsely excludes core hospice services.",
+    "educational_objective": "Explain the Medicare hospice election in clinically accurate terms: hospice shifts the terminal-illness focus toward palliation without meaning that every treatment for every unrelated condition must stop.",
+    "source_organization": "Electronic Code of Federal Regulations (eCFR), Title 42 / Centers for Medicare & Medicaid Services regulation",
+    "source_document_title": "42 CFR § 418.24 — Election of hospice care",
+    "source_version_date": "eCFR Title 42 up to date as of July 23, 2026; Title 42 last amended July 20, 2026; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "§418.24(b)(2)-(3) — palliative rather than curative nature and coverage responsibility; §418.24(c) — conditions/items/services/drugs determined unrelated to terminal illness and related conditions; §418.24(g)(1)-(2) — waiver of specified Medicare payments during hospice election",
+    "source_url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-418/subpart-B/section-418.24",
+    "source_claim_supported": "Hospice election requires understanding the palliative rather than curative nature of hospice care for the terminal illness and related conditions; specified terminal-related Medicare payments are waived during the election, while the regulation separately recognizes care determined unrelated to the terminal illness and related conditions.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Psychosocial Integrity, printed p. 10 / PDF p. 14, Related Activity Statements — Provide end-of-life care and education to clients; Appendix A End-of-Life Care, printed p. 32 / PDF p. 36 — Provide end-of-life care and education to clients",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Psychosocial Integrity — end-of-life and hospice education",
+    "correction_summary_append": "RULE1 cleanup: removed absolute-word and answer-length cueing, replaced the generic educational objective, shifted the item away from Medicare billing trivia toward clinically useful hospice education, and remapped it from Management of Care to the explicit Psychosocial Integrity end-of-life education activity statement.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0175",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ANSWER_LENGTH_CUEING_ABSOLUTE_WORD_CUEING_GENERIC_OBJECTIVE_AND_SUBOPTIMAL_BLUEPRINT_MAPPING",
+        "finding": "The original correct legal concept was substantially defensible but was presented as a conspicuously long billing-oriented answer under Management of Care. The revised item teaches the clinically relevant palliative-versus-curative distinction, preserves the precise terminal-related waiver rule, and maps directly to NCSBN end-of-life education.",
+        "source_authority": "42 CFR §418.24 / eCFR",
+        "source_locator": "§418.24(b)(2)-(3), (c), and (g)",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Psychosocial Integrity, printed p. 10 / PDF p. 14 — Provide end-of-life care and education to clients"
+      }
+    ]
+  },
+  "secondary_source_verification": {
+    "source_organization": "Centers for Medicare & Medicaid Services (CMS)",
+    "source_document_title": "Hospice",
+    "source_version_date": "Page last modified July 2, 2026",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Hospice Coverage; Items & Services Included in the Hospice Benefit",
+    "source_url": "https://www.cms.gov/medicare/payment/fee-for-service-providers/hospice",
+    "claim_supported": "CMS describes hospice as comfort/palliative care rather than care to cure the terminal illness and lists nursing care, medical equipment, supplies and symptom-management drugs as covered hospice services."
+  },
+  "option_audit": {
+    "A": "Correct. It preserves the palliative focus for the terminal illness while avoiding the false claim that hospice election automatically stops all care for unrelated conditions.",
+    "B": "Plausible misunderstanding of hospice philosophy, but the regulation does not require treatment of every unrelated condition to stop before hospice begins.",
+    "C": "Plausible misunderstanding of the waiver, but the election waives specified Medicare payment for terminal-illness-related treatment outside the permitted hospice/attending-physician arrangements.",
+    "D": "Plausible misconception that hospice is nonmedical support only, but CMS explicitly includes nursing care, medications for symptom management and medical equipment."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone correctly combines the palliative terminal-illness focus with the absence of a universal requirement to stop all unrelated care; B, C and D each contradict a specific current CMS/eCFR provision.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 151, "B": 133, "C": 144, "D": 138},
+    "note": "Exact character counts were calculated from the stored strings. All four options are parallel explanatory responses; the correct answer is not uniquely longest by the prior heuristic threshold and no distractor uses absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "End-of-life care and education are explicitly listed under Psychosocial Integrity, making hospice-purpose education directly relevant to newly licensed RN practice.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current eCFR §418.24 identity and July 23, 2026 Title 42 current-through date verified",
+      "palliative-rather-than-curative election statement requirement verified directly",
+      "terminal-illness-related Medicare payment waiver verified directly",
+      "regulatory recognition of unrelated conditions/items/services/drugs verified directly",
+      "current CMS Hospice page last-modified date verified",
+      "CMS comfort/palliative framing verified directly",
+      "CMS nursing/equipment/symptom-medication hospice-service claims verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word and conspicuous answer-length cues removed",
+      "official NCSBN 2026 Psychosocial Integrity page visually verified at printed p. 10 / PDF p. 14",
+      "exact end-of-life education activity statement verified",
+      "client-need remap to Psychosocial Integrity documented",
+      "educational objective is item-specific"
+    ]
+  }
+}

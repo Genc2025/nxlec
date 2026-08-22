@@ -1,0 +1,98 @@
+{
+  "question_uid": "V2-Q0927",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "RAPID_RESPONSE_DUPLICATE_TO_CVAD_FLUSH_RESISTANCE_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN is preparing to administer an IV antibiotic through a client's central venous access device. After checking the external tubing for visible kinks, the RN meets unexpected resistance while gently attempting the prescribed saline flush. Which action is most appropriate?",
+    "options": {
+      "A": "Use a smaller syringe and apply firmer pressure to force the saline through the catheter, then give the antibiotic if fluid begins to move.",
+      "B": "Stop the flush, avoid using the catheter, and troubleshoot the resistance according to the facility's central-line protocol before proceeding.",
+      "C": "Continue gentle flush attempts for several minutes because repeated small boluses are expected to reopen an occluded central venous catheter safely.",
+      "D": "Remove the central venous catheter immediately and start a peripheral IV before assessing for mechanical causes or using the facility occlusion process."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes accessing and maintaining central venous access devices under Pharmacological and Parenteral Therapies. Open RN/NCBI guidance states that flushing should not continue when force is required against resistance because excess pressure can damage or rupture the catheter or mobilize an occlusive clot. When resistance or poor blood return is encountered, the nurse should stop forcing the flush and troubleshoot potential causes according to agency policy, including mechanical causes and client repositioning, with further evaluation or ordered declotting procedures as appropriate. B is therefore the uniquely best response. A increases pressure and risks catheter damage. C continues attempts despite unresolved resistance. D bypasses assessment and the facility occlusion-management process by immediately removing the device. Therefore B is correct.",
+    "educational_objective": "When unexpected resistance is encountered while flushing a central venous access device, stop rather than force the flush and evaluate/troubleshoot the cause according to the facility's central-line protocol before using the catheter.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); NCBI Bookshelf / Open RN",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Nursing Advanced Skills — Manage Central Lines",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; Open RN Nursing Advanced Skills 2023, current NCBI version live-rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Pharmacological and Parenteral Therapies, printed p. 39 / PDF p. 43 — Central Venous Access Devices: access and/or maintain central venous access devices; provide care for client with a central venous access device. Open RN Chapter 4 Manage Central Lines — Flushing and Locking CVADs: never flush when force is required against resistance; troubleshoot mechanical causes/reposition and follow agency policy if unresolved.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://www.ncbi.nlm.nih.gov/books/NBK594495/",
+    "source_claim_supported": "Unexpected CVAD flush resistance should not be overcome by force; stop use and troubleshoot/evaluate the catheter according to protocol before proceeding.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Pharmacological and Parenteral Therapies, printed p. 39 / PDF p. 43 — Central Venous Access Devices",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — CVAD patency and flush-resistance safety",
+    "correction_summary_append": "RULE1 cleanup: retired a rapid-response definition item because it duplicated V2-Q0724. Rebuilt the slot around explicit NCSBN central-venous-access content and the bedside response to unexpected flush resistance. Removed the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0927",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_DUPLICATE_RAPID_RESPONSE_RECALL_AND_CUEING",
+        "finding": "The replacement tests safe management of a potentially occluded CVAD rather than repeating rapid-response activation.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; Open RN/NCBI",
+        "source_locator": "Central Venous Access Devices; Flushing and Locking CVADs",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 39 / PDF p. 43"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_thrombolytic": "Not tested. Declotting therapy depends on the cause of occlusion, provider orders and facility protocol.",
+    "automatic_line_removal": "Not endorsed. Resistance should first be evaluated/troubleshot according to policy unless another urgent complication dictates removal.",
+    "forced_flush": "Explicitly not endorsed because excessive pressure can damage the catheter or mobilize an occlusive clot."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0724", "V2-Q0621", "V2-Q0622"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0724 tests acute deterioration/rapid-response activation. V2-Q0621 tests clarification of an incomplete medication order. V2-Q0622 tests removal/reporting of malfunctioning equipment. V2-Q0927 tests resistance during CVAD flushing and the prohibition on forced flushing. Targeted repository search found no matching CVAD flush-resistance item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible attempt to restore patency but uses greater pressure, which is unsafe with unresolved resistance.",
+    "B": "Correct. It stops use, avoids force and directs troubleshooting/evaluation through the facility central-line protocol.",
+    "C": "Plausible conservative approach but still continues flushing despite persistent unresolved resistance.",
+    "D": "Plausible concern for catheter dysfunction but skips appropriate assessment/troubleshooting and assumes immediate removal is required."
+  },
+  "ambiguity_check": "No second defensible best answer. The catheter has unexplained resistance after external kinks were checked. B alone stops further pressure and requires protocol-based evaluation before use. A/C continue flushing; D removes the device without first using the appropriate occlusion assessment process.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 139, "B": 142, "C": 148, "D": 152},
+    "note": "Correct option B is not longest; all four options are parallel action responses without absolute-word traps."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Accessing/maintaining central venous access devices and providing care to clients with CVADs are explicit NCSBN Pharmacological and Parenteral Therapies content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN printed p. 39 / PDF p. 43 was visually inspected on 2026-08-19 and explicitly lists Central Venous Access Devices, including access/maintenance and client care."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN CVAD content verified directly and visually",
+      "Open RN/NCBI no-forced-flush guidance verified",
+      "mechanical troubleshooting/facility-policy pathway verified",
+      "no thrombolytic or removal rule universalized",
+      "A/B/C/D independently re-audited for catheter damage and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and prior length cues removed",
+      "exact option lengths verified as A139/B142/C148/D152",
+      "construct confirmed distinct from Q0724/Q0621/Q0622",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

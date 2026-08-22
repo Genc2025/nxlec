@@ -1,0 +1,91 @@
+{
+  "question_uid": "V2-Q0653",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "NEAR_DUPLICATE_FULL_CONSTRUCT_REBUILD",
+  "near_duplicate_resolution": {
+    "paired_uid": "V2-Q1387",
+    "original_overlap": "Both original items tested the same enoxaparin prefilled-syringe self-injection steps: abdominal subcutaneous administration, retention of the air bubble, and no rubbing afterward.",
+    "resolution": "Retain V2-Q1387 for self-administration technique and rebuild V2-Q0653 into Lovenox safety monitoring during therapy."
+  },
+  "semantic_correction": {
+    "stem": "A client is receiving Lovenox. Which monitoring plan is most consistent with the current FDA-approved label for routine safety assessment during therapy?",
+    "options": {
+      "A": "Monitor a complete blood count including platelets, check stool occult blood, and assess for signs or symptoms of bleeding.",
+      "B": "Monitor a complete blood count including platelets and use PT/INR as the primary test of Lovenox anticoagulant effect.",
+      "C": "Use anti-Factor Xa levels for routine monitoring and obtain a complete blood count after clinical bleeding develops.",
+      "D": "Use aPTT for routine monitoring and obtain platelet counts mainly when bruising or injection-site bleeding appears."
+    },
+    "correct_option": "A",
+    "rationale": "The current FDA-approved Lovenox label states in Section 2.6 that during therapy clinicians should monitor complete blood counts including platelets and stool occult blood and assess for signs and symptoms of bleeding. Option A matches those routine safety-monitoring instructions. The label also states that PT and aPTT are not adequate for monitoring Lovenox anticoagulant effects, making B and D inappropriate. Anti-Factor Xa levels may be used in selected circumstances such as renal impairment or when abnormal coagulation parameters or bleeding occur; the label does not substitute routine anti-Xa testing for the CBC, platelet, stool-occult-blood, and clinical bleeding assessment, so C is incorrect. Therefore A is the uniquely best answer.",
+    "educational_objective": "Monitor Lovenox therapy using CBC with platelets, stool occult blood, and assessment for bleeding while recognizing that PT/aPTT are not adequate measures of its anticoagulant effect.",
+    "source_organization": "DailyMed / U.S. Food and Drug Administration labeling; Sanofi-Aventis U.S. LLC",
+    "source_document_title": "LOVENOX (enoxaparin sodium) injection — Full Prescribing Information",
+    "source_version_date": "Revised February 2026; Version 15; Effective Time 20260206",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Section 2.6 Monitoring for Safety",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=de6fb917-a94a-41ea-9d7d-937d4080ffcd",
+    "source_claim_supported": "During Lovenox therapy, monitor CBC including platelets and stool occult blood and assess for signs/symptoms of bleeding; anti-Factor Xa may be used in selected circumstances such as renal impairment or bleeding/abnormal coagulation parameters; PT and aPTT are not adequate for monitoring Lovenox anticoagulant effects.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16, Related Activity Statements — Evaluate client response to medication; Prepare and administer medications using rights of medication administration",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — enoxaparin safety monitoring",
+    "correction_summary_append": "RULE1 cleanup: resolved semantic near-duplication with V2-Q1387 by replacing a second enoxaparin self-injection item with current FDA-label safety monitoring; rebuilt all options around plausible anticoagulant-monitoring strategies and verified PT/aPTT and anti-Xa claims directly from Section 2.6.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0653",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_NEAR_DUPLICATE",
+        "paired_uid": "V2-Q1387",
+        "finding": "The original item duplicated V2-Q1387's prefilled-syringe administration construct. It was rebuilt into monitoring of CBC/platelets, stool occult blood, bleeding, and appropriate interpretation of PT/aPTT and anti-Xa monitoring under the current FDA label.",
+        "source_authority": "DailyMed/FDA approved Lovenox labeling",
+        "source_locator": "Section 2.6 Monitoring for Safety",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It reproduces the label's routine safety-monitoring elements: CBC including platelets, stool occult blood, and clinical bleeding assessment.",
+    "B": "Plausible anticoagulant-monitoring plan, but PT/INR is not an adequate measure of Lovenox anticoagulant effect and the plan omits stool-occult-blood and clinical bleeding assessment.",
+    "C": "Plausible because anti-Xa can be used in selected circumstances, but the label does not make it the routine substitute for CBC/platelets and stool-occult-blood monitoring.",
+    "D": "Plausible because aPTT is commonly associated with unfractionated heparin monitoring, but the Lovenox label explicitly states aPTT is not adequate for monitoring its anticoagulant effect."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone contains the complete routine safety-monitoring set specified by the current label; B and D rely on inadequate coagulation tests, and C misuses selective anti-Xa monitoring as routine replacement monitoring.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 123, "B": 118, "C": 116, "D": 115},
+    "note": "All four options are parallel monitoring plans of comparable length; the correct answer is not structurally unique and no filler was added."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Monitoring medication response and recognizing bleeding or laboratory complications are direct entry-level pharmacological nursing responsibilities.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current FDA-approved Lovenox label identity and February 2026 revision verified",
+      "CBC including platelets monitoring verified directly",
+      "stool occult blood monitoring verified directly",
+      "bleeding assessment verified directly",
+      "anti-Factor Xa selective-use statement verified directly",
+      "PT and aPTT inadequacy verified directly",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official 2026 NCSBN Pharmacological and Parenteral Therapies locator verified",
+      "construct is distinct from V2-Q1387 self-injection teaching",
+      "educational objective is item-specific"
+    ]
+  }
+}

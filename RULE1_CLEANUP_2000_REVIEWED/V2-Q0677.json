@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0677",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "TEACH_BACK_DUPLICATE_TO_ACTIVE_SEIZURE_SAFETY_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A hospitalized client with a known seizure disorder suddenly develops generalized tonic-clonic movements while in bed. The seizure has just begun, and the threshold in the client's rescue-medication order has not been reached. Which action should the RN take first?",
+    "options": {
+      "A": "Hold the client's arms and legs firmly against the mattress to limit movement and prevent injury while another staff member obtains the emergency cart.",
+      "B": "Turn the client to the side as safely as possible, protect the head, clear nearby hazards, and begin timing the seizure while staying with the client.",
+      "C": "Insert a padded oral airway between the client's teeth to protect the tongue, then suction oral secretions before the seizure movements stop.",
+      "D": "Leave the bedside briefly to obtain the prescribed rescue medication even though the seizure has just started and its treatment threshold is not met."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes implementing seizure precautions for at-risk clients under Safety and Infection Prevention and Control and providing care to a client who has experienced a seizure under Physiological Adaptation. Current CDC seizure first-aid guidance instructs caregivers to stay with the person, clear nearby hazards, turn the person gently onto the side when lying down to help keep the airway clear, protect the head, and time the seizure. CDC specifically advises against restraining seizure movements or placing objects in the person's mouth. The stem also states that the seizure has just begun and the client's rescue-medication threshold has not been reached. B is therefore the uniquely best first action because it protects airway and injury safety while the RN remains with the client and establishes seizure duration. A uses restraint, which can cause injury. C places an object in the mouth during convulsive activity and creates oral/airway injury risk. D abandons immediate bedside safety and gives priority to a medication threshold that has not yet been met. Therefore B is correct.",
+    "educational_objective": "During an active generalized seizure, stay with the client, protect the head and surrounding environment, position to support airway safety when feasible, and time the seizure; do not restrain the client or place objects in the mouth.",
+    "source_organization": "Centers for Disease Control and Prevention (CDC); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "First Aid for Seizures; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "CDC seizure first-aid page dated May 15, 2024 and live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "CDC First Aid for Seizures — stay with person; remove nearby hazards; turn gently on side when lying down; protect head; time seizure; do not restrain; do not put anything in mouth. NCSBN Appendix A, Safety and Infection Prevention and Control, printed p. 25 / PDF p. 29 — Implement seizure precautions for at-risk clients. Physiological Adaptation, printed p. 47 / PDF p. 51 — Provide care to client who has experienced a seizure",
+    "source_url": "https://www.cdc.gov/epilepsy/first-aid-for-seizures/index.html",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Safe immediate seizure care includes staying with the client, protecting from injury, side positioning when feasible and timing the event while avoiding restraint and objects in the mouth.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 25 / PDF p. 29 — Implement seizure precautions for at-risk clients; Physiological Adaptation, printed p. 47 / PDF p. 51 — Provide care to client who has experienced a seizure",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — immediate safe care during an active generalized seizure",
+    "correction_summary_append": "RULE1 cleanup: retired a direct teach-back duplicate of V2-Q0525. Rebuilt the slot around explicit NCSBN seizure-precaution/seizure-care activity statements and current CDC first-aid guidance. The final item tests immediate bedside safety during a newly started generalized seizure and removes the prior answer-length cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0677",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_DUPLICATE_TEACH_BACK_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement tests a distinct, explicit NCLEX seizure-care activity rather than duplicating Q0525's teach-back construct.",
+        "source_authority": "CDC First Aid for Seizures; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Stay/safe/side/time; NCSBN seizure precautions and seizure care",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety p. 25 / Physiological Adaptation p. 47"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "rescue_medication_timing": "The stem explicitly states that the ordered rescue-medication threshold has not been reached; the item tests immediate safety actions at seizure onset rather than a specific rescue-drug protocol.",
+    "emergency_activation_threshold": "Not tested. Escalation depends on seizure duration, recurrence, breathing/recovery, injury and the client's individualized plan; the RN begins timing so those criteria can be evaluated.",
+    "forced_side_positioning": "Not asserted. The correct option says to turn the client to the side as safely as possible while protecting from injury."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0525", "V2-Q0676", "V2-Q0575"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0525 tests teach-back after misunderstanding. V2-Q0676 tests oxygen-related fire-hazard removal. V2-Q0575 tests restraint discontinuation after violent behavior resolves. V2-Q0677 tests immediate protection and airway-safety actions during an active generalized seizure. Targeted repository search for seizure precautions/active seizure first aid returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible injury-prevention intent but physical restraint during a seizure can injure the client or caregiver.",
+    "B": "Correct. It keeps the RN at the bedside, protects airway/injury safety and establishes seizure duration.",
+    "C": "Plausible airway-protection misconception but objects should not be inserted into the mouth during a seizure.",
+    "D": "Plausible preparation for prolonged seizure management but the ordered rescue threshold has not been reached and immediate bedside safety takes priority."
+  },
+  "ambiguity_check": "No second defensible best answer. The seizure has just begun and rescue criteria are explicitly not met. B alone combines stay-with-client, injury protection, safe side positioning and timing. A restrains, C inserts an oral object and D leaves immediate safety needs unattended.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 148, "B": 150, "C": 141, "D": 149},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is only one character longer than D and two longer than A; no conspicuous length cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Implementing seizure precautions and providing care after/during a seizure are explicit NCSBN activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN pages were visually inspected on 2026-08-19: printed p. 25 / PDF p. 29 explicitly states 'Implement seizure precautions for at-risk clients,' and printed p. 47 / PDF p. 51 explicitly states 'Provide care to client who has experienced a seizure.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current CDC seizure first-aid guidance verified",
+      "stay-with-client and timing guidance verified",
+      "side-position and hazard-removal guidance verified",
+      "do-not-restrain and do-not-place-object-in-mouth guidance verified",
+      "official NCSBN seizure-precaution and seizure-care pages visually verified",
+      "rescue-medication threshold explicitly controlled in stem",
+      "A/B/C/D independently re-audited for seizure safety and second-answer risk",
+      "no second defensible best answer identified",
+      "prior correct-answer length cue removed",
+      "exact option lengths verified as A148/B150/C141/D149",
+      "construct confirmed distinct from Q0525/Q0676/Q0575",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

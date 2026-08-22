@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q0675",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "SENTINEL_EVENT_REPORTING_TRIVIA_TO_NEWBORN_SECURITY_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "On a postpartum unit, hospital policy requires staff to verify an approved infant-unit identifier before releasing a newborn to anyone for transport. An adult visitor without the required identifier says the parent gave permission to take the newborn to another area of the unit. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Allow the visitor to take the newborn because the parent gave verbal permission, then document the transport after the visitor returns.",
+      "B": "Keep the newborn in the secured care area, activate the unit security process, and verify the person's identity and authorization before release.",
+      "C": "Let the visitor wait in the hallway with the newborn while the RN checks the badge requirement with the charge nurse and registration staff.",
+      "D": "Permit the visitor to transport the newborn within the unit if the visitor agrees to remain visible to staff until identity is confirmed."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly places Security Plan activities within Safety and Infection Prevention and Control and states that newly licensed RNs should use clinical decision-making in security situations and follow security plans and procedures, including newborn nursery security and controlled access. The stem supplies the facility-specific control: an approved infant-unit identifier is required before a newborn can be released for transport. B is therefore the uniquely best action because the RN keeps the infant in the secured care area, activates the established security process and verifies identity/authorization before any release occurs. A substitutes verbal family permission for the required security verification. C and D both permit an unidentified person to possess or transport the newborn before verification is completed. Therefore B best follows the security plan and prevents an avoidable newborn-security breach.",
+    "educational_objective": "When a person lacks the facility-required authorization for newborn transport, keep the infant in a secure care area and follow the established security/identity-verification process before release rather than relying on verbal permission or allowing temporary unverified transport.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Appendix A, Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30 — Security Plan: use clinical decision-making/critical thinking in situations related to security planning; follow security plan and procedures (e.g., newborn nursery security, violence, controlled access, environmental)",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Newly licensed RNs are expected to follow established security plans and procedures, including newborn nursery security and controlled-access measures; the facility-specific transport identifier in the stem must be verified before infant release.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Safety and Infection Prevention and Control, printed p. 26 / PDF p. 30 — Security Plan",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — newborn security and controlled access",
+    "correction_summary_append": "RULE1 cleanup: retired Joint Commission sentinel-event external-reporting trivia because it was organizational and overlapped existing incident/QI constructs. Rebuilt the item around an explicit NCSBN bedside Security Plan activity involving newborn transport authorization. The facility-specific identifier requirement is controlled in the stem, and prior absolute-word/answer-length cues are removed.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0675",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ORGANIZATIONAL_SENTINEL_EVENT_TRIVIA_QI_OVERLAP_ABSOLUTE_WORD_CUE_AND_EXTREME_ANSWER_LENGTH_CUE",
+        "finding": "The final item directly tests the RN's bedside response to an unverified newborn transport attempt under an established security plan.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Safety and Infection Prevention and Control — Security Plan",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Printed p. 26 / PDF p. 30"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "universal_badge_design_or_identifier": "Not asserted. The stem defines the hospital's own approved identifier requirement; the item tests adherence to that established security process.",
+    "parental_permission_as_security_override": "Not endorsed. Verbal permission does not replace the facility's required identity/authorization verification in this scenario.",
+    "physical_confrontation": "Not tested or required. The RN secures the infant and activates the established unit security process."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0421", "V2-Q0623", "V2-Q0624"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0421 tests hospital incident-command unity of command. V2-Q0623 tests immediate response to a threatening visitor. V2-Q0624 tests EHR workstation confidentiality. V2-Q0675 tests newborn nursery security/controlled-access verification before infant release. Targeted repository search returned no matching newborn-security/unauthorized-transport item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible reliance on parental permission but bypasses the facility's required infant-transport identity verification.",
+    "B": "Correct. It prevents release before verification and activates the established security process.",
+    "C": "Plausible attempt to verify the rule but leaves an unidentified visitor in possession of the newborn during the check.",
+    "D": "Plausible compromise that keeps the visitor visible but still permits unverified infant transport before authorization is confirmed."
+  },
+  "ambiguity_check": "No second defensible best answer. The facility requirement is explicit and the visitor lacks the required identifier. B alone keeps the newborn secured until identity/authorization are verified. A/C/D all allow release or possession before verification.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 135, "B": 145, "C": 140, "D": 137},
+    "note": "Exact character counts were calculated from the stored strings. All options are within ten characters and the correct response is not isolated by structure or absolute wording."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Following security plans and newborn nursery security procedures is explicit Safety and Infection Prevention and Control content for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Security Plan content, printed p. 26 / PDF p. 30, was visually inspected on 2026-08-19 and explicitly includes newborn nursery security and controlled access."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN Security Plan content verified directly and visually",
+      "newborn nursery security example verified directly",
+      "facility-specific authorization rule explicitly controlled in stem",
+      "no universal badge standard invented",
+      "A/B/C/D independently re-audited for infant security and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word and prior extreme correct-answer-length cues removed",
+      "exact option lengths verified as A135/B145/C140/D137",
+      "construct compared with Q0421/Q0623/Q0624 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty set to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
