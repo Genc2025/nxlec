@@ -1,0 +1,63 @@
+{
+  "question_uid": "V2-Q0557",
+  "stable_sort_key": "06-STANDALONE-00557",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "category_id": 8,
+  "client_need": "Pharmacological and Parenteral Therapies",
+  "blueprint_topic": "Pharmacological and Parenteral Therapies — apixaban NVAF dose-reduction criteria",
+  "difficulty": "medium",
+  "stem": "For adults with nonvalvular atrial fibrillation, the labeled apixaban dose is 5 mg twice daily for most patients and 2.5 mg twice daily when at least two specified criteria are present. Assuming no interacting medication requires another adjustment, which client meets the labeled reduction criteria?",
+  "options": {
+    "A": "An 82-year-old client who weighs 68 kg and has a serum creatinine of 1.2 mg/dL.",
+    "B": "A 76-year-old client who weighs 58 kg and has a serum creatinine of 1.6 mg/dL.",
+    "C": "A 79-year-old client who weighs 62 kg and has a serum creatinine of 1.7 mg/dL.",
+    "D": "An 81-year-old client who weighs 64 kg and has a serum creatinine of 1.3 mg/dL."
+  },
+  "correct_option": "B",
+  "rationale": "Current ELIQUIS labeling recommends 2.5 mg twice daily for adults with nonvalvular atrial fibrillation when at least two of three criteria are present: age at least 80 years, body weight 60 kg or less, or serum creatinine at least 1.5 mg/dL. Client B meets two criteria: weight 58 kg and serum creatinine 1.6 mg/dL. A meets only the age criterion, C meets only the serum-creatinine criterion, and D meets only the age criterion. Therefore B is the best answer.",
+  "educational_objective": "Apply the labeled apixaban NVAF dose-reduction rule: reduce to 2.5 mg twice daily when at least two of age 80 years or older, body weight 60 kg or less, and serum creatinine 1.5 mg/dL or greater are present.",
+  "source_organization": "DailyMed (U.S. National Library of Medicine); repackager: Cardinal Health 107, LLC; source ELIQUIS label",
+  "source_document_title": "ELIQUIS (apixaban) tablets — Prescribing Information",
+  "source_version_date": "Version 38; revised April 2026; DailyMed updated April 24, 2026",
+  "source_accessed_date": "2026-08-26",
+  "source_locator": "§2.1 Recommended Dose in Adult Patients > Reduction of Risk of Stroke and Systemic Embolism in Patients with Nonvalvular Atrial Fibrillation: 5 mg twice daily for most patients; 2.5 mg twice daily when at least two of age ≥80 years, body weight ≤60 kg, or serum creatinine ≥1.5 mg/dL are present.",
+  "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a454cd24-0c6d-46e8-b1e4-197388606175&version=38",
+  "source_claim_supported": "For adult NVAF, apixaban dose reduction to 2.5 mg twice daily requires at least two of the three labeled age, body-weight, and serum-creatinine criteria.",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+  "blueprint_locator": "Printed p. 38, Pharmacological and Parenteral Therapies: review pertinent medication data; perform medication calculations and dose-safety checks; administer medications safely; evaluate medication-related risk.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test%20Plan_English-F.pdf",
+  "candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "candidate_reasons_resolved": [
+    "Rebuilt the item as an applied patient-profile discrimination task rather than restating the complete rule in the correct option.",
+    "Made all four alternatives parallel and nearly identical in structure and length, eliminating the original answer-length cue.",
+    "Added an explicit no-interacting-medication assumption to prevent hidden dose-adjustment ambiguity."
+  ],
+  "candidate_detail": {
+    "option_lengths_after_revision": {
+      "A": 83,
+      "B": 83,
+      "C": 83,
+      "D": 83
+    }
+  },
+  "qa_gate": {
+    "fresh_current_authoritative_source_verification": true,
+    "exact_source_locator_version_currentness": true,
+    "claim_by_claim_stem_key_rationale_objective": true,
+    "options_a_b_c_d_individually_verified": true,
+    "ambiguity_check": true,
+    "second_answer_exclusion": true,
+    "cueing_length_absolute_word_pattern_check": true,
+    "nclex_blueprint_topic_difficulty_alignment": true,
+    "correction_reaudit_complete": true,
+    "independent_adversarial_second_pass": true,
+    "unresolved_conflicts": false
+  },
+  "audit_note": "Independent adversarial review confirms B uniquely meets two labeled criteria. A and D meet age only; C meets serum creatinine only. All alternatives are structurally and length balanced, and the interaction caveat removes a possible competing dose-adjustment pathway."
+}
