@@ -1,0 +1,64 @@
+{
+  "question_uid": "V2-Q0560",
+  "stable_sort_key": "06-STANDALONE-00560",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "category_id": 8,
+  "client_need": "Pharmacological and Parenteral Therapies",
+  "blueprint_topic": "Pharmacological and Parenteral Therapies — insulin degludec FlexTouch concentration and dose-conversion safety",
+  "difficulty": "medium",
+  "stem": "An adult who uses TRESIBA U-100 FlexTouch is changed to the U-200 FlexTouch pen. The prescribed dose remains 40 units once daily. Which instruction should the nurse give?",
+  "options": {
+    "A": "Dial 40 units on the U-200 FlexTouch pen; the dose window displays the insulin units to deliver, so no concentration-based dose conversion is needed.",
+    "B": "Dial 20 units on the U-200 FlexTouch pen because the concentration is doubled and the prescribed 40-unit dose must be divided by two.",
+    "C": "Dial 80 units on the U-200 FlexTouch pen because the higher concentration requires doubling the displayed units to preserve the prescribed dose.",
+    "D": "Withdraw the U-200 insulin from the FlexTouch pen into an insulin syringe and calculate the equivalent syringe volume before each injection."
+  },
+  "correct_option": "A",
+  "rationale": "Current TRESIBA prescribing information states not to perform dose conversion when using the U-100 or U-200 FlexTouch pens because the dose window displays the number of insulin units to be delivered. Therefore a prescription for 40 units is dialed as 40 units on the U-200 pen. B and C apply incorrect concentration-based conversions. D is unsafe and contradicts the label, which states not to transfer TRESIBA from a FlexTouch pen into a syringe because dosing errors and severe hypoglycemia can result.",
+  "educational_objective": "When switching between TRESIBA U-100 and U-200 FlexTouch pens, use the prescribed number of insulin units shown in the dose window without manual dose conversion and do not withdraw insulin from the pen into a syringe.",
+  "source_organization": "DailyMed (U.S. National Library of Medicine); TRESIBA prescribing information",
+  "source_document_title": "TRESIBA (insulin degludec) injection, for subcutaneous use — Prescribing Information",
+  "source_version_date": "Revised July 2026; current DailyMed label accessed 2026-08-26",
+  "source_accessed_date": "2026-08-26",
+  "source_locator": "Full Prescribing Information §2.2 General Dosing Instructions: TRESIBA is available as U-100 and U-200; 'DO NOT perform dose conversion' when using U-100 or U-200 FlexTouch pens because the dose window shows the number of insulin units to be delivered. §2.1 Important Administration Instructions and §5.4 Hypoglycemia Due to Medication Errors: do not transfer TRESIBA from the FlexTouch pen into a syringe because dosing errors/overdose and severe hypoglycemia can result.",
+  "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=afb63b26-5f28-4679-8a8b-5933ddf77fdc",
+  "source_claim_supported": "TRESIBA U-100 and U-200 FlexTouch pens require no manual dose conversion because the dose window displays actual insulin units; insulin should not be withdrawn from the pen into a syringe.",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+  "blueprint_locator": "Printed p. 38, Pharmacological and Parenteral Therapies: evaluate appropriateness and accuracy of medication orders; prepare and administer medications using rights of medication administration; perform calculations needed for medication administration; educate clients about medications; handle and administer high-risk medications safely.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test%20Plan_English-F.pdf",
+  "candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "candidate_reasons_resolved": [
+    "Rebuilt the item as an applied U-100 to U-200 FlexTouch dose-safety scenario instead of a broad fact-recall statement.",
+    "Rewrote all four options as parallel dosing instructions of comparable length and removed isolated absolute-word cues.",
+    "Focused the keyed response on one exact label rule: the displayed units are the units delivered, so no manual concentration conversion is performed."
+  ],
+  "candidate_detail": {
+    "option_lengths_after_revision": {
+      "A": 145,
+      "B": 132,
+      "C": 141,
+      "D": 139
+    }
+  },
+  "qa_gate": {
+    "fresh_current_authoritative_source_verification": true,
+    "exact_source_locator_version_currentness": true,
+    "claim_by_claim_stem_key_rationale_objective": true,
+    "options_a_b_c_d_individually_verified": true,
+    "ambiguity_check": true,
+    "second_answer_exclusion": true,
+    "cueing_length_absolute_word_pattern_check": true,
+    "nclex_blueprint_topic_difficulty_alignment": true,
+    "correction_reaudit_complete": true,
+    "independent_adversarial_second_pass": true,
+    "unresolved_conflicts": false
+  },
+  "audit_note": "Independent adversarial review confirms A uniquely follows current §2.2 labeling. B and C perform prohibited manual concentration conversions in opposite directions, and D conflicts with the explicit prohibition on withdrawing TRESIBA from a FlexTouch pen into a syringe. No second defensible answer, hidden assumption, or material cueing remains."
+}
