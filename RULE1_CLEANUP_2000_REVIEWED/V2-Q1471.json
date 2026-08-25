@@ -1,0 +1,88 @@
+{
+  "question_uid": "V2-Q1471",
+  "stable_sort_key": "05-STANDALONE-01471",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "audit_date": "2026-08-25",
+  "audit_reviewer": "OpenAI GPT-5.6 Sol",
+  "category_id": 9,
+  "client_need": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "stem": "A client using a home blood glucose meter obtains a value that is much higher than expected. The client has no symptoms of hyperglycemia and reports not washing the hands after preparing fruit. Which action should the nurse recommend first?",
+  "options": {
+    "A": "Wash and dry the hands, then repeat the glucose test according to the meter instructions before changing treatment.",
+    "B": "Rinse the fingertip with water, leave it slightly damp, and repeat the glucose test using a new strip on the same meter.",
+    "C": "Use the unexpected high value for the client's usual correction dose, then repeat the glucose after the insulin begins to work.",
+    "D": "Record the value and repeat the glucose at the next scheduled check if the client continues to have no symptoms of hyperglycemia."
+  },
+  "correct_option": "A",
+  "rationale": "FDA guidance states that blood glucose meter accuracy depends partly on how the test is performed and specifically directs users to wash and dry their hands before testing and follow the meter instructions. The 2026 ADA Standards of Care state that a meter reading that is discordant with the clinical picture needs to be retested or tested in a laboratory. Because this client reports improper hand preparation and the result is unexpectedly high without corresponding symptoms, the first action is to wash and dry the hands and repeat the measurement correctly before using the value to change treatment. B leaves the skin damp rather than following FDA hand-preparation guidance. C acts on a potentially erroneous value before verification. D delays the retest even though the result is clinically discordant.",
+  "educational_objective": "When a home blood glucose result is unexpected and testing technique may have compromised accuracy, correct the technique by washing and drying the hands and repeat the measurement before making a treatment change; clinically discordant results require verification.",
+  "source_organization": "U.S. Food and Drug Administration (FDA); American Diabetes Association Professional Practice Committee for Diabetes",
+  "source_document_title": "Blood Glucose Monitoring Devices; 7. Diabetes Technology: Standards of Care in Diabetes—2026",
+  "source_version_date": "Current FDA device information accessed 2026-08-25; Diabetes Care 2026;49(Supplement 1):S150–S180, published December 8, 2025",
+  "source_accessed_date": "2026-08-25",
+  "source_locator": "FDA Blood Glucose Monitoring Devices > What should you consider before using a blood glucose monitoring device?: device accuracy depends in part on how well the test is performed; wash and dry hands before testing and closely follow meter instructions. ADA Standards of Care in Diabetes—2026, Section 7 Diabetes Technology > Blood Glucose Monitoring > Glucose Meter Inaccuracy: a meter reading that seems discordant with the clinical picture needs to be retested or tested in a laboratory.",
+  "source_url": "https://www.fda.gov/medical-devices/in-vitro-diagnostics/blood-glucose-monitoring-devices",
+  "source_claim_supported": "Correct capillary glucose testing requires clean, dry hands and adherence to device instructions; a meter result that is discordant with the clinical picture should be verified by retesting or laboratory testing before it is relied upon for management.",
+  "supporting_sources": [
+    {
+      "organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+      "document_title": "7. Diabetes Technology: Standards of Care in Diabetes—2026",
+      "version_date": "Diabetes Care 2026;49(Supplement 1):S150–S180; published December 8, 2025",
+      "accessed_date": "2026-08-25",
+      "locator": "Blood Glucose Monitoring > Glucose Meter Inaccuracy: a meter reading that seems discordant with the clinical picture needs to be retested or tested in a laboratory.",
+      "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S150/163922/7-Diabetes-Technology-Standards-of-Care-in",
+      "claim_supported": "Unexpected or clinically discordant blood glucose meter values require verification rather than immediate reliance on the single value."
+    }
+  ],
+  "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "2026; Effective April 2026",
+  "blueprint_locator": "Reduction of Risk Potential, printed p. 42: monitor the results of diagnostic testing and intervene as needed; perform testing within scope of practice, including point-of-care testing; use precautions to prevent injury and/or complications associated with a procedure or diagnosis.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+  "blueprint_topic": "Reduction of Risk Potential — verification of an unexpected point-of-care glucose result",
+  "candidate_reasons_original": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "correction_summary": "Rebuilt the item to remove the uniquely-long keyed answer, absolute-word cueing, and obviously unsafe distractors. The corrected item gives a specific technique defect and requires the nurse to verify a clinically discordant home glucose result using FDA- and ADA-supported steps before treatment is changed.",
+  "option_lengths": {
+    "A": 115,
+    "B": 120,
+    "C": 127,
+    "D": 129
+  },
+  "audit_findings": {
+    "clinical_category": "Home blood glucose monitoring — verification of a discordant result",
+    "stem": "PASS — explicitly identifies an unexpected reading, absent matching symptoms, and a correctable hand-preparation defect without assuming the reading is false.",
+    "option_A": "PASS — combines FDA-required hand preparation with ADA-required retesting of a clinically discordant meter result; uniquely best first action.",
+    "option_B": "PASS as distractor — retesting is appropriate in principle, but leaving the skin damp conflicts with FDA instruction to wash and dry hands before testing.",
+    "option_C": "PASS as distractor — a prescribed correction plan can be appropriate for verified hyperglycemia, but acting before verifying this discordant reading risks treatment based on inaccurate data.",
+    "option_D": "PASS as distractor — absence of symptoms does not justify delaying verification of a clinically discordant meter result.",
+    "ambiguity": "PASS — A is the only option that both corrects the identified testing-technique problem and immediately verifies the discordant result.",
+    "second_answer": "EXCLUDED — B repeats with incorrect technique, C changes treatment before verification, and D delays the required retest.",
+    "cueing": "PASS — the keyed answer is not the longest, option lengths are comparable, and no absolute-word pattern points to the key.",
+    "blueprint": "PASS — NCSBN Reduction of Risk Potential directly includes monitoring diagnostic results, point-of-care testing, and intervention to reduce complications.",
+    "independent_adversarial_second_pass": "PASS — challenged whether immediate correction dosing, delayed observation, or retesting with damp skin could be defensible; FDA hand-preparation requirements plus ADA retesting guidance make A the sole complete and safe first action.",
+    "unresolved_conflicts": "NONE"
+  },
+  "gates": {
+    "source_authority_verified": 1,
+    "currentness_verified": 1,
+    "exact_locator_verified": 1,
+    "stem_verified": 1,
+    "correct_answer_verified": 1,
+    "distractors_verified": 1,
+    "rationale_verified": 1,
+    "educational_objective_verified": 1,
+    "ambiguity_verified": 1,
+    "second_answer_excluded": 1,
+    "cueing_verified": 1,
+    "blueprint_verified": 1,
+    "independent_qa_passed": 1,
+    "no_unresolved_conflict": 1
+  }
+}
