@@ -1,0 +1,55 @@
+name: USMLE direct batch import
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/direct_batch_payload.b64'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-direct-batch-main
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Deterministic all-or-nothing batch import
+        run: python usmle/direct_batch_import.py usmle/direct_batch_payload.b64
+      - name: Verify authoritative database
+        run: |
+          python - <<'PY'
+          import sqlite3
+          con=sqlite3.connect("usmle/data/usmle-step1.db")
+          if con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
+              raise SystemExit("DB integrity failure")
+          n=con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]
+          if n != 100:
+              raise SystemExit(f"expected 100, found {n}")
+          print(f"{n}/5040")
+          PY
+      - name: Persist USMLE authoritative state
+        run: |
+          git config user.name "USMLE Direct Batch Importer"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f usmle/data/usmle-step1.db usmle/state/last_run.json
+          if git diff --cached --quiet; then
+            echo "No authoritative changes to persist"
+            exit 1
+          fi
+          git commit -m "Import reviewed USMLE Step 1 items 0002-0100"
+          git pull --rebase origin main
+          git push origin HEAD:main
