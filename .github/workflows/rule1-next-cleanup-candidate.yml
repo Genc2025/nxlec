@@ -4,6 +4,7 @@ on:
     branches: [rule1-cleanup-2000]
     paths:
       - 'tools/rule1_next_cleanup_candidate.py'
+      - 'tools/rule1_legacy_review_gate_compat.py'
       - '.github/workflows/rule1-next-cleanup-candidate.yml'
       - 'RULE1_CLEANUP_2000_REVIEWED/**'
       - 'RULE1_CLEANUP_2000_REVIEWED_ITEMS.json'
@@ -17,6 +18,11 @@ jobs:
         with:
           ref: rule1-cleanup-2000
           fetch-depth: 0
+      - name: Normalize legacy review gate schema runner-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_legacy_review_gate_compat.py
       - name: Select next candidate read-only
         shell: bash
         run: |
