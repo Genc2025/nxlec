@@ -1,10 +1,38 @@
 {
-  "mode": "CHATGPT_DIRECT",
-  "candidate_id": "S1-DIRECT-0002-20260827T013100",
-  "before": 1,
-  "after": 2,
-  "accepted_this_run": 1,
-  "review_sha256": "50d6d59b2767b39c7446bf62153bdac4243db2b109ae236677fc9f1be27a6db8",
-  "candidate_sha256": "d6705c1ec908faf855aeb95b81fd2fad6dda7fd32dacf1f09f1af126f43cf1b2",
+  "mode": "CHATGPT_DIRECT_BATCH",
+  "batch_id": "S1-DIRECT-BATCH-0003-0100",
+  "before": 2,
+  "after": 100,
+  "accepted_this_run": 98,
+  "first_candidate_id": "S1-DIRECT-0003-20260827T020000Z",
+  "last_candidate_id": "S1-DIRECT-0100-20260827T020000Z",
+  "spec_set_sha256": "18ff5deb4d2ab3dacdb6f6597f6f1cbb924e8d23569455017486842447a35800",
+  "integrity_check": "ok",
+  "answer_key_distribution": {
+    "A": 20,
+    "B": 20,
+    "C": 20,
+    "D": 20,
+    "E": 20
+  },
+  "system_distribution": {
+    "Human Development": 2,
+    "Respiratory and Renal/Urinary Systems": 13,
+    "Blood, Lymphoreticular and Immune Systems": 11,
+    "Behavioral Health, Nervous Systems and Special Senses": 12,
+    "Musculoskeletal, Skin and Subcutaneous Tissue": 10,
+    "Cardiovascular System": 9,
+    "Gastrointestinal System": 8,
+    "Reproductive and Endocrine Systems": 13,
+    "Multisystem Processes and Disorders": 10,
+    "Biostatistics, Epidemiology and Population Health": 5,
+    "Social Sciences: Communication and Interpersonal Skills": 7
+  },
+  "competency_distribution": {
+    "Medical Knowledge: Applying Foundational Science Concepts": 65,
+    "Patient Care: Diagnosis, including history and physical examination": 23,
+    "Practice-Based Learning and Improvement": 5,
+    "Communication and Interpersonal Skills": 7
+  },
   "production_count_query": "SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'"
 }
