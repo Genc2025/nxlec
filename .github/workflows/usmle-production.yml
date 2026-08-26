@@ -69,7 +69,7 @@ jobs:
         run: |
           set +e
           mkdir -p usmle/state usmle/data
-          python usmle/pipeline.py --max-accepted 5 --max-attempts 20
+          python usmle/runner.py --max-accepted 5 --max-attempts 20
           rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           echo "PIPELINE_RC=$rc"
@@ -117,6 +117,7 @@ jobs:
           fi
           if ! git diff --cached --quiet; then
             git commit -m "USMLE trusted pipeline state"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
 
