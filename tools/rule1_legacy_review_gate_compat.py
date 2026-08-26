@@ -42,6 +42,7 @@ def is_pass(value) -> bool:
             s.startswith('PASS')
             or s.startswith('FINAL_QA_PASS')
             or ('ADVERSARIAL PASS' in s and 'NO UNRESOLVED CONFLICT' in s)
+            or ('SECOND PASS' in s and ('ADVERSARIAL' in s or 'INDEPENDENT' in s))
         )
     if isinstance(value, dict):
         s = str(value.get('result', '')).strip().upper()
