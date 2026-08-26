@@ -14,7 +14,7 @@ EXPECTED_AUTHOR_SCORES = {
     "blueprint","key","distractors","single_best_answer","reasoning","item_writing",
     "fairness","evidence","originality","technical_integrity"
 }
-ALLOWED_MEDICAL_ROOTS = ("nih.gov","nlm.nih.gov","cdc.gov","fda.gov","hhs.gov","ahrq.gov",
+ALLOWED_MEDICAL_ROOTS = ("nih.gov","nlm.nih.gov","medlineplus.gov","cdc.gov","fda.gov","hhs.gov","ahrq.gov",
                          "cms.gov","hrsa.gov","osha.gov","epa.gov","va.gov")
 
 def canonical(o):
