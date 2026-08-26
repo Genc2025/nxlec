@@ -49,6 +49,40 @@ def pass_result(value) -> bool:
     return False
 
 
+def qa_gate_to_rule1(qg: dict, uid: str) -> dict:
+    required_true = [
+        'fresh_current_authoritative_source_verification',
+        'exact_source_locator_version_currentness',
+        'claim_by_claim_stem_key_rationale_objective',
+        'options_a_b_c_d_individually_verified',
+        'ambiguity_check',
+        'second_answer_exclusion',
+        'cueing_length_absolute_word_pattern_check',
+        'nclex_blueprint_topic_difficulty_alignment',
+        'correction_reaudit_complete',
+        'independent_adversarial_second_pass',
+    ]
+    bad = [k for k in required_true if qg.get(k) is not True]
+    if bad or qg.get('unresolved_conflicts') is not False:
+        fail(f'{uid} qa_gate is not a complete PASS: {bad}; unresolved_conflicts={qg.get("unresolved_conflicts")}')
+    return {
+        'source_authority_verified': 1,
+        'currentness_verified': 1,
+        'exact_locator_verified': 1,
+        'stem_verified': 1,
+        'correct_answer_verified': 1,
+        'distractors_verified': 1,
+        'rationale_verified': 1,
+        'educational_objective_verified': 1,
+        'ambiguity_verified': 1,
+        'second_answer_excluded': 1,
+        'cueing_verified': 1,
+        'blueprint_verified': 1,
+        'independent_qa_passed': 1,
+        'no_unresolved_conflict': 1,
+    }
+
+
 def normalize_shape(d: dict, uid: str) -> tuple[dict, bool]:
     changed = False
     sem = d.get('semantic_correction')
@@ -95,6 +129,35 @@ def normalize_shape(d: dict, uid: str) -> tuple[dict, bool]:
                 d['cueing_audit'] = {'second_answer_risk': second, 'cueing_check': cue}
                 changed = True
 
+    qg = d.get('qa_gate')
+    if isinstance(qg, dict):
+        if not d.get('gates'):
+            d['gates'] = qa_gate_to_rule1(qg, uid)
+            changed = True
+        if not d.get('independent_second_pass') and qg.get('independent_adversarial_second_pass') is True:
+            d['independent_second_pass'] = 'PASS — explicit legacy qa_gate independent_adversarial_second_pass=true'
+            changed = True
+        if not str(d.get('ambiguity_check', '')).strip() and qg.get('ambiguity_check') is True:
+            d['ambiguity_check'] = 'PASS — explicit legacy qa_gate ambiguity_check=true'
+            changed = True
+        if not isinstance(d.get('cueing_audit'), dict) and qg.get('second_answer_exclusion') is True and qg.get('cueing_length_absolute_word_pattern_check') is True:
+            d['cueing_audit'] = {
+                'second_answer_risk': 'EXCLUDED — explicit legacy qa_gate second_answer_exclusion=true',
+                'cueing_check': 'PASS — explicit legacy qa_gate cueing_length_absolute_word_pattern_check=true',
+            }
+            changed = True
+        if not isinstance(d.get('option_audit'), dict) and qg.get('options_a_b_c_d_individually_verified') is True:
+            d['option_audit'] = {k: 'PASS — individually verified in explicit legacy qa_gate' for k in KEYS}
+            changed = True
+        if not str(d.get('correction_summary', '')).strip():
+            resolved = d.get('candidate_reasons_resolved')
+            if isinstance(resolved, list) and any(str(x).strip() for x in resolved):
+                d['correction_summary'] = ' '.join(str(x).strip() for x in resolved if str(x).strip())
+                changed = True
+            elif str(d.get('audit_note', '')).strip():
+                d['correction_summary'] = str(d['audit_note']).strip()
+                changed = True
+
     if d.get('status') == 'FINAL_QA_PASS' and not d.get('audit_status'):
         d['audit_status'] = 'FINAL_QA_PASS'
         changed = True
@@ -138,10 +201,10 @@ def verify_evidence(d: dict, uid: str) -> None:
     if not independent_ok and int(gates.get('independent_qa_passed', 0)) == 1:
         findings = d.get('audit_findings')
         if isinstance(findings, dict):
-            independent_ok = any(
-                'independent' in str(k).lower() and independent_pass(v)
-                for k, v in findings.items()
-            )
+            independent_ok = any('independent' in str(k).lower() and independent_pass(v) for k, v in findings.items())
+        qg = d.get('qa_gate')
+        if isinstance(qg, dict) and qg.get('independent_adversarial_second_pass') is True:
+            independent_ok = True
     if not independent_ok:
         fail(f'{uid} missing explicit independent second-pass PASS')
     if not isinstance(d.get('options'), dict) or sorted(d['options']) != KEYS or d.get('correct_option') not in set(KEYS):
@@ -202,10 +265,7 @@ def materialize_ledger_only(existing_uids: set[str]) -> list[str]:
             'ambiguity_check': ambiguity,
             'cueing_check': cueing_value,
             'independent_second_pass': item.get('independent_second_pass'),
-            'cueing_audit': {
-                'second_answer_risk': ambiguity,
-                'cueing_check': cueing_text,
-            },
+            'cueing_audit': {'second_answer_risk': ambiguity, 'cueing_check': cueing_text},
             'correction_summary': sem.get('correction_summary') or sem.get('correction_summary_append', ''),
             'audit_findings': sem.get('audit_findings') if sem.get('audit_findings') is not None else sem.get('audit_findings_append', []),
         })
@@ -237,10 +297,12 @@ def main() -> None:
     normalized = 0
     already_explicit = 0
     nested_semantic_promoted = 0
+    qa_gate_mapped = 0
     for p in files:
         original = json.loads(p.read_text(encoding='utf-8'))
         uid = original.get('question_uid') or p.stem
         had_nested = isinstance(original.get('semantic_correction'), dict)
+        had_qa_gate = isinstance(original.get('qa_gate'), dict) and not original.get('gates')
         d, changed = normalize_shape(original, uid)
 
         gates = d.get('gates')
@@ -250,6 +312,8 @@ def main() -> None:
                 fail(f'{uid} has explicit non-PASS gates: {bad}')
             verify_evidence(d, uid)
             already_explicit += 1
+            if had_qa_gate:
+                qa_gate_mapped += 1
             if changed:
                 p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
             continue
@@ -269,6 +333,7 @@ def main() -> None:
         'already_explicit_gates': already_explicit,
         'legacy_schema_normalized_runner_only': normalized,
         'nested_semantic_promoted_runner_only': nested_semantic_promoted,
+        'qa_gate_mapped_runner_only': qa_gate_mapped,
     }, sort_keys=True))
 
 
