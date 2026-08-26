@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import hashlib, json, re, sqlite3, subprocess
+import hashlib, json, re, sqlite3, subprocess, sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -8,6 +8,9 @@ from pathlib import Path
 DB = Path('NCLEX_CANONICAL.db')
 CORR = Path('RULE1_CLEANUP_2000_CORRECTIONS.json')
 OUT = Path('RULE1_CLEANUP_2000_RESULT.json')
+SNAP_TRIGGER = Path('RULE1_BUILD_SNAPSHOT_1125.trigger')
+SNAP_DB = Path('NCLEX_CANONICAL_RULE1_1125.db')
+SNAP_REPORT = Path('RULE1_CONSOLIDATED_1125_REPORT.json')
 EXPECTED_INPUT_BLOB = '182a1e979e11d62bebc85c5ceb859056b8812963'
 GATES = [
  'source_authority_verified','currentness_verified','exact_locator_verified','stem_verified',
@@ -67,7 +70,25 @@ def append_finding(existing, finding):
         out['bank_cleanup_notes']=notes+[finding]; return out
     return [existing, finding]
 
+def maybe_build_reviewed_snapshot():
+    if not SNAP_TRIGGER.exists() or SNAP_DB.exists():
+        return False
+    subprocess.check_call([
+        sys.executable, 'tools/build_rule1_reviewed_snapshot.py',
+        '--expected-reviewed', '1125',
+        '--output', str(SNAP_DB),
+        '--report', str(SNAP_REPORT),
+    ])
+    subprocess.check_call(['git','config','user.name','OpenAI GitHub Connector'])
+    subprocess.check_call(['git','config','user.email','github-connector@openai.com'])
+    subprocess.check_call(['git','add',str(SNAP_DB),str(SNAP_REPORT)])
+    subprocess.check_call(['git','commit','-m','RULE1 consolidate 1125 reviewed into 2000-question DB'])
+    subprocess.check_call(['git','push','origin','HEAD:rule1-cleanup-2000'])
+    return True
+
 def main():
+    if maybe_build_reviewed_snapshot():
+        return
     blob=subprocess.check_output(['git','rev-parse','HEAD:NCLEX_CANONICAL.db'],text=True).strip()
     if blob != EXPECTED_INPUT_BLOB:
         raise SystemExit(f'BLOCKED input canonical blob {blob}')
