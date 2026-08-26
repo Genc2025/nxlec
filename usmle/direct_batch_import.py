@@ -136,16 +136,46 @@ def add_event(con,cid,prev,new,actor,input_hash,payload_hash,at):
  e={"candidate_id":cid,"previous_status":prev,"new_status":new,"event_at":at,"actor":actor,"input_sha256":input_hash,"payload_sha256":payload_hash,"previous_event_sha256":pe}
  eh=hash_obj(e)
  con.execute("INSERT INTO history(candidate_id,previous_status,new_status,event_at,actor,input_sha256,payload_sha256,previous_event_sha256,event_sha256) VALUES(?,?,?,?,?,?,?,?,?)",(cid,prev,new,at,actor,input_hash,payload_hash,pe,eh))
+def decode_recover_payload(payload):
+ s=pathlib.Path(payload).read_text().strip()
+ try:
+  return gzip.decompress(base64.b64decode(s))
+ except Exception:
+  alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+  # The committed payload is known to be exactly one base64 character short.
+  # Recover only if a unique insertion yields valid gzip JSON Q0002-Q0100.
+  hits=[]
+  for pos in range(len(s)-2+1):
+   for ch in alphabet:
+    t=s[:pos]+ch+s[pos:]
+    try:
+     raw=gzip.decompress(base64.b64decode(t,validate=True))
+     xs=json.loads(raw.decode("utf-8"))
+     if len(xs)==99 and [x.get("num") for x in xs]==list(range(2,101)):
+      hits.append((pos,ch,raw))
+      if len(hits)>1: raise SystemExit("payload recovery is ambiguous")
+    except SystemExit:
+     raise
+    except Exception:
+     pass
+  if len(hits)!=1: raise SystemExit(f"payload recovery failed; candidates={len(hits)}")
+  pos,ch,raw=hits[0]
+  print(f"RECOVERED_PAYLOAD missing_char_pos={pos} char={ch}")
+  return raw
+
 def main(payload):
- raw=gzip.decompress(base64.b64decode(pathlib.Path(payload).read_text().strip()))
+ raw=decode_recover_payload(payload)
  xs=json.loads(raw.decode("utf-8"))
  if len(xs)!=99 or [x["num"] for x in xs]!=list(range(2,101)):raise SystemExit("payload must contain exactly Q0002-Q0100")
+ xs=[x for x in xs if x["num"]>=3]
+ if len(xs)!=98 or [x["num"] for x in xs]!=list(range(3,101)):raise SystemExit("filtered payload must contain exactly Q0003-Q0100")
+ print("BATCH_DIAGNOSES", json.dumps([{"num":x["num"],"diagnosis":x["diagnosis"],"system":x["system"],"key":x["key"],"s1":x["s1_url"],"s2":x["s2_url"]} for x in xs], ensure_ascii=False))
  pairs=[build_pair(x) for x in xs]
  hashes={p["candidate"]["candidate_id"]:validate(p["candidate"],p["review"]) for p in pairs}
  con=sqlite3.connect(DB)
  if con.execute("PRAGMA integrity_check").fetchone()[0]!="ok":raise SystemExit("pre-import integrity failure")
  before=con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]
- if before!=1:raise SystemExit(f"expected authoritative count 1, found {before}")
+ if before!=2:raise SystemExit(f"expected authoritative count 2, found {before}")
  con.execute("""CREATE TABLE IF NOT EXISTS direct_reviews(candidate_id TEXT PRIMARY KEY REFERENCES candidates(candidate_id),review_json TEXT NOT NULL,review_sha256 TEXT NOT NULL UNIQUE,model TEXT NOT NULL,reviewed_at TEXT NOT NULL)""")
  con.execute("""CREATE TRIGGER IF NOT EXISTS direct_reviews_no_update BEFORE UPDATE ON direct_reviews BEGIN SELECT RAISE(ABORT,'direct reviews are immutable'); END;""")
  con.execute("""CREATE TRIGGER IF NOT EXISTS direct_reviews_no_delete BEFORE DELETE ON direct_reviews BEGIN SELECT RAISE(ABORT,'direct reviews are immutable'); END;"""); con.commit()
@@ -187,12 +217,12 @@ def main(payload):
   con.rollback();raise
  if con.execute("PRAGMA integrity_check").fetchone()[0]!="ok":raise SystemExit("post-import integrity failure")
  after=con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]
- if after!=100 or after-before!=99:raise SystemExit(f"counter mismatch {before}->{after}")
+ if after!=100 or after-before!=98:raise SystemExit(f"counter mismatch {before}->{after}")
  for p in pairs:
   c=p["candidate"];r=p["review"];row=con.execute("SELECT payload_sha256,audit_sha256,status FROM items WHERE candidate_id=?",(c["candidate_id"],)).fetchone()
   if row!=(c["hashes"]["candidate_payload_sha256"],r["review_sha256"],"PRODUCTION_READY"):raise SystemExit(f"reread failure {c['candidate_id']}")
  STATE.mkdir(parents=True,exist_ok=True)
- STATE.joinpath("last_run.json").write_text(json.dumps({"mode":"CHATGPT_DIRECT_BATCH","batch_id":"S1-DIRECT-BATCH-0002-0100","before":before,"after":after,"accepted_this_run":99,"first_candidate_id":ids[0],"last_candidate_id":ids[-1],"payload_sha256":hashlib.sha256(raw).hexdigest(),"integrity_check":"ok","answer_key_distribution":dict(keyc),"system_distribution":dict(sysc),"competency_distribution":dict(compc),"production_count_query":"SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'"},indent=2),encoding="utf-8")
+ STATE.joinpath("last_run.json").write_text(json.dumps({"mode":"CHATGPT_DIRECT_BATCH","batch_id":"S1-DIRECT-BATCH-0003-0100","before":before,"after":after,"accepted_this_run":98,"first_candidate_id":ids[0],"last_candidate_id":ids[-1],"payload_sha256":hashlib.sha256(raw).hexdigest(),"integrity_check":"ok","answer_key_distribution":dict(keyc),"system_distribution":dict(sysc),"competency_distribution":dict(compc),"production_count_query":"SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'"},indent=2),encoding="utf-8")
  print("100/5040")
  return 0
 if __name__=="__main__":
