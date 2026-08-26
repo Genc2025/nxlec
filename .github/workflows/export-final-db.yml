@@ -1,0 +1,39 @@
+name: Export final NCLEX DB
+
+on:
+  push:
+    branches:
+      - rule1-cleanup-2000
+    paths:
+      - DOWNLOAD_FINAL_DB.trigger
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+      - name: Verify final DB
+        run: |
+          python3 - <<'PY'
+          import hashlib, pathlib, sqlite3
+          p=pathlib.Path('NCLEX_FULL_3525_RULE1_1125.db')
+          assert p.exists()
+          h=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert h=='477e8c63c0032babccd0de4c059db3ed26dfe9c720ee9bf5096bb8a1ae014a81', h
+          con=sqlite3.connect(p)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute('SELECT COUNT(*) FROM questions').fetchone()[0]==3525
+          con.close()
+          print('VERIFIED', h)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NCLEX_FULL_3525_RULE1_1125
+          path: NCLEX_FULL_3525_RULE1_1125.db
+          if-no-files-found: error
+          retention-days: 7
