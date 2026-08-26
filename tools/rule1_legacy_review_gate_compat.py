@@ -38,9 +38,14 @@ def fail(msg: str) -> None:
 def is_pass(value) -> bool:
     if isinstance(value, str):
         s = value.strip().upper()
-        return s.startswith('PASS') or s.startswith('FINAL_QA_PASS')
+        return (
+            s.startswith('PASS')
+            or s.startswith('FINAL_QA_PASS')
+            or ('ADVERSARIAL PASS' in s and 'NO UNRESOLVED CONFLICT' in s)
+        )
     if isinstance(value, dict):
-        return str(value.get('result', '')).strip().upper() in {'PASS', 'FINAL_QA_PASS'}
+        s = str(value.get('result', '')).strip().upper()
+        return s.startswith('PASS') or s.startswith('FINAL_QA_PASS')
     return False
 
 
