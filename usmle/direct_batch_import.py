@@ -72,31 +72,40 @@ def locator(url):
  if "limited-english-proficiency" in url or "thinkculturalhealth" in url:return "Language assistance and interpreter standards"
  if "ethics.va.gov" in url:return "Patients who have a surrogate; substituted judgment and best interests"
  return "Relevant disease/mechanism guidance"
-def source(sid,title,url,x):
- return {"source_id":sid,"agency":agency(url),"title":title,"url":url,
- "publication_or_revision_date":"Current official U.S. government source; accessed for 2026 production",
- "retrieved_at":BATCH_TIME,"section_locator":locator(url),
- "supporting_passage":f"The official source was used to verify the factual basis of {x['diagnosis']} and the item mechanism: {x['mechanism']}",
+def source(sid,s,x):
+ url=s["url"]
+ return {"source_id":sid,"agency":agency(url),"title":s["title"],"url":url,
+ "publication_or_revision_date":s.get("date","Current official U.S. government source; accessed for 2026 production"),
+ "retrieved_at":BATCH_TIME,"section_locator":s.get("locator") or locator(url),
+ "supporting_passage":s["support"],
  "government_status_verified":True,
  "rights_status":"Official U.S. federal government source; facts paraphrased into original educational content."}
 def build_pair(x):
- n=x["num"]; cid=f"S1-DIRECT-{n:04d}-20260826T230500Z"; key=x["key"]
+ n=x["num"]; cid=f"S1-DIRECT-{n:04d}-20260827T020000Z"; key=x["key"]
+ wrong=list(zip(x["distractors"],x["distractor_notes"]))
+ if len(wrong)!=4: raise SystemExit(f"{cid}: exactly four distractors required")
+ opts={}; notes={}; wi=0
+ for L in "ABCDE":
+  if L==key:
+   opts[L]=x["correct"]
+  else:
+   opts[L]=wrong[wi][0]; notes[L]=wrong[wi][1]; wi+=1
  dex={}
- for L,opt in x["options"].items():
-  dex[L]=("Correct. "+x["key_expl"]) if L==key else (f"Incorrect. {opt} does not best account for the combined findings in this vignette, including {x['clues'][0]} and {x['clues'][1]}. The source-supported explanation is {x['diagnosis']}: {x['mechanism']}")
+ for L,opt in opts.items():
+  dex[L]=("Correct. "+x["key_expl"]) if L==key else ("Incorrect. "+notes[L])
  ev=[]
  for j,L in enumerate("ABCDE",1):
-  opt=x["options"][L]
+  opt=opts[L]
   ev.append({"claim_id":f"C{j}","option":L,
    "claim":(f"{opt} is the uniquely best answer because {x['mechanism']}" if L==key else f"{opt} is not the best answer for this vignette; the findings are instead explained by {x['diagnosis']} and its defining mechanism."),
    "source_ids":["S1","S2"],"direct_or_inference":"direct" if L==key else "inference",
    "item_specific_application":"Directly supports the intended key in this vignette." if L==key else f"Rejects option {L} after matching the vignette to the source-verified disease/mechanism."})
  c={"candidate_id":cid,"bank":"INDEPENDENT_USMLE_STEP1_USA","country_scope":"USA","specification_version":SPEC,
   "blueprint":{"primary_system":x["system"],"official_outline_path":x["outline"],"primary_competency":x["primary_competency"],"disciplines":[x["discipline"]],"coverage_deficit_addressed":f"{x['diagnosis']} — {x['mechanism']}"},
-  "item":{"vignette":x["vignette"],"lead_in":x["lead"],"options":x["options"],"intended_key":key,"difficulty":"moderate","tested_construct":x["mechanism"],"reasoning_steps_count":3},
+  "item":{"vignette":x["vignette"],"lead_in":x["lead"],"options":opts,"intended_key":key,"difficulty":x.get("difficulty","moderate"),"tested_construct":x["mechanism"],"reasoning_steps_count":x.get("reasoning_steps_count",3)},
   "explanation":{"key_explanation":x["key_expl"],"distractor_explanations":dex,"educational_objective":x["objective"]},
-  "evidence_map":ev,"sources":[source("S1",x["s1_title"],x["s1_url"],x),source("S2",x["s2_title"],x["s2_url"],x)],
-  "semantic_fingerprint":{"tested_construct":x["mechanism"],"diagnosis_or_process":x["diagnosis"],"mechanism":x["mechanism"],"lead_in_task":x["lead"],"correct_answer_concept":x["options"][key],"essential_clues":x["clues"],"reasoning_chain":[f"Recognize the defining clues for {x['diagnosis']}",f"Apply the relevant foundational or diagnostic concept: {x['mechanism']}",f"Select {x['options'][key]} as the single best answer"],"distractor_misconceptions":[f"Choosing {x['options'][L]} despite mismatch with the vignette" for L in "ABCDE" if L!=key]},
+  "evidence_map":ev,"sources":[source("S1",x["sources"][0],x),source("S2",x["sources"][1],x)],
+  "semantic_fingerprint":{"tested_construct":x["mechanism"],"diagnosis_or_process":x["diagnosis"],"mechanism":x["mechanism"],"lead_in_task":x["lead"],"correct_answer_concept":x["correct"],"essential_clues":x["clues"],"reasoning_chain":[f"Recognize the defining clues for {x['diagnosis']}",f"Apply the relevant foundational or diagnostic concept: {x['mechanism']}",f"Select {x['options'][key]} as the single best answer"],"distractor_misconceptions":[f"Choosing {x['options'][L]} despite mismatch with the vignette" for L in "ABCDE" if L!=key]},
   "author_self_audit":{"scores":{"blueprint":10,"key":10,"distractors":10,"single_best_answer":10,"reasoning":10,"item_writing":10,"fairness":10,"evidence":10,"originality":10,"technical_integrity":10},"unresolved_concerns":[]},
   "hashes":{"author_input_sha256":sha_text(f"CHATGPT_DIRECT_AUTHOR|{cid}|{canonical(x)}"),"candidate_payload_sha256":""},"status":"CANDIDATE_FROZEN"}
  c["hashes"]["candidate_payload_sha256"]=candidate_hash(c)
@@ -124,7 +133,7 @@ def validate(c,r):
  for s in c["sources"]:
   if not domain_ok(s["url"]) or not s["government_status_verified"] or s["source_id"] in ids:raise SystemExit(f"{cid}: source failure")
   ids.add(s["source_id"])
- if len(ids)<2 or {e["option"] for e in c["evidence_map"]}!=set("ABCDE"):raise SystemExit(f"{cid}: evidence failure")
+ if len(ids)<2 or len({s["url"] for s in c["sources"]})<2 or {e["option"] for e in c["evidence_map"]}!=set("ABCDE"):raise SystemExit(f"{cid}: evidence/source diversity failure")
  if {s["source_id"] for s in r["source_verification"]}!=ids:raise SystemExit(f"{cid}: source review coverage failure")
  for s in r["source_verification"]:
   if not all(s[k] is True for k in ("opened_and_checked","official_us_government","claim_supported","current_and_applicable")) or s["conflict_found"]:raise SystemExit(f"{cid}: source review failure")
@@ -136,40 +145,26 @@ def add_event(con,cid,prev,new,actor,input_hash,payload_hash,at):
  e={"candidate_id":cid,"previous_status":prev,"new_status":new,"event_at":at,"actor":actor,"input_sha256":input_hash,"payload_sha256":payload_hash,"previous_event_sha256":pe}
  eh=hash_obj(e)
  con.execute("INSERT INTO history(candidate_id,previous_status,new_status,event_at,actor,input_sha256,payload_sha256,previous_event_sha256,event_sha256) VALUES(?,?,?,?,?,?,?,?,?)",(cid,prev,new,at,actor,input_hash,payload_hash,pe,eh))
-def decode_recover_payload(payload):
- s=pathlib.Path(payload).read_text().strip()
- try:
-  return gzip.decompress(base64.b64decode(s))
- except Exception:
-  alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-  # The committed payload is known to be exactly one base64 character short.
-  # Recover only if a unique insertion yields valid gzip JSON Q0002-Q0100.
-  hits=[]
-  for pos in range(len(s)-2+1):
-   for ch in alphabet:
-    t=s[:pos]+ch+s[pos:]
-    try:
-     raw=gzip.decompress(base64.b64decode(t,validate=True))
-     xs=json.loads(raw.decode("utf-8"))
-     if len(xs)==99 and [x.get("num") for x in xs]==list(range(2,101)):
-      hits.append((pos,ch,raw))
-      if len(hits)>1: raise SystemExit("payload recovery is ambiguous")
-    except SystemExit:
-     raise
-    except Exception:
-     pass
-  if len(hits)!=1: raise SystemExit(f"payload recovery failed; candidates={len(hits)}")
-  pos,ch,raw=hits[0]
-  print(f"RECOVERED_PAYLOAD missing_char_pos={pos} char={ch}")
-  return raw
+def load_specs(spec_dir):
+ files=sorted(pathlib.Path(spec_dir).glob("*.json"))
+ if not files: raise SystemExit("no batch spec files")
+ xs=[]
+ for p in files:
+  part=json.loads(p.read_text(encoding="utf-8"))
+  if not isinstance(part,list): raise SystemExit(f"{p}: expected JSON list")
+  xs.extend(part)
+ xs=sorted(xs,key=lambda x:x["num"])
+ if len(xs)!=98 or [x["num"] for x in xs]!=list(range(3,101)):
+  raise SystemExit(f"spec set must contain exactly Q0003-Q0100; got {len(xs)} items")
+ keys="BCDEBCDE"+"ABCDE"*18
+ if len(keys)!=98: raise SystemExit("internal key schedule failure")
+ for i,x in enumerate(xs):
+  x["key"]=keys[i]
+ return xs
 
-def main(payload):
- raw=decode_recover_payload(payload)
- xs=json.loads(raw.decode("utf-8"))
- if len(xs)!=99 or [x["num"] for x in xs]!=list(range(2,101)):raise SystemExit("payload must contain exactly Q0002-Q0100")
- xs=[x for x in xs if x["num"]>=3]
- if len(xs)!=98 or [x["num"] for x in xs]!=list(range(3,101)):raise SystemExit("filtered payload must contain exactly Q0003-Q0100")
- print("BATCH_DIAGNOSES", json.dumps([{"num":x["num"],"diagnosis":x["diagnosis"],"system":x["system"],"key":x["key"],"s1":x["s1_url"],"s2":x["s2_url"]} for x in xs], ensure_ascii=False))
+def main(spec_dir):
+ xs=load_specs(spec_dir)
+ print("BATCH_SUMMARY", json.dumps([{"num":x["num"],"diagnosis":x["diagnosis"],"system":x["system"],"key":x["key"],"sources":[s["url"] for s in x["sources"]]} for x in xs], ensure_ascii=False))
  pairs=[build_pair(x) for x in xs]
  hashes={p["candidate"]["candidate_id"]:validate(p["candidate"],p["review"]) for p in pairs}
  con=sqlite3.connect(DB)
@@ -222,9 +217,9 @@ def main(payload):
   c=p["candidate"];r=p["review"];row=con.execute("SELECT payload_sha256,audit_sha256,status FROM items WHERE candidate_id=?",(c["candidate_id"],)).fetchone()
   if row!=(c["hashes"]["candidate_payload_sha256"],r["review_sha256"],"PRODUCTION_READY"):raise SystemExit(f"reread failure {c['candidate_id']}")
  STATE.mkdir(parents=True,exist_ok=True)
- STATE.joinpath("last_run.json").write_text(json.dumps({"mode":"CHATGPT_DIRECT_BATCH","batch_id":"S1-DIRECT-BATCH-0003-0100","before":before,"after":after,"accepted_this_run":98,"first_candidate_id":ids[0],"last_candidate_id":ids[-1],"payload_sha256":hashlib.sha256(raw).hexdigest(),"integrity_check":"ok","answer_key_distribution":dict(keyc),"system_distribution":dict(sysc),"competency_distribution":dict(compc),"production_count_query":"SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'"},indent=2),encoding="utf-8")
+ STATE.joinpath("last_run.json").write_text(json.dumps({"mode":"CHATGPT_DIRECT_BATCH","batch_id":"S1-DIRECT-BATCH-0003-0100","before":before,"after":after,"accepted_this_run":98,"first_candidate_id":ids[0],"last_candidate_id":ids[-1],"spec_set_sha256":hashlib.sha256(canonical(xs).encode("utf-8")).hexdigest(),"integrity_check":"ok","answer_key_distribution":dict(keyc),"system_distribution":dict(sysc),"competency_distribution":dict(compc),"production_count_query":"SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'"},indent=2),encoding="utf-8")
  print("100/5040")
  return 0
 if __name__=="__main__":
- if len(sys.argv)!=2:raise SystemExit("usage: direct_batch_import.py PAYLOAD.b64")
+ if len(sys.argv)!=2:raise SystemExit("usage: direct_batch_import.py SPEC_DIR")
  raise SystemExit(main(sys.argv[1]))
