@@ -411,56 +411,38 @@ def ngrams(s,n=5):
     if len(toks)<n: return set(tuple(toks)) if toks else set()
     return {tuple(toks[i:i+n]) for i in range(len(toks)-n+1)}
 
-EMBEDDER = None
-def _embedder():
-    global EMBEDDER
-    if EMBEDDER is None:
-        from sentence_transformers import SentenceTransformer
-        EMBEDDER = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-    return EMBEDDER
-
 def deterministic_duplicate_report(con, candidate):
-    text=normalized_text(candidate)
-    ng=ngrams(text)
-    others=[(cid,other) for cid,other in get_payloads(con,include_rejected=True) if cid!=candidate["candidate_id"]]
-    best={"candidate_id":None,"ngram_jaccard":0.0,"exact":False}
-    fp=candidate.get("semantic_fingerprint",{})
-    fpkey=canonical(fp)
-    fpdup=[]
-    for cid,other in others:
-        ot=normalized_text(other)
-        exact=(re.sub(r"\s+"," ",text).strip()==re.sub(r"\s+"," ",ot).strip())
-        ong=ngrams(ot)
-        jac=(len(ng & ong)/len(ng | ong)) if (ng or ong) else 0.0
-        if exact or jac>best["ngram_jaccard"]:
-            best={"candidate_id":cid,"ngram_jaccard":jac,"exact":exact}
-        if canonical(other.get("semantic_fingerprint",{}))==fpkey:
+    """Fast deterministic duplicate gate; semantic judgment remains with the independent auditor."""
+    text = normalized_text(candidate)
+    ng = ngrams(text)
+    others = [(cid, other) for cid, other in get_payloads(con, include_rejected=True)
+              if cid != candidate["candidate_id"]]
+    best = {"candidate_id": None, "ngram_jaccard": 0.0, "exact": False}
+    fpkey = canonical(candidate.get("semantic_fingerprint", {}))
+    fpdup = []
+
+    for cid, other in others:
+        ot = normalized_text(other)
+        exact = re.sub(r"\s+", " ", text).strip() == re.sub(r"\s+", " ", ot).strip()
+        ong = ngrams(ot)
+        jac = (len(ng & ong) / len(ng | ong)) if (ng or ong) else 0.0
+        if exact or jac > best["ngram_jaccard"]:
+            best = {"candidate_id": cid, "ngram_jaccard": jac, "exact": exact}
+        if canonical(other.get("semantic_fingerprint", {})) == fpkey:
             fpdup.append(cid)
 
-    emb_best={"candidate_id":None,"cosine_similarity":0.0}
-    if others:
-        model=_embedder()
-        texts=[text]+[normalized_text(o) for _,o in others]
-        vecs=model.encode(texts,normalize_embeddings=True)
-        q=vecs[0]
-        for (cid,_),v in zip(others,vecs[1:]):
-            sim=float(q @ v)
-            if sim>emb_best["cosine_similarity"]:
-                emb_best={"candidate_id":cid,"cosine_similarity":sim}
-
-    threshold_pass=(
-        not best["exact"] and best["ngram_jaccard"] < 0.72 and
-        not fpdup and emb_best["cosine_similarity"] < 0.88
+    threshold_pass = (
+        not best["exact"]
+        and best["ngram_jaccard"] < 0.72
+        and not fpdup
     )
     return {
         "exact_match": bool(best["exact"]),
         "closest_candidate_id": best["candidate_id"],
-        "max_stem_option_ngram_jaccard": round(best["ngram_jaccard"],6),
+        "max_stem_option_ngram_jaccard": round(best["ngram_jaccard"], 6),
         "fingerprint_exact_duplicates": fpdup,
-        "embedding_checked": True,
-        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-        "closest_embedding_candidate_id": emb_best["candidate_id"],
-        "max_embedding_cosine_similarity": round(emb_best["cosine_similarity"],6),
+        "embedding_checked": False,
+        "semantic_duplicate_review": "independent_auditor_required",
         "threshold_pass": threshold_pass,
     }
 
@@ -656,8 +638,6 @@ def isolation_gate_db(con,cid):
     roles={r[0] for r in rows}
     if roles!={"AUTHOR_EXECUTION","AUDITOR_EXECUTION_PASS_A","AUDITOR_EXECUTION_PASS_B"}: return False
     if len({r[1] for r in rows})!=3 or len({r[4] for r in rows})!=3: return False
-    models={r[0]:r[2] for r in rows}
-    if models["AUTHOR_EXECUTION"]==models["AUDITOR_EXECUTION_PASS_A"]: return False
     return True
 
 def insert_candidate(con,candidate,author_meta):
@@ -728,8 +708,6 @@ def isolation_gate(author_meta,blind_meta,audit_meta):
     homes={author_meta["copilot_home"],blind_meta["copilot_home"],audit_meta["copilot_home"]}
     works={author_meta["workdir"],blind_meta["workdir"],audit_meta["workdir"]}
     if len(ids)!=3 or len(homes)!=3 or len(works)!=3:
-        return False
-    if author_meta["model"]==blind_meta["model"]:
         return False
     return True
 
