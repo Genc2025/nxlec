@@ -3,7 +3,7 @@
 import sys
 from pathlib import Path
 
-import pipeline as p
+import core as p
 
 USMLE_ROOT = Path(__file__).resolve().parent
 p.ROOT = USMLE_ROOT
@@ -20,7 +20,7 @@ def _isolated_importer_aware_run(cmd, *args, **kwargs):
     if (
         isinstance(cmd, (list, tuple))
         and len(cmd) >= 3
-        and str(cmd[1]).endswith("pipeline.py")
+        and str(cmd[1]).endswith(("pipeline.py", "core.py"))
         and cmd[2] == "--import-candidate"
     ):
         cmd = [cmd[0], str(Path(__file__).resolve()), *cmd[2:]]
@@ -44,7 +44,9 @@ def _run_model_with_fallback(prompt, requested_model, phase, execution_id):
             continue
         seen.add(model)
         try:
-            return _original_run_copilot(prompt, model, phase, execution_id)
+            result, meta = _original_run_copilot(prompt, model, phase, execution_id)
+            meta["model"] = model
+            return result, meta
         except RuntimeError as exc:
             last_error = exc
             text = str(exc).lower()
