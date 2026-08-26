@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
+# One-shot snapshot hook: selector clinical behavior remains unchanged.
 import json, sqlite3, subprocess, sys
 from pathlib import Path
 DB=Path('NCLEX_CANONICAL.db'); CAND=Path('RULE1_CLEANUP_2000_CANDIDATES.jsonl'); REVIEW_DIR=Path('RULE1_CLEANUP_2000_REVIEWED'); LEDGER=Path('RULE1_CLEANUP_2000_REVIEWED_ITEMS.json'); OUT=Path('RULE1_CLEANUP_2000_NEXT_CANDIDATE.json')
