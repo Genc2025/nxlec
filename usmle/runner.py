@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Fail-closed runtime adapter for isolated USMLE model executions."""
+import os
 import sys
+import tempfile
 from pathlib import Path
 
 import pipeline as p
@@ -30,6 +32,36 @@ def _isolated_importer_aware_run(cmd, *args, **kwargs):
 p.subprocess.run = _isolated_importer_aware_run
 
 
+def _run_auto_without_reasoning_effort(prompt, phase, execution_id):
+    """Run Copilot auto in a fresh isolated execution without unsupported reasoning-effort flags."""
+    home = Path(tempfile.mkdtemp(prefix=f"copilot-{phase}-"))
+    work = Path(tempfile.mkdtemp(prefix=f"work-{phase}-"))
+    env = os.environ.copy()
+    env["COPILOT_HOME"] = str(home)
+    env["COPILOT_AUTO_UPDATE"] = "false"
+    cmd = [
+        "copilot", "-p", prompt, "-s", "--no-ask-user",
+        "--model", "auto",
+        "--available-tools=web_search,web_fetch",
+        "--allow-tool=web_search", "--allow-tool=web_fetch",
+        "--disable-builtin-mcps", "-C", str(work),
+    ]
+    for url in p.URL_ALLOW_ARGS:
+        cmd += ["--allow-url", url]
+    proc = _real_subprocess_run(cmd, env=env, text=True, capture_output=True, timeout=1200)
+    if proc.returncode != 0:
+        raise RuntimeError(f"{phase} auto execution failed rc={proc.returncode}: {proc.stderr[-2000:]}")
+    result = p.extract_json(proc.stdout)
+    return result, {
+        "execution_id": execution_id,
+        "model": "auto",
+        "copilot_home": str(home),
+        "workdir": str(work),
+        "prompt_sha256": p.sha_text(prompt),
+        "completed_at": p.now(),
+    }
+
+
 def _run_model_with_fallback(prompt, requested_model, phase, execution_id):
     """Use account-available models; every try is a fresh no-resume Copilot CLI process."""
     if phase == "author":
@@ -44,6 +76,8 @@ def _run_model_with_fallback(prompt, requested_model, phase, execution_id):
             continue
         seen.add(model)
         try:
+            if model == "auto":
+                return _run_auto_without_reasoning_effort(prompt, phase, execution_id)
             result, meta = _original_run_copilot(prompt, model, phase, execution_id)
             meta["model"] = model
             return result, meta
