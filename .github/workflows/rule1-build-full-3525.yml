@@ -1,0 +1,35 @@
+name: RULE1 build full 3525 reviewed source
+on:
+  push:
+    branches: [rule1-cleanup-2000]
+    paths:
+      - 'RULE1_FULL_3525_BUILD.trigger'
+permissions:
+  contents: write
+jobs:
+  build-full-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+          fetch-depth: 0
+      - name: Build and verify full 3525 database
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f NCLEX_FULL_3525_RULE1_1125.db RULE1_FULL_3525_REPORT.json
+          python3 tools/build_rule1_reviewed_snapshot.py \
+            --expected-reviewed 1125 \
+            --output NCLEX_FULL_3525_RULE1_1125.db \
+            --report RULE1_FULL_3525_REPORT.json
+      - name: Commit verified full database
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add NCLEX_FULL_3525_RULE1_1125.db RULE1_FULL_3525_REPORT.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'RULE1 full 3525 source with audited overlay'
+          git push origin HEAD:rule1-cleanup-2000
