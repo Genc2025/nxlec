@@ -1,105 +1,14 @@
-name: USMLE isolated production pipeline
+name: USMLE production pipeline (disabled)
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'usmle/RUN_REQUEST'
 
 permissions:
-  contents: write
-  copilot-requests: write
-
-concurrency:
-  group: usmle-production-main
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  production:
+  disabled:
+    if: ${{ false }}
     runs-on: ubuntu-latest
-    timeout-minutes: 360
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v6
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-
-      - name: Set up Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-
-      - name: Install deterministic and model runtime
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install requests
-          npm install -g @github/copilot
-
-      - name: Execute isolated Author Auditor Importer pipeline
-        id: run_pipeline
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set +e
-          mkdir -p usmle/state usmle/data
-          python usmle/runner.py --max-accepted 5 --max-attempts 10
-          rc=$?
-          echo "rc=$rc" >> "$GITHUB_OUTPUT"
-          echo "PIPELINE_RC=$rc"
-          exit 0
-
-      - name: Persist only USMLE authoritative state
-        env:
-          PIPELINE_RC: ${{ steps.run_pipeline.outputs.rc }}
-        run: |
-          set -e
-          if [ ! -f usmle/data/usmle-step1.db ]; then
-            echo "Authoritative DB was not created; refusing to fabricate state."
-            exit 1
-          fi
-          python - <<'PY'
-          import json, sqlite3, pathlib, datetime, os
-          db=pathlib.Path("usmle/data/usmle-step1.db")
-          con=sqlite3.connect(db)
-          ic=con.execute("PRAGMA integrity_check").fetchone()[0]
-          if ic!="ok": raise SystemExit(f"integrity_check={ic}")
-          count=con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]
-          p=pathlib.Path("usmle/state/last_run.json")
-          if not p.exists():
-              p.write_text(json.dumps({
-                  "safe_stop": True,
-                  "pipeline_rc": int(os.environ.get("PIPELINE_RC","1")),
-                  "authoritative_count": count,
-                  "recorded_at": datetime.datetime.now(datetime.timezone.utc).isoformat()
-              },indent=2),encoding="utf-8")
-          print(f"AUTHORITATIVE_COUNT={count}")
-          PY
-
-          git config user.name "USMLE Trusted Importer"
-          git config user.email "actions@users.noreply.github.com"
-          git add -f usmle/data/usmle-step1.db usmle/state/last_run.json
-          if [ -f usmle/state/current_specs.json ]; then
-            git add -f usmle/state/current_specs.json
-          fi
-          if ! git diff --cached --quiet; then
-            git commit -m "USMLE trusted pipeline state"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
-
-      - name: Authoritative final counter
-        run: |
-          python - <<'PY'
-          import sqlite3
-          con=sqlite3.connect("usmle/data/usmle-step1.db")
-          if con.execute("PRAGMA integrity_check").fetchone()[0]!="ok":
-              raise SystemExit("DB integrity failure")
-          n=con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]
-          print(f"{n}/5040")
-          PY
+      - run: echo "Disabled. USMLE production is handled directly through ChatGPT + GitHub connector; no Copilot CLI credits are used."
