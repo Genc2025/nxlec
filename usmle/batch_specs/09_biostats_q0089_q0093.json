@@ -1,0 +1,242 @@
+[
+  {
+    "num": 89,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Diagnostic and screening tests",
+      "Sensitivity"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Diagnostic test sensitivity",
+    "mechanism": "Sensitivity is the proportion of people with the disease who test positive: true positives divided by all people who truly have disease.",
+    "vignette": "A new screening test is evaluated in 100 people who are known by a reference standard to have a disease. The screening test is positive in 90 of them and negative in 10.",
+    "lead": "What is the sensitivity of the screening test?",
+    "correct": "90%",
+    "distractors": [
+      "10%",
+      "50%",
+      "90/110 = 81.8%",
+      "Cannot be calculated without knowing disease prevalence"
+    ],
+    "distractor_notes": [
+      "10% is the false-negative proportion in this group, not sensitivity.",
+      "50% does not follow from the true-positive and false-negative counts.",
+      "The denominator for sensitivity is all persons with disease, 90+10=100, not 110.",
+      "Sensitivity can be calculated from diseased subjects alone and does not require population prevalence."
+    ],
+    "key_expl": "Sensitivity = true positives / (true positives + false negatives) = 90/(90+10) = 90%.",
+    "objective": "Calculate and interpret sensitivity from a 2×2 diagnostic-test table.",
+    "clues": [
+      "100 people truly have disease",
+      "90 test positive and 10 test negative"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology: Lesson 5, Appendix A",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson5/appendixa.html",
+        "locator": "Figure 5.10: Predictive Value Positive, Sensitivity, and Specificity",
+        "support": "CDC defines sensitivity as A/(A+C), the proportion of true cases detected by a test or surveillance system."
+      },
+      {
+        "title": "Principles of Epidemiology: Glossary",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/glossary.html",
+        "locator": "Sensitivity",
+        "support": "CDC defines sensitivity as the ability of a test or case definition to identify true cases."
+      }
+    ]
+  },
+  {
+    "num": 90,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Diagnostic and screening tests",
+      "Specificity"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Diagnostic test specificity",
+    "mechanism": "Specificity is the proportion of people without the disease who test negative: true negatives divided by all people who truly do not have disease.",
+    "vignette": "A diagnostic test is evaluated in 200 people confirmed by a reference standard not to have the disease. The test is negative in 170 and positive in 30.",
+    "lead": "What is the specificity of the test?",
+    "correct": "85%",
+    "distractors": [
+      "15%",
+      "70%",
+      "170/230 = 73.9%",
+      "Cannot be calculated without knowing the number of diseased patients"
+    ],
+    "distractor_notes": [
+      "15% is the false-positive proportion among disease-free subjects, not specificity.",
+      "70% is not derived from the stated true-negative and false-positive counts.",
+      "Specificity uses true negatives divided by all disease-free subjects: 170/(170+30), not 170/230.",
+      "Specificity can be calculated from the disease-free group without knowing how many diseased people were studied."
+    ],
+    "key_expl": "Specificity = true negatives / (true negatives + false positives) = 170/(170+30) = 85%.",
+    "objective": "Calculate specificity from disease-free subjects in a diagnostic-test validation study.",
+    "clues": [
+      "200 people truly do not have disease",
+      "170 negative and 30 positive test results"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology: Lesson 5, Appendix A",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson5/appendixa.html",
+        "locator": "Figure 5.10",
+        "support": "CDC gives specificity as D/(B+D), the proportion of noncases correctly identified as negative."
+      },
+      {
+        "title": "Principles of Epidemiology: Glossary",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/glossary.html",
+        "locator": "Specificity",
+        "support": "CDC defines specificity as the ability of a test or case definition to exclude people without the health condition."
+      }
+    ]
+  },
+  {
+    "num": 91,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Diagnostic and screening tests",
+      "Predictive value"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Positive predictive value and prevalence",
+    "mechanism": "For a test with unchanged sensitivity and specificity, positive predictive value decreases as disease prevalence falls because a larger fraction of positive results are false positives.",
+    "vignette": "A screening test with fixed sensitivity and specificity is used first in a high-risk specialty clinic and then in a much lower-prevalence community population.",
+    "lead": "Compared with use in the high-risk clinic, which test characteristic is expected to decrease in the community population?",
+    "correct": "Positive predictive value",
+    "distractors": [
+      "Sensitivity",
+      "Specificity",
+      "Analytic detection threshold",
+      "Probability that a truly diseased patient tests positive"
+    ],
+    "distractor_notes": [
+      "Sensitivity is an intrinsic conditional performance measure and is assumed fixed in the scenario.",
+      "Specificity is also stipulated to remain fixed.",
+      "The analytic detection threshold is a laboratory property and does not change merely because population prevalence changes.",
+      "The probability that a diseased patient tests positive is sensitivity, which is specified as unchanged."
+    ],
+    "key_expl": "Positive predictive value depends on disease prevalence; lower prevalence produces a lower proportion of true disease among all positive test results when sensitivity and specificity are unchanged.",
+    "objective": "Predict the effect of disease prevalence on positive predictive value.",
+    "clues": [
+      "same test with fixed sensitivity/specificity",
+      "community prevalence is much lower"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology: Lesson 5 Quiz Answers",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson5/quizanswers.html",
+        "locator": "Question 21",
+        "support": "CDC notes that predictive value positive is a function of both test/surveillance sensitivity and disease prevalence."
+      },
+      {
+        "title": "Principles of Epidemiology: Lesson 5, Appendix A",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson5/appendixa.html",
+        "locator": "Predictive Value Positive",
+        "support": "CDC defines predictive value positive as the proportion of detected positive cases that truly have disease."
+      }
+    ]
+  },
+  {
+    "num": 92,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Measures of association",
+      "Risk ratio"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology",
+    "diagnosis": "Risk ratio calculation",
+    "mechanism": "Risk ratio compares cumulative incidence in an exposed group with cumulative incidence in an unexposed group.",
+    "vignette": "In a cohort study, 40 of 200 exposed participants develop a disease during follow-up. Among 200 otherwise comparable unexposed participants, 10 develop the disease.",
+    "lead": "What is the risk ratio for disease in exposed compared with unexposed participants?",
+    "correct": "4.0",
+    "distractors": [
+      "0.25",
+      "2.0",
+      "3.0",
+      "8.0"
+    ],
+    "distractor_notes": [
+      "0.25 reverses the comparison, corresponding to risk in unexposed divided by risk in exposed.",
+      "2.0 underestimates the ratio of 20% to 5%.",
+      "3.0 is not the quotient of the two incidence proportions.",
+      "8.0 doubles the correct risk ratio."
+    ],
+    "key_expl": "Risk among exposed = 40/200 = 0.20; risk among unexposed = 10/200 = 0.05; RR = 0.20/0.05 = 4.0.",
+    "objective": "Calculate a risk ratio from cohort incidence proportions.",
+    "clues": [
+      "cohort design with exposed and unexposed groups",
+      "40/200 versus 10/200 incident cases"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology: Lesson 3, Section 5",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/section5.html",
+        "locator": "Risk ratio",
+        "support": "CDC defines risk ratio as risk in the group of interest divided by risk in the comparison group."
+      },
+      {
+        "title": "Principles of Epidemiology: Lesson 3, Section 2",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/section2.html",
+        "locator": "Incidence proportion or risk",
+        "support": "CDC defines incidence proportion as new cases divided by the population at risk at the start of the period."
+      }
+    ]
+  },
+  {
+    "num": 93,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Measures of association",
+      "Odds ratio"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology",
+    "diagnosis": "Odds ratio in a case-control study",
+    "mechanism": "In a case-control study the exposure odds ratio is calculated by the cross-product ad/bc and is the standard measure of exposure-disease association because disease risks cannot usually be directly calculated.",
+    "vignette": "A case-control study includes 100 patients with a disease and 100 controls. Among the cases, 60 had the exposure of interest and 40 did not. Among controls, 30 were exposed and 70 were unexposed.",
+    "lead": "What is the odds ratio for the association between exposure and disease?",
+    "correct": "3.5",
+    "distractors": [
+      "0.29",
+      "1.5",
+      "2.0",
+      "4.7"
+    ],
+    "distractor_notes": [
+      "0.29 is approximately the inverse of the correct odds ratio.",
+      "1.5 reflects neither the cross-product ratio nor a valid risk calculation from these data.",
+      "2.0 is the ratio of exposed cases to exposed controls, not the odds ratio.",
+      "4.7 is not obtained from the 2×2 cross-product calculation."
+    ],
+    "key_expl": "OR = (60×70)/(40×30) = 4200/1200 = 3.5.",
+    "objective": "Calculate and interpret an odds ratio from a case-control 2×2 table.",
+    "clues": [
+      "case-control design",
+      "exposure counts given separately among cases and controls"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology: Lesson 3, Section 5",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/section5.html",
+        "locator": "Odds ratio",
+        "support": "CDC gives the odds ratio as the cross-product ad/bc and identifies it as the measure of choice in case-control studies."
+      },
+      {
+        "title": "Principles of Epidemiology: Lesson 3 Summary",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/summary.html",
+        "locator": "Measures of association",
+        "support": "CDC summarizes risk ratios, rate ratios, and odds ratios as measures used to quantify associations between exposures and disease."
+      }
+    ]
+  }
+]
