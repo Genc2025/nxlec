@@ -3,7 +3,7 @@
 import sys
 from pathlib import Path
 
-import core as p
+import pipeline as p
 
 USMLE_ROOT = Path(__file__).resolve().parent
 p.ROOT = USMLE_ROOT
