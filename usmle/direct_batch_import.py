@@ -47,6 +47,11 @@ def ngrams(s,n=5):
  return {tuple(t[i:i+n]) for i in range(len(t)-n+1)}
 def item_text(c):
  i=c["item"]; return " ".join([i["vignette"],i["lead_in"],*[i["options"][k] for k in "ABCDE"]])
+def norm_system_name(s):
+ if s=="Respiratory & Renal/Urinary Systems":
+  return "Respiratory and Renal/Urinary Systems"
+ return s
+
 def domain_ok(url):
  h=(urlparse(url).hostname or "").lower()
  return any(h==r or h.endswith("."+r) for r in ALLOWED_ROOTS)
@@ -188,7 +193,7 @@ def main(spec_dir):
   seen.append((cid,t,ng,fp))
  sysc=Counter();compc=Counter();keyc=Counter()
  for (pj,) in con.execute("SELECT payload_json FROM items WHERE status='PRODUCTION_READY'"):
-  c=json.loads(pj);sysc[c["blueprint"]["primary_system"]]+=1;compc[c["blueprint"]["primary_competency"]]+=1;keyc[c["item"]["intended_key"]]+=1
+  c=json.loads(pj);sysc[norm_system_name(c["blueprint"]["primary_system"])]+=1;compc[c["blueprint"]["primary_competency"]]+=1;keyc[c["item"]["intended_key"]]+=1
  for p in pairs:
   c=p["candidate"];sysc[c["blueprint"]["primary_system"]]+=1;compc[c["blueprint"]["primary_competency"]]+=1;keyc[c["item"]["intended_key"]]+=1
  if dict(sysc)!=EXPECTED_SYSTEM_COUNTS:raise SystemExit(f"system allocation mismatch {dict(sysc)}")
