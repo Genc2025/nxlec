@@ -38,7 +38,7 @@ jobs:
       - name: Install deterministic and model runtime
         run: |
           python -m pip install --upgrade pip
-          python -m pip install requests sentence-transformers
+          python -m pip install requests
           npm install -g @github/copilot
 
       - name: Execute isolated Author Auditor Importer pipeline
@@ -48,7 +48,7 @@ jobs:
         run: |
           set +e
           mkdir -p usmle/state usmle/data
-          python usmle/runner.py --max-accepted 5 --max-attempts 20
+          python usmle/runner.py --max-accepted 5 --max-attempts 10
           rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           echo "PIPELINE_RC=$rc"
