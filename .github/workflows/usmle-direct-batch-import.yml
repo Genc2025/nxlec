@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'usmle/direct_batch_payload.b64'
+      - 'usmle/batch_specs/**'
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Deterministic all-or-nothing batch import
-        run: python usmle/direct_batch_import.py usmle/direct_batch_payload.b64
+        run: python usmle/direct_batch_import.py usmle/batch_specs
       - name: Verify authoritative database
         run: |
           python - <<'PY'
@@ -50,6 +50,6 @@ jobs:
             echo "No authoritative changes to persist"
             exit 1
           fi
-          git commit -m "Import reviewed USMLE Step 1 items 0002-0100"
+          git commit -m "Import reviewed USMLE Step 1 items 0003-0100"
           git pull --rebase origin main
           git push origin HEAD:main
