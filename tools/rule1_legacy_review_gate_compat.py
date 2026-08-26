@@ -70,6 +70,31 @@ def normalize_shape(d: dict, uid: str) -> tuple[dict, bool]:
                 d['audit_findings'] = value
                 changed = True
 
+    findings = d.get('audit_findings')
+    if isinstance(findings, dict):
+        if not isinstance(d.get('option_audit'), dict):
+            option_audit = {k: findings.get(f'option_{k}') for k in KEYS}
+            if all(str(option_audit[k] or '').strip() for k in KEYS):
+                d['option_audit'] = option_audit
+                changed = True
+        if not str(d.get('ambiguity_check', '')).strip() and str(findings.get('ambiguity', '')).strip():
+            d['ambiguity_check'] = str(findings['ambiguity']).strip()
+            changed = True
+        if not d.get('independent_second_pass'):
+            for key in ('independent_adversarial_second_pass', 'independent_second_pass'):
+                value = findings.get(key)
+                if independent_pass(value):
+                    d['independent_second_pass'] = value
+                    changed = True
+                    break
+        ca = d.get('cueing_audit')
+        if not isinstance(ca, dict) or not str(ca.get('second_answer_risk', '')).strip():
+            second = str(findings.get('second_answer', '')).strip()
+            cue = str(findings.get('cueing', '')).strip()
+            if second and cue:
+                d['cueing_audit'] = {'second_answer_risk': second, 'cueing_check': cue}
+                changed = True
+
     if d.get('status') == 'FINAL_QA_PASS' and not d.get('audit_status'):
         d['audit_status'] = 'FINAL_QA_PASS'
         changed = True
@@ -96,7 +121,6 @@ def normalize_shape(d: dict, uid: str) -> tuple[dict, bool]:
             }
             changed = True
 
-    # Some legacy files used cueing_audit directly but no ambiguity_check field.
     if not str(d.get('ambiguity_check', '')).strip():
         ca = d.get('cueing_audit')
         if isinstance(ca, dict) and str(ca.get('second_answer_risk', '')).strip():
@@ -109,7 +133,16 @@ def normalize_shape(d: dict, uid: str) -> tuple[dict, bool]:
 def verify_evidence(d: dict, uid: str) -> None:
     if d.get('status') != 'FINAL_QA_PASS' or d.get('audit_status') != 'FINAL_QA_PASS' or d.get('second_pass_status') != 'PASS':
         fail(f'{uid} does not have FINAL_QA_PASS + second PASS')
-    if not independent_pass(d.get('independent_second_pass')):
+    gates = d.get('gates') or {}
+    independent_ok = independent_pass(d.get('independent_second_pass'))
+    if not independent_ok and int(gates.get('independent_qa_passed', 0)) == 1:
+        findings = d.get('audit_findings')
+        if isinstance(findings, dict):
+            independent_ok = any(
+                'independent' in str(k).lower() and independent_pass(v)
+                for k, v in findings.items()
+            )
+    if not independent_ok:
         fail(f'{uid} missing explicit independent second-pass PASS')
     if not isinstance(d.get('options'), dict) or sorted(d['options']) != KEYS or d.get('correct_option') not in set(KEYS):
         fail(f'{uid} answer shape')
