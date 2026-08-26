@@ -43,6 +43,9 @@ def maybe_build_full_source(reviewed_count):
         return
     if reviewed_count != 1125:
         raise SystemExit(f'BLOCKED full-source build expected 1125 reviewed got {reviewed_count}')
+    # Runner-only compatibility for older FINAL_QA_PASS review JSONs whose
+    # evidence predates the later explicit 14-boolean gate schema.
+    subprocess.check_call([sys.executable,'tools/rule1_legacy_review_gate_compat.py'])
     subprocess.check_call([
         sys.executable,'tools/build_rule1_reviewed_snapshot.py',
         '--expected-reviewed','1125',
