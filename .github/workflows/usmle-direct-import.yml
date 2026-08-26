@@ -1,0 +1,52 @@
+name: USMLE direct deterministic import
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/direct_import_request.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-direct-import-main
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Deterministic SQLite import
+        run: python usmle/direct_import.py usmle/direct_import_request.json
+
+      - name: Verify and persist USMLE only
+        run: |
+          python - <<'PY'
+          import sqlite3
+          con=sqlite3.connect("usmle/data/usmle-step1.db")
+          if con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
+              raise SystemExit("DB integrity failure")
+          n=con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]
+          print(f"{n}/5040")
+          PY
+          git config user.name "USMLE Direct Importer"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f usmle/data/usmle-step1.db usmle/state/last_run.json usmle/reviewed/
+          if ! git diff --cached --quiet; then
+            git commit -m "Import reviewed USMLE Step 1 item"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
