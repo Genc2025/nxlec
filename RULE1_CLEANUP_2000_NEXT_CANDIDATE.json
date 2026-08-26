@@ -2,49 +2,59 @@
   "candidate": {
     "audit_status": "FINAL_QA_PASS",
     "blueprint_document_title": "2026 NCLEX-RN Test Plan",
-    "blueprint_locator": "Reduction of Risk Potential: interpret laboratory results, monitor therapeutic medication effect, recognize abnormal coagulation values and intervene for treatment-related risk.",
-    "blueprint_topic": "Reduction of Risk Potential — warfarin INR interpretation",
+    "blueprint_locator": "Reduction of Risk Potential: identify transfusion compatibility risks, verify blood products, and prevent adverse transfusion events through correct interpretation of blood-group information.",
+    "blueprint_topic": "Reduction of Risk Potential — emergency ABO red-cell compatibility",
     "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
     "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
     "candidate_detail": {
+      "absolute_words": {
+        "A": [],
+        "B": [],
+        "C": [
+          "all"
+        ],
+        "D": []
+      },
       "option_lengths": {
-        "A": 125,
-        "B": 104,
-        "C": 87,
-        "D": 101
+        "A": 168,
+        "B": 96,
+        "C": 103,
+        "D": 130
       }
     },
     "candidate_reasons": [
+      "absolute_word_distractor_pattern",
+      "correct_answer_length_cue",
       "correct_answer_uniquely_longest"
     ],
     "category_id": 9,
     "client_need": "Reduction of Risk Potential",
     "correct_option": "A",
-    "difficulty": "easy",
-    "educational_objective": "Interpret an INR below the prescribed warfarin target range as subtherapeutic anticoagulation and recognize PT/INR as the monitoring test for vitamin K antagonist therapy.",
+    "difficulty": "medium",
+    "educational_objective": "Recognize group O red cells as the ABO-compatible emergency red-cell choice when recipient ABO type is not yet known, while distinguishing red-cell compatibility from plasma compatibility and avoiding overgeneralization to Rh selection.",
     "options": {
-      "A": "The INR is below the prescribed therapeutic range and indicates an inadequate anticoagulant effect for this warfarin regimen.",
-      "B": "The INR is within the usual therapeutic range for nonvalvular atrial fibrillation treated with warfarin.",
-      "C": "The INR is above the therapeutic range and indicates an excessive anticoagulant effect.",
-      "D": "The INR cannot be used to assess warfarin because vitamin K antagonist effect is monitored with aPTT."
+      "A": "Group O red blood cells lack A and B antigens and can be used for recipients of other ABO groups when emergency red-cell transfusion is required before typing is known.",
+      "B": "Group O red blood cells are universal recipients and can receive red cells from every ABO group.",
+      "C": "Group O red blood cells express both A and B antigens, which makes them compatible with all recipients.",
+      "D": "AB plasma and group O red cells use the same ABO compatibility rule because plasma and red-cell compatibility are interchangeable."
     },
-    "question_uid": "V2-Q0486",
-    "rationale": "Current DailyMed warfarin labeling states that for nonvalvular atrial fibrillation the usual warfarin target is INR 2.5 with a therapeutic range of 2.0 to 3.0, with dosing individualized according to the INR and indication. An INR of 1.4 is therefore below the stated target range and indicates insufficient anticoagulant intensity for this regimen. A is correct. B misclassifies the result as therapeutic, C reverses the direction of abnormality, and D is incorrect because warfarin is routinely monitored with PT/INR rather than aPTT.",
+    "question_uid": "V2-Q0490",
+    "rationale": "AABB states that in an emergency anyone can receive type O red blood cells, which is why people with type O blood are commonly described as universal red-cell donors. This ABO red-cell compatibility principle is different from plasma compatibility; AABB separately notes that individuals of all ABO types can receive AB plasma. Therefore A is correct. B reverses donor/recipient terminology, C incorrectly states that group O red cells express A and B antigens, and D incorrectly treats red-cell and plasma compatibility as interchangeable. Rh selection and other compatibility considerations are outside the deliberately limited ABO-red-cell scope of this item.",
     "second_pass_status": "PASS",
     "source_accessed_date": "2026-08-16",
-    "source_claim_supported": "For nonvalvular atrial fibrillation treated with warfarin, the usual INR target is 2.5 with range 2.0-3.0; INR 1.4 is subtherapeutic relative to that prescribed range.",
-    "source_document_title": "Warfarin Sodium Tablets",
-    "source_locator": "Dosage and Administration §2.1 individualized dosing by INR; §2.2 Atrial Fibrillation: in nonvalvular AF target INR 2.5, range 2.0-3.0.",
-    "source_organization": "DailyMed / U.S. Food and Drug Administration labeling",
-    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c186d1ff-64dd-bfcb-e053-2a95a90af800",
-    "source_version_date": "Current DailyMed warfarin labeling live-rechecked August 16, 2026",
-    "stable_sort_key": "07-STANDALONE-00486",
-    "stem": "A client taking warfarin for nonvalvular atrial fibrillation has an INR of 1.4. How should the nurse interpret this result when the prescribed target range is INR 2.0–3.0?"
+    "source_claim_supported": "For ABO red-cell compatibility, group O red cells can be used in emergencies before a recipient's ABO type is known; this does not mean group O is a universal recipient or that plasma compatibility follows the same rule.",
+    "source_document_title": "FAQs About Blood and Blood Donation",
+    "source_locator": "About Blood > Most common blood type: in an emergency, anyone can receive type O red blood cells; people with type O blood are known as universal donors. The same section states that individuals of all types can receive type AB plasma, demonstrating component-specific ABO compatibility.",
+    "source_organization": "Association for the Advancement of Blood & Biotherapies (AABB)",
+    "source_url": "https://www.aabb.org/for-donors-patients/faqs-about-blood-and-blood-donation",
+    "source_version_date": "Current AABB FAQ live-rechecked August 16, 2026",
+    "stable_sort_key": "07-STANDALONE-00490",
+    "stem": "During an emergency red-cell transfusion before the recipient's ABO type is known, why may group O red blood cells be selected?"
   },
   "candidate_uid_count_from_scan": 1322,
   "canonical_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
   "database_modified": false,
-  "reviewed_staging_uid_count": 1063,
+  "reviewed_staging_uid_count": 1064,
   "selection_order": "stable_sort_key, question_uid",
   "selector_version": "2026-08-20-status-compat-r781",
   "source_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
