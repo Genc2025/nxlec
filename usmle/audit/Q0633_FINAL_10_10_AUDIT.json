@@ -1,0 +1,87 @@
+{
+  "audit_id": "Q0633-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0633",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI StatPearls Laboratory Evaluation of Immune Hemolytic Anemias was reread for PCH as a cold-reactive IgG biphasic hemolysin diagnosed by Donath-Landsteiner testing and commonly showing C3 on DAT.",
+      "PMC practical review of the Donath-Landsteiner test was reread for complement fixation at low temperature and hemolysis after rewarming.",
+      "PubMed literature was reread for the classic acute childhood/postinfectious phenotype and anti-P IgG specificity, while noting rare non-IgG/non-P exceptions.",
+      "The official USMLE 2026 Blood & Lymphoreticular domain was verified for hemolytic and immune-mediated blood disorders."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Blood, Lymphoreticular and Immune Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Immunology",
+      "Hematology",
+      "Transfusion Medicine"
+    ],
+    "official_outline_path": [
+      "Blood & Lymphoreticular System",
+      "Anemias",
+      "Immune hemolytic anemia"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate-hard",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 630,
+    "selection_probe_run": 33086630971,
+    "staged_diagnosis_run": 33086746655,
+    "diagnosis": "Paroxysmal cold hemoglobinuria",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "classic_antibody": "The classic Donath-Landsteiner antibody is a biphasic IgG autoantibody, usually anti-P.",
+    "temperature_mechanism": "It binds RBC antigen and fixes complement in cooler blood; on rewarming, antibody can dissociate while complement activation proceeds, causing intravascular hemolysis.",
+    "dat_pattern": "Because IgG may detach, DAT often detects complement/C3 without detectable IgG.",
+    "clinical_pattern": "Modern PCH most commonly presents as an acute, often self-limited postinfectious hemolytic anemia in young children.",
+    "cold_agglutinin_distractor": "Cold agglutinin disease is usually IgM, often anti-I, and is mechanistically distinct from the Donath-Landsteiner biphasic IgG hemolysin.",
+    "warm_aiha_distractor": "Warm AIHA is predominantly IgG-mediated Fc-dependent extravascular splenic hemolysis.",
+    "g6pd_distractor": "G6PD deficiency produces oxidant-mediated hemoglobin injury rather than immune complement fixation.",
+    "pnh_distractor": "PNH is an acquired clonal PIGA/GPI-anchor defect with loss of CD55/CD59 rather than a transient autoantibody."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Acute hemoglobinuric intravascular hemolysis after infection in a child plus C3-only DAT and positive Donath-Landsteiner testing defines PCH. The mechanistic answer is a cold-binding biphasic IgG, classically anti-P, that fixes complement in the cold and lyses RBCs on warming.",
+    "anti_p_precision": "Anti-P is classic, not universal; rare Donath-Landsteiner antibodies with alternative specificity exist. The option and rationale explicitly use the classic mechanism in a textbook phenotype and do not claim every PCH case must be anti-P.",
+    "immunoglobulin_precision": "Rare IgM or IgA Donath-Landsteiner antibodies have been reported. The item asks for the mechanism best explaining a classic pediatric PCH presentation; classic IgG remains uniquely appropriate.",
+    "cold_agglutinin_challenge": "Both disorders can be complement-positive and cold-associated. The positive Donath-Landsteiner test distinguishes PCH from cold agglutinin disease, and the immunoglobulin/thermal behavior differs.",
+    "dat_challenge": "A C3-positive/IgG-negative DAT is not alone pathognomonic and may occur in other complement-mediated AIHA; the D-L test provides specificity.",
+    "cueing_check": "All options are authentic hemolysis mechanisms and similarly detailed; the correct answer is not simply the syndrome name.",
+    "unsupported_precision_check": "No cold-thermal-amplitude cutoff, antibody titer, complement level or hemoglobin threshold is required.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after 0/630 uniqueness gate, immune-hemolysis source verification, staged rerun, and adversarial second-pass."
+}
