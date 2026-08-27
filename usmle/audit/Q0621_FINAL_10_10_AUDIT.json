@@ -1,0 +1,91 @@
+{
+  "audit_id": "Q0621-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0621",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "Endotext Impaired Sensitivity to Thyroid Hormone was reread for the diagnostic biochemical pattern, THRB-related RTHβ, binding-protein confounders, and confirmation of elevated free hormone with nonsuppressed TSH.",
+      "The 2021 NLM/PMC focused review was reread for THRB mutations, dominant-negative receptor behavior, elevated thyroid hormones without TSH suppression, and variable tissue phenotype.",
+      "The 2024 NLM/PMC diagnostic review was reread for the differential between RTHβ and TSH-secreting pituitary tumor after analytical confounders are excluded.",
+      "The official USMLE 2026 Content Outline was visually inspected at Endocrine System page 31; Thyroid disorders are an explicit category."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive and Endocrine Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Endocrinology",
+      "Molecular Biology",
+      "Physiology"
+    ],
+    "official_outline_path": [
+      "Endocrine System",
+      "Thyroid disorders"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate-hard",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 620,
+    "initial_candidate_probe_run": 33078472990,
+    "false_positive_run": 33078530037,
+    "refined_broad_gate_run": 33078589366,
+    "staged_diagnosis_run": 33078717571,
+    "false_positive_note": "The first broad gate matched the substring 'rth beta' across unrelated wording containing 'birth beta-chain' in Q0014; the abbreviation was removed and the refined clinically specific gate returned zero canonical hits.",
+    "diagnosis": "Resistance to thyroid hormone beta",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "biochemical_pattern": "RTHβ characteristically produces genuinely elevated free thyroid hormones with nonsuppressed TSH after analytical and binding-protein confounders are excluded.",
+    "molecular_mechanism": "Most RTHβ is due to heterozygous THRB variants; mutant receptors frequently exert dominant-negative effects and reduce T3-mediated transcriptional response.",
+    "feedback": "TRβ is important in hypothalamic-pituitary negative feedback, explaining the inappropriate persistence of TSH despite elevated T4/T3.",
+    "variable_phenotype": "Patients may be clinically near-euthyroid or have mixed hyper/hypothyroid features because receptor isoforms and mutant receptor effects differ by tissue.",
+    "tshoma_differential": "TSHoma can also produce high free T4/T3 with nonsuppressed TSH, but a multigenerational familial pattern and no pituitary lesion strongly favor inherited RTHβ.",
+    "tshr_distractor": "Activating TSHR variants cause autonomous thyroid signaling and hyperthyroidism with suppressed TSH, unlike the feedback-resistance pattern.",
+    "tbg_distractor": "Elevated TBG raises total hormone concentrations while free hormone is generally preserved; the vignette specifies reproducibly elevated free T4/T3.",
+    "tpo_distractor": "TPO loss impairs iodide organification and hormone synthesis and therefore causes hypothyroid physiology rather than elevated free thyroid hormone."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Repeated true elevation of free T4/T3 with TSH that is not suppressed defines inappropriate TSH relative to thyroid hormone. After assay artifact is excluded, the main mechanistic differential is RTHβ versus TSHoma. The autosomal-dominant family pattern and normal pituitary imaging make a THRB receptor defect the uniquely best explanation.",
+    "tshoma_challenge": "MRI is not absolutely perfect for microlesions, so imaging alone would not exclude TSHoma. The inherited identical phenotype across father and sister is the decisive additional discriminator and strongly supports RTHβ.",
+    "assay_interference_challenge": "Repeat testing on a different assay platform gives the same pattern, deliberately lowering the probability of immunoassay interference without falsely claiming laboratory interference is impossible.",
+    "binding_protein_challenge": "Familial dysalbuminemic hyperthyroxinemia or TBG abnormalities can create total-hormone discordance; the question specifically uses elevated free T4/T3 and repeat testing, so a receptor-resistance mechanism is more defensible.",
+    "clinical_euthyroid_challenge": "Absence of classic thyrotoxicosis does not argue against RTHβ because tissue responsiveness is heterogeneous; the stem avoids requiring a specific symptom phenotype.",
+    "dominant_negative_precision": "The keyed answer says 'a dominant-negative defect' because this is the common mechanism of heterozygous THRB-related RTHβ; it does not claim every impaired-thyroid-hormone-sensitivity syndrome has this mechanism.",
+    "cueing_check": "All options are molecular or endocrine mechanisms of similar length; the correct option does not simply repeat the diagnosis.",
+    "unsupported_precision_check": "No mutation hotspot, prevalence, alpha-subunit cutoff, SHBG cutoff, or dynamic-test threshold is used.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after refined duplicate gate, source verification, staged rerun, and adversarial second-pass. Q0621 has not been inserted into authoritative SQLite."
+}
