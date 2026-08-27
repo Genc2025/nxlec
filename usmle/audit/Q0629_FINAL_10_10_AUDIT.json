@@ -1,0 +1,87 @@
+{
+  "audit_id": "Q0629-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0629",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI StatPearls Granulosa Theca Cell Tumors was reread for sex cord-stromal origin, estrogen production, postmenopausal bleeding/endometrial effects, inhibin positivity, nuclear grooves and Call-Exner bodies.",
+      "Endotext ovarian physiology was reread for the two-cell/two-gonadotropin model: LH stimulates theca androgen production and FSH induces granulosa-cell aromatase to generate estrogen.",
+      "NCBI MeSH independently confirms estradiol and inhibin secretion by granulosa cell tumors.",
+      "USMLE Step 1 specifications were verified for Reproductive and Endocrine Systems with foundational physiology distributed by disease process."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive and Endocrine Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Reproductive Physiology",
+      "Gynecologic Pathology",
+      "Endocrinology"
+    ],
+    "official_outline_path": [
+      "Female Reproductive System & Breast",
+      "Neoplasms",
+      "Sex cord-stromal tumor"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 620,
+    "replacement_probe_run": 33085110699,
+    "staged_diagnosis_run": 33085251234,
+    "rejected_candidate": "Familial hypocalciuric hypercalcemia was rejected because Q0573 already covers CASR loss-of-function and hypocalciuric hypercalcemia.",
+    "diagnosis": "Adult granulosa cell tumor of the ovary",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "tumor_identity": "Call-Exner bodies, grooved nuclei and inhibin positivity support adult granulosa cell tumor.",
+    "endocrine_effect": "Granulosa cell tumors can produce estrogen and cause postmenopausal/abnormal uterine bleeding and endometrial proliferation.",
+    "normal_granulosa_function": "FSH stimulates granulosa-cell aromatase/CYP19 expression; granulosa cells aromatize theca-derived androstenedione to estrogens.",
+    "theca_distractor": "LH-stimulated theca androgen synthesis supplies substrate but does not itself represent the granulosa-cell function producing the estrogenic endometrial effect.",
+    "dht_distractor": "5-alpha-reductase generates DHT and does not explain estrogen excess.",
+    "adrenal_distractor": "21-hydroxylation is adrenal steroidogenesis and unrelated to granulosa tumor hyperestrogenism.",
+    "leydig_distractor": "Leydig-cell cholesterol steroidogenesis is male gonadal physiology and not the cell of origin."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "A postmenopausal estrogenic syndrome with an inhibin-positive ovarian sex cord-stromal tumor and Call-Exner bodies identifies granulosa cell tumor. The normal cell function that directly creates excess estrogen is FSH-stimulated aromatization of theca-derived androgens.",
+    "estrogen_vs_inhibin_challenge": "Granulosa tumors often secrete both estrogen and inhibin. Inhibin suppresses FSH but does not directly cause endometrial hyperplasia; estrogen does.",
+    "theca_cell_challenge": "Theca cells make androgen substrate under LH, but the question asks for the tumor cell of origin's normal function; granulosa aromatization is therefore uniquely correct.",
+    "foXL2_challenge": "FOXL2 mutation is a major adult granulosa tumor driver, but the lead asks about the physiologic function that explains the endometrial phenotype, not the oncogenic mutation.",
+    "menopause_challenge": "Normal postmenopausal ovaries have low granulosa activity; the tumor is autonomous neoplastic tissue that can retain steroidogenic function, so menopausal status does not negate estrogen secretion.",
+    "cueing_check": "All options are genuine steroidogenic or reproductive cellular functions and are parallel in style.",
+    "unsupported_precision_check": "No frequency of FOXL2 mutation, estrogen secretion rate, inhibin cutoff or endometrial-cancer incidence is needed.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after replacement concept selection, duplicate gate, authoritative physiology/pathology verification and adversarial second-pass."
+}
