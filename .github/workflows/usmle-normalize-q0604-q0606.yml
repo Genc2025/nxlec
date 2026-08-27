@@ -1,0 +1,113 @@
+name: USMLE Normalize Q0604-Q0606 Blueprint Metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/NORMALIZE_TRIGGER_Q0604_Q0606'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-normalize-q0604-q0606
+  cancel-in-progress: false
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Normalize only Q0604-Q0606 metadata and re-hash
+        run: python usmle/normalize_q0604_q0606_blueprint_metadata.py
+      - name: Independent SQLite verification
+        run: |
+          python - <<'PY'
+          import hashlib, json, re, sqlite3
+          from collections import Counter
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def h(o): return hashlib.sha256(canon(o).encode()).hexdigest()
+          def qnum(cid):
+              m=re.search(r'DIRECT-(\d{4})',cid or '')
+              assert m, cid
+              return int(m.group(1))
+          expected={
+              604:'Reproductive and Endocrine Systems',
+              605:'Respiratory and Renal/Urinary Systems',
+              606:'Behavioral Health, Nervous Systems and Special Senses',
+          }
+          con=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          items=con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          reviews=con.execute("SELECT candidate_id,review_json,review_sha256,final_status FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(items)==610 and len(reviews)==610
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          assert {r[0] for r in items}=={r[0] for r in reviews}
+          assert {qnum(r[0]) for r in items}==set(range(1,611))
+          reread=0
+          payloads=[]
+          for cid,pj,ps,ash in items:
+              obj=json.loads(pj)
+              assert h(obj)==ps, cid
+              rr=con.execute('SELECT review_json,review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone()
+              assert rr and rr[1]==ash and rr[2]=='FINAL_10_10_PASS', cid
+              rev=json.loads(rr[0])
+              assert rev.get('review_sha256')==rr[1], cid
+              assert obj.get('step2_final_audit',{}).get('review_sha256')==rr[1], cid
+              assert len(obj['item']['options'])==5 and len(set(obj['item']['options'].values()))==5, cid
+              n=qnum(cid)
+              if n in expected:
+                  assert obj['blueprint']['primary_system']==expected[n], (cid,obj['blueprint']['primary_system'])
+                  assert obj['blueprint']['official_outline_path'][0]==expected[n], (cid,obj['blueprint']['official_outline_path'])
+                  audit=json.load(open(f'usmle/audit/Q{n:04d}_FINAL_10_10_AUDIT.json'))
+                  assert audit['blueprint']['system']==expected[n], n
+                  assert rev['clinical_audit']==audit, n
+                  assert rev['clinical_audit_sha256']==h(audit), n
+              payloads.append(obj)
+              reread+=1
+          assert reread==610
+          counts=Counter(x['blueprint']['primary_system'] for x in payloads)
+          assert not [k for k in counts if ' & ' in k], counts
+          assert counts['Reproductive and Endocrine Systems']==79
+          assert counts['Respiratory and Renal/Urinary Systems']==79
+          assert counts['Behavioral Health, Nervous Systems and Special Senses']==73
+          state=json.load(open('usmle/state/step2_final_q0001_q0610.json'))
+          assert state['item_count']==610
+          assert state['sqlite_integrity_check']=='ok'
+          assert state['duplicate_candidate_id_count']==0
+          assert state['payload_review_consistency']=='PASS'
+          assert state['reread_verified_count']==610
+          assert state['metadata_normalization']['status']=='PASS'
+          assert state['metadata_normalization']['changed_record_count']==3
+          assert state['metadata_normalization']['stale_ampersand_category_count']==0
+          assert state['blueprint_counts']==dict(counts)
+          print(json.dumps({
+              'sqlite_integrity_check':'ok',
+              'final_items':610,
+              'final_reviews':610,
+              'reread_verified_count':610,
+              'changed_records':[604,605,606],
+              'stale_ampersand_categories':0,
+              'normalized_counts':{
+                  'Reproductive and Endocrine Systems':counts['Reproductive and Endocrine Systems'],
+                  'Respiratory and Renal/Urinary Systems':counts['Respiratory and Renal/Urinary Systems'],
+                  'Behavioral Health, Nervous Systems and Special Senses':counts['Behavioral Health, Nervous Systems and Special Senses']
+              }
+          },sort_keys=True))
+          PY
+      - name: Persist corrected authoritative database
+        run: |
+          git config user.name 'USMLE Step2 Metadata Normalizer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -f usmle/data/usmle-step1.db usmle/state/step2_final_q0001_q0610.json usmle/audit/STEP2_FINAL_10_10_Q0001_Q0610.json
+          git commit -m 'Normalize Q0604-Q0606 blueprint metadata in authoritative DB'
+          git pull --rebase origin main
+          git push origin HEAD:main
