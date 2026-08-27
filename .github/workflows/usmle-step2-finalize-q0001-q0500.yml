@@ -1,0 +1,53 @@
+name: USMLE Step2 Finalize Q0001-Q0500
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/STEP2_FINALIZE_TRIGGER_Q0001_Q0500'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-step2-finalize-q0001-q0500
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run strict Step 2 finalizer
+        run: python usmle/step2_finalize_q0001_q0500.py
+      - name: Verify final database state
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          con=sqlite3.connect("usmle/data/usmle-step1.db")
+          assert con.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+          assert con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]==500
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==500
+          s=json.load(open("usmle/state/step2_final_q0001_q0500.json"))
+          assert s["final_status"]=="FINAL_10_10_PASS"
+          assert s["item_count"]==500
+          assert s["open_content_defects"]==0
+          assert s["answer_position"]["balanced"]=={"A":100,"B":100,"C":100,"D":100,"E":100}
+          assert s["answer_position"]["nonperiodic"] is True
+          print("STEP2_FINAL_10_10_VERIFIED", s["item_count"])
+          PY
+      - name: Persist final USMLE state
+        run: |
+          git config user.name "USMLE Step2 Finalizer"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f usmle/data/usmle-step1.db usmle/audit/STEP2_FINAL_10_10_Q0001_Q0500.json usmle/state/step2_final_q0001_q0500.json
+          git commit -m "Finalize USMLE Step 1 Q0001-Q0500 at Step2 10/10"
+          git pull --rebase origin main
+          git push origin HEAD:main
