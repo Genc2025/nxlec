@@ -47,7 +47,7 @@ jobs:
           review_ids={r[0] for r in con.execute("SELECT candidate_id FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'")}
           assert item_ids==review_ids
           def qnum(cid):
-              m=re.search(r'DIRECT-(\\d{4})',cid or '')
+              m=re.search(r'DIRECT-(\d{4})',cid or '')
               assert m, cid
               return int(m.group(1))
           nums={qnum(cid) for cid in item_ids}
