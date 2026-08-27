@@ -30,16 +30,68 @@ jobs:
       - name: Verify authoritative database
         run: |
           python - <<'PY'
-          import json, sqlite3
+          import hashlib, json, re, sqlite3
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def hash_obj(o): return hashlib.sha256(canon(o).encode()).hexdigest()
           con=sqlite3.connect('usmle/data/usmle-step1.db')
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
-          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==600
-          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==600
+          item_cols=[r[1] for r in con.execute('PRAGMA table_info(step2_final_items)')]
+          review_cols=[r[1] for r in con.execute('PRAGMA table_info(step2_final_reviews)')]
+          item_count=con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
+          review_count=con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
+          assert item_count==600 and review_count==600
+          dup_items=con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]
+          dup_reviews=con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]
+          assert dup_items==0 and dup_reviews==0
+          item_ids={r[0] for r in con.execute("SELECT candidate_id FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'")}
+          review_ids={r[0] for r in con.execute("SELECT candidate_id FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'")}
+          assert item_ids==review_ids
+          def qnum(cid):
+              m=re.search(r'DIRECT-(\\d{4})',cid or '')
+              assert m, cid
+              return int(m.group(1))
+          nums={qnum(cid) for cid in item_ids}
+          assert nums==set(range(1,601))
+          assert {n for n in nums if 501<=n<=600}==set(range(501,601))
+          reread=0
+          for cid,pj,ps,ash in con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status='FINAL_10_10_PASS' ORDER BY candidate_id"):
+              obj=json.loads(pj)
+              assert hash_obj(obj)==ps, cid
+              rr=con.execute('SELECT review_json,review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone()
+              assert rr and rr[1]==ash and rr[2]=='FINAL_10_10_PASS', cid
+              rev=json.loads(rr[0])
+              assert rev.get('review_sha256')==rr[1], cid
+              assert obj.get('step2_final_audit',{}).get('review_sha256')==rr[1], cid
+              for src in obj.get('sources',[]):
+                  loc=src.get('section_locator')
+                  assert loc and loc!='Relevant claim-specific disease/mechanism section', cid
+              reread+=1
+          assert reread==600
+          for table,cols in [('step2_final_items',item_cols),('step2_final_reviews',review_cols)]:
+              for uid_col in ('question_uid','uid'):
+                  if uid_col in cols:
+                      d=con.execute(f'SELECT COUNT(*) FROM (SELECT {uid_col} FROM {table} GROUP BY {uid_col} HAVING COUNT(*)>1)').fetchone()[0]
+                      assert d==0, (table,uid_col,d)
           s=json.load(open('usmle/state/step2_final_q0001_q0600.json'))
           assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==600
           assert s['answer_position_new_block']['balanced']=={'A':20,'B':20,'C':20,'D':20,'E':20}
           assert s['answer_position_new_block']['nonperiodic'] is True
-          print('STEP2_Q0001_Q0600_VERIFIED',600)
+          assert s['duplicate_candidate_id_count']==0
+          assert s['payload_review_consistency']=='PASS'
+          assert s['reread_verified_count']==600
+          print(json.dumps({
+              'sqlite_integrity_check':'ok',
+              'step2_final_items_FINAL_10_10_PASS':item_count,
+              'step2_final_reviews_FINAL_10_10_PASS':review_count,
+              'duplicate_candidate_id_items':dup_items,
+              'duplicate_candidate_id_reviews':dup_reviews,
+              'item_review_candidate_sets_equal':item_ids==review_ids,
+              'q0501_q0600_present_exactly_once':True,
+              'payload_review_consistency':'PASS',
+              'reread_verified_count':reread,
+              'step2_final_items_columns':item_cols,
+              'step2_final_reviews_columns':review_cols
+          },sort_keys=True))
           PY
       - name: Persist authoritative USMLE state
         run: |
