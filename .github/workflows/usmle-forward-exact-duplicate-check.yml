@@ -51,7 +51,12 @@ jobs:
           finals=con.execute(
               "SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'"
           ).fetchall()
-          assert len(finals)==600, len(finals)
+          def qnum(cid):
+              m=re.search(r'DIRECT-(\d{4})',cid or '')
+              assert m, cid
+              return int(m.group(1))
+          nums=sorted(qnum(cid) for cid,_ in finals)
+          assert nums and nums==list(range(1,max(nums)+1)), (len(nums), nums[:3], nums[-3:])
 
           report=[]
           for num,diag,fn in staged:
