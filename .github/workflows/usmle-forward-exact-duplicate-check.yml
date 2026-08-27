@@ -1,0 +1,67 @@
+name: USMLE Forward Exact Duplicate Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/batch_specs_0601_0700/**'
+      - '.github/workflows/usmle-forward-exact-duplicate-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan authoritative SQLite for staged diagnosis overlap
+        run: |
+          python - <<'PY'
+          import glob, json, re, sqlite3
+
+          def norm(s):
+              return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
+
+          def walk_strings(v, path='$'):
+              if isinstance(v, dict):
+                  for k,x in v.items():
+                      yield from walk_strings(x, f'{path}.{k}')
+              elif isinstance(v, list):
+                  for i,x in enumerate(v):
+                      yield from walk_strings(x, f'{path}[{i}]')
+              elif isinstance(v, str):
+                  yield path, v
+
+          staged=[]
+          for fn in sorted(glob.glob('usmle/batch_specs_0601_0700/*.json')):
+              obj=json.load(open(fn))
+              rows=obj if isinstance(obj,list) else obj.get('items',[])
+              for x in rows:
+                  if isinstance(x,dict) and x.get('num') and x.get('diagnosis'):
+                      staged.append((int(x['num']),x['diagnosis'],fn))
+
+          con=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          finals=con.execute(
+              "SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'"
+          ).fetchall()
+          assert len(finals)==600, len(finals)
+
+          report=[]
+          for num,diag,fn in staged:
+              nd=norm(diag)
+              hits=[]
+              for cid,pj in finals:
+                  obj=json.loads(pj)
+                  for p,s in walk_strings(obj):
+                      ns=norm(s)
+                      if nd and nd in ns:
+                          hits.append({'candidate_id':cid,'json_path':p,'text':s[:240]})
+                          break
+              report.append({'num':num,'diagnosis':diag,'file':fn,'canonical_hits':hits})
+          print(json.dumps({'canonical_final_count':len(finals),'staged_count':len(staged),'report':report},indent=2,sort_keys=True))
+          PY
