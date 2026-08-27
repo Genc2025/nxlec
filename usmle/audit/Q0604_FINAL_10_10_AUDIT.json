@@ -1,0 +1,88 @@
+{
+  "audit_id": "Q0604-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0604",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "Primary NCBI StatPearls chapter Pseudohypoparathyroidism and Related Disorders verified as updated 2026-04-21.",
+      "GeneReviews chapter remains an active NCBI-hosted reference; initial posting 2017-10-26, current NCBI edition 1993-2026.",
+      "MedlinePlus Genetics pages used for stable gene/differential mechanisms were live and current when verified on 2026-08-27."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive & Endocrine Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Endocrine Physiology",
+      "Genetics",
+      "Signal Transduction"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33037515520,
+    "staged_diagnosis_run": 33067454499,
+    "diagnosis": "Pseudohypoparathyroidism",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "technical_gate": {
+    "canonical_finalizer_requirement": "Exactly five distinct options A-E; one correct plus four distractors.",
+    "pre_correction_issue": "Initial staged Q0604 contained five distractors (six total options) and was not eligible for PASS.",
+    "correction_commit": "e32cf0ca7d6f5d6d086478e2be98dd9387964f53",
+    "post_correction_distractor_count": 4,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype": "NCBI Pseudohypoparathyroidism Evaluation supports hypocalcemia, hyperphosphatemia, elevated PTH and exclusion of renal insufficiency; GeneReviews supports AHO with short stature, round facies and shortening of the fourth/fifth metacarpals.",
+    "correct_mechanism": "NCBI Pathophysiology directly supports impaired PTH/PTHrP-Gsα-cAMP signal transduction and states that PTH1R activation normally stimulates Gsα and cAMP generation.",
+    "distractor_1": "NCBI Hypoparathyroidism supports true PTH deficiency with low/inappropriately normal PTH, hypocalcemia and hyperphosphatemia; elevated PTH in the stem excludes this.",
+    "distractor_2": "MedlinePlus GNAS/McCune-Albright sources support activating GNAS variants causing constitutive adenylyl cyclase signaling; this is the opposite signaling direction from GNAS-inactivation PHP.",
+    "distractor_3": "MedlinePlus CASR supports activating CaSR variants causing excessive calcium sensing and suppression of PTH, inconsistent with elevated PTH.",
+    "distractor_4": "MedlinePlus vitamin D-dependent rickets/CYP27B1 supports impaired calcitriol synthesis with low calcium and low phosphate; hyperphosphatemia in the stem argues against this mechanism."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Hypocalcemia plus hyperphosphatemia indicates inadequate PTH effect. Elevated PTH establishes end-organ resistance rather than PTH deficiency. AHO skeletal features further support GNAS-related pseudohypoparathyroidism; the direct intracellular defect is reduced Gsα-adenylyl cyclase-cAMP signaling.",
+    "true_hypoparathyroidism_challenge": "Would produce low or inappropriately normal PTH rather than the elevated PTH explicitly stated.",
+    "constitutive_gs_challenge": "Constitutive Gsα/adenylyl cyclase activation is opposite to the impaired signaling required for PTH resistance and is linked to McCune-Albright physiology.",
+    "casr_challenge": "Activating CaSR suppresses PTH secretion; it cannot explain elevated PTH.",
+    "cyp27b1_challenge": "CYP27B1 deficiency can cause hypocalcemia with compensatory PTH elevation but typically lowers phosphate, conflicting with the hyperphosphatemia that PTH resistance explains.",
+    "renal_failure_challenge": "Renal dysfunction can cause hypocalcemia, hyperphosphatemia and secondary PTH elevation, but the stem explicitly states normal renal function and includes AHO morphology.",
+    "hidden_assumption_check": "No treatment threshold, numerical cutoff, dose, prevalence or unstated family history is required.",
+    "cueing_check": "All five options are mechanistic endocrine/signaling abnormalities of comparable grammatical form; the correct option is not uniquely specific by wording alone.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0604."
+}
