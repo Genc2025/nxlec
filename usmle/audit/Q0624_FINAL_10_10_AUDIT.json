@@ -1,0 +1,89 @@
+{
+  "audit_id": "Q0624-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0624",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "Current NCBI StatPearls Central Pontine Myelinolysis was reread for chronic-hyponatremia osmolyte loss, inability to rapidly recapture osmolytes during correction, brain dehydration, delayed neurologic deterioration and central pontine demyelination.",
+      "The NLM/PMC astrocyte-focused ODS review was reread for inorganic/organic osmolyte adaptation, cell shrinkage during abrupt correction, myelin loss and the early role of astrocyte injury.",
+      "A PMC clinical review was reread to confirm that ODS risk is not reducible to one universal correction-rate cutoff, supporting the item's deliberate avoidance of a fixed numerical threshold.",
+      "The official USMLE 2026 Content Outline was visually inspected at Nervous System & Special Senses page 9 and the general outline note that listed disorders are nonexhaustive was verified."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Behavioral Health, Nervous Systems and Special Senses",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Neurology",
+      "Neurophysiology",
+      "Cell Biology"
+    ],
+    "official_outline_path": [
+      "Nervous System & Special Senses",
+      "Metabolic/toxic central white-matter injury"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate-hard",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 620,
+    "broad_concept_probe_run": 33079337729,
+    "staged_diagnosis_run": 33079568728,
+    "diagnosis": "Osmotic demyelination syndrome",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "chronic_adaptation": "Chronic hyponatremia causes brain cells to extrude inorganic ions and organic osmolytes to limit water retention and edema.",
+    "correction_injury": "A rapid rise in extracellular tonicity leaves adapted osmolyte-depleted brain cells unable to restore intracellular osmoles fast enough, causing water efflux/cellular shrinkage and osmotic injury.",
+    "pathology": "ODS is a noninflammatory demyelinating injury that commonly affects central pontine white matter and can also involve extrapontine sites.",
+    "cell_biology_nuance": "Contemporary evidence implicates early astrocyte injury in the cascade; the item therefore does not reduce pathogenesis to isolated oligodendrocyte shrinkage.",
+    "timing": "Clinical deterioration often follows an initial improvement and begins days after correction, matching the biphasic course described in ODS.",
+    "edema_distractor": "The chronic adaptation is loss, not accumulation, of osmolytes; persistent cerebral edema is not the mechanism of delayed post-correction demyelination.",
+    "adem_distractor": "ADEM is an immune-mediated postinfectious demyelinating syndrome and lacks the specific chronic-hyponatremia/correction trigger.",
+    "wernicke_distractor": "Thiamine deficiency can coexist in malnutrition/alcohol use but typically targets mammillary/periaqueductal/medial thalamic structures and does not explain the correction-linked pontine lesion.",
+    "infarct_distractor": "Basilar perforator infarction would be ischemic/vascular rather than the symmetric nonterritorial demyelinating pattern after osmotic correction."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Chronic hyponatremia creates an osmolyte-depleted brain. Rapid restoration of extracellular tonicity produces a relative extracellular hypertonic stress before intracellular osmolytes can be reacquired, drawing water out of vulnerable glial cells and initiating central myelin injury. The delayed dysarthria/dysphagia/quadriparesis and symmetric central pontine MRI lesion are the expected syndrome.",
+    "wernicke_challenge": "Alcohol use and malnutrition intentionally make Wernicke plausible, but the neurologic phenotype and central pontine MRI localization are not the classic thiamine-deficiency pattern, while the sodium-correction sequence directly supports ODS.",
+    "locked_in_challenge": "Severe pontine ODS can progress to locked-in physiology, but the item does not require this extreme manifestation and avoids overfitting to one presentation.",
+    "correction_rate_challenge": "The stem says 'corrected rapidly' without a numeric rate. This avoids implying that one threshold universally predicts ODS and preserves validity across evolving guidelines and high-risk populations.",
+    "acute_vs_chronic_hyponatremia": "The stem explicitly says chronic severe hyponatremia because chronic brain adaptation is central to the osmolyte-depletion mechanism; acute hyponatremia has different cerebral-edema physiology.",
+    "astrocyte_oligodendrocyte_challenge": "Because current models emphasize early astrocytic injury in addition to oligodendrocyte/myelin loss, the correct answer is framed at the osmotic cellular-injury/demyelination level rather than naming one glial cell as the sole initiating target.",
+    "cueing_check": "All options are pathophysiologic processes rather than disease names; the correct option is not the only one with a plausible neurologic mechanism.",
+    "unsupported_precision_check": "No fixed sodium level, correction-rate cutoff, onset day, lesion percentage, or outcome probability is required.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after broad uniqueness gate, current source verification, staged duplicate rerun, and adversarial second-pass. Q0624 has not been inserted into authoritative SQLite."
+}
