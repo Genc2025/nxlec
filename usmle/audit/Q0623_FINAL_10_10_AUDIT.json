@@ -1,0 +1,89 @@
+{
+  "audit_id": "Q0623-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0623",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "GeneReviews Prothrombin Thrombophilia was reread for the 20210G>A 3′-UTR location, increased 3′-end mRNA processing, elevated prothrombin synthesis, increased thrombin generation, and venous-thromboembolism phenotype.",
+      "Current MedlinePlus Prothrombin thrombophilia and F2 gene pages were reread for excess prothrombin/thrombin and the specific nucleotide change.",
+      "The official USMLE 2026 Content Outline was visually inspected at Blood & Lymphoreticular System page 5 and explicitly lists prothrombin G20210A mutation under hypercoagulable conditions."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Blood, Lymphoreticular and Immune Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Hematology",
+      "Molecular Genetics",
+      "Coagulation"
+    ],
+    "official_outline_path": [
+      "Blood & Lymphoreticular System",
+      "Coagulation disorders",
+      "Hypercoagulable conditions",
+      "Prothrombin G20210A mutation"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate-hard",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 620,
+    "broad_concept_probe_run": 33079147654,
+    "staged_diagnosis_run": 33079235110,
+    "diagnosis": "Prothrombin G20210A thrombophilia",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "variant_location": "The 20210G>A pathogenic variant lies in the F2 3′ untranslated region.",
+    "molecular_effect": "Experimental evidence supports increased efficiency/accuracy of 3′-end mRNA processing with increased F2 mRNA and prothrombin synthesis.",
+    "thrombosis_mechanism": "Higher prothrombin levels contribute to increased thrombin generation and a prothrombotic state.",
+    "phenotype": "The inherited phenotype is predominantly venous thromboembolism such as DVT and pulmonary embolism, often interacting with acquired risk factors.",
+    "factor_v_distractor": "Activated-protein-C resistance is the mechanism of Factor V Leiden, a separate inherited thrombophilia.",
+    "antithrombin_distractor": "Antithrombin deficiency lowers endogenous inhibition of thrombin and factor Xa but is not the molecular consequence of F2 20210G>A.",
+    "thrombomodulin_distractor": "Thrombomodulin-dependent activation of protein C is a separate anticoagulant pathway and is not the defect caused by this F2 variant.",
+    "fibrinolysis_distractor": "Impaired tPA/plasmin fibrinolysis is mechanistically distinct from increased prothrombin expression."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The genotype is supplied, so the task is not merely to name thrombophilia. The molecular question requires linking a 3′-UTR F2 variant to enhanced transcript processing and increased prothrombin production, which then increases thrombin generation.",
+    "factor_v_challenge": "Both Factor V Leiden and prothrombin G20210A are common inherited venous thrombophilias and may have normal screening coagulation tests. The actual F2 genotype makes APC resistance an incompatible mechanism.",
+    "antithrombin_challenge": "Antithrombin deficiency could produce a similar clinical VTE phenotype, but it would require a SERPINC1/antithrombin defect, not a known F2 3′-UTR variant.",
+    "normal_pt_aptt_challenge": "Normal PT/aPTT is expected to be nondiagnostic in common inherited thrombophilias; the stem does not imply these assays measure prothrombin concentration or thrombosis risk directly.",
+    "estrogen_challenge": "Estrogen is used as an acquired provoking factor that interacts with inherited risk; the item does not claim it is necessary for expression of prothrombin thrombophilia.",
+    "molecular_precision": "The key says increased efficiency of 3′-end processing rather than claiming a change in prothrombin amino-acid sequence, which is the critical molecular distinction.",
+    "cueing_check": "All five answers are molecular anticoagulant/procoagulant mechanisms of comparable specificity.",
+    "unsupported_precision_check": "The item does not depend on a particular relative-risk estimate, plasma prothrombin percentage increase, or recurrence-risk number.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after explicit USMLE blueprint verification, broad duplicate gate, source reread, staged rerun, and adversarial second-pass. Q0623 has not been inserted into authoritative SQLite."
+}
