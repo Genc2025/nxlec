@@ -25,8 +25,8 @@ SYSTEM_COUNTS={
 "Biostatistics, Epidemiology and Population Health":25,
 "Social Sciences: Communication and Interpersonal Skills":35}
 COMP_COUNTS={
-"Medical Knowledge: Applying Foundational Science Concepts":325,
-"Patient Care: Diagnosis, including history and physical examination":115,
+"Medical Knowledge: Applying Foundational Science Concepts":324,
+"Patient Care: Diagnosis, including history and physical examination":116,
 "Practice-Based Learning and Improvement":25,
 "Communication and Interpersonal Skills":35}
 
