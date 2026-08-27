@@ -1,0 +1,80 @@
+{
+  "audit_id": "Q0607-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0607",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "GeneReviews Hypophosphatasia last updated 2025-03-27 and reread in the current 1993-2026 NCBI edition.",
+      "MedlinePlus Genetics hypophosphatasia and differential gene/condition pages were live and reread on 2026-08-27."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Musculoskeletal, Skin and Subcutaneous Tissue",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Bone Biology",
+      "Biochemistry",
+      "Genetics"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33068102525,
+    "staged_diagnosis_run": 33068185862,
+    "diagnosis": "Hypophosphatasia",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype": "GeneReviews directly supports rickets/defective mineralization, premature nontraumatic loss of primary teeth with characteristically attached roots, low serum alkaline phosphatase, elevated PLP and elevated PPi in hypophosphatasia.",
+    "correct_mechanism": "MedlinePlus directly states that ALPL encodes tissue-nonspecific alkaline phosphatase and that TNSALP deficiency allows inorganic pyrophosphate to accumulate, underlying defective bone and tooth mineralization.",
+    "distractor_1": "MedlinePlus X-linked hypophosphatemia supports PHEX-related FGF23 excess causing impaired renal phosphate reabsorption and hypophosphatemic skeletal disease, not the low-ALP/PPi mechanism.",
+    "distractor_2": "MedlinePlus vitamin D-dependent rickets supports CYP27B1 deficiency causing impaired calcitriol synthesis with low calcium/phosphate and rickets, not deficient TNSALP.",
+    "distractor_3": "MedlinePlus osteogenesis imperfecta supports COL1A1/COL1A2 defects reducing or structurally altering type I collagen, a matrix-protein disorder rather than extracellular PPi accumulation.",
+    "distractor_4": "MedlinePlus TCIRG1 supports osteoclast V-ATPase proton secretion as necessary for resorption-pit acidification; loss causes osteopetrosis from failed bone resorption, not defective primary mineralization."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Rickets alone is nonspecific, but root-intact premature primary-tooth loss plus persistently low ALP and elevated PLP strongly localize the disorder to hypophosphatasia. The direct biochemical lesion is loss of TNSALP substrate hydrolysis with extracellular PPi accumulation.",
+    "fgf23_challenge": "FGF23 excess causes phosphate wasting and hypophosphatemia; it does not explain low alkaline phosphatase or the characteristic dental phenotype.",
+    "cyp27b1_challenge": "CYP27B1 deficiency can cause rickets but acts through calcitriol deficiency and mineral availability, not a low-ALP/PPi substrate-accumulation defect.",
+    "collagen_challenge": "Type I collagen abnormalities cause osteogenesis imperfecta, primarily a matrix-quality/quantity defect; they do not account for the biochemical TNSALP signature.",
+    "osteopetrosis_challenge": "Osteoclast acidification failure causes excessive skeletal density from impaired resorption, mechanistically opposite to the mineralization defect tested here.",
+    "calcium_phosphate_check": "The stem uses calcium and phosphate within expected range, which GeneReviews lists as typical/possible in hypophosphatasia; no unsupported numeric range is asserted.",
+    "hidden_assumption_check": "No treatment, inheritance pattern, prevalence, cutoff value or dose is required.",
+    "cueing_check": "All options are mechanistic causes of inherited metabolic/skeletal disease and are comparable in grammatical structure and specificity.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0607."
+}
