@@ -1,0 +1,554 @@
+[
+  {
+    "num": 489,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Screening",
+      "Negative predictive value"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Negative predictive value",
+    "mechanism": "Negative predictive value is the proportion of negative test results that are true negatives and increases as disease prevalence falls when sensitivity and specificity are unchanged.",
+    "vignette": "A screening test with fixed sensitivity and specificity is moved from a high-prevalence specialty clinic to a low-prevalence general population.",
+    "lead": "Which test characteristic is expected to increase?",
+    "correct": "Negative predictive value",
+    "distractors": [
+      "Sensitivity",
+      "Specificity",
+      "False-negative rate among diseased patients",
+      "Analytic detection threshold"
+    ],
+    "distractor_notes": [
+      "Sensitivity is specified as unchanged and does not depend directly on prevalence.",
+      "Specificity is also specified as unchanged.",
+      "The false-negative rate is 1-sensitivity and therefore remains unchanged.",
+      "The laboratory detection threshold is a property of the assay, not population prevalence."
+    ],
+    "key_expl": "Lower disease prevalence increases the probability that a negative result is a true negative, so NPV rises.",
+    "objective": "Predict the effect of prevalence on negative predictive value.",
+    "clues": [
+      "same sensitivity and specificity",
+      "lower disease prevalence"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology: Lesson 5",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson5/index.html",
+        "support": "CDC epidemiology materials describe predictive values and their dependence on disease prevalence."
+      },
+      {
+        "title": "Screening Tests",
+        "url": "https://medlineplus.gov/healthscreening.html",
+        "support": "MedlinePlus describes screening in populations before symptoms develop."
+      }
+    ]
+  },
+  {
+    "num": 490,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Diagnostic testing",
+      "Likelihood ratios"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Positive likelihood ratio",
+    "mechanism": "The positive likelihood ratio equals sensitivity divided by one minus specificity and describes how much a positive test changes the odds of disease.",
+    "vignette": "A diagnostic test has sensitivity 90% and specificity 80%.",
+    "lead": "What is the positive likelihood ratio?",
+    "correct": "4.5",
+    "distractors": [
+      "0.5",
+      "1.1",
+      "2.0",
+      "9.0"
+    ],
+    "distractor_notes": [
+      "0.5 does not follow the LR+ formula.",
+      "1.1 is close to no diagnostic discrimination and is not the calculated value.",
+      "2.0 underestimates 0.90/0.20.",
+      "9.0 would result if the false-positive rate were 0.10."
+    ],
+    "key_expl": "LR+ = sensitivity/(1−specificity) = 0.90/0.20 = 4.5.",
+    "objective": "Calculate a positive likelihood ratio.",
+    "clues": [
+      "sensitivity 90%",
+      "specificity 80%"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html",
+        "support": "CDC epidemiology training covers diagnostic test performance and measures used in clinical interpretation."
+      },
+      {
+        "title": "Medical Tests",
+        "url": "https://medlineplus.gov/medicaltests.html",
+        "support": "MedlinePlus provides background on diagnostic and screening test interpretation."
+      }
+    ]
+  },
+  {
+    "num": 491,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Clinical trials",
+      "Intention-to-treat analysis"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Intention-to-treat analysis",
+    "mechanism": "Intention-to-treat analysis compares participants according to original randomized assignment regardless of adherence, helping preserve the prognostic balance created by randomization.",
+    "vignette": "In a randomized trial, 20% of participants assigned to the new drug stop taking it and switch therapies.",
+    "lead": "Which analysis best preserves the benefit of randomization?",
+    "correct": "Analyze participants according to their original randomized groups",
+    "distractors": [
+      "Exclude all participants who changed treatment",
+      "Analyze only participants who completed treatment exactly as assigned",
+      "Reassign participants to groups based on the drug ultimately received",
+      "Discard all outcomes after the first protocol deviation"
+    ],
+    "distractor_notes": [
+      "Excluding switchers can introduce post-randomization selection bias.",
+      "Per-protocol analysis does not preserve randomization as completely as intention-to-treat.",
+      "As-treated analysis breaks the original random allocation.",
+      "Discarding outcomes after deviation can bias treatment-effect estimates."
+    ],
+    "key_expl": "Intention-to-treat retains participants in their originally assigned groups and preserves randomization.",
+    "objective": "Identify the rationale for intention-to-treat analysis.",
+    "clues": [
+      "randomized trial",
+      "treatment crossover/nonadherence"
+    ],
+    "sources": [
+      {
+        "title": "E9 Statistical Principles for Clinical Trials",
+        "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e9-statistical-principles-clinical-trials",
+        "support": "FDA guidance discusses analysis sets designed to preserve randomized treatment comparisons."
+      },
+      {
+        "title": "Clinical Trials Basics",
+        "url": "https://www.nih.gov/health-information/nih-clinical-research-trials-you/basics",
+        "support": "NIH describes randomized clinical trial design and treatment-group assignment."
+      }
+    ]
+  },
+  {
+    "num": 492,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Random error",
+      "Sample size"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Effect of sample size on precision",
+    "mechanism": "Larger sample sizes reduce standard error and generally narrow confidence intervals when other factors remain similar.",
+    "vignette": "Two studies estimate the same risk ratio using similar populations and methods, but one study enrolls 10 times as many participants.",
+    "lead": "What is most likely different in the larger study?",
+    "correct": "The confidence interval is narrower",
+    "distractors": [
+      "The point estimate must equal 1.0",
+      "The confidence interval is wider",
+      "Systematic bias is automatically eliminated",
+      "Disease prevalence must be higher"
+    ],
+    "distractor_notes": [
+      "A larger sample does not force the estimate to the null.",
+      "Greater sample size usually improves precision and narrows intervals.",
+      "Larger samples reduce random error but do not automatically remove systematic bias.",
+      "Prevalence is a population characteristic and need not change with sample size."
+    ],
+    "key_expl": "As sample size increases, standard error decreases and precision improves.",
+    "objective": "Relate sample size to statistical precision.",
+    "clues": [
+      "same study methods",
+      "10-fold larger sample"
+    ],
+    "sources": [
+      {
+        "title": "E9 Statistical Principles for Clinical Trials",
+        "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e9-statistical-principles-clinical-trials",
+        "support": "FDA guidance describes sample size, precision, and statistical inference in clinical trials."
+      },
+      {
+        "title": "Clinical Trials Basics",
+        "url": "https://www.nih.gov/health-information/nih-clinical-research-trials-you/basics",
+        "support": "NIH describes adequate enrollment as essential for answering clinical trial questions reliably."
+      }
+    ]
+  },
+  {
+    "num": 493,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Measures of association",
+      "Attributable risk"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology",
+    "diagnosis": "Attributable risk",
+    "mechanism": "Attributable risk among the exposed is the incidence in exposed individuals minus the incidence in unexposed individuals and estimates excess risk associated with the exposure.",
+    "vignette": "Disease incidence is 12 per 1000 person-years among exposed workers and 4 per 1000 person-years among unexposed workers.",
+    "lead": "What is the attributable risk among exposed workers?",
+    "correct": "8 per 1000 person-years",
+    "distractors": [
+      "3 per 1000 person-years",
+      "4 per 1000 person-years",
+      "12 per 1000 person-years",
+      "16 per 1000 person-years"
+    ],
+    "distractor_notes": [
+      "3 is the incidence ratio, not the risk difference.",
+      "4 is the incidence in the unexposed group.",
+      "12 is the incidence in exposed workers, not the excess.",
+      "16 is the sum rather than the difference."
+    ],
+    "key_expl": "Attributable risk = 12−4 = 8 per 1000 person-years.",
+    "objective": "Calculate attributable risk from exposed and unexposed incidence rates.",
+    "clues": [
+      "incidence exposed 12/1000",
+      "incidence unexposed 4/1000"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology Lesson 3",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/index.html",
+        "support": "CDC describes risk differences and measures of association."
+      },
+      {
+        "title": "Epidemiology Glossary",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/glossary.html",
+        "support": "CDC defines epidemiologic risk and association measures."
+      }
+    ]
+  },
+  {
+    "num": 494,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Patient-centered interviewing",
+      "Open-ended questions"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Open-ended interviewing",
+    "mechanism": "Open-ended questions allow patients to describe concerns in their own words, reduce premature narrowing of the history, and improve elicitation of priorities.",
+    "vignette": "At the start of a visit, a patient says, “I haven't felt right for weeks.”",
+    "lead": "Which response is most appropriate initially?",
+    "correct": "“Tell me more about what you've been experiencing.”",
+    "distractors": [
+      "“Is the pain on the left side?”",
+      "“You probably have a viral illness, correct?”",
+      "“Answer yes or no: are you short of breath?”",
+      "“Let's skip the history and order tests first.”"
+    ],
+    "distractor_notes": [
+      "A narrow closed question is premature before the chief concern is understood.",
+      "A leading diagnostic statement can bias the history.",
+      "Yes/no questions are useful later but not optimal for opening the interview.",
+      "Testing should follow an adequate clinical history when feasible."
+    ],
+    "key_expl": "An open invitation lets the patient establish the agenda and describe symptoms without clinician-imposed framing.",
+    "objective": "Use open-ended questions at the beginning of a clinical interview.",
+    "clues": [
+      "start of visit",
+      "vague patient concern"
+    ],
+    "sources": [
+      {
+        "title": "Key Strategies for Clear Communication",
+        "url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool4a.html",
+        "support": "AHRQ recommends patient-centered clear communication strategies including eliciting patient concerns."
+      },
+      {
+        "title": "Patient-Centered Communication in Cancer Care",
+        "url": "https://cancercontrol.cancer.gov/brp/research/theories_project/patient-centered-communication-monograph.pdf",
+        "support": "NCI identifies eliciting and understanding patient perspectives as a core communication function."
+      }
+    ]
+  },
+  {
+    "num": 495,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Communication",
+      "Reflective listening"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Reflective listening",
+    "mechanism": "Reflective listening restates or reframes the patient's meaning and emotion to demonstrate understanding and invite correction or elaboration.",
+    "vignette": "A patient says, “I stopped the medicine because every time I take it, I feel like I'm losing control of my body.”",
+    "lead": "Which response best demonstrates reflective listening?",
+    "correct": "“It sounds like the side effects make you feel frightened and less in control.”",
+    "distractors": [
+      "“You should not have stopped it.”",
+      "“The medication is safe, so your concern is unnecessary.”",
+      "“Let's move to the next question.”",
+      "“Did you take it exactly at 8 AM?”"
+    ],
+    "distractor_notes": [
+      "Judgment does not reflect the patient's meaning.",
+      "Reassurance without acknowledging the experience can shut down communication.",
+      "Changing the subject misses the expressed concern.",
+      "A narrow adherence detail does not address the patient's emotional meaning."
+    ],
+    "key_expl": "Reflection acknowledges both content and emotion and checks the clinician's understanding.",
+    "objective": "Use reflective listening in patient-centered communication.",
+    "clues": [
+      "fear of side effects",
+      "loss of control"
+    ],
+    "sources": [
+      {
+        "title": "Motivational Interviewing",
+        "url": "https://www.ahrq.gov/prevention/guidelines/tobacco/index.html",
+        "support": "AHRQ counseling resources support reflective, patient-centered communication for behavior change."
+      },
+      {
+        "title": "Health Literacy Universal Precautions Toolkit",
+        "url": "https://www.ahrq.gov/health-literacy/improve/precautions/index.html",
+        "support": "AHRQ emphasizes listening and clear bidirectional communication."
+      }
+    ]
+  },
+  {
+    "num": 496,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Patient autonomy",
+      "Refusal of information"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Patient preference not to receive details",
+    "mechanism": "A capable patient may choose how much information to receive and may designate another person to receive information or help decide, provided the choice is voluntary and applicable legal requirements are followed.",
+    "vignette": "A competent adult says, “I don't want to hear the detailed prognosis. Please discuss the specifics with my spouse, and tell me only what I need to know to make immediate decisions.”",
+    "lead": "What is the most appropriate response?",
+    "correct": "Clarify the patient's preference and honor the requested level of disclosure while ensuring necessary consent information is understood",
+    "distractors": [
+      "Force full disclosure regardless of the patient's preference",
+      "Tell the spouse everything without confirming the patient's permission",
+      "Refuse to continue care",
+      "Declare the patient incapable because they do not want detailed information"
+    ],
+    "distractor_notes": [
+      "Autonomy includes preferences about receiving information.",
+      "The clinician should confirm the patient's authorization and scope before sharing with a spouse.",
+      "The preference does not justify abandonment.",
+      "Choosing not to receive all details does not itself demonstrate incapacity."
+    ],
+    "key_expl": "A capable patient can shape how information is disclosed while still receiving enough information for valid decisions when consent is required.",
+    "objective": "Respect a capable patient's preferences regarding prognostic disclosure.",
+    "clues": [
+      "competent adult",
+      "explicit preference for limited detail and spouse involvement"
+    ],
+    "sources": [
+      {
+        "title": "Informed Consent FAQs",
+        "url": "https://www.hhs.gov/ohrp/regulations-and-policy/guidance/faq/informed-consent/index.html",
+        "support": "HHS emphasizes voluntary informed decision-making and understandable disclosure."
+      },
+      {
+        "title": "HIPAA Family and Friends",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/faq/488/does-hipaa-permit-a-doctor-to-discuss-a-patients-health-status-with-the-patients-family-and-friends/index.html",
+        "support": "HHS describes sharing relevant health information with family when the patient agrees or does not object."
+      }
+    ]
+  },
+  {
+    "num": 497,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "End-of-life care",
+      "DNR"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Do-not-resuscitate order",
+    "mechanism": "A DNR order applies specifically to cardiopulmonary resuscitation after cardiac or respiratory arrest and does not automatically limit other appropriate treatments.",
+    "vignette": "A patient with a DNR order develops bacterial pneumonia but is awake, wants treatment, and has decision-making capacity.",
+    "lead": "Which action is most appropriate?",
+    "correct": "Treat the pneumonia according to the patient's goals because a DNR order limits CPR, not all medical care",
+    "distractors": [
+      "Withhold antibiotics because DNR means comfort care only",
+      "Ignore the patient's current wishes because the DNR is irreversible",
+      "Automatically intubate if the patient later arrests",
+      "Cancel all diagnostic testing"
+    ],
+    "distractor_notes": [
+      "DNR does not automatically mean comfort-only treatment.",
+      "Capable patients can revisit goals and preferences.",
+      "DNR specifically limits resuscitation after arrest and does not mandate invasive treatment.",
+      "Other diagnostics may be consistent with the patient's goals."
+    ],
+    "key_expl": "DNR status addresses resuscitation, not the entire scope of medical treatment.",
+    "objective": "Distinguish DNR from broader limitations of treatment.",
+    "clues": [
+      "DNR order",
+      "awake patient requesting pneumonia treatment"
+    ],
+    "sources": [
+      {
+        "title": "Advance Care Planning",
+        "url": "https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care",
+        "support": "NIA describes advance directives and resuscitation preferences."
+      },
+      {
+        "title": "Advance directives",
+        "url": "https://medlineplus.gov/advancedirectives.html",
+        "support": "MedlinePlus describes DNR orders and advance care planning."
+      }
+    ]
+  },
+  {
+    "num": 498,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Error disclosure",
+      "Apology"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Empathic apology after adverse event",
+    "mechanism": "Effective adverse-event communication includes acknowledging the event, explaining known facts without speculation, expressing empathy or regret, and outlining ongoing care and investigation.",
+    "vignette": "A medication error caused temporary harm. The facts are known and the patient is stable.",
+    "lead": "Which statement is most appropriate?",
+    "correct": "“We gave the wrong dose, it caused your low blood pressure, and I am sorry this happened. We are treating the effects and reviewing how the error occurred.”",
+    "distractors": [
+      "“Mistakes happen, but no one is really responsible.”",
+      "“We should not discuss this until the lawyers approve every detail.”",
+      "“Your blood pressure dropped, but I cannot tell you why.”",
+      "“The nurse caused the error.”"
+    ],
+    "distractor_notes": [
+      "Minimization does not provide transparent factual disclosure.",
+      "Unnecessary delay conflicts with timely patient-centered disclosure.",
+      "Omitting the known medication error is misleading.",
+      "Assigning individual blame before a systems review is inappropriate."
+    ],
+    "key_expl": "Transparent factual disclosure plus sincere regret and a plan for care and review is appropriate after a confirmed adverse event.",
+    "objective": "Communicate appropriately after a medical error.",
+    "clues": [
+      "confirmed error",
+      "temporary patient harm"
+    ],
+    "sources": [
+      {
+        "title": "Disclosure Checklist",
+        "url": "https://www.ahrq.gov/patient-safety/settings/hospital/candor/modules/checklist5.html",
+        "support": "AHRQ recommends explaining facts, apologizing, and describing follow-up after adverse events."
+      },
+      {
+        "title": "CANDOR",
+        "url": "https://www.ahrq.gov/patient-safety/settings/hospital/candor/index.html",
+        "support": "AHRQ describes timely transparent communication after patient harm events."
+      }
+    ]
+  },
+  {
+    "num": 499,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Research ethics",
+      "Placebo use"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Placebo-controlled research consent",
+    "mechanism": "Research involving placebo assignment requires clear disclosure of randomization, the possibility of placebo, foreseeable risks, alternatives, and voluntariness; ethical acceptability also depends on risk and availability of proven therapy.",
+    "vignette": "A patient is considering a randomized placebo-controlled research trial.",
+    "lead": "Which statement must be clearly understood before enrollment?",
+    "correct": "The participant may be randomly assigned to placebo rather than the experimental treatment",
+    "distractors": [
+      "The investigator will ensure the participant receives the better treatment",
+      "Placebo assignment does not need to be disclosed",
+      "Randomization is chosen based on the patient's individual prognosis",
+      "Withdrawal from the study is prohibited after consent"
+    ],
+    "distractor_notes": [
+      "Randomization cannot guarantee the better treatment.",
+      "Placebo assignment is material study information.",
+      "Random assignment is not individualized clinician choice.",
+      "Research participation is voluntary and participants generally may withdraw."
+    ],
+    "key_expl": "The consent process must explain randomization and placebo possibility in understandable terms.",
+    "objective": "Identify essential informed-consent disclosure in placebo-controlled research.",
+    "clues": [
+      "randomized placebo trial",
+      "pre-enrollment consent"
+    ],
+    "sources": [
+      {
+        "title": "Informed Consent FAQs",
+        "url": "https://www.hhs.gov/ohrp/regulations-and-policy/guidance/faq/informed-consent/index.html",
+        "support": "OHRP describes required understandable disclosure of research procedures, risks, alternatives, and voluntariness."
+      },
+      {
+        "title": "Clinical Trials Basics",
+        "url": "https://www.nih.gov/health-information/nih-clinical-research-trials-you/basics",
+        "support": "NIH explains randomization, control groups, and placebo use in clinical trials."
+      }
+    ]
+  },
+  {
+    "num": 500,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Teamwork",
+      "Debriefing"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Clinical team debrief",
+    "mechanism": "A structured debrief after an event reviews what happened, what worked, what could improve, and concrete follow-up actions in a psychologically safe manner.",
+    "vignette": "After a complicated resuscitation, the team wants to improve future performance.",
+    "lead": "Which approach is most appropriate?",
+    "correct": "Conduct a brief structured debrief focused on performance, communication, and actionable improvements",
+    "distractors": [
+      "Identify one person to blame publicly",
+      "Avoid discussing mistakes to protect morale",
+      "Discuss only the final patient outcome",
+      "Wait until memories have faded before reviewing the event"
+    ],
+    "distractor_notes": [
+      "Blame-focused review undermines psychological safety and systems learning.",
+      "Avoidance prevents learning from the event.",
+      "Process performance matters even when the outcome is good or bad.",
+      "Timely debriefing preserves details and supports learning."
+    ],
+    "key_expl": "Structured debriefing supports team learning and improvement by reviewing processes and actionable lessons.",
+    "objective": "Use debriefing as a team performance-improvement tool.",
+    "clues": [
+      "after complex resuscitation",
+      "goal is future improvement"
+    ],
+    "sources": [
+      {
+        "title": "TeamSTEPPS Debrief",
+        "url": "https://www.ahrq.gov/teamstepps-program/curriculum/team/tools/debrief.html",
+        "support": "AHRQ describes debriefs as concise post-event team reviews focused on performance and improvement."
+      },
+      {
+        "title": "TeamSTEPPS",
+        "url": "https://www.ahrq.gov/teamstepps-program/index.html",
+        "support": "AHRQ describes teamwork tools designed to improve patient safety and team performance."
+      }
+    ]
+  }
+]
