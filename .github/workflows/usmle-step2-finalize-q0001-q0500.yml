@@ -34,10 +34,10 @@ jobs:
           con=sqlite3.connect("usmle/data/usmle-step1.db")
           assert con.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
           assert con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]==500
-          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==500
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==500\n          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==500
           s=json.load(open("usmle/state/step2_final_q0001_q0500.json"))
           assert s["final_status"]=="FINAL_10_10_PASS"
-          assert s["item_count"]==500
+          assert s["item_count"]==500\n          assert s["authoritative_final_table"]=="step2_final_items"
           assert s["open_content_defects"]==0
           assert s["answer_position"]["balanced"]=={"A":100,"B":100,"C":100,"D":100,"E":100}
           assert s["answer_position"]["nonperiodic"] is True
