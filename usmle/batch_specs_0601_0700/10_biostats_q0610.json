@@ -1,0 +1,74 @@
+[
+  {
+    "num": 610,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Diagnostic test evaluation",
+      "Partial verification bias"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics / Clinical Epidemiology",
+    "diagnosis": "Partial verification bias",
+    "mechanism": "Diagnostic accuracy is biased when receipt of the reference standard depends on the index-test result, so disease status is verified in a nonrandom subset of tested participants.",
+    "vignette": "Investigators prospectively enroll consecutive adults being evaluated for coronary artery disease and perform a new blood-based index test on every participant. Coronary angiography is the single prespecified reference standard. All participants with a positive index test undergo angiography, but because angiography is invasive, only a small random sample of participants with a negative index test undergo it. Sensitivity and specificity are then estimated only from participants whose disease status was verified by angiography. Angiographers are blinded to the index-test result.",
+    "lead": "Which source of bias most directly threatens the reported diagnostic accuracy?",
+    "correct": "Partial verification bias (workup bias)",
+    "distractors": [
+      "Spectrum bias",
+      "Differential verification bias",
+      "Incorporation bias",
+      "Reference-standard review bias"
+    ],
+    "distractor_notes": [
+      "Spectrum bias arises when the included patient spectrum does not represent the population in which the test will be used. The study instead enrolls consecutive clinically relevant patients; the defining defect is selective application of the reference standard.",
+      "Differential verification bias occurs when different reference standards are used for different participants, often according to the index-test result. Here, coronary angiography is the only reference standard; the problem is that many index-negative participants are not verified at all.",
+      "Incorporation bias occurs when the index-test result forms part of the reference standard used to define disease. Here, angiography is prespecified independently and does not incorporate the blood-test result.",
+      "Reference-standard review bias occurs when interpretation of the reference standard is influenced by knowledge of the index test. The angiographers are explicitly blinded."
+    ],
+    "key_expl": "This study has partial verification bias, also called workup bias. Whether a participant receives the reference standard depends strongly on the index-test result: nearly all index-positive participants are verified, whereas most index-negative participants are not. Disease status is therefore known in a nonrandom subset of the tested cohort, which can bias estimated sensitivity and specificity.",
+    "objective": "Recognize partial verification bias in diagnostic-accuracy studies when the likelihood of receiving the reference standard depends on the index-test result.",
+    "clues": [
+      "consecutive clinically relevant cohort",
+      "single prespecified reference standard",
+      "all index positives verified",
+      "most index negatives not verified",
+      "reference interpreters blinded"
+    ],
+    "difficulty": "moderate",
+    "sources": [
+      {
+        "organization": "National Library of Medicine, PubMed",
+        "title": "Studies of diagnostic test accuracy: Partial verification bias and test result-based sampling",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35124189/",
+        "date": "2022",
+        "locator": "Abstract — Background; Conclusion",
+        "support": "The PubMed-indexed methods paper states that partial verification bias occurs when a positive index test makes application of the reference standard more likely and explains that using definitive verification selectively can distort evaluation of diagnostic-test usefulness."
+      },
+      {
+        "organization": "National Library of Medicine, PubMed Central",
+        "title": "Systematic Reviews of Diagnostic Test Accuracy",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2956514/",
+        "date": "2010",
+        "locator": "Table 1 — Bias in diagnostic test accuracy studies",
+        "support": "The review defines partial verification bias as a nonrandom set of patients failing to undergo the reference standard; it separately defines spectrum bias, differential verification bias, incorporation bias, and information/review bias."
+      },
+      {
+        "organization": "National Library of Medicine, PubMed Central",
+        "title": "Recognising bias in studies of diagnostic tests part 2: interpreting and verifying the index test",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6693499/",
+        "date": "2019",
+        "locator": "Disease Verification; table section Part 2: Interpreting and verifying the index test",
+        "support": "The review states that participants in diagnostic-accuracy studies ideally receive both the index test and gold standard, describes partial verification when index-positive participants are more likely to receive the gold standard, and distinguishes incorporation, differential verification, and review bias."
+      },
+      {
+        "organization": "Agency for Healthcare Research and Quality",
+        "title": "Chapter 9: Options for Summarizing Medical Test Performance in the Absence of a Gold Standard",
+        "url": "https://effectivehealthcare.ahrq.gov/products/methods-guidance-tests-performance/methods",
+        "date": "AHRQ Methods Guide; current page verified 2026-08-27",
+        "locator": "Introduction",
+        "support": "AHRQ describes the classical diagnostic-accuracy paradigm as comparing the index test with true/reference status for every tested individual and notes verification bias when reference-standard use is guided by index-test results rather than being universal."
+      }
+    ]
+  }
+]
