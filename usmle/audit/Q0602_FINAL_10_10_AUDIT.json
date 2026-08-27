@@ -1,8 +1,15 @@
 {
-  "audit_id": "Q0602-FRESH-ITEM-AUDIT-20260827",
+  "audit_id": "Q0602-FRESH-ITEM-AUDIT-20260827-R2",
   "item": "Q0602",
   "status": "FINAL_10_10_PASS",
   "audited_at": "2026-08-27",
+  "correction_history": {
+    "prior_staged_concept": "Paroxysmal nocturnal hemoglobinuria",
+    "prior_status_invalidated": true,
+    "reason": "Authoritative SQLite overlap check found canonical S1-DIRECT-0108-20260827T021500Z already covering PNH/PIGA/GPI-anchor/CD55-CD59.",
+    "replacement": "Methemoglobinemia",
+    "replacement_canonical_diagnosis_hits": 0
+  },
   "source_authority": "PASS",
   "source_currentness": "PASS",
   "exact_locator": "PASS",
@@ -25,9 +32,9 @@
     "system": "Blood, Lymphoreticular and Immune Systems",
     "competency": "Medical Knowledge: Applying Foundational Science Concepts",
     "disciplines": [
-      "Pathology",
-      "Genetics",
-      "Immunology"
+      "Physiology",
+      "Biochemistry",
+      "Pathology"
     ],
     "status": "PASS"
   },
@@ -35,28 +42,33 @@
     "rating": "moderate",
     "status": "PASS"
   },
-  "duplicate_search": {
-    "queries": [
-      "paroxysmal nocturnal hemoglobinuria",
-      "PIGA",
-      "CD55 CD59"
-    ],
-    "repository_exact_concept_matches": 0,
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "workflow_run": 33037261382,
+    "diagnosis": "Methemoglobinemia",
+    "canonical_hits": 0,
+    "q0601_hits": 0,
     "status": "PASS"
   },
   "claim_audit": {
-    "phenotype": "MedlinePlus Description and NCBI Pathophysiology support recurrent hemoglobinuria and thrombosis; NCBI specifically supports intra-abdominal/hepatic venous thrombosis.",
-    "flow_cytometry": "NCBI Evaluation identifies flow cytometry of GPI-anchored proteins including CD55/CD59 as the gold-standard diagnostic approach.",
-    "correct_mechanism": "MedlinePlus Causes and NCBI Etiology directly support somatic PIGA mutation, defective GPI anchoring, loss of CD55/CD59, and complement-mediated hemolysis.",
-    "distractor_1": "NCBI Hereditary Spherocytosis supports membrane/cytoskeletal protein defects including spectrin.",
-    "distractor_2": "NCBI G6PD Deficiency supports impaired NADPH/redox defense and oxidative hemolysis.",
-    "distractor_3": "NCBI immune hemolytic anemia review supports warm IgG-mediated RBC destruction.",
-    "distractor_4": "NCBI TTP supports acquired ADAMTS13 inhibition and microangiopathic thrombosis/hemolysis."
+    "stem_pattern": "NCBI Methemoglobinemia Evaluation supports cyanosis/hypoxemia poorly responsive to supplemental oxygen, chocolate-brown blood, discrepancy with blood-gas oxygen assessment, and confirmation by co-oximetry.",
+    "correct_mechanism": "NCBI Methemoglobinemia Introduction and Pathophysiology directly support oxidation of heme iron from Fe2+ to Fe3+, inability of ferric heme to bind oxygen, and increased oxygen affinity at remaining ferrous sites.",
+    "distractor_1": "NCBI Carbon Monoxide Poisoning supports carboxyhemoglobin formation and left-shifted oxygen unloading; it also notes standard pulse oximetry limitations, while the stem's co-oximetry identifies methemoglobin rather than carboxyhemoglobin.",
+    "distractor_2": "NCBI Sickle Cell Anemia Pathophysiology supports polymerization of deoxygenated HbS as the mechanism of sickling, hemolysis, and vaso-occlusion.",
+    "distractor_3": "NCBI Beta Thalassemia Introduction/Etiology supports reduced or absent beta-globin synthesis as a quantitative hemoglobin defect.",
+    "distractor_4": "NCBI Lead Toxicity Pathophysiology supports interference with heme-synthesis enzymes and erythrocyte integrity as mechanisms of lead-associated anemia."
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Loss of both CD55 and CD59 on a clonal blood-cell population localizes the defect to GPI anchoring; PNH plus hemoglobinuria and hepatic-vein thrombosis makes a somatic PIGA lesion the single best explanation.",
-    "alternative_mechanisms": "The four distractors can cause anemia or thrombosis but none causes clonal loss of GPI-anchored CD55/CD59.",
-    "inherited_vs_acquired": "The item asks about typical PNH and the sources explicitly identify the usual lesion as a somatic, acquired PIGA mutation; no family-history assumption is needed.",
+    "independent_reconstruction": "Normal PaO2 with abnormal pulse oximetry, chocolate-brown blood, and co-oximetry showing increased methemoglobin localize the defect to dyshemoglobin rather than alveolar oxygen transfer. Methemoglobin is specifically ferric Fe3+ heme.",
+    "carbon_monoxide_challenge": "Carbon monoxide can preserve PaO2 while impairing oxygen delivery, but it forms carboxyhemoglobin rather than the explicitly measured methemoglobin fraction and does not explain the identified dyshemoglobin.",
+    "sulfhemoglobin_challenge": "Sulfhemoglobinemia can enter the differential for cyanosis with abnormal oximetry, but the stem explicitly confirms increased methemoglobin by co-oximetry, eliminating this competing diagnosis.",
+    "sickle_challenge": "HbS polymerization requires deoxygenated HbS and produces sickling/hemolysis/vaso-occlusion, not ferric-heme dyshemoglobinemia.",
+    "thalassemia_challenge": "Reduced beta-globin synthesis is a chronic quantitative synthesis disorder and does not generate methemoglobin.",
+    "lead_challenge": "Lead impairs heme synthesis and can cause anemia but does not oxidize incorporated heme iron into the methemoglobin fraction identified here.",
+    "hidden_assumption_check": "No drug, dose, threshold, or specific procedural exposure is required to answer the item.",
+    "cueing_check": "The correct option is not uniquely longer or more detailed than the alternatives; the stem's co-oximetry clue tests mechanism recognition rather than option-form cueing.",
     "result": "PASS"
   },
   "zero_unsupported_precision": "PASS",
