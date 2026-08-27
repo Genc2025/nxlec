@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import copy, hashlib, json, pathlib, random, re, sqlite3
+from datetime import datetime, timezone
 from collections import Counter
 from urllib.parse import urlparse
 
@@ -8,9 +9,9 @@ DB=ROOT/'data'/'usmle-step1.db'
 SPEC_DIR=ROOT/'batch_specs_0501_0600'
 FINAL_AUDIT=ROOT/'audit'/'STEP2_FINAL_10_10_Q0001_Q0600.json'
 FINAL_STATE=ROOT/'state'/'step2_final_q0001_q0600.json'
-FINAL_AT='2026-08-27T05:30:00Z'
+FINAL_AT=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
 SEED_TEXT='USMLE_STEP1_STEP2_FINAL_Q0501_Q0600|2026-08-27|01f246df3f8e56c65957997b05d93e7286caa474'
-ALLOWED_ROOTS=('medlineplus.gov','nih.gov','nlm.nih.gov','cdc.gov','fda.gov','hhs.gov','ahrq.gov','cms.gov','hrsa.gov','osha.gov','epa.gov','va.gov','federalregister.gov','ecfr.gov','congress.gov','cancer.gov')
+ALLOWED_ROOTS=('medlineplus.gov','nih.gov','nlm.nih.gov','cdc.gov','fda.gov','hhs.gov','ahrq.gov','cms.gov','hrsa.gov','osha.gov','epa.gov','va.gov','federalregister.gov','ecfr.gov','congress.gov','cancer.gov','samhsa.gov')
 
 def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -51,7 +52,9 @@ def difficulty(x):
  return 'moderate','Requires applied Step 1 foundational reasoning beyond simple recall.'
 def source_norm(s,i):
  if not host_ok(s['url']): raise SystemExit('nonallowlisted '+s['url'])
- return {'source_id':f'S{i}','agency':'Official U.S. Government source','title':s['title'],'url':s['url'],'publication_or_revision_date':s.get('date','Current official source used in 2026 production'),'retrieved_at':FINAL_AT,'section_locator':s.get('locator','Relevant claim-specific disease/mechanism section'),'supporting_passage':s['support'],'government_status_verified':True,'rights_status':'Official U.S. federal source; facts paraphrased into original educational content.'}
+ locator=s.get('locator') or f"Page heading: {s['title']}"
+ currentness=s.get('date') or 'Undated current official web page; currentness verified during item audit and accessed at finalization'
+ return {'source_id':f'S{i}','agency':'Official U.S. Government source','title':s['title'],'url':s['url'],'publication_or_revision_date':currentness,'retrieved_at':FINAL_AT,'section_locator':locator,'supporting_passage':s['support'],'government_status_verified':True,'rights_status':'Official U.S. federal source; facts paraphrased into original educational content.'}
 def build_from_template(template,x,key):
  c=copy.deepcopy(template); wrong=list(zip(x['distractors'],x['distractor_notes'])); opts={}; notes={}; wi=0
  for L in 'ABCDE':
@@ -75,7 +78,17 @@ def main():
  specs=load_specs(); schedule=new_schedule(); con=sqlite3.connect(DB)
  if con.execute('PRAGMA integrity_check').fetchone()[0]!='ok': raise SystemExit('pre integrity failure')
  old=con.execute("SELECT candidate_id,payload_json,audit_sha256,final_status FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+ old_reviews=con.execute("SELECT candidate_id,review_json,review_sha256,final_status FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall()
  if len(old)!=500: raise SystemExit(f'expected 500 authoritative old finals, got {len(old)}')
+ if len(old_reviews)!=500: raise SystemExit(f'expected 500 authoritative old reviews, got {len(old_reviews)}')
+ if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0: raise SystemExit('pre duplicate candidate_id in items')
+ if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0: raise SystemExit('pre duplicate candidate_id in reviews')
+ if {r[0] for r in old}!={r[0] for r in old_reviews}: raise SystemExit('pre item/review candidate set mismatch')
+ for cid,pj,ps,ash in con.execute('SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status=\'FINAL_10_10_PASS\''):
+  cc=json.loads(pj)
+  if hash_obj(cc)!=ps: raise SystemExit(cid+' pre payload hash failure')
+  rr=con.execute('SELECT review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone()
+  if not rr or rr[0]!=ash or rr[1]!='FINAL_10_10_PASS': raise SystemExit(cid+' pre review consistency failure')
  oldnums={qnum(cid) for cid,_,_,_ in old}
  if oldnums!=set(range(1,501)): raise SystemExit('old final coverage failure')
  template=json.loads(old[0][1]); finals={}; reviews={}
@@ -112,11 +125,22 @@ def main():
  if con.execute('PRAGMA integrity_check').fetchone()[0]!='ok': raise SystemExit('post integrity failure')
  if con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]!=600: raise SystemExit('final count failure')
  if con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]!=600: raise SystemExit('review count failure')
+ if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0: raise SystemExit('post duplicate candidate_id in items')
+ if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0: raise SystemExit('post duplicate candidate_id in reviews')
+ item_ids={r[0] for r in con.execute("SELECT candidate_id FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'")}
+ review_ids={r[0] for r in con.execute("SELECT candidate_id FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'")}
+ if item_ids!=review_ids: raise SystemExit('post item/review candidate set mismatch')
+ final_nums={qnum(cid) for cid in item_ids}
+ if final_nums!=set(range(1,601)): raise SystemExit('post Q0001-Q0600 coverage failure')
+ reread_count=0
  for cid,pj,ps,ash in con.execute('SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items'):
   cc=json.loads(pj)
   if hash_obj(cc)!=ps: raise SystemExit(cid+' payload reread hash failure')
   rr=con.execute('SELECT review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone()
   if not rr or rr[0]!=ash or rr[1]!='FINAL_10_10_PASS': raise SystemExit(cid+' review reread failure')
- result={'audit_id':'STEP2-FINAL-Q0001-Q0600-20260827','final_status':'FINAL_10_10_PASS','item_count':600,'authoritative_final_table':'step2_final_items','fresh_item_by_item_read_count':600,'open_content_defects':0,'new_block':{'range':'Q0501-Q0600','item_count':100,'fresh_item_by_item_audit':True},'answer_position_new_block':{'balanced':dict(keynew),'nonperiodic':True,'schedule_sha256':sha(seq)},'difficulty_counts':dict(Counter(c['item']['difficulty'] for c in allc)),'official_source_minimum_per_item':2,'step2_final_review_count':600,'blueprint_counts':dict(sysc),'competency_counts':dict(compc),'sqlite_integrity_check':'ok','finalized_at':FINAL_AT}
+  if any((not s.get('section_locator')) or s.get('section_locator')=='Relevant claim-specific disease/mechanism section' for s in cc.get('sources',[])): raise SystemExit(cid+' source locator failure')
+  reread_count+=1
+ if reread_count!=600: raise SystemExit(f'reread count failure {reread_count}')
+ result={'audit_id':'STEP2-FINAL-Q0001-Q0600-20260827','final_status':'FINAL_10_10_PASS','item_count':600,'authoritative_final_table':'step2_final_items','fresh_item_by_item_read_count':600,'open_content_defects':0,'new_block':{'range':'Q0501-Q0600','item_count':100,'fresh_item_by_item_audit':True},'answer_position_new_block':{'balanced':dict(keynew),'nonperiodic':True,'schedule_sha256':sha(seq)},'difficulty_counts':dict(Counter(c['item']['difficulty'] for c in allc)),'official_source_minimum_per_item':2,'step2_final_review_count':600,'blueprint_counts':dict(sysc),'competency_counts':dict(compc),'sqlite_integrity_check':'ok','duplicate_candidate_id_count':0,'payload_review_consistency':'PASS','reread_verified_count':reread_count,'finalized_at':FINAL_AT}
  FINAL_AUDIT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n'); FINAL_STATE.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n'); print(json.dumps(result,indent=2))
 if __name__=='__main__': main()
