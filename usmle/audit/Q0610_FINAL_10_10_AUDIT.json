@@ -1,0 +1,79 @@
+{
+  "audit_id": "Q0610-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0610",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "AHRQ Effective Health Care Methods Guide page was live and reread on 2026-08-27.",
+      "NIH/NLM PubMed and PubMed Central methods literature was reread for stable diagnostic-accuracy bias definitions; a 2022 dedicated partial-verification methods paper directly supports the core claim."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "competency": "Practice-Based Learning and Improvement",
+    "disciplines": [
+      "Biostatistics",
+      "Clinical Epidemiology"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33068690076,
+    "staged_diagnosis_run": 33068847182,
+    "diagnosis": "Partial verification bias",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "correct_mechanism": "The NLM/PubMed 2022 methods paper states that partial verification bias occurs when a positive index test makes application of the reference standard more likely. The NLM/PMC diagnostic-accuracy review defines it as a nonrandom set of tested patients not undergoing the reference standard.",
+    "classical_design": "AHRQ describes the classical diagnostic-accuracy paradigm as comparing the index test with reference/true status for every tested individual and notes verification bias when reference-standard use is guided by the index result.",
+    "distractor_1": "NLM/PMC defines spectrum bias as arising when the included patient spectrum does not represent the intended target population. Consecutive clinically relevant enrollment in the stem removes that defining defect.",
+    "distractor_2": "NLM/PMC defines differential verification bias as using different reference standards for different participants. The stem explicitly specifies one reference standard—coronary angiography.",
+    "distractor_3": "NLM/PMC defines incorporation bias as including the index test in the reference standard. The stem explicitly keeps angiography independent of the blood test.",
+    "distractor_4": "NLM/PMC defines reference-standard review/information bias as interpretation of the reference standard with knowledge of the index result. The angiographers are explicitly blinded."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "All participants receive the index test, but verification of disease status by the single reference standard is much more likely after a positive index result. Diagnostic accuracy is then calculated only in the selectively verified subset. This is precisely partial verification/workup bias.",
+    "spectrum_challenge": "The study enrolls consecutive adults in the intended clinical population; no extreme-case/control sampling or restricted disease spectrum is described.",
+    "differential_verification_challenge": "Different reference standards are not used. A single standard is selectively applied, which distinguishes partial from differential verification.",
+    "incorporation_challenge": "The index test does not contribute to the angiographic definition of disease.",
+    "review_bias_challenge": "Reference-standard interpreters are blinded to the index-test result, removing the defining review-bias mechanism.",
+    "sampling_fraction_challenge": "A random fraction of index-negative participants is verified, but the naïve analysis is restricted to verified participants without sampling-fraction correction; selective verification therefore remains the design defect.",
+    "unsupported_precision_check": "No exact numerical distortion of sensitivity or specificity is asserted in the question or required for the answer.",
+    "cueing_check": "All five options are named diagnostic-accuracy biases and are comparable in length and abstraction level.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0610."
+}
