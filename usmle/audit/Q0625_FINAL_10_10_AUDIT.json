@@ -1,0 +1,88 @@
+{
+  "audit_id": "Q0625-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0625",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI Plaque Psoriasis StatPearls updated 2025-09-14 was reread for the IL-23/IL-17 axis, keratinocyte hyperproliferation, acanthosis, parakeratosis, neutrophil recruitment and Munro microabscesses.",
+      "NLM/PMC reviews of the IL-23/IL-17 pathway were reread for IL-23 support of IL-17-producing lymphocytes and IL-17-mediated keratinocyte proliferation, chemokine production and neutrophil recruitment.",
+      "The official USMLE 2026 Skin & Subcutaneous Tissue outline was verified for psoriasis within immunologic/inflammatory disease."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Musculoskeletal, Skin and Subcutaneous Tissue",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Dermatology",
+      "Immunology",
+      "Cell Biology"
+    ],
+    "official_outline_path": [
+      "Skin & Subcutaneous Tissue",
+      "Immunologic and inflammatory disorders",
+      "Psoriasis"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 620,
+    "broad_concept_probe_run": 33079681915,
+    "staged_diagnosis_run": 33079774929,
+    "diagnosis": "Plaque psoriasis driven by the IL-23/IL-17 axis",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "central_axis": "The IL-23/IL-17 inflammatory axis is a central driver of plaque psoriasis.",
+    "il23_role": "IL-23 supports maintenance/expansion of IL-17-producing immune cells.",
+    "il17_role": "IL-17 acts on keratinocytes to promote proliferation and inflammatory gene/chemokine/antimicrobial-peptide production.",
+    "neutrophils": "Keratinocyte-derived chemokines recruit neutrophils, which can aggregate in the stratum corneum as Munro microabscesses.",
+    "histology": "Acanthosis, parakeratosis, reduced granular layer, dilated papillary vessels and neutrophilic microabscesses are established psoriatic findings.",
+    "distractor_1": "IL-4/IL-13 dominant type-2 signaling is more characteristic of atopic dermatitis and barrier-protein suppression.",
+    "distractor_2": "IFN-gamma macrophage activation and caseating granulomas do not define psoriasis.",
+    "distractor_3": "IL-5/eosinophil/IgE biology is a type-2 allergic/eosinophilic pattern, not the dominant psoriatic pathway.",
+    "distractor_4": "TGF-beta-driven fibrosis is inconsistent with the proliferative inflammatory epidermal pathology of plaque psoriasis."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The clinical morphology and histology establish plaque psoriasis. The question asks which cytokine interaction sustains both epidermal hyperplasia and neutrophilic inflammation; IL-23-supported IL-17-producing cells and IL-17-responsive keratinocytes explain both through a feed-forward inflammatory loop.",
+    "il22_nuance": "IL-22 also contributes substantially to keratinocyte hyperproliferation and is produced by T17/T22 cells. The key does not claim IL-17 is the only cytokine; it asks for the interaction most directly sustaining the recognized central IL-23/IL-17 axis.",
+    "tnf_nuance": "TNF-alpha is also central to psoriasis and synergizes with IL-17. The answer deliberately describes a major axis rather than excluding TNF participation.",
+    "th17_source_nuance": "IL-17 is not produced only by classical CD4 Th17 cells; Tc17, gamma-delta T cells, ILCs and other cells can contribute. The option therefore says IL-17-producing lymphocytes rather than overrestricting the source.",
+    "munro_specificity": "Munro microabscesses support psoriasis but are not used as a standalone pathognomonic feature; the diagnosis rests on the full clinical/histologic pattern.",
+    "cueing_check": "All answer choices pair an immune cytokine pathway with a downstream tissue effect. The correct option is not the only plausible immunologic mechanism.",
+    "unsupported_precision_check": "No cell-turnover-day value, cytokine concentration, treatment-response percentage or HLA prevalence is used.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after broad uniqueness gate, current NCBI/PMC source verification, staged rerun, and adversarial second-pass. Q0625 has not been inserted into authoritative SQLite."
+}
