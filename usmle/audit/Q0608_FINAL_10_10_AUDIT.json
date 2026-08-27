@@ -1,0 +1,82 @@
+{
+  "audit_id": "Q0608-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0608",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "GeneReviews Hereditary Transthyretin Amyloidosis received a comprehensive update on 2024-05-30 and was reread in the current 1993-2026 NCBI edition.",
+      "MedlinePlus Transthyretin amyloidosis was live and reread on 2026-08-27.",
+      "NCBI Bookshelf Amyloidosis was used for differential amyloid precursor mechanisms and was live in the current StatPearls edition."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Multisystem Processes and Disorders",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Pathology",
+      "Protein Biology",
+      "Genetics"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33068287766,
+    "staged_diagnosis_run": 33068382353,
+    "diagnosis": "Hereditary transthyretin amyloidosis",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype": "GeneReviews supports progressive sensorimotor/autonomic neuropathy, restrictive cardiac amyloidosis, multiorgan involvement, Congo-red-positive deposits and autosomal-dominant inheritance in ATTRv.",
+    "correct_mechanism": "GeneReviews Molecular Pathogenesis states that TTR is secreted as a tetramer, pathogenic variants reduce tetramer stability, tetramers dissociate into pro-amyloidogenic monomers, and monomers polymerize into amyloid fibrils.",
+    "medlineplus_confirmation": "MedlinePlus independently states that TTR variants alter transthyretin structure, impair tetramer formation/stability, and permit individual TTR proteins to form fibrils and amyloid deposits.",
+    "distractor_1": "NCBI Amyloidosis states that AL amyloidosis is caused by a plasma-cell clone producing amyloidogenic immunoglobulin light chains.",
+    "distractor_2": "NCBI Amyloidosis identifies serum amyloid A as the precursor in AA amyloidosis associated with sustained chronic inflammation.",
+    "distractor_3": "NCBI Amyloidosis identifies beta-2-microglobulin accumulation as dialysis-related amyloidosis in long-term hemodialysis.",
+    "distractor_4": "NCBI Amyloidosis distinguishes amyloid-beta generated from amyloid precursor protein in Alzheimer disease as a CNS-localized amyloid mechanism."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The patient has inherited multisystem amyloidosis with neuropathy, autonomic dysfunction and cardiac involvement, and genetic testing explicitly identifies a heterozygous pathogenic TTR variant. The direct molecular consequence is destabilization of the TTR tetramer followed by amyloidogenic monomer formation.",
+    "al_challenge": "AL can cause neuropathy and cardiomyopathy, but its fibrils derive from clonal immunoglobulin light chains and it does not explain the pathogenic TTR variant or autosomal-dominant pedigree.",
+    "aa_challenge": "AA is driven by serum amyloid A in chronic inflammatory disease and typically has no TTR mutation.",
+    "beta2m_challenge": "Dialysis-related beta-2-microglobulin amyloidosis requires prolonged beta-2-microglobulin retention in severe renal failure/hemodialysis, absent from the vignette.",
+    "amyloid_beta_challenge": "Aβ/APP amyloid is primarily a CNS Alzheimer mechanism and does not explain peripheral/autonomic neuropathy plus restrictive cardiomyopathy with a TTR variant.",
+    "wild_type_attr_challenge": "Wild-type ATTR can cause cardiac amyloidosis but does not contain a pathogenic TTR variant and does not explain the autosomal-dominant inherited phenotype.",
+    "cueing_check": "All five options describe true amyloid-forming mechanisms and are comparable in length and specificity.",
+    "hidden_assumption_check": "No treatment, dose, prevalence, penetrance estimate or diagnostic threshold is required.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0608."
+}
