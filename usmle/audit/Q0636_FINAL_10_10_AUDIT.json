@@ -1,0 +1,90 @@
+{
+  "audit_id": "Q0636-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0636",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "MedlinePlus Genetics Persistent Mullerian duct syndrome was reread for 46,XY status, normal male external genitalia, persistent uterus/fallopian tubes, cryptorchidism/inguinal-hernia presentation, and AMH/AMHR2 causation.",
+      "MedlinePlus Genetics AMHR2 and AMH pages were reread for ligand-receptor signaling and Mullerian duct regression.",
+      "Endotext Sexual Differentiation was reread for AMH-triggered Mullerian duct regression during male internal genital development.",
+      "MedlinePlus Genetics androgen insensitivity, 5-alpha-reductase deficiency, and Swyer syndrome plus Endotext Leydig-cell hypoplasia were reread to audit every distractor.",
+      "The official USMLE Content Outline (2026) was verified at Endocrine System — Congenital disorders — disorders of sexual differentiation."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive and Endocrine Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Endocrinology",
+      "Reproductive Embryology"
+    ],
+    "official_outline_path": [
+      "Endocrine System",
+      "Congenital disorders",
+      "disorders of sexual differentiation"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 630,
+    "replacement_concept_probe_run": 33102051072,
+    "staged_diagnosis_run": 33102229394,
+    "final_focused_probe_run": 33102305846,
+    "diagnosis": "Persistent Mullerian duct syndrome due to impaired anti-Mullerian hormone signaling",
+    "canonical_hits": 0,
+    "broad_probe_hits": 0,
+    "staged_q0631_q0635_construct_overlap": "NONE",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "core_mechanism": "AMH from fetal testes signals through AMHR2 in Mullerian duct tissue to induce duct regression; ineffective AMH-AMHR2 signaling permits persistence of Mullerian derivatives.",
+    "phenotype": "PMDS can occur in 46,XY individuals with formed testes and normal male external genitalia while a uterus and fallopian tubes persist.",
+    "presentation": "Cryptorchidism and inguinal hernia are common clinical settings in which retained Mullerian structures are discovered.",
+    "sry_differential": "Failure of SRY-dependent testis determination causes 46,XY gonadal dysgenesis with absent functional testes and female-typical reproductive development, not the vignette's testes plus normal male external genitalia.",
+    "androgen_receptor_differential": "Complete androgen insensitivity produces female-typical external genitalia and no uterus, so it cannot explain normal male external genitalia plus retained Mullerian structures.",
+    "five_alpha_reductase_differential": "SRD5A2 deficiency impairs DHT-dependent external genital masculinization; Mullerian regression is AMH-driven and therefore this defect does not explain retained Mullerian organs in an otherwise normally virilized child.",
+    "lh_receptor_differential": "Severe LH receptor loss impairs Leydig-cell testosterone production and causes undervirilization rather than isolated failure of the Sertoli-cell AMH pathway."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Starting only from the vignette, the conjunction of 46,XY karyotype, formed testes, normal male external genitalia, cryptorchidism, and a uterus/fallopian tubes localizes the developmental failure to Mullerian duct regression while androgen-dependent differentiation remains functional. That uniquely selects failed AMH signaling.",
+    "sry_challenge": "SRY failure could indirectly preserve Mullerian structures because testes and AMH would not develop, but it is contradicted by the presence of testes and normal male external genitalia. It is therefore not a defensible second answer.",
+    "androgen_receptor_challenge": "Androgen-receptor failure is tempting in a 46,XY DSD, but complete resistance produces female-typical external genitalia and retained testes still provide AMH, so the uterus is absent. It fails both key vignette features.",
+    "dht_challenge": "5-alpha-reductase deficiency can produce undervirilized external genitalia and later virilization, but it does not selectively disrupt AMH-mediated Mullerian regression. The retained uterus makes this option noncompetitive.",
+    "lh_receptor_challenge": "LH-receptor failure lowers fetal testosterone and can cause severe undervirilization; it does not directly abolish AMH signaling. Normal male external genitalia plus retained Mullerian structures argues against it.",
+    "amh_vs_amhr2_nuance": "Both AMH-ligand deficiency and AMHR2 resistance can produce PMDS. The keyed option intentionally states failure of AMH signaling rather than naming one gene, eliminating an artificial AMH-versus-AMHR2 ambiguity.",
+    "cueing_check": "All five options are phrased as developmental signaling failures at comparable mechanistic granularity; the key is not distinguished by length, grammar, or terminology alone.",
+    "unsupported_precision_check": "The item uses no hormone concentration cutoff, mutation frequency, timing threshold, penetrance estimate, or management rule. The age is vignette context rather than a diagnostic threshold.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after real SQLite-backed 0/630 canonical overlap gates, claim-specific source verification, distractor-by-distractor audit, and independent adversarial second-pass."
+}
