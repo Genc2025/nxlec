@@ -365,16 +365,24 @@ def main():
       key_schedule_sha256 TEXT NOT NULL,
       aggregate_review_sha256 TEXT NOT NULL,
       finalized_at TEXT NOT NULL)""")
-    # only a complete transaction may alter canonical item payloads
+    con.execute("""CREATE TABLE IF NOT EXISTS step2_final_items(
+      candidate_id TEXT PRIMARY KEY,
+      payload_json TEXT NOT NULL,
+      payload_sha256 TEXT NOT NULL UNIQUE,
+      audit_sha256 TEXT NOT NULL,
+      final_status TEXT NOT NULL,
+      finalized_at TEXT NOT NULL)""")
+    # Append-only Step2 layer: immutable production items remain historical and untouched.
     try:
         con.execute("BEGIN IMMEDIATE")
         con.execute("DELETE FROM step2_final_reviews")
+        con.execute("DELETE FROM step2_final_items")
         con.execute("DELETE FROM step2_finalization")
         for n in range(1,501):
-            cid=cid_by_num[n]; c=finals[n]; r=reviews[n]
-            pj=canon(c); ph=hash_obj(c); rh=r["review_sha256"]
-            con.execute("UPDATE items SET payload_json=?,payload_sha256=?,audit_sha256=? WHERE candidate_id=?",
-                        (pj,ph,rh,cid))
+            cid=cid_by_num[n]; cc=finals[n]; r=reviews[n]
+            pj=canon(cc); ph=hash_obj(cc); rh=r["review_sha256"]
+            con.execute("INSERT INTO step2_final_items(candidate_id,payload_json,payload_sha256,audit_sha256,final_status,finalized_at) VALUES(?,?,?,?,?,?)",
+                        (cid,pj,ph,rh,"FINAL_10_10_PASS",FINAL_AT))
             con.execute("INSERT INTO step2_final_reviews(candidate_id,review_json,review_sha256,final_status,finalized_at) VALUES(?,?,?,?,?)",
                         (cid,canon(r),rh,"FINAL_10_10_PASS",FINAL_AT))
             add_event(con,cid,"PRODUCTION_READY_COMMITTED","STEP2_FINAL_10_10_PASS","GPT-5.6_SOL_STEP2_AUDITOR",rh,ph)
@@ -387,15 +395,16 @@ def main():
         con.rollback(); raise
 
     if con.execute("PRAGMA integrity_check").fetchone()[0]!="ok": raise SystemExit("post-final integrity failure")
-    if con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]!=500: raise SystemExit("production count changed")
+    if con.execute("SELECT COUNT(*) FROM items WHERE status='PRODUCTION_READY'").fetchone()[0]!=500: raise SystemExit("historical production count changed")
+    if con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]!=500: raise SystemExit("final item count failure")
     if con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]!=500: raise SystemExit("final review count failure")
 
-    # reread all final payloads
-    for cid,pj,ps,ash in con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM items"):
+    # reread all authoritative Step2 final payloads
+    for cid,pj,ps,ash in con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items"):
         n=qnum(cid)
-        c=json.loads(pj)
-        if hash_obj(c)!=ps: raise SystemExit(f"Q{n:04d}: reread payload hash failure")
-        if c["step2_final_audit"]["final_10_10_gate"]!="PASS": raise SystemExit(f"Q{n:04d}: final gate missing")
+        cc=json.loads(pj)
+        if hash_obj(cc)!=ps: raise SystemExit(f"Q{n:04d}: reread payload hash failure")
+        if cc["step2_final_audit"]["final_10_10_gate"]!="PASS": raise SystemExit(f"Q{n:04d}: final gate missing")
         rr=con.execute("SELECT review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?",(cid,)).fetchone()
         if not rr or rr[0]!=ash or rr[1]!="FINAL_10_10_PASS": raise SystemExit(f"Q{n:04d}: final review reread failure")
 
@@ -404,7 +413,8 @@ def main():
       "audit_id":"STEP2-FINAL-Q0001-Q0500-20260827",
       "final_status":"FINAL_10_10_PASS",
       "item_count":500,
-      "production_ready_count":500,
+      "production_ready_historical_count":500,
+      "authoritative_final_table":"step2_final_items",
       "fresh_item_by_item_read_count":500,
       "content_pass_without_change":486,
       "content_pass_after_fix":14,
