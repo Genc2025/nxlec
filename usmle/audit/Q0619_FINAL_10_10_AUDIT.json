@@ -1,0 +1,94 @@
+{
+  "audit_id": "Q0619-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0619",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI StatPearls Ebstein Anomaly and Malformation (updated 2024-02-28) was reread for failed tricuspid-leaflet delamination, apical displacement, atrialized right ventricle, tricuspid regurgitation, and accessory pathways.",
+      "MedlinePlus Ebstein anomaly, reviewed 2026-02-09, independently confirms downward/apical tricuspid displacement and regurgitation.",
+      "NCBI Reentrant Arrhythmias was reread for the association between Ebstein anomaly and congenital accessory AV pathways.",
+      "NCBI embryology sources were reread to verify the four developmental distractors: cardiac neural crest/outflow septation, atrial septum/endocardial cushions, septum primum/secundum, and ductus arteriosus closure.",
+      "The official USMLE 2026 Cardiovascular outline was reread for embryonic development, chambers/valves, conduction and congenital disorders."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Cardiovascular System",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Cardiac Embryology",
+      "Anatomy",
+      "Electrophysiology"
+    ],
+    "official_outline_path": [
+      "Cardiovascular System",
+      "Embryonic development",
+      "Chambers and valves",
+      "Congenital disorders"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 610,
+    "initial_cardio_probe_run": 33077194908,
+    "broad_concept_probe_run": 33077292543,
+    "staged_diagnosis_run": 33077386269,
+    "diagnosis": "Ebstein anomaly",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "developmental_key": "NCBI states that the main developmental abnormality in Ebstein anomaly is failure of delamination of the tricuspid valve leaflets from right ventricular myocardium.",
+    "anatomy": "The septal and posterior tricuspid leaflets are displaced apically and the proximal/inlet portion of the right ventricle becomes atrialized.",
+    "physiology": "Abnormal leaflet displacement and coaptation produce tricuspid regurgitation, right atrial dilation and reduced effective right-ventricular volume.",
+    "arrhythmia": "Accessory pathways and ventricular preexcitation/WPW are well-recognized associations, making the delta-wave clue supportive without being necessary for diagnosis.",
+    "distractor_1": "Cardiac neural crest contributes to outflow-tract/aorticopulmonary septation; migration defects cause conotruncal lesions rather than Ebstein tricuspid displacement.",
+    "distractor_2": "Endocardial-cushion abnormalities produce atrioventricular septal defects/common AV junction abnormalities rather than atrialization of the right ventricle.",
+    "distractor_3": "Septum-primum/secundum formation defects produce atrial septal defects and do not cause tricuspid-leaflet delamination failure.",
+    "distractor_4": "Failure of postnatal ductus arteriosus closure produces PDA and an aortopulmonary shunt, not a displaced tricuspid valve.",
+    "blueprint_claim": "USMLE 2026 tests cardiovascular embryology, chambers/valves and congenital cardiovascular disorders."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The decisive finding is not the delta wave or murmur alone; echocardiography directly shows apical insertion of the septal tricuspid leaflet and atrialization of proximal RV. This establishes Ebstein anomaly. The developmental lesion that generates that anatomy is failed delamination of tricuspid leaflets from RV myocardium.",
+    "wpw_challenge": "WPW can occur without structural heart disease and in other congenital lesions, so it is not used as the sole diagnostic clue. Here it is secondary support for the already diagnostic valve anatomy.",
+    "tricuspid_regurg_challenge": "Many diseases cause tricuspid regurgitation, but ordinary functional or infectious TR does not apically displace the valve or create an atrialized RV.",
+    "avsd_challenge": "Endocardial-cushion defects can involve AV valves and could superficially appear plausible, but they create AV septal/common-junction abnormalities rather than the characteristic apical tricuspid hinge-point displacement.",
+    "asd_challenge": "ASD may coexist with Ebstein, but atrial septation defects do not cause Ebstein anatomy; the question asks the developmental cause of the primary malformation.",
+    "lithium_challenge": "Maternal lithium exposure was intentionally omitted as a scoring dependency because epidemiologic association should not be treated as a necessary or deterministic cause.",
+    "measurement_challenge": "The item does not require the >8 mm/m² echocardiographic threshold, avoiding unnecessary numerical precision; the qualitative 'abnormally far toward the apex' plus atrialization is sufficient.",
+    "cueing_check": "All five response options are developmental mechanisms of similar form. The correct option is not the only one involving a valve or a congenital process.",
+    "unsupported_precision_check": "No incidence, risk ratio, displacement cutoff, accessory-pathway prevalence, or maternal-exposure probability is used to select the answer.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after broad semantic duplicate gate, developmental-source verification, staged rerun, and adversarial second-pass. Q0619 has not been inserted into the authoritative SQLite database."
+}
