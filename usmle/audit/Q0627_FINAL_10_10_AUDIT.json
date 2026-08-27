@@ -1,0 +1,84 @@
+{
+  "audit_id": "Q0627-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0627",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "AHRQ Health Literacy Universal Precautions Toolkit and SHARE communication guidance were reread for absolute rather than relative risk, same denominators, meaningful time horizons, and explicit numerical framing.",
+      "CDC Clear Communication guidance independently supports constant denominators and doing the math for the audience.",
+      "NCBI/NICE shared-decision-making guidance was reread for absolute risk, natural frequencies, same denominators and time frames.",
+      "USMLE 2026 Social Sciences p.39 was visually verified and explicitly includes communication, health literacy and numeracy."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "competency": "Communication and Interpersonal Skills",
+    "disciplines": [
+      "Risk Communication",
+      "Health Literacy"
+    ],
+    "official_outline_path": [
+      "Social Sciences",
+      "Communication and interpersonal skills",
+      "Health literacy and numeracy"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 620,
+    "selection_probe_run": 33080174855,
+    "staged_diagnosis_run": 33080297073,
+    "diagnosis": "Absolute-risk communication with consistent denominators",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "absolute_risk": "AHRQ recommends presenting absolute risk rather than relative risk alone, especially when event rates are small.",
+    "denominator": "AHRQ/CDC recommend using the same denominator for comparisons.",
+    "time_horizon": "Risk should be presented over a defined, meaningful time period.",
+    "relative_risk_distractor": "A fall from 2% to 1% is indeed a 50% relative reduction, but that statement alone obscures the 1-per-100 absolute difference and the distractor additionally overstates what 'prevents in half of people' means.",
+    "nnt_distractor": "ARR is 1 percentage point, so NNT is 100, but NNT is not automatically the most understandable standalone communication format.",
+    "qualitative_distractor": "Vague terms do not replace numerical disclosure when meaningful risk data exist.",
+    "denominator_distractor": "1 in 50 versus 1 in 100 is mathematically equivalent but violates same-denominator guidance and makes direct comparison less transparent."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The patient's question is specifically about how much personal risk changes. The answer that directly reports baseline and treated absolute event rates with a common denominator and time horizon is the most transparent.",
+    "natural_frequency_evidence_nuance": "Evidence comparing natural frequencies with percentages is mixed by context; the item does not claim a universal comprehension advantage. Its key is supported by the stronger principles of absolute risk, same denominator and explicit time horizon.",
+    "nnt_calculation_check": "Absolute risk reduction is 0.02-0.01=0.01; reciprocal equals 100. The distractor is numerically correct but communication guidance does not make NNT the uniquely best standalone explanation.",
+    "framing_check": "The correct option neither uses positive-only nor fear-based framing and avoids promotional adjectives.",
+    "cueing_check": "All options are plausible clinician responses; the key is not uniquely polite or patient-centered in tone.",
+    "unsupported_precision_check": "The numbers are internally specified by the hypothetical trial; no external treatment efficacy claim is being made.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after communication-specific uniqueness gate, current federal/NCBI guidance verification, staged rerun, and adversarial second-pass."
+}
