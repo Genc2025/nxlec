@@ -90,7 +90,7 @@ def balanced_unpredictable_schedule():
             run=run+1 if base[i]==base[i-1] else 1
             maxrun=max(maxrun,run)
         cyc=sum(1 for i in range(len(base)-4) if "".join(base[i:i+5]) in ("ABCDE","BCDEA","CDEAB","DEABC","EABCD"))
-        if maxrun<=2 and cyc<=2:
+        if maxrun<=3 and cyc<=3:
             return {i+1:base[i] for i in range(500)}
     raise SystemExit("unable to generate non-periodic balanced key schedule")
 
