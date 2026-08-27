@@ -7,6 +7,7 @@ on:
       - 'usmle/batch_specs_0601_0700/**'
       - '.github/workflows/usmle-forward-exact-duplicate-check.yml'
       - 'usmle/audit/FORWARD_EXACT_DUPLICATE_CHECK_TRIGGER'
+      - 'usmle/audit/FORWARD_CONCEPT_PROBE.json'
 
 permissions:
   contents: read
@@ -64,5 +65,22 @@ jobs:
                           hits.append({'candidate_id':cid,'json_path':p,'text':s[:240]})
                           break
               report.append({'num':num,'diagnosis':diag,'file':fn,'canonical_hits':hits})
-          print(json.dumps({'canonical_final_count':len(finals),'staged_count':len(staged),'report':report},indent=2,sort_keys=True))
+
+          probes=[]
+          probe_file='usmle/audit/FORWARD_CONCEPT_PROBE.json'
+          if glob.glob(probe_file):
+              raw=json.load(open(probe_file))
+              for probe in raw.get('probes',[]):
+                  terms=[norm(x) for x in probe.get('terms',[]) if norm(x)]
+                  hits=[]
+                  for cid,pj in finals:
+                      obj=json.loads(pj)
+                      for p,s in walk_strings(obj):
+                          ns=norm(s)
+                          matched=[t for t in terms if t in ns]
+                          if matched:
+                              hits.append({'candidate_id':cid,'json_path':p,'matched_terms':matched,'text':s[:260]})
+                              break
+                  probes.append({'name':probe.get('name'),'terms':probe.get('terms',[]),'canonical_hits':hits})
+          print(json.dumps({'canonical_final_count':len(finals),'staged_count':len(staged),'report':report,'probes':probes},indent=2,sort_keys=True))
           PY
