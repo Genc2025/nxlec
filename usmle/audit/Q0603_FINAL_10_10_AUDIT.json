@@ -1,0 +1,72 @@
+{
+  "audit_id": "Q0603-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0603",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": "PASS",
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Cardiovascular System",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Cardiovascular Pathology",
+      "Genetics",
+      "Cell Biology"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33037385117,
+    "staged_diagnosis_run": 33037463707,
+    "diagnosis": "Arrhythmogenic right ventricular cardiomyopathy",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype": "NCBI ARVC Introduction/Evaluation supports ventricular arrhythmias often associated with exercise, right-precordial T-wave inversion, right-ventricular structural abnormalities, fibrofatty replacement, and use of cardiac magnetic resonance.",
+    "correct_gene_and_structure": "MedlinePlus ARVC Causes and PKP2 Normal Function directly support that PKP2 encodes plakophilin-2, a desmosomal component; desmosomes attach cardiomyocytes to one another and provide mechanical strength.",
+    "downstream_pathology": "MedlinePlus ARVC Causes/PKP2 ARVC section directly supports defective desmosomes causing cardiomyocyte detachment/death under stress with progressive fat and scar replacement and electrical instability.",
+    "distractor_1": "MedlinePlus nonsyndromic hypertrophic cardiomyopathy Causes supports sarcomeric proteins such as MYH7/MYBPC3 as major HCM mechanisms.",
+    "distractor_2": "NCBI Brugada Syndrome supports impaired SCN5A-mediated cardiac sodium current as a Brugada mechanism rather than a PKP2 desmosomal defect.",
+    "distractor_3": "MedlinePlus RYR2 Normal Function/CPVT supports sarcoplasmic-reticulum calcium release and RYR2-related CPVT; it does not describe the direct function of PKP2.",
+    "distractor_4": "MedlinePlus DMD Normal Function/X-linked dilated cardiomyopathy supports dystrophin linkage of cytoskeleton to extracellular matrix and cardiac disease from DMD variants."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Exertional arrhythmia/syncope, right-ventricular structural disease, fibrofatty replacement, and a pathogenic PKP2 variant identify a desmosomal arrhythmogenic cardiomyopathy. PKP2 function localizes the direct defect to desmosome-mediated intercellular adhesion.",
+    "gene_specificity_check": "The lead-in asks for the cellular function impaired by the identified PKP2 variant, not for a generic mechanism capable of causing ventricular arrhythmia. This removes alternate inherited-arrhythmia mechanisms as defensible answers.",
+    "ryr2_challenge": "RYR2-mediated calcium handling can cause inherited ventricular arrhythmias and has historical associations with arrhythmogenic phenotypes, but it is not the direct molecular function of the explicitly identified PKP2 variant.",
+    "sarcomere_challenge": "Sarcomeric dysfunction is a principal HCM mechanism and does not match PKP2/desmosomal biology.",
+    "sodium_channel_challenge": "SCN5A sodium-current defects cause channelopathy phenotypes such as Brugada syndrome, not the direct function of PKP2.",
+    "dystrophin_challenge": "Dystrophin anchors cytoskeleton to extracellular matrix and can cause dilated cardiomyopathy; it is molecularly distinct from plakophilin-2/desmosomes.",
+    "unsupported_precision_check": "No diagnostic cutoff, prevalence estimate, dose, treatment threshold, or universal management rule is required by the item.",
+    "cueing_check": "All five options are cellular functions of comparable grammatical form and plausible cardiac relevance; the correct option is not identifiable by wording length or category mismatch.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0603."
+}
