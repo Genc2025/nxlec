@@ -1,0 +1,51 @@
+name: USMLE Step2 Extend Q0501-Q0600
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/STEP2_FINALIZE_TRIGGER_Q0501_Q0600'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-step2-extend-q0501-q0600
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run strict Q0501-Q0600 final gate
+        run: python usmle/step2_extend_q0501_q0600.py
+      - name: Verify authoritative database
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          con=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==600
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==600
+          s=json.load(open('usmle/state/step2_final_q0001_q0600.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==600
+          assert s['answer_position_new_block']['balanced']=={'A':20,'B':20,'C':20,'D':20,'E':20}
+          assert s['answer_position_new_block']['nonperiodic'] is True
+          print('STEP2_Q0001_Q0600_VERIFIED',600)
+          PY
+      - name: Persist authoritative USMLE state
+        run: |
+          git config user.name 'USMLE Step2 Finalizer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -f usmle/data/usmle-step1.db usmle/audit/STEP2_FINAL_10_10_Q0001_Q0600.json usmle/state/step2_final_q0001_q0600.json
+          git commit -m 'Finalize USMLE Step 1 Q0501-Q0600 at Step2 10/10'
+          git pull --rebase origin main
+          git push origin HEAD:main
