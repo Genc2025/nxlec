@@ -183,7 +183,7 @@ def apply_final_payload(old,x,key):
             z=copy.deepcopy(s); z["source_id"]=f"S{i}"; z["retrieved_at"]=FINAL_AT; normsrc.append(z)
         sources=normsrc
         # infer competency for difficulty only
-        xx={"lead":lead,"mechanism":mechanism,"vignette":vignette,"primary_competency":c["blueprint"]["primary_competency"]}
+        if c["blueprint"]["primary_system"]=="Respiratory & Renal/Urinary Systems": c["blueprint"]["primary_system"]="Respiratory and Renal/Urinary Systems"\n        xx={"lead":lead,"mechanism":mechanism,"vignette":vignette,"primary_competency":c["blueprint"]["primary_competency"]}
     else:
         correct=x["correct"]; wrong=list(x["distractors"]); notes=list(x["distractor_notes"])
         if len(wrong)!=4 or len(notes)!=4: raise SystemExit(f"Q{x['num']:04d}: distractor integrity")
