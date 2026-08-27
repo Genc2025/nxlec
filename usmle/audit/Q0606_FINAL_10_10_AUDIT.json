@@ -1,0 +1,89 @@
+{
+  "audit_id": "Q0606-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0606",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "MedlinePlus Genetics LHON and mitochondrial-DNA pages were live and reread on 2026-08-27.",
+      "GeneReviews LHON remains in the current 1993-2026 NCBI edition; chapter last update 2021-03-11.",
+      "NCBI Bookshelf electron-transport-chain chapter was live and reread on 2026-08-27."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Behavioral Health, Nervous Systems & Special Senses",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Neuro-ophthalmology",
+      "Mitochondrial Genetics",
+      "Biochemistry"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33067778541,
+    "post_correction_staged_run": 33067934681,
+    "diagnosis": "Leber hereditary optic neuropathy",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "correction_history": {
+    "issue": "Initial lead-in said pathogenic variants causing LHON generally impair one respiratory-chain complex. GeneReviews documents rare LHON-associated variants in MT-CYB, MT-CO3 and MT-ATP6 as well as MT-ND genes, so the universal wording was overbroad.",
+    "correction": "Lead-in narrowed to the most common pathogenic variants.",
+    "correction_commit": "72257ad84bd0854dc087af6acdada1454f1f7f94",
+    "evidence": "GeneReviews reports the three common mtDNA variants in MT-ND1, MT-ND4 and MT-ND6 account for approximately 90% of LHON and encode complex-I subunits.",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype": "MedlinePlus and GeneReviews support young-adult onset, painless subacute central visual loss that may start in one eye and involve the other within weeks/months; GeneReviews supports central/centrocecal scotomas.",
+    "inheritance": "MedlinePlus and GeneReviews directly support mitochondrial/maternal inheritance; an unaffected mother can carry the mtDNA variant and affected maternal relatives are compatible with reduced penetrance.",
+    "common_variants": "GeneReviews identifies m.3460G>A in MT-ND1, m.11778G>A in MT-ND4 and m.14484T>C in MT-ND6 as the three common variants accounting for about 90% of LHON.",
+    "correct_complex": "MedlinePlus mitochondrial-DNA page identifies MT-ND1, MT-ND4, MT-ND4L and MT-ND6 LHON genes as encoding complex-I proteins; GeneReviews describes complex-I respiratory-chain dysfunction.",
+    "distractor_1": "NCBI electron-transport-chain review identifies complex II as succinate dehydrogenase transferring electrons from succinate/FADH2 to ubiquinone, distinct from MT-ND complex-I proteins.",
+    "distractor_2": "NCBI electron-transport-chain review identifies complex III as the cytochrome bc1 complex transferring electrons from ubiquinol to cytochrome c; the common LHON MT-ND genes are not complex-III subunits.",
+    "distractor_3": "NCBI electron-transport-chain review identifies complex IV as cytochrome c oxidase transferring electrons to oxygen; the common LHON variants named above affect complex I instead.",
+    "distractor_4": "NCBI electron-transport-chain review identifies complex V as ATP synthase using the proton gradient to synthesize ATP; it is not the complex encoded by the common LHON MT-ND genes."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Sequential painless bilateral central optic neuropathy in a young man plus affected maternal-line relatives strongly identifies LHON. The question then asks specifically about the most common pathogenic variants, which GeneReviews localizes to MT-ND1/ND4/ND6, all complex-I genes.",
+    "rare_variant_challenge": "Rare LHON-associated variants exist in genes encoding complexes III, IV and V. This would have made the original universal lead-in ambiguous; after narrowing to 'most common pathogenic variants,' complex I is uniquely correct.",
+    "maternal_unaffected_challenge": "An unaffected mother does not weaken the diagnosis because penetrance is incomplete and women carrying LHON mtDNA variants may remain asymptomatic.",
+    "sequential_eye_challenge": "MedlinePlus explicitly supports one eye being affected first and the fellow eye becoming involved weeks to months later.",
+    "complex_ii_challenge": "Complex II is nuclear-encoded succinate dehydrogenase and not the respiratory-chain target of the common LHON MT-ND variants.",
+    "option_parallelism": "All options are respiratory-chain complexes I-V with equivalent grammatical form, eliminating category or length cueing.",
+    "hidden_assumption_check": "No prevalence estimate, treatment rule, threshold, dose or unprovided genetic-test result is required to select the answer.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0606."
+}
