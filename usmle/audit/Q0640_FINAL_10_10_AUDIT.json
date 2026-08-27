@@ -1,0 +1,72 @@
+{
+  "audit_id":"Q0640-FRESH-ITEM-AUDIT-20260827",
+  "item":"Q0640",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-27",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-27",
+    "notes":[
+      "NCBI Bookshelf Phyllodes Tumor of the Breast was reread for the biphasic fibroepithelial composition, leaf-like intracanalicular architecture, stromal grading features, and rapidly enlarging painless clinical presentation.",
+      "Current NCI breast-condition material was verified independently for connective-tissue origin, rapid growth, and the benign/borderline/malignant spectrum.",
+      "A 2025 PubMed-indexed pathology review was checked for the modern formulation that the neoplastic component is stromal while the epithelial component is nonneoplastic.",
+      "NCBI Bookshelf sources for fibroadenoma, intraductal papilloma, invasive breast carcinoma, and breast fat necrosis were checked separately so every distractor describes a real competing microscopic pattern.",
+      "Official USMLE Content Outline (2026) was verified at Female and Transgender Reproductive System & Breast — Breast — neoplasms — phyllodes tumors."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Reproductive and Endocrine Systems",
+    "competency":"Medical Knowledge: Applying Foundational Science Concepts",
+    "official_outline_path":["Female and Transgender Reproductive System & Breast","Breast","neoplasms","phyllodes tumors"],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":630,
+    "focused_concept_probe_run":33103178462,
+    "staged_diagnosis_rerun":33103274996,
+    "diagnosis":"Phyllodes tumor of the breast",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0631_q0639_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "clinical_pattern":"A rapidly enlarging, painless, large, mobile breast mass in a middle-aged patient is compatible with phyllodes tumor.",
+    "key_histology":"Phyllodes tumor is a biphasic fibroepithelial neoplasm with cellular stromal fronds producing characteristic leaf-like projections into epithelial-lined clefts.",
+    "fibroadenoma_distractor":"Fibroadenoma can be biphasic and can have intracanalicular or pericanalicular stromal patterns, but a relatively uniform, less cellular pericanalicular pattern without exaggerated leaf-like stromal fronds is the principal benign differential rather than the best match.",
+    "papilloma_distractor":"Intraductal papilloma consists of papillary fibrovascular cores lined by epithelial and myoepithelial cells and usually arises within a duct; it is not the stromal leaf-forming lesion described here.",
+    "carcinoma_distractor":"Invasive ductal carcinoma is an epithelial malignancy defined by invasion of abnormal epithelial cells beyond the basement membrane into stroma, conflicting with the benign epithelial component and stromal proliferation in this vignette.",
+    "fat_necrosis_distractor":"Breast fat necrosis is an inflammatory/reparative process with necrotic adipocytes, foamy macrophages, fibrosis, and possible calcification rather than a biphasic fibroepithelial neoplasm."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Without using the staged key, the most important discriminator is not simply rapid growth but the biphasic lesion with markedly cellular stroma in a middle-aged patient. The additional finding that uniquely completes this pattern is exaggerated intracanalicular leaf-like stromal architecture, establishing phyllodes tumor.",
+    "fibroadenoma_attack":"Fibroadenoma is the strongest competing diagnosis because it is also biphasic and can compress ducts into clefts. However, the question asks for the finding that most strongly supports the suspected diagnosis; true leaf-like stromal projections with conspicuous stromal cellularity are characteristic of phyllodes tumor and distinguish it from an ordinary fibroadenoma pattern.",
+    "papilloma_attack":"Papilloma has true fibrovascular papillary cores and is primarily intraductal epithelial/myoepithelial proliferation, not a rapidly expanding stromal fibroepithelial mass.",
+    "carcinoma_attack":"An invasive epithelial carcinoma would require malignant epithelial invasion, which is directly contradicted by the benign ductal epithelium plus markedly cellular stromal component.",
+    "fat_necrosis_attack":"Fat necrosis can form a palpable mass but lacks the biphasic fibroepithelial architecture and instead shows adipocyte injury and macrophage-mediated cleanup.",
+    "grading_nuance":"The item diagnoses phyllodes tumor but does not infer benign, borderline, or malignant grade from insufficient data. It deliberately avoids a claim that all phyllodes tumors are malignant.",
+    "cueing_check":"All five choices are microscopic breast-lesion patterns at comparable descriptive granularity; the key is not isolated by answer length, grammar, or a verbatim phrase in the stem.",
+    "unsupported_precision_check":"No tumor-size cutoff, mitotic threshold, recurrence percentage, margin width, age cutoff, or management rule is required for the key.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after real SQLite-backed 0/630 canonical overlap gates, claim-by-claim source verification, fibroadenoma-focused ambiguity testing, and independent adversarial second-pass."
+}
