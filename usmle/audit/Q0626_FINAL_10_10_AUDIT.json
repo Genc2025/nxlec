@@ -1,0 +1,82 @@
+{
+  "audit_id": "Q0626-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0626",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI StatPearls Mixed Connective Tissue Disease, updated 2024-07-27, was reread for anti-U1-RNP, Raynaud/puffy digits, inflammatory arthritis and myositis overlap features, and the U1-RNP role in pre-mRNA maturation.",
+      "NLM/PMC U1-RNP review was reread for the normal spliceosomal function of U1 snRNP, including recognition of the 5′ splice site.",
+      "The official USMLE 2026 Multisystem page 33 was visually verified and explicitly lists mixed connective tissue disease."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Multisystem Processes and Disorders",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Immunology",
+      "Rheumatology",
+      "Molecular Biology"
+    ],
+    "official_outline_path": [
+      "Multisystem Processes & Disorders",
+      "Immunologic and inflammatory disorders",
+      "Mixed connective tissue disease"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate-hard",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 620,
+    "explicit_multisystem_probe_run": 33079907888,
+    "broad_concept_probe_run": 33079971211,
+    "staged_diagnosis_run": 33080071930,
+    "diagnosis": "Mixed connective tissue disease",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype": "MCTD combines Raynaud/puffy hands with overlapping inflammatory arthritis, myositis and other connective-tissue-disease features and is strongly associated with high-titer anti-U1-RNP.",
+    "antigen_function": "U1 snRNP is a spliceosomal ribonucleoprotein that recognizes the 5′ splice site and participates in intron removal from pre-mRNA.",
+    "specificity_nuance": "Anti-U1-RNP is required/characteristic in common MCTD criteria but is not exclusive to MCTD; the full clinical phenotype is therefore necessary.",
+    "distractors": "DNA origin licensing, aminoacyl-tRNA charging, signal-recognition-particle targeting and ubiquitin-mediated proteolysis are distinct molecular processes not performed by U1 snRNP."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Raynaud phenomenon, puffy digits, inflammatory arthritis, proximal myositis and high-titer anti-U1-RNP form a classic MCTD overlap phenotype. The autoantigen is U1 snRNP, whose normal function is 5′ splice-site recognition and spliceosome assembly during pre-mRNA processing.",
+    "sle_challenge": "Anti-U1-RNP can occur in SLE. However the item does not ask whether the antibody alone proves MCTD; the combined overlap phenotype supplies the clinical context.",
+    "antisynthetase_challenge": "Inflammatory myositis could suggest antisynthetase syndrome, but the supplied anti-U1-RNP plus Raynaud/puffy-hand/polyarthritis overlap pattern is MCTD and the lead asks about the identified U1 antigen rather than disease classification alone.",
+    "molecular_distractor_check": "Each wrong option is a real cellular process with a different molecular machine, preventing a trivial 'only RNA answer' cue.",
+    "cueing_check": "All options describe intracellular macromolecular processing functions at a comparable abstraction level.",
+    "unsupported_precision_check": "No antibody titer threshold, prevalence, diagnostic-score cutoff or prognostic frequency is required.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after explicit-blueprint selection, broad uniqueness gate, source verification, staged rerun, and adversarial second-pass."
+}
