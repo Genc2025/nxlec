@@ -1,0 +1,86 @@
+{
+  "audit_id": "Q0630-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0630",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "Endotext Non-Thyroidal Illness Syndrome was reread for the low-T3 pattern during severe illness and the progressive changes in T4/TSH with increasing severity.",
+      "Endotext Metabolism of Thyroid Hormone was reread for diminished D1-mediated T4-to-T3 conversion and impaired reverse-T3 deiodination/clearance, plus the contribution of transport and D3.",
+      "NCBI StatPearls Euthyroid Sick Syndrome was reread for critical-illness context, low T3 with low/normal T4 and TSH, cytokine effects and deiodinase changes.",
+      "The official USMLE 2026 Endocrine System page 31 was visually verified and explicitly lists nonthyroidal illness syndrome/euthyroid sick syndrome under thyroid disorders."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive and Endocrine Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Endocrine Physiology",
+      "Biochemistry",
+      "Critical Illness"
+    ],
+    "official_outline_path": [
+      "Endocrine System",
+      "Thyroid disorders",
+      "Nonthyroidal illness syndrome (euthyroid sick syndrome)"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 620,
+    "broad_concept_probe_run": 33085404218,
+    "staged_diagnosis_run": 33085523707,
+    "diagnosis": "Nonthyroidal illness syndrome",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "early_pattern": "Mild-to-moderate nonthyroidal illness commonly lowers serum T3 first; T4 may remain normal early and fall with more severe/prolonged illness.",
+    "d1_mechanism": "Reduced hepatic/peripheral type 1 deiodinase activity diminishes T4-to-T3 conversion and reverse-T3 deiodination, contributing to low T3 and elevated reverse T3.",
+    "multifactorial_nuance": "NTIS is multifactorial: altered transport, cytokines, hypothalamic-pituitary signaling, binding proteins and D3 can contribute, so the item does not claim D1 is the sole mechanism.",
+    "graves_distractor": "TSH-receptor-stimulating antibodies cause Graves hyperthyroidism with elevated thyroid hormone and suppressed TSH.",
+    "thyroiditis_distractor": "Destructive thyroiditis causes transient release of preformed hormone rather than the low-T3 metabolic adaptation shown.",
+    "rthb_distractor": "THRB resistance produces high free thyroid hormones with inappropriately nonsuppressed TSH, not the low-T3 severe-illness pattern.",
+    "tbg_distractor": "TBG elevation primarily changes total hormone levels and does not explain the critical-illness low-T3/high-rT3 physiology."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "A critically ill patient without prior thyroid disease has low T3, preserved free T4, low-normal TSH and elevated reverse T3. This is the classic early nonthyroidal-illness pattern. Reduced D1-mediated T4-to-T3 conversion and reverse-T3 clearance is the most direct listed mechanism.",
+    "central_hypothyroidism_challenge": "Central hypothyroidism can yield low/normal TSH and low thyroid hormones, but early NTIS commonly preserves T4 while T3 falls and reverse T3 rises; the sepsis context strongly favors altered peripheral metabolism.",
+    "reverse_t3_nuance": "Reverse T3 is not a universally reliable diagnostic test in every clinical setting. It is used here as a mechanistic clue, not as a required clinical diagnostic assay or absolute discriminator.",
+    "medication_challenge": "ICU drugs such as glucocorticoids, dopamine, propranolol or amiodarone can alter thyroid tests. None is specified, so the item tests the illness-associated physiology rather than a medication-specific mechanism.",
+    "protective_vs_maladaptive_challenge": "Whether NTIS is purely adaptive or partly maladaptive and whether thyroid hormone treatment benefits selected patients remain debated. The item does not ask treatment or assert a universal adaptive purpose.",
+    "cueing_check": "All options are plausible mechanisms of discordant thyroid tests and are parallel in level of detail.",
+    "unsupported_precision_check": "No rT3 cutoff, T3 threshold, mortality estimate or fixed illness day is required.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after direct 2026 blueprint verification, broad uniqueness gate, staged rerun, authoritative source review and adversarial second-pass."
+}
