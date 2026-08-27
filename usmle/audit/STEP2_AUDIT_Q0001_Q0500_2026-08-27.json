@@ -1,0 +1,132 @@
+{
+  "audit_id": "STEP2-Q0001-Q0500-20260827",
+  "scope": {
+    "first": 1,
+    "last": 500,
+    "total": 500
+  },
+  "authoritative_production_count_at_start": 500,
+  "existing_pass_labels_trusted": false,
+  "fresh_status_summary": {
+    "PASS": 2,
+    "NEEDS_FIX": 498
+  },
+  "pass_items": [
+    1,
+    2
+  ],
+  "needs_fix_range": [
+    3,
+    500
+  ],
+  "systemic_defects": [
+    {
+      "id": "KEY_PATTERN",
+      "severity": "CRITICAL",
+      "affected": [
+        3,
+        500
+      ],
+      "detail": "Predictable batch answer-key schedule (ABCDE cycles)."
+    },
+    {
+      "id": "HARDCODED_REVIEW",
+      "severity": "CRITICAL",
+      "affected": [
+        3,
+        500
+      ],
+      "detail": "PASS verdict, 10/10 scores, source verification and option audit were generated programmatically."
+    },
+    {
+      "id": "GENERIC_EVIDENCE_MAP",
+      "severity": "HIGH",
+      "affected": [
+        3,
+        500
+      ],
+      "detail": "Distractor evidence maps use generic diagnosis inference with the same S1/S2 sources rather than item-specific factual verification."
+    },
+    {
+      "id": "DEFAULT_DIFFICULTY",
+      "severity": "HIGH",
+      "affected": [
+        3,
+        500
+      ],
+      "detail": "Difficulty defaults to moderate instead of item-specific assessment."
+    },
+    {
+      "id": "FORMAT_REALISM_GAP",
+      "severity": "HIGH",
+      "affected": [
+        3,
+        500
+      ],
+      "detail": "No image/table references found in batch specs; bank lacks planned visual/data-interpretation coverage."
+    }
+  ],
+  "manual_cueing_flags": [
+    75,
+    86,
+    88,
+    96,
+    97,
+    140,
+    157,
+    163,
+    165,
+    190,
+    196,
+    207,
+    219,
+    239,
+    242,
+    243,
+    260,
+    261,
+    267,
+    294,
+    313,
+    322,
+    323,
+    330,
+    337,
+    342,
+    344,
+    353,
+    358,
+    360,
+    371,
+    377,
+    385,
+    394,
+    400,
+    408,
+    415,
+    419,
+    425,
+    427,
+    433,
+    437,
+    439,
+    440,
+    441,
+    442,
+    453,
+    456,
+    461,
+    465,
+    467,
+    477,
+    491,
+    492,
+    497
+  ],
+  "blueprint_distribution_pass": true,
+  "structural_completeness_batch_specs": {
+    "checked": 498,
+    "passed": 498
+  },
+  "remediation_required": true
+}
