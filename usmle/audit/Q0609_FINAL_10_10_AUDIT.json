@@ -1,0 +1,79 @@
+{
+  "audit_id": "Q0609-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0609",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "Merck Manual Professional Perinatal Anemia page was live and reread on 2026-08-27 for the normal postnatal physiology.",
+      "Current NCBI StatPearls/Bookshelf sources were used for EPO regulation and pathologic anemia distractors."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Human Development",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Developmental Physiology",
+      "Hematology"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33068473122,
+    "staged_diagnosis_run": 33068592796,
+    "diagnosis": "Physiologic anemia of infancy",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "normal_postnatal_pattern": "Merck states that physiologic anemia is a normal normocytic-normochromic anemia in term infants during the first 2 to 3 months and generally requires no extensive evaluation or treatment.",
+    "correct_mechanism": "Merck directly states that increased oxygenation with breathing after birth raises tissue oxygen and negatively feeds back on erythropoietin production and erythropoiesis. NCBI independently identifies tissue hypoxia as the principal physiologic stimulus for renal EPO.",
+    "distractor_1": "NCBI infant-nutrition review states that iron deficiency causes microcytic anemia; adequate ferritin and normocytic indices argue against iron-restricted erythropoiesis.",
+    "distractor_2": "NCBI HDFN states that maternal IgG causes immune destruction of fetal/neonatal RBCs and describes DAT testing for antibody-coated RBCs; the stem lacks hemolysis and has a negative DAT.",
+    "distractor_3": "NCBI Parvoviruses states that B19 replicates in erythroid precursors and can cause erythroid aplasia/reticulocytopenia, which is an infectious pathologic mechanism rather than normal postnatal adaptation.",
+    "distractor_4": "NCBI Beta Thalassemia identifies reduced/absent beta-globin synthesis as a microcytic hemoglobinopathy, not a normal transient normocytic EPO-suppression process."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "A thriving term infant near the expected postnatal hemoglobin nadir with normocytic/normochromic indices, low reticulocytes, adequate iron stores, no jaundice and a negative DAT fits physiologic anemia. The normal causal signal is improved tissue oxygenation suppressing EPO.",
+    "iron_challenge": "Iron deficiency is incompatible with adequate ferritin and the normocytic normal-development pattern; it is not the primary driver of the early physiologic nadir.",
+    "immune_hemolysis_challenge": "Maternal-antibody hemolysis would be pathologic and would be supported by hemolysis/jaundice and antibody testing rather than an isolated low-reticulocyte physiologic pattern.",
+    "parvovirus_challenge": "B19 can cause reticulocytopenia but requires infection of erythroid precursors; nothing in the healthy routine-care vignette supports this acquired pathology.",
+    "thalassemia_challenge": "Beta-thalassemia is a globin-synthesis defect with microcytosis and does not explain the normal postnatal EPO feedback mechanism.",
+    "age_precision_check": "Ten weeks lies within the directly supported first-2-to-3-month physiologic decline; no unsupported laboratory cutoff is used.",
+    "hidden_assumption_check": "No treatment, transfusion threshold, supplementation rule, dose or prevalence estimate is required.",
+    "cueing_check": "All five options are plausible mechanisms of reduced hemoglobin/erythrocyte production in infancy and are comparable in grammatical form.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0609."
+}
