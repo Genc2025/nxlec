@@ -1,0 +1,82 @@
+{
+  "audit_id": "Q0605-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0605",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI MedGen/GTR and NCBI Gene records were live and current on 2026-08-27.",
+      "Endotext current edition was verified in 2026; rare-endocrine-hypertension table directly supports the cortisol/cortisone discriminator.",
+      "NCBI Bookshelf/MedlinePlus differential sources were current when accessed."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Respiratory & Renal/Urinary Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Renal Physiology",
+      "Endocrinology",
+      "Genetics"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 600,
+    "concept_probe_run": 33067552789,
+    "staged_diagnosis_run": 33067674530,
+    "diagnosis": "Apparent mineralocorticoid excess",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "phenotype_and_primary_mechanism": "NCBI MedGen/GTR defines AME as low-renin, low-aldosterone hypertension with hypokalemia and metabolic alkalosis from HSD11B2 deficiency, reduced cortisol-to-cortisone conversion, and inappropriate cortisol activation of the mineralocorticoid receptor.",
+    "urinary_discriminator": "Endotext Table 7 lists increased urinary free cortisol/cortisone and cortisol-metabolite ratios for AME, distinguishing it from Liddle syndrome and other rare low-renin hypertension syndromes.",
+    "hsd11b2_identity": "NCBI Gene identifies HSD11B2 as 11-beta-hydroxysteroid dehydrogenase type 2 and links the gene to AME.",
+    "distractor_1": "NCBI Liddle Syndrome supports gain-of-function ENaC with hypertension, hypokalemic alkalosis and low renin/aldosterone but not impaired cortisol-to-cortisone metabolism.",
+    "distractor_2": "Endotext Congenital Adrenal Hyperplasia supports CYP11B1 deficiency causing DOC accumulation and low-renin hypertension with suppressed aldosterone.",
+    "distractor_3": "Endotext/NCBI primary aldosteronism sources support autonomous aldosterone production with suppressed renin; the stem instead has suppressed aldosterone.",
+    "distractor_4": "MedlinePlus PHA1 supports NR3C2/mineralocorticoid-receptor loss causing reduced sodium reabsorption and potassium secretion, yielding salt loss and hyperkalemia."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The phenotype is pseudomineralocorticoid excess. The increased urinary cortisol-to-cortisone ratio localizes the defect to failure of cortisol inactivation by renal 11-beta-HSD2, making AME the unique mechanism.",
+    "liddle_challenge": "Liddle syndrome is the closest phenotype competitor because renin and aldosterone are also low; however ENaC gain of function does not increase the cortisol-to-cortisone ratio.",
+    "cyp11b1_challenge": "11-beta-hydroxylase deficiency uses DOC excess, not defective cortisol-to-cortisone conversion, and therefore does not explain the urinary steroid discriminator.",
+    "primary_aldosteronism_challenge": "Autonomous aldosterone secretion would make aldosterone inappropriately high rather than suppressed.",
+    "mr_loss_challenge": "Mineralocorticoid receptor loss causes the opposite renal phenotype—sodium wasting and hyperkalemia.",
+    "licorice_challenge": "Licorice can inhibit 11-beta-HSD2 and phenocopy AME; the lead asks for the molecular defect rather than whether it is inherited or acquired, and the correct biochemical mechanism remains reduced 11-beta-HSD2 activity. No exposure history is required.",
+    "hidden_assumption_check": "No dose, treatment, cutoff, inheritance assertion or unprovided exposure is necessary to answer.",
+    "cueing_check": "All five options are mechanistic explanations for renal/endocrine blood-pressure disorders and are of comparable specificity.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload only. No authoritative SQLite insertion has been performed for Q0605."
+}
