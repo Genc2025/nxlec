@@ -9,21 +9,21 @@ STATE = ROOT / "state"
 
 AUTHOR_SCORES = {"blueprint","key","distractors","single_best_answer","reasoning","item_writing","fairness","evidence","originality","technical_integrity"}
 REVIEW_SCORES = {"blueprint_fidelity","key_correctness","distractor_integrity","single_best_answer","reasoning_and_difficulty","item_writing","cueing_bias_fairness","evidence_quality","originality_duplication_rights","technical_integrity"}
-ALLOWED_ROOTS = ("medlineplus.gov","nih.gov","nlm.nih.gov","cdc.gov","fda.gov","hhs.gov","ahrq.gov","cms.gov","hrsa.gov","osha.gov","epa.gov","va.gov","federalregister.gov","ecfr.gov","congress.gov")
+ALLOWED_ROOTS = ("medlineplus.gov","nih.gov","nlm.nih.gov","cdc.gov","fda.gov","hhs.gov","ahrq.gov","cms.gov","hrsa.gov","osha.gov","epa.gov","va.gov","federalregister.gov","ecfr.gov","congress.gov","cancer.gov")
 EXPECTED_SYSTEM_COUNTS = {
- "Human Development":2,"Blood, Lymphoreticular and Immune Systems":11,
- "Behavioral Health, Nervous Systems and Special Senses":12,
- "Musculoskeletal, Skin and Subcutaneous Tissue":10,"Cardiovascular System":9,
- "Respiratory and Renal/Urinary Systems":13,"Gastrointestinal System":8,
- "Reproductive and Endocrine Systems":13,"Multisystem Processes and Disorders":10,
- "Biostatistics, Epidemiology and Population Health":5,
- "Social Sciences: Communication and Interpersonal Skills":7}
+ "Human Development":4,"Blood, Lymphoreticular and Immune Systems":22,
+ "Behavioral Health, Nervous Systems and Special Senses":24,
+ "Musculoskeletal, Skin and Subcutaneous Tissue":20,"Cardiovascular System":18,
+ "Respiratory and Renal/Urinary Systems":26,"Gastrointestinal System":16,
+ "Reproductive and Endocrine Systems":26,"Multisystem Processes and Disorders":20,
+ "Biostatistics, Epidemiology and Population Health":10,
+ "Social Sciences: Communication and Interpersonal Skills":14}
 EXPECTED_COMPETENCY_COUNTS = {
- "Medical Knowledge: Applying Foundational Science Concepts":65,
- "Patient Care: Diagnosis, including history and physical examination":23,
- "Practice-Based Learning and Improvement":5,
- "Communication and Interpersonal Skills":7}
-EXPECTED_KEYS = {k:20 for k in "ABCDE"}
+ "Medical Knowledge: Applying Foundational Science Concepts":130,
+ "Patient Care: Diagnosis, including history and physical examination":46,
+ "Practice-Based Learning and Improvement":10,
+ "Communication and Interpersonal Skills":14}
+EXPECTED_KEYS = {k:40 for k in "ABCDE"}
 BATCH_TIME="2026-08-27T02:15:00Z"
 SPEC={
  "usmle_outline":"For Public Release: USMLE Content Outline (2026)",
