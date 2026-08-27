@@ -1,0 +1,75 @@
+{
+  "audit_id": "Q0637-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0637",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI Bookshelf Glucagonoma was verified at its May 3, 2025 update for alpha-cell origin, glucagon excess, cAMP-mediated hepatic glycogenolysis/gluconeogenesis, hyperglycemia, weight loss, and necrolytic migratory erythema.",
+      "NCBI Bookshelf Necrolytic Migratory Erythema was verified for the characteristic glucagonoma association and lesion distribution/presentation.",
+      "NCBI Bookshelf physiology pages for insulin, VIP, gastrin, and somatostatin were verified claim-by-claim for all four distractors.",
+      "The official USMLE Content Outline (2026) was verified at Endocrine System — diabetes mellitus and other disorders of the endocrine pancreas — hyperglycemia secondary to glucagonoma / pancreatic neuroendocrine tumors."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS","PASS","PASS","PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive and Endocrine Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "official_outline_path": [
+      "Endocrine System",
+      "Diabetes mellitus and other disorders of the endocrine pancreas",
+      "hyperglycemia (secondary to glucagonoma)",
+      "pancreatic neuroendocrine tumors"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {"rating":"moderate","status":"PASS"},
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 630,
+    "focused_concept_probe_run": 33102400833,
+    "staged_diagnosis_rerun": 33102492666,
+    "diagnosis": "Glucagonoma syndrome",
+    "canonical_hits": 0,
+    "broad_probe_hits": 0,
+    "staged_q0631_q0636_construct_overlap": "NONE",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "diagnostic_pattern": "Hyperglycemia, progressive weight loss, necrolytic migratory erythema, and a pancreatic neuroendocrine tumor support glucagonoma syndrome.",
+    "key_mechanism": "Glucagon activates hepatic Gs/adenylyl cyclase/cAMP signaling and increases glycogenolysis and gluconeogenesis.",
+    "insulin_distractor": "Insulin receptor tyrosine kinase signaling promotes GLUT4-mediated glucose uptake and opposes hepatic glucose production; it is not the hyperglucagonemic mechanism.",
+    "vip_distractor": "VIP activates VPAC-cAMP signaling in the intestine and causes secretory water/electrolyte loss, producing the VIPoma phenotype rather than NME.",
+    "gastrin_distractor": "Gastrin activates CCK-B signaling on parietal/ECL cells and increases gastric acid secretion, producing acid-peptic disease rather than glucagonoma syndrome.",
+    "somatostatin_distractor": "Somatostatin excess suppresses insulin and CCK/gallbladder emptying and can produce diabetes, steatorrhea, and cholelithiasis, but NME is not the defining syndrome."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Without using the staged key, the constellation of a pancreatic neuroendocrine tumor, catabolic weight loss, new hyperglycemia, and a migratory erythematous scaly eruption in characteristic frictional/periorificial regions identifies glucagon excess. The physiologic consequence most directly linked to glucagon is hepatic cAMP-driven glycogenolysis and gluconeogenesis.",
+    "somatostatin_challenge": "Somatostatinoma can cause diabetes and weight loss, but the vignette lacks steatorrhea/cholelithiasis and instead contains the highly discriminating necrolytic migratory erythema pattern. Its mechanism therefore is not a defensible second answer.",
+    "vip_challenge": "VIP can raise cAMP but primarily in intestinal secretory pathways and should produce profuse watery diarrhea with electrolyte loss; the vignette does not support that syndrome.",
+    "gastrin_challenge": "Gastrinoma would require acid hypersecretion/ulcer disease rather than the rash-hyperglycemia pattern.",
+    "insulin_challenge": "Insulin excess produces hypoglycemia, directly opposing the vignette's hyperglycemia.",
+    "cueing_check": "All alternatives are physiologic hormone effects at comparable mechanistic specificity. The correct choice is not uniquely longer, grammatically linked, or echoed verbatim by the stem.",
+    "unsupported_precision_check": "No glucagon concentration, glucose cutoff, tumor-size threshold, rash prevalence, metastatic rate, or treatment rule is required. The age is contextual only.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after real SQLite-backed 0/630 canonical overlap gates, source verification, distractor-by-distractor audit, and independent adversarial second-pass."
+}
