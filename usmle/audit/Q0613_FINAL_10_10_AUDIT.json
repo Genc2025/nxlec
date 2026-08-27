@@ -1,0 +1,92 @@
+{
+  "audit_id": "Q0613-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0613",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "Current NCBI Bookshelf Hemolytic Transfusion Reaction was reread for delayed reaction timing and the anamnestic alloantibody mechanism.",
+      "NCBI Blood Groups and Red Cell Antigens — Kidd blood group was reread for the characteristic fall of Kidd antibody titers below detection and rapid rise after re-exposure.",
+      "Current NCBI Noninfectious Complications of Blood Transfusion was reread for prior sensitization, delayed antibody reappearance, and delayed red-cell destruction.",
+      "The official USMLE Content Outline 2026, Blood & Lymphoreticular System pp. 5–6, was visually verified and explicitly lists 'hemolysis, delayed' under reactions to blood components."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Blood, Lymphoreticular and Immune Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Immunology",
+      "Hematology",
+      "Transfusion Medicine"
+    ],
+    "official_outline_path": [
+      "Blood & Lymphoreticular System",
+      "Reactions to blood components",
+      "Hemolysis, delayed"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 610,
+    "broad_concept_probe_run": 33074171734,
+    "staged_diagnosis_run": 33074409500,
+    "diagnosis": "Delayed hemolytic transfusion reaction",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "core_mechanism": "Delayed hemolytic transfusion reactions can occur when a previously formed red-cell alloantibody has waned below pretransfusion detection and antigen re-exposure triggers a rapid secondary/anamnestic response.",
+    "kidd_specificity": "Kidd antibodies are a classic cause of delayed hemolytic transfusion reactions because they may become undetectable between exposures and rise rapidly with re-exposure; anti-Jkᵃ therefore strengthens rather than overdetermines the vignette.",
+    "timing": "A symptom-free interval followed by hemolysis about one week after transfusion is within the documented delayed-reaction window and clearly separates the case from an acute hemolytic transfusion reaction.",
+    "labs": "Falling hemoglobin, increased indirect bilirubin and LDH, decreased haptoglobin, positive direct antiglobulin testing, and a newly detectable alloantibody are internally coherent with immune red-cell destruction.",
+    "distractor_1": "Preexisting ABO antibodies produce an acute, often complement-mediated intravascular hemolytic reaction during or shortly after an incompatible transfusion, not the delayed anamnestic pattern shown.",
+    "distractor_2": "TRALI is an acute pulmonary transfusion reaction involving donor anti-HLA/HNA antibodies and recipient neutrophil activation; the vignette has hemolysis without acute hypoxemic lung injury.",
+    "distractor_3": "Anti-IgA-mediated anaphylaxis presents immediately with allergic/anaphylactic physiology, not delayed DAT-positive hemolysis.",
+    "distractor_4": "Transfusion-associated graft-versus-host disease is caused by engrafted donor T cells and produces fever, rash, gastrointestinal disease, liver injury and marrow failure rather than a newly detectable red-cell alloantibody with isolated hemolysis.",
+    "blueprint_claim": "The official 2026 USMLE Content Outline explicitly lists delayed hemolysis among reactions to blood components."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Remote prior transfusion establishes a plausible sensitizing exposure. A negative current antibody screen does not exclude a previously formed evanescent alloantibody. One week after re-exposure, biochemical hemolysis, a positive DAT, and newly detectable anti-Jkᵃ point to a secondary alloimmune response against transfused red cells.",
+    "delayed_serologic_reaction_challenge": "This is not merely a delayed serologic transfusion reaction because there is objective hemolysis: hemoglobin falls, bilirubin and LDH rise, and haptoglobin falls.",
+    "acute_abo_challenge": "The one-week interval and newly detectable minor-antigen alloantibody contradict an acute ABO-incompatible reaction.",
+    "trali_challenge": "TRALI requires an acute lung-injury phenotype; none is present.",
+    "anti_iga_challenge": "Anti-IgA anaphylaxis is immediate and allergic rather than hemolytic.",
+    "ta_gvhd_challenge": "TA-GVHD can occur days to weeks after transfusion, so timing alone overlaps; however its characteristic donor-T-cell syndrome is absent and the DAT/anti-Jkᵃ hemolysis pattern directly supports DHTR.",
+    "complement_nuance": "Kidd antibodies can bind complement and individual delayed reactions can include intravascular components. The keyed answer does not assert exclusively extravascular hemolysis, avoiding an overbroad mechanistic claim.",
+    "crossmatch_nuance": "The case says crossmatch-compatible and pretransfusion screen negative, not that the patient had never formed an alloantibody; this is exactly the setting in which an evanescent antibody can be missed before an anamnestic response.",
+    "cueing_check": "All five options are single mechanistic statements of comparable length and specificity. The correct option does not merely repeat the diagnosis or use a unique formatting cue.",
+    "unsupported_precision_check": "The item uses a clinically supported one-week interval and does not depend on a narrow mandatory day, antibody titer, transfusion volume, or incidence estimate.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after fresh item-by-item clinical/immunologic and adversarial audit. Q0613 has not been inserted into the authoritative SQLite database."
+}
