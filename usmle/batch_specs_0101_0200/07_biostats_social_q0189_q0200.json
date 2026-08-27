@@ -1,0 +1,578 @@
+[
+  {
+    "num": 189,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Study design",
+      "Randomized controlled trial"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology",
+    "diagnosis": "Randomization and confounding",
+    "mechanism": "Random allocation tends to distribute both known and unknown confounders between treatment groups, improving causal inference.",
+    "vignette": "Investigators compare two antihypertensive drugs in a trial. Participants are assigned to treatment groups using a computer-generated random sequence.",
+    "lead": "What is the principal purpose of random assignment?",
+    "correct": "To reduce systematic differences in confounding factors between treatment groups",
+    "distractors": [
+      "To guarantee that no participant is lost to follow-up",
+      "To eliminate all measurement error",
+      "To increase disease prevalence in the sample",
+      "To ensure every participant receives the better treatment"
+    ],
+    "distractor_notes": [
+      "Randomization does not prevent loss to follow-up.",
+      "Measurement error requires reliable measurement methods and blinding; randomization does not eliminate it.",
+      "Randomization does not increase disease prevalence.",
+      "The relative treatment benefit is precisely what the trial is designed to estimate."
+    ],
+    "key_expl": "Randomization balances confounders on average and reduces selection bias in treatment allocation.",
+    "objective": "Explain why randomization strengthens causal inference in clinical trials.",
+    "clues": [
+      "computer-generated treatment assignment",
+      "comparison of interventions"
+    ],
+    "sources": [
+      {
+        "title": "Understanding Clinical Studies",
+        "url": "https://www.nih.gov/health-information/nih-clinical-research-trials-you/basics",
+        "locator": "Randomized trials",
+        "support": "NIH describes randomized assignment as a core design feature of controlled clinical trials."
+      },
+      {
+        "title": "Principles of Epidemiology",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html",
+        "locator": "Study design and bias",
+        "support": "CDC epidemiology materials describe experimental allocation and methods to reduce bias and confounding."
+      }
+    ]
+  },
+  {
+    "num": 190,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Bias",
+      "Recall bias"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology",
+    "diagnosis": "Recall bias",
+    "mechanism": "In retrospective studies, cases may remember or report past exposures differently from controls because disease status influences recall.",
+    "vignette": "A case-control study asks mothers of children with a congenital disorder and mothers of unaffected children to remember medications taken during pregnancy 10 years earlier.",
+    "lead": "Which bias is of greatest concern?",
+    "correct": "Recall bias",
+    "distractors": [
+      "Lead-time bias",
+      "Length-time bias",
+      "Observer-expectancy bias only",
+      "Confounding by indication only"
+    ],
+    "distractor_notes": [
+      "Lead-time bias affects apparent survival after earlier detection.",
+      "Length-time bias occurs in screening when slower-growing disease is preferentially detected.",
+      "Observer bias can occur, but the defining problem here is differential memory of remote exposure by case status.",
+      "Confounding may exist, but the question specifically describes differential retrospective recall."
+    ],
+    "key_expl": "Case-control participants may recall prior exposures differently depending on whether their child is affected, producing recall bias.",
+    "objective": "Recognize recall bias in retrospective exposure assessment.",
+    "clues": [
+      "case-control study",
+      "remote self-reported pregnancy exposures"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html",
+        "locator": "Bias in epidemiologic studies",
+        "support": "CDC epidemiology training describes systematic error from information collection as a threat to validity."
+      },
+      {
+        "title": "Glossary of Epidemiologic Terms",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/glossary.html",
+        "locator": "Bias",
+        "support": "CDC defines bias as systematic deviation of results from truth."
+      }
+    ]
+  },
+  {
+    "num": 191,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Screening",
+      "Lead-time bias"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology",
+    "diagnosis": "Lead-time bias",
+    "mechanism": "Earlier diagnosis through screening can increase measured survival time from diagnosis without changing the actual time of death.",
+    "vignette": "A new cancer screening test detects tumors 3 years earlier than usual, but treatment does not alter the natural history of the disease. Five-year survival measured from diagnosis appears to improve.",
+    "lead": "Which phenomenon best explains the apparent improvement?",
+    "correct": "Lead-time bias",
+    "distractors": [
+      "Recall bias",
+      "Selection bias from randomization",
+      "Confounding by sex",
+      "Observer-expectancy effect"
+    ],
+    "distractor_notes": [
+      "Recall bias involves differential memory of past exposures.",
+      "Randomization reduces selection-related confounding rather than creating this screening artifact.",
+      "Sex confounding would require association with both exposure and outcome and does not explain earlier diagnostic timing.",
+      "Observer expectancy does not account for survival measured from an earlier diagnosis."
+    ],
+    "key_expl": "Starting the survival clock earlier can make survival after diagnosis appear longer even when death occurs at the same time.",
+    "objective": "Recognize lead-time bias in cancer screening studies.",
+    "clues": [
+      "screening detects cancer earlier",
+      "no change in natural history but longer survival from diagnosis"
+    ],
+    "sources": [
+      {
+        "title": "Cancer Screening Overview",
+        "url": "https://www.cancer.gov/about-cancer/screening/hp-screening-overview-pdq",
+        "locator": "Biases in screening studies",
+        "support": "NCI describes lead-time bias as apparent longer survival due solely to earlier detection."
+      },
+      {
+        "title": "Screening Tests",
+        "url": "https://medlineplus.gov/healthscreening.html",
+        "locator": "Purpose of screening",
+        "support": "MedlinePlus describes screening as testing before symptoms occur, which changes timing of diagnosis."
+      }
+    ]
+  },
+  {
+    "num": 192,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Statistical inference",
+      "Type I error"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Type I error",
+    "mechanism": "A type I error occurs when the null hypothesis is rejected even though it is true; its probability is alpha.",
+    "vignette": "A study finds a statistically significant difference between two treatments at alpha=0.05, but in reality the treatments have identical effects.",
+    "lead": "Which statistical error occurred?",
+    "correct": "Type I error",
+    "distractors": [
+      "Type II error",
+      "Confounding",
+      "Selection bias",
+      "Regression to the mean"
+    ],
+    "distractor_notes": [
+      "Type II error is failure to reject a false null hypothesis.",
+      "Confounding is distortion by a third variable, not the formal false-positive hypothesis-testing error.",
+      "Selection bias results from systematic differences in participant inclusion.",
+      "Regression to the mean is a natural tendency of extreme measurements to move toward average on repeat testing."
+    ],
+    "key_expl": "Rejecting a true null hypothesis is a type I, or false-positive, error.",
+    "objective": "Distinguish type I from type II statistical error.",
+    "clues": [
+      "statistically significant result",
+      "true effects are identical"
+    ],
+    "sources": [
+      {
+        "title": "Statistical Principles for Clinical Trials",
+        "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e9-statistical-principles-clinical-trials",
+        "locator": "Hypothesis testing and type I error",
+        "support": "FDA statistical guidance addresses control of type I error in clinical trials."
+      },
+      {
+        "title": "Principles of Epidemiology",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html",
+        "locator": "Statistical interpretation",
+        "support": "CDC epidemiology materials address chance, inference, and interpretation of study findings."
+      }
+    ]
+  },
+  {
+    "num": 193,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Clinical trials",
+      "Number needed to treat"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics",
+    "diagnosis": "Number needed to treat",
+    "mechanism": "NNT is the reciprocal of absolute risk reduction and estimates how many patients need treatment to prevent one additional adverse outcome.",
+    "vignette": "In a randomized trial, the 5-year event rate is 20% with standard therapy and 10% with a new therapy.",
+    "lead": "What is the number needed to treat to prevent one additional event over 5 years?",
+    "correct": "10",
+    "distractors": [
+      "2",
+      "5",
+      "20",
+      "100"
+    ],
+    "distractor_notes": [
+      "NNT is not the reciprocal of the control event rate alone.",
+      "5 would correspond to an absolute risk reduction of 20%.",
+      "20 would correspond to an absolute risk reduction of 5%.",
+      "100 would correspond to an absolute risk reduction of 1%."
+    ],
+    "key_expl": "Absolute risk reduction is 0.20−0.10=0.10; NNT=1/0.10=10.",
+    "objective": "Calculate number needed to treat from absolute event rates.",
+    "clues": [
+      "20% control event rate",
+      "10% treatment event rate"
+    ],
+    "sources": [
+      {
+        "title": "Principles of Epidemiology",
+        "url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html",
+        "locator": "Risk measures",
+        "support": "CDC epidemiology materials describe absolute and relative risk calculations."
+      },
+      {
+        "title": "Evidence-Based Practice",
+        "url": "https://effectivehealthcare.ahrq.gov/products/collections/cer-methods-guide",
+        "locator": "Absolute treatment effects",
+        "support": "AHRQ evidence methods emphasize absolute event differences for interpreting treatment benefit."
+      }
+    ]
+  },
+  {
+    "num": 194,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Breaking bad news",
+      "Patient-centered communication"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Responding to emotion after bad news",
+    "mechanism": "Effective serious-news communication acknowledges and explores emotion before delivering more complex information, supporting comprehension and therapeutic alliance.",
+    "vignette": "After being told that a biopsy shows metastatic cancer, a patient becomes silent and starts crying. The physician still has several treatment details to explain.",
+    "lead": "What is the most appropriate next response?",
+    "correct": "Acknowledge the patient's emotion and allow time before continuing with more information",
+    "distractors": [
+      "Immediately continue the treatment explanation so no time is lost",
+      "Change the subject to prognosis statistics",
+      "Tell the patient not to cry because treatment is available",
+      "Leave the room without saying anything"
+    ],
+    "distractor_notes": [
+      "Continuing dense information while intense emotion is unaddressed can impair communication and comprehension.",
+      "Statistics do not replace an empathic response to the patient's immediate emotion.",
+      "Directing the patient not to cry invalidates emotion.",
+      "Leaving abruptly abandons the communication task and therapeutic support."
+    ],
+    "key_expl": "Acknowledge emotion first, then proceed at a pace the patient can process.",
+    "objective": "Use empathic acknowledgment when a patient shows strong emotion after serious news.",
+    "clues": [
+      "new metastatic cancer diagnosis",
+      "patient becomes silent and cries"
+    ],
+    "sources": [
+      {
+        "title": "Patient-Centered Communication in Cancer Care",
+        "url": "https://cancercontrol.cancer.gov/brp/research/theories_project/patient-centered-communication-monograph.pdf",
+        "locator": "Responding to emotions",
+        "support": "NCI emphasizes responding to patient emotions as a core function of patient-centered cancer communication."
+      },
+      {
+        "title": "Communication and Optimal Resolution",
+        "url": "https://www.ahrq.gov/patient-safety/settings/hospital/candor/index.html",
+        "locator": "Patient-centered communication",
+        "support": "AHRQ emphasizes transparent, empathic communication in difficult clinical situations."
+      }
+    ]
+  },
+  {
+    "num": 195,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Capacity",
+      "Decision-making capacity"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Decision-making capacity assessment",
+    "mechanism": "Clinical decision-making capacity requires the ability to understand relevant information, appreciate consequences, reason about options, and communicate a choice.",
+    "vignette": "A hospitalized patient refuses a recommended procedure. The patient can repeat the risks but insists that the procedure is for a different person and cannot apply the information to their own situation.",
+    "lead": "Which element of decision-making capacity is most impaired?",
+    "correct": "Appreciation of how the information applies to the patient's own situation",
+    "distractors": [
+      "Ability to communicate a choice",
+      "Ability to understand factual information",
+      "Ability to express a preference",
+      "Ability to hear spoken language"
+    ],
+    "distractor_notes": [
+      "The patient has clearly communicated a refusal.",
+      "The patient can repeat the factual risks, showing basic understanding.",
+      "Expressing a preference is present but is not sufficient for capacity.",
+      "Hearing ability is not the limiting issue described."
+    ],
+    "key_expl": "The patient can understand facts but cannot appreciate their personal relevance or consequences.",
+    "objective": "Distinguish appreciation from understanding in capacity assessment.",
+    "clues": [
+      "can repeat risks",
+      "denies that the decision applies personally"
+    ],
+    "sources": [
+      {
+        "title": "Assessment of Decision-Making Capacity in Veterans Health Administration",
+        "url": "https://www.ethics.va.gov/docs/net/NET_Topic_20110301_Assessment_of_Decision_Making_Capacity.pdf",
+        "locator": "Elements of capacity",
+        "support": "VA ethics guidance describes understanding, appreciation, reasoning, and communicating a choice as key capacity abilities."
+      },
+      {
+        "title": "Informed Consent",
+        "url": "https://www.hhs.gov/ohrp/regulations-and-policy/guidance/faq/informed-consent/index.html",
+        "locator": "Understanding and voluntariness",
+        "support": "HHS emphasizes understanding and voluntary decision making as central to valid informed consent."
+      }
+    ]
+  },
+  {
+    "num": 196,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Confidentiality",
+      "Adolescent care"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Adolescent confidential communication",
+    "mechanism": "Private time with adolescents facilitates disclosure of sensitive health concerns; confidentiality and its limits should be explained according to applicable law and safety obligations.",
+    "vignette": "A 16-year-old patient comes with a parent for a routine visit. The adolescent appears uncomfortable when the physician asks about sexual health and substance use.",
+    "lead": "Which approach is most appropriate?",
+    "correct": "Arrange part of the visit privately with the adolescent and explain confidentiality and its limits",
+    "distractors": [
+      "Ask all sensitive questions only in front of the parent",
+      "Promise absolute confidentiality regardless of safety concerns",
+      "Avoid sensitive topics until the patient turns 18",
+      "Ask the parent to answer all questions for the adolescent"
+    ],
+    "distractor_notes": [
+      "Private adolescent time supports accurate sensitive-history taking.",
+      "Confidentiality has legal and safety limits and should not be promised absolutely.",
+      "Preventive adolescent care includes sensitive health assessment before adulthood.",
+      "The adolescent should be engaged directly rather than having the parent answer everything."
+    ],
+    "key_expl": "Confidential private discussion, with clear explanation of limits, supports adolescent-centered care.",
+    "objective": "Use appropriate confidential communication practices in adolescent care.",
+    "clues": [
+      "adolescent hesitates in parent's presence",
+      "sensitive sexual and substance questions"
+    ],
+    "sources": [
+      {
+        "title": "Adolescent Health",
+        "url": "https://www.hhs.gov/ash/oah/adolescent-development/healthy-relationships/index.html",
+        "locator": "Adolescent-centered care and communication",
+        "support": "HHS adolescent health resources emphasize developmentally appropriate confidential communication."
+      },
+      {
+        "title": "HIPAA Privacy Rule and Sharing Information Related to Mental Health",
+        "url": "https://www.hhs.gov/hipaa/for-professionals/special-topics/mental-health/index.html",
+        "locator": "Privacy and safety exceptions",
+        "support": "HHS describes privacy protections and circumstances in which information may be shared for safety."
+      }
+    ]
+  },
+  {
+    "num": 197,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Informed refusal",
+      "Patient autonomy"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Informed refusal by a capable adult",
+    "mechanism": "A capable adult may refuse recommended treatment after receiving understandable information about risks, benefits, alternatives, and likely consequences.",
+    "vignette": "A competent adult with severe anemia refuses blood transfusion for deeply held personal reasons after the physician explains the risk of death and available alternatives. The patient accurately describes the consequences and remains consistent.",
+    "lead": "What is the most appropriate action?",
+    "correct": "Respect the refusal and continue to offer acceptable alternative care",
+    "distractors": [
+      "Transfuse because the physician believes it is medically necessary",
+      "Seek a court order solely because the refusal could result in death",
+      "Ask family members to override the patient's decision",
+      "Declare the patient incapable because the decision differs from medical advice"
+    ],
+    "distractor_notes": [
+      "Medical benefit does not eliminate a capable adult's authority to refuse treatment.",
+      "A high-risk refusal by itself does not justify overriding a capable adult's choice.",
+      "Family cannot ordinarily supersede the current capable patient's autonomous decision.",
+      "Disagreement with clinicians is not evidence of incapacity."
+    ],
+    "key_expl": "A capable informed adult has the right to refuse treatment, even when refusal carries serious risk.",
+    "objective": "Respect informed refusal by a patient with decision-making capacity.",
+    "clues": [
+      "competent adult",
+      "understands risk of death and remains consistent"
+    ],
+    "sources": [
+      {
+        "title": "Informed Consent",
+        "url": "https://www.hhs.gov/ohrp/regulations-and-policy/guidance/faq/informed-consent/index.html",
+        "locator": "Voluntary decision making",
+        "support": "HHS emphasizes voluntary informed decision making as a core ethical requirement."
+      },
+      {
+        "title": "Patient Rights",
+        "url": "https://www.cms.gov/medicare/health-safety-standards/conditions-coverage-participation/patient-rights",
+        "locator": "Patient participation in care decisions",
+        "support": "CMS patient-rights standards support patient participation and informed decisions regarding care."
+      }
+    ]
+  },
+  {
+    "num": 198,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Surrogate decision making",
+      "Substituted judgment"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Ethics",
+    "diagnosis": "Substituted judgment",
+    "mechanism": "When an incapacitated patient has a surrogate, decisions should preferentially reflect the patient's known values and prior wishes; best-interest reasoning is used when preferences are unknown.",
+    "vignette": "An unconscious patient has no written directive. The patient's spouse reports that the patient repeatedly stated they would never want prolonged mechanical ventilation after irreversible severe brain injury.",
+    "lead": "Which decision-making standard should guide the surrogate?",
+    "correct": "Substituted judgment based on the patient's known values and prior statements",
+    "distractors": [
+      "The surrogate's personal preferences",
+      "The physician's preferred treatment plan",
+      "Automatic use of every life-prolonging intervention",
+      "A purely financial cost-minimization standard"
+    ],
+    "distractor_notes": [
+      "The surrogate's role is to represent the patient's preferences, not their own.",
+      "Physicians provide recommendations but should not substitute their values for the patient's.",
+      "Life-prolonging treatment is not automatically required regardless of known patient wishes.",
+      "Cost alone is not the ethical standard for surrogate decisions."
+    ],
+    "key_expl": "Known prior wishes should guide surrogate decisions through substituted judgment.",
+    "objective": "Apply substituted judgment when an incapacitated patient's values are known.",
+    "clues": [
+      "patient lacks capacity",
+      "spouse knows repeated prior statements"
+    ],
+    "sources": [
+      {
+        "title": "Surrogate Decision Making",
+        "url": "https://www.ethics.va.gov/docs/net/NET_Topic_20160223_Surrogate_Decision_Making.pdf",
+        "locator": "Substituted judgment and best interests",
+        "support": "VA ethics guidance describes surrogate decisions based first on the patient's known preferences and values."
+      },
+      {
+        "title": "Advance Care Planning",
+        "url": "https://www.nia.nih.gov/health/advance-care-planning/advance-care-planning-advance-directives-health-care",
+        "locator": "Health care proxies and patient wishes",
+        "support": "NIA describes advance care planning as communicating preferences to guide future decisions."
+      }
+    ]
+  },
+  {
+    "num": 199,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Professional communication",
+      "Closed-loop communication"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Closed-loop communication",
+    "mechanism": "Closed-loop communication requires the receiver to repeat back the message and the sender to confirm or correct it, reducing ambiguity in high-risk team tasks.",
+    "vignette": "During resuscitation, the team leader says, “Give epinephrine 1 mg IV.” A nurse repeats, “Epinephrine 1 mg IV,” and the leader says, “Correct.”",
+    "lead": "Which communication technique is being used?",
+    "correct": "Closed-loop communication",
+    "distractors": [
+      "Teach-back with a patient",
+      "Shared decision making",
+      "Motivational interviewing",
+      "Open-ended history taking"
+    ],
+    "distractor_notes": [
+      "Teach-back verifies patient understanding of education, not execution of urgent team commands.",
+      "Shared decision making is collaborative treatment choice with a patient.",
+      "Motivational interviewing explores ambivalence about behavior change.",
+      "Open-ended history taking gathers patient information."
+    ],
+    "key_expl": "The order is repeated back and explicitly confirmed, completing a closed communication loop.",
+    "objective": "Recognize closed-loop communication in high-risk clinical teamwork.",
+    "clues": [
+      "receiver repeats the order",
+      "sender confirms correctness"
+    ],
+    "sources": [
+      {
+        "title": "TeamSTEPPS Communication",
+        "url": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/index.html",
+        "locator": "Check-back/closed-loop communication",
+        "support": "AHRQ TeamSTEPPS describes check-back as closed-loop verification of information between team members."
+      },
+      {
+        "title": "TeamSTEPPS Pocket Guide",
+        "url": "https://www.ahrq.gov/teamstepps-program/resources/pocket-guide.html",
+        "locator": "Communication tools",
+        "support": "AHRQ includes call-out and check-back tools for reliable team communication."
+      }
+    ]
+  },
+  {
+    "num": 200,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Behavior change counseling",
+      "Motivational interviewing"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Communication",
+    "diagnosis": "Motivational interviewing",
+    "mechanism": "Motivational interviewing uses collaborative, nonjudgmental exploration of ambivalence and patient-generated reasons for change rather than confrontation or coercion.",
+    "vignette": "A patient who smokes says, “I know cigarettes are bad for me, but smoking is how I handle stress, and I’m not sure I want to quit.”",
+    "lead": "Which response best uses motivational interviewing?",
+    "correct": "“What do you like about smoking, and what concerns do you have about continuing?”",
+    "distractors": [
+      "“You must quit now or you are choosing to get sick.”",
+      "“There is no point discussing this until you are ready to quit.”",
+      "“I will decide which cessation plan you will start today.”",
+      "“Your reasons for smoking are irrational.”"
+    ],
+    "distractor_notes": [
+      "Confrontation can increase resistance and is inconsistent with motivational interviewing.",
+      "Ambivalence is precisely what motivational interviewing is designed to explore.",
+      "The approach supports patient autonomy rather than imposing a plan.",
+      "Judgmental labeling undermines collaboration."
+    ],
+    "key_expl": "Open, nonjudgmental exploration of both sides of ambivalence elicits the patient's own motivations for change.",
+    "objective": "Use motivational interviewing to explore ambivalence about smoking cessation.",
+    "clues": [
+      "patient is ambivalent",
+      "smoking is linked to perceived stress relief"
+    ],
+    "sources": [
+      {
+        "title": "Treating Tobacco Use and Dependence",
+        "url": "https://www.ahrq.gov/prevention/guidelines/tobacco/index.html",
+        "locator": "Counseling and motivation",
+        "support": "AHRQ tobacco guidance supports patient-centered counseling to increase readiness for cessation."
+      },
+      {
+        "title": "Smoking and Tobacco Use",
+        "url": "https://www.cdc.gov/tobacco/about/index.html",
+        "locator": "Quitting support",
+        "support": "CDC emphasizes counseling and support as effective components of tobacco cessation."
+      }
+    ]
+  }
+]
