@@ -1,0 +1,91 @@
+{
+  "audit_id": "Q0616-FRESH-ITEM-AUDIT-20260827",
+  "item": "Q0616",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-27",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-27",
+    "notes": [
+      "NCBI StatPearls Pulmonary Alveolar Proteinosis was reread for autoimmune PAP mechanism, decreased rather than increased surfactant clearance, anti-GM-CSF antibodies, crazy-paving CT, milky BAL, foamy macrophages, and PAS-positive material.",
+      "A 2023 PubMed Central review was reread for GM-CSF-dependent alveolar macrophage dysfunction and impaired surfactant/debris clearance.",
+      "A mechanistic PubMed Central study was reread for neutralization of GM-CSF by autoantibodies and resulting alveolar macrophage dysfunction.",
+      "The official USMLE 2026 Respiratory System outline and its introductory statement that listed diseases are examples rather than exhaustive were reread."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Respiratory and Renal/Urinary Systems",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Pulmonary Pathophysiology",
+      "Immunology",
+      "Cell Biology"
+    ],
+    "official_outline_path": [
+      "Respiratory System",
+      "Metabolic, regulatory, and structural disorders",
+      "Disorders of gas exchange / hypoxia"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "authoritative_table": "step2_final_items",
+    "canonical_final_count_scanned": 610,
+    "broad_concept_probe_run": 33076243308,
+    "staged_diagnosis_run": 33076364376,
+    "diagnosis": "Autoimmune pulmonary alveolar proteinosis",
+    "canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "core_mechanism": "Autoimmune PAP is caused by neutralizing IgG anti-GM-CSF antibodies that impair alveolar macrophage function and surfactant clearance.",
+    "clearance_not_overproduction": "NCBI explicitly states that PAP reflects decreased surfactant clearance rather than increased surfactant production.",
+    "imaging": "Ground-glass opacities with interlobular/intralobular septal thickening create a crazy-paving pattern that is suggestive but not specific for PAP.",
+    "lavage_pathology": "Milky/opaque BAL with foamy macrophages and PAS-positive amorphous lipoproteinaceous material is characteristic.",
+    "gas_exchange": "Alveolar surfactant accumulation impairs diffusion/gas exchange and can produce hypoxemia and restrictive physiology.",
+    "distractor_1": "Type II pneumocyte hypersecretion is directly contradicted by the established decreased-clearance mechanism.",
+    "distractor_2": "Axonemal dynein failure causes primary ciliary dyskinesia and mucociliary-clearance disease, not surfactant-rich alveolar filling.",
+    "distractor_3": "NADPH oxidase deficiency causes chronic granulomatous disease; it does not explain anti-GM-CSF-associated surfactant accumulation.",
+    "distractor_4": "Hydrostatic edema can produce diffuse opacities/crazy paving but not anti-GM-CSF antibodies with PAS-positive surfactant-rich BAL.",
+    "blueprint_claim": "USMLE places gas-exchange/hypoxia and restrictive/structural respiratory disorders within Respiratory System and states examples in the content outline are not exhaustive."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Progressive hypoxemia plus ground-glass/septal thickening raises an alveolar-filling differential. Milky BAL and PAS-positive material point to PAP; anti-GM-CSF identifies the autoimmune form. The causal cellular defect is impaired GM-CSF-dependent alveolar macrophage surfactant clearance.",
+    "crazy_paving_challenge": "Crazy paving is nonspecific and cannot alone determine PAP. The item deliberately adds BAL and serologic evidence so the diagnosis and mechanism do not rest on one radiologic clue.",
+    "secondary_pap_challenge": "Secondary PAP can also result from dysfunctional macrophages, but high-titer anti-GM-CSF antibodies specifically support autoimmune PAP rather than secondary hematologic/immunodeficiency-associated PAP.",
+    "congenital_pap_challenge": "Congenital PAP can involve GM-CSF receptor or surfactant-protein defects, but the adult presentation with anti-GM-CSF IgG identifies acquired autoimmune disease.",
+    "cgd_challenge": "CGD impairs microbial killing and can predispose to pulmonary infection, but the biochemical/radiologic/BAL pattern in this vignette is surfactant accumulation, not granulomatous infection.",
+    "edema_challenge": "Cardiogenic edema can mimic crazy paving but would not generate anti-GM-CSF antibodies or PAS-positive lipoproteinaceous surfactant material.",
+    "cueing_check": "The correct option is a cellular process parallel in style to the four alternative cellular/physiologic mechanisms and is not uniquely long.",
+    "unsupported_precision_check": "No antibody cutoff, disease prevalence, BAL sensitivity, DLCO threshold, or mandatory imaging distribution is used as a scoring dependency.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after broad semantic duplicate gate, authoritative source reread, staged rerun, and adversarial second-pass. Q0616 has not been inserted into the authoritative SQLite database."
+}
