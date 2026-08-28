@@ -1,0 +1,80 @@
+{
+  "audit_id":"Q0666-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0666",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 explicitly lists syringomyelia under spinal cord disorders.",
+      "Current 2026 NCBI neuroanatomy guidance identifies the anterior white commissure as containing decussating pain/temperature spinothalamic fibers and describes syringomyelia as an early lesion of these fibers.",
+      "Current NCBI Syringomyelia guidance independently supports dissociated pain/temperature loss with early preservation of posterior-column modalities.",
+      "An earlier narcolepsy/orexin Q0666 draft was rejected before audit after the post-stage report detected direct canonical overlap with Q0224."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Behavioral Health, Nervous Systems and Special Senses",
+    "competency":"Medical Knowledge: Applying Foundational Science Concepts",
+    "official_outline_path":[
+      "Nervous System & Special Senses",
+      "Disorders relating to the spine, spinal cord, and spinal nerve roots",
+      "Syringomyelia"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":660,
+    "initial_probe_run":33191710753,
+    "narcolepsy_initial_probe_hits":0,
+    "narcolepsy_post_stage_rejected_overlap":"Q0224 directly covers narcolepsy type 1 due to loss of hypothalamic hypocretin/orexin neurons.",
+    "replacement_construct":"Syringomyelia with anterior white commissure involvement",
+    "replacement_probe_hits":0,
+    "replacement_post_stage_run":33191971780,
+    "post_stage_q0666_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "central_syrinx":"PASS",
+    "crossing_spinothalamic_fibers":"PASS",
+    "anterior_white_commissure":"PASS",
+    "bilateral_segmental_pain_temperature_loss":"PASS",
+    "preserved_dorsal_column_modalities":"PASS"
+  },
+  "option_audit":{
+    "anterior_white_commissure":"Uniquely explains selective bilateral pain/temperature loss from a central cervical syrinx.",
+    "dorsal_columns":"Would impair vibration/proprioception, which are preserved.",
+    "lateral_corticospinal":"Would produce motor/upper-motor-neuron deficits rather than isolated dissociated sensory loss.",
+    "dorsal_root_ganglia":"A multilevel bilateral DRG process would not selectively spare non-spinothalamic modalities in this central-cord pattern.",
+    "medial_lemniscus":"Carries dorsal-column modalities after medullary decussation, which are preserved.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"A small central cervical syrinx first reaches the anterior white commissure, where second-order pain/temperature fibers cross. This creates bilateral segmental dissociated sensory loss while dorsal columns remain intact.",
+    "dorsal_column_attack":"Preserved vibration and joint position directly oppose a dorsal-column lesion.",
+    "motor_attack":"Normal strength/reflexes and the modality-specific deficit oppose corticospinal injury as the primary lesion.",
+    "peripheral_attack":"A peripheral/DRG process would not produce the classic central crossing-fiber dissociation shown with an MRI-proven syrinx.",
+    "unsupported_precision_check":"No syrinx diameter, spinal level threshold, progression rate, or treatment parameter is asserted.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
