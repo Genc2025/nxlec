@@ -1,0 +1,62 @@
+{
+  "audit_id":"Q0647-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0647",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{"status":"PASS","verified_at":"2026-08-28","notes":[
+    "NINDS was reread for PML as a JC-virus white-matter disease targeting myelin-producing cells in immunocompromised patients.",
+    "NCBI Bookshelf PML material was checked for severe cellular immunosuppression, progressive multifocal deficits, and lytic oligodendrocyte infection.",
+    "NCBI JC-polyomavirus material directly states that JCV lyses myelin-producing oligodendrocytes with secondary demyelination.",
+    "Official USMLE content explicitly includes PML among CNS disorders associated with AIDS."
+  ]},
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{"system":"Behavioral Health & Nervous Systems/Special Senses","competency":"Medical Knowledge: Applying Foundational Science Concepts","official_outline_path":["Nervous System & Special Senses","Infectious disorders","CNS disorders associated with AIDS","Progressive multifocal leukoencephalopathy"],"status":"PASS"},
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":640,
+    "concept_probe_run":33133871899,
+    "post_stage_rerun":33133922684,
+    "diagnosis":"Progressive multifocal leukoencephalopathy due to JC polyomavirus",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0641_q0646_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "immunosuppression":"Untreated HIV with profound CD4 depletion is an appropriate setting for PML reactivation.",
+    "clinical_course":"Subacute progressive multifocal focal deficits are characteristic of PML.",
+    "imaging":"Asymmetric white-matter lesions with little mass effect are compatible with PML; the item does not require a single pathognomonic MRI sequence.",
+    "key_cell":"Oligodendrocytes are CNS myelin-forming cells and the principal lytically infected cell responsible for JC-virus demyelination.",
+    "schwann_distractor":"Schwann cells myelinate peripheral nerves, not CNS white matter.",
+    "anterior_horn_distractor":"Anterior horn neurons are targeted in poliomyelitis and produce a lower-motor-neuron syndrome.",
+    "microglia_distractor":"Microglia are resident immune cells rather than the principal myelin-forming target of JCV.",
+    "endothelium_distractor":"Endothelial injury does not explain JCV-mediated multifocal demyelination."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Ignoring the staged key, the CSF JC-virus result plus profound immunosuppression and progressive multifocal white-matter disease establishes PML. The causal cell loss must therefore be oligodendrocytes.",
+    "primary_cns_lymphoma_attack":"Primary CNS lymphoma in AIDS usually produces mass lesions and does not yield JC-virus PCR as the causal finding.",
+    "toxoplasmosis_attack":"Toxoplasmosis more often causes multiple ring-enhancing lesions with mass effect and is not a lytic oligodendrocyte infection.",
+    "multiple_sclerosis_attack":"MS causes CNS demyelination but the severe immunosuppression and JC-virus evidence specify PML.",
+    "cueing_check":"All answer choices are legitimate neurologic cell types, and only the biological target determines the key.",
+    "unsupported_precision_check":"No MRI sensitivity, JC viral-load threshold, prognostic statistic, or treatment claim is required.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after official USMLE/NINDS/NCBI verification, real SQLite-backed 0/640 overlap gate, staged rerun, and independent adversarial second-pass."
+}
