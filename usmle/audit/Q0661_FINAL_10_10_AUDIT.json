@@ -1,0 +1,83 @@
+{
+  "audit_id":"Q0661-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0661",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 explicitly includes pacemaker dysfunction, including failure to sense and failure to capture, in the Cardiovascular System dysrhythmia content.",
+      "Current NCBI Bookshelf guidance defines failure to capture as a pacing impulse that is not followed by an evoked P wave or QRS complex and distinguishes output failure, undersensing, and oversensing.",
+      "A peer-reviewed pacemaker troubleshooting review independently supports the same ECG distinction."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Cardiovascular System",
+    "competency":"Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path":[
+      "Cardiovascular System",
+      "Dysrhythmias",
+      "Pacemaker dysfunction, including failure to sense and failure to capture"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":660,
+    "initial_probe_run":33186965268,
+    "amyloid_expanded_gate_run":33187084692,
+    "amyloid_rejected_overlap":"Canonical Q0608 contains hereditary transthyretin amyloidosis.",
+    "carcinoid_expanded_gate_run":33187158333,
+    "carcinoid_rejected_overlap":"Canonical Q0365 contains serotonin-producing neuroendocrine tumor with right-sided valvular fibrosis.",
+    "replacement_probe_run":33187250889,
+    "selected_construct":"Pacemaker failure to capture",
+    "selected_construct_hits":0,
+    "post_stage_run":33187370223,
+    "post_stage_q0661_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "failure_to_capture":"PASS — visible pacing spike without subsequent evoked P wave/QRS.",
+    "output_failure":"PASS — expected pacing spike is absent.",
+    "undersensing":"PASS — intrinsic activity is not detected and pacing can occur inappropriately.",
+    "oversensing":"PASS — non-target signals are sensed and pacing is inappropriately inhibited.",
+    "pacemaker_mediated_tachycardia":"PASS — produces an inappropriate rapid paced rhythm, not isolated noncaptured impulses with pauses."
+  },
+  "option_audit":{
+    "failure_to_capture":"Uniquely explains delivered ventricular pacing spikes that are not followed by ventricular depolarization.",
+    "output_failure":"Contradicted by clearly visible pacing spikes.",
+    "undersensing":"Contradicted by intact ventricular sensing and by the abnormality occurring after a delivered stimulus.",
+    "oversensing":"Would inhibit pacing rather than produce a visible pacing spike without a QRS response.",
+    "pacemaker_mediated_tachycardia":"Would produce tachycardia rather than pauses from noncapture.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"A ventricular pacing spike represents delivered output. When the spike is not followed by a QRS complex, the myocardium has not been captured. The vignette explicitly confirms output and intact sensing, isolating capture failure.",
+    "output_failure_attack":"Output failure cannot explain visible ventricular pacing spikes.",
+    "undersensing_attack":"Undersensing concerns failure to recognize intrinsic activity, not failure of myocardium to depolarize after a delivered stimulus.",
+    "oversensing_attack":"Oversensing causes inappropriate pacing inhibition, so the key abnormality would be missing pacing impulses rather than noncaptured visible spikes.",
+    "tachycardia_attack":"Pacemaker-mediated tachycardia produces a rapid paced ventricular rhythm and does not explain pauses after isolated pacing spikes.",
+    "unsupported_precision_check":"No pacing-voltage threshold, lead impedance value, battery voltage, programmed rate, or device-specific parameter is asserted.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
