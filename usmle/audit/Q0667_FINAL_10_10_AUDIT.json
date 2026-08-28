@@ -1,0 +1,140 @@
+{
+  "audit_id": "Q0667-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0667",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob_verified": "01de9c00d4811e287aa9e75e1c0ac13e6f5232a9",
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "Official USMLE Content Outline 2026 explicitly lists acromegaly/gigantism under Endocrine System, Pituitary disorders.",
+      "Current official Step 1 specifications classify Medical Knowledge: Applying Foundational Science Concepts as a core Step 1 competency and include pharmacology and physiology as tested disciplines.",
+      "DailyMed octreotide clinical-pharmacology section is dated January 21, 2026 and confirms somatostatin-like pharmacology with suppression of GH and reduction of GH/IGF-1 in acromegaly.",
+      "NCBI Physiology, Somatostatin is in the 2026 StatPearls Internet edition; article Last Update July 24, 2023.",
+      "NCBI Physiology, Pancreas is in the 2026 StatPearls Internet edition; article Last Update May 1, 2023.",
+      "NCBI Physiology, Cellular Receptors is in the 2026 StatPearls Internet edition; article Last Update September 19, 2024.",
+      "NCBI Biochemistry, Hormones is in the 2026 StatPearls Internet edition; article Last Update July 17, 2023."
+    ]
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": [
+    "USMLE Content Outline (2026), Endocrine System, page 31 — Pituitary disorders: acromegaly/gigantism.",
+    "USMLE Step 1 Exam Content — Physician Tasks/Competencies Specifications and Discipline Specifications.",
+    "DailyMed Octreotide Acetate for Injectable Suspension — 12.1 Mechanism of Action; 12.2 Pharmacodynamics.",
+    "Physiology, Somatostatin — Mechanism.",
+    "Physiology, Pancreas — Function — Somatostatin: Target cells; Mechanism of action; Physiological functions.",
+    "Physiology, Cellular Receptors — Cell-Surface Receptors — GPCR Gs/Gi/Gq signaling; Enzyme-linked receptors.",
+    "Biochemistry, Hormones — Mechanism — Cell Surface Receptors."
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Reproductive and Endocrine Systems",
+    "official_outline_path": [
+      "Endocrine System",
+      "Pituitary disorders",
+      "Acromegaly/gigantism"
+    ],
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": [
+      "Pharmacology",
+      "Physiology",
+      "Cell Signaling"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "canonical_final_count_scanned": 660,
+    "earlier_candidate_rejections": [
+      {
+        "construct": "Insulin receptor tyrosine kinase / GLUT4",
+        "broad_probe_run": 33192196013,
+        "canonical_overlap": "S1-DIRECT-0637-20260827T180000Z",
+        "status": "REJECTED_OVERLAP"
+      },
+      {
+        "construct": "Growth hormone receptor JAK2/STAT5 signaling",
+        "expanded_probe_run": 33192598904,
+        "canonical_overlaps": [
+          "S1-DIRECT-0035-20260827T020000Z",
+          "S1-DIRECT-0371-202608270320Z"
+        ],
+        "status": "REJECTED_CONSTRUCT_OVERLAP"
+      },
+      {
+        "construct": "ACTH MC2R Gs/cAMP signaling",
+        "expanded_probe_run": 33192756160,
+        "canonical_overlap": "S1-DIRECT-0466-202608270340Z",
+        "status": "REJECTED_DIRECT_OVERLAP"
+      }
+    ],
+    "selected_construct": "Somatostatin receptor Gi signaling with inhibition of adenylyl cyclase and reduced cAMP",
+    "expanded_pre_stage_run": 33192756160,
+    "expanded_pre_stage_hits": 0,
+    "post_stage_run": 33192964650,
+    "post_stage_hits": 0,
+    "post_metadata_rerun": 33193074927,
+    "post_metadata_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "octreotide_is_somatostatin_analogue": "PASS",
+    "octreotide_suppresses_GH": "PASS",
+    "octreotide_reduces_GH_and_or_IGF1_in_acromegaly": "PASS",
+    "somatostatin_receptors_are_GPCRs": "PASS",
+    "somatostatin_receptor_activation_decreases_cAMP": "PASS",
+    "inhibitory_G_protein_inhibits_adenylyl_cyclase": "PASS",
+    "somatostatin_targets_pituitary_somatotrophs": "PASS",
+    "Gs_stimulates_adenylyl_cyclase_cAMP": "PASS",
+    "Gq_activates_PLC_IP3_DAG": "PASS",
+    "intrinsic_RTK_is_distinct_receptor_family": "PASS",
+    "receptor_associated_JAK_STAT_is_distinct_receptor_family": "PASS"
+  },
+  "option_audit": {
+    "Gi": "Uniquely best. NCBI explicitly links somatostatin to an inhibitory heterotrimeric G protein that inhibits adenylyl cyclase and cAMP formation.",
+    "Gs": "Plausible endocrine signaling distractor but directionally opposite: Gs stimulates adenylyl cyclase and increases cAMP.",
+    "Gq": "Plausible endocrine GPCR distractor but signals through phospholipase C, IP3, DAG, and increased intracellular calcium rather than the characteristic inhibitory somatostatin pathway.",
+    "intrinsic_RTK": "Plausible peptide-hormone receptor mechanism, but somatostatin receptors are GPCRs; intrinsic RTKs are a distinct enzyme-linked receptor family.",
+    "JAK_STAT": "Plausible endocrine signaling mechanism, but it requires a receptor-associated kinase rather than an inhibitory somatostatin GPCR.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Octreotide treatment of acromegaly identifies a somatostatin-analogue pharmacology construct. The receptor-level question independently maps somatostatin receptor activation to inhibitory G-protein signaling and reduced adenylyl cyclase/cAMP.",
+    "multiple_somatostatin_effects_attack": "Somatostatin receptors also reduce intracellular calcium, alter potassium currents, and engage additional inhibitory signaling. The item does not claim that Gi/cAMP is the sole pathway; it asks for the expected intracellular change and offers one canonical directly supported pathway.",
+    "Gs_attack": "Gs would increase cAMP and is therefore opposite to the directly sourced inhibitory somatostatin effect.",
+    "Gq_attack": "Gq/PLC signaling would generate IP3/DAG and increase intracellular calcium, which conflicts with the sourced decrease in intracellular calcium after somatostatin-receptor activation.",
+    "RTK_attack": "Somatostatin receptors are explicitly GPCRs, excluding an intrinsic receptor tyrosine kinase as an equally correct answer.",
+    "JAK_STAT_attack": "Somatostatin receptors are GPCRs, not receptor-associated JAK/STAT receptors.",
+    "drug_effect_attack": "DailyMed directly supports octreotide's somatostatin-like actions and suppression of GH/IGF-1 in acromegaly.",
+    "second_answer_search": "No alternative option matches both the receptor family and direction of second-messenger change.",
+    "cueing_check": "The stem names octreotide and somatostatin receptors, appropriately defining the pharmacologic target; the tested knowledge remains downstream receptor signaling rather than simple disease recognition.",
+    "unsupported_precision_check": "No dose, duration, response percentage, biochemical target threshold, or exclusive-pathway claim is asserted.",
+    "result": "PASS"
+  }
+}
