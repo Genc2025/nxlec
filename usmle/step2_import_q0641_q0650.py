@@ -365,7 +365,16 @@ def main():
     fin=con.execute('SELECT audit_id,item_count,key_schedule_sha256,aggregate_review_sha256 FROM step2_finalization WHERE id=1').fetchone()
     if not fin or fin[0]!=AUDIT_ID or fin[1]!=650:
         raise SystemExit('step2_finalization row failure')
+    journal_mode=(con.execute('PRAGMA journal_mode').fetchone() or [''])[0]
+    checkpoint_result=None
+    if str(journal_mode).lower()=='wal':
+        checkpoint_result=con.execute('PRAGMA wal_checkpoint(TRUNCATE)').fetchone()
+        if checkpoint_result and checkpoint_result[0]!=0:
+            raise SystemExit(f'WAL checkpoint failure {checkpoint_result}')
+    con.close()
     post_blob=db_blob()
+    if post_blob==EXPECTED_PRE_DB_BLOB:
+        raise SystemExit('post-write DB blob unchanged')
     result={
         'audit_id':AUDIT_ID,'final_status':'FINAL_10_10_PASS','item_count':650,
         'authoritative_final_table':'step2_final_items','step2_final_review_count':650,
@@ -380,7 +389,7 @@ def main():
             'Q0646 system':'Multisystem Processes & Disorders -> Multisystem Processes and Disorders',
             'Q0647 system':'Behavioral Health & Nervous Systems/Special Senses -> Behavioral Health, Nervous Systems and Special Senses'
         },
-        'pre_authoritative_db_blob':EXPECTED_PRE_DB_BLOB,'post_authoritative_db_blob':post_blob,'finalized_at':FINAL_AT
+        'pre_authoritative_db_blob':EXPECTED_PRE_DB_BLOB,'post_authoritative_db_blob':post_blob,'sqlite_journal_mode':journal_mode,'wal_checkpoint_result':checkpoint_result,'finalized_at':FINAL_AT
     }
     FINAL_AUDIT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
     FINAL_STATE.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
