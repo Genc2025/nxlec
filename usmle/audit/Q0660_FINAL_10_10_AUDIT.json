@@ -1,0 +1,85 @@
+{
+  "audit_id":"Q0660-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0660",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 page 31 was inspected directly and explicitly lists hypoglycemia secondary to surreptitious insulin use.",
+      "Current NCBI Bookshelf sources were used for the insulin/C-peptide/proinsulin pattern and secretagogue testing.",
+      "Current Endotext was used to distinguish IGF-2 non-islet-cell tumor hypoglycemia and adrenal insufficiency.",
+      "The initial answer wording inferred 'surreptitious' intent from biochemical data; this was removed before PASS. The final diagnosis is exogenous insulin administration, while the official blueprint category remains surreptitious insulin use."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Reproductive and Endocrine Systems",
+    "competency":"Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path":[
+      "Endocrine System",
+      "Hypoglycemia and islet cell disorders",
+      "Hypoglycemia secondary to surreptitious insulin use"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":650,
+    "first_probe_run":33186149911,
+    "first_probe_result":"All six initial candidate constructs had canonical overlap and were rejected.",
+    "replacement_probe_run":33186248245,
+    "selected_construct":"Surreptitious/exogenous insulin use",
+    "selected_construct_hits":0,
+    "initial_post_stage_run":33186465876,
+    "post_correction_rerun":33186541237,
+    "post_correction_q0660_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "exogenous_insulin_pattern":"PASS — elevated insulin with suppressed C-peptide and proinsulin is directly supported.",
+    "insulinoma_pattern":"PASS — endogenous insulinoma raises insulin together with C-peptide/proinsulin.",
+    "secretagogue_pattern":"PASS — insulin secretagogues raise endogenous insulin and C-peptide; drug detection distinguishes exposure from insulinoma.",
+    "igf2_tumor_pattern":"PASS — Endotext states insulin and C-peptide are appropriately suppressed.",
+    "adrenal_insufficiency":"PASS — cortisol deficiency can cause hypoglycemia but does not explain hyperinsulinemia with suppressed C-peptide.",
+    "intent_precision":"PASS — final answer diagnoses exogenous insulin exposure without claiming biochemical proof of motive."
+  },
+  "option_audit":{
+    "exogenous_insulin":"Uniquely explains elevated insulin with suppressed C-peptide/proinsulin and a negative secretagogue screen.",
+    "insulinoma":"Would produce endogenous insulin secretion with C-peptide/proinsulin elevation.",
+    "sulfonylurea":"Would stimulate endogenous insulin/C-peptide and should be detectable on the specified screen.",
+    "igf2_tumor":"Can cause hypoglycemia, but insulin and C-peptide should be suppressed.",
+    "primary_adrenal_insufficiency":"Can cause hypoglycemia through impaired counterregulation but not this hyperinsulinemic biochemical signature.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Documented symptomatic hypoglycemia with inappropriately elevated insulin, suppressed C-peptide and proinsulin, and a negative secretagogue screen independently reconstructs exogenous insulin administration.",
+    "insulinoma_attack":"The suppressed C-peptide/proinsulin directly contradict endogenous beta-cell secretion.",
+    "secretagogue_attack":"A secretagogue can mimic insulinoma biochemically, but it cannot explain suppressed C-peptide and the screen is negative.",
+    "igf2_attack":"IGF-2-mediated hypoglycemia is hypoinsulinemic, unlike the stated elevated insulin.",
+    "adrenal_attack":"Cortisol deficiency may cause hypoglycemia but does not produce elevated exogenous-pattern insulin.",
+    "intent_attack":"No psychiatric diagnosis, deception claim, or motive is required by the final answer.",
+    "unsupported_precision_check":"No glucose, insulin, C-peptide, proinsulin, or drug-screen numerical cutoff is asserted.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved after two rounds of construct selection, real canonical-650 duplicate gating, official USMLE alignment, biochemical claim-level review, removal of unsupported intent inference, post-correction SQLite rerun, and independent adversarial second-pass."
+}
