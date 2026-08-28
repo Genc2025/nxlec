@@ -1,0 +1,90 @@
+{
+  "audit_id": "Q0654-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0654",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "The official USMLE Content Outline (2026), Respiratory System page 19, was inspected directly and explicitly lists hypersensitivity pneumonitis under interstitial/restrictive pulmonary disorders.",
+      "Current NHLBI hypersensitivity-pneumonitis guidance was used for exposure triggers, symptoms, examination findings, and diagnostic use of exposure history.",
+      "A CDC/NIOSH-hosted review directly supports bird-fancier exposure, non-IgE immune pathogenesis, and acute symptoms developing approximately 4–8 hours after exposure.",
+      "Current CDC psittacosis and NHLBI asthma/IPF/sarcoidosis pages were used for the distractor audit."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS","PASS","PASS","PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Respiratory and Renal/Urinary Systems",
+    "competency": "Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path": [
+      "Respiratory System",
+      "Pneumoconiosis/fibrosing/restrictive pulmonary disorders/interstitial lung disease",
+      "hypersensitivity pneumonitis"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "basis": "Requires integrating a repeated antigen-exposure time course, systemic respiratory symptoms, interstitial findings, and improvement with avoidance while distinguishing an infectious bird-associated mimic.",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 650,
+    "broad_probe_run": 33183105589,
+    "selected_construct": "Hypersensitivity pneumonitis",
+    "selected_construct_hits": 0,
+    "post_stage_run": 33183377941,
+    "post_stage_q0654_canonical_hits": 0,
+    "rejected_candidates": {
+      "pulmonary_alveolar_proteinosis": "Direct Q0616 construct overlap",
+      "renal_papillary_necrosis": "Direct Q0557 construct overlap"
+    },
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "bird_antigen": "PASS — NHLBI identifies bird droppings and feathers as recognized inhaled triggers.",
+    "timing": "PASS — CDC/NIOSH supports acute HP symptoms appearing about 4–8 hours after exposure.",
+    "symptoms": "PASS — cough, dyspnea, fever, chills, fatigue and rales are directly supported.",
+    "avoidance_pattern": "PASS — NHLBI/CDC describe exposure-related disease and improvement when the causative substance is avoided.",
+    "interstitial_classification": "PASS — official USMLE 2026 places HP in the interstitial/restrictive pulmonary disorder category.",
+    "immune_mechanism": "PASS — CDC/NIOSH describes non-IgE type III/type IV immune mechanisms."
+  },
+  "option_audit": {
+    "hypersensitivity_pneumonitis": "Uniquely explains repeated within-hours episodes after pigeon-loft exposure and improvement during avoidance.",
+    "psittacosis": "A strong bird-exposure infectious mimic with fever and dry cough, but repeated rapid exposure-response episodes with symptom-free periods away from birds are much more consistent with HP than repeated new C. psittaci infections.",
+    "asthma": "Can be allergen-triggered but typically reflects variable/reversible airflow obstruction; it does not best explain febrile systemic episodes, inspiratory crackles, and diffuse interstitial disease.",
+    "ipf": "A chronic progressive idiopathic fibrotic disorder; a reproducible specific antigen trigger and improvement away from exposure argue against idiopathic disease.",
+    "sarcoidosis": "Can cause pulmonary granulomatous disease, but does not best fit recurrent acute episodes tightly linked to a single inhaled antigen and resolving with avoidance.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "The strongest causal clue is the repeated, reproducible onset several hours after cleaning a pigeon loft, followed by improvement when away and complete absence of symptoms during travel. Coupled with fever, cough, dyspnea, crackles, and interstitial opacities, this independently reconstructs hypersensitivity pneumonitis.",
+    "psittacosis_attack": "Psittacosis is deliberately plausible because it follows bird exposure and can cause febrile pneumonia. The repeated exposure-linked recurrence and rapid improvement on avoidance are inconsistent with a new infection each time and make HP uniquely better.",
+    "asthma_attack": "No wheeze is provided, but the exclusion does not depend on wheeze alone; the systemic febrile/interstitial phenotype is the decisive distinction.",
+    "sarcoid_attack": "Granulomatous biology alone does not create a second answer because the temporal antigen relationship is characteristic of HP.",
+    "organic_dust_attack": "The vignette's recurring bird-antigen pattern and established bird-fancier HP construct are directly source-supported; no unsupported occupational dust syndrome is required.",
+    "cueing_attack": "The stem does not name 'bird fancier's lung' or hypersensitivity. Multiple bird-associated diagnoses remain plausible until the time-course and interstitial pattern are integrated.",
+    "unsupported_precision_check": "The only specific interval is 'several hours' in the stem; the rationale's approximately 4–8 hours is directly supported by CDC/NIOSH. No diagnostic antibody threshold, CT criterion, lung-function cutoff, treatment duration, or prognosis number is asserted.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved after real canonical-650 broad gate, official 2026 USMLE locator verification, claim-level NIH/CDC research, post-stage SQLite rerun, and independent adversarial second-pass."
+}
