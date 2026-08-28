@@ -1,0 +1,59 @@
+{
+  "audit_id":"Q0648-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0648",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{"status":"PASS","verified_at":"2026-08-28","notes":[
+    "Current Endotext pregnancy-thyroid chapter was reread for gestational transient thyrotoxicosis, hyperemesis association, negative Graves stigmata/TRAb pattern, and hCG weak agonism at the TSH receptor.",
+    "Official USMLE Content Outline (2026) page 27 explicitly includes hyperthyroidism among thyroid disorders affecting pregnancy."
+  ]},
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{"system":"Reproductive and Endocrine Systems","competency":"Medical Knowledge: Applying Foundational Science Concepts","official_outline_path":["Pregnancy, Childbirth, & the Puerperium","Systemic disorders affecting pregnancy","Thyroid disorders","Hyperthyroidism"],"status":"PASS"},
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":640,
+    "concept_probe_run":33133984040,
+    "post_stage_rerun":33134033925,
+    "diagnosis":"Gestational transient thyrotoxicosis due to hCG-mediated TSH-receptor stimulation",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0641_q0647_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "timing":"Peak hCG in early pregnancy makes a 10-week presentation biologically coherent.",
+    "hyperemesis_association":"Gestational transient thyrotoxicosis is strongly associated with hyperemesis gravidarum.",
+    "key_mechanism":"Structural homology permits high hCG concentrations to weakly activate the TSH receptor and cAMP signaling.",
+    "graves_distractor":"Negative TRAb and absent ophthalmopathy/goiter reduce the likelihood of Graves disease.",
+    "destructive_thyroiditis_distractor":"Destructive thyroiditis can release stored hormone but is not the mechanism that specifically links first-trimester hyperemesis to thyrotoxicosis.",
+    "tbg_distractor":"Estrogen-induced TBG elevation predominantly raises total hormone; it does not directly explain suppressed TSH with elevated free T4.",
+    "toxic_nodule_distractor":"Autonomous nodular signaling is not linked to transient first-trimester hCG physiology."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Ignoring the staged key, early gestation plus severe hyperemesis, mild biochemical thyrotoxicosis, absent Graves signs, and negative TRAb indicate gestational transient thyrotoxicosis. The corresponding mechanism is weak hCG agonism at the TSH receptor.",
+    "graves_attack":"Graves can occur in pregnancy, but the item deliberately supplies negative receptor antibodies and no Graves stigmata while emphasizing hyperemesis at the hCG peak.",
+    "molar_pregnancy_attack":"No uterine-size discrepancy, markedly excessive hCG clue, bleeding, or molar finding is supplied; the mechanism would still be hCG-mediated TSH-receptor activation, so it does not create a second mechanistic answer.",
+    "normal_pregnancy_attack":"Physiologic TSH suppression can occur in early pregnancy, but symptomatic hyperemesis with elevated free T4 is consistent with the pathologic end of the same hCG-mediated spectrum tested here.",
+    "cueing_check":"All options are plausible endocrine mechanisms and the key is determined by the gestational context rather than answer form.",
+    "unsupported_precision_check":"No hCG threshold, exact gestational resolution date, prevalence, treatment mandate, or radioactive-iodine recommendation is required.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after current Endotext and official USMLE verification, real SQLite-backed 0/640 overlap gate, staged rerun, and independent adversarial second-pass."
+}
