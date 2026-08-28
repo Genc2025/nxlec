@@ -1,0 +1,61 @@
+{
+  "audit_id":"Q0644-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0644",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{"status":"PASS","verified_at":"2026-08-28","notes":[
+    "NCI PDQ was reread for Sertoli-Leydig cell tumor as an ovarian sex cord-stromal tumor that may secrete androgens and present with virilization or secondary amenorrhea.",
+    "NCI Dictionary independently confirms testosterone production and virilizing physical changes.",
+    "Peer-reviewed pathology material was checked for Sertoli-cell tubules/cords with clusters of Leydig cells, directly supporting the microscopic key.",
+    "Official USMLE Content Outline (2026) female reproductive section includes ovarian neoplasms."
+  ]},
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{"system":"Reproductive and Endocrine Systems","competency":"Medical Knowledge: Applying Foundational Science Concepts","official_outline_path":["Female reproductive system","Ovary","Neoplasms","Sex cord-stromal tumors"],"status":"PASS"},
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":640,
+    "concept_probe_run":33133519115,
+    "post_source_stage_rerun":33133597718,
+    "diagnosis":"Androgen-secreting ovarian Sertoli-Leydig cell tumor",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0641_q0643_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "virilization_pattern":"Rapid virilization and markedly elevated testosterone are compatible with androgen secretion by Sertoli-Leydig cell tumor.",
+    "DHEAS_localization":"Normal DHEA-S makes a major adrenal androgen source less likely and supports ovarian localization when an ovarian mass is present; it is used as a clue, not an absolute exclusion rule.",
+    "key_histology":"Typical Sertoli-Leydig morphology includes Sertoli-type tubules/cords with Leydig-cell clusters.",
+    "granulosa_distractor":"Call-Exner bodies and grooved nuclei identify granulosa-cell differentiation, not the virilizing Sertoli-Leydig pattern.",
+    "dysgerminoma_distractor":"Dysgerminoma shows large clear cells with fibrous septa and lymphocytes and is a germ-cell tumor.",
+    "serous_distractor":"Papillae with psammoma bodies correspond to serous differentiation.",
+    "teratoma_distractor":"Mature tissues from multiple germ layers indicate mature teratoma."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Without the staged key, the combination of rapid virilization, high testosterone, normal DHEA-S, and a unilateral ovarian mass points to an androgen-producing ovarian sex cord-stromal tumor. Among the microscopic options, Sertoli-type tubules with Leydig cells is uniquely congruent.",
+    "granulosa_attack":"Both granulosa and Sertoli-Leydig tumors are sex cord-stromal, but granulosa tumors are classically estrogenic and the listed Call-Exner morphology does not match the androgenic syndrome.",
+    "adrenal_attack":"The vignette does not claim normal DHEA-S absolutely excludes adrenal disease; the actual ovarian mass plus testosterone-predominant virilization establishes the intended localization.",
+    "dicer1_precision_check":"DICER1 is mentioned only as an association in the explanation/mechanism and is not required for diagnosis or asserted to be universal.",
+    "cueing_check":"All five answers are microscopic patterns of genuine ovarian tumors at similar descriptive depth.",
+    "unsupported_precision_check":"No tumor-grade assumption, mutation frequency, testosterone threshold, age cutoff, or management claim is required.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after NCI/peer-reviewed pathology verification, real SQLite-backed 0/640 canonical overlap gate, staged rerun, and independent adversarial second-pass."
+}
