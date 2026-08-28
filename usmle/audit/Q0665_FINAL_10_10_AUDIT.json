@@ -1,0 +1,82 @@
+{
+  "audit_id":"Q0665-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0665",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 explicitly lists brucellosis in Multisystem bacterial infectious disorders.",
+      "Current CDC Clinical Overview of Brucellosis supports unpasteurized dairy/infected-animal exposure and fever, night sweats, myalgia, arthralgia, weight loss, and hepatosplenomegaly.",
+      "CDC MMWR independently supports osteoarticular symptoms, sweating, constitutional illness, and raw-milk transmission.",
+      "Current CDC sources were used to distinguish Q fever, tularemia, and visceral leishmaniasis."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Multisystem Processes and Disorders",
+    "competency":"Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path":[
+      "Multisystem Processes & Disorders",
+      "Infectious disorders",
+      "Bacterial — brucellosis (Brucella spp)"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":660,
+    "broad_probe_run":33191428152,
+    "behcet_overlap_detected":true,
+    "serum_sickness_overlap_detected":true,
+    "selected_construct":"Brucellosis",
+    "selected_construct_hits":0,
+    "post_stage_run":33191585336,
+    "post_stage_q0665_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "unpasteurized_dairy_exposure":"PASS",
+    "fever_and_sweats":"PASS",
+    "osteoarticular_symptoms":"PASS",
+    "hepatosplenomegaly":"PASS",
+    "q_fever_differential":"PASS",
+    "tularemia_differential":"PASS",
+    "visceral_leishmaniasis_differential":"PASS"
+  },
+  "option_audit":{
+    "brucellosis":"Uniquely integrates unpasteurized goat-dairy exposure with prolonged febrile illness, sweats, osteoarticular pain, and hepatosplenomegaly.",
+    "q_fever":"Livestock exposure can overlap, but acute Q fever more commonly presents as nonspecific febrile illness with pneumonia/hepatitis patterns and does not best fit this dairy-plus-osteoarticular syndrome.",
+    "tularemia":"Ulceroglandular disease requires the characteristic inoculation ulcer/regional lymphadenopathy pattern, which is absent.",
+    "leptospirosis":"Requires a different contaminated-water/animal-urine exposure pattern with features such as conjunctival suffusion and renal/hepatic injury.",
+    "visceral_leishmaniasis":"Can produce fever and hepatosplenomegaly but is associated with sand-fly exposure and characteristic pancytopenia rather than this dairy/osteoarticular pattern.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"The decisive combination is unpasteurized goat-cheese exposure during international rural travel plus prolonged fever/sweats, sacroiliac pain, and mild hepatosplenomegaly, independently reconstructing brucellosis.",
+    "q_fever_attack":"Both can involve goats and systemic fever, but the exposure mode and osteoarticular syndrome favor brucellosis.",
+    "tularemia_attack":"No tick/rabbit exposure, inoculation ulcer, or regional lymphadenopathy is present.",
+    "leishmaniasis_attack":"No pancytopenia or sand-fly-centered syndrome is supplied.",
+    "unsupported_precision_check":"No Brucella species assignment, serologic titer, culture duration, incubation-period cutoff, treatment dose, or duration is required.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
