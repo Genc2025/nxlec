@@ -1,0 +1,80 @@
+{
+  "audit_id": "Q0649-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0649",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "The current NCI PDQ Communication in Cancer Care page was reread at Communication Tools and Techniques. It identifies SPIKES as a currently used framework for bad-news communication and describes its Setting, Perception, Invitation, Knowledge, Empathy, and Summary sequence.",
+      "The full-text Baile et al. SPIKES protocol was reread at Step 4 (Knowledge). It specifically supports a brief warning that bad news is coming and uses cautious language: the warning may lessen shock and may facilitate information processing.",
+      "The official USMLE Content Outline (2026) page 39 was reread directly and includes patient-centered communication, information provision, and supporting emotions under Social Sciences.",
+      "No claim is made that a warning statement is mandatory in every serious-news conversation or that SPIKES has proven superior patient outcomes; the item tests a recognized communication technique within the stated goal of making the transition less abrupt."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS", "PASS", "PASS", "PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "competency": "Communication and Interpersonal Skills",
+    "official_outline_path": [
+      "Social Sciences",
+      "Communication and interpersonal skills",
+      "Patient interviewing and patient-centered communication",
+      "Information provision",
+      "Supporting emotions"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 640,
+    "focused_warning_statement_probe_run": 33134103561,
+    "post_stage_rerun": 33174884769,
+    "diagnosis": "Breaking bad news using a brief warning statement before the core disclosure",
+    "canonical_hits": 0,
+    "broad_probe_hits": 0,
+    "staged_q0641_q0648_construct_overlap": "NONE",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "sequence": "The vignette explicitly completes perception and invitation before asking for the next statement, making transition into the Knowledge phase appropriate.",
+    "warning_statement": "The keyed sentence is a brief forewarning that difficult news is coming and does not itself add unsupported prognostic or treatment claims.",
+    "evidence_language": "The rationale preserves the source's cautious language ('may lessen shock' and 'may facilitate information processing') rather than converting it into a universal outcome claim.",
+    "repeat_perception_distractor": "The patient's understanding has already been elicited, so repeating the perception question does not advance the conversation.",
+    "repeat_invitation_distractor": "The patient has already requested full information now, so re-asking how much information she wants is unnecessary delay.",
+    "direct_dump_distractor": "The direct-disclosure option immediately adds several treatment domains and bypasses the stated goal of a less abrupt transition; it is not rejected merely because direct truthful disclosure is inherently unethical.",
+    "treatment_first_distractor": "Comprehensive treatment planning before clear disclosure reverses the communication sequence and risks information overload."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Starting from the vignette alone, the patient has capacity, knows cancer is possible, and explicitly wants the full result now. The remaining communication task is to transition into the bad news. A short warning statement followed by clear disclosure is the option that uniquely fits that immediate goal.",
+    "ask_tell_ask_overlap_attack": "Q0643 tests the complete Ask-Tell-Ask structure across baseline understanding, brief information delivery, and a second comprehension check. Q0649 instead isolates the pre-disclosure warning statement within a serious-news conversation after perception and invitation are already complete.",
+    "truth_telling_attack": "The item does not imply that truthful direct disclosure is forbidden. The stem specifically asks for the best statement when the physician wishes to avoid an unnecessarily abrupt transition, which is the setting in which the warning statement has a distinct role.",
+    "family_or_surrogate_attack": "No surrogate or family involvement is indicated because the capable patient is present and has directly requested the result.",
+    "empathy_attack": "An empathic response becomes central after an emotional reaction is expressed; no such reaction has yet occurred because the diagnosis has not been disclosed.",
+    "cueing_check": "The stem provides a realistic communication objective rather than naming the SPIKES step or the term 'warning shot'. All options are plausible utterances or sequencing choices.",
+    "unsupported_precision_check": "No fixed wording, timing interval, mandatory phrase, probability of benefit, or universal superiority claim is asserted.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved staging payload after official 2026 USMLE verification, current NCI review, full-text SPIKES verification, real SQLite-backed 0/640 focused gate, post-stage rerun, and independent adversarial second-pass."
+}
