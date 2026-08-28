@@ -1,0 +1,61 @@
+{
+  "audit_id":"Q0646-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0646",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{"status":"PASS","verified_at":"2026-08-28","notes":[
+    "CDC Q fever diagnostic guidance was reread for routine blood-culture negativity and the chronic-Q-fever phase I IgG pattern.",
+    "CDC clinical guidance was reread for livestock exposure, valvular disease as a chronic-Q-fever risk factor, and endocarditis as the predominant chronic manifestation.",
+    "Peer-reviewed mechanistic literature was checked for Coxiella replication in an acidic phagolysosome-like Coxiella-containing vacuole.",
+    "Official USMLE Content Outline (2026) page 33 explicitly lists Q fever (Coxiella burnetii)."
+  ]},
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{"system":"Multisystem Processes & Disorders","competency":"Medical Knowledge: Applying Foundational Science Concepts","official_outline_path":["Multisystem Processes & Disorders","Infectious disorders","Bacterial","Q fever (Coxiella burnetii)"],"status":"PASS"},
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":640,
+    "concept_probe_run":33133761993,
+    "post_stage_rerun":33133817843,
+    "diagnosis":"Chronic Q fever endocarditis due to Coxiella burnetii",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0641_q0645_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "exposure":"Goat/sheep and parturition exposure is epidemiologically appropriate for aerosolized Coxiella exposure.",
+    "chronic_endocarditis":"Preexisting valvular disease plus prolonged culture-negative endocarditis is a classic chronic Q fever presentation.",
+    "serology":"High phase I IgG supports chronic rather than acute Q fever.",
+    "key_intracellular_niche":"Coxiella uniquely tolerates and replicates in an acidified phagolysosome-like vacuole.",
+    "listeria_distractor":"Listeria uses listeriolysin-mediated phagosomal escape into the cytosol.",
+    "mycobacteria_distractor":"Mycobacterium tuberculosis classically inhibits phagolysosomal maturation/fusion.",
+    "anaplasma_distractor":"Anaplasma forms morulae in granulocytes.",
+    "chlamydia_distractor":"Chlamydia uses elementary- and reticulate-body developmental forms in intracellular inclusions."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Ignoring the staged key, livestock-parturition exposure, valvular disease, culture-negative endocarditis, and phase I IgG establish chronic Q fever. The organism's defining intracellular adaptation among the choices is replication in an acidic phagolysosome-like vacuole.",
+    "bartonella_attack":"Bartonella can also cause culture-negative endocarditis, but the specific livestock/parturition exposure and phase I Coxiella serology remove that ambiguity.",
+    "brucella_attack":"Brucella is associated with livestock and intracellular survival, but the phase I antibody clue and Coxiella-specific chronic endocarditis pattern distinguish it.",
+    "cueing_check":"All options describe real intracellular microbial strategies at similar granularity.",
+    "unsupported_precision_check":"No treatment duration, exact antibody threshold, incubation period, or prevalence is required for the key.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after CDC/USMLE/mechanistic verification, real SQLite-backed 0/640 overlap gate, staged rerun, and independent adversarial second-pass."
+}
