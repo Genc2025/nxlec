@@ -1,0 +1,94 @@
+[
+  {
+    "num": 657,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology/Population Health, & Interpretation of the Medical Literature",
+      "Study interpretation, drawing conclusions from data",
+      "Chance — selection and interpretation of basic tests of statistical significance: confidence intervals",
+      "Statistical vs clinical significance",
+      "Clinical decision making, interpretation and use of evidence-based data and recommendations",
+      "Social Sciences — Communication and interpersonal skills, including health literacy and numeracy",
+      "Patient-centered communication — information provision"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Biostatistics / Evidence-Based Medicine / Patient Communication",
+    "diagnosis": "Communicating uncertainty from an imprecise confidence interval",
+    "mechanism": "A confidence interval describes the range of effect values compatible with the study data under the assumptions of the analysis and conveys precision. For a ratio measure such as relative risk, 1.0 is the null value. A wide interval that crosses 1.0 and spans clinically meaningful benefit and harm is imprecise and does not support a confident conclusion that the intervention helps, has no effect, or harms. A 95% confidence interval should not be explained as a 95% probability that the fixed true parameter lies within the particular observed interval.",
+    "vignette": "A 63-year-old man asks his physician about starting a preventive medication after reading a randomized trial. The trial reported a relative risk of the study's primary adverse outcome of 0.90 with the medication compared with placebo, with a 95% confidence interval of 0.70 to 1.16. The patient asks, “Does this prove the medication lowers my risk?”",
+    "lead": "Which of the following is the most appropriate response by the physician?",
+    "correct": "“The best estimate suggests a small reduction, but the study is imprecise; its results are compatible with a meaningful reduction, little or no difference, or some increase in risk.”",
+    "distractors": [
+      "“Yes. The relative risk is below 1.0, so the medication has been proven to reduce risk by 10%.”",
+      "“No. Because the confidence interval includes 1.0, the study proves that the medication has no effect.”",
+      "“There is a 95% probability that the medication’s true relative risk is between 0.70 and 1.16.”",
+      "“There is a 95% probability that the medication does not work because the confidence interval includes 1.0.”"
+    ],
+    "distractor_notes": [
+      "The point estimate is 0.90, but a point estimate alone does not establish a precise 10% benefit. The confidence interval is wide and crosses the null value, so clinically different conclusions remain compatible with the data.",
+      "Including the null value means the data are compatible with no difference, but it does not prove the true effect is exactly null. This interval also contains values consistent with clinically meaningful benefit and with some harm.",
+      "In frequentist inference, the 95% confidence level refers to the long-run coverage property of the interval-construction procedure under repeated sampling, not a 95% probability assigned to the fixed true parameter after this single interval has been observed.",
+      "A confidence interval that includes the null does not imply a 95% probability that the treatment is ineffective. The interval conveys the range of effect values compatible with the data and the precision of the estimate."
+    ],
+    "key_expl": "The relative-risk point estimate of 0.90 suggests fewer events with treatment, but the 95% confidence interval extends from 0.70 to 1.16 and therefore includes the null value of 1.0 as well as values on both sides of it. CDC describes a confidence interval as a range of values consistent with the study data and notes that wider intervals indicate greater imprecision. AHRQ similarly defines an imprecise estimate as one whose confidence interval is wide enough to include clinically distinct conclusions. The clearest patient-centered explanation is therefore that the study does not establish a definite benefit: its data remain compatible with benefit, little or no difference, and some harm.",
+    "objective": "Communicate a confidence interval accurately: use it to convey the range of effects compatible with the study data and the precision of the estimate, avoid treating inclusion of the null as proof of no effect, and avoid describing a frequentist 95% confidence interval as a 95% posterior probability for the true effect.",
+    "clues": [
+      "relative risk point estimate below 1.0",
+      "95% confidence interval crosses 1.0",
+      "interval spans values compatible with benefit and harm",
+      "patient asks whether benefit is proven",
+      "task is communication of statistical uncertainty"
+    ],
+    "difficulty": "moderate-hard",
+    "sources": [
+      {
+        "organization": "United States Medical Licensing Examination",
+        "title": "USMLE Content Outline (2026)",
+        "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
+        "date": "For Public Release: USMLE Content Outline (2026); verified 2026-08-28",
+        "locator": "Page 37 — Study interpretation, drawing conclusions from data: Chance; selection and interpretation of basic tests of statistical significance, including confidence intervals; Statistical vs clinical significance; Clinical decision making, interpretation and use of evidence-based data and recommendations",
+        "support": "The official 2026 outline explicitly includes confidence-interval interpretation, statistical versus clinical significance, and application of study results to patient care."
+      },
+      {
+        "organization": "United States Medical Licensing Examination",
+        "title": "USMLE Content Outline (2026)",
+        "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
+        "date": "For Public Release: USMLE Content Outline (2026); verified 2026-08-28",
+        "locator": "Page 39 — Social Sciences: Communication and interpersonal skills, including health literacy and numeracy; patient-centered communication skills; information provision",
+        "support": "The official 2026 outline explicitly includes numeracy and patient-centered information provision under communication and interpersonal skills."
+      },
+      {
+        "organization": "Centers for Disease Control and Prevention",
+        "title": "Analyzing and Interpreting Data — Field Epidemiology Manual",
+        "url": "https://www.cdc.gov/field-epi-manual/php/chapters/analyze-interpret-data.html",
+        "date": "Current CDC Field Epidemiology Manual page; verified 2026-08-28",
+        "locator": "Interpreting the Confidence Interval — Meaning of a confidence interval; Width of the confidence interval; Relation of the confidence interval to the null hypothesis",
+        "support": "CDC describes a CI as the range of values consistent with study data, states that wide intervals reflect imprecision, and explains that inclusion of the null means the data are consistent with the null hypothesis rather than proving the null is true."
+      },
+      {
+        "organization": "Agency for Healthcare Research and Quality",
+        "title": "Chapter 7: Grading a Body of Evidence on Diagnostic Tests",
+        "url": "https://effectivehealthcare.ahrq.gov/products/methods-guidance-tests-grading/methods",
+        "date": "AHRQ Effective Health Care methods guidance; verified 2026-08-28",
+        "locator": "Precision domain",
+        "support": "AHRQ defines precision as the degree of certainty surrounding an effect estimate and defines an imprecise estimate as one whose confidence interval is wide enough to include clinically distinct conclusions."
+      },
+      {
+        "organization": "National Institute of Standards and Technology",
+        "title": "What are confidence intervals?",
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+        "date": "NIST/SEMATECH e-Handbook of Statistical Methods; verified 2026-08-28",
+        "locator": "Confidence levels",
+        "support": "NIST explains that a 95% confidence level refers to the repeated-sampling procedure: over many samples, approximately 95% of constructed intervals would contain the true population parameter."
+      },
+      {
+        "organization": "Centers for Disease Control and Prevention",
+        "title": "Confidence Intervals — U.S. Cancer Statistics",
+        "url": "https://www.cdc.gov/united-states-cancer-statistics/technical-notes/confidence-intervals.html",
+        "date": "June 1, 2026; verified 2026-08-28",
+        "locator": "What to know; Width of confidence intervals",
+        "support": "CDC states that confidence intervals reflect variation in estimation and that narrow intervals tend to imply greater certainty whereas wide intervals may indicate less certainty."
+      }
+    ]
+  }
+]
