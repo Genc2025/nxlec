@@ -1,0 +1,88 @@
+{
+  "audit_id":"Q0663-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0663",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 places factor VIII/hemophilia within hypocoagulable coagulation disorders in Blood & Lymphoreticular/Immune Systems.",
+      "NCBI Bookshelf acquired hemophilia guidance supports new-onset soft-tissue bleeding without prior bleeding history, isolated prolonged aPTT, and factor VIII autoantibodies.",
+      "International recommendations support use of incubated mixing studies because factor VIII inhibitors are time- and temperature-dependent.",
+      "No unsupported inhibitor titer or numerical assay threshold is used."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Blood, Lymphoreticular and Immune Systems",
+    "competency":"Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path":[
+      "Blood & Lymphoreticular/Immune Systems",
+      "Coagulation disorders — hypocoagulable conditions",
+      "Factor VIII/hemophilia disorders"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate-hard","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":660,
+    "broad_probe_run":33190808749,
+    "rejected_constructs":[
+      "PNH — Q0108 direct overlap",
+      "TTP — Q0104 direct overlap",
+      "Hairy cell leukemia — Q0511 direct overlap",
+      "Bernard-Soulier — Q0205 direct overlap",
+      "Glanzmann thrombasthenia — Q0206 direct overlap",
+      "Hereditary spherocytosis — Q0006 direct overlap"
+    ],
+    "expanded_probe_run":33190884002,
+    "selected_construct":"Acquired factor VIII inhibitor/acquired hemophilia A",
+    "selected_construct_hits":0,
+    "post_stage_run":33191003970,
+    "post_stage_q0663_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "new_onset_bleeding":"PASS",
+    "isolated_prolonged_aPTT":"PASS",
+    "mixing_noncorrection_inhibitor":"PASS",
+    "factor_VIII_reduction":"PASS",
+    "congenital_deficiency_correction":"PASS",
+    "lupus_anticoagulant_differential":"PASS"
+  },
+  "option_audit":{
+    "acquired_hemophilia_A":"Uniquely integrates new-onset bleeding, low FVIII, and inhibitor-pattern mixing study.",
+    "congenital_hemophilia_A":"Inherited deficiency should show correction with normal plasma and is inconsistent with new late-onset bleeding history.",
+    "lupus_anticoagulant":"Can cause noncorrection, but the specific test is negative and the bleeding plus low FVIII pattern supports a specific FVIII inhibitor.",
+    "von_Willebrand_disease":"Can reduce FVIII but generally behaves as a deficiency pattern rather than an inhibitor pattern.",
+    "factor_XI_deficiency":"A deficiency should correct with normal plasma.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Normal platelets and PT localize the abnormality to the intrinsic pathway. Failure of an incubated mixing study to correct indicates an inhibitor rather than factor deficiency. Markedly reduced FVIII with negative lupus anticoagulant identifies an acquired FVIII inhibitor.",
+    "congenital_attack":"Congenital hemophilia A would not explain failure of a mixing study to correct unless an inhibitor had developed after factor exposure; the vignette provides no prior hemophilia or treatment history.",
+    "lupus_attack":"Lupus anticoagulant can prolong aPTT and resist mixing correction, but targeted testing is negative and the patient has a bleeding phenotype with low FVIII.",
+    "vwd_attack":"vWD can lower FVIII but does not create the inhibitor-pattern mixing result shown here.",
+    "unsupported_precision_check":"No aPTT ratio, factor VIII percentage cutoff, Bethesda titer, incubation temperature, or duration is required in the final item.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
