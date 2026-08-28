@@ -66,7 +66,7 @@ def grams(s,n=5):
     return {tuple(w)} if len(w)<n else {tuple(w[i:i+n]) for i in range(len(w)-n+1)}
 
 def jacc(a,b):
-    return len(a&a and a&b)/len(a|b) if (a or b) else 0.0
+    return len(a&b)/len(a|b) if (a or b) else 0.0
 
 def db_blob():
     return subprocess.check_output(['git','-C',str(REPO),'hash-object','usmle/data/usmle-step1.db'],text=True).strip()
@@ -107,7 +107,7 @@ def load_audits():
         required={
             'source_authority':'PASS','exact_locator':'PASS','stem':'PASS','lead_in':'PASS',
             'correct_answer':'PASS','rationale':'PASS','educational_objective':'PASS',
-            'ambiguity':'PASS','second_possible_answer':'PASS_NONE','cueing':'PASS',
+            'ambiguity':'PASS','second_possible_answer':'PASS_NONE','cueing':'PASS','overlap':'PASS',
             'zero_unsupported_precision':'PASS'
         }
         for k,v in required.items():
@@ -116,6 +116,8 @@ def load_audits():
         ds=a.get('distractors',[])
         if len(ds)!=4 or any(v!='PASS' for v in ds):
             raise SystemExit(f'Q{n:04d}: distractor audit failure')
+        if a.get('source_currentness',{}).get('status')!='PASS':
+            raise SystemExit(f'Q{n:04d}: source currentness audit failure')
         if a.get('adversarial_second_pass',{}).get('result')!='PASS':
             raise SystemExit(f'Q{n:04d}: adversarial second-pass failure')
         if a.get('db_write') is not False:
