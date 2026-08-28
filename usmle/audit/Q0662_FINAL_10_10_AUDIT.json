@@ -1,0 +1,88 @@
+{
+  "audit_id":"Q0662-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0662",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 supports COPD within Respiratory System content and patient-centered counseling/enabling patient behaviors within Communication and Interpersonal Skills.",
+      "AHRQ explicitly defines the 5 A's as Ask, Advise, Assess, Assist, and Arrange and defines Assess as determining willingness to make a quit attempt.",
+      "AHRQ EvidenceNOW provides a 5As implementation flowchart based on readiness to quit.",
+      "USPSTF clinician guidance lists the 5 A's as an implementation approach for tobacco-cessation care.",
+      "An earlier Q0662 teach-back draft was rejected before audit because an expanded generic gate found direct canonical overlap with Q0095 and Q0296."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Respiratory and Renal/Urinary Systems",
+    "competency":"Communication and Interpersonal Skills",
+    "official_outline_path":[
+      "Respiratory System — obstructive airway disease: COPD",
+      "Social Sciences — Communication and interpersonal skills",
+      "Patient-centered communication skills — enabling patient behaviors through education and counseling"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":660,
+    "initial_concept_probe_run":33190294839,
+    "teachback_initial_post_stage_run":33190424327,
+    "teachback_expanded_gate_run":33190502178,
+    "teachback_rejected_overlap":[
+      "Q0095 directly tests teach-back.",
+      "Q0296 includes plain language plus teach-back as the uniquely best communication strategy."
+    ],
+    "replacement_smoking_probe_run":33190591029,
+    "motivational_interviewing_rejected_overlap":"Canonical Q0200 directly tests motivational interviewing for smoking-related behavior change.",
+    "selected_construct":"5 A's tobacco-cessation counseling — Assess willingness to quit",
+    "selected_construct_hits":0,
+    "post_stage_run":33190692580,
+    "post_stage_q0662_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "five_As_sequence":"PASS — Ask, Advise, Assess, Assist, Arrange.",
+    "assess_definition":"PASS — determine willingness to make a quit attempt at this time.",
+    "assist_after_assess":"PASS — quit-plan/pharmacotherapy assistance follows willingness assessment for a patient ready to quit.",
+    "arrange_after_assistance":"PASS — follow-up is arranged after prior steps.",
+    "motivational_intervention_not_target":"PASS — motivational intervention applies when a patient is not willing; readiness has not yet been assessed in the vignette."
+  },
+  "option_audit":{
+    "assess_willingness":"Uniquely follows completed Ask and Advise steps.",
+    "immediate_medication":"Prematurely jumps to Assist before assessing willingness.",
+    "schedule_followup":"Prematurely jumps to Arrange.",
+    "repeat_tobacco_question":"Repeats the already completed Ask step.",
+    "barrier_discussion":"May be useful after identifying unwillingness, but the patient has not yet been assessed for willingness.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"The physician has already identified tobacco use and explicitly advised cessation. In the 5 A's model the next step is Assess willingness to make a quit attempt.",
+    "assist_attack":"Assistance is appropriate only after the clinician knows whether the patient is ready to try quitting now.",
+    "arrange_attack":"Follow-up is downstream from assessment and assistance.",
+    "motivational_interviewing_attack":"The item does not test generic motivational interviewing; direct MI constructs were rejected because Q0200 already covers them.",
+    "teachback_attack":"The rejected teach-back version is not the final construct and has no audit/DB write.",
+    "unsupported_precision_check":"No quit-date interval, medication dose, abstinence percentage, pack-year threshold, or follow-up timing is required for the correct answer.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
