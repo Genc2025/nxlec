@@ -1,0 +1,77 @@
+{
+  "audit_id": "Q0653-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0653",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "The official USMLE Content Outline (2026) was reread at Gastrointestinal System page 21 and Social Sciences page 39.",
+      "The current NCI Communication in Cancer Care PDQ was reread at the NURSE and SPIKES empathy sections.",
+      "An initial shared-decision-making Q0653 draft was rejected after a broader construct gate found direct overlap with canonical Q0100; no audit/PASS was issued for that draft.",
+      "The replacement NURSE construct then passed a generic construct-aware gate against canonical 650."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS","PASS","PASS","PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Gastrointestinal System",
+    "competency": "Communication and Interpersonal Skills",
+    "official_outline_path": [
+      "Gastrointestinal System — Neoplasms — malignant neoplasms: colon, rectum",
+      "Social Sciences — Communication and interpersonal skills — patient-centered communication — supporting emotions"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "basis": "Requires recognizing the immediate communication task after serious-news disclosure and distinguishing empathic emotion processing from reassurance, information dumping, family substitution, and deferral.",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 650,
+    "rejected_initial_construct_run": 33182718217,
+    "rejected_initial_construct_overlap": "Canonical Q0100 tests shared decision making directly",
+    "replacement_probe_run": 33182810505,
+    "replacement_construct": "NURSE empathic response",
+    "replacement_construct_hits": 0,
+    "post_stage_rerun": 33182932068,
+    "post_stage_q0653_canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "emotion_before_more_information": "PASS — NCI states that strong emotion can impair reception/comprehension of cognitive information and supports empathic response before proceeding.",
+    "NURSE": "PASS — NCI explicitly lists Name, Understand, Respect, Support, Explore.",
+    "correct_statement": "PASS — it names fear and explores the patient's concern without adding unsupported prognosis or treatment claims.",
+    "family_distractor": "PASS — capable patient autonomy is preserved; no family surrogate has been requested.",
+    "reassurance_distractor": "PASS — premature reassurance does not directly acknowledge/explore the stated emotion.",
+    "information_dump_distractor": "PASS — additional staging/treatment details are not the best immediate response while the patient is actively expressing fear."
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Diagnosis has already been disclosed. The patient is tearful and explicitly fearful. The next task is emotional response, not further diagnosis disclosure, prognosis, treatment planning, or delegation to family.",
+    "q0649_overlap_attack": "Q0649 tests a warning statement before disclosure; Q0653 begins after disclosure and tests response to expressed emotion. The tested constructs and timing are distinct.",
+    "generic_empathy_overlap_attack": "The broad NURSE/emotion-response gate returned zero canonical hits.",
+    "reassurance_attack": "Reassurance could feel supportive but fails to name/explore the patient's fear and may prematurely close discussion.",
+    "information_attack": "Providing more facts is not inherently wrong later, but it is not the best immediate next response while strong emotion is active.",
+    "unsupported_precision_check": "No survival statistic, staging probability, treatment efficacy, mandatory wording, or timing interval is asserted.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved only after rejection of the overlapping first construct, replacement with a zero-hit NURSE construct, post-stage rerun, and independent adversarial second-pass."
+}
