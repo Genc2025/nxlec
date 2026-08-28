@@ -1,0 +1,81 @@
+{
+  "audit_id":"Q0659-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0659",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 page 11 was inspected directly and explicitly lists idiopathic intracranial hypertension under disorders of increased intracranial pressure.",
+      "Current MedlinePlus/NCBI sources support the target clinical pattern and required exclusion of secondary causes.",
+      "Current NCBI CVST guidance and MedlinePlus migraine/optic-neuritis pages were used for distractor verification.",
+      "No numeric CSF opening-pressure cutoff was used, avoiding unnecessary threshold precision."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Behavioral Health, Nervous Systems and Special Senses",
+    "competency":"Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path":[
+      "Nervous System & Special Senses",
+      "Traumatic and mechanical disorders and disorders of increased intracranial pressure",
+      "Idiopathic intracranial hypertension"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":650,
+    "broad_probe_run":33185881278,
+    "selected_construct":"Idiopathic intracranial hypertension",
+    "selected_construct_hits":0,
+    "post_stage_run":33186023043,
+    "post_stage_q0659_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "papilledema":"PASS",
+    "pulsatile_tinnitus":"PASS",
+    "transient_visual_symptoms":"PASS",
+    "normal_imaging_excludes_mass_hydrocephalus":"PASS",
+    "mr_venography_excludes_cvst":"PASS",
+    "elevated_opening_pressure":"PASS",
+    "normal_csf_composition":"PASS"
+  },
+  "option_audit":{
+    "iih":"Uniquely integrates papilledema, pulse-synchronous tinnitus, transient visual obscurations, elevated opening pressure, normal CSF composition, and exclusion of structural/venous causes.",
+    "cvst":"Can mimic intracranial hypertension, but MR venography is negative.",
+    "migraine_aura":"Can cause visual symptoms and headache but not papilledema plus objectively elevated CSF pressure.",
+    "optic_neuritis":"Typically acute monocular visual loss with pain on eye movement, not generalized intracranial hypertension.",
+    "nph":"Requires a different gait/cognitive/urinary syndrome and hydrocephalus rather than papilledema with elevated pressure.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"The combination of headache, transient visual obscurations, pulse-synchronous tinnitus, bilateral papilledema, normal MRI/MRV, normal CSF composition, and elevated opening pressure independently reconstructs idiopathic intracranial hypertension.",
+    "cvst_attack":"CVST is the strongest secondary mimic, but the vignette explicitly includes normal MR venography, which is the key imaging test for venous thrombosis.",
+    "migraine_attack":"Headache plus visual symptoms alone overlap, but papilledema and elevated opening pressure are objective findings migraine does not explain.",
+    "optic_neuritis_attack":"Optic neuritis affects optic-nerve function and commonly causes painful monocular visual loss, not this raised-ICP syndrome.",
+    "risk_factor_cueing_attack":"Obesity is supportive but not required to answer; the diagnosis remains determined by objective intracranial-pressure findings and exclusion of secondary causes.",
+    "unsupported_precision_check":"BMI is patient-specific vignette data; no prevalence figure, opening-pressure cutoff, treatment dose, treatment duration, or prognosis statistic is asserted.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
