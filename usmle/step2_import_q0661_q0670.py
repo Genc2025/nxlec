@@ -338,7 +338,7 @@ def main():
     ids={r[0] for r in items}; rids={r[0] for r in revs}
     if ids!=rids or {qnum(cid) for cid in ids}!=set(range(1,671)):
         raise SystemExit('post item/review/contiguity failure')
-    if any(sum(1 for cid in ids if qnum(cid)==n)!=1 for n in range(651,661)):
+    if any(sum(1 for cid in ids if qnum(cid)==n)!=1 for n in range(661,671)):
         raise SystemExit('Q0661-Q0670 exact-once failure')
     reread=0; new=0; payloads=[]
     for cid,pj,ps,ash in items:
