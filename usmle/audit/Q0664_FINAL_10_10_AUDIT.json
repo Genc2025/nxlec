@@ -1,0 +1,80 @@
+{
+  "audit_id":"Q0664-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0664",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "The current USMLE content outline explicitly includes run and control charts under quality-improvement measurement tools.",
+      "The current IHI Run Chart Rules Reference Sheet was verified and states that with fewer than 20 total data points, six or more consecutive points above or below the median constitute a shift; points on the median are excluded.",
+      "IHI distinguishes a trend from a shift by requiring sequential points all increasing or all decreasing.",
+      "AHRQ supports use of run/control charts to assess process-improvement performance over time."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Musculoskeletal, Skin and Subcutaneous Tissue",
+    "competency":"Practice-Based Learning and Improvement",
+    "official_outline_path":[
+      "Systems-based practice and patient safety",
+      "Quality improvement",
+      "Quality measurement",
+      "Measurement tools — run and control charts"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate-hard","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":660,
+    "broad_probe_run":33191113427,
+    "process_outcome_measure_rejected_overlap":"Q0658 already covers process/outcome/balancing measure classification.",
+    "selected_construct":"Run-chart nonrandom shift",
+    "selected_construct_hits":0,
+    "post_stage_run":33191237924,
+    "post_stage_q0664_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "shift_rule":"PASS — six or more consecutive points on one side of the median for a chart with fewer than 20 total data points.",
+    "points_on_median":"PASS — points on the median are not counted in a shift.",
+    "trend_distinction":"PASS — a trend requires sequential movement in one direction; the vignette explicitly states fluctuation.",
+    "control_limits_not_required":"PASS — control limits are a control-chart feature, not a prerequisite for identifying a run-chart shift.",
+    "causality_precision":"PASS — the answer says the process appears to have changed after the intervention; it does not claim the intervention proved causation."
+  },
+  "option_audit":{
+    "shift":"Uniquely matches the IHI run-chart rule for a chart with 16 total observations.",
+    "common_cause_only":"Incorrect because run-chart rules can identify nonrandom patterns without control limits.",
+    "trend":"Incorrect because the six values are not sequentially decreasing.",
+    "causality_proven":"Overstates what a temporal run-chart signal can establish.",
+    "p_value_required":"Incorrect because run-chart rules themselves are designed to identify nonrandom patterns over time.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"There are 16 total points, so the <20-point IHI rule applies. Six consecutive points are below the median and none is on it; therefore the pattern is a shift. Because values fluctuate rather than monotonically decrease, it is not a trend.",
+    "threshold_attack":"The six-point threshold is not arbitrary; it is explicitly sourced from IHI for charts with fewer than 20 points.",
+    "control_chart_attack":"No control limits are necessary to call a run-chart shift; the distractor improperly imports a control-chart criterion.",
+    "causality_attack":"The final correct response uses 'suggesting that the care process changed after the intervention,' which preserves temporal/process inference without claiming proof of causation.",
+    "unsupported_precision_check":"The numerical details 16 total observations and six consecutive points are deliberately required by and sourced to the IHI run-chart rule; no unsupported clinical outcome threshold is used.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false
+}
