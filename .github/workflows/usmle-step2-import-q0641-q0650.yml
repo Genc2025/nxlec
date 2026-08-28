@@ -120,6 +120,7 @@ jobs:
           blob=subprocess.check_output(['git','hash-object','usmle/data/usmle-step1.db'],text=True).strip()
           assert state['pre_authoritative_db_blob']=='fd94212d6c2c20abddb8ebfdd4d7cb89beeb3bdd'
           assert state['post_authoritative_db_blob']==blob
+          assert blob!='fd94212d6c2c20abddb8ebfdd4d7cb89beeb3bdd'
           fin=con.execute('SELECT audit_id,item_count,key_schedule_sha256,aggregate_review_sha256 FROM step2_finalization WHERE id=1').fetchone()
           assert fin and fin[0]=='STEP2-FINAL-Q0001-Q0650-20260828' and fin[1]==650
           print(json.dumps({
