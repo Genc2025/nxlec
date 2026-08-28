@@ -1,0 +1,58 @@
+{
+  "audit_id":"Q0645-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0645",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{"status":"PASS","verified_at":"2026-08-28","notes":[
+    "NCBI Bookshelf Ménétrier Disease was reread; it was updated June 27, 2026 and directly supports giant proximal gastric folds, foveolar hyperplasia, glandular atrophy, hypochlorhydria, protein-losing gastropathy, and excessive TGF-alpha/EGFR signaling.",
+    "A contemporary PubMed review independently supports the defining morphology, protein loss, and TGF-alpha/EGFR mechanism.",
+    "Official USMLE Gastrointestinal System content includes disorders of the stomach/gastritis and relevant GI disease mechanisms."
+  ]},
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{"system":"Gastrointestinal System","competency":"Medical Knowledge: Applying Foundational Science Concepts","official_outline_path":["Gastrointestinal System","Disorders of the stomach","Gastritis / hypertrophic gastropathy mechanism"],"status":"PASS"},
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":640,
+    "concept_probe_run":33133647937,
+    "post_stage_rerun":33133697353,
+    "diagnosis":"Ménétrier disease due to excessive TGF-alpha/EGFR signaling",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0641_q0644_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "clinical_pattern":"Giant body/fundus folds, antral sparing, hypoalbuminemia, edema, foveolar hyperplasia and glandular atrophy form a coherent Ménétrier pattern.",
+    "key_mechanism":"Excess TGF-alpha signaling through EGFR drives foveolar proliferation and mucus production and is the central molecular mechanism.",
+    "gastrinoma_distractor":"Gastrinoma causes hypergastrinemia and acid hypersecretion, contrasting with the reduced acid secretion of Ménétrier disease.",
+    "apc_distractor":"APC/beta-catenin signaling describes colorectal adenomatous tumorigenesis, not this hypertrophic gastropathy.",
+    "autoimmune_gastritis_distractor":"Autoimmune gastritis causes parietal-cell loss and hypergastrinemia but not the characteristic giant foveolar hypertrophy/protein-loss pattern.",
+    "celiac_distractor":"HLA-DQ2/DQ8-mediated gluten injury is a small-intestinal enteropathy."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Ignoring the staged key, the combination of giant proximal rugae, foveolar hyperplasia, glandular atrophy, and protein-losing hypoalbuminemia uniquely identifies Ménétrier disease; the matching molecular pathway is TGF-alpha/EGFR.",
+    "zollinger_ellison_attack":"Both disorders can alter gastric folds, but Zollinger-Ellison produces acid hypersecretion and peptic ulcer/diarrhea rather than protein-losing foveolar hyperplasia with glandular atrophy.",
+    "gastric_cancer_attack":"No focal infiltrative malignancy is described, and the biopsy pattern is hypertrophic foveolar mucosa rather than neoplastic invasion.",
+    "cueing_check":"All choices are mechanistic statements at comparable granularity; the key is not isolated by wording.",
+    "unsupported_precision_check":"The item does not require a cancer-risk percentage, albumin cutoff, acid-output threshold, or specific treatment response.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after current 2026 NCBI verification, official blueprint alignment, real SQLite-backed 0/640 overlap gates, and independent adversarial second-pass."
+}
