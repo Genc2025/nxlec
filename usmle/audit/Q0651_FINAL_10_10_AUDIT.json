@@ -1,0 +1,102 @@
+{
+  "audit_id": "Q0651-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0651",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "The official USMLE Content Outline (2026) was reread directly at Cardiovascular System page 17; takotsubo is explicitly listed under diseases of the myocardium.",
+      "The NCBI Bookshelf Takotsubo Cardiomyopathy chapter is updated April 26, 2026 and directly supports the key diagnostic pattern.",
+      "Current NCBI Bookshelf chapters were used to verify the defining features of the anterior-MI, myocarditis, coronary-vasospasm, and acute-pericarditis distractors.",
+      "No management recommendation, biomarker cutoff, recovery interval, prevalence estimate, diagnostic score, or mandatory trigger is asserted."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS", "PASS", "PASS", "PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Cardiovascular System",
+    "competency": "Patient Care: Diagnosis, including history and physical examination",
+    "deficit_basis": {
+      "authoritative_q0001_q0650_state_commit": "ed1f2f2bc521da0a93fb83406b540383bbb12516",
+      "authoritative_q0001_q0650_db_blob": "8977d8ae62f88b90b5c020b19dd729a46cc3009d",
+      "verified_system_count_before_q0651": 57,
+      "verified_competency_count_before_q0651": 140,
+      "project_target_logic": "usmle/pipeline.py relative remaining deficit",
+      "selected_system": "Cardiovascular System",
+      "selected_competency": "Patient Care: Diagnosis, including history and physical examination"
+    },
+    "official_outline_path": [
+      "Cardiovascular System",
+      "Diseases of the myocardium",
+      "cardiomyopathy, dilated, including alcoholic, viral, takotsubo"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "basis": "Requires integration of an ACS-like presentation, stress context, angiographic exclusion of an obstructive culprit, nonterritorial wall-motion abnormalities, and MRI tissue characterization.",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 650,
+    "broad_candidate_probe_run": 33176152240,
+    "selected_probe": "Takotsubo stress cardiomyopathy broad gate",
+    "selected_probe_canonical_hits": 0,
+    "post_stage_rerun": 33176321689,
+    "post_stage_q0651_canonical_hits": 0,
+    "staged_count_after_q0651": 51,
+    "rejected_overlapping_candidates": {
+      "arrhythmogenic_right_ventricular_cardiomyopathy": "Q0603 direct construct overlap",
+      "catecholaminergic_polymorphic_ventricular_tachycardia": "Q0603 evidence-map overlap",
+      "atrial_myxoma": "Q0628 direct construct overlap"
+    },
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "takotsubo_core": "PASS — current NCBI review supports transient nonischemic LV dysfunction that mimics ACS, commonly after intense emotional or physical stress.",
+    "nonterritorial_wall_motion": "PASS — takotsubo wall-motion abnormalities typically extend beyond one epicardial coronary vascular distribution.",
+    "no_obstructive_culprit": "PASS — absence of obstructive CAD or acute plaque rupture is a central diagnostic feature in the cited framework.",
+    "ecg_and_troponin": "PASS — ST-segment/T-wave abnormalities and a mild-to-moderate biomarker rise are compatible with the syndrome; the item deliberately uses no numerical cutoff.",
+    "mri_pattern": "PASS — myocardial edema can occur without a corresponding late-gadolinium-enhancement pattern; the rationale does not assert that LGE is absolutely impossible in takotsubo.",
+    "emotional_trigger": "PASS — used as a supportive clue, not a mandatory diagnostic requirement."
+  },
+  "option_audit": {
+    "correct": "Takotsubo uniquely integrates the stress trigger, ACS mimic, absent obstructive culprit, nonterritorial apical/midventricular dysfunction, basal hyperkinesis, and MRI pattern.",
+    "anterior_mi": "Anterior MI due LAD occlusion is a real ACS mimic, but an LAD-occlusion mechanism does not fit angiography without an obstructive/plaque-rupture culprit and dysfunction extending beyond one coronary territory.",
+    "myocarditis": "Myocarditis can cause chest pain, troponin elevation, ECG changes, and nonischemic dysfunction, but the characteristic stress-associated ballooning pattern plus the stated MRI pattern makes takotsubo the better diagnosis.",
+    "vasospasm": "Vasospasm can produce transient ST elevation with no fixed stenosis, but diagnosis is supported by episodic/nitrate-responsive ischemia or provoked spasm and does not best explain the specified ballooning pattern.",
+    "pericarditis": "Pericarditis is a real ST-elevation mimic but characteristically produces pericarditic pain with diffuse ST/PR changes and pericardial inflammatory findings rather than the stated ventricular ballooning pattern.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "From the vignette alone, the decisive pattern is acute ACS-like symptoms after emotional stress with no obstructive coronary culprit plus apical/midventricular akinesis, basal hyperkinesis, and wall-motion abnormality beyond one vascular territory. Takotsubo is the unique best match.",
+    "minoca_attack": "MINOCA is a working syndrome category rather than the specific etiologic diagnosis requested; the vignette supplies a characteristic takotsubo phenotype.",
+    "myocarditis_attack": "Myocarditis remains a theoretical mimic, but the convergence of emotional trigger, classic ventricular geometry, absence of obstructive culprit, and lack of a corresponding inflammatory LGE pattern makes it inferior to takotsubo.",
+    "vasospasm_attack": "Normal angiography alone could occur after resolved vasospasm, but the specified nonterritorial ballooning with basal hyperkinesis is not explained as well by vasospasm.",
+    "anterior_mi_attack": "Anterior ST elevation and troponin elevation initially suggest MI, but the absence of a culprit lesion and non-LAD distribution of systolic dysfunction directly undermine the LAD-occlusion option.",
+    "pericarditis_attack": "The stem lacks positional/pleuritic pain, friction rub, diffuse ST elevation, PR depression, effusion, or pericardial inflammation; the ventricular findings point elsewhere.",
+    "cueing_attack": "The item does not name 'broken-heart syndrome' or 'apical ballooning syndrome' in the stem. The emotional trigger is one clue among several independent diagnostic findings.",
+    "unsupported_precision_check": "No numeric troponin threshold, coronary stenosis percentage, exact recovery time, disease prevalence, age cutoff, or mandatory stress requirement is asserted.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved only after verified canonical-650 baseline, real SQLite-backed 0/650 construct probe, current official 2026 USMLE locator, current NCBI claim-level research, post-stage duplicate rerun, and independent adversarial second-pass."
+}
