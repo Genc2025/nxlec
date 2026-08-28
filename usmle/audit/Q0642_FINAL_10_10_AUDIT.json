@@ -1,0 +1,67 @@
+{
+  "audit_id":"Q0642-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0642",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "AHRQ's current PDSA page, last reviewed March 2026, was reread for the definitions of Plan, Do, Study, and Act and for the recommendation to learn from small-scale tests before broader implementation.",
+      "AHRQ PSNet was reread to distinguish retrospective RCA from prospective FMEA so both distractors represent real but different patient-safety tools.",
+      "Official USMLE Content Outline (2026) page 40 was reread and explicitly lists plan-do-study-act (PDSA) under quality-improvement models."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Social Sciences: Communication and Interpersonal Skills",
+    "competency":"Practice-based Learning & Improvement",
+    "official_outline_path":["Social Sciences","Systems-based practice and patient safety","Quality improvement","Specific models of quality improvement","Plan-Do-Study-Act (PDSA)"],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":640,
+    "concept_probe_run":33133197603,
+    "post_stage_rerun":33133258636,
+    "diagnosis":"Plan-Do-Study-Act quality improvement cycle — Study phase",
+    "canonical_hits":0,
+    "broad_probe_hits":0,
+    "staged_q0641_construct_overlap":"NONE",
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "pdsa_sequence":"The team has already planned and performed a small-scale test; reviewing metrics and comparing observed results with the prediction is the Study phase.",
+    "immediate_spread_distractor":"Broad implementation before reviewing pilot data skips Study and prematurely moves toward Act/spread.",
+    "replan_distractor":"Defining the aim and measures belongs to Plan and has already occurred.",
+    "rca_distractor":"RCA retrospectively investigates causes of adverse events or near misses and is not the required next PDSA step in this vignette.",
+    "fmea_distractor":"FMEA is prospective risk analysis and is not restricted to post-implementation use; it does not replace Study."
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Ignoring the staged key, the vignette explicitly supplies a prediction, a completed small pilot, measured results, and implementation problems. The next logical PDSA phase is Study: compare results with the prediction and analyze lessons before deciding what to do next.",
+    "act_phase_attack":"The fact that adherence improved does not justify immediate spread because the observed effect did not meet the prespecified prediction and workflow problems were identified.",
+    "rca_attack":"No sentinel event or adverse event requires causal reconstruction; the task is evaluation of a planned QI test.",
+    "fmea_attack":"FMEA could be useful in a different prospective risk-analysis project, but it does not answer the question of what follows a completed Do phase in PDSA.",
+    "cueing_check":"All choices are plausible quality/safety actions and use comparable wording; the key is determined by workflow stage rather than superficial phrasing.",
+    "unsupported_precision_check":"No minimum pilot duration, effect-size threshold, statistical-significance requirement, or institution-specific spread rule is asserted.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved staging payload after official 2026 blueprint verification, current AHRQ PDSA review, real SQLite-backed 0/640 duplicate gates, staged rerun, and independent adversarial second-pass."
+}
