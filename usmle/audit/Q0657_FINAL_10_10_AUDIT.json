@@ -1,0 +1,87 @@
+{
+  "audit_id":"Q0657-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0657",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "USMLE Content Outline 2026 page 37 was inspected directly and includes confidence intervals, statistical versus clinical significance, and application of study results to patient care.",
+      "USMLE Content Outline 2026 page 39 was inspected directly and includes health literacy/numeracy and patient-centered information provision.",
+      "Current CDC Field Epidemiology Manual guidance supports interpreting a confidence interval as values consistent with the data and using interval width to assess precision.",
+      "NIST directly supports the repeated-sampling interpretation of a 95% confidence level and therefore the rejection of a posterior-probability interpretation.",
+      "AHRQ methods guidance supports classifying a wide interval spanning clinically distinct conclusions as imprecise.",
+      "The initial wording 'meaningful reduction' was removed before PASS because the vignette did not specify a clinical-importance threshold."
+    ]
+  },
+  "exact_locator":"PASS",
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Biostatistics, Epidemiology and Population Health",
+    "competency":"Communication and Interpersonal Skills",
+    "official_outline_path":[
+      "Study interpretation, drawing conclusions from data — confidence intervals",
+      "Statistical vs clinical significance",
+      "Clinical decision making, interpretation and use of evidence-based data and recommendations",
+      "Social Sciences — Communication and interpersonal skills, including health literacy and numeracy — information provision"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate-hard","status":"PASS"},
+  "duplicate_gate":{
+    "authoritative_db":"usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned":650,
+    "initial_broad_probe_run":33184012282,
+    "ppv_rejected_overlap":"Canonical Q0091 directly tests positive predictive value versus prevalence",
+    "expanded_probe_run":33184112259,
+    "selected_construct":"Communicating confidence-interval uncertainty",
+    "selected_construct_hits":0,
+    "initial_post_stage_run":33185438471,
+    "post_correction_rerun":33185522934,
+    "post_correction_q0657_canonical_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "rr_null_value":"PASS — for a relative risk the null value is 1.0.",
+    "ci_crosses_null":"PASS — 0.70 to 1.16 includes 1.0 and values on both sides.",
+    "wide_ci_imprecision":"PASS — CDC/AHRQ support interval width as a measure of precision and wide intervals as imprecise.",
+    "null_not_proven":"PASS — inclusion of the null means the data are compatible with the null, not that no effect is proven.",
+    "frequentist_interpretation":"PASS — NIST supports repeated-sampling coverage rather than assigning a 95% posterior probability to the fixed true effect.",
+    "communication":"PASS — the answer gives a direct, numeracy-appropriate explanation of what the study can and cannot establish."
+  },
+  "option_audit":{
+    "correct":"Accurately communicates point estimate plus uncertainty without overstating benefit, null effect, or harm.",
+    "point_estimate_only":"Incorrectly treats the point estimate as proof and ignores interval uncertainty.",
+    "null_proven":"Incorrectly equates inclusion of 1.0 with proof of no effect.",
+    "posterior_probability":"Incorrect frequentist interpretation of the observed 95% CI.",
+    "probability_no_effect":"Incorrectly converts null inclusion into a 95% probability of ineffectiveness.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"RR 0.90 with 95% CI 0.70–1.16 gives a point estimate below 1 but an interval spanning lower risk, no difference, and higher risk. The proper clinical communication is uncertainty/imprecision, not proof in either direction.",
+    "q0627_overlap_attack":"Q0627 tests absolute-risk framing and consistent denominators; Q0657 tests interpretation and communication of an imprecise confidence interval. Constructs are distinct.",
+    "q0091_overlap_attack":"Q0091 tests predictive value versus prevalence; Q0657 does not test PPV.",
+    "probability_attack":"The correct answer avoids the common but incorrect statement that there is a 95% probability the fixed true effect lies inside this particular observed interval.",
+    "clinical_significance_attack":"No 'clinically meaningful' threshold is asserted after correction.",
+    "unsupported_precision_check":"The hypothetical RR and CI are self-contained study data; no real-world drug efficacy, event rate, sample size, p-value, treatment duration, or external numerical claim is asserted.",
+    "result":"PASS"
+  },
+  "zero_unsupported_precision":"PASS",
+  "unresolved_conflicts":0,
+  "db_write":false,
+  "note":"Approved after broad construct-aware duplicate rejection of overlapping PPV/risk-framing concepts, official USMLE verification, CDC/AHRQ/NIST statistical interpretation review, wording correction, post-correction SQLite rerun, and independent adversarial second-pass."
+}
