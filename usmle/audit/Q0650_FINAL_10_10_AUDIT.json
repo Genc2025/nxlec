@@ -1,0 +1,98 @@
+{
+  "audit_id": "Q0650-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0650",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "The official current USMLE Step 1 specifications were reread and place Biostatistics & Epidemiology/Population Health at 4–6% and Patient Care: Diagnosis at 20–25%.",
+      "The official USMLE Content Outline (2026), page 37, explicitly lists sensitivity and specificity, ROC curves, and clinical application of evidence-based data under Biostatistics/Epidemiology.",
+      "AHRQ's Methods Guide for Medical Test Reviews remains an authoritative U.S. government methods source for the tested threshold-performance relationship. Its Appendix on Test Performance Metrics directly states the direction of sensitivity and specificity changes when a continuous-test threshold is raised or lowered and defines the ROC plotting convention.",
+      "No disease-specific pulmonary embolism cutoff, prevalence, management rule, or numerical test-performance claim is asserted."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS", "PASS", "PASS", "PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "competency": "Patient Care: Diagnosis, including history and physical examination",
+    "deficit_basis": {
+      "authoritative_q0001_q0640_counts_verified_in_workflow": 33103583441,
+      "project_targets_source": "usmle/pipeline.py SYSTEM_TARGETS and COMPETENCY_TARGETS",
+      "staged_payloads_added": "Q0641-Q0649 read directly from main",
+      "selected_system": "Biostatistics, Epidemiology and Population Health",
+      "selected_competency": "Patient Care: Diagnosis, including history and physical examination"
+    },
+    "official_outline_path": [
+      "Biostatistics, Epidemiology/Population Health, & Interpretation of the Medical Literature",
+      "Principles of testing and screening",
+      "Sensitivity and specificity",
+      "ROC curves",
+      "Clinical decision making — application of study results to patient care"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "basis": "Requires two linked inferences: determine how a lower continuous-test cutoff changes sensitivity/specificity, then translate those changes into movement on ROC axes.",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 640,
+    "broad_candidate_probe_run": 33175255050,
+    "post_stage_rerun": 33175417323,
+    "selected_probe": "ROC threshold sensitivity specificity tradeoff broad gate",
+    "selected_probe_canonical_hits": 0,
+    "post_stage_q0650_canonical_hits": 0,
+    "staged_count_after_q0650": 50,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "lower_threshold_sensitivity": "PASS — with a continuous test defined positive above a cutoff, lowering the cutoff labels more diseased participants positive, increasing sensitivity in the threshold tradeoff described by AHRQ.",
+    "lower_threshold_specificity": "PASS — lowering the cutoff labels more nondiseased participants positive, decreasing specificity in the AHRQ threshold tradeoff.",
+    "false_negative_direction": "PASS — because sensitivity is the true-positive fraction among diseased participants, increased sensitivity corresponds to fewer false negatives.",
+    "roc_vertical_axis": "PASS — ROC uses sensitivity/true-positive rate on the vertical axis.",
+    "roc_horizontal_axis": "PASS — ROC uses 1-specificity/false-positive rate on the horizontal axis.",
+    "roc_movement": "PASS — lower cutoff increases both sensitivity and 1-specificity, so the operating point moves upward and rightward.",
+    "pulmonary_embolism_context": "PASS — used only as a realistic diagnostic context; no PE-specific threshold or diagnostic-management assertion is needed for the key."
+  },
+  "option_audit": {
+    "correct": "Uniquely combines the expected threshold tradeoff with the correct ROC-axis movement.",
+    "distractor_1": "Represents the opposite threshold direction (raising the cutoff).",
+    "distractor_2": "Incorrectly assumes threshold change can improve both sensitivity and specificity for the same continuous-test operating curve.",
+    "distractor_3": "Incorrectly predicts sensitivity falls when more results are called positive.",
+    "distractor_4": "Incorrectly holds sensitivity constant despite a threshold change intended to reduce false negatives.",
+    "parallelism": "PASS — all five options use the same metric-plus-ROC-movement structure.",
+    "plausibility": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Starting only from the vignette: lowering the positive cutoff causes more results to be called positive. True positives rise and false negatives fall, so sensitivity rises. False positives rise and true negatives fall, so specificity falls. ROC y=sensitivity and x=1-specificity; therefore the point moves up and right.",
+    "threshold_ties_attack": "The item asks for the expected direct performance change of a quantitative threshold, matching the standard AHRQ threshold relationship; it does not claim a fixed numerical magnitude.",
+    "prevalence_attack": "No PPV or NPV is tested, so disease prevalence does not create an alternate answer.",
+    "reference_standard_attack": "The reference standard is explicitly independent, so verification/incorporation bias does not alter the tested construct.",
+    "lr_overlap_attack": "The selected construct is threshold/ROC movement, not likelihood-ratio computation; Q0490's positive-likelihood-ratio construct was explicitly rejected by the broad gate.",
+    "q0610_overlap_attack": "Q0610 tests partial verification bias. Q0650 tests operating-threshold tradeoff; spectrum/incorporation terms are not used as the construct.",
+    "clinical_overreach_attack": "The stem does not instruct that a lower cutoff is universally preferable; it states a specific diagnostic objective and asks only what metric/ROC change follows.",
+    "unsupported_precision_check": "No real assay cutoff, prevalence, probability, target sensitivity, target specificity, or mandatory clinical threshold is asserted.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved only after authoritative 640-state verification, real SQLite-backed broad duplicate gate, official 2026 USMLE outline/specification verification, AHRQ claim-level verification, post-stage duplicate rerun, and independent adversarial second-pass."
+}
