@@ -1,0 +1,88 @@
+{
+  "audit_id":"Q0668-FRESH-ITEM-AUDIT-20260828",
+  "item":"Q0668",
+  "status":"FINAL_10_10_PASS",
+  "audited_at":"2026-08-28",
+  "authoritative_db":"usmle/data/usmle-step1.db",
+  "authoritative_db_final_count":660,
+  "db_write":false,
+  "unresolved_conflicts":0,
+  "source_authority":"PASS",
+  "source_currentness":{
+    "status":"PASS",
+    "verified_at":"2026-08-28",
+    "notes":[
+      "Official USMLE Content Outline 2026 includes gastrointestinal malnutrition and malabsorption under disorders of the small intestine/colon.",
+      "Current GeneReviews for abetalipoproteinemia supports fat malabsorption, acanthocytosis, fat-soluble vitamin deficiency, neurologic complications, extremely low apoB-containing lipoproteins, and biallelic MTTP pathogenic variants.",
+      "Current MedlinePlus Genetics MTTP guidance states that MTTP loss impairs beta-lipoprotein formation and produces severe deficiency of chylomicrons, VLDL, and LDL.",
+      "A peer-reviewed mechanistic review confirms that MTTP is located in the ER of hepatocytes and intestinal epithelial cells and transfers neutral lipid to apoB during VLDL and chylomicron formation."
+    ]
+  },
+  "exact_locator":"PASS",
+  "exact_locator_notes":[
+    "USMLE Content Outline (2026), Gastrointestinal System, page 22 — malnutrition and malabsorption.",
+    "GeneReviews — Abetalipoproteinemia: Summary — Clinical characteristics; Diagnosis/testing.",
+    "MedlinePlus Genetics — MTTP gene: Health Conditions Related to Genetic Changes — Abetalipoproteinemia.",
+    "Current Diagnosis and Management of Abetalipoproteinemia — molecular mechanism of MTTP."
+  ],
+  "stem":"PASS",
+  "lead_in":"PASS",
+  "correct_answer":"PASS",
+  "distractor_count":4,
+  "option_total":5,
+  "distractors":["PASS","PASS","PASS","PASS"],
+  "rationale":"PASS",
+  "educational_objective":"PASS",
+  "ambiguity":"PASS",
+  "second_possible_answer":"PASS_NONE",
+  "cueing":"PASS",
+  "zero_unsupported_precision":"PASS",
+  "overlap":"PASS",
+  "blueprint":{
+    "system":"Gastrointestinal System",
+    "competency":"Medical Knowledge: Applying Foundational Science Concepts",
+    "official_outline_path":[
+      "Gastrointestinal System",
+      "Disorders of the stomach, small intestine, colon",
+      "Malnutrition and malabsorption"
+    ],
+    "status":"PASS"
+  },
+  "difficulty":{"rating":"moderate-hard","status":"PASS"},
+  "duplicate_gate":{
+    "canonical_final_count_scanned":660,
+    "selected_construct":"Abetalipoproteinemia / MTTP-dependent ApoB lipoprotein assembly",
+    "expanded_pre_stage_run":33193436545,
+    "expanded_pre_stage_hits":0,
+    "post_stage_run":33200048842,
+    "post_stage_q0668_hits":0,
+    "status":"PASS"
+  },
+  "claim_audit":{
+    "MTTP_ER_localization":"PASS",
+    "MTTP_transfers_neutral_lipid_to_nascent_ApoB":"PASS",
+    "MTTP_required_for_chylomicron_assembly":"PASS",
+    "MTTP_required_for_VLDL_assembly":"PASS",
+    "apoB_lipoproteins_extremely_low":"PASS",
+    "fat_soluble_vitamin_malabsorption":"PASS",
+    "acanthocytosis":"PASS",
+    "vitamin_E_related_neurologic_manifestations":"PASS"
+  },
+  "option_audit":{
+    "MTTP_lipid_transfer":"Uniquely explains absent/nearly absent apoB-containing lipoproteins from both intestine and liver together with fat malabsorption, acanthocytosis, and vitamin E deficiency.",
+    "lipoprotein_lipase":"LPL acts on circulating triglyceride-rich particles; deficiency produces severe hypertriglyceridemia/chylomicronemia rather than the extremely low triglyceride/apoB pattern.",
+    "SAR1B_transport":"SAR1B defects impair prechylomicron ER-to-Golgi transport and primarily intestinal chylomicron export; they do not best explain the global MTTP-dependent deficiency of chylomicrons, VLDL, and LDL.",
+    "LCAT":"LCAT acts in plasma cholesterol esterification and HDL maturation rather than initial apoB-lipoprotein assembly in the ER.",
+    "LDL_receptor":"LDL-receptor failure impairs clearance and raises LDL cholesterol, directionally opposite to this case.",
+    "plausibility":"PASS",
+    "parallelism":"PASS"
+  },
+  "adversarial_second_pass":{
+    "independent_reconstruction":"Steatorrhea, growth failure, acanthocytosis, severe vitamin E deficiency, neurologic dysfunction, nearly absent apoB, and extremely low LDL/triglycerides reconstruct abetalipoproteinemia. The mechanistic lesion is MTTP failure to lipidate nascent apoB in the ER, preventing chylomicron and VLDL assembly.",
+    "SAR1B_attack":"Chylomicron retention disease overlaps with intestinal fat malabsorption, but the question supplies a systemic apoB-lipoprotein profile characteristic of MTTP deficiency and asks for the assembly defect affecting both chylomicrons and VLDL.",
+    "APOB_attack":"APOB defects can also cause hypobetalipoproteinemia, but no answer option represents apoB synthesis/truncation and the complete phenotype plus the tested lipid-transfer step specifically maps to MTTP.",
+    "LPL_attack":"The laboratory direction is opposite to LPL deficiency.",
+    "unsupported_precision_check":"No mutation nucleotide, protein residue, vitamin E dose, lipid cutoff, or treatment duration is asserted.",
+    "result":"PASS"
+  }
+}
