@@ -1,38 +1,120 @@
 {
-  "audit_id": "Q0666-OVERLAP-INVALIDATION-20260828",
+  "audit_id": "Q0666-FRESH-ITEM-AUDIT-RP-20260828",
   "item": "Q0666",
-  "status": "BLOCKED",
+  "status": "FINAL_10_10_PASS",
   "audited_at": "2026-08-28",
-  "reason": "The staged syringomyelia construct is not unique against canonical FINAL items.",
-  "invalidated_prior_audit_commit": "a1048c30cb05c0c89db1b2f39ed79ecec364cc02",
   "authoritative_db": "usmle/data/usmle-step1.db",
-  "canonical_final_count_scanned": 660,
-  "conflict_evidence": {
-    "expanded_probe_run": 33191975053,
-    "candidate_id": "S1-DIRECT-0420-202608270340Z",
-    "canonical_text": "Spinothalamic tract lesion — Pain-temperature fibers enter the spinal cord, ascend or descend a few segments, cross in the anterior white commissure, and then ascend contralaterally.",
-    "staged_construct": "Syringomyelia / decussating spinothalamic fibers in the anterior white commissure",
-    "conclusion": "REAL_CONSTRUCT_OVERLAP"
-  },
-  "rejected_constructs": [
-    {
-      "construct": "Narcolepsy type 1 / hypothalamic orexin-hypocretin neuron loss",
-      "evidence_run": 33191842567,
-      "canonical_overlap": "S1-DIRECT-0224-20260827T030000Z"
-    },
-    {
-      "construct": "Syringomyelia / anterior white commissure spinothalamic crossing",
-      "evidence_run": 33191975053,
-      "canonical_overlap": "S1-DIRECT-0420-202608270340Z"
-    }
-  ],
-  "replacement_gate": {
-    "run": 33192062148,
-    "retinitis_pigmentosa_hits": 0,
-    "neuromyelitis_optica_hits": 0,
-    "selected_next_construct": "Retinitis pigmentosa — preferential early rod photoreceptor degeneration"
-  },
+  "authoritative_db_blob_verified": "01de9c00d4811e287aa9e75e1c0ac13e6f5232a9",
   "db_write": false,
-  "unresolved_conflicts": 1,
-  "next_action": "Replace the staged Q0666 payload with the zero-hit retinitis pigmentosa construct, rerun the post-stage canonical gate, and perform a fresh adversarial second-pass before any FINAL status."
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "USMLE Content Outline is the official For Public Release 2026 outline and explicitly lists retinitis pigmentosa and night blindness under retinal disorders.",
+      "USMLE Step 1 official specifications identify Medical Knowledge: Applying Foundational Science Concepts as a major Step 1 competency.",
+      "NCBI StatPearls Retinitis Pigmentosa page was verified on 2026-08-28; article Last Update February 12, 2024 and current Bookshelf edition is StatPearls 2026.",
+      "NCBI GeneReviews Nonsyndromic Retinitis Pigmentosa Overview was verified on 2026-08-28; Last Revision April 6, 2023 and GeneReviews Internet collection is current through 2026.",
+      "NCBI Neuroanatomy, Retina was verified on 2026-08-28; article Last Update August 8, 2023. The payload records this exact article update date rather than implying a newer article revision."
+    ]
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": [
+    "USMLE Content Outline 2026, Nervous System & Special Senses, page 11, Disorders of the retina: retinitis pigmentosa; visual impairment/blindness, night blindness.",
+    "USMLE Physician Tasks/Competencies, Applying Foundational Science Concepts.",
+    "Retinitis Pigmentosa — StatPearls: Introduction; Etiology; Pathophysiology/History and Physical.",
+    "Nonsyndromic Retinitis Pigmentosa Overview — GeneReviews: Clinical Manifestations; Establishing the Clinical Diagnosis.",
+    "Neuroanatomy, Retina — StatPearls: Structure and Function — Rods; Cones; Retinal Ganglion Cells; Bipolar Cells."
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "blueprint": {
+    "system": "Behavioral Health, Nervous Systems and Special Senses",
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "official_outline_path": [
+      "Nervous System & Special Senses",
+      "Disorders of the retina",
+      "Retinitis pigmentosa"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "canonical_final_count_scanned": 660,
+    "rejected_constructs": [
+      {
+        "construct": "Narcolepsy type 1 / hypothalamic orexin-hypocretin neuron loss",
+        "post_stage_run": 33191842567,
+        "canonical_overlap": "S1-DIRECT-0224-20260827T030000Z",
+        "status": "REJECTED_OVERLAP"
+      },
+      {
+        "construct": "Syringomyelia / anterior white commissure spinothalamic crossing",
+        "expanded_probe_run": 33191975053,
+        "canonical_overlap": "S1-DIRECT-0420-202608270340Z",
+        "status": "REJECTED_OVERLAP"
+      }
+    ],
+    "selected_construct": "Retinitis pigmentosa — preferential early rod photoreceptor degeneration",
+    "expanded_pre_stage_run": 33192062148,
+    "expanded_pre_stage_hits": 0,
+    "post_stage_run": 33192208778,
+    "post_stage_hits": 0,
+    "post_metadata_rerun": 33192420039,
+    "post_metadata_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "progressive_nyctalopia": "PASS",
+    "peripheral_visual_field_loss": "PASS",
+    "rod_function_predominates_early_in_typical_RP": "PASS",
+    "central_visual_acuity_preserved_early_in_typical_RP": "PASS",
+    "bone_spicule_pigmentation": "PASS",
+    "retinal_vessel_attenuation": "PASS",
+    "RPE_change_is_secondary_to_photoreceptor_degeneration_in_typical_RP": "PASS",
+    "cone_involvement_later_in_typical_rod_cone_RP": "PASS",
+    "rod_low_light_function": "PASS",
+    "rod_peripheral_retinal_distribution": "PASS"
+  },
+  "option_audit": {
+    "rods": "Uniquely best: typical RP is rod-predominant early; this directly explains nyctalopia followed by peripheral-field constriction.",
+    "cones": "Cone-rod dystrophy can preferentially affect cones, but typical RP has early rod-predominant dysfunction; cone-first disease instead emphasizes central acuity, color vision, and photophobia before peripheral/dark-adaptation loss.",
+    "retinal_pigment_epithelium": "RPE abnormalities and pigment migration contribute to the bone-spicule appearance, but in typical RP the early disease phenotype is driven by rod photoreceptor dysfunction/degeneration.",
+    "retinal_ganglion_cells": "RGCs are retinal output neurons and are not the preferential early degenerating photoreceptor population in typical RP.",
+    "bipolar_cells": "Bipolar cells relay rod/cone input to inner retinal neurons and are not the preferential early primary cell population lost in typical RP.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Progressive night blindness plus peripheral-field constriction, preserved reading vision, bilateral bone-spicule pigmentation, and attenuated retinal vessels independently reconstruct classic retinitis pigmentosa. The mechanism question then maps the early phenotype to rod photoreceptors.",
+    "genetic_heterogeneity_attack": "RP is genetically and phenotypically heterogeneous. The item deliberately asks about the typical form; authoritative GeneReviews and StatPearls sources specifically support early rod-predominant dysfunction in typical RP, so the answer is not universalized to every inherited retinal dystrophy.",
+    "cone_rod_dystrophy_attack": "Cone-rod dystrophy may have similar fundus findings but typically causes central acuity loss, photophobia, and color-vision defects before peripheral visual loss and defective dark adaptation, the opposite sequence from this vignette.",
+    "vitamin_A_deficiency_attack": "Vitamin A deficiency can cause nyctalopia, but it does not best explain this chronic progressive bilateral rod-cone dystrophy phenotype with classic RP fundus findings.",
+    "congenital_stationary_night_blindness_attack": "Congenital stationary night blindness is nonprogressive and therefore does not fit years of progressive peripheral-field loss with classic RP fundus changes.",
+    "RPE_attack": "Bone-spicule pigment arises from RPE migration, but that does not make RPE the preferential early cell population responsible for the typical rod-first functional syndrome.",
+    "second_answer_search": "No alternative option explains both the temporal sequence and the cell-level mechanism as well as rod photoreceptors.",
+    "cueing_check": "The fundus findings establish the disease construct but do not directly state the tested cell population; answering still requires foundational retinal physiology/pathophysiology.",
+    "unsupported_precision_check": "No dose, numeric threshold, inheritance percentage, ERG cutoff, treatment rule, or universal age-of-onset claim is required.",
+    "result": "PASS"
+  },
+  "unresolved_conflicts": 0
 }
