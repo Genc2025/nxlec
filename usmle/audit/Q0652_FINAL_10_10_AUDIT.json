@@ -1,0 +1,90 @@
+{
+  "audit_id": "Q0652-FRESH-ITEM-AUDIT-20260828",
+  "item": "Q0652",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-28",
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-08-28",
+    "notes": [
+      "The official USMLE Content Outline (2026), page 5, was reread directly and explicitly lists babesiosis under parasitic infectious disorders of the Blood & Lymphoreticular System.",
+      "Current CDC babesiosis clinical, transmission, case-definition, and DPDx pages were used for the diagnostic pattern, epidemiology, severe-disease risk factors, smear confirmation, and morphology.",
+      "Current CDC pages were also used to verify the malaria, anaplasmosis, ehrlichiosis, and RMSF distractors.",
+      "Species-level precision was deliberately removed after adversarial review: the item diagnoses babesiosis, not B. microti from morphology alone."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": ["PASS", "PASS", "PASS", "PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "blueprint": {
+    "system": "Blood, Lymphoreticular and Immune Systems",
+    "competency": "Patient Care: Diagnosis, including history and physical examination",
+    "official_outline_path": [
+      "Blood & Lymphoreticular System",
+      "Infectious and immunologic, including microbiologic and host response to insult",
+      "Infectious disorders",
+      "Parasitic: babesiosis (Babesia species)"
+    ],
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "basis": "Requires integration of endemic exposure, host risk, hemolytic laboratory findings, and intraerythrocytic morphology while distinguishing a real malaria mimic and other tickborne febrile illnesses.",
+    "status": "PASS"
+  },
+  "duplicate_gate": {
+    "authoritative_db": "usmle/data/usmle-step1.db",
+    "canonical_final_count_scanned": 650,
+    "broad_candidate_probe_run": 33176523162,
+    "selected_probe": "Babesiosis hemolysis broad gate",
+    "selected_probe_canonical_hits": 0,
+    "initial_post_stage_run": 33182221048,
+    "post_correction_rerun": 33182332379,
+    "post_correction_q0652_canonical_hits": 0,
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "usmle_alignment": "PASS — babesiosis is explicitly listed in the 2026 Blood & Lymphoreticular System outline.",
+    "hemolysis": "PASS — CDC describes Babesia infection as an intraerythrocytic infection that can produce hemolytic anemia.",
+    "thrombocytopenia": "PASS — CDC lists thrombocytopenia among common acute laboratory abnormalities/clinical criteria.",
+    "asplenia": "PASS — CDC identifies asplenia/hyposplenia as a risk factor for severe babesiosis.",
+    "epidemiology": "PASS — CDC states that B. microti transmission by Ixodes scapularis and reported babesiosis are concentrated in the Northeast and upper Midwest, often in warmer months.",
+    "smear": "PASS — CDC confirms intraerythrocytic Babesia organisms by stained blood-smear microscopy.",
+    "morphology": "PASS — CDC DPDx describes delicate ring forms, multiple infection of RBCs, and occasional classic tetrads.",
+    "species_precision": "PASS — the corrected item does not infer Babesia species from smear morphology alone."
+  },
+  "option_audit": {
+    "babesiosis": "Uniquely integrates northeastern tick exposure, asplenia, hemolysis, thrombocytopenia, and Babesia-compatible intraerythrocytic ring/tetrad forms.",
+    "falciparum_malaria": "A real intraerythrocytic hemolytic mimic, but the epidemiology and tetrad-compatible Babesia morphology make malaria inferior; lack of endemic-area travel is supportive rather than an absolute exclusion.",
+    "anaplasmosis": "A real Ixodes-associated febrile illness with thrombocytopenia, but its smear finding is morulae in granulocytes, not intraerythrocytic rings/tetrads.",
+    "ehrlichiosis": "A real tickborne febrile cytopenic illness, but it does not explain the intraerythrocytic protozoan morphology.",
+    "rmsf": "A real tickborne febrile illness that may cause thrombocytopenia, but does not produce the described intraerythrocytic parasites.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "From the vignette alone: fever plus intravascular/extravascular hemolysis, thrombocytopenia, northeastern summer tick exposure, asplenia, and intraerythrocytic rings with occasional tetrads point to babesiosis.",
+    "malaria_attack": "Malaria can show intraerythrocytic rings and hemolysis, so it was retained as the strongest distractor. However, the lack of endemic travel plus Babesia-compatible tetrad morphology and endemic New England exposure make babesiosis the unique best answer.",
+    "anaplasma_attack": "Shared Ixodes exposure does not create ambiguity because the cellular target/microscopy pattern differs.",
+    "ehrlichia_attack": "General fever plus cytopenias are insufficient against direct RBC parasite visualization.",
+    "rmsf_attack": "Absence of rash alone is not used to exclude RMSF; the decisive exclusion is the intraerythrocytic protozoan morphology.",
+    "cueing_attack": "The tetrad is a legitimate diagnostic morphologic clue rather than answer-word repetition. The item still requires integration with the clinical and epidemiologic context.",
+    "unsupported_precision_check": "No parasitemia percentage, treatment duration, species assignment from morphology, transmission-time threshold, or universal severity claim is asserted.",
+    "result": "PASS"
+  },
+  "zero_unsupported_precision": "PASS",
+  "unresolved_conflicts": 0,
+  "db_write": false,
+  "note": "Approved after canonical-650 SQLite-backed concept gate, item-specific CDC/USMLE verification, correction of species-level overprecision, post-correction duplicate rerun, and independent adversarial second-pass."
+}
