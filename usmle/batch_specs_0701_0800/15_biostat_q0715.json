@@ -1,0 +1,59 @@
+[
+  {
+    "num": 715,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics and Epidemiology",
+      "Observational study design",
+      "Bias in exposure classification",
+      "Immortal time bias"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology / Outcomes Research",
+    "diagnosis": "Immortal time bias in an observational cohort",
+    "mechanism": "Immortal time bias occurs when a period during which an outcome could not have occurred for a participant to be classified as exposed is incorrectly assigned to the exposed group. The guaranteed survival interval before exposure can create a spurious protective association unless exposure is modeled as time-varying or person-time is classified correctly.",
+    "vignette": "Investigators use hospital records to study whether starting a cardiac rehabilitation program within 30 days after discharge reduces 1-year mortality after myocardial infarction. Patients are classified as 'rehabilitation users' if they attend at least one session within 30 days. All follow-up time beginning on the day of discharge is then assigned to that group, including the days before the first rehabilitation session. Patients who die before attending a session are classified as nonusers. The rehabilitation group has substantially lower observed mortality.",
+    "lead": "Which of the following biases most directly threatens the validity of this apparent survival benefit?",
+    "correct": "Immortal time bias",
+    "distractors": [
+      "Confounding by indication",
+      "Recall bias",
+      "Nonresponse bias",
+      "Lead-time bias"
+    ],
+    "distractor_notes": [
+      "Confounding by indication can affect treatment comparisons, but the defining design flaw here is assignment of guaranteed pre-exposure survival time to the exposed group.",
+      "Recall bias concerns differential accuracy of remembered past exposures; this study uses recorded dates rather than retrospective self-report.",
+      "Nonresponse bias arises when study participation differs systematically between responders and nonresponders; no survey-response mechanism is described.",
+      "Lead-time bias concerns earlier diagnosis making survival from diagnosis appear longer without changing time of death; this cohort instead misclassifies pre-exposure person-time."
+    ],
+    "key_expl": "To be classified as a rehabilitation user, a patient must survive long enough after discharge to attend the first session. If the interval from discharge until that session is counted as exposed person-time, it is 'immortal' with respect to death because death during that interval would have prevented membership in the exposed group. This can make rehabilitation appear protective even without a causal benefit. Correct analysis treats rehabilitation exposure as time-varying or assigns person-time according to actual exposure status.",
+    "objective": "Recognize immortal time bias when guaranteed survival before treatment initiation is incorrectly credited to the treated group in an observational cohort.",
+    "clues": [
+      "observational cohort",
+      "exposure begins after cohort entry",
+      "patients must survive to receive exposure",
+      "pre-exposure time assigned to exposed group",
+      "early deaths forced into unexposed group"
+    ],
+    "difficulty": "moderate",
+    "sources": [
+      {
+        "organization": "United States Medical Licensing Examination",
+        "title": "USMLE Content Outline (2026)",
+        "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
+        "date": "Current official content outline; verified 2026-08-29",
+        "locator": "Biostatistics, Epidemiology and Population Health — study design, bias, interpretation of medical literature",
+        "support": "Supports epidemiologic study design, bias recognition, and interpretation of clinical evidence as Step 1 content."
+      },
+      {
+        "organization": "National Library of Medicine / PubMed Central",
+        "title": "Immortal time bias in observational studies",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12089111/",
+        "date": "2025; verified 2026-08-29",
+        "locator": "Conceptual explanation of immortal time and exposure misclassification",
+        "support": "Explains that immortal time is a period during which the outcome cannot occur for a participant to be classified as exposed and that misclassifying this person-time can create a spurious survival advantage."
+      }
+    ]
+  }
+]
