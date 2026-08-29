@@ -1,0 +1,93 @@
+{
+  "audit_id": "Q0687-FRESH-ITEM-AUDIT-20260829",
+  "item": "Q0687",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-29",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "6713c18b8787360a1ad0841a4bfbb7f47cbad6eb",
+  "authoritative_db_final_count": 680,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "notes": [
+      "USMLE Content Outline (2026) includes hypocoagulable fibrinogen disorders in the Blood & Lymphoreticular System.",
+      "The NLM-indexed 2021 review on congenital afibrinogenemia/hypofibrinogenemia directly documents extremely prolonged PT, aPTT and thrombin time with undetectable fibrinogen activity and antigen in afibrinogenemia."
+    ]
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": [
+    "USMLE Content Outline (2026), Blood & Lymphoreticular System, page 5 — Coagulation disorders, hypocoagulable — hypofibrinogenemia.",
+    "Congenital Afibrinogenemia and Hypofibrinogenemia… (Diagnostics 2021): Laboratory Assays; Table 2 — Diagnostic procedures of quantitative fibrinogen disorders."
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "blueprint": {
+    "system": "Blood, Lymphoreticular and Immune Systems",
+    "primary_path": [
+      "Blood & Lymphoreticular System",
+      "Coagulation disorders — hypocoagulable",
+      "Hypofibrinogenemia / quantitative fibrinogen deficiency"
+    ],
+    "competency": "Patient Care: Diagnosis, including history and physical examination",
+    "competency_task": "Selects the most likely diagnosis from history and coagulation studies.",
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS",
+    "rationale": "Requires integration of discriminating clinical clues with a mechanism or diagnosis rather than isolated fact recall."
+  },
+  "duplicate_gate": {
+    "canonical_final_count_scanned": 680,
+    "broad_run": 33231191553,
+    "expanded_pre_stage_run": 33232083250,
+    "post_stage_run": 33232214657,
+    "expanded_pre_stage_hits": 0,
+    "post_stage_probe_hits": 0,
+    "post_stage_staged_item_hits": 0,
+    "staged_approved_q0681_q0684_construct_overlap": "NONE",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "congenital_afibrinogenemia": "PASS",
+    "absent_fibrinogen_activity_and_antigen": "PASS",
+    "PT_aPTT_TT_markedly_prolonged": "PASS",
+    "umbilical_bleeding_compatible": "PASS",
+    "factor_XIII_routine_clotting_times_distinction": "PASS"
+  },
+  "option_audit": {
+    "correct": "The quantitative absence of fibrinogen plus fibrin-dependent assay prolongation is diagnostic.",
+    "hemophilia_A": "Would primarily prolong aPTT with normal fibrinogen and PT.",
+    "factor_XIII": "Can cause delayed/umbilical bleeding but routine PT/aPTT/TT are not prolonged because fibrin formation precedes factor XIII cross-linking.",
+    "vWD": "Does not cause absent fibrinogen antigen and generally does not produce marked PT/TT prolongation.",
+    "dysfibrinogenemia": "A qualitative defect ordinarily leaves measurable antigen rather than complete absence of both antigen and activity.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Umbilical stump bleeding with normal platelets, markedly prolonged PT/aPTT/TT, and complete absence of both fibrinogen activity and antigen uniquely supports congenital afibrinogenemia.",
+    "strongest_distractor_attack": "Factor XIII deficiency is a strong clinical mimic because it can cause umbilical stump bleeding, but routine PT/aPTT/TT assess clot formation before factor XIII cross-linking and are typically normal; here every fibrin-dependent assay is markedly prolonged.",
+    "dysfibrinogenemia_attack": "Dysfibrinogenemia is qualitative: functional fibrinogen is disproportionately low relative to antigen. Undetectable activity together with undetectable antigen supports afibrinogenemia.",
+    "hemophilia_vwd_attack": "Hemophilia A causes an isolated aPTT abnormality; von Willebrand disease does not eliminate circulating fibrinogen and does not produce this pan-assay pattern.",
+    "unsupported_precision_check": "No numerical coagulation cutoff, prevalence, inheritance probability or treatment dose is asserted.",
+    "result": "PASS"
+  }
+}

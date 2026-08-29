@@ -1,0 +1,93 @@
+{
+  "audit_id": "Q0688-FRESH-ITEM-AUDIT-20260829",
+  "item": "Q0688",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-29",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "6713c18b8787360a1ad0841a4bfbb7f47cbad6eb",
+  "authoritative_db_final_count": 680,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "notes": [
+      "USMLE Content Outline (2026) explicitly lists Dubin-Johnson and Rotor syndromes in Gastrointestinal System.",
+      "Rotor Syndrome — GeneReviews was last updated February 27, 2025 and supports isolated predominantly conjugated hyperbilirubinemia, SLCO1B1/SLCO1B3 loss and interruption of conjugated bilirubin reuptake into the liver."
+    ]
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": [
+    "USMLE Content Outline (2026), Gastrointestinal System, page 22 — Disorders of the liver and biliary system, noninfectious — Dubin-Johnson and Rotor syndromes.",
+    "Rotor Syndrome — GeneReviews: Summary; Diagnosis; Molecular Pathogenesis."
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "blueprint": {
+    "system": "Gastrointestinal System",
+    "primary_path": [
+      "Gastrointestinal System",
+      "Disorders of the liver and biliary system, noninfectious",
+      "Rotor syndrome"
+    ],
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "competency_task": "Identifies the membrane-transport mechanism producing a bilirubin phenotype.",
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS",
+    "rationale": "Requires integration of discriminating clinical clues with a mechanism or diagnosis rather than isolated fact recall."
+  },
+  "duplicate_gate": {
+    "canonical_final_count_scanned": 680,
+    "broad_run": 33231191553,
+    "expanded_pre_stage_run": 33232083250,
+    "post_stage_run": 33232214657,
+    "expanded_pre_stage_hits": 0,
+    "post_stage_probe_hits": 0,
+    "post_stage_staged_item_hits": 0,
+    "staged_approved_q0681_q0684_construct_overlap": "NONE",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "Rotor_syndrome": "PASS",
+    "SLCO1B1_SLCO1B3_OATP_deficiency": "PASS",
+    "conjugated_bilirubin_reuptake_defect": "PASS",
+    "isolated_predominantly_conjugated_hyperbilirubinemia": "PASS",
+    "absence_of_dark_liver_pigment_distinguishes_Dubin_Johnson": "PASS"
+  },
+  "option_audit": {
+    "correct": "Matches the exact OATP1B1/OATP1B3 sinusoidal uptake/reuptake defect.",
+    "MRP2": "Plausible benign conjugated hyperbilirubinemia but represents Dubin-Johnson canalicular export failure.",
+    "UGT1A1": "Produces impaired conjugation and therefore unconjugated hyperbilirubinemia.",
+    "BSEP": "Produces cholestasis through bile-acid export failure rather than isolated Rotor syndrome.",
+    "ATP7B": "Produces Wilson disease and abnormal copper handling, not this isolated bilirubin-transport phenotype.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Isolated predominantly conjugated hyperbilirubinemia since childhood, normal liver enzymes, no hemolysis, absence of dark pigment and loss of OATP1B1/OATP1B3 identify Rotor syndrome; the mechanism is impaired sinusoidal hepatic uptake/reuptake of conjugated bilirubin.",
+    "strongest_distractor_attack": "MRP2 loss causes Dubin-Johnson syndrome and is the closest alternative because it also causes benign conjugated hyperbilirubinemia, but it is a canalicular export defect and classically produces dark hepatic pigment; the stem instead supplies OATP1B1/OATP1B3 loss and no pigment.",
+    "other_distractors": "UGT1A1 causes unconjugated hyperbilirubinemia; BSEP causes cholestatic bile-acid disease; ATP7B causes copper accumulation and Wilson disease.",
+    "cueing_check": "Naming OATP1B1/OATP1B3 makes the task mechanistic. The correct option states the direction and membrane-side consequence rather than repeating the transporter names.",
+    "unsupported_precision_check": "No bilirubin cutoff or genotype frequency is required for the answer.",
+    "result": "PASS"
+  }
+}

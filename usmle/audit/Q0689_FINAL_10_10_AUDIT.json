@@ -1,0 +1,94 @@
+{
+  "audit_id": "Q0689-FRESH-ITEM-AUDIT-20260829",
+  "item": "Q0689",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-29",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "6713c18b8787360a1ad0841a4bfbb7f47cbad6eb",
+  "authoritative_db_final_count": 680,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "notes": [
+      "USMLE Content Outline (2026) includes multisystem neoplasms and explicitly states that listed disease examples are non-exhaustive.",
+      "Systemic Mastocytosis — StatPearls was last updated July 4, 2023 in the 2026 StatPearls edition and supports KIT/CD117 biology, stem-cell-factor-independent activating KIT mutations, KIT D816V as the most common driver, mast-cell mediator symptoms, tryptase testing, CD25 and marrow findings."
+    ]
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": [
+    "USMLE Content Outline (2026), Multisystem Processes & Disorders, page 33 — Neoplasms and related disorders; examples non-exhaustive per outline introductory note.",
+    "Systemic Mastocytosis — StatPearls: Pathophysiology; History and Physical; Evaluation; WHO diagnostic criteria section."
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "blueprint": {
+    "system": "Multisystem Processes and Disorders",
+    "primary_path": [
+      "Multisystem Processes & Disorders",
+      "Neoplasms and related disorders",
+      "Systemic mastocytosis"
+    ],
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "competency_task": "Identifies the molecular driver connecting a clonal neoplasm to multisystem manifestations.",
+    "status": "PASS"
+  },
+  "difficulty": {
+    "rating": "moderate",
+    "status": "PASS",
+    "rationale": "Requires integration of discriminating clinical clues with a mechanism or diagnosis rather than isolated fact recall."
+  },
+  "duplicate_gate": {
+    "canonical_final_count_scanned": 680,
+    "broad_run": 33231191553,
+    "expanded_pre_stage_run": 33232083250,
+    "post_stage_run": 33232214657,
+    "expanded_pre_stage_hits": 0,
+    "post_stage_probe_hits": 0,
+    "post_stage_staged_item_hits": 0,
+    "staged_approved_q0681_q0684_construct_overlap": "NONE",
+    "status": "PASS"
+  },
+  "claim_audit": {
+    "systemic_mastocytosis_clonal_mast_cells": "PASS",
+    "KIT_encodes_CD117_receptor_tyrosine_kinase": "PASS",
+    "activating_KIT_SCF_independent_signaling": "PASS",
+    "KIT_D816V_most_common_driver": "PASS",
+    "mediator_symptoms_and_tryptase": "PASS",
+    "CD25_and_marrow_aggregates_support_clonality": "PASS"
+  },
+  "option_audit": {
+    "correct": "Explains the clonal mast-cell phenotype and is the most common molecular driver of systemic mastocytosis.",
+    "JAK2": "A plausible myeloid-neoplasm driver but points to PV/ET/PMF, not a mast-cell-predominant syndrome.",
+    "FIP1L1_PDGFRA": "A strong kinase distractor for eosinophilic neoplasms, but not the best explanation for this mastocytosis phenotype.",
+    "BCR_ABL1": "Drives CML/selected ALL rather than systemic mastocytosis.",
+    "NF1": "RAS disinhibition does not explain the characteristic KIT/CD117-positive mast-cell disorder.",
+    "plausibility": "PASS",
+    "parallelism": "PASS"
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "Mediator symptoms, urtication of pigmented lesions, persistent tryptase elevation and multifocal CD117/CD25-positive spindle mast-cell aggregates identify systemic mastocytosis; constitutively activating KIT signaling, most commonly KIT D816V, is the canonical molecular driver.",
+    "strongest_distractor_attack": "FIP1L1-PDGFRA is a legitimate tyrosine-kinase neoplasm distractor, especially when eosinophilia is prominent, but this vignette is a clonal mast-cell phenotype with classic mastocytosis markers and no eosinophilic syndrome.",
+    "other_distractors": "JAK2 V617F maps to classic myeloproliferative neoplasms; BCR-ABL1 to CML/selected ALL; NF1 loss to RAS-pathway tumor predisposition rather than the described mast-cell neoplasm.",
+    "wording_check": "The answer says D816V is the most common driver, not that every case carries it; this avoids overclaiming.",
+    "unsupported_precision_check": "The stem deliberately says tryptase is persistently elevated without asserting an unnecessary numerical threshold.",
+    "result": "PASS"
+  }
+}
