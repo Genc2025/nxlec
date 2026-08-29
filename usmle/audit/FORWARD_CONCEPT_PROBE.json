@@ -1,47 +1,119 @@
 {
-  "generated_for":"Q0711-Q0720 accelerated broad candidate gate",
-  "canonical_scope":"step2_final_items FINAL_10_10_PASS Q0001-Q0710",
-  "batch_slots":[
-    {"slot":"Q0711","system":"Social Sciences: Communication and Interpersonal Skills","competency":"Communication and Interpersonal Skills"},
-    {"slot":"Q0712","system":"Respiratory and Renal/Urinary Systems","competency":"Medical Knowledge: Applying Foundational Science Concepts"},
-    {"slot":"Q0713","system":"Musculoskeletal, Skin and Subcutaneous Tissue","competency":"Medical Knowledge: Applying Foundational Science Concepts"},
-    {"slot":"Q0714","system":"Multisystem Processes and Disorders","competency":"Medical Knowledge: Applying Foundational Science Concepts"},
-    {"slot":"Q0715","system":"Biostatistics, Epidemiology and Population Health","competency":"Patient Care: Diagnosis, including history and physical examination"},
-    {"slot":"Q0716","system":"Behavioral Health, Nervous Systems and Special Senses","competency":"Medical Knowledge: Applying Foundational Science Concepts"},
-    {"slot":"Q0717","system":"Cardiovascular System","competency":"Medical Knowledge: Applying Foundational Science Concepts"},
-    {"slot":"Q0718","system":"Gastrointestinal System","competency":"Patient Care: Diagnosis, including history and physical examination"},
-    {"slot":"Q0719","system":"Blood, Lymphoreticular and Immune Systems","competency":"Medical Knowledge: Applying Foundational Science Concepts"},
-    {"slot":"Q0720","system":"Reproductive and Endocrine Systems","competency":"Medical Knowledge: Applying Foundational Science Concepts"}
-  ],
-  "probes":[
-    {"name":"Q0711 ask permission before sensitive topic weight sexual history","terms":["ask permission sensitive topic","permission before discussing weight","ask permission sexual history","sensitive questions patient permission","permission to discuss weight clinician"]},
-    {"name":"Q0711 normalize sensitive questions before IPV substance use","terms":["normalize sensitive questions","normalizing statement intimate partner violence","normalize substance use questions","before asking sensitive questions normalize"]},
-
-    {"name":"Q0712 EAST SeSAME syndrome KCNJ10 renal salt wasting mechanism","terms":["EAST syndrome","SeSAME syndrome","KCNJ10","epilepsy ataxia sensorineural deafness tubulopathy","Kir4.1 distal convoluted tubule salt wasting"]},
-    {"name":"Q0712 familial hypomagnesemia hypercalciuria nephrocalcinosis CLDN16","terms":["familial hypomagnesemia hypercalciuria nephrocalcinosis","CLDN16","paracellin 1","claudin 16 magnesium calcium thick ascending limb"]},
-
-    {"name":"Q0713 multiple hereditary exostoses EXT1 heparan sulfate mechanism","terms":["multiple hereditary exostoses","hereditary multiple osteochondromas","EXT1 EXT2","heparan sulfate osteochondroma","exostosin glycosyltransferase"]},
-    {"name":"Q0713 PLOD1 kyphoscoliotic Ehlers Danlos lysyl hydroxylase","terms":["PLOD1 kyphoscoliotic Ehlers Danlos","lysyl hydroxylase deficiency collagen","kyphoscoliotic EDS PLOD1","hydroxylysine collagen crosslinking"]},
-
-    {"name":"Q0714 Wolman disease LIPA lysosomal acid lipase mechanism","terms":["Wolman disease","LIPA lysosomal acid lipase deficiency","cholesteryl ester triglyceride lysosome adrenal calcification","lysosomal acid lipase infant"]},
-    {"name":"Q0714 Tangier disease ABCA1 cholesterol efflux HDL mechanism","terms":["Tangier disease","ABCA1 cholesterol efflux","orange tonsils low HDL ABCA1","cholesterol efflux ApoA1 Tangier"]},
-
-    {"name":"Q0715 likelihood ratio posttest odds diagnostic testing","terms":["likelihood ratio posttest odds","pretest odds likelihood ratio posttest odds","diagnostic test likelihood ratio Bayes","positive likelihood ratio posttest probability"]},
-    {"name":"Q0715 spectrum bias diagnostic accuracy setting","terms":["spectrum bias diagnostic test","spectrum effect sensitivity specificity","diagnostic accuracy tertiary referral spectrum","case mix diagnostic test accuracy"]},
-
-    {"name":"Q0716 Alexander disease GFAP Rosenthal fibers mechanism","terms":["Alexander disease","GFAP mutation Rosenthal fibers","astrocyte intermediate filament leukodystrophy","frontal leukodystrophy GFAP"]},
-    {"name":"Q0716 Canavan disease ASPA N acetylaspartate mechanism","terms":["Canavan disease","ASPA aspartoacylase","N acetylaspartate accumulation","spongy leukodystrophy Canavan"]},
-
-    {"name":"Q0717 Andersen Tawil KCNJ2 inward rectifier potassium","terms":["Andersen Tawil syndrome","KCNJ2","Kir2.1 inward rectifier potassium","periodic paralysis ventricular arrhythmia dysmorphic features"]},
-    {"name":"Q0717 Timothy syndrome CACNA1C calcium channel mechanism","terms":["Timothy syndrome","CACNA1C gain of function","long QT syndactyly autism calcium channel","L type calcium channel Timothy"]},
-
-    {"name":"Q0718 superior mesenteric artery syndrome diagnosis","terms":["superior mesenteric artery syndrome","SMA syndrome duodenal compression","aortomesenteric angle weight loss vomiting","Wilkie syndrome"]},
-    {"name":"Q0718 Caroli disease saccular intrahepatic bile duct dilation diagnosis","terms":["Caroli disease","saccular intrahepatic bile duct dilation","central dot sign Caroli","recurrent cholangitis congenital bile ducts"]},
-
-    {"name":"Q0719 MHC class II deficiency CIITA bare lymphocyte syndrome","terms":["MHC class II deficiency","bare lymphocyte syndrome type II","CIITA","RFXANK HLA class II deficiency","CD4 lymphopenia MHC II"]},
-    {"name":"Q0719 Scott syndrome phosphatidylserine platelet procoagulant","terms":["Scott syndrome","phosphatidylserine exposure platelets","TMEM16F ANO6 coagulation","platelet procoagulant membrane phosphatidylserine"]},
-
-    {"name":"Q0720 NR5A1 46XY gonadal dysgenesis steroidogenic factor 1","terms":["NR5A1 46 XY gonadal dysgenesis","steroidogenic factor 1 SF1","NR5A1 undervirilization adrenal gonadal","SF 1 testis development steroidogenesis"]},
-    {"name":"Q0720 congenital lipoid adrenal hyperplasia StAR mechanism","terms":["congenital lipoid adrenal hyperplasia","StAR deficiency","steroidogenic acute regulatory protein cholesterol mitochondria","lipoid CAH 46 XY female phenotype"]}
+  "generated_for": "Q0711-Q0720 expanded duplicate gates",
+  "canonical_scope": "step2_final_items FINAL_10_10_PASS Q0001-Q0710",
+  "prior_broad_run": 33245046234,
+  "probes": [
+    {
+      "name": "Q0711 EXP permission before sensitive topic",
+      "terms": [
+        "ask permission before sensitive topic",
+        "permission to discuss weight",
+        "permission before sexual history",
+        "permission before sensitive questions",
+        "is it okay if we discuss",
+        "would it be okay to talk about"
+      ]
+    },
+    {
+      "name": "Q0712 EXP EAST SeSAME KCNJ10 Kir4.1",
+      "terms": [
+        "EAST syndrome",
+        "SeSAME syndrome",
+        "KCNJ10",
+        "Kir4.1",
+        "epilepsy ataxia sensorineural deafness tubulopathy",
+        "KCNJ10 distal convoluted tubule"
+      ]
+    },
+    {
+      "name": "Q0713 EXP hereditary multiple exostoses EXT1 EXT2",
+      "terms": [
+        "multiple hereditary exostoses",
+        "hereditary multiple osteochondromas",
+        "EXT1",
+        "EXT2",
+        "exostosin glycosyltransferase",
+        "heparan sulfate osteochondroma"
+      ]
+    },
+    {
+      "name": "Q0714 EXP Wolman LIPA lysosomal acid lipase",
+      "terms": [
+        "Wolman disease",
+        "lysosomal acid lipase deficiency",
+        "LIPA",
+        "adrenal calcification lysosomal acid lipase",
+        "cholesteryl ester storage disease LIPA",
+        "lysosomal cholesteryl ester triglyceride hydrolysis"
+      ]
+    },
+    {
+      "name": "Q0715 EXP likelihood ratio posttest odds",
+      "terms": [
+        "likelihood ratio",
+        "posttest odds",
+        "pretest odds",
+        "positive likelihood ratio",
+        "negative likelihood ratio",
+        "Bayes diagnostic testing odds"
+      ]
+    },
+    {
+      "name": "Q0716 EXP Alexander disease GFAP Rosenthal fibers",
+      "terms": [
+        "Alexander disease",
+        "GFAP mutation",
+        "Rosenthal fibers",
+        "astrocyte intermediate filament leukodystrophy",
+        "frontal leukodystrophy GFAP",
+        "GFAP gain of function Alexander"
+      ]
+    },
+    {
+      "name": "Q0717 EXP Timothy syndrome CACNA1C",
+      "terms": [
+        "Timothy syndrome",
+        "CACNA1C",
+        "long QT syndactyly",
+        "L type calcium channel Timothy",
+        "CACNA1C gain of function",
+        "impaired voltage dependent inactivation calcium channel"
+      ]
+    },
+    {
+      "name": "Q0718 EXP superior mesenteric artery syndrome",
+      "terms": [
+        "superior mesenteric artery syndrome",
+        "SMA syndrome",
+        "Wilkie syndrome",
+        "aortomesenteric angle",
+        "duodenal compression weight loss",
+        "third portion duodenum SMA aorta"
+      ]
+    },
+    {
+      "name": "Q0719 EXP MHC class II deficiency bare lymphocyte syndrome",
+      "terms": [
+        "MHC class II deficiency",
+        "bare lymphocyte syndrome type II",
+        "CIITA",
+        "RFXANK",
+        "RFX5",
+        "RFXAP",
+        "HLA class II deficiency",
+        "CD4 lymphopenia MHC II"
+      ]
+    },
+    {
+      "name": "Q0720 EXP NR5A1 steroidogenic factor 1",
+      "terms": [
+        "NR5A1",
+        "steroidogenic factor 1",
+        "SF-1 gonadal dysgenesis",
+        "46 XY gonadal dysgenesis NR5A1",
+        "NR5A1 undervirilization",
+        "SF1 testis development steroidogenesis"
+      ]
+    }
   ]
 }
