@@ -127,7 +127,7 @@ jobs:
           assert set(state['schema_tables_verified'])==required_tables
           assert state['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
           ordered=sorted(payloads,key=lambda p:qnum(p['candidate_id']))
-          new_seq=''.join(p['item']['intended_key'] for p in ordered if 671<=qnum(p['candidate_id'])<=680)
+          new_seq=''.join(p['item']['intended_key'] for p in ordered if 681<=qnum(p['candidate_id'])<=690)
           assert len(new_seq)==10
           assert Counter(new_seq)==Counter({'A':2,'B':2,'C':2,'D':2,'E':2})
           assert state['answer_position_new_block']['sequence']==new_seq
@@ -184,7 +184,7 @@ jobs:
           assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
           assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
           fin=con.execute('SELECT audit_id,item_count FROM step2_finalization WHERE id=1').fetchone()
-          assert fin==('STEP2-FINAL-Q0001-Q0690-20260829',680), fin
+          assert fin==('STEP2-FINAL-Q0001-Q0690-20260829',690), fin
           con.close()
           assert not pathlib.Path('usmle/data/usmle-step1.db-wal').exists()
           assert not pathlib.Path('usmle/data/usmle-step1.db-shm').exists()
