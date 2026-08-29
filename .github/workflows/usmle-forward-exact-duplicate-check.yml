@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'usmle/batch_specs_0601_0700/**'
+      - 'usmle/batch_specs_0701_0800/**'
       - '.github/workflows/usmle-forward-exact-duplicate-check.yml'
       - 'usmle/audit/FORWARD_EXACT_DUPLICATE_CHECK_TRIGGER'
       - 'usmle/audit/FORWARD_CONCEPT_PROBE.json'
@@ -39,12 +40,13 @@ jobs:
                   yield path, v
 
           staged=[]
-          for fn in sorted(glob.glob('usmle/batch_specs_0601_0700/*.json')):
-              obj=json.load(open(fn))
-              rows=obj if isinstance(obj,list) else obj.get('items',[])
-              for x in rows:
-                  if isinstance(x,dict) and x.get('num') and x.get('diagnosis'):
-                      staged.append((int(x['num']),x['diagnosis'],fn))
+          for pattern in ('usmle/batch_specs_0601_0700/*.json','usmle/batch_specs_0701_0800/*.json'):
+              for fn in sorted(glob.glob(pattern)):
+                  obj=json.load(open(fn))
+                  rows=obj if isinstance(obj,list) else obj.get('items',[])
+                  for x in rows:
+                      if isinstance(x,dict) and x.get('num') and x.get('diagnosis'):
+                          staged.append((int(x['num']),x['diagnosis'],fn))
 
           con=sqlite3.connect('usmle/data/usmle-step1.db')
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
