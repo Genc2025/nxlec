@@ -1,0 +1,34 @@
+[
+  {
+    "num": 702,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": ["Population Health", "Quality improvement", "Improvement science", "Interrupted time-series analysis"],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Biostatistics / Quality Improvement / Health Services Research",
+    "diagnosis": "Interrupted time-series analysis using segmented regression",
+    "mechanism": "Interrupted time-series designs use repeated outcome measurements before and after an intervention. Segmented regression estimates the preintervention trend and tests whether the intervention is associated with an immediate level change, a change in postintervention slope, or both, helping distinguish an intervention effect from the preexisting secular trend.",
+    "vignette": "A hospital introduces a new sepsis triage protocol on January 1. Investigators have monthly median time-to-antibiotics data for 24 months before implementation and 24 months after implementation. The outcome had already been gradually improving before the protocol was introduced. Randomization was not feasible.",
+    "lead": "Which of the following analytic approaches is most appropriate for estimating whether the protocol changed the outcome beyond the preexisting trend?",
+    "correct": "Segmented regression of an interrupted time series estimating changes in level and slope after implementation",
+    "distractors": [
+      "Compare the mean outcome during all preintervention months with the mean during all postintervention months using an unpaired t test",
+      "Perform a cross-sectional correlation between calendar month and the outcome using only postintervention observations",
+      "Select the single month before implementation and the single month after implementation and calculate their absolute difference",
+      "Pool all observations and use a chi-square test without including time or intervention terms"
+    ],
+    "distractor_notes": [
+      "A simple before-versus-after comparison ignores the existing time trend and temporal structure.",
+      "Postintervention data alone cannot estimate the counterfactual trajectory based on the preintervention trend.",
+      "Two adjacent points are highly vulnerable to ordinary temporal variation and discard most available information.",
+      "Ignoring time and intervention structure cannot estimate level or slope changes attributable to implementation."
+    ],
+    "key_expl": "Interrupted time-series analysis is useful when an intervention occurs at a defined time and repeated measurements are available before and after it. Segmented regression models the baseline level and trend and estimates an immediate level change and/or a change in slope after the intervention. This directly addresses the concern that the outcome was already improving before implementation.",
+    "objective": "Choose segmented interrupted time-series regression to evaluate a quality-improvement intervention when repeated pre/post measurements and a preexisting secular trend are present.",
+    "clues": ["defined intervention date", "24 monthly measurements before", "24 monthly measurements after", "preexisting improving trend", "no randomization"],
+    "difficulty": "moderate",
+    "sources": [
+      {"organization":"United States Medical Licensing Examination","title":"USMLE Content Outline","url":"https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf","date":"Current official outline; verified 2026-08-29","locator":"Quality improvement — improvement science principles, quality measurement, run/control charts","support":"Supports quality-improvement measurement and analytic reasoning as USMLE content."},
+      {"organization":"National Library of Medicine / NIH","title":"The use of segmented regression in analysing interrupted time series studies: an example in pre-hospital ambulance care","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC4068621/","date":"BMC Medical Research Methodology. 2014; verified 2026-08-29","locator":"Background; Methods; Conclusions","support":"Supports interrupted time series as a quasi-experimental design and segmented regression for estimating immediate level and gradual slope changes around an intervention."}
+    ]
+  }
+]
