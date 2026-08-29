@@ -138,7 +138,7 @@ def new_schedule():
             continue
         if seq[5:] in ('ABCDE','BCDEA','CDEAB','DEABC','EABCD'):
             continue
-        return {671+i:base[i] for i in range(10)}
+        return {681+i:base[i] for i in range(10)}
     raise SystemExit('unable to generate key schedule')
 
 def source_norm(s,i):
@@ -373,7 +373,7 @@ def main():
     if cp!=EXPECTED_COMPETENCIES: raise SystemExit(f'competency count mismatch {cp}')
     if any('&' in k for k in bp): raise SystemExit(f'stale ampersand primary system {bp}')
     fin=con.execute('SELECT audit_id,item_count,key_schedule_sha256,aggregate_review_sha256 FROM step2_finalization WHERE id=1').fetchone()
-    if not fin or fin[0]!=AUDIT_ID or fin[1]!=680:
+    if not fin or fin[0]!=AUDIT_ID or fin[1]!=690:
         raise SystemExit('step2_finalization row failure')
     journal_mode=(con.execute('PRAGMA journal_mode').fetchone() or [''])[0]
     checkpoint_result=None
