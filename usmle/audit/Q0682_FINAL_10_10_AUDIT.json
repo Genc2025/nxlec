@@ -1,0 +1,61 @@
+{
+  "audit_id": "Q0682-FRESH-ITEM-AUDIT-20260829",
+  "item": "Q0682",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-08-29",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "87350f4073850770ac1ed9acd416d9e151803183",
+  "authoritative_db_final_count": 670,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "notes": [
+      "Official 2026 USMLE Biostatistics outline explicitly lists noninferiority/equivalence trials.",
+      "FDA Non-Inferiority Clinical Trials final guidance (November 2016) remains the current FDA guidance page and directly addresses NI margins and confidence-interval hypothesis testing."
+    ]
+  },
+  "exact_locator": "PASS",
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractor_count": 4,
+  "option_total": 5,
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "duplicate_gate": {
+    "canonical_final_count_scanned": 670,
+    "final_post_stage_run": 33230878288,
+    "final_post_stage_hits": 0,
+    "status": "PASS",
+    "selected_construct": "Noninferiority margin and confidence-interval interpretation",
+    "expanded_construct_run": 33230270911,
+    "expanded_construct_hits": 0
+  },
+  "adversarial_second_pass": {
+    "independent_reconstruction": "For new-minus-standard success difference with NI margin -5%, a 95% CI of -3.4% to +1.0% lies entirely above the NI boundary but crosses zero: noninferior, not superior.",
+    "inferior_attack": "A point estimate modestly favoring control does not establish inferiority when the full interval remains above the prespecified NI margin.",
+    "superiority_attack": "Crossing zero prevents a superiority conclusion.",
+    "zero_attack": "Crossing zero is compatible with noninferiority; the relevant boundary is the prespecified NI margin.",
+    "equivalence_attack": "A successful one-sided NI framework does not by itself prove two-sided equivalence.",
+    "arithmetic_check": "All interval directions and signs were independently recomputed before PASS.",
+    "result": "PASS"
+  },
+  "blueprint": {
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "competency": "Practice-Based Learning and Improvement",
+    "status": "PASS"
+  }
+}
