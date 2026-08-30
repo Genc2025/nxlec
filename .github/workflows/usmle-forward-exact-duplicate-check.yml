@@ -60,6 +60,8 @@ jobs:
               return int(m.group(1))
           nums=sorted(qnum(cid) for cid,_ in finals)
           assert nums and nums==list(range(1,max(nums)+1)), (len(nums), nums[:3], nums[-3:])
+          # Only staged items beyond the current canonical maximum are forward candidates.
+          staged=[row for row in staged if row[0] > max(nums)]
 
           report=[]
           for num,diag,fn in staged:
