@@ -1,0 +1,60 @@
+[
+  {
+    "num": 749,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Observational study bias",
+      "Time-related bias",
+      "Immortal time bias"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology / Clinical Research Methods",
+    "diagnosis": "Immortal time bias in an observational survival analysis",
+    "mechanism": "Immortal time bias occurs when a period during which participants must remain alive and outcome-free in order to later be classified as exposed is incorrectly assigned to the exposed group's follow-up, creating an artificial survival advantage.",
+    "vignette": "Investigators use electronic health records to compare survival after a new cancer diagnosis. Patients are classified as 'treated' if they begin a study drug at any time during the first 90 days after diagnosis; all others are classified as untreated. Follow-up for both groups begins on the date of diagnosis. Patients who die before receiving the drug can only be placed in the untreated group.",
+    "lead": "Which of the following biases most directly threatens the validity of the apparent survival benefit in the treated group?",
+    "correct": "Immortal time bias",
+    "distractors": [
+      "Lead-time bias",
+      "Length-time bias",
+      "Confounding by indication",
+      "Recall bias"
+    ],
+    "distractor_notes": [
+      "Lead-time bias arises when earlier detection appears to prolong survival without changing the time of death; this study's problem is exposure classification during follow-up.",
+      "Length-time bias arises because screening preferentially detects slower-growing disease; no screening-based case ascertainment is described.",
+      "Confounding by indication is possible in nonrandomized treatment studies but does not specifically describe the guaranteed survival interval between cohort entry and treatment assignment in this design.",
+      "Recall bias affects retrospective self-reported exposure or outcome information and is not the time-dependent classification error shown here."
+    ],
+    "key_expl": "To enter the treated group, a patient must survive from diagnosis until the drug is started. If that pre-treatment interval is counted as treated follow-up, it is 'immortal' because death during that interval would prevent classification as treated. This systematically favors the treated group and is immortal time bias.",
+    "objective": "Recognize immortal time bias when survival before a time-dependent exposure is incorrectly credited to the exposed group.",
+    "clues": [
+      "observational survival analysis",
+      "treatment can begin after cohort entry",
+      "treated status assigned based on future exposure",
+      "patients must survive to receive treatment",
+      "follow-up begins before exposure"
+    ],
+    "difficulty": "moderate",
+    "reasoning_steps_count": 3,
+    "sources": [
+      {
+        "organization": "United States Medical Licensing Examination",
+        "title": "Step 1 Exam Content",
+        "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+        "date": "Current official Step 1 specifications; verified 2026-08-30",
+        "locator": "Step 1 Content Specifications — Table 1; Step 1 Physician Tasks/Competencies Specifications — Table 2",
+        "support": "Supports the selected Step 1 system category and physician task/competency."
+      },
+      {
+        "organization": "National Library of Medicine / PubMed Central",
+        "title": "Quantifying the impact of immortal time bias: empirical evidence from meta-analyses",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12373649/",
+        "date": "2025; verified 2026-08-30",
+        "locator": "Abstract; Introduction",
+        "support": "Supports immortal time bias as misclassification of an interval during which the outcome cannot occur for those later classified as treated, creating an artificial treatment benefit in time-to-event studies."
+      }
+    ]
+  }
+]
