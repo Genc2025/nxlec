@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'usmle/audit/STEP2_FINALIZE_TRIGGER_Q0791_Q0800'
+      - 'usmle/audit/STEP2_FINALIZE_TRIGGER_Q0801_Q0810'
 
 permissions:
   contents: write
@@ -109,7 +109,7 @@ jobs:
           assert bp==expected_blueprint, bp
           assert cp==expected_competencies, cp
           state=json.load(open('usmle/state/step2_final_q0001_q0810.json'))
-          audit=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q0800.json'))
+          audit=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q0810.json'))
           assert state==audit
           assert state['audit_id']=='STEP2-FINAL-Q0001-Q0810-20260830'
           assert state['final_status']=='FINAL_10_10_PASS'
@@ -142,7 +142,7 @@ jobs:
         run: |
           git config user.name 'USMLE Step2 Finalizer'
           git config user.email 'actions@users.noreply.github.com'
-          git add -f usmle/data/usmle-step1.db usmle/audit/STEP2_FINAL_10_10_Q0001_Q0800.json usmle/state/step2_final_q0001_q0810.json
+          git add -f usmle/data/usmle-step1.db usmle/audit/STEP2_FINAL_10_10_Q0001_Q0810.json usmle/state/step2_final_q0001_q0810.json
           git commit -m 'Finalize USMLE Step 1 Q0801-Q0810 at Step2 10/10'
           git pull --rebase origin main
           git push origin HEAD:main
