@@ -323,7 +323,7 @@ def main():
     keynew=Counter(finals[n]['item']['intended_key'] for n in finals)
     if keynew!=Counter({'A':2,'B':2,'C':2,'D':2,'E':2}):
         raise SystemExit('new key balance failure')
-    seq=''.join(schedule[n] for n in range(791,801))
+    seq=''.join(schedule[n] for n in range(801,811))
     if max(len(m.group(0)) for m in re.finditer(r'(.)\1*',seq))>2:
         raise SystemExit('answer-key run failure')
     # No DB write occurs before all gates above pass.
@@ -354,7 +354,7 @@ def main():
     ids={r[0] for r in items}; rids={r[0] for r in revs}
     if ids!=rids or {qnum(cid) for cid in ids}!=set(range(1,811)):
         raise SystemExit('post item/review/contiguity failure')
-    if any(sum(1 for cid in ids if qnum(cid)==n)!=1 for n in range(791,801)):
+    if any(sum(1 for cid in ids if qnum(cid)==n)!=1 for n in range(801,811)):
         raise SystemExit('Q0801-Q0810 exact-once failure')
     reread=0; new=0; payloads=[]
     for cid,pj,ps,ash in items:
