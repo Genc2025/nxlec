@@ -268,7 +268,7 @@ def main():
     if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0:
         raise SystemExit('pre duplicate candidate_id in reviews')
     old_ids={r[0] for r in old_items}; review_ids={r[0] for r in old_reviews}
-    if old_ids!=review_ids or {qnum(cid) for cid in old_ids}!=set(range(1,751)):
+    if old_ids!=review_ids or {qnum(cid) for cid in old_ids}!=set(range(1,741)):
         raise SystemExit('pre canonical item/review/contiguity failure')
     for cid,pj,ps,ash in old_items:
         obj=json.loads(pj)
