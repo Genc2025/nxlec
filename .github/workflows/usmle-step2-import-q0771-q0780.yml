@@ -1,0 +1,163 @@
+name: USMLE Step2 Import Approved Q0771-Q0780
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/STEP2_FINALIZE_TRIGGER_Q0771_Q0780'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-step2-import-q0771-q0780
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Package and insert individually approved Q0771-Q0780
+        run: python usmle/step2_import_q0771_q0780.py
+
+      - name: Independently verify authoritative SQLite before persist
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, re, sqlite3, subprocess
+          from collections import Counter
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def h(o): return hashlib.sha256(canon(o).encode()).hexdigest()
+          def qnum(cid):
+              m=re.search(r'DIRECT-(\d{4})',cid or '')
+              assert m, cid
+              return int(m.group(1))
+          expected_blueprint={
+            'Human Development':16,
+            'Respiratory and Renal/Urinary Systems':99,
+            'Blood, Lymphoreticular and Immune Systems':84,
+            'Behavioral Health, Nervous Systems and Special Senses':91,
+            'Musculoskeletal, Skin and Subcutaneous Tissue':77,
+            'Cardiovascular System':70,
+            'Gastrointestinal System':62,
+            'Reproductive and Endocrine Systems':107,
+            'Multisystem Processes and Disorders':77,
+            'Biostatistics, Epidemiology and Population Health':40,
+            'Social Sciences: Communication and Interpersonal Skills':57,
+          }
+          expected_competencies={
+            'Medical Knowledge: Applying Foundational Science Concepts':507,
+            'Patient Care: Diagnosis, including history and physical examination':174,
+            'Practice-Based Learning and Improvement':41,
+            'Communication and Interpersonal Skills':58,
+          }
+          db='usmle/data/usmle-step1.db'
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          required_tables={'step2_final_items','step2_final_reviews','step2_finalization'}
+          tables={r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+          assert required_tables.issubset(tables)
+          items=con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          reviews=con.execute("SELECT candidate_id,review_json,review_sha256,final_status FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(items)==780 and len(reviews)==780
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          ids={r[0] for r in items}; rids={r[0] for r in reviews}
+          assert ids==rids and {qnum(x) for x in ids}==set(range(1,781))
+          assert all(sum(1 for cid in ids if qnum(cid)==n)==1 for n in range(771,781))
+          payloads=[]; reread=0; new=0
+          for cid,pj,ps,ash in items:
+              obj=json.loads(pj); payloads.append(obj)
+              assert h(obj)==ps, cid
+              rr=con.execute('SELECT review_json,review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone()
+              assert rr and rr[1]==ash and rr[2]=='FINAL_10_10_PASS', cid
+              rev=json.loads(rr[0])
+              assert rev.get('review_sha256')==rr[1], cid
+              assert obj.get('step2_final_audit',{}).get('review_sha256')==rr[1], cid
+              assert len(obj['item']['options'])==5 and len(set(obj['item']['options'].values()))==5, cid
+              assert len(obj.get('sources',[]))>=2 and all(s.get('section_locator') for s in obj['sources']), cid
+              n=qnum(cid)
+              if 771<=n<=780:
+                  ca=rev.get('clinical_audit',{})
+                  assert rev.get('verdict')=='FINAL_10_10_PASS', cid
+                  assert ca.get('status')=='FINAL_10_10_PASS' and ca.get('unresolved_conflicts')==0, cid
+                  assert ca.get('source_authority')=='PASS' and ca.get('source_currentness',{}).get('status')=='PASS', cid
+                  assert ca.get('exact_locator')=='PASS' and ca.get('stem')=='PASS' and ca.get('lead_in')=='PASS', cid
+                  assert ca.get('correct_answer')=='PASS' and ca.get('rationale')=='PASS' and ca.get('educational_objective')=='PASS', cid
+                  assert ca.get('ambiguity')=='PASS' and ca.get('second_possible_answer')=='PASS_NONE', cid
+                  assert ca.get('cueing')=='PASS' and ca.get('overlap')=='PASS' and ca.get('zero_unsupported_precision')=='PASS', cid
+                  assert ca.get('adversarial_second_pass',{}).get('result')=='PASS', cid
+                  new+=1
+              reread+=1
+          assert reread==780 and new==10
+          bp=dict(Counter(p['blueprint']['primary_system'] for p in payloads))
+          cp=dict(Counter(p['blueprint']['primary_competency'] for p in payloads))
+          assert bp==expected_blueprint, bp
+          assert cp==expected_competencies, cp
+          state=json.load(open('usmle/state/step2_final_q0001_q0780.json'))
+          audit=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q0780.json'))
+          assert state==audit
+          assert state['audit_id']=='STEP2-FINAL-Q0001-Q0780-20260830'
+          assert state['final_status']=='FINAL_10_10_PASS'
+          assert state['item_count']==780 and state['step2_final_review_count']==780
+          assert state['new_block']['range']=='Q0771-Q0780' and state['new_block']['clinical_audit_files_verified']==10
+          assert state['sqlite_integrity_check']=='ok' and state['duplicate_candidate_id_count']==0
+          assert state['payload_review_consistency']=='PASS'
+          assert state['reread_verified_count']==780 and state['new_block_reread_verified_count']==10
+          assert state['q0771_q0780_present_exactly_once'] is True
+          assert state['contiguous_q0001_q0780'] is True
+          assert state['blueprint_counts']==expected_blueprint and state['competency_counts']==expected_competencies
+          assert state['wal_sidecar_present_after_close'] is False and state['shm_sidecar_present_after_close'] is False
+          assert state['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          ordered=sorted(payloads,key=lambda p:qnum(p['candidate_id']))
+          seq=''.join(p['item']['intended_key'] for p in ordered if 771<=qnum(p['candidate_id'])<=780)
+          assert len(seq)==10 and Counter(seq)==Counter({'A':2,'B':2,'C':2,'D':2,'E':2})
+          assert state['answer_position_new_block']['sequence']==seq
+          blob=subprocess.check_output(['git','hash-object',db],text=True).strip()
+          assert state['pre_authoritative_db_blob']=='1c621c9e756be9bc16a88d35dc543de5309e0d12'
+          assert state['post_authoritative_db_blob']==blob and blob!='1c621c9e756be9bc16a88d35dc543de5309e0d12'
+          fin=con.execute('SELECT audit_id,item_count FROM step2_finalization WHERE id=1').fetchone()
+          assert fin==('STEP2-FINAL-Q0001-Q0780-20260830',780), fin
+          con.close()
+          assert not pathlib.Path(db+'-wal').exists() and not pathlib.Path(db+'-shm').exists()
+          print(json.dumps({'integrity_check':'ok','items':780,'reviews':780,'duplicates':0,'reread':780,'new_block':10,'post_db_blob':blob},sort_keys=True))
+          PY
+
+      - name: Persist authoritative USMLE state
+        run: |
+          git config user.name 'USMLE Step2 Finalizer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -f usmle/data/usmle-step1.db usmle/audit/STEP2_FINAL_10_10_Q0001_Q0780.json usmle/state/step2_final_q0001_q0780.json
+          git commit -m 'Finalize USMLE Step 1 Q0771-Q0780 at Step2 10/10'
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Verify persisted main commit and SQLite blob
+        run: |
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          python - <<'PY'
+          import json, pathlib, re, sqlite3, subprocess
+          db='usmle/data/usmle-step1.db'
+          state=json.load(open('usmle/state/step2_final_q0001_q0780.json'))
+          head_blob=subprocess.check_output(['git','rev-parse','HEAD:'+db],text=True).strip()
+          assert head_blob==state['post_authoritative_db_blob']
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==780
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==780
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          fin=con.execute('SELECT audit_id,item_count FROM step2_finalization WHERE id=1').fetchone()
+          assert fin==('STEP2-FINAL-Q0001-Q0780-20260830',780), fin
+          con.close()
+          assert not pathlib.Path(db+'-wal').exists() and not pathlib.Path(db+'-shm').exists()
+          print(json.dumps({'origin_main_matches_head':True,'persisted_db_blob':head_blob,'integrity_check':'ok','items':780,'reviews':780,'duplicates':0,'wal_sidecar':False,'shm_sidecar':False},sort_keys=True))
+          PY
