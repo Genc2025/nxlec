@@ -1,0 +1,67 @@
+[
+  {
+    "num": 780,
+    "system": "Biostatistics, Epidemiology and Population Health",
+    "outline": [
+      "Biostatistics, Epidemiology and Population Health",
+      "Selection bias",
+      "Conditioning on a common effect",
+      "Collider/Berkson bias"
+    ],
+    "primary_competency": "Practice-Based Learning and Improvement",
+    "discipline": "Epidemiology / Causal Inference",
+    "diagnosis": "Collider (Berkson) bias",
+    "mechanism": "Collider bias occurs when analysis conditions on, stratifies by, or selects participants according to a variable that is a common effect of both an exposure and an outcome (or their causes). Conditioning on the collider can induce a spurious association between otherwise independent variables.",
+    "vignette": "Investigators study whether a chronic exposure is associated with a particular disease using only patients admitted to a tertiary hospital. Both the exposure and the disease independently increase the probability of hospital admission. In the source population, the exposure and disease are otherwise unrelated.",
+    "lead": "Restricting the analysis to hospitalized patients can create which of the following biases?",
+    "correct": "Collider (Berkson) bias",
+    "distractors": [
+      "Recall bias",
+      "Lead-time bias",
+      "Verification bias",
+      "Attrition bias"
+    ],
+    "distractor_notes": [
+      "Recall bias arises when cases and controls remember previous exposures with different accuracy; no retrospective recall process is described.",
+      "Lead-time bias is an apparent survival advantage caused by earlier diagnosis without changing the time of death.",
+      "Verification bias arises when use of a diagnostic reference standard depends on the index-test result or clinical suspicion.",
+      "Attrition bias results from systematic differential loss to follow-up after enrollment, not selection into the study through a common-effect variable."
+    ],
+    "key_expl": "Hospital admission is a collider because it is influenced independently by both the exposure and the disease. Conditioning the analysis on hospitalization opens a noncausal path between exposure and disease, creating an association that need not exist in the source population. The classic hospital-selection form is often called Berkson bias.",
+    "objective": "Recognize collider/Berkson bias when study selection conditions on a variable that is caused by both the exposure and the outcome.",
+    "clues": [
+      "hospital-only sample",
+      "both exposure and disease increase admission",
+      "no association in source population",
+      "selection on admission"
+    ],
+    "difficulty": "moderate",
+    "reasoning_steps_count": 3,
+    "sources": [
+      {
+        "organization": "United States Medical Licensing Examination",
+        "title": "Step 1 Exam Content",
+        "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+        "date": "Current official Step 1 specifications; verified 2026-08-30",
+        "locator": "Step 1 Content Specifications — Table 1; Step 1 Physician Tasks/Competencies Specifications — Table 2",
+        "support": "Supports the selected Step 1 system category and physician task/competency."
+      },
+      {
+        "organization": "National Library of Medicine / PubMed",
+        "title": "Berkson's bias, selection bias, and missing data",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22081062/",
+        "date": "2012; concept reverified 2026-08-30",
+        "locator": "Abstract and Figure 1 explanation",
+        "support": "Supports Berkson bias as selection/collider bias when clinic or hospital attendance is affected by both exposure and disease."
+      },
+      {
+        "organization": "National Library of Medicine / PubMed",
+        "title": "Collider bias undermines our understanding of COVID-19 disease risk and severity",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33184277/",
+        "date": "2020; concept reverified 2026-08-30",
+        "locator": "Abstract",
+        "support": "Supports the causal-inference principle that conditioning on a selected sample influenced by multiple variables can induce spurious associations through collider bias."
+      }
+    ]
+  }
+]
