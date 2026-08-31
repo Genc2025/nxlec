@@ -169,7 +169,7 @@ def new_schedule():
             continue
         if seq[5:] in ('ABCDE','BCDEA','CDEAB','DEABC','EABCD'):
             continue
-        return {871+i:base[i] for i in range(10)}
+        return {881+i:base[i] for i in range(10)}
     raise SystemExit('unable to generate key schedule')
 
 def source_norm(s,i):
