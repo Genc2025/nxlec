@@ -121,8 +121,8 @@ jobs:
           assert state['expert_review_layer_required'] is True and state['key_integrity_gate_required'] is True
           assert state['canonical_main_construct_overlap_required'] is True
           assert state['reread_verified_count']==830 and state['new_block_reread_verified_count']==10
-          assert state['q0811_q0820_present_exactly_once'] is True
-          assert state['contiguous_q0001_q0820'] is True
+          assert state['q0821_q0830_present_exactly_once'] is True
+          assert state['contiguous_q0001_q0830'] is True
           assert state['blueprint_counts']==expected_blueprint and state['competency_counts']==expected_competencies
           assert state['wal_sidecar_present_after_close'] is False and state['shm_sidecar_present_after_close'] is False
           assert state['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
