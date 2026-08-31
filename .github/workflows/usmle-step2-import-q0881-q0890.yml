@@ -149,7 +149,7 @@ jobs:
           assert state['wal_sidecar_present_after_close'] is False and state['shm_sidecar_present_after_close'] is False
           assert state['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
           ordered=sorted(payloads,key=lambda p:qnum(p['candidate_id']))
-          seq=''.join(p['item']['intended_key'] for p in ordered if 871<=qnum(p['candidate_id'])<=880)
+          seq=''.join(p['item']['intended_key'] for p in ordered if 881<=qnum(p['candidate_id'])<=890)
           assert len(seq)==10 and Counter(seq)==Counter({'A':2,'B':2,'C':2,'D':2,'E':2})
           assert state['answer_position_new_block']['sequence']==seq
           blob=subprocess.check_output(['git','hash-object',db],text=True).strip()
