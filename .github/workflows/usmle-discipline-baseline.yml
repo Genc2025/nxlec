@@ -1,0 +1,45 @@
+name: USMLE Discipline Baseline Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/DISCIPLINE_BASELINE_TRIGGER'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Audit raw discipline labels in canonical DB
+        run: |
+          python - <<'PY'
+          import collections, json, re, sqlite3
+          db='usmle/data/usmle-step1.db'
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==880, len(rows)
+          raw=collections.Counter()
+          examples=collections.defaultdict(list)
+          for cid,pj in rows:
+              p=json.loads(pj)
+              ds=p.get('blueprint',{}).get('disciplines',[])
+              if isinstance(ds,str): ds=[ds]
+              for d in ds:
+                  raw[d]+=1
+                  if len(examples[d])<3: examples[d].append(cid)
+          out={
+            'canonical_final_count':len(rows),
+            'unique_raw_discipline_labels':len(raw),
+            'raw_counts':[{'label':k,'count':v,'examples':examples[k]} for k,v in raw.most_common()]
+          }
+          print(json.dumps(out,indent=2,ensure_ascii=False))
+          PY
