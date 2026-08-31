@@ -476,7 +476,7 @@ def main():
         'realism_gate_required':True,'official_discipline_gate_required':True,
         'sqlite_integrity_check':'ok','duplicate_candidate_id_count':0,
         'payload_review_consistency':'PASS','reread_verified_count':890,'new_block_reread_verified_count':10,'expert_review_layer_required':True,'key_integrity_gate_required':True,'canonical_main_construct_overlap_required':True,
-        'q0881_q0890_present_exactly_once':True,'contiguous_q0001_q0880':True,
+        'q0881_q0890_present_exactly_once':True,'contiguous_q0001_q0890':True,
         'stale_ampersand_category_count':0,'technical_metadata_normalizations':{
             'Q0642 competency':'Practice-based Learning & Improvement -> Practice-Based Learning and Improvement',
             'Q0646 system':'Multisystem Processes & Disorders -> Multisystem Processes and Disorders',
