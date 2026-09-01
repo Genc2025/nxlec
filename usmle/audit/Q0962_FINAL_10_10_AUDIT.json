@@ -13,7 +13,8 @@
   "source_currentness": {
     "status": "PASS",
     "notes": [
-      "Budd-Chiari Syndrome — StatPearls 2026 NCBI page verified 2026-09-01; Introduction/Etiology/Pathophysiology/History/Evaluation support hepatic venous outflow obstruction, estrogen-associated thrombosis, abdominal pain/ascites/hepatomegaly and Doppler hepatic-vein occlusion."
+      "Step 1 Exam Content — verified 2026-09-01",
+      "Budd-Chiari Syndrome — verified 2026-09-01"
     ]
   },
   "exact_locator": "PASS",
@@ -46,10 +47,11 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_NUMERIC_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33542267691,
-  "construct_probe_run_id": 33542267691,
+  "forward_duplicate_run_id": 33542633638,
+  "construct_probe_run_id": 33542633638,
+  "duplicate_gate_head_sha": "4a85830fe37b3b2ac202f96eb4e9468c5318184e",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Automated diagnosis string hit S1-DIRECT-0358 only at $.evidence_map[2].claim, where Budd-Chiari is explicitly an incorrect alternative to alcoholic cirrhosis/portal-hypertension findings. Canonical main construct is not Budd-Chiari.",
+  "canonical_probe_note": "Exact-head run 33542633638 found one diagnosis-string reference at Q0358 $.evidence_map[2].claim explicitly stating Budd-Chiari is incorrect for that cirrhosis vignette; construct probes returned zero hits. Q0358 main construct is not Budd-Chiari.",
   "blueprint": {
     "system": "Gastrointestinal System",
     "competency": "Patient Care: Diagnosis, including history and physical examination",
@@ -91,9 +93,9 @@
     "parallelism": "PASS"
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Painful hepatomegaly and ascites in an estrogen-exposed patient with absent hepatic-vein flow and a patent portal vein localize the obstruction to hepatic venous outflow, which defines Budd-Chiari syndrome.",
-    "strongest_distractor_attack": "Portal-vein thrombosis can produce portal hypertension, but the portal vein is explicitly patent and Doppler shows hepatic-vein occlusion. Constrictive pericarditis can cause congestive hepatomegaly but cannot explain direct hepatic-vein absent flow.",
-    "expert_reviewer_reversal": "Independent reread found no authoritative basis to reverse the intended key and no alternative option remains defensible at the requested answer granularity.",
+    "independent_reconstruction": "Estrogen exposure raises thrombotic risk; painful hepatomegaly and ascites with absent hepatic-vein flow but patent portal vein localize the obstruction to hepatic venous outflow, defining Budd-Chiari syndrome.",
+    "strongest_distractor_attack": "Portal-vein thrombosis can cause portal hypertension and ascites, but the imaging localizes absent flow to hepatic veins while the portal vein remains patent. Constrictive pericarditis is systemic venous congestion, not hepatic-vein occlusion.",
+    "expert_reviewer_reversal": "Independent reread after the final duplicate-gate run found no authoritative basis to reverse the key and no second defensible answer at the requested granularity.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-01"
@@ -129,18 +131,27 @@
   "correction_history": {
     "prior_candidates": [
       {
+        "construct": "Minimal change disease",
+        "status": "BLOCKED",
+        "reason": "Canonical main-construct overlap with Q0351.",
+        "gate_run": 33541534667
+      },
+      {
         "construct": "Primary biliary cholangitis",
         "status": "BLOCKED",
-        "reason": "Canonical main-construct overlap with Q0560."
+        "reason": "Canonical main-construct overlap with Q0560.",
+        "gate_run": 33541796258
       },
       {
         "construct": "Whipple disease",
         "status": "BLOCKED",
-        "reason": "Canonical main-construct overlap with Q0620."
+        "reason": "Canonical main-construct overlap with Q0620.",
+        "gate_run": 33542113835
       }
     ],
     "final_replacement": "Budd-Chiari syndrome",
-    "final_gate_run": 33542267691,
+    "pre_correction_clean_context_run": 33542267691,
+    "final_post_Q0961_correction_gate_run": 33542633638,
     "full_audit_restarted_from_zero": true
   }
 }
