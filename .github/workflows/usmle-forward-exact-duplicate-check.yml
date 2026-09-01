@@ -8,6 +8,7 @@ on:
       - 'usmle/batch_specs_0701_0800/**'
       - 'usmle/batch_specs_0801_0900/**'
       - 'usmle/batch_specs_0901_1000/**'
+      - 'usmle/batch_specs_1001_1100/**'
       - '.github/workflows/usmle-forward-exact-duplicate-check.yml'
       - 'usmle/audit/FORWARD_EXACT_DUPLICATE_CHECK_TRIGGER'
       - 'usmle/audit/FORWARD_CONCEPT_PROBE.json'
@@ -42,7 +43,7 @@ jobs:
                   yield path, v
 
           staged=[]
-          for pattern in ('usmle/batch_specs_0601_0700/*.json','usmle/batch_specs_0701_0800/*.json','usmle/batch_specs_0801_0900/*.json','usmle/batch_specs_0901_1000/*.json'):
+          for pattern in ('usmle/batch_specs_0601_0700/*.json','usmle/batch_specs_0701_0800/*.json','usmle/batch_specs_0801_0900/*.json','usmle/batch_specs_0901_1000/*.json','usmle/batch_specs_1001_1100/*.json'):
               for fn in sorted(glob.glob(pattern)):
                   obj=json.load(open(fn))
                   rows=obj if isinstance(obj,list) else obj.get('items',[])
