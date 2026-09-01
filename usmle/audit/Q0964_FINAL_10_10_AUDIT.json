@@ -13,7 +13,8 @@
   "source_currentness": {
     "status": "PASS",
     "notes": [
-      "Celiac Disease — StatPearls NCBI page verified 2026-09-01; Etiology supports tTG-mediated deamidation of gliadin and increased HLA-DQ2/DQ8 binding/T-cell activation."
+      "Step 1 Exam Content — verified 2026-09-01",
+      "Celiac Disease — verified 2026-09-01"
     ]
   },
   "exact_locator": "PASS",
@@ -46,10 +47,11 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_NUMERIC_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33542267691,
-  "construct_probe_run_id": 33542267691,
+  "forward_duplicate_run_id": 33542633638,
+  "construct_probe_run_id": 33542633638,
+  "duplicate_gate_head_sha": "4a85830fe37b3b2ac202f96eb4e9468c5318184e",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Definitive forward diagnosis/mechanism/phenotype probes against canonical Q0001-Q0960 returned no canonical hits; staged_count=10.",
+  "canonical_probe_note": "Exact-head run 33542633638 returned zero diagnosis-string and construct-probe hits against canonical Q0001-Q0960.",
   "blueprint": {
     "system": "Gastrointestinal System",
     "competency": "Medical Knowledge: Applying Foundational Science Concepts",
@@ -92,9 +94,9 @@
     "parallelism": "PASS"
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Celiac disease requires gluten-derived gliadin peptides presented by HLA-DQ2/DQ8. Tissue transglutaminase deamidates gliadin, increasing HLA affinity and pathogenic CD4 T-cell activation.",
-    "strongest_distractor_attack": "tTG is also the autoantigen used in serologic diagnosis, but the lead specifically asks which biochemical modification increases gliadin immunogenicity; deamidation is the direct mechanistic answer.",
-    "expert_reviewer_reversal": "Independent reread found no authoritative basis to reverse the intended key and no alternative option remains defensible at the requested answer granularity.",
+    "independent_reconstruction": "In celiac disease, tissue transglutaminase deamidates gliadin, increasing its affinity for HLA-DQ2/DQ8 and strengthening pathogenic CD4 T-cell presentation.",
+    "strongest_distractor_attack": "Celiac disease also generates anti-tTG antibodies, but the question asks what increases gliadin peptide immunogenicity. Deamidation by tTG2 is the specific biochemical step; none of the other modifications participates in this mechanism.",
+    "expert_reviewer_reversal": "Independent reread after the final duplicate-gate run found no authoritative basis to reverse the key and no second defensible answer at the requested granularity.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-01"
