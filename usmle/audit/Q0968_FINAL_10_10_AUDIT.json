@@ -13,7 +13,8 @@
   "source_currentness": {
     "status": "PASS",
     "notes": [
-      "Physiology, Muscle Myocyte — StatPearls NCBI page verified 2026-09-01; cardiac myocyte structure supports gap junctions/intercalated discs as low-resistance electrical connections."
+      "Step 1 Exam Content — verified 2026-09-01",
+      "Physiology, Muscle Myocyte — verified 2026-09-01"
     ]
   },
   "exact_locator": "PASS",
@@ -46,10 +47,11 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_NUMERIC_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33542267691,
-  "construct_probe_run_id": 33542267691,
+  "forward_duplicate_run_id": 33542633638,
+  "construct_probe_run_id": 33542633638,
+  "duplicate_gate_head_sha": "4a85830fe37b3b2ac202f96eb4e9468c5318184e",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Definitive forward diagnosis/mechanism/phenotype probes against canonical Q0001-Q0960 returned no canonical hits; staged_count=10.",
+  "canonical_probe_note": "Exact-head run 33542633638 returned zero diagnosis-string and construct-probe hits against canonical Q0001-Q0960.",
   "blueprint": {
     "system": "Cardiovascular System",
     "competency": "Medical Knowledge: Applying Foundational Science Concepts",
@@ -91,9 +93,9 @@
     "parallelism": "PASS"
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Gap junctions in intercalated discs provide low-resistance ion pathways between adjacent cardiomyocytes, so selective loss directly impairs cell-to-cell electrical propagation without primarily disrupting ATP production or SR calcium storage.",
-    "strongest_distractor_attack": "Desmosomes anchor intermediate filaments and fascia adherens anchor actin; neither forms ion-conducting channels. Gap junction loss most directly disrupts electrical synchronization.",
-    "expert_reviewer_reversal": "Independent reread found no authoritative basis to reverse the intended key and no alternative option remains defensible at the requested answer granularity.",
+    "independent_reconstruction": "Connexin gap junctions in intercalated discs create low-resistance ion pathways between cardiomyocytes, permitting rapid electrical spread and coordinated activation.",
+    "strongest_distractor_attack": "Desmosomes also occupy intercalated discs but provide mechanical coupling, not direct ion flow. The stem explicitly describes channels passing ions cell-to-cell, uniquely identifying gap-junction electrical propagation.",
+    "expert_reviewer_reversal": "Independent reread after the final duplicate-gate run found no authoritative basis to reverse the key and no second defensible answer at the requested granularity.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-01"
