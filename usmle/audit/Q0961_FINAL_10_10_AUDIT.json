@@ -13,7 +13,8 @@
   "source_currentness": {
     "status": "PASS",
     "notes": [
-      "Membranous Nephropathy — StatPearls 2026 NCBI page verified 2026-09-01; Etiology/Pathophysiology/Histopathology directly support PLA2R-associated primary disease, granular capillary-wall IgG, subepithelial deposits, GBM thickening and spike-and-dome pattern."
+      "Step 1 Exam Content — verified 2026-09-01",
+      "Membranous Nephropathy — verified 2026-09-01"
     ]
   },
   "exact_locator": "PASS",
@@ -46,10 +47,11 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_NUMERIC_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33542267691,
-  "construct_probe_run_id": 33542267691,
+  "forward_duplicate_run_id": 33542633638,
+  "construct_probe_run_id": 33542633638,
+  "duplicate_gate_head_sha": "4a85830fe37b3b2ac202f96eb4e9468c5318184e",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Automated diagnosis string hit S1-DIRECT-0781 only at $.evidence_map[4].claim, where membranous nephropathy/PLA2R is explicitly an incorrect distractor comparison to a pulmonary-renal crescentic syndrome. Canonical main construct is not membranous nephropathy.",
+  "canonical_probe_note": "Post-Q0961-correction exact-head run 33542633638 scanned canonical Q0001-Q0960 with staged_count=10. Q0961 diagnosis-string report and all four construct probes returned zero canonical hits.",
   "blueprint": {
     "system": "Respiratory and Renal/Urinary Systems",
     "competency": "Patient Care: Diagnosis, including history and physical examination",
@@ -92,9 +94,9 @@
     "parallelism": "PASS"
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Nephrotic-range proteinuria with diffuse capillary-wall thickening, granular IgG, and subepithelial electron-dense deposits is the classic membranous nephropathy pattern; minimal change lacks deposits, IgA is mesangial, PSGN is nephritic/subepithelial humps, and diabetic nephropathy lacks granular immune deposits.",
-    "strongest_distractor_attack": "PSGN can have subepithelial deposits, but it presents as nephritic disease with hump-like deposits and different IF; the combined nephrotic phenotype, diffuse wall thickening and granular capillary IgG makes membranous uniquely correct.",
-    "expert_reviewer_reversal": "Independent reread found no authoritative basis to reverse the intended key and no alternative option remains defensible at the requested answer granularity.",
+    "independent_reconstruction": "The nephrotic phenotype plus diffuse capillary-wall thickening, granular capillary-loop IgG and subepithelial electron-dense deposits identifies membranous nephropathy without requiring an unsupported assumption about primary versus secondary etiology.",
+    "strongest_distractor_attack": "Poststreptococcal GN can also have subepithelial deposits, but its deposits are hump-like in a nephritic syndrome. The combined nephrotic phenotype, diffuse wall thickening and granular capillary-loop IgG makes membranous nephropathy uniquely correct.",
+    "expert_reviewer_reversal": "Independent reread after the final duplicate-gate run found no authoritative basis to reverse the key and no second defensible answer at the requested granularity.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-01"
@@ -126,5 +128,13 @@
     "no_authoritative_source_conflict": "PASS",
     "no_required_hidden_assumption": "PASS"
   },
-  "reverified_at": "2026-09-01"
+  "reverified_at": "2026-09-01",
+  "correction_history": {
+    "prior_defect": "Diagnosis metadata originally specified primary membranous nephropathy even though the vignette did not exclude secondary causes.",
+    "prior_status_invalidated": true,
+    "repair": "Diagnosis metadata neutralized to membranous nephropathy with subepithelial immune deposits; mechanism wording no longer assumes primary etiology while noting anti-PLA2R only as a common primary association.",
+    "superseded_duplicate_run": 33542267691,
+    "full_duplicate_gate_repeated_after_repair": 33542633638,
+    "full_audit_restarted_from_zero": true
+  }
 }
