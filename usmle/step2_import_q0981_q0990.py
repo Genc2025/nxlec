@@ -309,7 +309,7 @@ def main():
     if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0:
         raise SystemExit('pre duplicate candidate_id in reviews')
     old_ids={r[0] for r in old_items}; review_ids={r[0] for r in old_reviews}
-    if old_ids!=review_ids or {qnum(cid) for cid in old_ids}!=set(range(1,991)):
+    if old_ids!=review_ids or {qnum(cid) for cid in old_ids}!=set(range(1,981)):
         raise SystemExit('pre canonical item/review/contiguity failure')
     for cid,pj,ps,ash in old_items:
         obj=json.loads(pj)
@@ -383,7 +383,7 @@ def main():
     if con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0 or con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_reviews GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]!=0:
         raise SystemExit('post duplicate candidate_id failure')
     ids={r[0] for r in items}; rids={r[0] for r in revs}
-    if ids!=rids or {qnum(cid) for cid in ids}!=set(range(1,981)):
+    if ids!=rids or {qnum(cid) for cid in ids}!=set(range(1,991)):
         raise SystemExit('post item/review/contiguity failure')
     if any(sum(1 for cid in ids if qnum(cid)==n)!=1 for n in range(981,991)):
         raise SystemExit('Q0981-Q0990 exact-once failure')
