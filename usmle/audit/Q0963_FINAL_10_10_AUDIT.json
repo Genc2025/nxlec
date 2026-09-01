@@ -13,7 +13,8 @@
   "source_currentness": {
     "status": "PASS",
     "notes": [
-      "Osteoid Osteoma — StatPearls 2026 NCBI page verified 2026-09-01; Introduction/Pathophysiology/History/Evaluation support small nidus, reactive sclerosis, nocturnal pain and characteristic NSAID response."
+      "Step 1 Exam Content — verified 2026-09-01",
+      "Osteoid Osteoma — verified 2026-09-01"
     ]
   },
   "exact_locator": "PASS",
@@ -46,10 +47,11 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_NUMERIC_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33542267691,
-  "construct_probe_run_id": 33542267691,
+  "forward_duplicate_run_id": 33542633638,
+  "construct_probe_run_id": 33542633638,
+  "duplicate_gate_head_sha": "4a85830fe37b3b2ac202f96eb4e9468c5318184e",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Automated hits S1-DIRECT-0135, Q0230 and Q0635 occur only in evidence-map distractor explanations identifying osteoid osteoma as incorrect. No canonical main construct is osteoid osteoma.",
+  "canonical_probe_note": "Exact-head run 33542633638 found only distractor/evidence-map references at Q0135, Q0230 and Q0635; each context explicitly treats osteoid osteoma/osteoblastoma as incorrect for another vignette. Construct probes returned zero hits; no canonical main-construct overlap.",
   "blueprint": {
     "system": "Musculoskeletal, Skin and Subcutaneous Tissue",
     "competency": "Patient Care: Diagnosis, including history and physical examination",
@@ -91,9 +93,9 @@
     "parallelism": "PASS"
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "A teen with focal nocturnal pain dramatically relieved by NSAIDs plus a small cortical radiolucent nidus and reactive sclerosis has osteoid osteoma; osteoblastoma is larger and less classically NSAID-responsive.",
-    "strongest_distractor_attack": "Osteoblastoma shares osteoid production and can occur in young patients, but it is typically larger, often spinal, and pain is not classically relieved dramatically by NSAIDs; the small cortical nidus plus nocturnal NSAID-responsive pain uniquely favors osteoid osteoma.",
-    "expert_reviewer_reversal": "Independent reread found no authoritative basis to reverse the intended key and no alternative option remains defensible at the requested answer granularity.",
+    "independent_reconstruction": "An adolescent with focal nocturnal bone pain rapidly relieved by an NSAID and a small cortical radiolucent nidus surrounded by sclerosis has osteoid osteoma.",
+    "strongest_distractor_attack": "Osteoblastoma shares osteoid histology but is usually larger, often spinal, and its pain is less characteristically NSAID-responsive. The small cortical nidus plus nocturnal NSAID-relieved pain uniquely favors osteoid osteoma.",
+    "expert_reviewer_reversal": "Independent reread after the final duplicate-gate run found no authoritative basis to reverse the key and no second defensible answer at the requested granularity.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-01"
@@ -127,13 +129,23 @@
   },
   "reverified_at": "2026-09-01",
   "correction_history": {
-    "prior_candidate": {
-      "construct": "Paget disease of bone",
-      "status": "BLOCKED",
-      "reason": "Canonical main-construct overlap with Q0330."
-    },
+    "prior_candidates": [
+      {
+        "construct": "IgA nephropathy",
+        "status": "BLOCKED",
+        "reason": "Canonical main-construct overlap with Q0051.",
+        "gate_run": 33541534667
+      },
+      {
+        "construct": "Paget disease of bone",
+        "status": "BLOCKED",
+        "reason": "Canonical main-construct overlap with Q0330.",
+        "gate_run": 33541796258
+      }
+    ],
     "final_replacement": "Osteoid osteoma",
-    "final_gate_run": 33542267691,
+    "canonical_reference_context": "Q0135/Q0230/Q0635 references are distractor/evidence-map comparisons, not canonical main constructs.",
+    "final_post_Q0961_correction_gate_run": 33542633638,
     "full_audit_restarted_from_zero": true
   }
 }
