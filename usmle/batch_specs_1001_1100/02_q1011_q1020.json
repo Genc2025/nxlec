@@ -552,99 +552,38 @@
     "system": "Biostatistics, Epidemiology and Population Health",
     "outline": [
       "Biostatistics, Epidemiology and Population Health",
-      "Causal inference",
-      "Selection bias",
-      "Collider stratification bias"
+      "Measures of treatment harm",
+      "Absolute risk increase",
+      "Number needed to harm"
     ],
     "primary_competency": "Practice-Based Learning and Improvement",
     "discipline": "Behavioral Sciences",
     "disciplines": [
       "Behavioral Sciences"
     ],
-    "diagnosis": "Collider bias from conditioning on a common effect",
-    "mechanism": "A collider is a variable caused by two other variables. Conditioning on, stratifying by, or restricting a sample according to the collider can create a noncausal association between its causes even when they are otherwise independent. This is a form of selection bias and can distort causal estimates.",
-    "vignette": "Investigators study whether chronic opioid use is associated with severe postoperative pain. Both chronic opioid use and severe postoperative pain independently increase the probability that a patient will be referred to a specialty pain clinic. The investigators include only patients seen in that clinic and observe an inverse association between opioid use and severe pain.",
-    "lead": "Which bias most directly threatens this study?",
-    "correct": "Collider bias from conditioning on specialty-clinic referral",
+    "diagnosis": "Number needed to harm derived from absolute risk increase",
+    "mechanism": "Number needed to harm (NNH) is the reciprocal of the absolute risk increase for a specified adverse outcome over a defined period. If an adverse event occurs in 14% of the treatment group and 9% of the control group, the absolute risk increase is 0.05 and NNH is 1/0.05 = 20.",
+    "vignette": "A randomized trial compares a new medication with standard therapy. During one year, a serious adverse event occurs in 14% of patients receiving the new medication and in 9% of patients receiving standard therapy.",
+    "lead": "What is the number needed to harm for this adverse event over one year?",
+    "correct": "20",
     "distractors": [
-      "Recall bias",
-      "Lead-time bias",
-      "Nonresponse bias",
-      "Regression to the mean"
+      "5",
+      "7",
+      "11",
+      "28"
     ],
     "distractor_notes": [
-      "Recall bias requires systematic differences in the accuracy of remembered exposures or outcomes; the problem here is selection on a common effect of exposure and outcome.",
-      "Lead-time bias concerns earlier diagnosis through screening and apparent survival extension without changed mortality; no screening-survival framework is present.",
-      "Nonresponse bias concerns differential participation or survey response; the described distortion arises specifically because referral is caused by both variables being analyzed.",
-      "Regression to the mean describes extreme measurements becoming less extreme on repeat measurement and does not explain an induced exposure-outcome association after conditioning on referral."
+      "5 is the absolute risk increase expressed in percentage points, not its reciprocal.",
+      "7 does not correspond to the reciprocal of the 5-percentage-point absolute risk increase.",
+      "11 approximates the reciprocal of the 9% control event rate rather than the incremental treatment-attributable risk.",
+      "28 is not obtained from the absolute risk increase of 0.05."
     ],
-    "key_expl": "Specialty-clinic referral is a collider because both opioid use and severe pain increase the probability of referral. Restricting analysis to referred patients conditions on this common effect and can induce a spurious inverse association between its causes.",
-    "objective": "Recognize collider bias when study inclusion or stratification conditions on a variable caused by both the exposure and the outcome.",
+    "key_expl": "Absolute risk increase = 0.14 − 0.09 = 0.05. NNH = 1/0.05 = 20, meaning that treating 20 patients for one year would produce one additional adverse event compared with standard therapy.",
+    "objective": "Calculate number needed to harm as the reciprocal of the absolute risk increase for an adverse treatment outcome.",
     "clues": [
-      "exposure increases referral",
-      "outcome increases referral",
-      "only referred patients included",
-      "inverse association appears"
-    ],
-    "difficulty": "moderate-hard",
-    "reasoning_steps_count": 3,
-    "sources": [
-      {
-        "organization": "United States Medical Licensing Examination",
-        "title": "Step 1 Exam Content",
-        "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-        "date": "Current official Step 1 specifications; verified 2026-09-02",
-        "locator": "Step 1 Content Specifications Tables 1-3",
-        "support": "Supports biostatistics/epidemiology system, Practice-Based Learning and Improvement competency, and Behavioral Sciences classification."
-      },
-      {
-        "organization": "PubMed",
-        "title": "The Same but Different?: A Systematic Review of the Impact of Selection and Collider Bias on Internal Validity",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/40167168/",
-        "date": "2025 systematic review; verified 2026-09-02",
-        "locator": "Abstract — selection and collider-restriction bias as threats to internal validity",
-        "support": "Supports collider restriction as a form of selection bias capable of distorting observed associations."
-      }
-    ]
-  },
-  {
-    "num": 1020,
-    "system": "Social Sciences: Communication and Interpersonal Skills",
-    "outline": [
-      "Social Sciences: Communication and Interpersonal Skills",
-      "Health literacy",
-      "Teach-back method",
-      "Confirmation of patient understanding"
-    ],
-    "primary_competency": "Communication and Interpersonal Skills",
-    "discipline": "Behavioral Sciences",
-    "disciplines": [
-      "Behavioral Sciences"
-    ],
-    "diagnosis": "Use of teach-back to confirm patient understanding",
-    "mechanism": "Teach-back is a nonshaming communication strategy in which the clinician asks the patient or caregiver to explain the plan or instructions in their own words. It tests the clarity of the clinician's explanation rather than the patient's intelligence or memory and allows immediate clarification and reteaching.",
-    "vignette": "A 63-year-old woman is starting a new anticoagulant with a complex dosing schedule. After the clinician explains the plan, the patient nods and says that she understands. The clinician wants to confirm comprehension without embarrassing her.",
-    "lead": "Which response is most appropriate?",
-    "correct": "“I want to make sure I explained this clearly. Please tell me in your own words how you will take this medicine at home.”",
-    "distractors": [
-      "“Do you understand the dosing schedule I just explained?”",
-      "“Please sign this form confirming that you understand the instructions.”",
-      "“Read the medication handout again after you get home.”",
-      "“I will ask your family to manage the medicine because the schedule is complicated.”"
-    ],
-    "distractor_notes": [
-      "A yes-or-no question does not reliably confirm comprehension; patients may answer yes despite misunderstanding.",
-      "A signature documents receipt or consent but does not demonstrate actual understanding of a medication plan.",
-      "Written materials can reinforce counseling but should not replace active confirmation of comprehension when the instructions are clinically important.",
-      "Automatically transferring responsibility to family undermines patient autonomy and is unnecessary without first assessing and supporting the patient's understanding."
-    ],
-    "key_expl": "Teach-back asks the patient to explain the plan in their own words using nonshaming language. It directly verifies comprehension and allows the clinician to clarify and recheck any misunderstood information.",
-    "objective": "Use the teach-back method to confirm patient understanding of complex medical instructions while preserving dignity and autonomy.",
-    "clues": [
-      "complex medication instructions",
-      "patient says she understands",
-      "clinician wants to confirm comprehension",
-      "avoid embarrassment"
+      "randomized trial",
+      "adverse event 14% vs 9%",
+      "one-year horizon"
     ],
     "difficulty": "moderate",
     "reasoning_steps_count": 2,
@@ -655,23 +594,98 @@
         "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
         "date": "Current official Step 1 specifications; verified 2026-09-02",
         "locator": "Step 1 Content Specifications Tables 1-3",
-        "support": "Supports Communication and Interpersonal Skills competency, social-sciences system classification, and Behavioral Sciences discipline tagging."
+        "support": "Supports biostatistics/epidemiology system, Practice-Based Learning and Improvement competency, and Behavioral Sciences classification."
       },
       {
-        "organization": "Agency for Healthcare Research and Quality",
-        "title": "Use the Teach-Back Method: Tool 5",
-        "url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool5.html",
-        "date": "Content last reviewed April 2024; verified 2026-09-02",
-        "locator": "Overview and Action — asking patients to state in their own words what they need to know or do; nonshaming phrasing; clarify and check again",
-        "support": "Supports teach-back as an evidence-based method for checking understanding and recommends avoiding simple yes/no confirmation questions."
+        "organization": "Agency for Healthcare Research and Quality / NCBI Bookshelf",
+        "title": "Methods for Benefit and Harm Assessment in Systematic Reviews",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK115745/",
+        "date": "AHRQ methodological report; verified 2026-09-02",
+        "locator": "Number Needed To Treat and Number Needed To Harm section",
+        "support": "Supports NNH as the number of individuals who need to be treated over a specified period for one person to experience an additional harm."
       },
       {
-        "organization": "Agency for Healthcare Research and Quality",
-        "title": "Tool: Teach-Back",
-        "url": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/teachback.html",
-        "date": "Content last reviewed May 2023; verified 2026-09-02",
-        "locator": "Teach-Back overview — explain in own words and verify clinician communication",
-        "support": "Supports teach-back for confirming understanding of medication and care instructions."
+        "organization": "PubMed",
+        "title": "The number needed to harm: is it too optimistic?",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14760438/",
+        "date": "Methodologic article; verified 2026-09-02",
+        "locator": "Abstract — NNH is the reciprocal of absolute risk increase",
+        "support": "Supports calculation of NNH as the reciprocal of absolute risk increase when treatment increases adverse events."
+      }
+    ]
+  },
+  {
+    "num": 1020,
+    "system": "Social Sciences: Communication and Interpersonal Skills",
+    "outline": [
+      "Social Sciences: Communication and Interpersonal Skills",
+      "Research informed consent",
+      "Therapeutic misconception",
+      "Distinguishing clinical research from individualized treatment"
+    ],
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Behavioral Sciences",
+    "disciplines": [
+      "Behavioral Sciences"
+    ],
+    "diagnosis": "Therapeutic misconception during clinical-research informed consent",
+    "mechanism": "Therapeutic misconception occurs when a research participant fails to appreciate that clinical research is designed to answer a scientific question and may involve protocol-driven procedures, randomization, or assignments that are not individualized solely for the participant's therapeutic benefit. Valid consent requires explicit clarification of this distinction.",
+    "vignette": "A patient with metastatic cancer is considering enrollment in a randomized clinical trial. After the consent discussion, she says, “I know that if I join, you will make sure I am assigned to whichever study treatment is best for me personally.” She otherwise demonstrates decision-making capacity.",
+    "lead": "Which response by the investigator is most appropriate?",
+    "correct": "“The study is designed to answer a research question, so treatment assignment follows the study protocol and may not be the option we would choose solely for your individual benefit.”",
+    "distractors": [
+      "“Yes. Because I am your physician, I will make sure the randomization gives you the treatment most likely to help you.”",
+      "“The consent form already explains randomization, so there is no need to discuss this further.”",
+      "“You should enroll first, and we can clarify the difference between research and treatment after assignment.”",
+      "“If you are worried about this, you are probably not capable of consenting to research.”"
+    ],
+    "distractor_notes": [
+      "Randomization cannot be manipulated to guarantee individualized therapeutic benefit; affirming that belief reinforces the therapeutic misconception.",
+      "Signing or reading a consent form does not resolve a demonstrated misunderstanding; the investigator must clarify the distinction before valid consent.",
+      "Material misunderstandings about research purpose and assignment should be corrected before enrollment, not after randomization.",
+      "A misunderstanding does not by itself establish incapacity; the appropriate response is targeted clarification and reassessment of understanding."
+    ],
+    "key_expl": "The patient's statement demonstrates therapeutic misconception: she assumes research assignment will be individualized solely for her benefit. The investigator should explicitly distinguish the scientific purpose and protocol-driven nature of research from ordinary individualized clinical care before obtaining consent.",
+    "objective": "Correct therapeutic misconception during research consent by explicitly distinguishing protocol-driven clinical research from individualized treatment.",
+    "clues": [
+      "randomized clinical trial",
+      "patient expects personally optimized assignment",
+      "decision-making capacity intact"
+    ],
+    "difficulty": "moderate",
+    "reasoning_steps_count": 2,
+    "sources": [
+      {
+        "organization": "United States Medical Licensing Examination",
+        "title": "Step 1 Exam Content",
+        "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+        "date": "Current official Step 1 specifications; verified 2026-09-02",
+        "locator": "Step 1 Content Specifications Tables 1-3",
+        "support": "Supports social-sciences/communication system, Communication and Interpersonal Skills competency, and Behavioral Sciences classification."
+      },
+      {
+        "organization": "U.S. Department of Health and Human Services / Office for Human Research Protections",
+        "title": "Draft Guidance – Key Information and Facilitating Understanding in Informed Consent",
+        "url": "https://www.hhs.gov/ohrp/regulations-and-policy/requests-for-comments/draft-guidance-key-information-facilitating-understanding-informed-consent/index.html",
+        "date": "Current HHS/OHRP guidance page; verified 2026-09-02",
+        "locator": "Discussion of therapeutic misconception and informed-consent understanding",
+        "support": "Supports therapeutic misconception as the assumption that research-care decisions are made solely with the subject's individual benefit in mind and emphasizes facilitating understanding during informed consent."
+      },
+      {
+        "organization": "PubMed",
+        "title": "The therapeutic misconception: problems and solutions",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12226586/",
+        "date": "Foundational informed-consent analysis; verified 2026-09-02",
+        "locator": "Abstract — failure to distinguish clinical research from ordinary treatment",
+        "support": "Supports the definition of therapeutic misconception and the need to explain differences between research and treatment."
+      },
+      {
+        "organization": "PubMed",
+        "title": "When research becomes practice: the concept of the therapeutic misconception and challenges to consent in clinical trials",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36822606/",
+        "date": "2023 review; verified 2026-09-02",
+        "locator": "Abstract — failure to recognize distinction between research and clinical care",
+        "support": "Provides recent clinical-trial context for therapeutic misconception and consent communication."
       }
     ]
   }
