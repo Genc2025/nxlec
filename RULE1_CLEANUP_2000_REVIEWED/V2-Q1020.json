@@ -1,0 +1,107 @@
+{
+  "question_uid": "V2-Q1020",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "STANDARDIZED_TERMINOLOGY_RECALL_TO_PLAN_OF_CARE_EVALUATION_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client's plan of care states, \"By the end of the shift, the client will transfer from bed to chair with one-person assistance.\" At the end of the shift, the client still requires two-person assistance for the transfer. Which action should the nurse take?",
+    "options": {
+      "A": "Reassess factors limiting the transfer, compare the observed outcome with the goal, and update the plan as needed.",
+      "B": "Keep the current transfer goal unchanged for the next shift, then reassess only if the client still needs more help.",
+      "C": "Lower the transfer goal to two-person assistance now and update the plan without further assessment of the client.",
+      "D": "Document that the goal was met because the client completed the transfer, then continue the current plan unchanged."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan defines evaluation within clinical judgment as comparing observed outcomes with expected outcomes. It also identifies the nursing process as assessment, analysis, planning, implementation, and evaluation, and under Management of Care directs the RN to initiate, evaluate, and update the client's plan of care. In this scenario, the expected outcome was transfer with one-person assistance, whereas the observed outcome still requires two-person assistance. The nurse should therefore reassess factors limiting progress, compare the actual outcome with the stated goal, and update the plan based on that reassessment. Keeping the plan unchanged while delaying reassessment, lowering the goal without reassessing the client, or documenting the original goal as achieved does not appropriately evaluate and update the plan of care. Therefore A is the uniquely best answer.",
+    "educational_objective": "Evaluate a plan-of-care outcome by comparing the client's observed performance with the expected goal, reassessing when the goal is not met, and updating the plan based on current findings.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Integrated Processes and Clinical Judgment, printed p. 4 / PDF p. 8 — Nursing Process includes assessment, analysis, planning, implementation and evaluation; Evaluate outcomes means compare observed outcomes to expected outcomes. Management of Care > Case Management, printed p. 20 / PDF p. 24 — Initiate, evaluate and update client plan of care.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Entry-level RN clinical judgment includes comparing observed outcomes with expected outcomes, and Management of Care includes initiating, evaluating, and updating the client's plan of care.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Case Management, printed p. 20 / PDF p. 24 — Initiate, evaluate and update client plan of care; Integrated Processes/Clinical Judgment, printed p. 4 / PDF p. 8 — Evaluate outcomes",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — evaluate outcomes and update an individualized plan of care",
+    "correction_summary_append": "RULE1 cleanup: retired a terminology-recall question about standardized NANDA/INKA language because it tested definitional knowledge rather than an entry-level nursing decision. Rebuilt the UID into a plan-of-care evaluation scenario that requires the candidate to compare an observed outcome with a stated goal, reassess the client, and update the plan in accordance with the 2026 NCSBN nursing-process and clinical-judgment framework.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1020",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "WEAK_STANDARDIZED_TERMINOLOGY_RECALL_AND_LENGTH_CUE",
+        "finding": "The original item asked for a benefit of standardized nursing-diagnosis terminology and was primarily recall. The replacement tests an actionable nursing-process/clinical-judgment decision with a clearly observable expected-versus-actual outcome.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Integrated Processes/Clinical Judgment, printed p. 4 / PDF p. 8; Management of Care > Case Management, printed p. 20 / PDF p. 24",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 20 / PDF p. 24"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "mobility_standard": "The one-person-assistance goal is an individualized plan-of-care target supplied by the stem, not a universal mobility standard or threshold.",
+    "physical_therapy_scope": "The item does not assign a rehabilitation diagnosis or prescribe a therapy regimen; it tests the RN's evaluation and updating of the nursing plan of care.",
+    "specific_cause_of_limited_transfer": "No cause is assumed. The correct action explicitly requires reassessment before revising the plan.",
+    "nursing_diagnosis_taxonomy": "No claim about NANDA/INKA terminology is retained because the construct was intentionally rebuilt away from taxonomy recall."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub searches for 'update client plan of care' and 'goal was met' returned no indexed repository matches, and the existing targeted near-duplicate artifact contained no plan-of-care match. These searches were used only to identify possible comparators; no broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It combines reassessment, expected-versus-observed outcome comparison, and plan updating, matching the NCSBN nursing process and Evaluate Outcomes step.",
+    "B": "Plausible continuity-of-care error, but it keeps the plan unchanged and delays reassessment despite evidence that the expected outcome was not achieved.",
+    "C": "Plausible because a goal may need revision, but changing the goal to the current level without reassessing why progress was limited skips required assessment and clinical reasoning.",
+    "D": "Plausible documentation error, but completing a transfer with two-person assistance does not satisfy the stated one-person-assistance goal; the original expected outcome was not met."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem supplies both the expected outcome and the observed outcome, so the mismatch is explicit. B delays evaluation, C revises without reassessment, and D incorrectly treats a different assistance level as achievement of the stated goal. A alone performs the complete evaluation-and-update response.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 114,
+      "B": 116,
+      "C": 114,
+      "D": 115
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four options are within two characters and use parallel action phrasing; the correct option is not uniquely longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN identifies nursing process and clinical judgment as integrated processes throughout Client Needs and explicitly includes evaluating/updating the client plan of care under Management of Care. The replacement therefore tests an entry-level RN decision rather than terminology trivia.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Test Plan printed p. 4 / PDF p. 8 and printed p. 20 / PDF p. 24 were visually inspected on 2026-08-19. The first page visibly defines Nursing Process and Evaluate Outcomes; the second visibly lists 'Initiate, evaluate and update client plan of care' under Case Management."
+  },
+  "source_visual_verification": {
+    "result": "PASS",
+    "note": "Official NCSBN PDF pages supporting both the clinical-judgment process and the Management of Care activity statement were visually inspected because the PDF is the direct authoritative source for the rebuilt construct."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN 2026 Test Plan publication and effective period rechecked fresh",
+      "printed p. 4 / PDF p. 8 visually verified for Nursing Process and Evaluate Outcomes",
+      "printed p. 20 / PDF p. 24 visually verified for Initiate, evaluate and update client plan of care",
+      "original taxonomy-recall construct was rebuilt rather than cosmetically edited",
+      "stem contains the expected goal and actual observed performance with no hidden clinical assumption",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no universal mobility threshold or rehabilitation standard asserted",
+      "correct answer is not length-cued; exact lengths A114/B116/C114/D115",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is item-specific and action-oriented"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "question_uid": "V2-Q0703",
+  "stable_sort_key": "06-STANDALONE-00703",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "category_id": 8,
+  "client_need": "Pharmacological and Parenteral Therapies",
+  "blueprint_topic": "Pharmacological and Parenteral Therapies — metformin renal-safety review",
+  "difficulty": "medium",
+  "stem": "A client taking metformin has a newly reported eGFR of 28 mL/min/1.73 m². Which medication-safety action is most consistent with current prescribing information?",
+  "options": {
+    "A": "Continue metformin unchanged because renal impairment lowers metformin exposure and decreases the risk for lactic acidosis.",
+    "B": "Question continued metformin therapy because the label directs discontinuation when eGFR falls below 30 mL/min/1.73 m².",
+    "C": "Increase the metformin dose because worsening renal function reduces drug effect and requires a higher dose for glycemic control.",
+    "D": "Continue metformin and use hypoglycemia monitoring alone because renal function is unrelated to metformin accumulation."
+  },
+  "correct_option": "B",
+  "rationale": "Current metformin labeling carries a boxed warning for metformin-associated lactic acidosis and identifies renal impairment as a risk factor. The label states that metformin is contraindicated in severe renal impairment with eGFR below 30 mL/min/1.73 m² and directs discontinuation if eGFR falls below 30 during treatment. Therefore B is the best answer. A and D incorrectly deny the renal-risk relationship, and C reverses the appropriate safety response to declining renal function.",
+  "educational_objective": "Recognize that worsening renal function increases metformin accumulation and lactic-acidosis risk; current labeling directs discontinuation when eGFR falls below 30 mL/min/1.73 m².",
+  "source_organization": "DailyMed (U.S. National Library of Medicine); Zydus Pharmaceuticals USA Inc.",
+  "source_document_title": "Metformin Hydrochloride Tablets — Prescribing Information",
+  "source_version_date": "Revised July 2026; DailyMed updated July 15, 2026; Boxed Warning major change April 2026 and §5.1 major change June 2026",
+  "source_accessed_date": "2026-08-26",
+  "source_locator": "Boxed Warning and §5.1 Lactic Acidosis: renal impairment is a risk factor for metformin-associated lactic acidosis. §2.3 Renal Impairment and §4 Contraindications: do not use with eGFR below 30 mL/min/1.73 m²; discontinue if eGFR falls below 30 during treatment.",
+  "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c82a10fa-1e8e-46b6-890a-737de3f34ee1",
+  "source_claim_supported": "Metformin should be discontinued if eGFR falls below 30 mL/min/1.73 m²; renal impairment increases metformin accumulation and lactic-acidosis risk.",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+  "blueprint_locator": "Pharmacological and Parenteral Therapies: review pertinent laboratory data and contraindications before medication administration; evaluate medication appropriateness and adverse-effect risk; provide safe medication care.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test%20Plan_English-F.pdf",
+  "candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "candidate_reasons_resolved": [
+    "Rebuilt the item around a current eGFR-based medication-safety decision rather than a long explanatory risk statement.",
+    "Balanced the four alternatives as parallel medication-safety actions.",
+    "Used the current July 2026 label and exact eGFR threshold rather than a vague renal-impairment rule."
+  ],
+  "candidate_detail": {
+    "option_lengths_after_revision": {"A": 119, "B": 118, "C": 121, "D": 111}
+  },
+  "qa_gate": {
+    "fresh_current_authoritative_source_verification": true,
+    "exact_source_locator_version_currentness": true,
+    "claim_by_claim_stem_key_rationale_objective": true,
+    "options_a_b_c_d_individually_verified": true,
+    "ambiguity_check": true,
+    "second_answer_exclusion": true,
+    "cueing_length_absolute_word_pattern_check": true,
+    "nclex_blueprint_topic_difficulty_alignment": true,
+    "correction_reaudit_complete": true,
+    "independent_adversarial_second_pass": true,
+    "unresolved_conflicts": false
+  },
+  "audit_note": "Independent adversarial review confirms B uniquely matches current §§2.3, 4, and 5.1. A and D deny the labeled renal-risk relationship, while C incorrectly escalates therapy despite severe renal impairment. No second defensible answer or material cueing remains."
+}

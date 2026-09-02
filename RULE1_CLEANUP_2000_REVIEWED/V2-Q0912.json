@@ -1,0 +1,67 @@
+{
+  "question_uid": "V2-Q0912",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-21",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "easy",
+  "semantic_correction": {
+    "stem": "A medication order reads, \"insulin lispro 6 U subcutaneously before lunch.\" What should the nurse do?",
+    "options": {
+      "A": "Clarify the order before administration so the dose is written as \"6 units.\"",
+      "B": "Administer 6 units and document afterward that \"U\" was interpreted as units.",
+      "C": "Ask for the order to be changed from \"6 U\" to \"6 IU\" before administration.",
+      "D": "Interpret \"U\" as micrograms and confirm the intended dose after administration."
+    },
+    "correct_option": "A",
+    "rationale": "The Joint Commission's Official 'Do Not Use' List includes U/u for unit because it can be mistaken for 0, 4, or cc and directs users to write 'unit' instead. IU is also on the prohibited list. Because the medication order contains the prohibited abbreviation U, the nurse should clarify the order before administration and have the dose written with the word 'units' rather than independently interpreting or administering from the unsafe notation.",
+    "educational_objective": "Recognize U/u as a prohibited medication abbreviation and clarify the order before administration so 'units' is written out.",
+    "source_organization": "The Joint Commission",
+    "source_document_title": "Do Not Use List/Prohibited Abbreviations; Official 'Do Not Use' List",
+    "source_version_date": "Current Joint Commission standards support page accessed August 21, 2026; Official list ©2018",
+    "source_accessed_date": "2026-08-21",
+    "source_locator": "Standard IM.02.02.01, EPs 2–3 — prohibited abbreviations; Official Do Not Use List — U/u (unit): write 'unit'; IU: write 'International Unit'",
+    "source_url": "https://www.jointcommission.org/en-us/knowledge-library/support-center/standards-interpretation/do-not-use-list-of-abbreviations ; https://www.jointcommission.org/-/media/tjc/documents/resources/patient-safety-topics/patient-safety/do_not_use_list_9_14_18.pdf",
+    "source_claim_supported": "The Joint Commission prohibits U/u for unit because it is error-prone and directs that 'unit' be written out; IU is also prohibited.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 — Evaluate appropriateness and accuracy of medication order for client; Prepare and administer medications using rights of medication administration; Handle and maintain medication in a safe and controlled environment",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — safe interpretation and clarification of medication orders",
+    "correction_summary_append": "RULE1 cleanup: corrected the blueprint/client-need mapping from Safety and Infection Prevention and Control to Pharmacological and Parenteral Therapies; shortened the correct action, rebuilt distractors as medication-order responses, and tied the source to the current Joint Commission prohibited-abbreviation standard support page plus the official list.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0912",
+        "result": "FINAL_QA_PASS",
+        "source_authority": "The Joint Commission",
+        "source_locator": "IM.02.02.01 EPs 2–3; Official Do Not Use List — U/u and IU",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12",
+        "finding": "The original answer was uniquely longest and the item was mapped to Safety/Infection rather than the medication-order domain. The revised item preserves the prohibited-abbreviation construct, makes clarification-before-administration explicit, and maps directly to NCSBN medication-order accuracy and safe administration activities."
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It removes the prohibited abbreviation before medication administration and uses the Joint Commission's required word 'unit/units.'",
+    "B": "Incorrect. The nurse should not administer from an unsafe, prohibited abbreviation and defer clarification until after the dose.",
+    "C": "Incorrect. IU is itself on the Joint Commission's prohibited abbreviation list.",
+    "D": "Incorrect. U means unit in the intended order but is prohibited because it is error-prone; it should not be reinterpreted as micrograms or acted on before clarification."
+  },
+  "ambiguity_check": "No second defensible answer. A is the only option that both avoids administering from the prohibited abbreviation and replaces it with the Joint Commission-recommended word.",
+  "cueing_check": "All four options are medication-order responses of comparable length and structure; no absolute-word or unique-length cue identifies A.",
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current Joint Commission support page freshly verified",
+      "U/u prohibition and 'unit' replacement verified from the official list",
+      "IU prohibition independently verified",
+      "clarification-before-administration logic re-audited for medication safety",
+      "A/B/C/D re-audited individually",
+      "no second answer identified",
+      "cueing and option-length balance rechecked",
+      "clinical category remapped to Pharmacological and Parenteral Therapies",
+      "NCSBN 2026 printed p. 12 medication-order accuracy mapping freshly verified"
+    ]
+  }
+}

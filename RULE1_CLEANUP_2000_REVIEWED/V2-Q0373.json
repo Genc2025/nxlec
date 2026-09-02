@@ -1,0 +1,104 @@
+{
+  "question_uid": "V2-Q0373",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "GENERIC_QI_TO_TRANSFER_MEDICATION_RECONCILIATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "metadata_correction": {
+    "client_need": "Pharmacological and Parenteral Therapies",
+    "category_id": 7,
+    "difficulty": "medium"
+  },
+  "semantic_correction": {
+    "stem": "A client with a chronic seizure disorder is transferred from the ICU to a medical-surgical unit. The sending medication record shows scheduled levetiracetam, but the receiving transfer orders omit it and no documentation explains an intentional discontinuation. What should the RN do?",
+    "options": {
+      "A": "Administer levetiracetam from the prior ICU medication record because it was active before transfer, then ask the prescriber to update the new orders.",
+      "B": "Compare the transfer orders with the sending medication record and current plan, then clarify the unexplained omission with the prescriber before the next dose.",
+      "C": "Leave levetiracetam off the medication list until routine rounds because omission from the transfer orders indicates that the medication was intentionally stopped.",
+      "D": "Ask the pharmacist to add levetiracetam to the receiving-unit medication list based on the sending record without obtaining prescriber clarification."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ's Medications at Transitions and Clinical Handoffs (MATCH) toolkit defines medication reconciliation as comparing the patient's current medication regimen with admission, transfer, or discharge orders to identify discrepancies. For intrahospital transfer, current medications and the prior medication list should be reviewed for the new setting, and unexplained or unintended discrepancies should be discussed with the prescriber for resolution and resulting changes documented. The 2026 NCSBN NCLEX-RN Test Plan explicitly includes participation in medication reconciliation under Pharmacological and Parenteral Therapies. In this item, the omission is unexplained rather than proven intentional. B correctly compares the transfer information and seeks prescriber clarification before the next scheduled dose. A administers from a prior-unit record without a current receiving-unit order. C assumes the omission was intentional despite the absence of supporting documentation. D asks pharmacy to create an order decision without prescriber clarification. Therefore B is the uniquely best answer.",
+    "educational_objective": "During a care transition, identify an unexplained medication discrepancy by comparing current therapy with transfer orders and clarify the discrepancy with the prescriber before medication continuity is disrupted.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Medications at Transitions and Clinical Handoffs (MATCH) Toolkit for Medication Reconciliation",
+    "source_version_date": "AHRQ MATCH content last reviewed July 2022 and current on AHRQ site; current pages accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Introduction — compare current medication regimen with admission/transfer/discharge orders and discuss discrepancies with prescriber; Appendix Medication Reconciliation steps 3-4 — reconcile transfer medications and discuss unintended discrepancies; Chapter 3 — clarify unexplained discrepancies with physician/prescriber",
+    "source_url": "https://www.ahrq.gov/patient-safety/settings/hospital/match/intro.html",
+    "source_claim_supported": "Medication reconciliation at transfer requires comparison of current medication therapy with transfer orders and clarification of unintended or unexplained discrepancies with the prescriber.",
+    "secondary_source_organization": "AHRQ Patient Safety Network (PSNet)",
+    "secondary_source_document_title": "Medication Reconciliation",
+    "secondary_source_version_date": "UC Davis PSNet Editorial Team update December 15, 2024; last reviewed 2024",
+    "secondary_source_url": "https://psnet.ahrq.gov/primer/medication-reconciliation",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 — Participate in medication reconciliation process; Appendix A Medication Administration, printed p. 39 / PDF p. 43 — Participate in medication reconciliation process; Evaluate appropriateness and accuracy of medication order for client",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — medication reconciliation during transfer",
+    "correction_summary_append": "RULE1 cleanup: retired the recurring-process generic QI construct because it overlapped V2-Q0220/V2-Q0972, removed the absolute-word distractor, and rebuilt the item as a direct transfer medication-reconciliation decision. The item is remapped from Management of Care to Pharmacological and Parenteral Therapies.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0373",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "GENERIC_QI_CONSTRUCT_OVERLAP_ABSOLUTE_WORD_CUEING_AND_SUBOPTIMAL_CLIENT_NEED_MAPPING",
+        "finding": "The original item duplicated existing systems/QI reasoning. The replacement tests medication reconciliation at an intrahospital transfer using an unexplained omission that requires prescriber clarification, directly matching AHRQ MATCH and the explicit NCSBN Pharmacological activity statement.",
+        "source_authority": "AHRQ MATCH Medication Reconciliation Toolkit",
+        "source_locator": "Introduction; Appendix Medication Reconciliation steps 3-4; Chapter 3",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies — participate in medication reconciliation"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0220", "V2-Q0972", "V2-Q0026"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0220 tests systems-based error analysis/process redesign; V2-Q0972 tests the Study phase of PDSA; V2-Q0026 tests priority content in an unstable-client handoff. V2-Q0373 tests reconciliation and prescriber clarification of one unexplained medication omission during transfer."
+  },
+  "option_audit": {
+    "A": "Plausible continuity impulse, but a prior-unit medication record does not authorize administration on the receiving unit when the current transfer orders omit the medication.",
+    "B": "Correct. It performs the required comparison and treats the unexplained omission as a discrepancy requiring prescriber clarification before medication continuity is disrupted.",
+    "C": "Plausible assumption because orders can intentionally change at transfer, but the stem explicitly states that no documentation explains a deliberate discontinuation; clarification is required.",
+    "D": "Plausible team-resource use, but pharmacy should not be asked to independently create or restore a medication order solely from the sending record without prescriber clarification."
+  },
+  "ambiguity_check": "No second defensible best answer. The medication is omitted from the receiving orders and the stem does not establish whether that omission is intentional. B alone reconciles the records and resolves the ambiguity with the prescriber; A administers without a current order, C assumes intent, and D bypasses prescriber clarification.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 150, "B": 160, "C": 163, "D": 149},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not longest; all options are parallel transfer-medication decisions and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Participation in medication reconciliation is an explicit Pharmacological and Parenteral Therapies activity for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Medication Administration page printed p. 39 / PDF p. 43 was visually inspected on 2026-08-19 and explicitly lists participation in medication reconciliation."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ MATCH introduction verified",
+      "medication-reconciliation definition verified directly",
+      "transfer reconciliation step verified directly",
+      "unintended-discrepancy prescriber-clarification requirement verified directly",
+      "AHRQ PSNet 2024 medication-reconciliation primer reviewed as current secondary support",
+      "receiving-order omission intentionally left unresolved in stem so candidate must clarify rather than assume",
+      "A/B/C/D independently re-audited for medication-order authority, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A150/B160/C163/D149",
+      "official NCSBN medication-reconciliation activity visually verified",
+      "client-need remap to Pharmacological and Parenteral Therapies documented",
+      "original overlap with Q0220/Q0972 removed",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

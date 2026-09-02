@@ -1,0 +1,87 @@
+{
+  "question_uid": "V2-Q0206",
+  "stable_sort_key": "06-STANDALONE-00206",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "audit_date": "2026-08-25",
+  "audit_reviewer": "OpenAI GPT-5.6 Sol",
+  "category_id": 3,
+  "client_need": "Safety & Infection Prevention and Control",
+  "difficulty": "moderate",
+  "stem": "A client who has undergone an allogeneic hematopoietic stem-cell transplant is being cared for in a Protective Environment. A visitor arrives with a bouquet of fresh flowers. What should the nurse do?",
+  "options": {
+    "A": "Ask the visitor to keep the bouquet outside the Protective Environment because CDC guidance prohibits fresh or dried flowers and potted plants in these rooms or areas.",
+    "B": "Allow the bouquet after the stems are rinsed and the vase is filled with fresh water, because routine cleaning sufficiently reduces the environmental fungal risk.",
+    "C": "Allow the bouquet if it is placed across the room from the client, because physical distance from the bed is the recommended control for flowers in a Protective Environment.",
+    "D": "Allow the bouquet if the visitor performs hand hygiene before entering, because Protective Environment restrictions focus on hand hygiene rather than flowers or plants."
+  },
+  "correct_option": "A",
+  "rationale": "Current CDC isolation-precautions guidance specifies that allogeneic HSCT patients should be placed in a Protective Environment to reduce exposure to environmental fungi. CDC Recommendation VI.C.4 and Appendix A Table 5 state that dried and fresh flowers and potted plants are prohibited in Protective Environment rooms or areas. Therefore A is correct. Rinsing stems or changing vase water does not remove the prohibition, physical distance from the client is not the specified control, and hand hygiene remains important but does not replace the environmental restriction on flowers and plants.",
+  "educational_objective": "For an allogeneic HSCT client in a Protective Environment, prevent environmental fungal exposure by keeping fresh or dried flowers and potted plants out of the Protective Environment.",
+  "source_organization": "Centers for Disease Control and Prevention (CDC)",
+  "source_document_title": "Guideline for Isolation Precautions — Summary of Recommendations; Appendix A, Table 5: Components of a Protective Environment",
+  "source_version_date": "CDC pages updated November 27, 2023; July 2023 clarity edits remain current",
+  "source_accessed_date": "2026-08-25",
+  "source_locator": "Summary of Recommendations > VI. Protective Environment: VI.A places allogeneic HSCT patients in a Protective Environment to reduce environmental fungal exposure; VI.C.4: prohibit dried and fresh flowers and potted plants. Appendix A Table 5 > I: patients are allogeneic HSCT only; V Other: no flowers, fresh or dried, or potted plants in PE rooms or areas.",
+  "source_url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/summary-recommendations.html",
+  "source_claim_supported": "CDC Protective Environment guidance for allogeneic HSCT patients prohibits fresh or dried flowers and potted plants in PE rooms or areas.",
+  "supporting_sources": [
+    {
+      "organization": "Centers for Disease Control and Prevention (CDC)",
+      "document_title": "Appendix A: Table 5. Components of a Protective Environment",
+      "version_date": "Updated November 27, 2023",
+      "accessed_date": "2026-08-25",
+      "locator": "Table 5 > I Patients: allogeneic HSCT only; V Other: no flowers (fresh or dried) or potted plants in PE rooms or areas.",
+      "url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-table-5.html",
+      "claim_supported": "Fresh/dried flowers and potted plants are not allowed in Protective Environment rooms or areas."
+    }
+  ],
+  "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "2026; Effective April 2026",
+  "blueprint_locator": "Safety and Infection Prevention and Control, printed pp. 26–29: apply infection-control precautions, maintain environmental safety, protect immunocompromised clients from infection exposure, and implement measures that reduce healthcare-associated infection risk.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+  "blueprint_topic": "Safety and Infection Prevention and Control — Protective Environment after allogeneic HSCT",
+  "candidate_reasons_original": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_uniquely_longest"
+  ],
+  "correction_summary": "Rebuilt all four options to remove absolute-word cueing and the uniquely-long keyed answer while preserving realistic visitor-management errors involving rinsing, placement distance, and reliance on hand hygiene alone.",
+  "option_lengths": {
+    "A": 161,
+    "B": 156,
+    "C": 163,
+    "D": 153
+  },
+  "audit_findings": {
+    "clinical_category": "Protective Environment — environmental fungal-exposure prevention after allogeneic HSCT",
+    "stem": "PASS — explicitly identifies the patient population and Protective Environment context for a single environmental-control decision.",
+    "option_A": "PASS — directly matches current CDC VI.C.4 and Table 5; uniquely best.",
+    "option_B": "PASS as distractor — cleaning flowers may appear risk-reducing but CDC still prohibits fresh flowers in the Protective Environment.",
+    "option_C": "PASS as distractor — distance from the bed is not the CDC control; the prohibition applies to PE rooms or areas.",
+    "option_D": "PASS as distractor — hand hygiene is required but does not replace the specific flower/plant prohibition.",
+    "ambiguity": "PASS — A is the only action that follows the explicit environmental restriction.",
+    "second_answer": "EXCLUDED — B, C, and D each allow an item CDC specifically prohibits in the PE.",
+    "cueing": "PASS — option lengths and specificity are closely matched, and no keyed-only absolute wording remains.",
+    "blueprint": "PASS — NCSBN Safety and Infection Prevention and Control directly includes infection-control precautions and environmental protection for vulnerable clients.",
+    "independent_adversarial_second_pass": "PASS — challenged whether careful flower handling or distancing could satisfy environmental control; current CDC guidance explicitly prohibits fresh/dried flowers and potted plants in PE rooms or areas, leaving A uniquely correct.",
+    "unresolved_conflicts": "NONE"
+  },
+  "gates": {
+    "source_authority_verified": 1,
+    "currentness_verified": 1,
+    "exact_locator_verified": 1,
+    "stem_verified": 1,
+    "correct_answer_verified": 1,
+    "distractors_verified": 1,
+    "rationale_verified": 1,
+    "educational_objective_verified": 1,
+    "ambiguity_verified": 1,
+    "second_answer_excluded": 1,
+    "cueing_verified": 1,
+    "blueprint_verified": 1,
+    "independent_qa_passed": 1,
+    "no_unresolved_conflict": 1
+  }
+}

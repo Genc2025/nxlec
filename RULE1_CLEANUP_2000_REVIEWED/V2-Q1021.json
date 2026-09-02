@@ -1,0 +1,109 @@
+{
+  "question_uid": "V2-Q1021",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "SMART_ACRONYM_RECALL_TO_HANDOFF_UNRESOLVED_FOLLOWUP_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "During shift handoff, the outgoing nurse reports that a client's diagnostic test has been completed, the result is still pending, and the practitioner asked to be notified when the report becomes available. Which action should the incoming nurse take?",
+    "options": {
+      "A": "Add the pending result and requested notification to the incoming shift's follow-up priorities.",
+      "B": "Document the test as completed because the specimen or procedure was already obtained on the prior shift.",
+      "C": "Leave follow-up with the outgoing nurse because the test was ordered and performed during that nurse's shift.",
+      "D": "Wait for the practitioner to ask about the result before checking whether the report has become available."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan places handoff and unresolved follow-up within Management of Care. Under Continuity of Care, it directs the RN to provide and receive handoff on assigned clients and to follow up on unresolved issues regarding client care, including laboratory results and client requests. The pending diagnostic result and the practitioner's request for notification remain unresolved at the time of handoff, so the incoming nurse should carry that item forward as a follow-up priority. Documenting that the test itself was completed does not resolve the pending report, assigning responsibility back to an off-going nurse breaks continuity, and waiting for the practitioner to ask delays the explicitly identified follow-up. Therefore A is the uniquely best answer.",
+    "educational_objective": "During handoff, identify pending results and other unresolved care issues that require follow-up and carry them forward into the incoming shift's priorities.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Management of Care > Continuity of Care, printed p. 21 / PDF p. 25 — Provide and receive handoff of care (report) on assigned clients; Follow up on unresolved issues regarding client care (e.g., laboratory results, client requests)",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Entry-level RN Management of Care includes receiving handoff and following up unresolved client-care issues such as pending results.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care > Continuity of Care, printed p. 21 / PDF p. 25",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — handoff and follow-up of unresolved client-care issues",
+    "correction_summary_append": "RULE1 cleanup: retired a SMART-acronym recall item that was both cue-prone and construct-adjacent to the preceding plan-of-care evaluation item. Rebuilt the UID into a distinct entry-level continuity-of-care decision requiring the incoming RN to recognize and carry forward a pending result and requested notification from handoff.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1021",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ACRONYM_RECALL_REDUNDANCY_AND_LENGTH_CUE",
+        "finding": "The original SMART-framework item was definitional recall and overlapped with the immediately preceding care-plan construct. The replacement tests continuity of care through handoff and unresolved follow-up, directly matching NCSBN 2026 activity statements.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Management of Care > Continuity of Care, printed p. 21 / PDF p. 25",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 21 / PDF p. 25"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_diagnostic_interpretation": "No laboratory threshold, disease-specific interpretation, or urgency rule is asserted; the test result is simply pending and requires follow-up because that need is explicitly supplied in the stem.",
+    "facility_specific_handoff_tool": "No specific handoff format or software workflow is required. The item tests carrying forward an unresolved issue, not a local documentation method.",
+    "offgoing_nurse_post_shift_duty": "The item does not create a universal rule about off-duty liability; it tests continuity of responsibility on the incoming shift after formal handoff.",
+    "practitioner_notification_threshold": "The stem explicitly states that the practitioner requested notification when the report becomes available, so no unsupported universal notification rule is inferred."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1020"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub searches for 'pending result' and 'unresolved issues' returned no indexed repository matches. Q1020 was manually compared because it immediately precedes this item: Q1020 tests evaluation and updating of an individualized plan of care, whereas Q1021 tests continuity of care across handoff for an unresolved pending result. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It explicitly carries the unresolved pending result and requested notification into the incoming shift's follow-up priorities.",
+    "B": "Plausible because completion of the test may need documentation, but documenting completion of the procedure/specimen does not resolve the still-pending report or requested follow-up.",
+    "C": "Plausible ownership error, but after handoff the unresolved issue must remain visible to the current care team rather than depend on the off-going nurse.",
+    "D": "Plausible passive workflow error, but waiting for another prompt delays follow-up on an issue already identified during handoff."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly marks both the result and the requested practitioner notification as unresolved. B addresses only completion of the test, C leaves the unresolved issue with the prior shift, and D delays follow-up. A alone carries the unresolved item forward into current-shift care.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 95,
+      "B": 105,
+      "C": 109,
+      "D": 106
+    },
+    "note": "Exact character counts were calculated from the stored strings. The correct option is the shortest and all choices use parallel action phrasing; no correct-answer length cue or absolute-word cue remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly lists handoff and follow-up of unresolved issues under Management of Care > Continuity of Care. The item tests a direct incoming-RN action during routine shift transition rather than an acronym or managerial-policy recall construct.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Test Plan printed p. 21 / PDF p. 25 was visually inspected on 2026-08-19. The page visibly lists 'Provide and receive handoff of care (report) on assigned clients' and 'Follow up on unresolved issues regarding client care (e.g., laboratory results, client requests)' under Continuity of Care."
+  },
+  "source_visual_verification": {
+    "result": "PASS",
+    "note": "The official NCSBN PDF page containing the exact Continuity of Care activity statements was visually inspected and used as the direct source for the rebuilt construct."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN 2026 Test Plan publication and effective period rechecked fresh",
+      "printed p. 21 / PDF p. 25 visually verified for handoff and unresolved-issue follow-up",
+      "SMART acronym recall was removed rather than cosmetically edited",
+      "construct was separated from Q1020's plan-of-care evaluation focus",
+      "stem contains an explicitly pending result and an explicitly requested notification, avoiding hidden urgency assumptions",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no disease-specific or laboratory-threshold claim asserted",
+      "correct answer is not length-cued; exact lengths A95/B105/C109/D106",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

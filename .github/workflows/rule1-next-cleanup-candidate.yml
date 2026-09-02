@@ -1,0 +1,40 @@
+name: RULE1 next cleanup candidate
+on:
+  push:
+    branches: [rule1-cleanup-2000]
+    paths:
+      - 'tools/rule1_next_cleanup_candidate.py'
+      - 'tools/rule1_legacy_review_gate_compat.py'
+      - '.github/workflows/rule1-next-cleanup-candidate.yml'
+      - 'RULE1_CLEANUP_2000_REVIEWED/**'
+      - 'RULE1_CLEANUP_2000_REVIEWED_ITEMS.json'
+permissions:
+  contents: write
+jobs:
+  next-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+          fetch-depth: 0
+      - name: Normalize legacy review gate schema runner-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_legacy_review_gate_compat.py
+      - name: Select next candidate read-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_next_cleanup_candidate.py
+      - name: Commit next-candidate evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_CLEANUP_2000_NEXT_CANDIDATE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'RULE1 materialize next cleanup candidate'
+          git push origin HEAD:rule1-cleanup-2000

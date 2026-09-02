@@ -1,0 +1,109 @@
+{
+  "question_uid": "V2-Q1024",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "EVENT_REPORT_PURPOSE_RECALL_TO_POST_ERROR_CLIENT_SAFETY_ACTION_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "Immediately after administering a medication, the nurse discovers that the dose given did not match the prescribed dose. The client is awake and speaking. Which action should the nurse take first?",
+    "options": {
+      "A": "Assess the client for effects of the error and initiate any immediate clinical response that is indicated.",
+      "B": "Complete the organization's safety-event report before performing any additional assessment of the client.",
+      "C": "Notify the practitioner about the error before reassessing so further treatment instructions can be obtained.",
+      "D": "Observe for new symptoms and delay further action until there is clear evidence that the client has been harmed."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ's CANDOR event-response checklist places immediate patient assessment and stabilization among the first actions after a safety event, before the event proceeds through investigation and organizational follow-up. The 2026 NCSBN NCLEX-RN Test Plan also includes acknowledging and documenting practice errors and near misses and evaluating the response to an error or event under Safety and Infection Prevention and Control. Because the nurse has just discovered a wrong-dose administration, the immediate priority is to assess the client for actual or emerging effects and initiate any clinically indicated response. Practitioner notification and event reporting remain important, but they do not replace the immediate client assessment. Waiting for symptoms before acting would delay evaluation of a known medication error. Therefore A is the uniquely best first action.",
+    "educational_objective": "After discovering a medication administration error, prioritize immediate assessment of the client and any indicated clinical response before completing organizational event-reporting steps.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ); National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "CANDOR Event Checklist; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current AHRQ CANDOR web tool rechecked August 19, 2026; 2026 NCLEX-RN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "AHRQ CANDOR Event Checklist > Event Report > Assess and Inform — ensure the patient is stable and assess the event for potential harm. NCSBN 2026 NCLEX-RN Test Plan > Safety and Infection Prevention and Control > Reporting of Incident/Event/Irregular Occurrence/Variance, printed p. 25 / PDF p. 29 — acknowledge and document practice errors and near misses; evaluate response to error/event/occurrence.",
+    "source_url": "https://www.ahrq.gov/patient-safety/settings/hospital/candor/modules/checklist4.html",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "After a patient-safety event, immediate patient assessment/stability is addressed before broader event follow-up; entry-level RN safety practice includes acknowledging errors and evaluating the response to an error/event.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control > Reporting of Incident/Event/Irregular Occurrence/Variance, printed p. 25 / PDF p. 29",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — response to practice error and event reporting",
+    "correction_summary_append": "RULE1 cleanup: retired a managerial/definitional item about the purpose of an event-reporting system. Rebuilt the UID into a bedside safety-priority scenario requiring the nurse to assess the client immediately after discovering a wrong medication dose, while preserving event reporting as a later required safety process rather than the first action.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1024",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "MANAGERIAL_EVENT_REPORT_PURPOSE_RECALL_AND_LENGTH_CUE",
+        "finding": "The replacement tests immediate client safety after a known medication error. AHRQ supports prompt patient assessment/stability after an event, and NCSBN 2026 directly maps error/event response to the Safety and Infection Prevention and Control blueprint.",
+        "source_authority": "AHRQ CANDOR Event Checklist; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "AHRQ Event Report > Assess and Inform; NCSBN Reporting of Incident/Event/Irregular Occurrence/Variance, printed p. 25 / PDF p. 29",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 25 / PDF p. 29"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_medication_or_dose": "The medication and magnitude of the dose discrepancy are intentionally unspecified. No drug-specific toxicity, antidote, monitoring interval, or threshold is asserted.",
+    "practitioner_notification": "The item does not say practitioner notification is unnecessary. It tests the first action; notification follows assessment according to the client's condition and applicable policy/orders.",
+    "event_report_omission": "The item does not omit event reporting. It distinguishes organizational reporting from the immediate bedside assessment that takes priority after discovery of the error.",
+    "client_stability_assumption": "The client being awake and speaking does not establish absence of harm; the correct answer explicitly requires assessment rather than assuming stability."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'wrong dose' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It prioritizes immediate client assessment and clinically indicated response after discovery of the error.",
+    "B": "Plausible because event reporting is required for safety learning, but completing the report before assessing the client reverses the immediate bedside priority.",
+    "C": "Plausible because practitioner notification may be required, but the nurse should first obtain current client assessment information and address any immediate instability.",
+    "D": "Plausible watchful-waiting error, but a known medication error warrants assessment now rather than waiting for overt symptoms."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem asks for the first action immediately after discovery of a known administration error. B delays assessment for paperwork, C delays assessment for notification, and D delays assessment until symptoms appear. A alone directly assesses current harm and supports immediate intervention if needed.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 106,
+      "B": 106,
+      "C": 109,
+      "D": 112
+    },
+    "note": "Exact character counts were calculated from the stored strings. The correct option ties for shortest, all choices are within six characters, and no absolute-word cue identifies the answer."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes recognizing/documenting practice errors and evaluating response to an error/event under Safety and Infection Prevention and Control. The rebuilt item tests a direct bedside safety action after a medication error.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Test Plan printed p. 25 / PDF p. 29 was visually inspected on 2026-08-19. The page visibly lists Reporting of Incident/Event/Irregular Occurrence/Variance, including acknowledging/documenting practice errors and near misses and evaluating response to an error/event/occurrence."
+  },
+  "source_visual_verification": {
+    "result": "PASS",
+    "note": "The NCSBN PDF blueprint page was visually inspected. The AHRQ CANDOR Event Checklist is an HTML tool and was text-verified directly; no PDF visual claim is made for AHRQ."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ CANDOR Event Checklist rechecked fresh for immediate patient stability/assessment after an event",
+      "official NCSBN 2026 reporting-of-event subsection visually verified at printed p. 25 / PDF p. 29",
+      "event-report purpose recall was rebuilt into a direct bedside safety-priority decision",
+      "no medication-specific dose, antidote, toxicity threshold, or monitoring interval fabricated",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "practitioner notification and event reporting remain acknowledged as important follow-up rather than being falsely prohibited",
+      "client is not assumed safe merely because awake and speaking",
+      "correct answer is not length-cued; exact lengths A106/B106/C109/D112",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

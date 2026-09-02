@@ -1,0 +1,92 @@
+{
+  "question_uid": "V2-Q0220",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ENTRY_LEVEL_REALIGNMENT_FULL_CONSTRUCT_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A unit quality-improvement team is reviewing repeated wrong-time medication errors and asks a bedside RN to participate. Which contribution by the RN is most appropriate?",
+    "options": {
+      "A": "Describe the medication workflow and contributing system factors, review event data with the team, and help develop process changes to reduce recurrence.",
+      "B": "Identify the staff member most often involved, recommend corrective discipline, and treat individual vigilance and retraining as the main prevention strategy.",
+      "C": "Recommend mandatory retraining for every nurse, then close the review after staff demonstrate the medication procedure correctly during competency validation.",
+      "D": "Submit the event facts to the manager and avoid discussing workflow causes or improvement actions because those decisions belong to leadership."
+    },
+    "correct_option": "A",
+    "rationale": "AHRQ PSNet's Systems Approach explains that patient-safety improvement should identify the system circumstances and latent factors that make human error more likely and modify the underlying system to reduce recurrence. It cautions that responding to errors primarily with punishment, remediation, retraining, or added supervision can leave broader system hazards unchanged. Option A uses the bedside RN's knowledge of workflow and event data to identify contributing system factors and participate in process improvement. Option B centers the review on individual blame and discipline. Option C relies on universal retraining and closes the review without addressing system contributors. Option D withholds frontline workflow knowledge from the improvement process. Therefore A is the uniquely best answer.",
+    "educational_objective": "Participate in quality improvement by contributing frontline workflow information, identifying system factors that contribute to repeated errors, and helping develop process changes intended to reduce recurrence.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ), Patient Safety Network (PSNet)",
+    "source_document_title": "Systems Approach",
+    "source_version_date": "PSNet primer citation 2019; UC Davis PSNet Editorial Team update September 15, 2024; last reviewed in 2024; current PSNet page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Background — systems approach versus individual blame; Developing Solutions for Active and Latent Errors; Summary — system redesign, human factors, latent causes and safety culture",
+    "source_url": "https://psnet.ahrq.gov/primer/systems-approach",
+    "source_claim_supported": "A systems approach to patient safety identifies system and latent factors that contribute to human error and changes underlying care processes to reduce recurrence; relying primarily on punishment, remediation or retraining of individuals does not address broader hazards.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Participate in performance improvement projects and quality improvement processes; Utilize resources to promote quality client care; Identify and collaborate with multidisciplinary team members when providing client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — frontline participation in systems-based quality improvement",
+    "correction_summary_append": "RULE1 cleanup: retired the nurse-manager leadership-competency construct because it was not a direct newly licensed RN task, removed absolute-word/length cueing, and rebuilt the item around bedside RN participation in systems-based quality improvement, explicitly mapped to the NCSBN performance-improvement activity statement.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0220",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_ENTRY_LEVEL_MANAGERIAL_CONSTRUCT_ABSOLUTE_WORD_CUEING_AND_ANSWER_LENGTH_CUEING",
+        "finding": "The original item asked the candidate to apply nurse-manager leadership competencies, which is not a direct newly licensed RN role. The replacement tests a bedside RN's contribution to a quality-improvement review using an AHRQ systems approach and the explicit NCSBN QI activity statement.",
+        "source_authority": "AHRQ PSNet Systems Approach",
+        "source_locator": "Background; Developing Solutions; Summary",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Participate in performance improvement projects and quality improvement processes"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uid": "V2-Q0972",
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0972 tests identification of the Study phase of PDSA. V2-Q0220 tests the bedside RN's systems-based contribution to error analysis and process improvement; it does not ask for a PDSA phase."
+  },
+  "option_audit": {
+    "A": "Correct. It uses frontline workflow knowledge and event data to identify system contributors and participate in process redesign, consistent with AHRQ's systems approach.",
+    "B": "Plausible because accountability can matter in safety work, but treating individual discipline/vigilance as the main prevention strategy ignores broader system contributors.",
+    "C": "Plausible because education and competency validation can be appropriate components of an intervention, but universal retraining alone does not complete a systems analysis or address latent process hazards.",
+    "D": "Plausible role-boundary confusion, but NCSBN explicitly expects RNs to participate in performance improvement and QI; withholding frontline workflow information weakens the review."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone combines frontline information, data review, systems-factor identification and process improvement; B and C over-rely on individual-level remediation, while D incorrectly excludes the bedside RN from QI participation.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 153, "B": 158, "C": 158, "D": 143},
+    "note": "Exact character counts were calculated from the stored strings. The correct answer is not the longest; all four choices are complete QI contributions of comparable scope and no absolute-word trap is used."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Participation in performance improvement and quality improvement processes is an explicit newly licensed RN Management of Care activity.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original nurse-manager construct assessed for entry-level relevance and retired",
+      "current AHRQ PSNet Systems Approach page verified",
+      "PSNet September 15, 2024 editorial update/last-reviewed status verified",
+      "systems-versus-individual-blame claim verified directly",
+      "system/latent-factor identification and process-redesign claims verified directly",
+      "limitations of punishment/remediation/retraining-only approaches verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural or conspicuous length cue identified",
+      "official NCSBN 2026 Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact performance-improvement/QI activity statement verified",
+      "construct compared with V2-Q0972 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}

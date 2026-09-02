@@ -1,0 +1,86 @@
+{
+  "question_uid": "V2-Q0053",
+  "stable_sort_key": "06-STANDALONE-00053",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "audit_date": "2026-08-25",
+  "audit_reviewer": "OpenAI GPT-5.6 Sol",
+  "category_id": 8,
+  "client_need": "Pharmacological and Parenteral Therapies",
+  "difficulty": "moderate",
+  "stem": "A client takes two tablets of hydrocodone/acetaminophen 5 mg/325 mg every 6 hours as needed and also uses an OTC cold medicine containing 650 mg of acetaminophen every 6 hours. If both are taken at the maximum listed frequency, which teaching is most important?",
+  "options": {
+    "A": "The two products provide 3,900 mg of acetaminophen in 24 hours, so they may be used together at the listed frequencies as long as no additional acetaminophen is taken.",
+    "B": "The prescription product contributes to the daily acetaminophen total, but the OTC cold medicine can be counted separately because it is being used for a different symptom.",
+    "C": "The combined regimen provides 5,200 mg of acetaminophen in 24 hours, so the client should not take both at those maximum frequencies and should contact a clinician or pharmacist to reconcile the regimen.",
+    "D": "The combined regimen provides 5,200 mg of acetaminophen in 24 hours, but that amount is acceptable when one product is prescription and the other is nonprescription."
+  },
+  "correct_option": "C",
+  "rationale": "At the maximum listed frequencies, the hydrocodone/acetaminophen product supplies 650 mg of acetaminophen per dose (two 325-mg tablets) four times in 24 hours, for 2,600 mg. The OTC product supplies another 650 mg four times in 24 hours, also 2,600 mg. The combined total is therefore 5,200 mg in 24 hours. Current FDA guidance states that the maximum total acetaminophen amount for adults and children age 12 years and older should not exceed 4,000 mg in 24 hours and instructs consumers to account for acetaminophen in both prescription and OTC medicines and not use more than one acetaminophen-containing product at a time without appropriate guidance. Current DailyMed labeling for hydrocodone/acetaminophen 5 mg/325 mg also confirms that one to two tablets every 4 to 6 hours may be prescribed and that the total daily dosage should not exceed eight tablets. Therefore C is correct. A miscalculates the total. B incorrectly separates prescription and OTC acetaminophen exposure by indication. D recognizes the correct total but incorrectly treats prescription/OTC status as permitting an amount above the FDA maximum.",
+  "educational_objective": "Calculate total acetaminophen exposure across prescription and OTC products and identify a combined daily dose above 4,000 mg as unsafe without clinician-directed regimen adjustment.",
+  "source_organization": "U.S. Food and Drug Administration (FDA)",
+  "source_document_title": "Acetaminophen — What you should know about using acetaminophen safely",
+  "source_version_date": "Current FDA acetaminophen safety page updated in 2026 and accessed 2026-08-25",
+  "source_accessed_date": "2026-08-25",
+  "source_locator": "Safe Use of Acetaminophen: read the label of every OTC and prescription drug; know whether each product contains acetaminophen; do not use more than one acetaminophen-containing product at a time because accidental excess can occur; the maximum total amount in 24 hours should not be more than 4,000 mg for adults and children 12 years and older.",
+  "source_url": "https://www.fda.gov/drugs/safe-use-over-counter-pain-relievers-and-fever-reducers/acetaminophen",
+  "source_claim_supported": "Acetaminophen from prescription and OTC products contributes to the same daily total, and FDA states that adults and children 12 years and older should not exceed 4,000 mg in 24 hours.",
+  "supporting_sources": [
+    {
+      "organization": "U.S. National Library of Medicine — DailyMed",
+      "document_title": "Hydrocodone Bitartrate and Acetaminophen Tablets — Prescribing Information",
+      "version_date": "Current DailyMed labeling accessed 2026-08-25",
+      "accessed_date": "2026-08-25",
+      "locator": "Dosage and Administration > Initial Dosage > 5 mg/325 mg: initiate with one to two tablets every 4 to 6 hours as needed for pain at the lowest effective dose; total daily dosage should not exceed eight tablets.",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=db14e63a-8e3e-4524-b45a-cb09f705f73a",
+      "claim_supported": "The prescription strength and maximum eight-tablet daily regimen used in the stem are consistent with current hydrocodone/acetaminophen labeling."
+    }
+  ],
+  "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "2026; Effective April 1, 2026 through March 31, 2029",
+  "blueprint_locator": "Pharmacological and Parenteral Therapies: perform calculations needed for medication administration; review pertinent data prior to medication administration; educate clients about medications; evaluate client response to medication. Related Adverse Effects/Contraindications/Side Effects/Interactions content includes assessing prescribed and OTC medications for adverse effects and potential interactions and providing information about when to notify the primary health care provider.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+  "blueprint_topic": "Pharmacological and Parenteral Therapies — cumulative medication exposure, OTC/prescription reconciliation, and medication-safety calculation",
+  "candidate_reasons_original": [
+    "absolute_word_distractor_pattern"
+  ],
+  "correction_summary": "Rebuilt all four responses to remove the distractor-only absolute wording and make each alternative a realistic cumulative-dose interpretation. The keyed answer uses the exact calculated 5,200-mg daily total and the FDA's current 4,000-mg maximum without implying that all simultaneous acetaminophen-containing products are universally prohibited regardless of clinician-directed dosing.",
+  "option_lengths": {
+    "A": 168,
+    "B": 167,
+    "C": 188,
+    "D": 161
+  },
+  "audit_findings": {
+    "clinical_category": "Medication reconciliation — cumulative acetaminophen exposure",
+    "stem": "PASS — provides all dose strengths and frequencies needed to calculate total daily acetaminophen exposure and asks a clinically relevant medication-teaching decision.",
+    "option_A": "PASS as distractor — the conclusion might appear safe because 3,900 mg is under the FDA maximum, but the arithmetic is incorrect; the actual total is 5,200 mg.",
+    "option_B": "PASS as distractor — prescription and OTC products are often perceived as separate, but FDA explicitly instructs consumers to identify acetaminophen in both and account for combined exposure.",
+    "option_C": "PASS — correctly calculates 5,200 mg and appropriately directs the client not to use both at those maximum frequencies without regimen reconciliation; uniquely best.",
+    "option_D": "PASS as distractor — it uses the correct arithmetic but incorrectly treats prescription versus OTC status as a reason to permit exposure above the FDA daily maximum.",
+    "ambiguity": "PASS — C is the only option with both correct arithmetic and safe FDA-consistent teaching.",
+    "second_answer": "EXCLUDED — A has incorrect arithmetic, B incorrectly separates cumulative exposure, and D permits an above-maximum total.",
+    "cueing": "PASS — all options use similar quantitative and medication-safety framing; no distractor-only absolute word remains. C is modestly longer because it includes the necessary action, but the difference is not large enough to function as a unique length cue and the alternatives remain clinically substantive.",
+    "blueprint": "PASS — NCSBN Pharmacological and Parenteral Therapies explicitly includes medication calculations, medication education, and review of prescription/OTC adverse-effect and interaction risks.",
+    "independent_adversarial_second_pass": "PASS — recalculated each source separately: prescription 2 × 325 mg × 4 = 2,600 mg; OTC 650 mg × 4 = 2,600 mg; total 5,200 mg. Challenged whether FDA's instruction against multiple acetaminophen products should be stated as an unconditional rule; the final answer instead focuses on the above-maximum regimen and directs clinician/pharmacist reconciliation, preserving appropriate conditionality.",
+    "unresolved_conflicts": "NONE"
+  },
+  "gates": {
+    "source_authority_verified": 1,
+    "currentness_verified": 1,
+    "exact_locator_verified": 1,
+    "stem_verified": 1,
+    "correct_answer_verified": 1,
+    "distractors_verified": 1,
+    "rationale_verified": 1,
+    "educational_objective_verified": 1,
+    "ambiguity_verified": 1,
+    "second_answer_excluded": 1,
+    "cueing_verified": 1,
+    "blueprint_verified": 1,
+    "independent_qa_passed": 1,
+    "no_unresolved_conflict": 1
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "question_uid": "V2-Q0679",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "NEAR_DUPLICATE_FULL_CONSTRUCT_REBUILD",
+  "near_duplicate_resolution": {
+    "paired_uid": "V2-Q1934",
+    "original_overlap": "Both original items asked the nurse to recognize acute cardiogenic pulmonary edema in a client with heart failure from sudden severe dyspnea, crackles, and pink frothy sputum.",
+    "resolution": "Retain pulmonary-edema recognition coverage in V2-Q1934 and rebuild V2-Q0679 into recognition of cardiogenic shock and end-organ hypoperfusion after acute myocardial infarction."
+  },
+  "semantic_correction": {
+    "stem": "A nurse is monitoring a client after an acute myocardial infarction. Which assessment pattern most strongly supports development of cardiogenic shock?",
+    "options": {
+      "A": "Blood pressure 82/54 mm Hg, cool clammy extremities, new confusion, and urine output 20 mL in the past hour.",
+      "B": "Blood pressure 118/72 mm Hg, bilateral crackles and orthopnea, with normal mentation and urine output.",
+      "C": "Blood pressure 86/56 mm Hg, warm extremities, clear mentation, and urine output 55 mL in the past hour.",
+      "D": "Blood pressure 116/74 mm Hg, heart rate 108/min, diaphoresis, and persistent chest discomfort with normal mentation."
+    },
+    "correct_option": "A",
+    "rationale": "The 2025 American College of Cardiology expert consensus guidance states that cardiogenic shock should be suspected when clinical findings indicate inadequate cardiac output and end-organ hypoperfusion. Findings that raise suspicion include hypotension, cold or sweaty extremities, altered mental status, prolonged capillary refill, and reduced urine output; its SUSPECT CS table specifies oliguria as less than 30 mL/hour and includes sustained hypotension among the core features. Option A combines marked hypotension with several signs of hypoperfusion and therefore most strongly supports cardiogenic shock. Option B shows pulmonary congestion without hypotension or end-organ hypoperfusion. Option C shows hypotension but preserved mentation, warm extremities, and urine output, so it does not provide the same evidence of hypoperfusion. Option D reflects ongoing post-infarction symptoms without the hypotension or end-organ hypoperfusion pattern that defines shock.",
+    "educational_objective": "Recognize cardiogenic shock after myocardial infarction by identifying hypotension accompanied by end-organ hypoperfusion findings such as cool clammy extremities, altered mentation, and oliguria.",
+    "source_organization": "American College of Cardiology (ACC)",
+    "source_document_title": "2025 Concise Clinical Guidance: An ACC Expert Consensus Statement on the Evaluation and Management of Cardiogenic Shock",
+    "source_version_date": "Published online March 17, 2025; J Am Coll Cardiol. 2025;85(16):1618-1641",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Initial diagnosis of cardiogenic shock paragraph immediately preceding Table 1; Table 1 — SUSPECT CS: A Mnemonic to Aid in Confirming a Diagnosis of CS",
+    "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.02.018",
+    "source_claim_supported": "Cardiogenic shock should be suspected when hypotension and/or findings of end-organ hypoperfusion are present; supporting findings include altered mental status, cold/sweaty extremities and reduced urine output, with Table 1 defining oliguria as less than 30 mL/hour.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, printed p. 14 / PDF p. 18, Related Activity Statements — Manage the care of a client with alteration in hemodynamics, tissue perfusion and hemostasis; Recognize signs and symptoms of client complications and intervene",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — cardiogenic shock and impaired tissue perfusion",
+    "correction_summary_append": "RULE1 cleanup: resolved semantic near-duplication with V2-Q1934 by replacing a second acute-pulmonary-edema recognition item with cardiogenic-shock recognition after myocardial infarction; rebuilt all four options around hemodynamic/perfusion patterns and verified the construct against 2025 ACC guidance and the 2026 NCSBN Physiological Adaptation blueprint.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0679",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_NEAR_DUPLICATE_AND_NONCOMPETITIVE_DISTRACTORS",
+        "paired_uid": "V2-Q1934",
+        "finding": "The original item duplicated V2-Q1934's acute cardiogenic pulmonary-edema recognition construct and used weak distractors such as mild URI, stable heart failure, and benign aging. It was rebuilt into a distinct cardiogenic-shock recognition item using current ACC criteria for hypotension and end-organ hypoperfusion.",
+        "source_authority": "American College of Cardiology 2025 expert consensus guidance",
+        "source_locator": "Initial diagnosis paragraph and Table 1 SUSPECT CS",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation, printed p. 14 — hemodynamics/tissue perfusion; complication recognition"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It combines hypotension with multiple ACC-listed end-organ hypoperfusion findings: cool clammy extremities, altered mentation, and urine output below 30 mL/hour.",
+    "B": "Plausible after myocardial infarction because pulmonary congestion can occur, but preserved blood pressure, mentation, and urine output do not provide the shock hypoperfusion pattern.",
+    "C": "Plausible because the client is hypotensive, but the warm extremities, clear mentation, and preserved urine output do not show the same end-organ hypoperfusion pattern as A.",
+    "D": "Plausible for ongoing myocardial ischemia or post-infarction stress, but the client lacks hypotension and end-organ hypoperfusion findings supporting cardiogenic shock."
+  },
+  "ambiguity_check": "No second defensible best answer. A is the only option that combines hypotension with several source-defined end-organ hypoperfusion manifestations; B, C, and D deliberately preserve clinically plausible post-MI abnormalities without meeting that combined pattern.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 107, "B": 106, "C": 105, "D": 111},
+    "note": "All four choices are parallel assessment clusters of comparable length; the correct answer has no length, grammar, or absolute-word advantage."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The item requires the entry-level RN to recognize a life-threatening change in hemodynamics and tissue perfusion after acute myocardial infarction, directly matching Physiological Adaptation activity statements.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "2025 ACC cardiogenic-shock guidance and publication metadata verified",
+      "hypotension and end-organ hypoperfusion claims verified directly",
+      "urine-output threshold of less than 30 mL/hour verified directly in SUSPECT CS Table 1",
+      "A/B/C/D independently re-audited for clinical plausibility and uniqueness",
+      "no second defensible best answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "2026 NCSBN Physiological Adaptation page and exact activity statements verified from the official PDF",
+      "construct is clinically distinct from V2-Q1934 pulmonary-edema recognition",
+      "educational objective is item-specific",
+      "no unsupported treatment recommendation was introduced"
+    ]
+  }
+}

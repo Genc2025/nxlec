@@ -1,0 +1,85 @@
+{
+  "question_uid": "V2-Q0123",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "BLUEPRINT_REALIGNMENT_FULL_CONSTRUCT_REBUILD",
+  "technical_candidate_reason": "absolute_word_distractor_pattern",
+  "semantic_correction": {
+    "stem": "A hospitalized client who has decision-making capacity tells the nurse, 'Do not discuss my diagnosis with my brother.' Later, the brother asks the nurse for an update. Which action is most appropriate?",
+    "options": {
+      "A": "Honor the client's objection, withhold the diagnosis from the brother, and ask the client whether any specific information may be shared.",
+      "B": "Share the diagnosis because the brother is a close family member, but limit the discussion to information relevant to the current admission.",
+      "C": "Confirm the brother's identity and then provide the diagnosis, because identity verification is sufficient for disclosure to involved family.",
+      "D": "Give the brother the diagnosis but omit treatment details, because a limited disclosure is allowed even when the capable client has objected."
+    },
+    "correct_option": "A",
+    "rationale": "HHS explains that the HIPAA Privacy Rule permits disclosure of information directly relevant to a family member or friend involved in care when the patient agrees, does not object, or the provider can reasonably infer that the patient does not object. In this case, the capable client has expressly objected to disclosure of the diagnosis to the brother, so the nurse should respect that objection and not disclose the diagnosis under the family-and-friends provision. Option A also appropriately returns control to the client by asking whether any specific information may be shared. Options B and D disclose despite the client's explicit objection, and option C incorrectly treats identity verification as sufficient authority for disclosure. Therefore A is the uniquely best answer.",
+    "educational_objective": "Protect client confidentiality by respecting an explicit objection to disclosure of health information to a family member and seeking the client's direction about any information that may be shared.",
+    "source_organization": "U.S. Department of Health and Human Services (HHS), Office for Civil Rights",
+    "source_document_title": "Family Members and Friends",
+    "source_version_date": "Content last reviewed December 23, 2022; current HHS HIPAA resource accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Family Members and Friends — HIPAA Privacy Rule conditions for sharing information with family or friends; cites 45 CFR §§ 164.502(g) and 164.510(b)",
+    "source_url": "https://www.hhs.gov/hipaa/for-individuals/family-members-friends/index.html",
+    "source_claim_supported": "HHS states that health information may be shared with family or friends involved in care when the patient permits it, does not object, or professional judgment supports that the patient does not object; an explicit objection by a capable patient therefore precludes disclosure under this family-and-friends provision.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Maintain client confidentiality and privacy (e.g., social media, disclosure of information); Advocate for client rights and needs",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — confidentiality, privacy, and disclosure of information",
+    "correction_summary_append": "RULE1 cleanup: the original whistleblower-law item had technically defensible federal-law wording but only indirect NCLEX blueprint alignment and a generic educational objective. It was replaced with an HHS-supported client-confidentiality construct that directly maps to the 2026 NCSBN Management of Care disclosure-of-information activity statement; absolute-word distractors were eliminated and all options were rebuilt.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0123",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "INDIRECT_BLUEPRINT_ALIGNMENT_GENERIC_OBJECTIVE_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The prior OSHA whistleblower construct concerned employment-law retaliation rather than a directly enumerated newly licensed RN client-care activity. The replacement tests client confidentiality and disclosure to family, which is explicitly listed in the NCSBN 2026 Management of Care activity statements and is directly supported by HHS HIPAA guidance.",
+        "source_authority": "HHS Office for Civil Rights",
+        "source_locator": "Family Members and Friends — conditions for disclosure under 45 CFR 164.510(b)",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Maintain client confidentiality and privacy"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. The capable client explicitly objected, so the nurse should not disclose the diagnosis under the family-and-friends provision and should ask the client what, if anything, may be shared.",
+    "B": "Plausible because HIPAA can permit relevant disclosures to family involved in care, but that permission does not override this capable client's explicit objection.",
+    "C": "Plausible privacy-procedure confusion, but verifying identity does not by itself establish permission to disclose protected health information to the brother.",
+    "D": "Plausible because HIPAA limits family disclosures to relevant information, but limited scope does not eliminate the effect of the client's explicit objection."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly establishes decision-making capacity and an express objection to disclosure to the named family member; A alone respects that direction without inventing a separate legal exception.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 137, "B": 140, "C": 141, "D": 141},
+    "note": "Exact character counts were calculated from the stored strings. All four choices are complete disclosure decisions of essentially identical length; the correct answer is the shortest and no mechanical padding was added."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Maintaining confidentiality/privacy and handling disclosure of information are explicit Management of Care activities for the newly licensed RN.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original OSHA whistleblower claim verified before construct retirement",
+      "original construct judged indirectly rather than explicitly aligned to NCSBN newly licensed RN activities",
+      "current HHS HIPAA Family Members and Friends page verified",
+      "patient agreement/no-objection conditions for family disclosure verified directly",
+      "explicit-objection implication verified against HHS family/friends guidance and HHS FAQ examples",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official 2026 NCSBN Management of Care page visually verified at printed p. 7 / PDF p. 11",
+      "exact confidentiality/privacy/disclosure activity statement verified",
+      "educational objective is item-specific"
+    ]
+  }
+}

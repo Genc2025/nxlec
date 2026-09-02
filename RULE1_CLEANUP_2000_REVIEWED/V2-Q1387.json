@@ -1,0 +1,90 @@
+{
+  "question_uid": "V2-Q1387",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_CUEING_AND_SOURCE_REAUDIT",
+  "near_duplicate_resolution": {
+    "paired_uid": "V2-Q0653",
+    "resolution": "Retain V2-Q1387 as the bank's enoxaparin prefilled-syringe self-administration item using the current branded FDA label. V2-Q0653 will be rebuilt into a different pharmacology construct."
+  },
+  "semantic_correction": {
+    "stem": "The nurse asks a client to demonstrate self-administration of Lovenox from a prefilled syringe. Which technique demonstrates correct understanding?",
+    "options": {
+      "A": "Expel the air bubble, inject into an abdominal skin fold, alternate left/right sites, and avoid rubbing afterward.",
+      "B": "Keep the air bubble, insert the full needle into an abdominal skin fold, alternate left/right sites, and avoid rubbing afterward.",
+      "C": "Keep the air bubble, insert the full needle into an abdominal skin fold, use the same site for each dose, and avoid rubbing afterward.",
+      "D": "Keep the air bubble, inject into an abdominal skin fold, alternate left/right sites, and massage the site afterward."
+    },
+    "correct_option": "B",
+    "rationale": "The current FDA-approved Lovenox label instructs deep subcutaneous administration, states not to expel the air bubble from a prefilled syringe, directs alternating left and right abdominal-wall injection sites, instructs insertion of the whole needle into a skin fold held throughout the injection, and advises not to rub the site afterward to minimize bruising. Option B contains those source-supported elements. Option A incorrectly removes the air bubble. Option C incorrectly reuses the same site instead of alternating sites. Option D incorrectly massages the injection site after administration. Therefore B is the uniquely correct technique.",
+    "educational_objective": "Teach safe Lovenox prefilled-syringe self-administration by retaining the air bubble, using a subcutaneous abdominal skin fold, rotating sites, and avoiding rubbing after injection.",
+    "source_organization": "DailyMed / U.S. Food and Drug Administration labeling; Sanofi-Aventis U.S. LLC",
+    "source_document_title": "LOVENOX (enoxaparin sodium) injection — Full Prescribing Information",
+    "source_version_date": "Revised February 2026; Version 15; Effective Time 20260206",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Section 2.5 Administration — Subcutaneous Injection Technique; FDA-approved Instructions for Use — Steps 5, 6, 10, and 11",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=de6fb917-a94a-41ea-9d7d-937d4080ffcd",
+    "source_claim_supported": "For Lovenox prefilled-syringe subcutaneous injection, do not expel the air bubble; alternate abdominal injection sites; insert the full needle into a skin fold and hold the fold throughout injection; do not rub the site afterward.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16, Related Activity Statements — Prepare and administer medications using rights of medication administration; Educate client about medications",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — enoxaparin self-administration teaching",
+    "correction_summary_append": "RULE1 cleanup: retained V2-Q1387 as the enoxaparin self-injection construct, replaced weak one-line distractors with complete competing technique bundles, updated the source to the current Sanofi FDA label revised February 2026, and normalized the exact 2026 NCSBN medication-administration/teaching locator.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1387",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_NEAR_DUPLICATE_AND_NONCOMPETITIVE_DISTRACTORS",
+        "paired_uid": "V2-Q0653",
+        "finding": "V2-Q1387 and V2-Q0653 tested essentially identical enoxaparin prefilled-syringe technique. Q1387 was retained, but all distractors were rebuilt as clinically plausible technique bundles and the source was refreshed to the current branded FDA label.",
+        "source_authority": "DailyMed/FDA approved Lovenox labeling",
+        "source_locator": "Section 2.5 Administration; Instructions for Use Steps 5/6/10/11",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible because the remaining site and aftercare elements are appropriate, but the FDA label directs the client not to expel the prefilled-syringe air bubble.",
+    "B": "Correct. It combines the label-supported air-bubble, full-needle skin-fold, site-rotation, and no-rubbing instructions.",
+    "C": "Plausible because the air-bubble and skin-fold steps are correct, but the FDA label directs alternating abdominal sites rather than using the same site for each dose.",
+    "D": "Plausible because the air-bubble, abdominal route, and site rotation are appropriate, but the label instructs not to rub or massage the site after injection."
+  },
+  "ambiguity_check": "No second defensible answer. Each distractor contains one specific label-inconsistent technique while B contains the complete source-supported combination.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 114, "B": 129, "C": 134, "D": 116},
+    "note": "All options are parallel multistep self-injection techniques; the correct answer is not the longest and no filler was used for mechanical equality."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Client medication teaching and safe subcutaneous administration are explicit newly licensed RN activities under Pharmacological and Parenteral Therapies.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current FDA-approved Lovenox label identity verified",
+      "February 2026 revision, Version 15, and Effective Time 20260206 verified",
+      "air-bubble instruction verified directly",
+      "abdominal site rotation verified directly",
+      "full-needle skin-fold instruction verified directly",
+      "no-rubbing instruction verified directly",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or conspicuous length cue identified",
+      "official 2026 NCSBN Pharmacological and Parenteral Therapies locator verified",
+      "near-duplicate resolution requires V2-Q0653 to move to a different pharmacology construct",
+      "educational objective is item-specific"
+    ]
+  }
+}

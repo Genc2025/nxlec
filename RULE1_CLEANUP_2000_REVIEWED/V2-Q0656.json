@@ -1,0 +1,63 @@
+{
+  "question_uid": "V2-Q0656",
+  "stable_sort_key": "06-STANDALONE-00656",
+  "status": "FINAL_QA_PASS",
+  "audit_status": "FINAL_QA_PASS",
+  "second_pass_status": "PASS",
+  "category_id": 8,
+  "client_need": "Pharmacological and Parenteral Therapies",
+  "blueprint_topic": "Pharmacological and Parenteral Therapies — cumulative acetaminophen dose safety",
+  "difficulty": "medium",
+  "stem": "An adult client weighs 70 kg. During the past 24 hours the client received IV acetaminophen 1,000 mg at 0600 and 1200 and an oral combination product containing acetaminophen 325 mg per tablet, 2 tablets at 0900 and 1500. Another 1,000-mg IV acetaminophen dose is scheduled now. What should the nurse do?",
+  "options": {
+    "A": "Administer the 1,000-mg IV dose because the two prior IV doses total 2,000 mg and oral combination products are not included in the IV daily limit.",
+    "B": "Administer the 1,000-mg IV dose because the oral tablets add 1,300 mg, but IV and oral acetaminophen are tracked under separate maximums.",
+    "C": "Question the 1,000-mg IV dose because all sources total 3,300 mg already and the scheduled dose would raise the 24-hour total to 4,300 mg.",
+    "D": "Reduce the IV dose to 500 mg without contacting the prescriber because nursing may independently modify the dose to keep the total below 4,000 mg."
+  },
+  "correct_option": "C",
+  "rationale": "Current acetaminophen injection prescribing information states that the maximum daily acetaminophen dose is calculated from all routes and all acetaminophen-containing products, including combination products. For adults and adolescents weighing 50 kg or more, the maximum total daily acetaminophen dose is 4,000 mg in 24 hours. This client has already received 2,000 mg IV plus 1,300 mg orally, for 3,300 mg total. Giving another 1,000 mg would raise the 24-hour total to 4,300 mg, so the nurse should question the scheduled dose rather than administer it. A and B incorrectly separate IV and oral exposure. D independently changes a prescribed dose without an order and is not an appropriate nursing action.",
+  "educational_objective": "Calculate cumulative acetaminophen exposure from every route and acetaminophen-containing product; for adults weighing at least 50 kg, question therapy that would exceed the labeled 4,000-mg maximum total daily dose.",
+  "source_organization": "DailyMed (U.S. National Library of Medicine); Mylan Institutional LLC",
+  "source_document_title": "Acetaminophen Injection — Prescribing Information",
+  "source_version_date": "DailyMed version 5; effective March 20, 2026; prescribing information revised March 2026",
+  "source_accessed_date": "2026-08-26",
+  "source_locator": "Full Prescribing Information §2.1 General Dosing Information: calculated maximum daily acetaminophen dose is based on all routes and all products containing acetaminophen; ensure total acetaminophen from all routes and all sources does not exceed the recommended maximum. §2.2 Recommended Dosage — Adults and Adolescents: for adults/adolescents weighing ≥50 kg, maximum daily acetaminophen dose is 4,000 mg per day including all routes and all acetaminophen-containing products, including combination products. §5.1 Hepatic Injury repeats that exceeding the maximum recommended daily dose from all routes/products can cause serious hepatic injury.",
+  "source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=1d456d07-fca2-4d43-92c0-f3b3c8b54420",
+  "source_claim_supported": "The maximum daily acetaminophen exposure includes all routes and all acetaminophen-containing products; adults weighing at least 50 kg have a labeled maximum total daily dose of 4,000 mg in 24 hours.",
+  "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+  "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+  "blueprint_locator": "Printed p. 38, Pharmacological and Parenteral Therapies: evaluate appropriateness and accuracy of medication orders; perform calculations needed for medication administration; review pertinent medication data; prepare and administer medications using rights of medication administration; handle and administer high-risk medications safely.",
+  "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test%20Plan_English-F.pdf",
+  "candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "candidate_reasons_resolved": [
+    "Rebuilt the item as an applied cumulative-dose calculation instead of a fact-recall question with one long explanatory correct option.",
+    "Used four parallel action statements of comparable length and placed the key in a noninitial option.",
+    "Used only the directly labeled adult ≥50-kg maximum and exact acetaminophen content supplied in the stem, with no unsupported dose-conversion rule."
+  ],
+  "candidate_detail": {
+    "option_lengths_after_revision": {
+      "A": 147,
+      "B": 139,
+      "C": 138,
+      "D": 143
+    }
+  },
+  "qa_gate": {
+    "fresh_current_authoritative_source_verification": true,
+    "exact_source_locator_version_currentness": true,
+    "claim_by_claim_stem_key_rationale_objective": true,
+    "options_a_b_c_d_individually_verified": true,
+    "ambiguity_check": true,
+    "second_answer_exclusion": true,
+    "cueing_length_absolute_word_pattern_check": true,
+    "nclex_blueprint_topic_difficulty_alignment": true,
+    "correction_reaudit_complete": true,
+    "independent_adversarial_second_pass": true,
+    "unresolved_conflicts": false
+  },
+  "audit_note": "Independent adversarial review confirms C is uniquely correct. The arithmetic is 2,000 mg IV plus 1,300 mg oral = 3,300 mg already received; the scheduled 1,000-mg dose would produce 4,300 mg in 24 hours, exceeding the label's 4,000-mg maximum for clients ≥50 kg. A and B incorrectly separate routes/products, while D improperly changes an order without prescriber authorization. No second defensible answer or material cueing remains."
+}

@@ -1,0 +1,84 @@
+{
+  "question_uid": "V2-Q0970",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-18",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "FULL_CONSTRUCT_REBUILD",
+  "semantic_correction": {
+    "stem": "A newly licensed RN is asked to perform a procedure that the RN has not previously performed independently. Which action is most appropriate before accepting responsibility for the procedure?",
+    "options": {
+      "A": "Review applicable law and rules and unit policy, then verify the RN’s current education, competence, and available resources before proceeding.",
+      "B": "Review the unit’s procedure checklist and proceed if another experienced RN is available nearby to assist if difficulty develops.",
+      "C": "Ask the charge nurse to reassign the procedure before reviewing scope requirements, unit policy, or the RN’s current competence.",
+      "D": "Observe an experienced RN complete the procedure and use that observation as the basis for performing it independently during the same shift."
+    },
+    "correct_option": "A",
+    "rationale": "The NCSBN-hosted Scope of Nursing Practice Decision-Making Framework directs the nurse to determine whether an activity is prohibited by applicable law or rules, whether practice-setting policies support it, whether the nurse has the necessary education and documented current competence, and whether appropriate resources are available; it also addresses reasonable-prudent practice and accountability. Option A incorporates the relevant checks before proceeding. Option B considers a unit resource but does not establish the RN’s own scope and current competence. Option C reassigns the activity before evaluating the framework criteria. Option D treats observation as sufficient evidence of competence and omits the other required checks. Therefore, A is the best answer.",
+    "educational_objective": "Before accepting responsibility for an unfamiliar nursing activity, evaluate applicable scope requirements, practice-setting policy, current education and competence, and available resources.",
+    "source_organization": "Tri-Council for Nursing in collaboration with the National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Scope of Nursing Practice Decision-Making Framework",
+    "source_version_date": "July 2016",
+    "source_accessed_date": "2026-08-18",
+    "source_locator": "Decision-Making Framework, PDF p. 3: law/rules, practice-setting policy, necessary education, documented current competence, appropriate resources, reasonable-and-prudent nurse, accountability",
+    "source_url": "https://www.ncsbn.org/public-files/2016_Decision-Making-Framework.pdf",
+    "source_claim_supported": "Before a nurse performs an activity, the framework evaluates applicable law/rules, supporting practice-setting policies, necessary education, documented current competence, appropriate resources, reasonable-and-prudent practice, and accountability.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Recognize limitations of self and others and utilize resources; Utilize resources to promote quality client care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — recognize limitations and utilize resources",
+    "correction_summary_append": "RULE1 cleanup: original hospital transition-to-practice program-design construct was not sufficiently aligned to entry-level NCLEX activity. Rebuilt the item around an entry-level RN evaluating scope, competence, policy, and resources using the NCSBN-hosted Scope of Nursing Practice Decision-Making Framework and an exact 2026 Management of Care locator.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0970",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "BLUEPRINT_ROLE_MISMATCH_AND_CUED_DISTRACTORS",
+        "finding": "The original item asked a hospital to design a transition-to-practice program, an organizational construct that was not sufficiently aligned to an entry-level RN activity statement. It also used conspicuously weak distractors. The item was rebuilt as an entry-level scope/competence/resource decision and re-audited from zero.",
+        "source_authority": "NCSBN-hosted Scope of Nursing Practice Decision-Making Framework",
+        "source_locator": "PDF p. 3 decision tree",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 — Recognize limitations of self and others and utilize resources"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. It captures the framework’s scope, policy, education/competence, and resource checks before proceeding.",
+    "B": "Plausible because a checklist and nearby experienced RN are useful resources, but these do not establish the newly licensed RN’s own permitted scope and current competence.",
+    "C": "Plausible conservative response, but the framework calls for evaluation of scope, policy, competence, and resources rather than automatic reassignment based solely on lack of prior independent performance.",
+    "D": "Plausible learning strategy, but observing one performance does not by itself satisfy documented current competence and the other framework criteria."
+  },
+  "ambiguity_check": "No second defensible answer. A is the only option that evaluates the core NCSBN framework criteria before accepting responsibility.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 143, "B": 129, "C": 128, "D": 141},
+    "note": "The correct answer is not conspicuously longer than the distractors and the options use parallel action phrasing without mechanical padding."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Directly tests the newly licensed RN’s recognition of limitations and use of resources before accepting responsibility for an unfamiliar activity.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official NCSBN-hosted scope framework current location verified",
+      "July 2016 framework version/date verified",
+      "exact decision-tree criteria verified claim by claim",
+      "2026 NCLEX-RN Management of Care exact activity statement verified",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word cueing identified",
+      "no conspicuous length cue identified",
+      "rationale does not convert the educational framework into a universal patient-specific standard of care",
+      "educational objective is item-specific",
+      "original transition-to-practice organizational construct removed because of entry-level blueprint mismatch"
+    ]
+  }
+}

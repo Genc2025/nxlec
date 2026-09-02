@@ -1,0 +1,109 @@
+{
+  "question_uid": "V2-Q1249",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "CMS_HAC_PAYMENT_TRIVIA_TO_TOTAL_LARYNGECTOMY_AIRWAY_EMERGENCY_REBUILD",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client who previously had a total laryngectomy suddenly develops severe respiratory distress and needs emergency oxygenation. Which action should the nurse take?",
+    "options": {
+      "A": "Apply oxygen directly to the neck stoma and assess the stoma for patency while emergency support is activated.",
+      "B": "Apply a face mask over the nose and mouth and cover the neck stoma so oxygen is directed through the upper airway.",
+      "C": "Apply oxygen by nasal cannula and leave the neck stoma uncovered while monitoring for improvement in breathing.",
+      "D": "Use bag-mask ventilation over the mouth and nose while placing an occlusive dressing over the neck stoma."
+    },
+    "correct_option": "A",
+    "rationale": "After total laryngectomy, the trachea is permanently diverted to an anterior neck stoma and the respiratory and digestive tracts are completely separated. NCBI/StatPearls states that breathing through the nose or mouth is no longer possible and that all respiration, supplemental oxygen, and any needed intubation occur through the neck stoma. A 2026 emergency-medicine report likewise emphasizes that airway interventions after total laryngectomy must occur through the existing tracheal stoma. Therefore the nurse should deliver oxygen directly to the stoma, assess whether the stoma is patent, and activate emergency support. Face-mask or nasal oxygen directed to the upper airway will not oxygenate a total-laryngectomy client, and covering the stoma would obstruct the client's only airway. The 2026 NCSBN NCLEX-RN Test Plan includes tracheal ostomy care, suctioning, pathophysiology-based care, and emergency procedures under Physiological Adaptation. Therefore A is the uniquely best answer.",
+    "educational_objective": "Recognize that a total-laryngectomy client is a permanent neck breather; emergency oxygenation and airway assessment must be directed to the neck stoma rather than the nose or mouth.",
+    "source_organization": "NCBI Bookshelf / StatPearls; PubMed-indexed emergency medicine literature; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Total Laryngectomy; Management of tracheostomal hemorrhage complicated by obstructing clot in a post-laryngectomy patient; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "StatPearls Total Laryngectomy last updated May 28, 2023 and rechecked August 20, 2026; emergency medicine report published January 2026; NCSBN Test Plan published 2025 and effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "NCBI StatPearls Total Laryngectomy > Laryngeal Anatomy and Function Post-Laryngectomy — total laryngectomy completely separates respiratory and digestive tracts; breathing through nose/mouth is no longer possible; all respiration, oxygen supplementation and intubation are via the anterior neck stoma. PubMed 2026 report abstract — total laryngectomy requires airway interventions exclusively through a neck stoma. NCSBN 2026 NCLEX-RN Test Plan > Physiological Adaptation, printed p. 47 / PDF p. 51 — perform suctioning, provide tracheal ostomy care/education, apply pathophysiology and provide postoperative care; emergency care activities follow in the same section.",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK556041/",
+    "secondary_source_url": "https://pubmed.ncbi.nlm.nih.gov/40925809/",
+    "tertiary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "After total laryngectomy, the upper airway no longer connects to the lungs; oxygenation and airway interventions must be delivered through the anterior neck stoma.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, printed p. 47 / PDF p. 51 — tracheal ostomy care, suctioning and postoperative care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — emergency airway management of the total-laryngectomy client",
+    "correction_summary_append": "RULE1 cleanup: retired a CMS hospital-acquired-condition reimbursement item because it tested payment-policy trivia rather than entry-level bedside nursing. Rebuilt the UID into a high-value airway emergency requiring recognition that a total-laryngectomy client can be oxygenated only through the neck stoma.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1249",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CMS_REIMBURSEMENT_POLICY_TRIVIA_ABSOLUTE_WORD_CUE_AND_LENGTH_CUE",
+        "finding": "The replacement tests an immediate airway decision based on surgically altered anatomy. NCBI directly supports stoma-only respiration and oxygenation after total laryngectomy.",
+        "source_authority": "NCBI Bookshelf / StatPearls; 2026 emergency medicine report; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Total Laryngectomy post-laryngectomy anatomy; NCSBN Physiological Adaptation printed p. 47 / PDF p. 51",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Physiological Adaptation"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "tracheostomy_difference": "The stem explicitly states total laryngectomy. It does not generalize this anatomy to every client with a tracheostomy, where upper-airway continuity may remain.",
+    "specific_oxygen_device": "No oxygen flow rate, mask brand, airway tube size, or intubation depth is prescribed; the tested principle is delivery through the neck stoma.",
+    "obstruction_treatment": "The item asks for initial oxygenation/airway direction and patency assessment. It does not prescribe a specific suction catheter size, foreign-body technique, or surgical intervention.",
+    "cause_of_distress": "No assumption is made about mucus plugging, hemorrhage, edema, infection, or another cause before airway patency is assessed."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [],
+    "result": "NO_TARGETED_MATCH_IDENTIFIED",
+    "note": "Targeted GitHub search for 'total laryngectomy oxygen stoma neck breather mouth nose' returned no indexed repository match. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It directs oxygen to the client's only airway and assesses stoma patency while emergency help is activated.",
+    "B": "Plausible for a client with an intact upper airway, but a total-laryngectomy client's nose and mouth no longer communicate with the lungs; covering the stoma is unsafe.",
+    "C": "Plausible because nasal cannula is common oxygen delivery, but nasal oxygen cannot reach the lungs after total laryngectomy.",
+    "D": "Plausible general resuscitation action, but mouth/nose ventilation is ineffective after total laryngectomy and occluding the stoma blocks the only airway."
+  },
+  "ambiguity_check": "No second defensible best answer. B, C and D direct oxygen or ventilation to the disconnected upper airway, and B/D additionally cover the only functional airway. A alone follows the source-supported post-laryngectomy anatomy.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 110,
+      "B": 114,
+      "C": 111,
+      "D": 105
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four options are comparable airway actions and the correct option is not longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Physiological Adaptation includes tracheal ostomy care, suctioning, postoperative care and emergency procedures. Recognition of altered airway anatomy is directly relevant to safe entry-level RN care.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. Official NCSBN 2026 Test Plan printed p. 47 / PDF p. 51 was visually inspected on 2026-08-20 and visibly lists suctioning, tracheal ostomy care/education and postoperative care."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_NCBI_HTML",
+    "note": "The relevant NCSBN PDF page was visually inspected. NCBI and PubMed sources are HTML and were text-verified directly."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "NCBI Total Laryngectomy anatomy rechecked for complete respiratory/digestive separation and stoma-only respiration/oxygenation",
+      "2026 PubMed-indexed emergency report rechecked for stoma-exclusive airway interventions after total laryngectomy",
+      "official NCSBN 2026 Physiological Adaptation page visually verified at printed p. 47 / PDF p. 51",
+      "A/B/C/D independently re-audited for anatomy, plausibility and second-answer risk",
+      "no oxygen flow rate, device brand, tube size, suction depth or presumed cause of distress fabricated",
+      "correct answer is not length-cued; exact lengths A110/B114/C111/D105",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

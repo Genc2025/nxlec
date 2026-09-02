@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0920",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "BEDSIDE_SHIFT_REPORT_REDUNDANCY_TO_POSTTHYROIDECTOMY_AIRWAY_EMERGENCY_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "Two hours after a thyroidectomy, a client develops rapidly increasing anterior neck swelling, inspiratory stridor, dyspnea, and an oxygen saturation of 88%. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Apply a cold pack to the neck swelling, keep the client supine, and reassess respiratory status after the swelling has had time to decrease.",
+      "B": "Activate the emergency response, stay with the client, support oxygenation, and urgently summon the surgical/airway team for possible airway compromise.",
+      "C": "Obtain a serum calcium level and assess for Chvostek and Trousseau signs before escalating because postoperative stridor most often reflects hypocalcemia.",
+      "D": "Encourage voice rest, elevate oral fluid intake, and notify the surgeon during routine rounds because hoarseness and neck swelling are expected after surgery."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes postoperative care, recognition and intervention for client complications, and emergency-care procedures under Physiological Adaptation. Current StatPearls thyroidectomy guidance identifies postoperative hemorrhage and rapidly expanding neck hematoma as potentially life-threatening because they can compromise the airway and require urgent intervention. Current Open RN endocrine guidance lists dyspnea, neck swelling, stridor and low oxygen levels as findings of post-thyroidectomy airway compromise that require immediate respiratory monitoring and emergency readiness. This client has multiple signs of active upper-airway compromise and hypoxemia. B is therefore the uniquely best response: summon emergency surgical/airway help immediately while staying with the client and supporting oxygenation. A delays definitive response. C prioritizes a possible metabolic complication despite overt airway obstruction signs. D treats the findings as routine postoperative changes and delays emergency management. Therefore B is correct.",
+    "educational_objective": "After thyroidectomy, rapidly increasing neck swelling with stridor, dyspnea and hypoxemia is an airway emergency; immediately activate emergency assistance, remain with the client, support oxygenation and obtain urgent surgical/airway intervention rather than delaying for routine reassessment or laboratory evaluation.",
+    "source_organization": "NCBI Bookshelf / StatPearls; Open RN; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Thyroidectomy; Health Alterations — Potential Complications After a Thyroidectomy; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "StatPearls Thyroidectomy last updated November 25, 2024 and published in StatPearls 2026; Open RN Health Alterations 2024; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "StatPearls Thyroidectomy > Complications — postoperative hemorrhage/hematoma can rapidly cause airway compromise and may require urgent evacuation/emergency airway management. Open RN Health Alterations Table 7.6c — post-thyroidectomy airway compromise findings include difficulty breathing, neck swelling, stridor, low oxygen levels and require respiratory monitoring/emergency readiness. NCSBN Physiological Adaptation — provide postoperative care; recognize signs/symptoms of complications and intervene; perform emergency care procedures.",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK563279/",
+    "secondary_source_urls": ["https://www.ncbi.nlm.nih.gov/books/NBK613062/table/ch7endocrine.T.potential_complications_a/?report=objectonly","https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"],
+    "source_claim_supported": "Rapid postoperative neck swelling with stridor, dyspnea and hypoxemia after thyroidectomy indicates potential life-threatening airway compromise requiring immediate emergency escalation and airway support.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation — Provide postoperative care; Recognize signs and symptoms of client complications and intervene; Perform emergency care procedures",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — recognition and emergency response to post-thyroidectomy airway compromise",
+    "correction_summary_append": "RULE1 cleanup: retired bedside-shift-report benefit recall because it overlapped existing handoff coverage and had a strong key-length cue. Rebuilt the item around an explicit NCSBN postoperative/emergency-care construct: recognition and escalation of post-thyroidectomy airway compromise. Removed the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0920","result":"FINAL_QA_PASS","failure_mode_corrected":"HANDOFF_REDUNDANCY_AND_ITEM_WRITING_CUES","finding":"The replacement tests immediate recognition and escalation of a life-threatening postoperative airway complication.","source_authority":"StatPearls Thyroidectomy; Open RN; NCSBN 2026 Test Plan"}]
+  },
+  "scope_exclusions": {
+    "specific_cause_of_airway_compromise": "The item does not require distinguishing hematoma, edema, nerve injury or hypocalcemic tetany before responding; the presented airway compromise requires immediate escalation.",
+    "bedside_wound_opening_by_RN": "Not endorsed. Definitive wound/airway intervention is performed by the appropriate emergency surgical/airway team according to the clinical situation and institutional protocol.",
+    "routine_hoarseness": "Not tested; the stem contains stridor, progressive neck swelling, dyspnea and hypoxemia, which are not routine findings."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0724", "V2-Q0874", "V2-Q0875"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0724 tests generic postoperative deterioration meeting rapid-response criteria; Q0874 tests abdominal evisceration; Q0875 tracheostomy secretion clearance. Q0920 specifically tests upper-airway compromise after thyroidectomy. Targeted repository search returned no matching thyroidectomy/stridor/neck-hematoma item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible swelling-management response but dangerously delays an established airway emergency.",
+    "B": "Correct. It prioritizes emergency airway support and immediate surgical/airway-team response.",
+    "C": "Plausible post-thyroidectomy hypocalcemia assessment but delays management of overt airway compromise.",
+    "D": "Plausible response to benign postoperative voice changes but misclassifies severe airway signs as expected recovery."
+  },
+  "ambiguity_check": "No second defensible best answer. Stridor, progressive neck swelling, dyspnea and SpO2 88% establish an immediate airway threat. B alone escalates and supports the airway without delay; A/C/D postpone emergency intervention.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":140,"B":152,"C":154,"D":158},
+    "note": "All options are comparable action sequences; correct B is not the longest and is close in length to C/D."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Postoperative care, recognition/intervention for complications, and emergency-care procedures are explicit Physiological Adaptation responsibilities.",
+    "exact_locator_verified": true,
+    "visual_verification": "The official NCSBN Physiological Adaptation overview page was visually verified in this audit sequence; a screenshot attempt of the later medical-emergency page failed with a cache-miss error, which is documented rather than presented as a successful screenshot."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["post-thyroidectomy airway-compromise findings verified","life-threatening hematoma/hemorrhage risk verified","NCSBN postoperative/complication/emergency mapping verified","no specific etiology required before action","A/B/C/D re-audited","no second defensible answer","option lengths A140/B152/C154/D158","targeted duplicate search clean","difficulty medium"]
+  }
+}

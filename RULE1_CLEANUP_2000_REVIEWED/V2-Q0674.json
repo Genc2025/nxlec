@@ -1,0 +1,102 @@
+{
+  "question_uid": "V2-Q0674",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "WEAK_FORENSIC_BLUEPRINT_TO_EXPLICIT_DISASTER_DISCHARGE_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A hospital activates its disaster response plan after notification that multiple casualties are arriving and additional inpatient beds are needed. Which current client should the RN recommend first for expedited discharge review?",
+    "options": {
+      "A": "The client 6 hours after abdominal surgery who still requires IV analgesia, serial assessments, and assistance with initial ambulation.",
+      "B": "The client already expected to discharge today who is stable on oral therapy, independent with care, has completed teaching, and has transportation.",
+      "C": "The client with new chest pressure who is undergoing diagnostic evaluation and needs continued monitoring while the cause is being determined.",
+      "D": "The client with worsening dyspnea who has a new oxygen requirement and needs repeated respiratory assessment and treatment adjustment."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly places disaster discharge selection within Safety and Infection Prevention and Control: under Emergency Response Plan, the newly licensed RN may be tested on determining which client or clients to recommend for discharge in a disaster situation, using clinical decision-making for emergency response and participating in emergency planning and response. AHRQ disaster surge guidance similarly describes selecting less ill patients for early discharge or transfer to decompress hospitals and create additional capacity. In this scenario, B is the uniquely best candidate for expedited discharge review because that client is already expected to discharge today, is stable on oral therapy, independent with care, has completed teaching and has transportation available. A still requires early postoperative inpatient treatment and serial assessment. C has a new unresolved potentially acute symptom undergoing diagnostic evaluation and monitoring. D has worsening respiratory status with a new oxygen requirement and treatment adjustment needs. Therefore B best preserves inpatient capacity for clients with ongoing acute-care needs while identifying the client already closest to safe discharge.",
+    "educational_objective": "During hospital disaster surge planning, identify the client already closest to safe discharge and with the fewest ongoing acute inpatient needs for expedited discharge review, while retaining clients who require active monitoring, treatment adjustment, or early postoperative care.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Disaster Alternate Care Facilities — Patient Selection/Surge Capacity guidance",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; current AHRQ disaster surge resources live-rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Safety and Infection Prevention and Control, printed p. 25 / PDF p. 29 — Emergency Response Plan: determine which client(s) to recommend for discharge in a disaster situation; use clinical decision-making/critical thinking for emergency response plan; participate in emergency planning and response. AHRQ Disaster Alternate Care Facilities, Chapter 1/3 — less ill patients may be selected for early discharge or transfer to decompress hospitals and increase surge capacity",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_urls": [
+      "https://www.ahrq.gov/research/shuttered/acfselection/chapter1.html",
+      "https://www.ahrq.gov/research/shuttered/acfselection/chapter3.html"
+    ],
+    "source_claim_supported": "Disaster response planning includes identifying appropriate clients for early discharge to create hospital surge capacity; clients closest to safe discharge should be considered before those with ongoing acute monitoring or treatment needs.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Safety and Infection Prevention and Control, printed p. 25 / PDF p. 29 — Emergency Response Plan: Determine which client(s) to recommend for discharge in a disaster situation",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — disaster reverse triage and expedited discharge selection",
+    "correction_summary_append": "RULE1 cleanup: retired the forensic chain-of-custody item because fresh blueprint review found no explicit forensic/chain-of-custody content in the 2026 NCSBN Test Plan, making its NCLEX mapping weaker than required for FINAL 10/10. Rebuilt the slot around an explicit NCSBN Emergency Response Plan activity: selecting a client for disaster-related expedited discharge. Removed the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0674",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "WEAK_EXPLICIT_BLUEPRINT_MAPPING_FORENSIC_TRIVIA_ABSOLUTE_WORD_CUE_AND_ANSWER_LENGTH_CUE",
+        "finding": "The final item maps directly to the NCSBN Emergency Response Plan statement requiring determination of which clients to recommend for discharge during a disaster.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; AHRQ disaster surge guidance",
+        "source_locator": "Emergency Response Plan — disaster discharge selection; AHRQ early discharge/transfer for hospital decompression",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 25 / PDF p. 29"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "automatic_discharge_order_by_RN": "Not asserted. The RN recommends a client for expedited discharge review within the disaster plan; the item does not claim the RN independently writes a medical discharge order.",
+    "discharge_of_unstable_client": "Not endorsed. The correct client is already expected to discharge and has stable, completed transition elements; clients with unresolved acute needs remain inpatient.",
+    "field_mass_casualty_triage_tags": "Not tested; this is inpatient reverse-triage/discharge selection for surge capacity."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0421", "V2-Q0573", "V2-Q0570"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0421 tests unity of command within hospital incident command. V2-Q0573 tests a routine pre-discharge equipment/service gap. V2-Q0570 tests pending-result ownership during shift handoff. V2-Q0674 tests disaster surge reverse triage: which inpatient should be recommended first for expedited discharge review. Targeted repository search returned no matching disaster-discharge/reverse-triage item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible because postoperative clients may recover quickly, but this client is only 6 hours postoperative and still requires IV analgesia, serial assessments and mobility assistance.",
+    "B": "Correct. This client is already expected to discharge, is stable on oral therapy, independent, teaching-complete and has transportation, making the client closest to safe discharge.",
+    "C": "Plausible if chest symptoms prove benign, but a new unresolved symptom is still under diagnostic evaluation and monitoring.",
+    "D": "Plausible chronic respiratory client but current worsening status, new oxygen requirement and treatment adjustment indicate ongoing acute-care need."
+  },
+  "ambiguity_check": "No second defensible best answer. B has an already-established same-day discharge trajectory plus completed transition requirements. A/C/D each have explicit ongoing acute inpatient needs. The question asks who should be recommended first for expedited discharge review, not who the RN can independently discharge.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 135, "B": 148, "C": 142, "D": 134},
+    "note": "Exact character counts were calculated from the stored strings. Correct option B is not isolated by structure or absolute wording; the length spread is 14 characters and all choices contain comparable clinical-state detail."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly lists determining which clients to recommend for discharge in a disaster situation as Safety and Infection Prevention and Control content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Emergency Response Plan page, printed p. 25 / PDF p. 29, was visually inspected on 2026-08-19 and explicitly states 'Determine which client(s) to recommend for discharge in a disaster situation.'"
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN disaster-discharge activity verified directly and visually",
+      "AHRQ hospital decompression/early-discharge concept verified",
+      "RN role limited to recommendation/review rather than independent medical discharge order",
+      "correct client has explicit same-day discharge trajectory and completed transition elements",
+      "A/B/C/D independently re-audited for acuity and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word cue removed",
+      "prior extreme correct-answer length cue removed",
+      "exact option lengths verified as A135/B148/C142/D134",
+      "construct compared with Q0421/Q0573/Q0570 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

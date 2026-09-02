@@ -1,0 +1,88 @@
+{
+  "question_uid": "V2-Q0421",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "ICS_DEFINITION_TO_UNITY_OF_COMMAND_ACTION_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A hospital has activated the Incident Command System (ICS) during a large emergency. An RN is working under a designated ICS supervisor when another incident leader gives the RN a conflicting nonurgent work assignment. What should the RN do?",
+    "options": {
+      "A": "Follow the request from the more senior person, because rank outside the incident structure takes priority over the current ICS assignment.",
+      "B": "Try to complete both assignments independently and explain the overlap afterward so neither person has to change the incident plan.",
+      "C": "Ask the nurse's usual unit manager, who is not in the activated ICS structure, to decide which incident assignment should be followed.",
+      "D": "Tell the designated ICS supervisor about the conflicting request and clarify the assignment through that chain of command before changing tasks."
+    },
+    "correct_option": "D",
+    "rationale": "FEMA's Incident Command System training describes chain of command as the orderly line of authority in the incident organization and unity of command as the principle that each individual reports to only one designated ICS supervisor and receives work assignments through that supervisor. FEMA explains that these principles create clear reporting relationships and reduce confusion from multiple, conflicting directives. The 2026 NCSBN NCLEX-RN Test Plan explicitly includes participation in emergency planning and response under Safety and Infection Prevention and Control. In this scenario there is no immediate life-threatening exception requiring the RN to abandon the incident structure; the conflict concerns nonurgent work assignments. D therefore follows unity of command by informing the designated ICS supervisor and clarifying the assignment before changing tasks. A substitutes external seniority for the activated incident structure. B accepts conflicting assignments instead of resolving them. C routes incident work through a routine manager who is outside the activated ICS chain. Therefore D is the uniquely best answer.",
+    "educational_objective": "Apply ICS unity of command during emergency response by routing conflicting nonurgent work assignments through the RN's designated ICS supervisor rather than accepting competing directions outside the incident chain of command.",
+    "source_organization": "Federal Emergency Management Agency (FEMA), Emergency Management Institute",
+    "source_document_title": "Basic Incident Command System for Initial Response, IS-200.C — Chain of Command and Unity of Command",
+    "source_version_date": "IS-200.C current NIMS-compliant FEMA Independent Study course; current training content accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "ICS-200.C — Unity of Command: each individual involved in incident operations is assigned to and reports to one supervisor; chain and unity of command establish clear reporting relationships and eliminate confusion from conflicting directives; FEMA ICS course summary — personnel receive work assignments from their ICS supervisor",
+    "source_url": "https://training.fema.gov/programs/independent-study/courseoverview.aspx?code=IS-200.c&lang=en",
+    "source_claim_supported": "Under ICS, personnel report through one designated supervisor and conflicting incident assignments are resolved through the established chain of command rather than by following multiple independent directions.",
+    "secondary_source_url": "https://emilms.fema.gov/_is0200c/groups/25.html",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8 / PDF p. 12 — Participate in emergency planning and response; Appendix A Emergency Response Plan, printed p. 25 / PDF p. 29 — identify nursing roles in disaster planning, use clinical decision-making/critical thinking for emergency response plan, participate in emergency planning and response",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — emergency response and ICS unity of command",
+    "correction_summary_append": "RULE1 cleanup: retained the emergency-response/ICS domain but replaced passive ICS-definition recall with an RN action applying unity of command during an activated hospital incident. The uniquely-longest answer cue was removed and all options were rebuilt as plausible command-routing responses.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0421",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_ADMINISTRATIVE_DEFINITION_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The original item tested memorization of ICS characteristics. The replacement asks the RN to resolve conflicting nonurgent assignments using FEMA unity-of-command principles, directly operationalizing the NCSBN emergency-response activity statement.",
+        "source_authority": "FEMA Emergency Management Institute IS-200.C",
+        "source_locator": "Chain of Command and Unity of Command",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Safety and Infection Prevention and Control — Emergency Response Plan"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible hierarchy misconception, but ICS authority follows the activated incident structure rather than ordinary external seniority.",
+    "B": "Plausible attempt to be helpful, but completing competing assignments defeats unity of command and preserves the exact conflict ICS is designed to resolve.",
+    "C": "Plausible because the usual manager normally directs the nurse's work, but during the activated incident the RN's designated ICS reporting relationship governs incident assignments.",
+    "D": "Correct. It keeps the RN within one designated reporting relationship and resolves the conflicting request through the incident chain of command before work changes."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem specifies a conflicting nonurgent work assignment, so there is no immediate rescue exception competing with command structure. D alone follows FEMA unity of command; A, B and C each create or preserve multiple lines of direction.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 139, "B": 131, "C": 134, "D": 144},
+    "note": "Exact character counts were calculated from the stored strings. Correct option D is only five characters longer than A and all four are parallel command-routing actions; the prior conspicuous length cue is removed."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly includes participation in emergency planning and response and use of clinical decision-making for emergency response plans under Safety and Infection Prevention and Control.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Emergency Response Plan content was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current FEMA IS-200.C course identity and NIMS-compliant status verified",
+      "unity-of-command one-supervisor principle verified directly",
+      "conflicting-directive rationale verified directly",
+      "work-assignment-through-ICS-supervisor principle verified directly",
+      "stem explicitly makes the conflict nonurgent to avoid emergency-rescue ambiguity",
+      "A/B/C/D independently re-audited for ICS accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "conspicuous answer-length cue removed",
+      "exact option lengths verified as A139/B131/C134/D144",
+      "NCSBN emergency-response mapping verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

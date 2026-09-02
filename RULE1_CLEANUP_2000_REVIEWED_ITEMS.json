@@ -1,0 +1,140 @@
+{
+  "branch": "rule1-cleanup-2000",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "items": {
+    "V2-Q0712": {
+      "status": "FINAL_QA_PASS",
+      "reviewed_date_utc": "2026-08-18",
+      "clinical_category": "Safety and Infection Prevention and Control",
+      "difficulty": "easy",
+      "semantic_correction": {
+        "stem": "The nurse is selecting a needle for an injectable vaccine. Which set of factors should guide the selection?",
+        "options": {
+          "A": "Route of administration, patient age, sex and weight for adults aged 19 years and older, injection site, and injection technique.",
+          "B": "Vaccine brand, vial presentation, expiration date, the client’s dominant arm, prior injection-site soreness, and dose number in the series.",
+          "C": "Patient age, preferred arm, vaccine manufacturer, vial size, history of post-vaccination fever, and number of vaccines due at the visit.",
+          "D": "Route of administration, injection site, dose schedule, storage temperature, lot number, and whether the vaccine is supplied in a vial or syringe."
+        },
+        "correct_option": "A",
+        "rationale": "CDC vaccine-administration guidance lists route of administration, patient age, sex and weight for adults aged 19 years and older, injection site, and injection technique as the factors on which needle selection should be based; it also directs clinicians to use clinical judgment. Option A contains that set. Options B, C, and D mix some vaccine-administration details with factors that are not part of CDC’s listed needle-selection set, so they do not provide the complete guidance for needle selection.",
+        "educational_objective": "Select a vaccine-administration needle using the CDC factors of route, patient age, adult sex and weight, injection site, and injection technique.",
+        "source_organization": "Centers for Disease Control and Prevention (CDC)",
+        "source_document_title": "Vaccine Administration: During Vaccination",
+        "source_version_date": "June 24, 2025",
+        "source_accessed_date": "2026-08-18",
+        "source_locator": "Needle Selection",
+        "source_url": "https://www.cdc.gov/vaccines/hcp/administration/during.html",
+        "source_claim_supported": "Needle selection for injectable vaccines should be based on route of administration, patient age, sex and weight for adults aged 19 years and older, injection site, and injection technique, with clinical judgment used in selection.",
+        "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+        "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+        "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+        "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8, Related Activity Statements — Facilitate appropriate and safe use of equipment",
+        "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+        "blueprint_topic": "Safety and Infection Prevention and Control — safe use of equipment",
+        "correction_summary_append": "RULE1 cleanup: removed absolute-word and implausibility cueing from distractors; aligned the stem and rationale to current CDC needle-selection guidance; normalized the CDC URL/date and exact NCSBN blueprint locator.",
+        "audit_findings_append": [
+          {
+            "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+            "uid": "V2-Q0712",
+            "result": "FINAL_QA_PASS",
+            "source_authority": "CDC",
+            "source_locator": "Needle Selection",
+            "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+            "blueprint_locator": "Safety and Infection Prevention and Control, printed p. 8 — Facilitate appropriate and safe use of equipment",
+            "finding": "Original correct answer was source-supported, but the original distractors used obvious absolute/cueing language (every/regardless/only/default) and were not acceptable for final bank quality. Distractors were rebuilt with clinically adjacent vaccine-administration details while retaining one uniquely best answer."
+          }
+        ]
+      },
+      "option_audit": {
+        "A": "Correct. Matches the CDC Needle Selection factor set.",
+        "B": "Plausible vaccine-administration context, but does not match the CDC needle-selection factor set.",
+        "C": "Contains patient age but substitutes other vaccine-care details for the required CDC factors; not a complete needle-selection set.",
+        "D": "Contains route and injection site but substitutes schedule/storage/lot/presentation details and omits required patient and technique factors; not the best answer."
+      },
+      "ambiguity_check": "No second defensible answer after rewrite; A is the only option containing the complete CDC-listed factor set.",
+      "cueing_check": "No absolute-word cueing; no unique grammatical structure; correct option is not the longest; option lengths are comparable without mechanical padding.",
+      "independent_second_pass": {
+        "result": "FINAL_QA_PASS",
+        "checks": [
+          "current CDC authority and page date confirmed",
+          "exact CDC Needle Selection locator confirmed",
+          "correct-answer claim confirmed",
+          "A/B/C/D re-audited individually",
+          "no second answer identified",
+          "no absolute-word cueing identified",
+          "rationale limited to supported claims",
+          "educational objective is item-specific",
+          "NCSBN 2026 blueprint category and exact activity statement confirmed"
+        ]
+      }
+    },
+    "V2-Q0719": {
+      "status": "FINAL_QA_PASS",
+      "reviewed_date_utc": "2026-08-18",
+      "clinical_category": "Reduction of Risk Potential",
+      "difficulty": "easy",
+      "semantic_correction": {
+        "stem": "A client is receiving intermittent intramuscular gentamicin, and a trough serum gentamicin concentration is ordered. When should the nurse obtain the specimen?",
+        "options": {
+          "A": "Immediately before the next scheduled gentamicin dose.",
+          "B": "Thirty to 60 minutes after an intramuscular gentamicin dose.",
+          "C": "At the midpoint of the dosing interval between two gentamicin doses.",
+          "D": "Shortly after the next scheduled gentamicin dose has been administered."
+        },
+        "correct_option": "A",
+        "rationale": "The current gentamicin drug label states that trough concentrations are monitored using a specimen obtained just prior to the next dose. The same label describes 30 to 60 minutes after an intramuscular dose as peak timing, making option B inappropriate for a trough. Mid-interval collection or collection after the next dose does not match the label’s trough timing. Therefore, option A is the uniquely correct answer.",
+        "educational_objective": "Coordinate a gentamicin trough specimen immediately before the next scheduled dose so the result represents the label-defined trough timing.",
+        "source_organization": "DailyMed (National Library of Medicine), FDA drug labeling",
+        "source_document_title": "Gentamicin Injection, USP",
+        "source_version_date": "Revised October 2025; Effective Time 20251031",
+        "source_accessed_date": "2026-08-18",
+        "source_locator": "DOSAGE AND ADMINISTRATION — Patients with Normal Renal Function — Adults; peak and trough serum concentration monitoring",
+        "source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=84f6eb1c-a287-489a-8c3e-aa5954cf1992",
+        "source_claim_supported": "For gentamicin, trough concentrations are monitored using a serum specimen obtained just prior to the next dose; 30 to 60 minutes after an intramuscular dose is peak timing.",
+        "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+        "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+        "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 13, Related Activity Statements — Monitor the results of diagnostic testing and intervene as needed; Obtain blood specimens",
+        "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+        "blueprint_topic": "Reduction of Risk Potential — timed therapeutic drug monitoring specimen",
+        "correction_summary_append": "RULE1 cleanup: replaced the unsupported generic trough-timing rule with a medication-specific gentamicin item tied directly to the current DailyMed/FDA label; rebuilt distractors to remove absolute-word cueing and added an exact NCSBN blueprint locator.",
+        "audit_findings_append": [
+          {
+            "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+            "uid": "V2-Q0719",
+            "result": "FINAL_QA_PASS",
+            "source_authority": "DailyMed/FDA drug labeling",
+            "source_locator": "DOSAGE AND ADMINISTRATION — gentamicin peak/trough monitoring",
+            "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+            "blueprint_locator": "Reduction of Risk Potential, printed p. 13 — Monitor diagnostic testing; Obtain blood specimens",
+            "finding": "Original item generalized trough timing across medications and used obvious absolute-word distractors. The item was rebuilt around gentamicin, for which the current drug label directly specifies trough collection just prior to the next dose."
+          }
+        ]
+      },
+      "option_audit": {
+        "A": "Correct. Directly matches the gentamicin label’s trough timing.",
+        "B": "Plausible because it is label-supported gentamicin peak timing after IM administration, but it is not trough timing.",
+        "C": "Plausible timed-level distractor, but the label does not define gentamicin trough collection at the midpoint of the dosing interval.",
+        "D": "Plausible sequencing error, but collection after the next dose does not match label-defined trough timing."
+      },
+      "ambiguity_check": "No second defensible answer; A alone matches the medication-specific label timing for a gentamicin trough.",
+      "cueing_check": "No absolute-word distractors; parallel temporal phrasing; correct option is not the longest; no structural or grammatical cue.",
+      "independent_second_pass": {
+        "result": "FINAL_QA_PASS",
+        "checks": [
+          "current DailyMed/FDA label identified",
+          "label revision/effective time confirmed",
+          "exact DOSAGE AND ADMINISTRATION trough locator confirmed",
+          "all numerical timing claims source-checked",
+          "A/B/C/D re-audited individually",
+          "no second answer identified",
+          "no absolute-word cueing identified",
+          "rationale contains no universal trough rule beyond gentamicin",
+          "educational objective is item-specific",
+          "NCSBN 2026 Reduction of Risk Potential mapping confirmed"
+        ]
+      }
+    }
+  }
+}

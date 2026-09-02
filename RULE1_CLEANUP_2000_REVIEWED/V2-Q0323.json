@@ -1,0 +1,94 @@
+{
+  "question_uid": "V2-Q0323",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ENTRY_LEVEL_HEALTH_IT_SAFETY_FULL_CONSTRUCT_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "During medication verification, an RN notices that the EHR lists a severe medication allergy but the expected drug-allergy alert did not fire. The RN prevents administration and the order is clarified. What additional action best supports health-IT patient safety?",
+    "options": {
+      "A": "Document the near miss in the clinical note and wait for another alert failure before involving the organization's health-IT or safety team.",
+      "B": "Report the missed alert through the organization's safety or health-IT feedback process so CPOE/CDS functionality can be reviewed and monitored.",
+      "C": "Add duplicate allergy entries to the chart to make future alerts more likely to fire, then continue using the current decision-support configuration.",
+      "D": "Turn off medication alerts on the workstation and rely on manual allergy review until the next scheduled EHR software update is completed."
+    },
+    "correct_option": "B",
+    "rationale": "The 2025 ONC SAFER Guide for Computerized Provider Order Entry with Decision Support identifies recommended practices for the design, implementation, use, and monitoring of orders and clinical decision support, including alerts and warnings. Its Alerts and Reminders worksheet states that clinical users, including nurses, should be able to provide feedback on CDS content within workflow and that organizations should have a process for managing feedback and tracking improvements. Its Monitoring CPOE and CDS worksheet states that key CPOE/CDS metrics should be monitored to uncover problems and specifically recommends a process for multidisciplinary clinical users, including nurses, to provide feedback about CPOE and CDS functionality. In the stem, immediate clinical risk has already been addressed: the RN prevented administration and the order was clarified. B is therefore the best additional systems-safety action because it routes the missed alert into the organization's safety/health-IT feedback process for review and monitoring. A delays reporting of a known system problem. C creates duplicate allergy data rather than addressing the malfunction through the appropriate process. D disables a safety function without authorization or system review. Therefore B is the uniquely best answer.",
+    "educational_objective": "After a clinical decision-support alert failure is identified and immediate patient risk is controlled, report the malfunction through the organization's safety or health-IT feedback process so the system can be reviewed and monitored.",
+    "source_organization": "Office of the National Coordinator for Health Information Technology (ONC)",
+    "source_document_title": "2025 SAFER Guide: Computerized Provider Order Entry with Decision Support",
+    "source_version_date": "2025 SAFER Guide resource last updated April 28, 2026; current ONC SAFER Guides page last updated February 27, 2026; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Introduction — design, implementation, use, and monitoring of CPOE/CDS including alerts and warnings; Recommended Practice 2.1, PDF p. 13 — clinical-user feedback and tracking improvements; Recommended Practice 3.1, PDF p. 19 — monitor CPOE/CDS functionality and provide multidisciplinary clinical-user feedback",
+    "source_url": "https://healthit.gov/resources/2025-safer-guide-computerized-provider-order-entry-with-decision-support/",
+    "source_claim_supported": "ONC recommends ongoing monitoring of CPOE/CDS safety and a process for nurses and other clinical users to provide feedback about CDS functionality so problems and improvements can be identified and tracked.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Participate in performance improvement projects and quality improvement processes; Utilize resources to promote quality client care (e.g., evidence-based research, information technology, policies and procedures); Receive, verify and implement health care provider orders",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — bedside RN reporting of health-IT safety failures and participation in system improvement",
+    "correction_summary_append": "RULE1 cleanup: retired the organizational-governance framing, removed absolute-word distractors, and rebuilt the item around an entry-level RN who identifies an EHR allergy-alert failure, controls the immediate clinical risk, and then reports the malfunction through the organization's safety/health-IT feedback process.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0323",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_ENTRY_LEVEL_ORGANIZATIONAL_GOVERNANCE_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The original item asked what an organization should do after an EHR alert failure. The revision fixes the RN's immediate clinical response in the stem and tests the directly source-supported frontline role of reporting CDS functionality problems for monitoring and improvement.",
+        "source_authority": "ONC 2025 SAFER CPOE with Decision Support Guide",
+        "source_locator": "Recommended Practices 2.1 and 3.1",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care — QI and information-technology resources"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0220", "V2-Q0223"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0220 tests systems-based analysis of repeated medication errors. V2-Q0223 tests evidence-resource use before a practice recommendation. V2-Q0323 tests frontline reporting of a specific CDS/EHR malfunction after a near miss so health-IT functionality can be monitored and improved."
+  },
+  "option_audit": {
+    "A": "Plausible because the near miss should be documented appropriately, but waiting for recurrence before informing the safety/health-IT process leaves a known CDS malfunction unreviewed.",
+    "B": "Correct. ONC explicitly supports clinical-user feedback, including nurses, and ongoing monitoring of CPOE/CDS functionality.",
+    "C": "Plausible workaround, but duplicating allergy data can degrade data quality and does not address the underlying alert-function problem through the established feedback process.",
+    "D": "Plausible distrust response after a missed alert, but independently disabling alerts bypasses organizational governance and removes a safety function instead of reporting the failure for review."
+  },
+  "ambiguity_check": "No second defensible best answer. Immediate patient safety and order clarification are already completed in the stem. B alone addresses the remaining systems-safety task through the source-supported clinical-user feedback and monitoring process; A delays it, while C and D create unauthorized workarounds.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 140, "B": 144, "C": 149, "D": 138},
+    "note": "Exact character counts were calculated from the stored strings. All options are parallel post-near-miss actions within an 11-character range; the correct answer is not longest and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The revised item asks the RN to participate in QI and use health-IT resources safely, both explicit Management of Care activities, rather than manage EHR governance independently.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Management of Care page and ONC SAFER Recommended Practices 2.1/3.1 were visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current ONC SAFER Guides page verified",
+      "2025 CPOE with Decision Support resource last-updated date verified",
+      "guide scope covering design/use/monitoring of alerts and warnings verified directly",
+      "Recommended Practice 2.1 clinical-user feedback process visually verified",
+      "Recommended Practice 3.1 CPOE/CDS monitoring and nurse feedback visually verified",
+      "managerial/organizational decision authority removed from the tested action",
+      "immediate clinical risk explicitly controlled in stem before the systems question",
+      "A/B/C/D independently re-audited for role scope, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A140/B144/C149/D138",
+      "NCSBN 2026 QI/information-technology mapping visually verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

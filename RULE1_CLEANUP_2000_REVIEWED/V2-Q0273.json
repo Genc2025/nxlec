@@ -1,0 +1,93 @@
+{
+  "question_uid": "V2-Q0273",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ASSIGNMENT_DELEGATION_TERMINOLOGY_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "Consistent with facility policy, an RN assigns a trained UAP to obtain routine vital signs for a previously stable client. The UAP reports a new heart rate of 118/min. Which action by the RN is most appropriate?",
+    "options": {
+      "A": "Assess the client promptly, obtain or verify additional data as indicated, and use nursing judgment to determine the needed follow-up.",
+      "B": "Ask the UAP to repeat the heart rate and postpone RN assessment until the second measurement confirms that the value remains abnormal.",
+      "C": "Ask the UAP to assess for chest pain or dizziness and decide whether the findings require the RN to evaluate the client.",
+      "D": "Notify the health care provider immediately using the reported heart rate before the RN obtains any additional assessment data."
+    },
+    "correct_option": "A",
+    "rationale": "The NCSBN/ANA National Guidelines for Nursing Delegation distinguish routine activities within assistive personnel's job responsibilities as assignments and state that the licensed nurse remains responsible for ensuring the assignment is carried out completely and correctly. The guidelines also state that clinical reasoning, nursing judgment and critical decision making cannot be delegated. Under the Five Rights, if a patient's condition changes, the delegatee communicates the change to the licensed nurse and the licensed nurse reassesses the situation; right supervision and evaluation requires monitoring, follow-up and evaluation of patient outcomes. In this item, a new heart rate of 118/min in a previously stable client is a change that requires RN evaluation and nursing judgment. A correctly has the RN assess the client, obtain or verify additional data as clinically indicated, and decide the follow-up. B delays RN assessment pending a repeat value. C assigns symptom assessment and the decision about whether RN evaluation is needed to the UAP. D communicates an isolated finding to the provider before the RN performs the appropriate nursing assessment. Therefore A is the uniquely best answer.",
+    "educational_objective": "After assigned data collection reveals a new abnormal finding, recognize that the RN must evaluate the client, apply nursing judgment and determine appropriate follow-up rather than transferring assessment or decision-making to assistive personnel.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN) and American Nurses Association (ANA)",
+    "source_document_title": "National Guidelines for Nursing Delegation",
+    "source_version_date": "Effective April 29, 2019; current NCSBN delegation resource accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Definitions/assignment, PDF p. 3 — routine care within AP role and licensed-nurse responsibility; PDF p. 4 — clinical reasoning/judgment cannot be delegated; Five Rights of Delegation, PDF p. 4 — Right circumstance, Right directions and communication, Right supervision and evaluation",
+    "source_url": "https://www.ncsbn.org/public-files/NGND-PosPaper_06.pdf",
+    "source_claim_supported": "Routine activities within AP responsibilities may be assignments; nursing judgment cannot be delegated; when a patient's condition changes, the licensed nurse reassesses the situation; the licensed nurse remains responsible for supervision, follow-up and evaluation.",
+    "jurisdiction_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "jurisdiction_source_document_title": "Delegation",
+    "jurisdiction_source_url": "https://www.ncsbn.org/nursing-regulation/practice/delegation.page",
+    "jurisdiction_source_claim_supported": "Delegation laws and rules differ across jurisdictions, and licensed nurses must know what is permitted where they practice.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, printed p. 20 / PDF p. 24, Management of Care — Assignment, Delegation and Supervision: identify tasks for assignment/delegation based on client needs; communicate tasks and concerns; utilize rights of delegation; evaluate delegated tasks; evaluate staff ability/competency",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — Assignment, Delegation and Supervision",
+    "correction_summary_append": "RULE1 cleanup: corrected the technical assignment-versus-delegation wording for routine UAP vital signs, removed absolute-word and correct-answer length cues, normalized difficulty from hard to medium, and focused the item on the RN's nondelegable assessment/judgment responsibility after a new abnormal finding.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0273",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "ASSIGNMENT_DELEGATION_TERMINOLOGY_IMPRECISION_ABSOLUTE_WORD_CUEING_AND_ANSWER_LENGTH_CUE",
+        "finding": "The original stem called routine UAP vital-sign measurement a delegated activity without controlling for the guideline's assignment distinction and jurisdictional variation. The revised stem makes the task an assignment consistent with facility policy and tests the nationally supportable principle that new abnormal data require RN assessment and nursing judgment.",
+        "source_authority": "NCSBN/ANA National Guidelines for Nursing Delegation",
+        "source_locator": "Assignment definition; nondelegable nursing judgment; Five Rights — circumstance, communication, supervision/evaluation",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Appendix A, printed p. 20 / PDF p. 24 — Assignment, Delegation and Supervision"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. A new abnormal finding requires RN assessment and nursing judgment, with additional data obtained or verified as clinically indicated before deciding follow-up.",
+    "B": "Plausible because repeating an unexpected measurement may be appropriate, but the option incorrectly postpones RN assessment until the UAP confirms the abnormal value.",
+    "C": "Plausible because the UAP should report observations, but it assigns symptom assessment and the decision about whether RN evaluation is needed to assistive personnel.",
+    "D": "Plausible because provider notification may ultimately be needed, but the RN should first evaluate the client and gather clinically relevant assessment data rather than transmit an isolated number without assessment."
+  },
+  "ambiguity_check": "No second defensible best answer. A does not require a universal personal repeat of every delegated/assigned measurement; it requires prompt RN evaluation and allows verification/additional data as clinically indicated. B delays assessment, C transfers nursing judgment, and D skips the RN assessment step.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 134, "B": 134, "C": 120, "D": 127},
+    "note": "Exact character counts were calculated from the stored strings. A and B are exactly equal in length; no absolute-word trap or uniquely-longest correct answer remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Assignment/delegation, communication, supervision and evaluation are explicit Management of Care content for newly licensed RNs.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current NCSBN Delegation page verified",
+      "jurisdictional variation caveat verified directly",
+      "NCSBN/ANA National Guidelines PDF effective date verified",
+      "assignment-versus-delegation distinction verified directly",
+      "licensed-nurse accountability for assigned routine care verified directly",
+      "nondelegable nursing judgment/critical decision-making rule verified directly",
+      "changed-condition reassessment requirement verified directly",
+      "right supervision/evaluation requirements visually verified on PDF p. 4",
+      "A/B/C/D independently re-audited for scope, timing and second-answer risk",
+      "no universal rule that RN must personally repeat every measurement was introduced",
+      "no second defensible answer identified",
+      "absolute-word and correct-answer length cues removed",
+      "NCSBN 2026 Assignment/Delegation/Supervision mapping verified",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

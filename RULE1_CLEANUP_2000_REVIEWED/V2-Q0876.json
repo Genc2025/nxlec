@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0876",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "OPPE_PRIVILEGING_TRIVIA_TO_NG_TUBE_PLACEMENT_VERIFICATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN has just inserted a nasogastric tube for a stable adult client. A scheduled medication is due through the tube. Facility policy requires radiographic confirmation of a newly inserted NG tube before first use, and the confirmation result is not yet available. Which action is most appropriate?",
+    "options": {
+      "A": "Begin the medication because the client has no coughing or breathing difficulty and the tube was inserted without resistance.",
+      "B": "Withhold use of the tube and complete the required placement verification before giving medication through the newly inserted tube.",
+      "C": "Inject air through the tube while auscultating over the stomach; if a rush of sound is heard, give the medication as prescribed.",
+      "D": "Aspirate gastric contents and give the medication if fluid is obtained, without completing the required initial placement verification."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes insertion/maintenance/removal of nasal or oral gastrointestinal tubes and intervention to prevent aspiration, including checking nasogastric-tube placement. Current NCBI/Open RN guidance states that incorrect NG-tube placement can cause serious harm, that initial placement should be verified before the tube is used, and that fluids or medications should not be administered through a newly inserted NG tube until accurate placement has been confirmed. It also identifies the traditional air-auscultation or 'whoosh' test as unreliable. The stem further supplies the facility requirement for radiographic confirmation before first use. B is therefore the uniquely best action: do not use the tube until the required verification is complete. A relies on absence of respiratory symptoms, which does not establish gastric placement. C uses an unreliable verification method. D bypasses the stated initial-verification requirement based on aspirate alone. Therefore B is correct.",
+    "educational_objective": "Do not administer medication or feeding through a newly inserted NG tube until required placement verification is complete; absence of respiratory symptoms, air-auscultation, or aspirate alone should not be used to bypass the established first-use verification process.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); NCBI Bookshelf / Open RN",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Nursing Advanced Skills — Insert Nasogastric and Feeding Tubes",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; current NCBI/Open RN chapter live-rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Reduction of Risk Potential, PDF p. 47 / printed p. 44 — Insert, maintain or remove a nasal/oral gastrointestinal tube; Intervene to prevent aspiration (e.g., check nasogastric tube placement). NCBI Open RN Chapter 5 — Verifying NG Tube Placement: initial placement verification before use; do not administer fluids or medications until accurate placement is verified; air-auscultation/whoosh test is unreliable.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://www.ncbi.nlm.nih.gov/books/NBK594494/",
+    "source_claim_supported": "A newly inserted NG tube should not be used for medication or feeding until required placement verification is complete; unreliable bedside methods should not substitute for the established initial-verification process.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Reduction of Risk Potential, PDF p. 47 / printed p. 44 — Insert, maintain or remove a nasal/oral gastrointestinal tube; Intervene to prevent aspiration (e.g., check nasogastric tube placement)",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — NG-tube placement verification before first use",
+    "correction_summary_append": "RULE1 cleanup: retired OPPE/clinical-privileging administration because it was organizational credentialing trivia rather than entry-level bedside nursing care. Rebuilt the item around explicit NCSBN NG-tube/aspiration-prevention content and current NCBI/Open RN placement-verification guidance. Removed the prior absolute-word and extreme correct-answer-length cues.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0876","result":"FINAL_QA_PASS","failure_mode_corrected":"NON_BEDSIDE_PRIVILEGING_TRIVIA_AND_ITEM_WRITING_CUES","finding":"The replacement tests safe first-use verification of a newly inserted NG tube before medication administration.","source_authority":"NCSBN 2026 NCLEX-RN Test Plan; NCBI/Open RN","source_locator":"NG tube placement/aspiration prevention; initial placement verification before use"}]
+  },
+  "scope_exclusions": {
+    "universal_radiography_policy": "Not asserted as a universal facility workflow. The stem explicitly states that this facility requires radiographic confirmation before first use.",
+    "ongoing_verification_after_initial_confirmation": "Not tested; the item isolates first use after new insertion.",
+    "absence_of_cough_as_confirmation": "Not endorsed; absence of respiratory symptoms does not independently establish correct tube position."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0875", "V2-Q0872", "V2-Q0627"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0875 tests tracheostomy suctioning, Q0872 chest-tube obstruction, and Q0627 pre-procedure laterality verification. Q0876 specifically tests first-use verification of a newly inserted NG tube. Targeted repository search returned no matching NG-placement-verification item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible symptom-based reassurance but absence of coughing or insertion difficulty does not verify gastric placement.",
+    "B": "Correct. It withholds use until the required placement verification is complete.",
+    "C": "Plausible traditional bedside check but air-auscultation is unreliable for confirming placement.",
+    "D": "Plausible aspirate-based check but it bypasses the explicit first-use verification requirement in the stem."
+  },
+  "ambiguity_check": "No second defensible best answer. The facility requirement is explicit and confirmation is not yet available. B alone complies with the required safety gate; A/C/D all use the tube before that gate is complete.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":125,"B":131,"C":128,"D":135},
+    "note": "All four options are within ten characters; correct B is neither shortest nor longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NG-tube management and aspiration prevention through placement checking are explicit Reduction of Risk Potential activities.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official NCSBN parsed PDF text was verified on 2026-08-19. A screenshot of the exact relevant PDF page was attempted and failed with a cache-miss error; this limitation is documented rather than reported as successful visual inspection."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["NCSBN NG-tube and aspiration-prevention activity statements verified","exact NCSBN screenshot attempted and cache-miss limitation documented","NCBI/Open RN first-use placement verification verified","air-auscultation unreliability verified","facility radiographic requirement explicitly controlled in stem","A/B/C/D re-audited","no second defensible answer","option lengths A125/B131/C128/D135","targeted duplicate search clean","difficulty medium"]
+  }
+}

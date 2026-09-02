@@ -1,0 +1,32 @@
+name: RULE1 inspect cleanup spec
+on:
+  push:
+    branches: [rule1-cleanup-2000]
+    paths:
+      - 'tools/rule1_inspect_cleanup_spec.py'
+      - '.github/workflows/rule1-inspect-cleanup-spec.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rule1-cleanup-2000
+          fetch-depth: 0
+      - name: Decode and inspect spec without DB writes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/rule1_inspect_cleanup_spec.py
+      - name: Commit inspection evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'OpenAI GitHub Connector'
+          git config user.email 'github-connector@openai.com'
+          git add RULE1_CLEANUP_2000_SPEC_INSPECTION.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'RULE1 materialize cleanup spec inspection'
+          git push origin HEAD:rule1-cleanup-2000

@@ -1,0 +1,94 @@
+{
+  "question_uid": "V2-Q1397",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "DISTRACTOR_CUEING_AND_LEGAL_PRECISION_CORRECTION",
+  "technical_candidate_reasons": [
+    "absolute_word_distractor_pattern",
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client reviews the medical record and says, ‘The chart lists an allergy that is incorrect. I want it deleted now.’ Which response by the nurse best protects the client's rights?",
+    "options": {
+      "A": "Explain that the client may request amendment through the facility's formal process and help route the request rather than deleting the entry independently.",
+      "B": "Add a progress note documenting that the client disputes the allergy entry and explain that this note alone completes the correction process.",
+      "C": "Tell the client that an authenticated medical-record entry cannot be changed and that future clinicians must rely on a new note instead.",
+      "D": "Ask the client to wait until discharge because a formal correction is necessary only when an inaccurate entry has already affected treatment or billing."
+    },
+    "correct_option": "A",
+    "rationale": "The HIPAA Privacy Rule gives an individual the right to request amendment of protected health information in a designated record set. Under 45 CFR §164.526, the covered entity must permit the request and may require the request to be written and supported by a reason if the individual is informed of that requirement. If an amendment is accepted, the rule requires the covered entity to make an appropriate amendment by identifying the affected records and appending or otherwise linking the amendment; the regulation does not authorize a bedside nurse to erase an existing entry independently. If a request is denied, the individual receives a written denial and may submit a statement of disagreement. Therefore, the nurse should recognize the client's right and facilitate the formal amendment process. A progress note alone does not replace the amendment process, an authenticated record is not categorically immune from amendment, and the right to request amendment does not depend on discharge, prior harm, treatment impact, or billing impact.",
+    "educational_objective": "Protect client rights by recognizing the HIPAA right to request amendment of inaccurate or incomplete health information and facilitating the covered entity's formal amendment process rather than independently deleting the existing record.",
+    "source_organization": "U.S. Department of Health and Human Services, Office for Civil Rights; Electronic Code of Federal Regulations",
+    "source_document_title": "Your Medical Records; 45 CFR §164.526 Amendment of protected health information",
+    "source_version_date": "HHS consumer guidance last reviewed May 30, 2025; eCFR Title 45 displayed up to date as of August 6, 2026; section text rechecked August 20, 2026",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "HHS Your Medical Records > Corrections. 45 CFR §164.526(a)(1) right to amend; §164.526(b)(1) request process; §164.526(c)(1) making an accepted amendment by identifying affected records and appending or otherwise linking the amendment; §164.526(d)(1)-(2) written denial and statement of disagreement.",
+    "source_url": "https://www.hhs.gov/hipaa/for-individuals/medical-records/index.html",
+    "secondary_source_url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.526",
+    "source_claim_supported": "HIPAA gives individuals a right to request amendment of PHI in a designated record set through the covered entity's process; accepted amendments are appended or linked to affected records, and a denied request carries a right to written denial and a statement of disagreement.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, PDF pp. 23-25: advocate for client rights and needs; provide education about client rights and responsibilities; Client Rights; Continuity of Care—use documents to record and communicate client information and follow up unresolved client requests; Legal Rights and Responsibilities—identify legal issues and educate clients on legal issues.",
+    "blueprint_url": "https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — client rights, legal responsibilities, and medical-record amendment requests",
+    "correction_summary_append": "RULE1 cleanup retained the high-value HIPAA amendment-right construct but replaced cue-heavy and implausibly absolute distractors. The revised item now tests recognition of the client's amendment right and the nurse's role in facilitating the formal process without implying that a bedside nurse should erase an existing record entry."
+  },
+  "scope_exclusions": {
+    "timing": "No HIPAA response deadline or extension period is tested in the stem, answer, rationale, or objective.",
+    "facility_workflow": "No facility-specific form, department, EHR function, routing destination, or documentation policy is prescribed; the item stays at the federal-right and nursing-facilitation level.",
+    "clinical_allergy_reconciliation": "The item does not instruct the nurse to independently add, remove, or clinically adjudicate an allergy in the active EHR allergy list; it tests the client's legal amendment right and appropriate process facilitation.",
+    "denial_grounds": "Specific statutory denial grounds are not required to answer the item; the rationale only notes that a request may be denied under the regulation and that disagreement rights follow."
+  },
+  "near_duplicate_check": {
+    "result": "NO_TARGETED_MATCH_FOUND",
+    "note": "Targeted GitHub searches for 'request amendment medical record HIPAA' and 'statement disagreement amendment' returned no indexed repository match. No broad bank scan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It recognizes the client's federal right to request amendment and routes the request into the covered entity's formal process without inventing authority for independent deletion.",
+    "B": "Plausible because documenting a dispute may seem sufficient, but a progress note alone does not substitute for the individual's formal amendment right under §164.526.",
+    "C": "Plausible because authenticated documentation is ordinarily preserved, but HIPAA expressly permits amendment of PHI in a designated record set; the statement is categorically too restrictive.",
+    "D": "Plausible as a defer-until-needed workflow, but the right to request amendment is not conditioned on discharge or on the inaccuracy already causing treatment or billing consequences."
+  },
+  "ambiguity_check": "No second defensible best answer. A alone both acknowledges the federal amendment right and preserves proper record-governance boundaries. B substitutes informal documentation for the formal right, C incorrectly denies amendment, and D adds conditions not found in the federal rule.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 156,
+      "B": 141,
+      "C": 136,
+      "D": 152
+    },
+    "note": "Alternatives are comparable in length and all present plausible documentation or workflow responses; the key is not isolated by conspicuous length or an absurd mechanism."
+  },
+  "blueprint_audit": {
+    "result": "PASS_WITH_SCREENSHOT_CACHE_MISS",
+    "entry_level_relevance": "NCSBN Management of Care explicitly includes advocating for client rights, educating clients about rights and responsibilities, documentation/continuity of care, unresolved client requests, and legal rights and responsibilities. Recognizing and facilitating a record-amendment request is therefore appropriate entry-level RN content.",
+    "exact_locator_verified": true,
+    "visual_verification": "NOT_CLAIMED_CURRENT_ITEM. The official 2026 NCLEX-RN Test Plan parsed text was verified at PDF pp. 23-25, but screenshot attempts for the relevant pages returned web-tool cache misses on August 20, 2026."
+  },
+  "source_visual_verification": {
+    "result": "HHS_AND_ECFR_HTML_TEXT_VERIFIED_NCSBN_PDF_SCREENSHOT_CACHE_MISS",
+    "note": "HHS and eCFR sources are HTML and were directly text-verified. The NCSBN PDF parsed text was directly verified; screenshot retrieval failed with cache miss, so no visual verification is claimed."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "HHS Corrections guidance independently rechecked for the individual's right to request a change or amendment and the right to a statement of disagreement after denial",
+      "45 CFR §164.526 independently rechecked for right to amend, request process, accepted-amendment record handling, and denial/disagreement process",
+      "NCSBN 2026 Management of Care parsed-text locator independently rechecked for client rights, documentation, unresolved client requests, and legal responsibilities",
+      "A/B/C/D independently re-audited for legal correctness, plausibility, ambiguity, overlap, and second-answer risk",
+      "no response deadline, extension period, facility-specific workflow, EHR function, or unsupported nursing authority was introduced",
+      "option lengths balanced at A156/B141/C136/D152",
+      "targeted near-duplicate searches found no indexed match and no broad bank scan was performed",
+      "educational objective is specific to the client's amendment right and the nurse's facilitation role"
+    ]
+  }
+}

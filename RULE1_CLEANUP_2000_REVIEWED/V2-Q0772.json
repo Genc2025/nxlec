@@ -1,0 +1,101 @@
+{
+  "question_uid": "V2-Q0772",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "PROFESSIONAL_ACCOUNTABILITY_TERM_RECALL_TO_SPECIMEN_IDENTIFICATION_SAFETY_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "After drawing blood for a routine CBC, an RN leaves the client's room without labeling the tube and places it in a rack at the nurses' station. The RN then notices another unlabeled blood tube in the same rack and cannot determine with certainty which tube came from the client. Which action is most appropriate?",
+    "options": {
+      "A": "Choose the tube that was placed first, label it with the client's name and medical record number, and send it to the laboratory.",
+      "B": "Treat both tubes as unidentified; follow the facility rejection process and recollect after verifying two client identifiers.",
+      "C": "Ask the assisting RN which tube belongs to the client, label that tube with two identifiers, and send it for the ordered CBC.",
+      "D": "Return both tubes to the room, verify the client with two identifiers, and label the tube the RN believes was collected from the client."
+    },
+    "correct_option": "B",
+    "rationale": "The Joint Commission's current patient-identification FAQ, last updated April 21, 2026, states that the two-identifier requirement is intended to reliably match care, services and specimens to the correct patient. For blood and other specimens, the patient is identified using two identifiers and the specimen container is labeled with two identifiers in the presence of the patient; pre-labeling blood tubes before seeing the patient is specifically described as unacceptable. The 2026 NCSBN NCLEX-RN Test Plan explicitly includes obtaining blood specimens under Reduction of Risk Potential and properly identifying the client when providing care under Safety and Infection Prevention and Control. Here, two unlabeled blood tubes have been placed together and the RN cannot determine which belongs to the client, so specimen identity cannot be reliably reconstructed. B is the uniquely safe action: treat the tubes as unidentified, follow the facility rejection process and recollect the routine specimen after proper client identification. A guesses identity from placement order. C substitutes another person's recollection for specimen provenance. D correctly identifies the client but still guesses which tube belongs to that client. Therefore B is correct.",
+    "educational_objective": "When the identity of a routine blood specimen cannot be established with certainty, do not label from memory or reconstruct identity after the fact; use the facility's unidentified/rejected-specimen process and recollect after proper two-identifier client verification.",
+    "source_organization": "The Joint Commission; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Two Patient Identifiers — Understanding the Requirements; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Joint Commission FAQ last updated April 21, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Joint Commission Two Patient Identifiers FAQ — reliable patient/service matching; blood/other specimen containers labeled with two identifiers in the presence of the patient; pre-labeling blood tubes before seeing the patient is not acceptable. NCSBN Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Obtain blood specimens. Safety and Infection Prevention and Control, printed p. 24-25 / PDF pp. 28-29 — Properly identify client when providing care",
+    "source_url": "https://www.jointcommission.org/en/knowledge-library/support-center/standards-interpretation/standards-faqs/000001463",
+    "secondary_source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "Blood specimens must be reliably matched to the correct patient using appropriate identifiers and bedside labeling; when two unlabeled routine specimens have become indistinguishable, the RN should not guess or retrospectively assign identity and should use the facility rejected-specimen/recollection process.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Obtain blood specimens; Safety and Infection Prevention and Control, printed p. 24-25 / PDF pp. 28-29 — Properly identify client when providing care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — safe blood-specimen identification and collection",
+    "correction_summary_append": "RULE1 cleanup: retired passive professional-accountability terminology recall and rebuilt the item around actual specimen-identification safety. Post-write reread identified a residual correct-answer length cue in the first rewrite; the options were rebuilt again so the correct answer is no longer longest while the irrecoverable specimen-provenance problem remains explicit.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0772",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_TERM_RECALL_ABSOLUTE_WORD_CUE_AND_POST_REWRITE_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The final item tests patient/specimen identification safety after specimen provenance is lost, with the residual answer-length cue removed on reread.",
+        "source_authority": "The Joint Commission patient-identification requirements; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Two identifiers/specimen labeling in patient's presence; NCSBN obtain blood specimens/properly identify client",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential — Obtain blood specimens"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "irreplaceable_specimen_exception": "Not tested. The specimen is a routine CBC and is readily recollectable.",
+    "facility_specific_rejection_steps": "Not universalized. The correct option directs the RN to follow the facility rejection process.",
+    "uninterrupted_single_tube_custody": "Not the scenario. Two unlabeled tubes were placed together and the RN cannot determine which is the client's.",
+    "retrospective_witness_identification": "Not accepted as proof of specimen provenance once the two unlabeled tubes are indistinguishable."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0722", "V2-Q0627", "V2-Q0474"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0722 tests pre-transfusion patient-product identity matching. V2-Q0627 tests pre-procedure laterality discrepancy. V2-Q0474 tests accurate/timely EHR documentation. V2-Q0772 tests routine blood-specimen identity loss after two unlabeled tubes become indistinguishable. Targeted repository search returned no matching unlabeled-specimen construct before staging."
+  },
+  "option_audit": {
+    "A": "Plausible reconstruction using acceptable client identifiers, but placement order does not establish which unlabeled specimen belongs to the client.",
+    "B": "Correct. It refuses retrospective identity assignment and restores specimen integrity through authorized rejection/recollection.",
+    "C": "Plausible witness confirmation, but another person's recollection cannot identify which of two indistinguishable unlabeled tubes belongs to the client.",
+    "D": "Plausible bedside identity verification, but it verifies the client rather than the provenance of either existing unlabeled tube."
+  },
+  "ambiguity_check": "No second defensible best answer. The RN explicitly cannot determine which of two unlabeled tubes came from the client. B alone avoids assigning unsupported identity and restores integrity through recollection; A/C/D all attempt to label an existing tube whose provenance remains uncertain.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 128, "B": 125, "C": 125, "D": 136},
+    "note": "Exact character counts were recalculated after the reread-driven rewrite. Correct option B is tied with C as the shortest and is not signaled by length; all choices are parallel action responses."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Obtaining blood specimens and properly identifying clients are explicit 2026 NCLEX-RN activities.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Reduction of Risk Potential page, printed p. 42 / PDF p. 46, was visually inspected on 2026-08-19 and explicitly lists 'Obtain blood specimens.' A fresh screenshot of the separate Safety patient-identification page returned a cache-miss error; parsed official text was verified and the limitation is documented."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "Joint Commission FAQ verified as last updated April 21, 2026",
+      "two-identifier and specimen-labeling-in-presence requirements verified",
+      "official NCSBN obtain-blood-specimens activity verified directly and visually",
+      "official NCSBN properly-identify-client activity verified in parsed text",
+      "routine/recollectable specimen and irrecoverable provenance explicitly controlled",
+      "first rewrite reread rejected because of residual answer-length cue",
+      "A/B/C/D rebalanced and independently re-audited",
+      "no second defensible best answer identified",
+      "absolute-word and residual correct-answer-length cues removed",
+      "exact option lengths verified as A128/B125/C125/D136",
+      "construct compared with Q0722/Q0627/Q0474 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

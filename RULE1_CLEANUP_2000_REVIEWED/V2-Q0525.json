@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0525",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Health Promotion and Maintenance",
+  "difficulty": "medium",
+  "change_class": "GENERIC_QI_DEFINITION_TO_TEACH_BACK_UNDERSTANDING_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "After teaching a client about a new home plan to increase physical activity, the RN asks the client to explain the plan in their own words. The client's teach-back reveals an important misunderstanding. Which action should the RN take next?",
+    "options": {
+      "A": "Accept the response because teach-back mainly checks whether the client remembers that education was provided during the visit.",
+      "B": "Clarify the misunderstanding using a different explanation, then ask the client to describe the plan again in their own words.",
+      "C": "Repeat the same explanation word for word and ask whether the client now understands before ending the teaching session.",
+      "D": "Give the client written instructions to review at home and document the teaching as complete without checking understanding again."
+    },
+    "correct_option": "B",
+    "rationale": "AHRQ's current Health Literacy Universal Precautions Toolkit describes teach-back as a method for checking understanding by asking the patient to state in their own words what they need to know or do. AHRQ specifically instructs clinicians that when teach-back uncovers a misunderstanding, they should explain the information again using a different approach and ask the patient to teach it back again, repeating the cycle until the information can be described correctly in the patient's own words. The 2026 NCSBN NCLEX-RN Test Plan includes assessing readiness to learn and barriers, educating clients about health-promotion behaviors, and evaluating client understanding of those behaviors and activities. Because this client's first teach-back reveals a misunderstanding, B is the uniquely best next action: clarify using a different explanation and then reassess understanding with another teach-back. A mistakes teach-back for documentation of exposure to education. C repeats the same communication approach and then relies on a yes/no understanding check rather than verifying comprehension. D provides a useful supplementary resource but ends the teaching process without verifying that the misunderstanding was corrected. Therefore B is correct.",
+    "educational_objective": "When teach-back reveals a misunderstanding, reteach the information using a different approach and reassess the client's understanding with another teach-back rather than relying on a yes/no question or ending education without verification.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Health Literacy Universal Precautions Toolkit, 3rd Edition — Use the Teach-Back Method: Tool 5",
+    "source_version_date": "Current AHRQ 3rd Edition toolkit page accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Overview — teach-back checks understanding by asking patients to state in their own words what they need to know or do; Action > Try the teach-back method > Clarify and check again — when teach-back reveals misunderstanding, explain using a different approach and ask for teach-back again until the patient can describe the information correctly",
+    "source_url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool5.html",
+    "source_claim_supported": "Teach-back is used to verify understanding; if a misunderstanding is identified, the clinician should reteach using a different approach and reassess with another teach-back rather than relying on a yes/no understanding question.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Health Promotion and Maintenance, printed p. 28 / PDF p. 32 — Health Promotion/Disease Prevention: assess client's readiness to learn, learning preferences and barriers to learning; educate client on actions to promote and maintain health and prevent disease; evaluate client understanding of health-promotion behaviors/activities",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Health Promotion and Maintenance — evaluation of client understanding and reteaching",
+    "correction_summary_append": "RULE1 cleanup: retired a generic continuous-quality-improvement definition item that overlapped existing systems-QI/PDSA constructs. Rebuilt the slot around a direct newly licensed RN teaching activity: use teach-back to identify misunderstanding, reteach with a different approach, and verify understanding again. Removed the prior correct-answer length cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0525",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "GENERIC_QI_DEFINITION_CROSS_ITEM_OVERLAP_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The revised item directly operationalizes client education and evaluation of understanding rather than duplicating bank-level quality-improvement definitions.",
+        "source_authority": "AHRQ Health Literacy Universal Precautions Toolkit, 3rd Edition",
+        "source_locator": "Tool 5 — Clarify and check again",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Health Promotion/Disease Prevention — evaluate client understanding"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "memory_test": "Teach-back is not framed as a test of the client's memory; the RN is checking communication and understanding.",
+    "yes_no_understanding_check": "Not accepted as sufficient verification after a known misunderstanding.",
+    "specific_exercise_prescription": "Not tested; the clinical construct is the education/understanding process rather than the content of an exercise prescription."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0220", "V2-Q0972", "V2-Q0472"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0220 tests systems-based quality-improvement contribution. V2-Q0972 tests PDSA Study-phase interpretation. V2-Q0472 tests unresolved informed-consent understanding before an elective procedure. V2-Q0525 tests routine health-promotion education using teach-back, reteaching and reassessment of understanding. Repository search for the literal teach-back construct returned no matching item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible misconception that education is complete once delivered, but teach-back is intended to verify actual understanding.",
+    "B": "Correct. It uses a different explanation after misunderstanding and repeats teach-back to verify comprehension.",
+    "C": "Plausible reteaching response, but it deliberately repeats the same explanation and then relies on a yes/no understanding question rather than another teach-back.",
+    "D": "Plausible supplemental education strategy, but written instructions do not replace reassessment after a known misunderstanding."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly states that teach-back identified an important misunderstanding. B alone both corrects the communication problem with a different approach and verifies understanding again. A accepts inadequate understanding, C uses the same explanation plus a yes/no check, and D ends education without reassessment.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 127, "B": 126, "C": 120, "D": 130},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within ten characters and the correct option B is not longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Client education, learning-readiness assessment and evaluation of client understanding are explicit Health Promotion and Maintenance responsibilities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Health Promotion/Disease Prevention content, printed p. 28 / PDF p. 32, was visually inspected on 2026-08-19 and includes assessment of learning readiness/barriers and evaluation of client understanding of health-promotion behaviors/activities."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current AHRQ Health Literacy Universal Precautions Toolkit 3rd Edition teach-back page verified",
+      "teach-back own-words purpose verified directly",
+      "different-approach reteaching after misunderstanding verified directly",
+      "repeat teach-back until correct understanding verified directly",
+      "AHRQ warning against yes/no understanding checks verified",
+      "official 2026 NCSBN Health Promotion/Disease Prevention content visually verified",
+      "A/B/C/D independently re-audited for education accuracy and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A127/B126/C120/D130",
+      "construct compared with Q0220/Q0972/Q0472 and confirmed distinct",
+      "repository literal teach-back duplicate search returned no match",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

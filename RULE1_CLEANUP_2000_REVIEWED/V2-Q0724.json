@@ -1,0 +1,99 @@
+{
+  "question_uid": "V2-Q0724",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "TEAMSTEPPS_SITUATION_AWARENESS_TERM_RECALL_TO_ACUTE_DETERIORATION_ESCALATION_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "Four hours after abdominal surgery, a client who previously had stable vital signs becomes restless and cool/clammy. Current findings are heart rate 122/min, blood pressure 88/54 mm Hg, and oxygen saturation 89% on room air. The facility rapid-response criteria include systolic blood pressure below 90 mm Hg or an acute oxygen-saturation decline. Which action is most appropriate?",
+    "options": {
+      "A": "Administer the prescribed PRN opioid for restlessness, then repeat the vital signs in 15 minutes before deciding whether escalation is needed.",
+      "B": "Activate the facility rapid-response process now, remain with the client, and begin focused assessment and supportive care while help arrives.",
+      "C": "Document the new vital-sign pattern and notify the provider after the next scheduled assessment because postoperative values commonly fluctuate.",
+      "D": "Ask assistive personnel to repeat the blood pressure and oxygen saturation in 10 minutes, then escalate only if both values remain abnormal."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly requires newly licensed RNs to assess and respond to changes and trends in client vital signs and to recognize changes in client condition and intervene as needed under Reduction of Risk Potential. AHRQ PSNet describes rapid-response systems as hospital safety mechanisms for summoning immediate bedside assessment and treatment when a client demonstrates signs of acute clinical deterioration. The stem removes activation-threshold ambiguity by stating that this client's systolic blood pressure and oxygen-saturation decline independently meet the facility's rapid-response criteria. B is therefore the uniquely best action: activate the response now, stay with the client, and begin focused assessment/supportive care while additional help arrives. A risks masking deterioration and delays escalation. C delays intervention despite current threshold-crossing abnormalities. D delegates reassessment and waits for persistence even though the client already meets activation criteria. Therefore B is correct.",
+    "educational_objective": "Recognize a significant new deterioration in vital signs and clinical appearance and escalate immediately through the facility rapid-response process when activation criteria are met, while remaining with the client and initiating focused assessment/supportive care.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN); Agency for Healthcare Research and Quality (AHRQ) PSNet",
+    "source_document_title": "2026 NCLEX-RN Test Plan; Rapid Response Systems",
+    "source_version_date": "NCSBN Test Plan effective April 1, 2026 through March 31, 2029; AHRQ PSNet rapid-response primer last reviewed 2024 and current library rechecked 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "NCSBN Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — assess/respond to changes and trends in vital signs; recognize trends and changes in client condition and intervene as needed. AHRQ PSNet Rapid Response Systems — rapid-response teams are summoned for signs of imminent acute clinical deterioration to assess and treat promptly.",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "secondary_source_url": "https://psnet.ahrq.gov/primer/rapid-response-systems",
+    "source_claim_supported": "New significant vital-sign deterioration requires prompt nursing recognition and intervention; when explicit facility rapid-response criteria are met, immediate escalation is appropriate rather than delayed reassessment.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, Reduction of Risk Potential, printed p. 42 / PDF p. 46 — Assess and respond to changes and trends in client vital signs; Recognize trends and changes in client condition and intervene as needed",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — recognition and escalation of acute clinical deterioration",
+    "correction_summary_append": "RULE1 cleanup: retired passive TeamSTEPPS situation-awareness terminology recall. Rebuilt the item around explicit NCSBN recognition/response to changing vital signs and acute deterioration. The stem supplies facility rapid-response thresholds so escalation is unambiguous and the prior absolute-word cue is removed.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0724",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PASSIVE_TEAMSTEPPS_TERM_RECALL_AND_ABSOLUTE_WORD_CUE",
+        "finding": "The replacement tests recognition and immediate escalation of objectively worsening postoperative status rather than naming a teamwork concept.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan; AHRQ PSNet",
+        "source_locator": "Reduction of Risk Potential — changing vital signs/condition; rapid-response systems for deterioration",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 42 / PDF p. 46"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "specific_diagnosis": "Not required. The item tests recognition and escalation of acute deterioration rather than diagnosing hemorrhage, shock, pulmonary embolism, or another cause.",
+    "universal_rapid_response_thresholds": "Not asserted. The exact activation thresholds are supplied as this facility's criteria in the stem.",
+    "provider_notification_sequence": "Not generalized beyond the scenario. The client already meets the facility's rapid-response criteria, so activation should not be delayed while waiting for routine provider notification.",
+    "specific_supportive_intervention": "Not prescribed because immediate supportive actions depend on assessment findings, standing protocols, and available resources."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0422", "V2-Q0674", "V2-Q0720"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0422 tests telephone-triage emergency recognition for chest pressure/dyspnea. V2-Q0674 tests disaster-related inpatient discharge selection. V2-Q0720 tests suspected transfusion-reaction response. V2-Q0724 tests inpatient postoperative deterioration that meets explicit rapid-response criteria. Targeted repository search returned no matching acute-deterioration/rapid-response item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible treatment of restlessness but delays escalation and may obscure worsening status.",
+    "B": "Correct. The client already meets stated rapid-response criteria and requires immediate escalation plus bedside assessment/support.",
+    "C": "Plausible routine communication/documentation response but delays intervention despite current objective deterioration.",
+    "D": "Plausible confirmation strategy but inappropriately delegates and delays response after activation thresholds are already met."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly states facility rapid-response thresholds and provides current values meeting two criteria. B alone activates the required escalation without delay while preserving immediate bedside assessment. A/C/D all delay action despite established criteria.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 142, "B": 142, "C": 144, "D": 140},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within four characters; correct option B is tied with A and is not signaled by length."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Assessment/response to changing vital signs and recognition/intervention for condition changes are explicit Reduction of Risk Potential activities for newly licensed RNs.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Reduction of Risk Potential page, printed p. 42 / PDF p. 46, was visually inspected on 2026-08-19 and explicitly lists assessment/response to changing vital signs and recognition/intervention for changes in client condition."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN deterioration/vital-sign activity statements verified directly and visually",
+      "AHRQ PSNet rapid-response purpose cross-checked",
+      "facility-specific activation criteria explicitly controlled in stem",
+      "no specific deterioration diagnosis required",
+      "A/B/C/D independently re-audited for escalation timing and second-answer risk",
+      "no second defensible best answer identified",
+      "absolute-word cue removed",
+      "exact option lengths verified as A142/B142/C144/D140",
+      "construct compared with Q0422/Q0674/Q0720 and confirmed distinct",
+      "targeted repository duplicate search returned no match",
+      "difficulty normalized from easy to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

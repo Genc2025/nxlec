@@ -1,0 +1,92 @@
+{
+  "question_uid": "V2-Q0222",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "NURSING_PROCESS_TERMINOLOGY_AND_DISTRACTOR_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A nurse has completed an admission assessment and collected several abnormal findings. Before developing outcomes and interventions, which action best represents the next nursing-process step?",
+    "options": {
+      "A": "Select measurable outcomes from the admission diagnosis, then compare the collected assessment findings with those expected outcomes.",
+      "B": "Analyze and organize the assessment findings to identify the client's nursing problems, then use those problems to guide individualized planning.",
+      "C": "Choose nursing interventions that address the most abnormal findings, then determine which client problems those interventions are intended to treat.",
+      "D": "Evaluate how the client responds to routine nursing care, then use the response data to decide which problems should be added to the plan."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan identifies the Nursing Process as assessment, analysis, planning, implementation and evaluation. It also describes the related clinical-judgment step 'Analyze cues' as organizing and connecting recognized cues to the client's clinical presentation, while 'Generate solutions' follows by identifying expected outcomes and interventions. Therefore, after assessment and before planning outcomes/interventions, the nurse should analyze and organize the findings to identify the client's nursing problems. ANA's Nursing Process resource is concordant: nursing diagnosis is the nurse's clinical judgment about client responses and is the basis for the care plan, with outcomes/planning following assessment and diagnosis. Option A starts with outcomes before analysis of the collected findings. Option C selects interventions before the problem has been analyzed. Option D moves to evaluation before planning and implementation. Therefore B is the uniquely best answer.",
+    "educational_objective": "Sequence the nursing process by analyzing organized assessment findings and identifying client nursing problems before developing individualized outcomes and interventions.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Effective April 1, 2026 through March 31, 2029; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Integrated Processes, printed p. 4 / PDF p. 8 — Nursing Process: assessment, analysis, planning, implementation and evaluation; Clinical Judgment on the same page — Analyze cues and Generate solutions",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "NCSBN explicitly places analysis after assessment and before planning in the Nursing Process and defines analysis as organizing and connecting recognized cues before expected outcomes and interventions are generated.",
+    "secondary_source_organization": "American Nurses Association (ANA)",
+    "secondary_source_document_title": "The Nursing Process",
+    "secondary_source_locator": "Assessment; Diagnosis; Outcomes / Planning; Implementation; Evaluation",
+    "secondary_source_url": "https://www.nursingworld.org/practice-policy/workforce/what-is-nursing/the-nursing-process/",
+    "secondary_source_claim_supported": "ANA describes nursing diagnosis as the clinical judgment arising from assessment and as the basis for the care plan, with outcomes/planning following assessment and diagnosis.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Integrated Processes, printed p. 4 / PDF p. 8 — Nursing Process; Overview of Content, printed p. 6 / PDF p. 10 — Nursing Process applied throughout Client Needs; Management of Care, printed p. 7 / PDF p. 11 — Initiate, evaluate and update client plan of care",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care with integrated Nursing Process — analysis before individualized planning",
+    "correction_summary_append": "RULE1 cleanup: retained the nursing-process construct but aligned terminology directly to NCSBN 2026 by testing assessment-to-analysis-to-planning sequencing, rebuilt all distractors, and removed the uniquely-longest correct-answer cue.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0222",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_NCSBN_TERMINOLOGY_PRECISION",
+        "finding": "The prior answer was uniquely longest and framed the second nursing-process step primarily as diagnosis. The revised item uses NCSBN's current integrated-process terminology of assessment followed by analysis, with ANA retained as concordant secondary professional support for nursing-problem/diagnosis identification before planning.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Integrated Processes, printed p. 4 / PDF p. 8",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Initiate, evaluate and update client plan of care"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Plausible because outcome setting belongs to planning, but it starts planning before the collected assessment findings have been analyzed into nursing problems.",
+    "B": "Correct. It performs the NCSBN analysis step by organizing assessment findings and identifying nursing problems before individualized planning.",
+    "C": "Plausible because interventions follow from abnormal findings, but selecting interventions before defining the nursing problem reverses analysis and planning/implementation sequence.",
+    "D": "Plausible because evaluation uses response data to revise care, but evaluation occurs after a plan has been implemented rather than immediately after the initial assessment."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem fixes the point in the sequence after assessment and before outcomes/interventions; B alone performs analysis/problem identification without prematurely planning, implementing or evaluating care.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 133, "B": 145, "C": 149, "D": 138},
+    "note": "Exact character counts were calculated from the stored strings. The correct answer is not uniquely longest; choices are parallel nursing-process actions with no absolute-word trap or formatting cue."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Nursing Process is an integrated process across all Client Needs in the 2026 NCSBN Test Plan, and initiating/updating an individualized plan of care is an explicit Management of Care activity.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN Test Plan publication identity verified",
+      "NCSBN Integrated Processes page visually inspected",
+      "assessment-analysis-planning-implementation-evaluation sequence verified directly",
+      "Analyze cues and Generate solutions definitions verified directly",
+      "NCSBN Overview confirms Nursing Process is applied throughout Client Needs",
+      "NCSBN Management of Care plan-of-care activity statement verified directly",
+      "current ANA Nursing Process page verified as concordant secondary support",
+      "ANA diagnosis-as-basis-for-care-plan statement verified directly",
+      "A/B/C/D independently re-audited for sequencing, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "uniquely-longest correct-answer cue removed",
+      "no absolute-word or grammatical/structural cue identified",
+      "educational objective is item-specific"
+    ]
+  }
+}

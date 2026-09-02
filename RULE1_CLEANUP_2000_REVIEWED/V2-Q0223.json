@@ -1,0 +1,92 @@
+{
+  "question_uid": "V2-Q0223",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Management of Care",
+  "difficulty": "medium",
+  "change_class": "ENTRY_LEVEL_EVIDENCE_USE_FULL_CONSTRUCT_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern"],
+  "semantic_correction": {
+    "stem": "A bedside RN joins a unit team that is considering a change to its CAUTI-prevention protocol. Which action by the RN best reflects evidence-based practice before the team recommends a change?",
+    "options": {
+      "A": "Adopt the protocol used by another hospital with lower CAUTI rates, then evaluate the local results before reviewing the evidence supporting its use.",
+      "B": "Choose the prevention steps preferred by most staff, implement them across the unit, and search afterward for research that supports the selected approach.",
+      "C": "Review current high-quality research and clinical guidelines, consider the unit's data and care context, and use the evidence to inform the team's recommendation.",
+      "D": "Continue the existing protocol while collecting more local infections, then consider an evidence review after the unit has demonstrated a clear worsening trend."
+    },
+    "correct_option": "C",
+    "rationale": "AHRQ defines evidence-based practice as health care guided by thoughtful integration of the best available scientific knowledge with clinical expertise. It explains that practitioners critically assess research data, clinical guidelines and other information resources to identify the clinical problem, apply a high-quality intervention and re-evaluate outcomes. Option C applies that approach at an entry-level team-participation level by reviewing current research/guidelines and considering local data and context before informing the recommendation. Option A adopts another hospital's practice before reviewing the supporting evidence. Option B selects a preferred intervention first and searches for confirming evidence afterward, reversing evidence-based decision making. Option D delays evidence review despite an identified safety/improvement question. Therefore C is the uniquely best answer.",
+    "educational_objective": "Use current research, clinical guidelines and relevant local information to contribute to an evidence-informed practice recommendation rather than adopting, preferring or delaying an intervention without evidence review.",
+    "source_organization": "Agency for Healthcare Research and Quality (AHRQ)",
+    "source_document_title": "Evidence-Based Practice",
+    "source_version_date": "Current AHRQ topic resource; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Topic: Evidence-Based Practice — definition and description of integrating best available scientific knowledge with clinical expertise; critical assessment of research data, clinical guidelines and other information resources; application and re-evaluation",
+    "source_url": "https://www.ahrq.gov/topics/evidence-based-practice.html",
+    "source_claim_supported": "Evidence-based practice integrates the best available scientific knowledge with clinical expertise and uses critical assessment of research, guidelines and other information resources to identify problems, apply high-quality interventions and re-evaluate outcomes.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11, Related Activity Statements — Utilize resources to promote quality client care (e.g., evidence-based research, information technology, policies and procedures); Participate in performance improvement projects and quality improvement processes",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Management of Care — entry-level use of evidence-based resources in practice improvement",
+    "correction_summary_append": "RULE1 cleanup: retired the advanced systematic-review/PICOTS methods construct, removed absolute-word cueing, and rebuilt the item around an entry-level RN's use of current research, guidelines and local context to contribute to evidence-informed practice improvement.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0223",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "NON_ENTRY_LEVEL_SYSTEMATIC_REVIEW_METHODS_AND_ABSOLUTE_WORD_CUEING",
+        "finding": "The original item required PICOTS-based systematic-review design, which exceeds the direct newly licensed RN activity described in the NCSBN blueprint. The replacement tests appropriate bedside-RN use of evidence-based research and guidelines within a unit improvement team.",
+        "source_authority": "AHRQ Evidence-Based Practice",
+        "source_locator": "Definition and evidence-integration description",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Management of Care, printed p. 7 / PDF p. 11 — Utilize resources to promote quality client care"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0220", "V2-Q0972"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0220 tests systems-based contribution to error analysis/process redesign. V2-Q0972 tests the Study phase of PDSA. V2-Q0223 tests evidence-resource appraisal/use before a practice recommendation."
+  },
+  "option_audit": {
+    "A": "Plausible because benchmarking another hospital can generate ideas, but adoption precedes evidence appraisal and does not establish that the practice is appropriate for the local context.",
+    "B": "Plausible because staff engagement matters, but selecting an intervention first and seeking confirming evidence afterward creates confirmation bias rather than evidence-based practice.",
+    "C": "Correct. It uses research and clinical guidelines together with local data/context to inform a practice recommendation, matching AHRQ's evidence-based-practice framework.",
+    "D": "Plausible because local outcome data matter, but evidence review need not wait for additional preventable infections once a practice question has been identified."
+  },
+  "ambiguity_check": "No second defensible best answer. C alone begins with appraisal and integration of current evidence and local context; A and B select a practice before evidence review, while D postpones evidence use despite an active improvement question.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 149, "B": 155, "C": 162, "D": 160},
+    "note": "Exact character counts were calculated from the stored strings. All choices are complete evidence-use decisions of comparable length; the correct answer differs from the next-longest option by only two characters and no absolute-word trap remains."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Using evidence-based research/resources to promote quality care and participating in quality-improvement processes are explicit Management of Care activities for newly licensed RNs.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "original PICOTS/systematic-review construct assessed for entry-level relevance and retired",
+      "current AHRQ Evidence-Based Practice page verified",
+      "AHRQ best-available-scientific-knowledge plus clinical-expertise definition verified directly",
+      "AHRQ research/guideline/information-resource appraisal claim verified directly",
+      "AHRQ intervention/application and outcome re-evaluation framing verified directly",
+      "A/B/C/D independently re-audited for correctness, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "absolute-word cue removed",
+      "option-length and structural cues checked",
+      "official NCSBN 2026 Management of Care page visually verified",
+      "exact evidence-based-resource and QI activity statements verified",
+      "construct compared with Q0220 and Q0972 and confirmed distinct",
+      "educational objective is item-specific"
+    ]
+  }
+}

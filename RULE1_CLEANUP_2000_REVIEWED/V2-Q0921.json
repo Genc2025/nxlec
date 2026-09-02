@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0921",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "PURPOSEFUL_ROUNDING_THEORY_TO_INCENTIVE_SPIROMETRY_TECHNIQUE_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "An RN is teaching a postoperative client how to use a prescribed volume-oriented incentive spirometer. Which client demonstration shows correct technique?",
+    "options": {
+      "A": "Sit upright and blow forcefully into the mouthpiece, repeating rapid exhalations until the piston reaches the prescribed target.",
+      "B": "Sit upright, seal the lips around the mouthpiece, inhale slowly and deeply to raise the piston, hold the breath briefly, then relax and exhale.",
+      "C": "Sit upright and take quick shallow breaths through the mouthpiece, pausing only when the indicator reaches the prescribed target level.",
+      "D": "Sit upright, inhale through the nose while keeping the mouthpiece between the lips, then exhale through the device slowly to raise the piston."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes pulmonary hygiene, including incentive spirometry, under Physiological Adaptation. Current NCBI/Open RN guidance instructs the client to sit upright when possible, make a tight seal around the mouthpiece, inhale slowly and deeply through the device to raise the piston, hold the breath for several seconds or as tolerated, then exhale and rest. The device is designed to encourage sustained inspiration rather than forceful exhalation. B is therefore the uniquely correct demonstration. A and D incorrectly use exhalation to operate the spirometer. C uses rapid shallow breathing rather than slow sustained inspiration. Therefore B is correct.",
+    "educational_objective": "Teach incentive-spirometer use as a slow, deep sustained inspiration through the mouthpiece followed by a brief breath hold and relaxed exhalation; the client should not blow into the device or use rapid shallow breaths.",
+    "source_organization": "NCBI Bookshelf / Open RN; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Nursing Skills — Oxygen Therapy; Health Alterations — Respiratory Alterations; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current NCBI/Open RN content live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Open RN Nursing Skills Chapter 11 / Respiratory Alterations — sit upright, seal lips around mouthpiece, inhale slowly and deeply through incentive spirometer, hold breath briefly, then exhale/rest. NCSBN Physiological Adaptation, PDF p.17 / printed p.14 — Provide pulmonary hygiene (e.g., chest physiotherapy, incentive spirometry).",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK596733/",
+    "secondary_source_urls": ["https://www.ncbi.nlm.nih.gov/books/NBK613070/","https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"],
+    "source_claim_supported": "Correct incentive-spirometry technique uses slow deep inspiration through the mouthpiece with a brief breath hold, not forceful exhalation or rapid shallow breathing.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, PDF p.17 / printed p.14 — Provide pulmonary hygiene (e.g., chest physiotherapy, incentive spirometry)",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — incentive-spirometry technique for postoperative pulmonary hygiene",
+    "correction_summary_append": "RULE1 cleanup: retired purposeful-rounding purpose recall because it was generic safety-process theory and overlapped existing fall/safety coverage. Rebuilt the item around an explicit NCSBN pulmonary-hygiene activity requiring direct demonstration of incentive-spirometer technique. Removed the prior absolute-word and answer-length cues.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0921","result":"FINAL_QA_PASS","failure_mode_corrected":"GENERIC_ROUNDING_THEORY_AND_ITEM_WRITING_CUES","finding":"The replacement tests a concrete postoperative pulmonary-hygiene skill rather than a safety-process definition.","source_authority":"NCBI/Open RN; NCSBN 2026 Test Plan"}]
+  },
+  "scope_exclusions": {
+    "universal_frequency_or_volume_goal": "Not tested; frequency and target volume may be individualized by prescription, condition and protocol.",
+    "evidence_for_IS_as_single_prevention_strategy": "Not tested. The item assesses correct technique for a prescribed device rather than claiming incentive spirometry alone prevents all postoperative pulmonary complications.",
+    "forced_expiration": "Not endorsed; the device is used through slow sustained inspiration."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0920", "V2-Q0875", "V2-Q0677"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0920 tests post-thyroidectomy airway compromise, Q0875 tracheostomy suctioning, and Q0677 seizure safety. Q0921 tests correct incentive-spirometry technique. Targeted repository search returned no matching incentive-spirometry-technique item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible device-use attempt but uses forceful exhalation instead of sustained inspiration.",
+    "B": "Correct. It matches the recommended upright, slow-deep-inhale, brief-hold sequence.",
+    "C": "Plausible breathing exercise but uses rapid shallow breaths rather than sustained maximal inspiration.",
+    "D": "Plausible controlled breathing pattern but directs exhalation through the device to raise the piston."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone uses the device as an inspiratory exercise with slow deep inhalation and a brief hold. A/D use exhalation and C uses rapid shallow inspiration.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":128,"B":143,"C":135,"D":142},
+    "note": "Correct B differs from D by one character and is not isolated by length or structure."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Pulmonary hygiene including incentive spirometry is explicit NCSBN Physiological Adaptation content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, PDF p.17 / printed p.14, was visually inspected on 2026-08-19 and explicitly lists pulmonary hygiene including incentive spirometry."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["NCSBN pulmonary-hygiene statement verified visually","Open RN technique verified","no universal frequency/volume claim","A/B/C/D re-audited","no second defensible answer","option lengths A128/B143/C135/D142","targeted duplicate search clean","difficulty medium"]
+  }
+}

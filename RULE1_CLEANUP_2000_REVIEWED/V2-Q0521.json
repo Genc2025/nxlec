@@ -1,0 +1,100 @@
+{
+  "question_uid": "V2-Q0521",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Psychosocial Integrity",
+  "difficulty": "medium",
+  "change_class": "CULTURAL_PREFERENCES_DUPLICATE_TO_CARE_ACCOMMODATION_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A hospitalized client tells the RN that, for cultural and religious reasons, the client prefers a caregiver of the same gender for intimate bathing and perineal care. No urgent care is needed at this time. Which nursing response is most appropriate?",
+    "options": {
+      "A": "Tell the client that intimate care follows the unit's standard staffing pattern and that cultural preferences should not change caregiver assignments.",
+      "B": "Clarify the client's preference and, when feasible, coordinate a same-gender caregiver while ensuring necessary care is not inappropriately delayed.",
+      "C": "Promise that caregivers will match the requested gender throughout the hospitalization, even when staffing changes or urgent care needs make this difficult.",
+      "D": "Ask a family member to decide whether the preference should affect the assignment, then follow the family's choice before asking the client directly."
+    },
+    "correct_option": "B",
+    "rationale": "HHS Office of Minority Health's National CLAS Standards call for respectful, effective quality care that responds to cultural health beliefs and practices, and HHS describes CLAS as respect for the whole individual and responsiveness to the individual's health needs and preferences. The 2026 NCSBN NCLEX-RN Test Plan directs the RN to assess the importance of the client's self-reported culture/ethnicity, incorporate client cultural practices and beliefs when planning and providing care, and respect the client's self-reported cultural background and practices. In this scenario, the preference comes directly from the client rather than from a stereotype, and no urgent care is pending. B appropriately clarifies the request and attempts a feasible accommodation while preserving timely necessary care. A dismisses a stated cultural/religious preference without assessing accommodation. C makes an absolute staffing promise that may become impossible or unsafe if circumstances change. D gives a family member authority to define the client's preference before the client. Therefore B is the uniquely best answer.",
+    "educational_objective": "Respond to a client's self-reported cultural or religious care preference by clarifying the request and incorporating it when feasible while preserving timely, safe, necessary care and avoiding absolute staffing promises.",
+    "source_organization": "U.S. Department of Health and Human Services, Office of Minority Health — Think Cultural Health",
+    "source_document_title": "National Standards for Culturally and Linguistically Appropriate Services (CLAS) in Health and Health Care; What is CLAS?",
+    "source_version_date": "Current National CLAS Standards and Think Cultural Health resources accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "National CLAS Principal Standard 1 — provide effective, understandable and respectful quality care/services responsive to cultural health beliefs and practices and communication needs; What is CLAS? — respect the whole individual and respond to the individual's health needs and preferences",
+    "source_url": "https://thinkculturalhealth.hhs.gov/clas/standards",
+    "secondary_source_url": "https://thinkculturalhealth.hhs.gov/clas/what-is-clas",
+    "source_claim_supported": "Culturally responsive care should respect and respond to the individual client's stated cultural health beliefs, practices, needs and preferences rather than dismissing them or assuming them from group membership.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Psychosocial Integrity, printed p. 10 / PDF p. 14 — Incorporate client cultural practices and beliefs when planning/providing care; Appendix A, printed p. 31 / PDF p. 35 — Cultural Awareness/Cultural Influences on Health: assess importance of client self-reported culture/ethnicity; incorporate client cultural practices/beliefs; respect client self-reported cultural background and practices",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Psychosocial Integrity — feasible accommodation of a client-stated cultural/religious care preference",
+    "correction_summary_append": "RULE1 cleanup: retired a cultural-responsive-care item that duplicated V2-Q0477's assumption-versus-individual-preference construct. Rebuilt the item around a different competency: responding to a client-stated preference for intimate-care caregiver gender, attempting feasible accommodation without making an absolute staffing promise or delaying necessary care.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0521",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CROSS_ITEM_CULTURAL_ASSESSMENT_DUPLICATION_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement moves from general cultural-responsiveness recognition to application of a self-reported preference in care delivery. It preserves individualized assessment, feasibility and safety rather than stereotyping or promising an inflexible staffing arrangement.",
+        "source_authority": "HHS National CLAS Standards",
+        "source_locator": "Principal Standard 1 and What is CLAS?",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Psychosocial Integrity — Cultural Awareness/Cultural Influences on Health"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "absolute_staffing_entitlement": "Not asserted. The correct answer attempts accommodation when feasible and preserves timely necessary care.",
+    "urgent_or_emergency_care": "The stem explicitly states that urgent care is not currently required; emergent safety needs could alter what is feasible.",
+    "group_based_assumption": "Not present. The preference is directly self-reported by the client."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0477", "V2-Q0471", "V2-Q0277"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0477 tests identifying and setting aside an unverified cultural assumption before asking the client's preferences. V2-Q0471 tests qualified interpreter use for informed consent. V2-Q0277 tests social-access barriers and resource linkage. V2-Q0521 tests feasible accommodation of a cultural/religious intimate-care preference that the client has explicitly stated."
+  },
+  "option_audit": {
+    "A": "Plausible operational response but dismisses an explicit client preference without assessing whether accommodation is feasible.",
+    "B": "Correct. It clarifies the self-reported preference, attempts feasible accommodation, and maintains timely necessary care.",
+    "C": "Plausible accommodation impulse but creates an absolute promise that may not be feasible as staffing or clinical urgency changes.",
+    "D": "Plausible family-centered approach but improperly asks family to define the client's preference before the client."
+  },
+  "ambiguity_check": "No second defensible best answer. B alone combines respect for the client's stated preference, feasibility, and safety. A dismisses the preference, C overpromises an inflexible arrangement, and D substitutes family judgment for the client's own stated preference.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 150, "B": 145, "C": 153, "D": 149},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within eight characters and the correct option is not longest."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly requires newly licensed RNs to assess, respect and incorporate client self-reported cultural practices and beliefs in care planning and delivery.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Appendix A Cultural Awareness/Cultural Influences on Health, printed p. 31 / PDF p. 35, was visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current HHS National CLAS Standards verified",
+      "Principal Standard 1 cultural-beliefs/practices responsiveness verified directly",
+      "HHS individual-needs/preferences responsiveness verified directly",
+      "official NCSBN cultural-awareness page visually verified",
+      "self-reported cultural preference rather than group assumption controlled in stem",
+      "urgent-care ambiguity excluded by stem",
+      "absolute staffing guarantee excluded from correct answer",
+      "A/B/C/D independently re-audited for feasibility, cultural responsiveness and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "exact option lengths verified as A150/B145/C153/D149",
+      "construct compared with Q0477/Q0471/Q0277 and confirmed distinct",
+      "difficulty retained at medium",
+      "educational objective is item-specific"
+    ]
+  }
+}

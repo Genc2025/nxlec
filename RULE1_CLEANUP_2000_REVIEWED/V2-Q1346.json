@@ -1,0 +1,111 @@
+{
+  "question_uid": "V2-Q1346",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-20",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Pharmacological and Parenteral Therapies",
+  "difficulty": "medium",
+  "change_class": "REDUNDANT_PACU_HANDOFF_TO_LITHIUM_TOXICITY_RESPONSE_REBUILD",
+  "technical_candidate_reasons": [
+    "correct_answer_length_cue",
+    "correct_answer_uniquely_longest"
+  ],
+  "semantic_correction": {
+    "stem": "A client taking lithium develops new vomiting, a coarse hand tremor, an unsteady gait, and increasing confusion. Which action should the nurse take?",
+    "options": {
+      "A": "Withhold further lithium, notify the clinical team, obtain urgent toxicity evaluation, and support hydration as clinically indicated.",
+      "B": "Give the scheduled lithium dose and repeat the neurologic assessment later because tremor and nausea are expected treatment effects.",
+      "C": "Treat the nausea and vomiting first, then continue lithium unless the serum concentration returns above the therapeutic range.",
+      "D": "Reduce the next lithium dose and encourage oral fluids, then reassess the tremor, gait, and confusion before escalating care."
+    },
+    "correct_option": "A",
+    "rationale": "Lithium has a narrow therapeutic index and clinically important toxicity may present with gastrointestinal and neurologic findings. Current DailyMed lithium labeling carries a boxed warning for lithium toxicity, and current NCBI Lithium Toxicity guidance updated June 19, 2026 identifies vomiting, coarse tremor, ataxia/unsteady coordination, and confusion as concerning toxicity findings. NCBI guidance states that management includes discontinuation of lithium, supportive care, assessment of serum lithium and renal/electrolyte status, and isotonic fluid support when appropriate; clinical severity does not always correlate closely with a single measured lithium concentration. Therefore the nurse should withhold further lithium and escalate for urgent evaluation rather than administer another dose, treat symptoms while continuing lithium, or make an informal dose reduction and wait. The 2026 NCSBN NCLEX-RN Test Plan includes medication-response evaluation, recognition of adverse effects, and safe administration of high-risk medications. Therefore A is the uniquely best answer.",
+    "educational_objective": "Recognize new gastrointestinal and neurologic findings during lithium therapy as possible toxicity and withhold further lithium while initiating urgent clinical evaluation and supportive management.",
+    "source_organization": "DailyMed / U.S. National Library of Medicine official FDA labeling; NCBI Bookshelf / StatPearls; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Lithium Carbonate Capsules; Lithium Toxicity; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "DailyMed lithium carbonate label updated February 20, 2026; NCBI Lithium Toxicity updated June 19, 2026; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-20",
+    "source_locator": "DailyMed lithium carbonate label > Boxed Warning: Lithium Toxicity. NCBI Lithium Toxicity > History and Physical/Treatment and Management — vomiting, coarse tremor, ataxia and confusion are concerning findings; discontinue lithium, provide supportive care and evaluate lithium level, renal function and electrolytes; IV isotonic fluids may be used as appropriate. NCSBN 2026 NCLEX-RN Test Plan > Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16 and detailed printed p. 38 / PDF p. 42 — evaluate medication response, assess adverse effects and safely administer high-risk medications.",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=049902a9-3af1-4863-994e-15f36e7a9793",
+    "secondary_source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK499992/",
+    "tertiary_source_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "source_claim_supported": "New vomiting, coarse tremor, gait ataxia and confusion during lithium therapy warrant concern for lithium toxicity, withholding further lithium and urgent toxicity evaluation rather than continued dosing or symptom-only treatment.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Pharmacological and Parenteral Therapies, printed p. 12 / PDF p. 16; detailed content printed p. 38 / PDF p. 42",
+    "blueprint_url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+    "blueprint_topic": "Pharmacological and Parenteral Therapies — recognition and immediate response to suspected lithium toxicity",
+    "correction_summary_append": "RULE1 cleanup: retired an incomplete-PACU-handoff item because unresolved handoff communication was already tested actionably at Q1021. Rebuilt the UID into a distinct psychopharmacology safety scenario requiring recognition and immediate response to suspected lithium toxicity.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q1346",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "PACU_HANDOFF_REDUNDANCY_AND_CORRECT_ANSWER_LENGTH_CUE",
+        "finding": "The replacement tests direct medication-toxicity recognition. Current DailyMed and NCBI guidance support withholding lithium and urgent evaluation when new neurologic and gastrointestinal toxicity findings emerge.",
+        "source_authority": "DailyMed official FDA labeling; NCBI Lithium Toxicity; NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "DailyMed lithium boxed warning; NCBI Lithium Toxicity History/Physical and Treatment/Management; NCSBN Pharmacological and Parenteral Therapies",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Pharmacological and Parenteral Therapies"
+      }
+    ]
+  },
+  "scope_exclusions": {
+    "serum_threshold": "No serum lithium concentration cutoff is used to trigger the nursing action; the decision is based on a clinically concerning toxicity pattern and current guidance that clinical severity may not track a single serum value closely.",
+    "dialysis": "No hemodialysis criterion or indication is tested; extracorporeal treatment depends on severity, renal function and specialist assessment.",
+    "fluid_regimen": "No IV fluid volume, rate, sodium target or hydration duration is prescribed; supportive hydration is individualized to the client's status.",
+    "dose_adjustment": "The nurse is not asked to independently titrate or restart lithium. The immediate action is to withhold further exposure and obtain urgent evaluation."
+  },
+  "near_duplicate_check": {
+    "compared_uids": [
+      "V2-Q1021"
+    ],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Targeted GitHub search for 'lithium toxicity coarse tremor ataxia confusion vomiting hold lithium IV fluids' returned no indexed repository match. Q1021 was manually considered because Q1346 replaces another handoff item: Q1021 tests unresolved handoff communication, whereas Q1346 tests acute lithium-toxicity recognition and medication safety. No broad bank rescan was performed."
+  },
+  "option_audit": {
+    "A": "Correct. It stops further exposure and initiates the urgent clinical evaluation and supportive management indicated by the toxicity pattern.",
+    "B": "Plausible if findings were mild expected effects, but coarse tremor, gait instability and increasing confusion are not findings to dismiss while continuing lithium.",
+    "C": "Plausible symptom-focused approach, but treating vomiting while continuing lithium delays response to a clinically concerning toxicity pattern and wrongly makes action depend on a single serum threshold.",
+    "D": "Plausible conservative dose-adjustment approach, but informal dose reduction and observation are inadequate when neurologic toxicity findings are already present."
+  },
+  "ambiguity_check": "No second defensible best answer. B continues full exposure, C continues lithium until a laboratory threshold is crossed, and D makes an unprescribed dose adjustment while delaying urgent evaluation. A alone stops exposure and escalates promptly.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {
+      "A": 133,
+      "B": 132,
+      "C": 126,
+      "D": 125
+    },
+    "note": "Exact character counts were calculated from the stored strings. All four alternatives are closely balanced and use parallel medication-management actions; the correct option is not conspicuously longer."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN Pharmacological and Parenteral Therapies directly includes medication-response evaluation, adverse-effect recognition and safe high-risk medication administration. Recognizing lithium toxicity and withholding further dosing are direct entry-level RN safety responsibilities.",
+    "exact_locator_verified": true,
+    "visual_verification": "PASS. The relevant NCSBN Pharmacological and Parenteral Therapies pages were visually verified earlier in the current cleanup session and reused as established blueprint locators without broad PDF rescanning."
+  },
+  "source_visual_verification": {
+    "result": "PASS_NCSBN_PDF_DAILYMED_NCBI_HTML",
+    "note": "Relevant NCSBN PDF pages had already been visually verified in the current cleanup session. DailyMed and NCBI sources are HTML and were text-verified directly on August 20, 2026."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "current DailyMed lithium label updated February 20, 2026 rechecked for the lithium-toxicity boxed warning",
+      "NCBI Lithium Toxicity updated June 19, 2026 rechecked for vomiting, coarse tremor, ataxia/confusion and management principles",
+      "verified NCSBN 2026 Pharmacological and Parenteral Therapies blueprint locators reused without broad PDF rescan",
+      "A/B/C/D independently re-audited for plausibility and second-answer risk",
+      "no serum lithium cutoff, dialysis criterion, fluid regimen or independent dose-restart plan fabricated",
+      "option lengths tightly balanced: A133/B132/C126/D125",
+      "Q1021 manually compared and confirmed distinct",
+      "targeted near-duplicate search performed without broad bank rescan",
+      "educational objective is specific and action-oriented"
+    ]
+  }
+}

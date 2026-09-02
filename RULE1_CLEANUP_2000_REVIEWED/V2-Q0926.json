@@ -1,0 +1,73 @@
+{
+  "question_uid": "V2-Q0926",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Physiological Adaptation",
+  "difficulty": "medium",
+  "change_class": "IPASS_HANDOFF_TERM_RECALL_TO_ARTERIAL_LINE_LEVELING_REBUILD",
+  "technical_candidate_reasons": ["absolute_word_distractor_pattern", "correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "semantic_correction": {
+    "stem": "A stable ICU client has a radial arterial line for systemic blood-pressure monitoring. After the head of the bed is raised, the arterial pressure reads 176/92 mm Hg while a correctly sized cuff reads 128/74 mm Hg. The arterial waveform is present, and the RN sees that the pressure transducer is well below the client's phlebostatic axis. Which action is most appropriate?",
+    "options": {
+      "A": "Treat the arterial-line value as the true pressure and give the prescribed antihypertensive before checking the monitoring system.",
+      "B": "Relevel the transducer to the phlebostatic axis, verify/zero the system per protocol, then reassess the arterial pressure before treatment.",
+      "C": "Raise the transducer above heart level until the arterial reading approaches the cuff pressure, then use the adjusted value for treatment.",
+      "D": "Fast-flush the arterial line repeatedly to correct the pressure difference, then treat based on the next systolic value displayed."
+    },
+    "correct_option": "B",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes monitoring and maintaining arterial lines under Physiological Adaptation. Current StatPearls guidance states that an arterial-pressure transducer must be correctly leveled, commonly at the right-atrial/phlebostatic-axis level for systemic arterial pressure, and the monitoring system must be zeroed appropriately to obtain accurate measurements. Hydrostatic error makes an arterial pressure read falsely high when the transducer is positioned too low and falsely low when it is too high. This client's transducer is visibly below the appropriate reference level after repositioning, providing a direct explanation for the discordant elevated invasive reading. B is therefore the uniquely best action: correct the measurement system by releveling and verifying/zeroing it according to protocol, then reassess before treating the apparent hypertension. A risks treatment based on an artifactual pressure. C deliberately moves the transducer to force agreement rather than placing it at the correct reference level. D addresses damping/line patency rather than the known leveling error and may expose the client to unnecessary flushing. Therefore B is correct.",
+    "educational_objective": "When an arterial-line pressure is discordant and the transducer is not at the correct reference level, relevel the transducer to the phlebostatic axis and verify/zero the monitoring system according to protocol before interpreting the pressure or changing therapy.",
+    "source_organization": "NCBI Bookshelf / StatPearls; National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "Arterial Lines; Arterial Pressure Monitoring; 2026 NCLEX-RN Test Plan",
+    "source_version_date": "Current StatPearls arterial-line guidance live-rechecked 2026-08-19; NCSBN Test Plan effective April 1, 2026 through March 31, 2029",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "StatPearls Arterial Lines/Arterial Pressure Monitoring — transducer leveled at right atrium/phlebostatic axis for accurate systemic arterial pressure; transducer too low produces falsely elevated pressure and too high produces falsely low pressure; system zeroing establishes the reference pressure. NCSBN Physiological Adaptation, PDF p.17 / printed p.14 and Appendix A Hemodynamics — Monitor and maintain arterial lines.",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK499989/",
+    "secondary_source_urls": ["https://www.ncbi.nlm.nih.gov/books/NBK556127/","https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf"],
+    "source_claim_supported": "Incorrect arterial-transducer height creates hydrostatic measurement error; a transducer positioned too low can falsely elevate the displayed pressure, so correct leveling and system verification should occur before therapeutic decisions.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Physiological Adaptation, PDF p.17 / printed p.14 — Monitor and maintain arterial lines; Appendix A Hemodynamics — Monitor and maintain arterial lines",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Physiological Adaptation — arterial-line transducer leveling and blood-pressure measurement accuracy",
+    "correction_summary_append": "RULE1 cleanup: retired I-PASS Synthesis-by-Receiver terminology because it duplicated existing handoff coverage and tested teamwork vocabulary rather than a bedside clinical decision. Rebuilt the item around explicit NCSBN arterial-line monitoring and a concrete transducer-leveling error. Removed the prior absolute-word and key-length cues.",
+    "audit_findings_append": [{"type":"RULE1_CLEANUP_SEMANTIC_REAUDIT","uid":"V2-Q0926","result":"FINAL_QA_PASS","failure_mode_corrected":"HANDOFF_TERMINOLOGY_REDUNDANCY_AND_ITEM_WRITING_CUES","finding":"The replacement tests recognition and correction of a known arterial-line measurement error before treatment.","source_authority":"StatPearls arterial monitoring; NCSBN 2026 Test Plan"}]
+  },
+  "scope_exclusions": {
+    "neurocritical_cerebral_reference_level": "Not tested. The stem explicitly states routine systemic arterial-pressure monitoring, so the right-atrial/phlebostatic reference is appropriate rather than a cerebral perfusion reference level.",
+    "treatment_of_true_hypertension": "Not tested until measurement accuracy is re-established.",
+    "automatic_fast_flush": "Not endorsed when the identified problem is transducer leveling rather than line damping or patency."
+  },
+  "near_duplicate_check": {
+    "compared_uids": ["V2-Q0925", "V2-Q0724", "V2-Q0872"],
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "Q0925 tests pacemaker noncapture, Q0724 acute-deterioration escalation, and Q0872 chest-tube tubing obstruction. Q0926 specifically tests systemic arterial-line measurement error from incorrect transducer height. Targeted repository search returned no matching arterial-line transducer-leveling item before staging."
+  },
+  "option_audit": {
+    "A": "Plausible reliance on invasive monitoring but risks medication based on a known setup error.",
+    "B": "Correct. It restores the proper hydrostatic reference and verifies the system before interpretation or treatment.",
+    "C": "Plausible attempt to reconcile readings but intentionally manipulates transducer height rather than leveling to the correct anatomical reference.",
+    "D": "Plausible arterial-line troubleshooting but fast flushing does not correct a known hydrostatic leveling error."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem directly identifies the transducer below the phlebostatic axis, which explains a falsely high invasive pressure. B alone corrects the known measurement error before treatment; A treats the artifact, C forces an arbitrary match, and D troubleshoots the wrong failure mode.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A":130,"B":139,"C":138,"D":130},
+    "note": "Correct B differs from C by one character and no answer is isolated by length or absolute wording."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "Monitoring and maintaining arterial lines is explicit NCSBN Physiological Adaptation content.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN Physiological Adaptation page, PDF p.17 / printed p.14, was visually inspected in this audit sequence and explicitly lists monitoring and maintaining arterial lines."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": ["NCSBN arterial-line activity verified visually","StatPearls phlebostatic leveling guidance verified","too-low transducer false-high pressure effect verified","systemic rather than cerebral monitoring context controlled in stem","A/B/C/D re-audited","no second defensible answer","option lengths A130/B139/C138/D130","targeted duplicate search clean","difficulty medium"]
+  }
+}

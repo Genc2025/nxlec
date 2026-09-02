@@ -1,0 +1,91 @@
+{
+  "question_uid": "V2-Q0886",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Reduction of Risk Potential",
+  "difficulty": "medium",
+  "change_class": "NEAR_DUPLICATE_FULL_CONSTRUCT_REBUILD",
+  "near_duplicate_resolution": {
+    "paired_uid": "V2-Q1038",
+    "original_overlap": "Both original items asked the nurse to classify a fasting plasma glucose result using diabetes/prediabetes thresholds.",
+    "resolution": "Retain V2-Q1038 as the fasting-plasma-glucose diagnosis/confirmation item and rebuild V2-Q0886 into interpretation of a complete diabetic-ketoacidosis laboratory pattern."
+  },
+  "semantic_correction": {
+    "stem": "Four adults with no prior diagnosis of diabetes are being evaluated for a possible hyperglycemic crisis. Which laboratory pattern meets all ADA 2026 diagnostic components for diabetic ketoacidosis (DKA)?",
+    "options": {
+      "A": "Glucose 240 mg/dL; β-hydroxybutyrate 3.5 mmol/L; pH 7.28; bicarbonate 17 mmol/L",
+      "B": "Glucose 240 mg/dL; β-hydroxybutyrate 2.0 mmol/L; pH 7.28; bicarbonate 17 mmol/L",
+      "C": "Glucose 240 mg/dL; β-hydroxybutyrate 3.5 mmol/L; pH 7.34; bicarbonate 20 mmol/L",
+      "D": "Glucose 180 mg/dL; β-hydroxybutyrate 3.5 mmol/L; pH 7.28; bicarbonate 17 mmol/L"
+    },
+    "correct_option": "A",
+    "rationale": "ADA Standards of Care in Diabetes—2026 Table 16.1 requires all DKA diagnostic components: diabetes/hyperglycemia defined as glucose at least 200 mg/dL or a prior history of diabetes; ketosis defined as β-hydroxybutyrate at least 3.0 mmol/L or urine ketones at least 2+; and metabolic acidosis defined as pH below 7.3 and/or bicarbonate below 18 mmol/L. Option A satisfies all three components. Option B does not meet the β-hydroxybutyrate ketosis criterion. Option C does not meet the metabolic-acidosis criterion because both pH and bicarbonate are above the DKA cut points. In the stem all clients have no prior diabetes diagnosis, so option D does not satisfy the diabetes/hyperglycemia component because glucose is below 200 mg/dL. Therefore A is the uniquely correct pattern.",
+    "educational_objective": "Identify diabetic ketoacidosis by integrating the ADA 2026 diabetes/hyperglycemia, ketosis, and metabolic-acidosis diagnostic components rather than relying on a single abnormal laboratory value.",
+    "source_organization": "American Diabetes Association Professional Practice Committee for Diabetes",
+    "source_document_title": "16. Diabetes Care in the Hospital: Standards of Care in Diabetes—2026",
+    "source_version_date": "Published December 8, 2025; Diabetes Care 2026;49(Supplement 1)",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Hyperglycemic Crises — Table 16.1 Diagnostic criteria for DKA and HHS",
+    "source_url": "https://diabetesjournals.org/care/article/49/Supplement_1/S339/163925/16-Diabetes-Care-in-the-Hospital-Standards-of-Care",
+    "source_claim_supported": "For DKA, ADA 2026 requires all diagnostic components: glucose ≥200 mg/dL or prior history of diabetes; β-hydroxybutyrate ≥3.0 mmol/L or urine ketones ≥2+; and pH <7.3 and/or bicarbonate <18 mmol/L.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Reduction of Risk Potential, printed p. 13 / PDF p. 17, Related Activity Statements — Monitor the results of diagnostic testing and intervene as needed; Monitor the results of laboratory tests and intervene as needed; Recognize trends and changes in client condition and intervene as needed",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Reduction of Risk Potential — DKA diagnostic laboratory interpretation",
+    "correction_summary_append": "RULE1 cleanup: resolved semantic near-duplication with V2-Q1038 by replacing a second fasting-glucose classification item with DKA laboratory-pattern recognition; every numeric threshold and option was checked directly against ADA 2026 Table 16.1, and the item was remapped to Reduction of Risk Potential laboratory/diagnostic monitoring.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0886",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "SEMANTIC_NEAR_DUPLICATE",
+        "paired_uid": "V2-Q1038",
+        "finding": "The original item duplicated V2-Q1038's fasting-plasma-glucose threshold interpretation. It was rebuilt into a distinct DKA laboratory-integration item using only directly sourced ADA 2026 cut points.",
+        "source_authority": "ADA Standards of Care in Diabetes—2026",
+        "source_locator": "Diabetes Care in the Hospital — Table 16.1",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "Reduction of Risk Potential, printed p. 13 / PDF p. 17"
+      }
+    ]
+  },
+  "option_audit": {
+    "A": "Correct. Glucose is at least 200 mg/dL, β-hydroxybutyrate is at least 3.0 mmol/L, and both pH and bicarbonate satisfy the metabolic-acidosis component.",
+    "B": "Plausible because hyperglycemia and acidosis are present, but β-hydroxybutyrate 2.0 mmol/L is below the ADA DKA ketosis criterion of 3.0 mmol/L.",
+    "C": "Plausible because hyperglycemia and ketosis are present, but pH 7.34 and bicarbonate 20 mmol/L do not meet the ADA metabolic-acidosis component.",
+    "D": "Plausible because ketosis and acidosis are present, but with no prior diabetes diagnosis the glucose of 180 mg/dL does not meet the ADA diabetes/hyperglycemia component."
+  },
+  "ambiguity_check": "No second defensible answer. The stem explicitly states no prior diabetes diagnosis, so D cannot use the alternative prior-diabetes route to satisfy the first component; A alone meets all three ADA components.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 79, "B": 79, "C": 79, "D": 79},
+    "note": "All choices use the same four laboratory fields and identical structure. Equality results from the clinically parallel data format, not added explanatory padding."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "The item requires an RN to integrate abnormal diagnostic laboratory findings and recognize an acute complication, directly aligned with Reduction of Risk Potential.",
+    "exact_locator_verified": true
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "ADA 2026 hospital-care article and current Standards edition verified",
+      "all three DKA diagnostic components verified directly from Table 16.1",
+      "glucose ≥200 mg/dL or prior-diabetes rule verified directly",
+      "β-hydroxybutyrate ≥3.0 mmol/L threshold verified directly",
+      "pH <7.3 and/or bicarbonate <18 mmol/L criterion verified directly",
+      "every numeric value in A/B/C/D checked against the cited thresholds",
+      "A/B/C/D independently re-audited",
+      "no second defensible answer identified",
+      "no absolute-word, grammatical, structural, or length cue identified",
+      "official NCSBN Reduction of Risk Potential laboratory/diagnostic locator retained from the verified 2026 test plan",
+      "construct is distinct from V2-Q1038 fasting-glucose diagnosis/confirmation",
+      "educational objective is item-specific"
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "question_uid": "V2-Q0274",
+  "status": "FINAL_QA_PASS",
+  "reviewed_date_utc": "2026-08-19",
+  "canonical_input_blob": "182a1e979e11d62bebc85c5ceb859056b8812963",
+  "source_input_blob": "07e335d471ef1b4689406ba41eb98eaa2ca41472",
+  "clinical_category": "Safety and Infection Prevention and Control",
+  "difficulty": "medium",
+  "change_class": "POLICY_SCOPE_AND_LENGTH_CUE_REBUILD",
+  "technical_candidate_reasons": ["correct_answer_length_cue", "correct_answer_uniquely_longest"],
+  "metadata_correction": {
+    "client_need": "Safety and Infection Prevention and Control",
+    "category_id": 3,
+    "difficulty": "medium"
+  },
+  "semantic_correction": {
+    "stem": "A medication error reaches a client. Immediate assessment shows no apparent injury, and facility policy requires safety-event reporting for medication errors that reach a client. Which nursing action is most appropriate?",
+    "options": {
+      "A": "Assess the client, continue indicated monitoring, and complete the facility's required safety-event process even though no immediate injury is apparent.",
+      "B": "Continue routine care and submit a safety-event report later if the client develops symptoms or another measurable adverse effect from the error.",
+      "C": "Complete the safety-event report before reassessing the client so the organization can begin reviewing the error while the medication pass continues.",
+      "D": "Ask the next shift to monitor the client and decide whether event reporting is needed after enough time has passed to determine whether harm occurred."
+    },
+    "correct_option": "A",
+    "rationale": "The 2026 NCSBN NCLEX-RN Test Plan explicitly includes identifying situations in which incident/event/variance reporting is appropriate, acknowledging and documenting practice errors and near misses, and evaluating the response to an error/event/occurrence. The stem removes organizational-policy ambiguity by stating that this facility requires safety-event reporting for medication errors that reach a client. A therefore combines the two necessary priorities: evaluate and monitor the client, then complete the required safety-event process despite the absence of immediate apparent injury. B incorrectly makes reporting contingent on later harm. C places reporting ahead of reassessment of the client. D transfers follow-up and the reporting decision to the next shift despite an already-defined reporting requirement. Therefore A is the uniquely best answer.",
+    "educational_objective": "After a medication error reaches a client, prioritize client assessment and monitoring and follow the facility's required safety-event process even when no immediate injury is apparent.",
+    "source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "source_document_title": "2026 NCLEX-RN Test Plan",
+    "source_version_date": "Effective April 1, 2026 through March 31, 2029; accessed 2026-08-19",
+    "source_accessed_date": "2026-08-19",
+    "source_locator": "Appendix A, printed p. 25 / PDF p. 29 — Reporting of Incident/Event/Irregular Occurrence/Variance: identify need/situation where reporting is appropriate; acknowledge and document practice errors and near misses; evaluate response to error/event/occurrence",
+    "source_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "source_claim_supported": "NCSBN explicitly includes error/event reporting, acknowledgement/documentation of practice errors and near misses, and evaluation of the response to an error/event as entry-level Safety and Infection Prevention and Control content.",
+    "blueprint_source_organization": "National Council of State Boards of Nursing (NCSBN)",
+    "blueprint_document_title": "2026 NCLEX-RN Test Plan",
+    "blueprint_version": "Effective April 1, 2026 through March 31, 2029",
+    "blueprint_locator": "Appendix A, printed p. 25 / PDF p. 29 — Reporting of Incident/Event/Irregular Occurrence/Variance",
+    "blueprint_url": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+    "blueprint_topic": "Safety and Infection Prevention and Control — response to medication error and required safety-event reporting",
+    "correction_summary_append": "RULE1 cleanup: retained the medication-error/event-response construct, explicitly controlled facility reporting policy in the stem, removed the conspicuous correct-answer length cue, avoided unsupported universal incident-report workflow claims, and normalized difficulty from hard to medium.",
+    "audit_findings_append": [
+      {
+        "type": "RULE1_CLEANUP_SEMANTIC_REAUDIT",
+        "uid": "V2-Q0274",
+        "result": "FINAL_QA_PASS",
+        "failure_mode_corrected": "CORRECT_ANSWER_LENGTH_CUE_AND_ORGANIZATIONAL_POLICY_OVERGENERALIZATION_RISK",
+        "finding": "The original concept was blueprint-aligned, but its correct option was much longer and could be read as asserting a universal organizational reporting workflow. The revised stem states the applicable facility policy and tests the entry-level priorities of client evaluation and required event response.",
+        "source_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "source_locator": "Appendix A, printed p. 25 / PDF p. 29 — Reporting of Incident/Event/Irregular Occurrence/Variance",
+        "blueprint_authority": "NCSBN 2026 NCLEX-RN Test Plan",
+        "blueprint_locator": "same"
+      }
+    ]
+  },
+  "near_duplicate_check": {
+    "compared_uid": "V2-Q0074",
+    "result": "DISTINCT_CONSTRUCT",
+    "note": "V2-Q0074 tests what clinical information belongs in the health record after a fall and intentionally avoids universal incident-report configuration. V2-Q0274 explicitly supplies the facility's reporting requirement and tests client assessment plus completion of the required medication-error safety-event process despite no immediate harm."
+  },
+  "option_audit": {
+    "A": "Correct. It prioritizes client evaluation/monitoring and follows the reporting requirement explicitly supplied in the stem without making reporting contingent on injury.",
+    "B": "Plausible because harm may emerge later, but the facility's reporting requirement already applies and does not depend on later symptoms.",
+    "C": "Plausible because prompt event reporting matters, but client reassessment and safety come before administrative reporting when an error has reached the client.",
+    "D": "Plausible continuity-of-care response, but it delays an already-required current-shift safety process and transfers a reporting decision that the stem has already resolved."
+  },
+  "ambiguity_check": "No second defensible best answer. The stem explicitly supplies the facility reporting rule and states that the error reached the client. A alone combines immediate client-focused follow-up with the required safety-event process; B and D delay reporting, while C reverses clinical versus administrative priority.",
+  "cueing_check": {
+    "result": "PASS",
+    "absolute_word_cueing": false,
+    "grammatical_or_structural_cue": false,
+    "option_lengths_characters": {"A": 152, "B": 145, "C": 149, "D": 150},
+    "note": "Exact character counts were calculated from the stored strings. All four options are within seven characters and are parallel error-response actions; the correct answer is not conspicuously longer."
+  },
+  "blueprint_audit": {
+    "result": "PASS",
+    "entry_level_relevance": "NCSBN explicitly lists incident/event reporting, practice-error acknowledgement/documentation and evaluation of error response under Safety and Infection Prevention and Control.",
+    "exact_locator_verified": true,
+    "visual_verification": "Official 2026 NCSBN PDF printed p. 25 / PDF page 29 visually inspected on 2026-08-19."
+  },
+  "independent_second_pass": {
+    "result": "FINAL_QA_PASS",
+    "checks": [
+      "official 2026 NCSBN Test Plan verified",
+      "Reporting of Incident/Event/Irregular Occurrence/Variance content visually verified on printed p. 25",
+      "practice-error acknowledgement/documentation activity verified directly",
+      "evaluate-response-to-error/event activity verified directly",
+      "facility reporting requirement explicitly controlled in stem",
+      "no universal organizational incident-report workflow asserted",
+      "A/B/C/D independently re-audited for priority, plausibility and second-answer risk",
+      "no second defensible answer identified",
+      "correct-answer length cue removed",
+      "construct compared with Q0074 and confirmed distinct",
+      "difficulty normalized to medium",
+      "educational objective is item-specific"
+    ]
+  }
+}
