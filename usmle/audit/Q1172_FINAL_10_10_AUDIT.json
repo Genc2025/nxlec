@@ -1,28 +1,44 @@
 {
-  "audit_id": "Q1172-FRESH-ITEM-AUDIT-20260903",
+  "audit_id": "Q1172-FRESH-ITEM-AUDIT-20260903-R2",
   "item": "Q1172",
   "status": "FINAL_10_10_PASS",
   "audited_at": "2026-09-03",
+  "audit_iteration": 2,
+  "reason_for_full_reaudit": "The staged specification changed after the prior audit; zero-trust policy required a complete re-audit against the new immutable spec blob rather than a metadata-only SHA update.",
   "authoritative_db": "usmle/data/usmle-step1.db",
   "authoritative_db_blob": "029f5d77e1e7f2c2a48850b4e7f889f05df773b3",
   "authoritative_db_final_count": 1170,
-  "exact_spec_sha": "53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e",
+  "exact_spec_sha": "ad42fc04ba62fc2a0d66a60457709a275120e08f",
   "db_write": false,
   "unresolved_conflicts": 0,
   "construct": "Pathogenic variants in genes such as AGPAT2 or BSCL2 impair adipocyte development or function and prevent normal storage of triglyceride in adipose tissue. The resulting near-total loss of body fat causes ectopic lipid deposition, hypertriglyceridemia, insulin resistance/diabetes, and fatty liver.",
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
+    "verified_on": "2026-09-03",
     "notes": [
-      "USMLE Step 1 Exam Content — current official Step 1 specifications, verified 2026-09-03.",
-      "MedlinePlus Genetics: Congenital generalized lipodystrophy — current NLM page, verified 2026-09-03.",
-      "MedlinePlus Genetics: BSCL2 gene and AGPAT2 gene — current NLM gene pages, verified 2026-09-03."
+      "United States Medical Licensing Examination — Step 1 Exam Content: Current official Step 1 specifications; verified 2026-09-03; locator rechecked: Step 1 Content Specifications — Reproductive and Endocrine Systems; Patient Care: Diagnosis, including history and physical examination",
+      "United States Medical Licensing Examination — USMLE Content Outline (2026): For Public Release: USMLE Content Outline (2026); verified 2026-09-03; locator rechecked: p. 31 — Endocrine System > Diabetes mellitus and other disorders of the endocrine pancreas > diabetes mellitus",
+      "National Library of Medicine, MedlinePlus Genetics — Congenital generalized lipodystrophy: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes; Inheritance — near-total absence of adipose tissue, ectopic fat storage, AGPAT2/BSCL2/CAV1/CAVIN1, autosomal recessive inheritance",
+      "National Library of Medicine, MedlinePlus Genetics — BSCL2 gene: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
+      "National Library of Medicine, MedlinePlus Genetics — AGPAT2 gene: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
+      "National Library of Medicine, MedlinePlus Genetics — Familial hypercholesterolemia: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes — very high blood cholesterol/LDL-receptor pathway and premature coronary artery disease",
+      "National Library of Medicine, MedlinePlus Genetics — Glycogen storage disease type I: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes — fasting hypoglycemia, hepatomegaly, hyperlipidemia and G6PC1/SLC37A4 defects",
+      "National Institute of Diabetes and Digestive and Kidney Diseases — Cushing's Syndrome: Current NIDDK health information page; verified 2026-09-03; locator rechecked: What are the symptoms of Cushing's syndrome? — weight gain, round face, increased fat at the neck/upper body and thin extremities",
+      "National Library of Medicine, MedlinePlus Genetics — Prader-Willi syndrome: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description — childhood hyperphagia and obesity after infant hypotonia/feeding difficulties"
     ]
   },
   "exact_locator": "PASS",
   "exact_locator_notes": [
-    "MedlinePlus Genetics — Congenital generalized lipodystrophy: Description; Causes; Inheritance.",
-    "MedlinePlus Genetics — BSCL2 gene: Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy; AGPAT2 gene: Health Conditions Related to Genetic Changes."
+    "Step 1 Exam Content: Step 1 Content Specifications — Reproductive and Endocrine Systems; Patient Care: Diagnosis, including history and physical examination",
+    "USMLE Content Outline (2026): p. 31 — Endocrine System > Diabetes mellitus and other disorders of the endocrine pancreas > diabetes mellitus",
+    "Congenital generalized lipodystrophy: Description; Causes; Inheritance — near-total absence of adipose tissue, ectopic fat storage, AGPAT2/BSCL2/CAV1/CAVIN1, autosomal recessive inheritance",
+    "BSCL2 gene: Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
+    "AGPAT2 gene: Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
+    "Familial hypercholesterolemia: Description; Causes — very high blood cholesterol/LDL-receptor pathway and premature coronary artery disease",
+    "Glycogen storage disease type I: Description; Causes — fasting hypoglycemia, hepatomegaly, hyperlipidemia and G6PC1/SLC37A4 defects",
+    "Cushing's Syndrome: What are the symptoms of Cushing's syndrome? — weight gain, round face, increased fat at the neck/upper body and thin extremities",
+    "Prader-Willi syndrome: Description — childhood hyperphagia and obesity after infant hypotonia/feeding difficulties"
   ],
   "stem": "PASS",
   "lead_in": "PASS",
@@ -35,8 +51,39 @@
     "PASS",
     "PASS"
   ],
+  "distractor_audit": [
+    {
+      "distractor": "Familial hypercholesterolemia",
+      "status": "PASS",
+      "rationale": "Familial hypercholesterolemia causes markedly elevated LDL cholesterol and premature atherosclerosis, not near-total absence of adipose tissue with ectopic fat storage and severe insulin resistance.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Glycogen storage disease type I",
+      "status": "PASS",
+      "rationale": "Glycogen storage disease type I produces fasting hypoglycemia, hepatomegaly, and metabolic abnormalities but does not cause congenital generalized loss of adipose tissue.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Cushing syndrome",
+      "status": "PASS",
+      "rationale": "Cushing syndrome causes centripetal fat accumulation rather than a congenital near-total absence of adipose tissue.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Prader-Willi syndrome",
+      "status": "PASS",
+      "rationale": "Prader-Willi syndrome is characterized by hyperphagia and obesity rather than generalized congenital lipodystrophy.",
+      "fabricated": false,
+      "second_answer_path": false
+    }
+  ],
   "rationale": "PASS",
   "educational_objective": "PASS",
+  "educational_objective_text": "Recognize congenital generalized lipodystrophy from near-total loss of adipose tissue with a muscular appearance, hypertriglyceridemia, insulin resistance, and hepatomegaly.",
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "cueing": "PASS",
@@ -49,15 +96,21 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_DECISION_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33804987087,
-  "construct_probe_run_id": 33804987087,
-  "duplicate_gate_head_sha": "0a49b4cadbee206342ae4a9c7bc4f169a175a45e",
+  "forward_duplicate_run_id": 33805227701,
+  "construct_probe_run_id": 33805227727,
+  "duplicate_gate_head_sha": "2dda8f051a60ea19548c9aef3970792323e34411",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Persisted preflight Q1171-Q1175 bound to spec blob 53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3 returned zero exact/semantic main-construct hits and zero targeted term hits for Q1172.",
+  "canonical_probe_note": "Current preflight run 33805227727 is bound to spec blob ad42fc04ba62fc2a0d66a60457709a275120e08f and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3; Q1172 returned zero exact/semantic main-construct hits and zero targeted main-construct term hits against FINAL Q0001-Q1170.",
   "blueprint": {
     "system": "Reproductive and Endocrine Systems",
     "competency": "Patient Care: Diagnosis, including history and physical examination",
-    "status": "PASS"
+    "exact_outline_path": [
+      "Endocrine System",
+      "Diabetes mellitus and other disorders of the endocrine pancreas",
+      "diabetes mellitus"
+    ],
+    "status": "PASS",
+    "rationale": "Official 2026 Endocrine System outline includes diabetes mellitus and metabolic syndrome. Congenital generalized lipodystrophy is used here because the vignette's dominant endocrine consequence is severe insulin resistance/diabetes; the USMLE outline states listed diseases are examples rather than exhaustive."
   },
   "official_discipline_gate": {
     "status": "PASS",
@@ -69,7 +122,7 @@
     ],
     "all_tags_in_usmle_table3": true,
     "table3_reference": "Current official USMLE Step 1 Discipline Specifications — Table 3, verified 2026-09-03",
-    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; Q0881 onward uses explicit official Table 3 tags."
+    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; current item uses explicit official Table 3 discipline tags."
   },
   "realism_gate": {
     "status": "PASS",
@@ -80,7 +133,7 @@
     "option_parallelism": "PASS",
     "nbme_style_single_best_answer": "PASS",
     "core_step1_relevance": "PASS",
-    "gratuitous_rarity": "PASS_NONE — the item uses a rare disorder to test a coherent adipose-storage phenotype, not trivia.",
+    "gratuitous_rarity": "PASS_NONE_MATERIAL",
     "mechanism_depth": "PASS"
   },
   "duplicate_gate": {
@@ -92,14 +145,17 @@
   },
   "option_audit": {
     "single_best_answer": "PASS",
+    "correct_concept": "Congenital generalized lipodystrophy",
+    "correct_concept_status": "PASS",
     "distractor_plausibility": "PASS",
     "scientific_validity": "PASS",
-    "parallelism": "PASS"
+    "parallelism": "PASS",
+    "all_four_distractors_individually_reverified": true
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Near-total absence of adipose tissue since infancy with muscular appearance, hepatomegaly, acanthosis nigricans, severe hypertriglyceridemia, and hyperglycemia identifies congenital generalized lipodystrophy.",
-    "strongest_distractor_attack": "Glycogen storage disease type I can cause hepatomegaly and hypertriglyceridemia, but it causes fasting hypoglycemia and does not produce congenital near-total loss of subcutaneous fat. Cushing syndrome and Prader-Willi syndrome cause increased adiposity, not lipodystrophy.",
-    "expert_reviewer_reversal": "The congenital generalized loss of adipose tissue is the discriminator that makes congenital generalized lipodystrophy uniquely correct despite overlap in hepatomegaly or dyslipidemia with other disorders.",
+    "independent_reconstruction": "Near-total loss of adipose tissue from infancy with a muscular appearance, hepatomegaly, acanthosis nigricans, severe hypertriglyceridemia, and hyperglycemia is the characteristic metabolic phenotype of congenital generalized lipodystrophy.",
+    "strongest_distractor_attack": "GSD I can cause hepatomegaly and hyperlipidemia but characteristically causes fasting hypoglycemia and does not cause congenital generalized lipoatrophy. Familial hypercholesterolemia centers on markedly elevated cholesterol/LDL and premature coronary disease; Cushing syndrome increases central/upper-body fat; Prader-Willi syndrome causes childhood hyperphagia and obesity.",
+    "expert_reviewer_reversal": "The congenital near-total absence of subcutaneous fat is the decisive discriminator. The metabolic consequences then reinforce, rather than create, the diagnosis.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-03"
@@ -131,14 +187,25 @@
     "no_authoritative_source_conflict": "PASS",
     "no_required_hidden_assumption": "PASS"
   },
+  "claim_audit": {
+    "stem_clues": "PASS",
+    "key_claim": "PASS",
+    "all_distractor_claims": "PASS",
+    "mechanism": "PASS",
+    "inheritance_or_scope_claims": "PASS",
+    "blueprint_locator": "PASS",
+    "currentness": "PASS"
+  },
   "source_verification": [
     {
       "source_index": 1,
       "organization": "United States Medical Licensing Examination",
       "title": "Step 1 Exam Content",
       "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-      "locator": "Step 1 Content Specifications — Reproductive and Endocrine Systems; Patient Care: Diagnosis, including history and physical examination",
-      "opened_and_checked": true,
+      "exact_locator": "Step 1 Content Specifications — Reproductive and Endocrine Systems; Patient Care: Diagnosis, including history and physical examination",
+      "support_claim": "Supports the Step 1 blueprint placement and competency classification.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -148,8 +215,10 @@
       "organization": "United States Medical Licensing Examination",
       "title": "USMLE Content Outline (2026)",
       "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
-      "locator": "p. 31 — Endocrine System > Adrenal disorders > delayed and precocious puberty",
-      "opened_and_checked": true,
+      "exact_locator": "p. 31 — Endocrine System > Diabetes mellitus and other disorders of the endocrine pancreas > diabetes mellitus",
+      "support_claim": "Places the dominant insulin-resistance/hyperglycemia phenotype in the official 2026 endocrine diabetes leaf. The outline states that listed diseases are examples rather than an exhaustive list.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -159,8 +228,10 @@
       "organization": "National Library of Medicine, MedlinePlus Genetics",
       "title": "Congenital generalized lipodystrophy",
       "url": "https://medlineplus.gov/genetics/condition/congenital-generalized-lipodystrophy/",
-      "locator": "Description; Causes; Inheritance — near-total absence of adipose tissue, ectopic fat storage, AGPAT2/BSCL2/CAV1/CAVIN1, autosomal recessive inheritance",
-      "opened_and_checked": true,
+      "exact_locator": "Description; Causes; Inheritance — near-total absence of adipose tissue, ectopic fat storage, AGPAT2/BSCL2/CAV1/CAVIN1, autosomal recessive inheritance",
+      "support_claim": "Supports the phenotype, metabolic consequences, genetic causes, and inheritance.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -170,8 +241,10 @@
       "organization": "National Library of Medicine, MedlinePlus Genetics",
       "title": "BSCL2 gene",
       "url": "https://medlineplus.gov/genetics/gene/bscl2/",
-      "locator": "Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
-      "opened_and_checked": true,
+      "exact_locator": "Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
+      "support_claim": "Supports seipin loss causing adipocyte dysfunction and failure to store fat in adipose tissue.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -181,8 +254,62 @@
       "organization": "National Library of Medicine, MedlinePlus Genetics",
       "title": "AGPAT2 gene",
       "url": "https://medlineplus.gov/genetics/gene/agpat2/",
-      "locator": "Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
-      "opened_and_checked": true,
+      "exact_locator": "Health Conditions Related to Genetic Changes — Congenital generalized lipodystrophy",
+      "support_claim": "Supports reduced triglyceride production/storage in adipocytes from AGPAT2 loss of function.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 6,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Familial hypercholesterolemia",
+      "url": "https://medlineplus.gov/genetics/condition/familial-hypercholesterolemia/",
+      "exact_locator": "Description; Causes — very high blood cholesterol/LDL-receptor pathway and premature coronary artery disease",
+      "support_claim": "Supports exclusion of familial hypercholesterolemia as a high-LDL disorder rather than congenital generalized absence of adipose tissue.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 7,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Glycogen storage disease type I",
+      "url": "https://medlineplus.gov/genetics/condition/glycogen-storage-disease-type-i/",
+      "exact_locator": "Description; Causes — fasting hypoglycemia, hepatomegaly, hyperlipidemia and G6PC1/SLC37A4 defects",
+      "support_claim": "Supports exclusion of GSD I: it can cause hepatomegaly and hyperlipidemia but characteristically causes fasting hypoglycemia, not congenital generalized lipoatrophy.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 8,
+      "organization": "National Institute of Diabetes and Digestive and Kidney Diseases",
+      "title": "Cushing's Syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/cushings-syndrome",
+      "exact_locator": "What are the symptoms of Cushing's syndrome? — weight gain, round face, increased fat at the neck/upper body and thin extremities",
+      "support_claim": "Supports exclusion of Cushing syndrome because it causes characteristic central/upper-body fat accumulation rather than near-total congenital absence of adipose tissue.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 9,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Prader-Willi syndrome",
+      "url": "https://medlineplus.gov/genetics/condition/prader-willi-syndrome/",
+      "exact_locator": "Description — childhood hyperphagia and obesity after infant hypotonia/feeding difficulties",
+      "support_claim": "Supports exclusion of Prader-Willi syndrome as an obesity/hyperphagia phenotype rather than generalized congenital lipodystrophy.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
