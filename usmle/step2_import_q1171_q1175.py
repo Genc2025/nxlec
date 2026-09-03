@@ -15,7 +15,7 @@ FINAL_STATE = ROOT / 'state' / 'step2_final_q0001_q1175.json'
 FINAL_AT = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
 
 EXPECTED_PRE_DB_BLOB = '029f5d77e1e7f2c2a48850b4e7f889f05df773b3'
-EXPECTED_SPEC_BLOB = '53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e'
+EXPECTED_SPEC_BLOB = 'ad42fc04ba62fc2a0d66a60457709a275120e08f'
 AUDIT_ID = 'STEP2-FINAL-Q0001-Q1175-20260903'
 NEW_RANGE = range(1171,1176)
 KEY_SCHEDULE = {1171:'C',1172:'A',1173:'E',1174:'B',1175:'D'}
