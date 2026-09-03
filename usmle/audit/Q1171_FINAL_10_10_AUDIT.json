@@ -1,28 +1,34 @@
 {
-  "audit_id": "Q1171-FRESH-ITEM-AUDIT-20260903",
+  "audit_id": "Q1171-FRESH-ITEM-AUDIT-20260903-R2",
   "item": "Q1171",
   "status": "FINAL_10_10_PASS",
   "audited_at": "2026-09-03",
+  "audit_iteration": 2,
+  "reason_for_full_reaudit": "The staged specification changed after the prior audit; zero-trust policy required a complete re-audit against the new immutable spec blob rather than a metadata-only SHA update.",
   "authoritative_db": "usmle/data/usmle-step1.db",
   "authoritative_db_blob": "029f5d77e1e7f2c2a48850b4e7f889f05df773b3",
   "authoritative_db_final_count": 1170,
-  "exact_spec_sha": "53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e",
+  "exact_spec_sha": "ad42fc04ba62fc2a0d66a60457709a275120e08f",
   "db_write": false,
   "unresolved_conflicts": 0,
   "construct": "Federal disability-rights requirements call for communication with patients with vision disabilities to be as effective as communication with others. When necessary, covered health programs should provide appropriate auxiliary aids or services such as qualified readers, Braille, large print, or accessible electronic formats, with the choice guided by effective communication and the individual's needs.",
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
+    "verified_on": "2026-09-03",
     "notes": [
-      "USMLE Step 1 Exam Content — current official Step 1 specifications, verified 2026-09-03.",
-      "HHS Section 504 Final Rule fact sheet — current HHS disability-rights resource, verified 2026-09-03; communications §§84.77-84.81 support effective communication and auxiliary aids for vision disabilities.",
-      "HHS Section 1557 disability resource — current HHS resource, verified 2026-09-03."
+      "United States Medical Licensing Examination — Step 1 Exam Content: Current official Step 1 specifications; verified 2026-09-03; locator rechecked: Step 1 Content Specifications — Social Sciences: Communication and Interpersonal Skills; Communication and Interpersonal Skills",
+      "United States Medical Licensing Examination — USMLE Content Outline (2026): For Public Release: USMLE Content Outline (2026); verified 2026-09-03; locator rechecked: p. 39 — Social Sciences > Communication and interpersonal skills > Patient interviewing, consultation, and interactions with the family > information provision",
+      "U.S. Department of Health and Human Services, Office for Civil Rights — Section 504 of the Rehabilitation Act of 1973 Final Rule: Section by Section Fact Sheet for Recipients of Financial Assistance from HHS: Current HHS fact sheet reflecting the 2024 final rule and 2026 accessibility update; verified 2026-09-03; locator rechecked: Communications §§84.77-84.81; Web, Mobile, and Kiosk Accessibility §§84.82-84.89 — especially effective communication, accessible formats, screen-reader compatibility, privacy and independence",
+      "U.S. Department of Health and Human Services, Office for Civil Rights — Section 1557: Ensuring Effective Communication with and Accessibility for Individuals with Disabilities: Current HHS Section 1557 disability-access resource; verified 2026-09-03; locator rechecked: Protections for Individuals with Disabilities — effective communication and appropriate auxiliary aids and services, including alternative formats"
     ]
   },
   "exact_locator": "PASS",
   "exact_locator_notes": [
-    "USMLE Step 1 Exam Content: Step 1 Content Specifications — Social Sciences: Communication and Interpersonal Skills; Communication and Interpersonal Skills.",
-    "HHS Section 504 Final Rule fact sheet: Communications §§84.77-84.81 — effective communication for vision disabilities and auxiliary aids including readers, Braille, large print; HHS accessibility guidance also recognizes electronic information compatible with screen-reading technology."
+    "Step 1 Exam Content: Step 1 Content Specifications — Social Sciences: Communication and Interpersonal Skills; Communication and Interpersonal Skills",
+    "USMLE Content Outline (2026): p. 39 — Social Sciences > Communication and interpersonal skills > Patient interviewing, consultation, and interactions with the family > information provision",
+    "Section 504 of the Rehabilitation Act of 1973 Final Rule: Section by Section Fact Sheet for Recipients of Financial Assistance from HHS: Communications §§84.77-84.81; Web, Mobile, and Kiosk Accessibility §§84.82-84.89 — especially effective communication, accessible formats, screen-reader compatibility, privacy and independence",
+    "Section 1557: Ensuring Effective Communication with and Accessibility for Individuals with Disabilities: Protections for Individuals with Disabilities — effective communication and appropriate auxiliary aids and services, including alternative formats"
   ],
   "stem": "PASS",
   "lead_in": "PASS",
@@ -35,8 +41,39 @@
     "PASS",
     "PASS"
   ],
+  "distractor_audit": [
+    {
+      "distractor": "Require a family member to read the standard-print instructions to her",
+      "status": "PASS",
+      "rationale": "A support person does not remove the covered entity's responsibility to ensure effective communication when an auxiliary aid or accessible format is needed.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Provide the standard-print instructions because the same document is given to all patients",
+      "status": "PASS",
+      "rationale": "Providing identical inaccessible material does not make communication equally effective for a patient with a vision disability.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Ask her to sign a waiver stating that written instructions cannot be provided",
+      "status": "PASS",
+      "rationale": "The appropriate response is to furnish an effective auxiliary aid or accessible format rather than shift the accessibility burden to the patient.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Withhold written information and rely only on a brief verbal summary",
+      "status": "PASS",
+      "rationale": "The nature and complexity of the communication matter; an accessible format can provide the same information independently rather than unnecessarily limiting the patient to a shortened summary.",
+      "fabricated": false,
+      "second_answer_path": false
+    }
+  ],
   "rationale": "PASS",
   "educational_objective": "PASS",
+  "educational_objective_text": "Apply disability-access principles by selecting an effective accessible format for a patient with visual impairment rather than relying on family members, inaccessible standard print, waivers, or reduced information.",
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "cueing": "PASS",
@@ -49,15 +86,22 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_DECISION_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33804987087,
-  "construct_probe_run_id": 33804987087,
-  "duplicate_gate_head_sha": "0a49b4cadbee206342ae4a9c7bc4f169a175a45e",
+  "forward_duplicate_run_id": 33805227701,
+  "construct_probe_run_id": 33805227727,
+  "duplicate_gate_head_sha": "2dda8f051a60ea19548c9aef3970792323e34411",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Persisted preflight Q1171-Q1175 bound to spec blob 53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3 returned zero exact/semantic main-construct hits and zero targeted term hits for Q1171.",
+  "canonical_probe_note": "Current preflight run 33805227727 is bound to spec blob ad42fc04ba62fc2a0d66a60457709a275120e08f and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3; Q1171 returned zero exact/semantic main-construct hits and zero targeted main-construct term hits against FINAL Q0001-Q1170.",
   "blueprint": {
     "system": "Social Sciences: Communication and Interpersonal Skills",
     "competency": "Communication and Interpersonal Skills",
-    "status": "PASS"
+    "exact_outline_path": [
+      "Social Sciences",
+      "Communication and interpersonal skills, including health literacy and numeracy, cultural competence",
+      "Patient interviewing, consultation, and interactions with the family (patient-centered communication skills)",
+      "information provision"
+    ],
+    "status": "PASS",
+    "rationale": "Official 2026 outline p.39 places information provision under patient-centered communication; the disability-access scenario directly tests communication with a patient."
   },
   "official_discipline_gate": {
     "status": "PASS",
@@ -66,7 +110,7 @@
     ],
     "all_tags_in_usmle_table3": true,
     "table3_reference": "Current official USMLE Step 1 Discipline Specifications — Table 3, verified 2026-09-03",
-    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; Q0881 onward uses explicit official Table 3 tags."
+    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; current item uses explicit official Table 3 discipline tags."
   },
   "realism_gate": {
     "status": "PASS",
@@ -77,7 +121,7 @@
     "option_parallelism": "PASS",
     "nbme_style_single_best_answer": "PASS",
     "core_step1_relevance": "PASS",
-    "gratuitous_rarity": "PASS_NONE",
+    "gratuitous_rarity": "PASS_NONE_MATERIAL",
     "mechanism_depth": "PASS"
   },
   "duplicate_gate": {
@@ -89,14 +133,17 @@
   },
   "option_audit": {
     "single_best_answer": "PASS",
+    "correct_concept": "Provide the instructions in an accessible electronic format that permits effective communication",
+    "correct_concept_status": "PASS",
     "distractor_plausibility": "PASS",
     "scientific_validity": "PASS",
-    "parallelism": "PASS"
+    "parallelism": "PASS",
+    "all_four_distractors_individually_reverified": true
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "The patient is an independent decision-maker with severe visual impairment at a federally funded clinic and cannot access standard print. The requested screen-reader-compatible electronic material is an appropriate auxiliary aid that preserves access to the same information.",
-    "strongest_distractor_attack": "A family member might read the material, but relying on an unqualified relative shifts the accessibility burden away from the covered clinic and does not provide independent, equally effective access. A brief verbal summary also reduces the information provided.",
-    "expert_reviewer_reversal": "Because the clinic is explicitly within Section 504 scope and the requested accessible electronic format is directly supported as an auxiliary aid, no other option provides equally complete and independent communication.",
+    "independent_reconstruction": "A federally funded outpatient clinic is counseling an independent patient with severe visual impairment who cannot access standard print. An electronic format compatible with her screen reader supplies the same medication information in an independently accessible form.",
+    "strongest_distractor_attack": "A family member could read the material aloud, but that is not equivalent to the clinic furnishing an effective accessible format and unnecessarily makes independent access contingent on another person. Standard print, a waiver, or an intentionally abbreviated verbal summary likewise fails effective communication.",
+    "expert_reviewer_reversal": "The stem explicitly establishes Section 504 scope, the requested aid is technologically appropriate, and HHS expressly recognizes electronic information usable with screen-reading technology. No alternative option preserves equally complete and independent access.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-03"
@@ -128,14 +175,25 @@
     "no_authoritative_source_conflict": "PASS",
     "no_required_hidden_assumption": "PASS"
   },
+  "claim_audit": {
+    "stem_clues": "PASS",
+    "key_claim": "PASS",
+    "all_distractor_claims": "PASS",
+    "mechanism": "PASS",
+    "inheritance_or_scope_claims": "PASS",
+    "blueprint_locator": "PASS",
+    "currentness": "PASS"
+  },
   "source_verification": [
     {
       "source_index": 1,
       "organization": "United States Medical Licensing Examination",
       "title": "Step 1 Exam Content",
       "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-      "locator": "Step 1 Content Specifications — Social Sciences: Communication and Interpersonal Skills; Communication and Interpersonal Skills",
-      "opened_and_checked": true,
+      "exact_locator": "Step 1 Content Specifications — Social Sciences: Communication and Interpersonal Skills; Communication and Interpersonal Skills",
+      "support_claim": "Supports the Step 1 blueprint placement and competency classification.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -145,8 +203,10 @@
       "organization": "United States Medical Licensing Examination",
       "title": "USMLE Content Outline (2026)",
       "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
-      "locator": "p. 39 — Social Sciences > Communication and interpersonal skills > Patient interviewing, consultation, and interactions with the family > information provision",
-      "opened_and_checked": true,
+      "exact_locator": "p. 39 — Social Sciences > Communication and interpersonal skills > Patient interviewing, consultation, and interactions with the family > information provision",
+      "support_claim": "Places the item in the official 2026 Social Sciences communication leaf; the outline also states that health needs of patients with disabilities are assessed across USMLE examinations.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -156,8 +216,10 @@
       "organization": "U.S. Department of Health and Human Services, Office for Civil Rights",
       "title": "Section 504 of the Rehabilitation Act of 1973 Final Rule: Section by Section Fact Sheet for Recipients of Financial Assistance from HHS",
       "url": "https://www.hhs.gov/civil-rights/for-individuals/disability/section-504-rehabilitation-act-of-1973/ocr-detailed-504-fact-sheet/index.html",
-      "locator": "Communications §§84.77-84.81; Web, Mobile, and Kiosk Accessibility §§84.82-84.89 — especially effective communication, accessible formats, screen-reader compatibility, privacy and independence",
-      "opened_and_checked": true,
+      "exact_locator": "Communications §§84.77-84.81; Web, Mobile, and Kiosk Accessibility §§84.82-84.89 — especially effective communication, accessible formats, screen-reader compatibility, privacy and independence",
+      "support_claim": "Requires communications with people with disabilities to be as effective as communications with people without disabilities and confirms that requested information may need to be furnished in an accessible format compatible with screen readers.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -167,8 +229,10 @@
       "organization": "U.S. Department of Health and Human Services, Office for Civil Rights",
       "title": "Section 1557: Ensuring Effective Communication with and Accessibility for Individuals with Disabilities",
       "url": "https://www.hhs.gov/civil-rights/for-individuals/section-1557/fs-disability/index.html",
-      "locator": "Protections for Individuals with Disabilities — effective communication and appropriate auxiliary aids and services, including alternative formats",
-      "opened_and_checked": true,
+      "exact_locator": "Protections for Individuals with Disabilities — effective communication and appropriate auxiliary aids and services, including alternative formats",
+      "support_claim": "Supports provision of appropriate auxiliary aids and alternative formats when necessary for effective communication.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
