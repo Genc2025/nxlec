@@ -1,28 +1,42 @@
 {
-  "audit_id": "Q1175-FRESH-ITEM-AUDIT-20260903",
+  "audit_id": "Q1175-FRESH-ITEM-AUDIT-20260903-R2",
   "item": "Q1175",
   "status": "FINAL_10_10_PASS",
   "audited_at": "2026-09-03",
+  "audit_iteration": 2,
+  "reason_for_full_reaudit": "The staged specification changed after the prior audit; zero-trust policy required a complete re-audit against the new immutable spec blob rather than a metadata-only SHA update.",
   "authoritative_db": "usmle/data/usmle-step1.db",
   "authoritative_db_blob": "029f5d77e1e7f2c2a48850b4e7f889f05df773b3",
   "authoritative_db_final_count": 1170,
-  "exact_spec_sha": "53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e",
+  "exact_spec_sha": "ad42fc04ba62fc2a0d66a60457709a275120e08f",
   "db_write": false,
   "unresolved_conflicts": 0,
   "construct": "ATP2C1 encodes hSPCA1, an ATP-powered pump that transports calcium and manganese into the Golgi apparatus. Loss of functional hSPCA1 disrupts Golgi calcium storage in keratinocytes, impairing cell adhesion and making the epidermis fragile in areas exposed to heat, moisture, and friction.",
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
+    "verified_on": "2026-09-03",
     "notes": [
-      "USMLE Step 1 Exam Content — current official Step 1 specifications, verified 2026-09-03.",
-      "MedlinePlus Genetics: Hailey-Hailey disease — current NLM page, verified 2026-09-03.",
-      "MedlinePlus Genetics: ATP2C1 gene — current NLM gene page, verified 2026-09-03."
+      "United States Medical Licensing Examination — Step 1 Exam Content: Current official Step 1 specifications; verified 2026-09-03; locator rechecked: Step 1 Content Specifications — Musculoskeletal, Skin and Subcutaneous Tissue; Medical Knowledge: Applying Foundational Science Concepts",
+      "United States Medical Licensing Examination — USMLE Content Outline (2026): For Public Release: USMLE Content Outline (2026); verified 2026-09-03; locator rechecked: p. 13 — Skin & Subcutaneous Tissue > Infectious, immunologic, and inflammatory disorders, including microbiologic and host response to insult > immunologic and inflammatory disorders > vesiculobullous disorders",
+      "National Library of Medicine, MedlinePlus Genetics — Hailey-Hailey disease: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes; Inheritance — flexural blistering, ATP2C1/hSPCA1, abnormal calcium storage, impaired keratinocyte adhesion, autosomal dominant inheritance",
+      "National Library of Medicine, MedlinePlus Genetics — ATP2C1 gene: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Normal Function; Health Conditions Related to Genetic Changes — hSPCA1 as ATP-powered calcium/manganese pump into Golgi apparatus; Hailey-Hailey disease",
+      "National Library of Medicine, MedlinePlus Genetics — ATP2A2 gene: MedlinePlus Genetics gene page; verified current 2026-09-03; locator rechecked: Normal Function — SERCA2 as an ATPase in endoplasmic and sarcoplasmic reticulum controlling intracellular calcium",
+      "National Library of Medicine, MedlinePlus Genetics — CACNA1C gene: MedlinePlus Genetics gene page; verified current 2026-09-03; locator rechecked: Normal Function — CaV1.2 voltage-gated calcium channels transport calcium ions into cells",
+      "National Library of Medicine, MedlinePlus Genetics — ATP7B gene: MedlinePlus Genetics gene page; verified current 2026-09-03; locator rechecked: Normal Function — copper-transporting ATPase 2 in Golgi; trafficking to vesicles for biliary copper elimination when hepatic copper is high",
+      "National Library of Medicine, MedlinePlus Genetics — CFTR gene: MedlinePlus Genetics gene page; verified current 2026-09-03; locator rechecked: Normal Function — CFTR as a membrane channel transporting chloride ions into and out of cells"
     ]
   },
   "exact_locator": "PASS",
   "exact_locator_notes": [
-    "MedlinePlus Genetics — Hailey-Hailey disease: Description; Causes; Inheritance.",
-    "MedlinePlus Genetics — ATP2C1 gene: Normal Function; Health Conditions Related to Genetic Changes — Hailey-Hailey disease."
+    "Step 1 Exam Content: Step 1 Content Specifications — Musculoskeletal, Skin and Subcutaneous Tissue; Medical Knowledge: Applying Foundational Science Concepts",
+    "USMLE Content Outline (2026): p. 13 — Skin & Subcutaneous Tissue > Infectious, immunologic, and inflammatory disorders, including microbiologic and host response to insult > immunologic and inflammatory disorders > vesiculobullous disorders",
+    "Hailey-Hailey disease: Description; Causes; Inheritance — flexural blistering, ATP2C1/hSPCA1, abnormal calcium storage, impaired keratinocyte adhesion, autosomal dominant inheritance",
+    "ATP2C1 gene: Normal Function; Health Conditions Related to Genetic Changes — hSPCA1 as ATP-powered calcium/manganese pump into Golgi apparatus; Hailey-Hailey disease",
+    "ATP2A2 gene: Normal Function — SERCA2 as an ATPase in endoplasmic and sarcoplasmic reticulum controlling intracellular calcium",
+    "CACNA1C gene: Normal Function — CaV1.2 voltage-gated calcium channels transport calcium ions into cells",
+    "ATP7B gene: Normal Function — copper-transporting ATPase 2 in Golgi; trafficking to vesicles for biliary copper elimination when hepatic copper is high",
+    "CFTR gene: Normal Function — CFTR as a membrane channel transporting chloride ions into and out of cells"
   ],
   "stem": "PASS",
   "lead_in": "PASS",
@@ -35,8 +49,39 @@
     "PASS",
     "PASS"
   ],
+  "distractor_audit": [
+    {
+      "distractor": "ATP-dependent transport of calcium into the endoplasmic reticulum",
+      "status": "PASS",
+      "rationale": "SERCA2, encoded by ATP2A2, is an ATP-dependent calcium pump of the endoplasmic/sarcoplasmic reticulum. ATP2C1 instead encodes hSPCA1, which pumps calcium into the Golgi apparatus.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Voltage-gated transport of calcium into cells across the plasma membrane",
+      "status": "PASS",
+      "rationale": "CaV1.2, encoded by CACNA1C, is a voltage-gated plasma-membrane calcium channel that permits calcium entry into cells; it is not the ATP2C1-encoded Golgi ATPase.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "ATP-dependent transport of copper within the Golgi and into biliary secretory vesicles",
+      "status": "PASS",
+      "rationale": "ATP7B is a copper-transporting P-type ATPase that functions in the Golgi and can traffic to vesicles for biliary copper elimination; ATP2C1 instead transports calcium and manganese into the Golgi.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Channel-mediated transport of chloride across the plasma membrane",
+      "status": "PASS",
+      "rationale": "CFTR is a plasma-membrane chloride channel; it does not perform ATP-dependent sequestration of calcium into the Golgi.",
+      "fabricated": false,
+      "second_answer_path": false
+    }
+  ],
   "rationale": "PASS",
   "educational_objective": "PASS",
+  "educational_objective_text": "Connect Hailey-Hailey disease caused by ATP2C1 variants to defective ATP-dependent calcium transport into the Golgi apparatus.",
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "cueing": "PASS",
@@ -49,15 +94,22 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_DECISION_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33804987087,
-  "construct_probe_run_id": 33804987087,
-  "duplicate_gate_head_sha": "0a49b4cadbee206342ae4a9c7bc4f169a175a45e",
+  "forward_duplicate_run_id": 33805227701,
+  "construct_probe_run_id": 33805227727,
+  "duplicate_gate_head_sha": "2dda8f051a60ea19548c9aef3970792323e34411",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Persisted preflight Q1171-Q1175 bound to spec blob 53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3 returned zero exact/semantic main-construct hits and zero targeted term hits for Q1175.",
+  "canonical_probe_note": "Current preflight run 33805227727 is bound to spec blob ad42fc04ba62fc2a0d66a60457709a275120e08f and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3; Q1175 returned zero exact/semantic main-construct hits and zero targeted main-construct term hits against FINAL Q0001-Q1170.",
   "blueprint": {
     "system": "Musculoskeletal, Skin and Subcutaneous Tissue",
     "competency": "Medical Knowledge: Applying Foundational Science Concepts",
-    "status": "PASS"
+    "exact_outline_path": [
+      "Skin & Subcutaneous Tissue",
+      "Infectious, immunologic, and inflammatory disorders, including microbiologic and host response to insult",
+      "immunologic and inflammatory disorders",
+      "vesiculobullous disorders"
+    ],
+    "status": "PASS",
+    "rationale": "Official 2026 Skin & Subcutaneous Tissue outline includes vesiculobullous disorders. Hailey-Hailey disease is a recurrent inherited blistering/acantholytic skin disorder."
   },
   "official_discipline_gate": {
     "status": "PASS",
@@ -68,7 +120,7 @@
     ],
     "all_tags_in_usmle_table3": true,
     "table3_reference": "Current official USMLE Step 1 Discipline Specifications — Table 3, verified 2026-09-03",
-    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; Q0881 onward uses explicit official Table 3 tags."
+    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; current item uses explicit official Table 3 discipline tags."
   },
   "realism_gate": {
     "status": "PASS",
@@ -79,7 +131,7 @@
     "option_parallelism": "PASS",
     "nbme_style_single_best_answer": "PASS",
     "core_step1_relevance": "PASS",
-    "gratuitous_rarity": "PASS_NONE — the gene is supplied and the tested target is a core cell-biology transport mechanism.",
+    "gratuitous_rarity": "PASS_NONE_MATERIAL",
     "mechanism_depth": "PASS"
   },
   "duplicate_gate": {
@@ -91,14 +143,17 @@
   },
   "option_audit": {
     "single_best_answer": "PASS",
+    "correct_concept": "ATP-dependent transport of calcium into the Golgi apparatus",
+    "correct_concept_status": "PASS",
     "distractor_plausibility": "PASS",
     "scientific_validity": "PASS",
-    "parallelism": "PASS"
+    "parallelism": "PASS",
+    "all_four_distractors_individually_reverified": true
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "ATP2C1 encodes hSPCA1, an ATP-powered secretory-pathway pump that transports calcium, and also manganese, into the Golgi apparatus. Loss of this function impairs keratinocyte calcium homeostasis and adhesion in Hailey-Hailey disease.",
-    "strongest_distractor_attack": "ATP-dependent calcium transport into the endoplasmic reticulum describes SERCA pumps, not ATP2C1/hSPCA1. Plasma-membrane calcium channels and sodium-calcium exchange have different locations and energetics, and ER-to-Golgi protein trafficking is vesicular rather than the ATP2C1 ion-pump function.",
-    "expert_reviewer_reversal": "The gene is explicitly ATP2C1, so Golgi calcium transport by hSPCA1 is the uniquely correct cellular function.",
+    "independent_reconstruction": "ATP2C1 encodes hSPCA1, an ATP-powered secretory-pathway calcium/manganese pump that transports calcium into the Golgi apparatus. ATP2C1 loss impairs Golgi calcium storage and keratinocyte adhesion in Hailey-Hailey disease.",
+    "strongest_distractor_attack": "ATP2A2/SERCA2 is the ER/SR calcium ATPase; CACNA1C/CaV1.2 is a voltage-gated plasma-membrane calcium channel; ATP7B is a Golgi copper-transporting P-type ATPase that can traffic to vesicles for biliary copper elimination; CFTR is a plasma-membrane chloride channel.",
+    "expert_reviewer_reversal": "Because ATP2C1 is explicitly identified in the stem, only ATP-dependent calcium transport into the Golgi matches the encoded protein's compartment, substrate, and energy mechanism.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-03"
@@ -130,25 +185,38 @@
     "no_authoritative_source_conflict": "PASS",
     "no_required_hidden_assumption": "PASS"
   },
+  "claim_audit": {
+    "stem_clues": "PASS",
+    "key_claim": "PASS",
+    "all_distractor_claims": "PASS",
+    "mechanism": "PASS",
+    "inheritance_or_scope_claims": "PASS",
+    "blueprint_locator": "PASS",
+    "currentness": "PASS"
+  },
   "source_verification": [
     {
       "source_index": 1,
       "organization": "United States Medical Licensing Examination",
       "title": "Step 1 Exam Content",
       "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-      "locator": "Step 1 Content Specifications — Musculoskeletal, Skin and Subcutaneous Tissue; Medical Knowledge: Applying Foundational Science Concepts",
-      "opened_and_checked": true,
+      "exact_locator": "Step 1 Content Specifications — Musculoskeletal, Skin and Subcutaneous Tissue; Medical Knowledge: Applying Foundational Science Concepts",
+      "support_claim": "Supports the Step 1 blueprint placement and competency classification.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
     },
     {
       "source_index": 2,
-      "organization": "National Library of Medicine, MedlinePlus Genetics",
-      "title": "Hailey-Hailey disease",
-      "url": "https://medlineplus.gov/genetics/condition/hailey-hailey-disease/",
-      "locator": "Description; Causes; Inheritance — flexural blistering, ATP2C1/hSPCA1, abnormal calcium storage, impaired keratinocyte adhesion, autosomal dominant inheritance",
-      "opened_and_checked": true,
+      "organization": "United States Medical Licensing Examination",
+      "title": "USMLE Content Outline (2026)",
+      "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
+      "exact_locator": "p. 13 — Skin & Subcutaneous Tissue > Infectious, immunologic, and inflammatory disorders, including microbiologic and host response to insult > immunologic and inflammatory disorders > vesiculobullous disorders",
+      "support_claim": "Places a recurrent blistering/acantholytic skin disorder in the official 2026 skin vesiculobullous leaf. The outline states that listed diseases are examples rather than an exhaustive list.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -156,10 +224,77 @@
     {
       "source_index": 3,
       "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Hailey-Hailey disease",
+      "url": "https://medlineplus.gov/genetics/condition/hailey-hailey-disease/",
+      "exact_locator": "Description; Causes; Inheritance — flexural blistering, ATP2C1/hSPCA1, abnormal calcium storage, impaired keratinocyte adhesion, autosomal dominant inheritance",
+      "support_claim": "Supports the phenotype, ATP2C1 mechanism, calcium-storage defect, keratinocyte adhesion defect, and inheritance.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 4,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
       "title": "ATP2C1 gene",
       "url": "https://medlineplus.gov/genetics/gene/atp2c1/",
-      "locator": "Normal Function; Health Conditions Related to Genetic Changes — hSPCA1 as ATP-powered calcium/manganese pump into Golgi apparatus; Hailey-Hailey disease",
-      "opened_and_checked": true,
+      "exact_locator": "Normal Function; Health Conditions Related to Genetic Changes — hSPCA1 as ATP-powered calcium/manganese pump into Golgi apparatus; Hailey-Hailey disease",
+      "support_claim": "Supports the exact cellular transport function and gene-disease relationship.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 5,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "ATP2A2 gene",
+      "url": "https://medlineplus.gov/genetics/gene/atp2a2/",
+      "exact_locator": "Normal Function — SERCA2 as an ATPase in endoplasmic and sarcoplasmic reticulum controlling intracellular calcium",
+      "support_claim": "Supports the endoplasmic-reticulum calcium-pump distractor.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 6,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "CACNA1C gene",
+      "url": "https://medlineplus.gov/genetics/gene/cacna1c/",
+      "exact_locator": "Normal Function — CaV1.2 voltage-gated calcium channels transport calcium ions into cells",
+      "support_claim": "Supports the voltage-gated plasma-membrane calcium-channel distractor.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 7,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "ATP7B gene",
+      "url": "https://medlineplus.gov/genetics/gene/atp7b/",
+      "exact_locator": "Normal Function — copper-transporting ATPase 2 in Golgi; trafficking to vesicles for biliary copper elimination when hepatic copper is high",
+      "support_claim": "Supports the Golgi/vesicular copper-transport distractor.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 8,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "CFTR gene",
+      "url": "https://medlineplus.gov/genetics/gene/cftr/",
+      "exact_locator": "Normal Function — CFTR as a membrane channel transporting chloride ions into and out of cells",
+      "support_claim": "Supports the plasma-membrane chloride-channel distractor.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
