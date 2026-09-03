@@ -1,0 +1,145 @@
+name: USMLE Preflight Q1171-Q1175
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/batch_specs_1101_1200/08_q1171_q1175.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-preflight-q1171-q1175
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify authoritative state and scan canonical overlap
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, re, sqlite3, subprocess
+          from difflib import SequenceMatcher
+
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          specp=pathlib.Path('usmle/batch_specs_1101_1200/08_q1171_q1175.json')
+          outp=pathlib.Path('usmle/audit/PREFLIGHT_Q1171_Q1175.json')
+          expected_blob='029f5d77e1e7f2c2a48850b4e7f889f05df773b3'
+
+          def norm(s):
+              return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
+          def words(s):
+              return set(norm(s).split())
+          def jac(a,b):
+              return len(a&b)/len(a|b) if (a or b) else 0.0
+          def qnum(cid):
+              m=re.search(r'DIRECT-(\d{4})',cid or '')
+              return int(m.group(1)) if m else None
+
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==expected_blob,(blob,expected_blob)
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1170,len(rows)
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          nums={qnum(cid) for cid,_ in rows}
+          assert nums==set(range(1,1171))
+          canonical=[]
+          for cid,pj in rows:
+              p=json.loads(pj)
+              i=p.get('item',{})
+              sf=p.get('semantic_fingerprint',{})
+              corpus=' '.join([
+                  i.get('vignette',''),i.get('lead_in',''),' '.join(i.get('options',{}).values()),
+                  sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),
+                  i.get('tested_construct','')
+              ])
+              canonical.append((cid,norm(corpus),words(corpus),sf))
+
+          specs=json.load(open(specp))
+          assert [int(x['num']) for x in specs]==list(range(1171,1176))
+          report=[]
+          material=False
+          for x in specs:
+              diag=norm(x['diagnosis'])
+              mech=norm(x['mechanism'])
+              corr=norm(x['correct'])
+              query=' '.join([diag,mech,corr])
+              qw=words(query)
+              exact=[]
+              top=[]
+              unique_terms=[norm(t) for t in x.get('duplicate_probe_terms',[]) if norm(t)]
+              term_hits=[]
+              for cid,ct,cw,sf in canonical:
+                  if diag and diag in ct:
+                      exact.append({'candidate_id':cid,'type':'diagnosis_exact'})
+                  sfdiag=norm(sf.get('diagnosis_or_process',''))
+                  sfmech=norm(sf.get('mechanism',''))
+                  if sfdiag and (diag==sfdiag or (len(diag)>20 and diag in sfdiag) or (len(sfdiag)>20 and sfdiag in diag)):
+                      exact.append({'candidate_id':cid,'type':'semantic_diagnosis_overlap'})
+                  if mech and sfmech and SequenceMatcher(None,mech,sfmech).ratio()>=0.82:
+                      exact.append({'candidate_id':cid,'type':'mechanism_high_similarity'})
+                  j=jac(qw,cw)
+                  if j>=0.10:
+                      top.append((j,cid))
+                  for t in unique_terms:
+                      if t in ct:
+                          term_hits.append({'candidate_id':cid,'term':t})
+              top=sorted(top,reverse=True)[:5]
+              exact_unique=[]
+              seen=set()
+              for e in exact:
+                  k=(e['candidate_id'],e['type'])
+                  if k not in seen: seen.add(k); exact_unique.append(e)
+              term_unique=[]
+              seen=set()
+              for e in term_hits:
+                  k=(e['candidate_id'],e['term'])
+                  if k not in seen: seen.add(k); term_unique.append(e)
+              status='PASS' if not exact_unique and not term_unique else 'BLOCKED'
+              if status!='PASS': material=True
+              report.append({
+                  'num':x['num'],'diagnosis':x['diagnosis'],'status':status,
+                  'exact_or_semantic_hits':exact_unique,
+                  'unique_term_hits':term_unique,
+                  'top_lexical_jaccard':[{'candidate_id':cid,'score':round(j,4)} for j,cid in top],
+              })
+          con.close()
+          result={
+              'preflight_id':'Q1171-Q1175-PREFLIGHT-20260903',
+              'authoritative_db':'usmle/data/usmle-step1.db',
+              'authoritative_db_blob':blob,
+              'authoritative_final_count':1170,
+              'sqlite_integrity_check':'ok',
+              'contiguous_q0001_q1170':True,
+              'duplicate_candidate_id_count':0,
+              'spec_path':str(specp),
+              'spec_git_blob':subprocess.check_output(['git','hash-object',str(specp)],text=True).strip(),
+              'items':report,
+              'overall_status':'BLOCKED' if material else 'PASS',
+          }
+          outp.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(result,indent=2,ensure_ascii=False))
+          if material:
+              raise SystemExit('material canonical overlap detected')
+          PY
+      - name: Persist preflight report
+        if: success()
+        run: |
+          git config user.name 'USMLE Preflight'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/PREFLIGHT_Q1171_Q1175.json
+          git commit -m 'Preflight USMLE Q1171-Q1175 against canonical Q0001-Q1170'
+          git pull --rebase origin main
+          git push origin HEAD:main
