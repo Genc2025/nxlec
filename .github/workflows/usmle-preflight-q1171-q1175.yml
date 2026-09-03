@@ -65,7 +65,11 @@ jobs:
                   sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),
                   i.get('tested_construct','')
               ])
-              canonical.append((cid,norm(corpus),words(corpus),sf))
+              main_corpus=' '.join([
+                  sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),
+                  i.get('tested_construct',''),i.get('lead_in','')
+              ])
+              canonical.append((cid,norm(corpus),words(corpus),sf,norm(main_corpus)))
 
           specs=json.load(open(specp))
           assert [int(x['num']) for x in specs]==list(range(1171,1176))
@@ -81,7 +85,7 @@ jobs:
               top=[]
               unique_terms=[norm(t) for t in x.get('duplicate_probe_terms',[]) if norm(t)]
               term_hits=[]
-              for cid,ct,cw,sf in canonical:
+              for cid,ct,cw,sf,main_ct in canonical:
                   if diag and diag in ct:
                       exact.append({'candidate_id':cid,'type':'diagnosis_exact'})
                   sfdiag=norm(sf.get('diagnosis_or_process',''))
@@ -94,8 +98,8 @@ jobs:
                   if j>=0.10:
                       top.append((j,cid))
                   for t in unique_terms:
-                      if t in ct:
-                          term_hits.append({'candidate_id':cid,'term':t})
+                      if t in main_ct:
+                          term_hits.append({'candidate_id':cid,'term':t,'scope':'canonical_main_construct'})
               top=sorted(top,reverse=True)[:5]
               exact_unique=[]
               seen=set()
