@@ -1,28 +1,40 @@
 {
-  "audit_id": "Q1174-FRESH-ITEM-AUDIT-20260903",
+  "audit_id": "Q1174-FRESH-ITEM-AUDIT-20260903-R2",
   "item": "Q1174",
   "status": "FINAL_10_10_PASS",
   "audited_at": "2026-09-03",
+  "audit_iteration": 2,
+  "reason_for_full_reaudit": "The staged specification changed after the prior audit; zero-trust policy required a complete re-audit against the new immutable spec blob rather than a metadata-only SHA update.",
   "authoritative_db": "usmle/data/usmle-step1.db",
   "authoritative_db_blob": "029f5d77e1e7f2c2a48850b4e7f889f05df773b3",
   "authoritative_db_final_count": 1170,
-  "exact_spec_sha": "53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e",
+  "exact_spec_sha": "ad42fc04ba62fc2a0d66a60457709a275120e08f",
   "db_write": false,
   "unresolved_conflicts": 0,
   "construct": "PAX2 encodes a transcription factor required for normal embryonic development of the kidneys and eyes. Loss of functional PAX2 can disrupt formation of renal tissue and the optic nerve, producing congenital kidney abnormalities with optic nerve coloboma; inheritance is autosomal dominant when a pathogenic PAX2 variant is present.",
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
+    "verified_on": "2026-09-03",
     "notes": [
-      "USMLE Step 1 Exam Content — current official Step 1 specifications, verified 2026-09-03.",
-      "MedlinePlus Genetics: Renal coloboma syndrome — current NLM page, verified 2026-09-03.",
-      "MedlinePlus Genetics: PAX2 gene — current NLM gene page, verified 2026-09-03."
+      "United States Medical Licensing Examination — Step 1 Exam Content: Current official Step 1 specifications; verified 2026-09-03; locator rechecked: Step 1 Content Specifications — Respiratory and Renal/Urinary Systems; Patient Care: Diagnosis, including history and physical examination",
+      "United States Medical Licensing Examination — USMLE Content Outline (2026): For Public Release: USMLE Content Outline (2026); verified 2026-09-03; locator rechecked: pp. 24-25 — Renal & Urinary System > Congenital disorders > renal agenesis, renal hypoplasia, renal dysplasia; single kidney",
+      "National Library of Medicine, MedlinePlus Genetics — Renal coloboma syndrome: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes; Inheritance — renal abnormalities, optic nerve coloboma, PAX2 transcription factor, autosomal dominant inheritance",
+      "National Library of Medicine, MedlinePlus Genetics — PAX2 gene: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Health Conditions Related to Genetic Changes — Renal coloboma syndrome",
+      "National Library of Medicine, MedlinePlus Genetics — Alport syndrome: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes — hematuric progressive kidney disease, sensorineural hearing loss, ocular abnormalities and type IV collagen genes",
+      "National Library of Medicine, MedlinePlus Genetics — Polycystic kidney disease: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes; Inheritance — numerous renal cysts, enlarged kidneys, adult-onset autosomal-dominant PKD and early-onset autosomal-recessive PKD",
+      "National Library of Medicine, MedlinePlus Genetics — Tuberous sclerosis complex: MedlinePlus Genetics page; verified current 2026-09-03; locator rechecked: Description; Causes — multisystem benign tumors involving brain, kidneys, heart and skin; TSC1/TSC2 tumor-suppressor dysfunction"
     ]
   },
   "exact_locator": "PASS",
   "exact_locator_notes": [
-    "MedlinePlus Genetics — Renal coloboma syndrome: Description; Causes; Inheritance.",
-    "MedlinePlus Genetics — PAX2 gene: Health Conditions Related to Genetic Changes — Renal coloboma syndrome."
+    "Step 1 Exam Content: Step 1 Content Specifications — Respiratory and Renal/Urinary Systems; Patient Care: Diagnosis, including history and physical examination",
+    "USMLE Content Outline (2026): pp. 24-25 — Renal & Urinary System > Congenital disorders > renal agenesis, renal hypoplasia, renal dysplasia; single kidney",
+    "Renal coloboma syndrome: Description; Causes; Inheritance — renal abnormalities, optic nerve coloboma, PAX2 transcription factor, autosomal dominant inheritance",
+    "PAX2 gene: Health Conditions Related to Genetic Changes — Renal coloboma syndrome",
+    "Alport syndrome: Description; Causes — hematuric progressive kidney disease, sensorineural hearing loss, ocular abnormalities and type IV collagen genes",
+    "Polycystic kidney disease: Description; Causes; Inheritance — numerous renal cysts, enlarged kidneys, adult-onset autosomal-dominant PKD and early-onset autosomal-recessive PKD",
+    "Tuberous sclerosis complex: Description; Causes — multisystem benign tumors involving brain, kidneys, heart and skin; TSC1/TSC2 tumor-suppressor dysfunction"
   ],
   "stem": "PASS",
   "lead_in": "PASS",
@@ -35,8 +47,39 @@
     "PASS",
     "PASS"
   ],
+  "distractor_audit": [
+    {
+      "distractor": "Alport syndrome",
+      "status": "PASS",
+      "rationale": "Alport syndrome is a hereditary type IV collagen disorder classically associated with hematuric kidney disease, sensorineural hearing loss, and ocular abnormalities rather than bilateral optic nerve colobomas with hypoplastic kidneys.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Autosomal dominant polycystic kidney disease",
+      "status": "PASS",
+      "rationale": "Autosomal dominant polycystic kidney disease causes progressive formation of numerous renal cysts with kidney enlargement rather than congenital optic nerve colobomas and bilaterally hypoplastic kidneys.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Tuberous sclerosis complex",
+      "status": "PASS",
+      "rationale": "Tuberous sclerosis complex causes multisystem benign tumors, including renal tumors, together with characteristic neurologic and skin manifestations; it does not produce the PAX2-pattern combination of optic nerve coloboma and renal hypoplasia.",
+      "fabricated": false,
+      "second_answer_path": false
+    },
+    {
+      "distractor": "Autosomal recessive polycystic kidney disease",
+      "status": "PASS",
+      "rationale": "Autosomal recessive polycystic kidney disease is typically apparent at birth or in early infancy and is characterized by cystic kidney disease, not this autosomal-dominant optic-nerve-coloboma and renal-hypoplasia phenotype.",
+      "fabricated": false,
+      "second_answer_path": false
+    }
+  ],
   "rationale": "PASS",
   "educational_objective": "PASS",
+  "educational_objective_text": "Recognize renal coloboma syndrome from congenital kidney disease plus optic nerve coloboma and connect the phenotype to PAX2-dependent embryonic development.",
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "cueing": "PASS",
@@ -49,15 +92,21 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": "PASS_NO_UNSUPPORTED_DECISION_THRESHOLD",
   "forward_exact_duplicate_check": "PASS",
-  "forward_duplicate_run_id": 33804987087,
-  "construct_probe_run_id": 33804987087,
-  "duplicate_gate_head_sha": "0a49b4cadbee206342ae4a9c7bc4f169a175a45e",
+  "forward_duplicate_run_id": 33805227701,
+  "construct_probe_run_id": 33805227727,
+  "duplicate_gate_head_sha": "2dda8f051a60ea19548c9aef3970792323e34411",
   "canonical_main_construct_overlap": "PASS_NONE",
-  "canonical_probe_note": "Persisted preflight Q1171-Q1175 bound to spec blob 53a4dbef4dcaabb5f22d8e22c3113ef6aa61ee2e and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3 returned zero exact/semantic main-construct hits and zero targeted term hits for Q1174.",
+  "canonical_probe_note": "Current preflight run 33805227727 is bound to spec blob ad42fc04ba62fc2a0d66a60457709a275120e08f and authoritative DB blob 029f5d77e1e7f2c2a48850b4e7f889f05df773b3; Q1174 returned zero exact/semantic main-construct hits and zero targeted main-construct term hits against FINAL Q0001-Q1170.",
   "blueprint": {
     "system": "Respiratory and Renal/Urinary Systems",
     "competency": "Patient Care: Diagnosis, including history and physical examination",
-    "status": "PASS"
+    "exact_outline_path": [
+      "Renal & Urinary System",
+      "Congenital disorders",
+      "renal hypoplasia, renal dysplasia"
+    ],
+    "status": "PASS",
+    "rationale": "Official 2026 Renal & Urinary System outline explicitly includes congenital renal hypoplasia/dysplasia. Renal coloboma syndrome directly produces hypoplastic kidneys."
   },
   "official_discipline_gate": {
     "status": "PASS",
@@ -68,7 +117,7 @@
     ],
     "all_tags_in_usmle_table3": true,
     "table3_reference": "Current official USMLE Step 1 Discipline Specifications — Table 3, verified 2026-09-03",
-    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; Q0881 onward uses explicit official Table 3 tags."
+    "legacy_cumulative_note": "Legacy finalized discipline labels remain immutable; current item uses explicit official Table 3 discipline tags."
   },
   "realism_gate": {
     "status": "PASS",
@@ -79,7 +128,7 @@
     "option_parallelism": "PASS",
     "nbme_style_single_best_answer": "PASS",
     "core_step1_relevance": "PASS",
-    "gratuitous_rarity": "PASS_NONE — the paired kidney/optic-nerve developmental phenotype makes the construct educationally specific rather than gratuitously obscure.",
+    "gratuitous_rarity": "PASS_NONE_MATERIAL",
     "mechanism_depth": "PASS"
   },
   "duplicate_gate": {
@@ -91,14 +140,17 @@
   },
   "option_audit": {
     "single_best_answer": "PASS",
+    "correct_concept": "Renal coloboma syndrome",
+    "correct_concept_status": "PASS",
     "distractor_plausibility": "PASS",
     "scientific_validity": "PASS",
-    "parallelism": "PASS"
+    "parallelism": "PASS",
+    "all_four_distractors_individually_reverified": true
   },
   "adversarial_second_pass": {
-    "independent_reconstruction": "Bilateral hypoplastic kidneys with chronic kidney disease plus bilateral optic nerve colobomas and an affected father identify the autosomal dominant PAX2-related renal coloboma syndrome.",
-    "strongest_distractor_attack": "Alport syndrome can combine renal and ocular disease, but its renal phenotype is classically hematuric glomerular disease and its ocular findings are not optic nerve colobomas. ADPKD and ARPKD produce cystic kidneys, and tuberous sclerosis produces hamartomatous lesions rather than this developmental eye-kidney pair.",
-    "expert_reviewer_reversal": "The optic nerve coloboma plus renal hypoplasia is a highly specific developmental combination for PAX2-related renal coloboma syndrome.",
+    "independent_reconstruction": "Progressive kidney disease with bilaterally hypoplastic kidneys plus bilateral optic-nerve colobomas in a son and affected father is the classic developmental kidney-eye combination of PAX2-related renal coloboma syndrome.",
+    "strongest_distractor_attack": "Alport syndrome causes hematuric glomerular disease with hearing and ocular abnormalities but not this optic-nerve-coloboma/renal-hypoplasia pair. ADPKD and ARPKD are cystic kidney disorders; tuberous sclerosis causes multisystem hamartomas rather than this developmental pattern.",
+    "expert_reviewer_reversal": "Optic nerve coloboma plus renal hypoplasia is sufficiently specific, and the autosomal-dominant pedigree further supports renal coloboma syndrome.",
     "second_defensible_answer": "NONE",
     "result": "PASS",
     "reverified_on": "2026-09-03"
@@ -130,14 +182,25 @@
     "no_authoritative_source_conflict": "PASS",
     "no_required_hidden_assumption": "PASS"
   },
+  "claim_audit": {
+    "stem_clues": "PASS",
+    "key_claim": "PASS",
+    "all_distractor_claims": "PASS",
+    "mechanism": "PASS",
+    "inheritance_or_scope_claims": "PASS",
+    "blueprint_locator": "PASS",
+    "currentness": "PASS"
+  },
   "source_verification": [
     {
       "source_index": 1,
       "organization": "United States Medical Licensing Examination",
       "title": "Step 1 Exam Content",
       "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-      "locator": "Step 1 Content Specifications — Respiratory and Renal/Urinary Systems; Patient Care: Diagnosis, including history and physical examination",
-      "opened_and_checked": true,
+      "exact_locator": "Step 1 Content Specifications — Respiratory and Renal/Urinary Systems; Patient Care: Diagnosis, including history and physical examination",
+      "support_claim": "Supports the Step 1 blueprint placement and competency classification.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -147,8 +210,10 @@
       "organization": "United States Medical Licensing Examination",
       "title": "USMLE Content Outline (2026)",
       "url": "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf",
-      "locator": "pp. 24-25 — Renal & Urinary System > Congenital disorders > renal agenesis, renal hypoplasia, renal dysplasia; single kidney",
-      "opened_and_checked": true,
+      "exact_locator": "pp. 24-25 — Renal & Urinary System > Congenital disorders > renal agenesis, renal hypoplasia, renal dysplasia; single kidney",
+      "support_claim": "Directly supports placement of the PAX2 renal-hypoplasia phenotype in the official 2026 renal congenital-disorders leaf.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -158,8 +223,10 @@
       "organization": "National Library of Medicine, MedlinePlus Genetics",
       "title": "Renal coloboma syndrome",
       "url": "https://medlineplus.gov/genetics/condition/renal-coloboma-syndrome/",
-      "locator": "Description; Causes; Inheritance — renal abnormalities, optic nerve coloboma, PAX2 transcription factor, autosomal dominant inheritance",
-      "opened_and_checked": true,
+      "exact_locator": "Description; Causes; Inheritance — renal abnormalities, optic nerve coloboma, PAX2 transcription factor, autosomal dominant inheritance",
+      "support_claim": "Supports the renal-ocular phenotype, PAX2 mechanism, and inheritance.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
@@ -169,8 +236,49 @@
       "organization": "National Library of Medicine, MedlinePlus Genetics",
       "title": "PAX2 gene",
       "url": "https://medlineplus.gov/genetics/gene/pax2/",
-      "locator": "Health Conditions Related to Genetic Changes — Renal coloboma syndrome",
-      "opened_and_checked": true,
+      "exact_locator": "Health Conditions Related to Genetic Changes — Renal coloboma syndrome",
+      "support_claim": "Supports PAX2 loss of transcription-factor function disrupting kidney and eye development.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 5,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Alport syndrome",
+      "url": "https://medlineplus.gov/genetics/condition/alport-syndrome/",
+      "exact_locator": "Description; Causes — hematuric progressive kidney disease, sensorineural hearing loss, ocular abnormalities and type IV collagen genes",
+      "support_claim": "Supports exclusion of Alport syndrome.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 6,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Polycystic kidney disease",
+      "url": "https://medlineplus.gov/genetics/condition/polycystic-kidney-disease/",
+      "exact_locator": "Description; Causes; Inheritance — numerous renal cysts, enlarged kidneys, adult-onset autosomal-dominant PKD and early-onset autosomal-recessive PKD",
+      "support_claim": "Supports exclusion of both autosomal-dominant and autosomal-recessive polycystic kidney disease.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
+      "claim_supported": true,
+      "current_and_applicable": true,
+      "conflict_found": false
+    },
+    {
+      "source_index": 7,
+      "organization": "National Library of Medicine, MedlinePlus Genetics",
+      "title": "Tuberous sclerosis complex",
+      "url": "https://medlineplus.gov/genetics/condition/tuberous-sclerosis-complex/",
+      "exact_locator": "Description; Causes — multisystem benign tumors involving brain, kidneys, heart and skin; TSC1/TSC2 tumor-suppressor dysfunction",
+      "support_claim": "Supports exclusion of tuberous sclerosis complex.",
+      "opened_or_retrieved_and_checked": true,
+      "authoritative_domain_verified": true,
       "claim_supported": true,
       "current_and_applicable": true,
       "conflict_found": false
