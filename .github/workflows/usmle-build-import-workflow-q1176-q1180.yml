@@ -1,0 +1,97 @@
+name: USMLE Build Import Workflow Q1176-Q1180
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-build-import-workflow-q1176-q1180.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Derive import workflow from last production-passed workflow
+        run: |
+          python - <<'PY'
+          import pathlib
+          src=pathlib.Path('.github/workflows/usmle-step2-import-q1171-q1175.yml').read_text()
+          def once(old,new):
+              global src
+              c=src.count(old)
+              if c!=1: raise SystemExit(f'expected one marker, got {c}: {old}')
+              src=src.replace(old,new)
+          def allrep(old,new,minimum=1):
+              global src
+              c=src.count(old)
+              if c<minimum: raise SystemExit(f'expected >= {minimum} markers, got {c}: {old}')
+              src=src.replace(old,new)
+
+          allrep('Q1171-Q1175','Q1176-Q1180')
+          allrep('q1171-q1175','q1176-q1180')
+          allrep('q1171_q1175','q1176_q1180')
+          allrep('Q0001_Q1175','Q0001_Q1180')
+          allrep('q0001_q1175','q0001_q1180')
+          allrep('usmle/step2_import_q1171_q1175.py','usmle/step2_import_q1176_q1180.py')
+          allrep('STEP2-FINAL-Q0001-Q1175-20260903','STEP2-FINAL-Q0001-Q1180-20260904')
+          allrep('029f5d77e1e7f2c2a48850b4e7f889f05df773b3','c42033ba0c8de7bdb6aae7d9c978dcef24123a64')
+          once("assert len(items)==1175 and len(reviews)==1175", "assert len(items)==1180 and len(reviews)==1180")
+          once("set(range(1,1176))", "set(range(1,1181))")
+          once("for n in range(1171,1176):", "for n in range(1176,1181):")
+          once("if 1171<=n<=1175:", "if 1176<=n<=1180:")
+          once("assert reread==1175 and new==5", "assert reread==1180 and new==5")
+          for old,new in [
+            ('"Respiratory and Renal/Urinary Systems":146,','"Respiratory and Renal/Urinary Systems":147,'),
+            ('"Behavioral Health, Nervous Systems and Special Senses":132,','"Behavioral Health, Nervous Systems and Special Senses":133,'),
+            ('"Musculoskeletal, Skin and Subcutaneous Tissue":112,','"Musculoskeletal, Skin and Subcutaneous Tissue":113,'),
+            ('"Reproductive and Endocrine Systems":152,','"Reproductive and Endocrine Systems":154,'),
+            ('"Medical Knowledge: Applying Foundational Science Concepts":796,','"Medical Knowledge: Applying Foundational Science Concepts":799,'),
+            ('"Patient Care: Diagnosis, including history and physical examination":235,','"Patient Care: Diagnosis, including history and physical examination":237,')
+          ]: once(old,new)
+          once("assert state['item_count']==1175 and state['step2_final_review_count']==1175", "assert state['item_count']==1180 and state['step2_final_review_count']==1180")
+          once("assert state['reread_verified_count']==1175 and state['new_block_reread_verified_count']==5", "assert state['reread_verified_count']==1180 and state['new_block_reread_verified_count']==5")
+          once("assert state['q1176_q1180_present_exactly_once'] is True and state['contiguous_q0001_q1175'] is True", "assert state['q1176_q1180_present_exactly_once'] is True and state['contiguous_q0001_q1180'] is True")
+          once("assert state['answer_position_new_block']['sequence']=='CAEBD'", "assert state['answer_position_new_block']['sequence']=='BDACE'")
+          once("assert fin==('STEP2-FINAL-Q0001-Q1180-20260904',1175),fin", "assert fin==('STEP2-FINAL-Q0001-Q1180-20260904',1180),fin")
+          once("'items':1175,'reviews':1175,'duplicates':0,'reread':1175", "'items':1180,'reviews':1180,'duplicates':0,'reread':1180")
+          once("==1175\n          assert con.execute(\"SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'\").fetchone()[0]==1175", "==1180\n          assert con.execute(\"SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'\").fetchone()[0]==1180")
+          once("assert fin==('STEP2-FINAL-Q0001-Q1180-20260904',1175),fin", "assert fin==('STEP2-FINAL-Q0001-Q1180-20260904',1180),fin")
+          once("'items':1175,'reviews':1175,'duplicates':0,'wal_sidecar':False", "'items':1180,'reviews':1180,'duplicates':0,'wal_sidecar':False")
+          allrep("Finalize USMLE Step 1 Q1176-Q1180 at Step2 10/10", "Finalize USMLE Step 1 Q1176-Q1180 at Step2 10/10")
+
+          forbidden=["Q1171-Q1175","q1171_q1175","Q0001_Q1175","q0001_q1175","STEP2-FINAL-Q0001-Q1175-20260903","'CAEBD'","set(range(1,1176))","for n in range(1171,1176)","if 1171<=n<=1175"]
+          for m in forbidden:
+              if m in src: raise SystemExit('stale workflow marker remains: '+m)
+          required=["USMLE Step2 Import Approved Q1176-Q1180","usmle/audit/STEP2_FINALIZE_TRIGGER_Q1176_Q1180","usmle/step2_import_q1176_q1180.py","assert len(items)==1180 and len(reviews)==1180","set(range(1,1181))","for n in range(1176,1181):","if 1176<=n<=1180:","'BDACE'","step2_final_q0001_q1180.json","STEP2_FINAL_10_10_Q0001_Q1180.json"]
+          for m in required:
+              if m not in src: raise SystemExit('required workflow marker missing: '+m)
+          pathlib.Path('.github/workflows/usmle-step2-import-q1176-q1180.yml').write_text(src)
+          PY
+      - name: Parse YAML surface and static assertions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('.github/workflows/usmle-step2-import-q1176-q1180.yml').read_text()
+          assert s.count('STEP2_FINALIZE_TRIGGER_Q1176_Q1180')==1
+          assert 'assert len(items)==1180 and len(reviews)==1180' in s
+          assert "assert state['answer_position_new_block']['sequence']=='BDACE'" in s
+          assert 'c42033ba0c8de7bdb6aae7d9c978dcef24123a64' in s
+          print('static workflow assertions: ok')
+          PY
+      - name: Persist import workflow
+        run: |
+          git config user.name 'USMLE Workflow Builder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add .github/workflows/usmle-step2-import-q1176-q1180.yml
+          git commit -m 'Add USMLE Step2 finalization workflow for Q1176-Q1180'
+          git pull --rebase origin main
+          git push origin HEAD:main
