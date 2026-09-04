@@ -1,0 +1,86 @@
+name: USMLE Candidate Pool Probe Q1176-Q1180
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/probes/q1176_q1180_candidate_pool.json'
+      - '.github/workflows/usmle-candidate-pool-q1176-q1180.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan candidate pool against canonical main constructs
+        run: |
+          python - <<'PY'
+          import json, pathlib, re, sqlite3, subprocess
+
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          expected_blob='c42033ba0c8de7bdb6aae7d9c978dcef24123a64'
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==expected_blob,(blob,expected_blob)
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1175,len(rows)
+
+          def norm(s):
+              return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
+
+          canonical=[]
+          for cid,pj in rows:
+              p=json.loads(pj)
+              i=p.get('item',{})
+              sf=p.get('semantic_fingerprint',{})
+              main=' '.join([
+                  sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),
+                  i.get('tested_construct',''),i.get('lead_in','')
+              ])
+              canonical.append((cid,norm(main),sf))
+
+          pool=json.load(open('usmle/probes/q1176_q1180_candidate_pool.json'))
+          report=[]
+          for x in pool:
+              diag=norm(x.get('diagnosis',''))
+              hits=[]
+              for cid,main,sf in canonical:
+                  sfdiag=norm(sf.get('diagnosis_or_process',''))
+                  if sfdiag and (diag==sfdiag or (len(diag)>20 and diag in sfdiag) or (len(sfdiag)>20 and sfdiag in diag)):
+                      hits.append({'candidate_id':cid,'type':'diagnosis_overlap','value':sf.get('diagnosis_or_process','')})
+                  for t0 in x.get('terms',[]):
+                      t=norm(t0)
+                      if t and t in main:
+                          hits.append({'candidate_id':cid,'type':'term_overlap','term':t0})
+              uniq=[]; seen=set()
+              for h in hits:
+                  k=(h.get('candidate_id'),h.get('type'),h.get('term'),h.get('value'))
+                  if k not in seen:
+                      seen.add(k); uniq.append(h)
+              report.append({
+                  'slot':x['slot'],'name':x['name'],'diagnosis':x['diagnosis'],
+                  'status':'PASS' if not uniq else 'BLOCKED',
+                  'hits':uniq[:20]
+              })
+          con.close()
+          print(json.dumps({
+              'authoritative_db_blob':blob,
+              'authoritative_final_count':1175,
+              'results':report,
+              'pass_by_slot':{
+                  str(slot):[r['name'] for r in report if r['slot']==slot and r['status']=='PASS']
+                  for slot in sorted({r['slot'] for r in report})
+              }
+          },indent=2,ensure_ascii=False))
+          PY
