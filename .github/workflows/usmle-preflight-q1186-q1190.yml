@@ -34,7 +34,7 @@ jobs:
           specp=pathlib.Path('usmle/batch_specs_1101_1200/11_q1186_q1190.json')
           outp=pathlib.Path('usmle/audit/PREFLIGHT_Q1186_Q1190.json')
           expected_db='05dc982aa4a1c35cccfc233f80cd7826fc22bec9'
-          expected_spec='cfbcda1feb946f95399ac01f95e321fe36275653'
+          expected_spec='605330a6457e10acae9855fb8556a304d221cf32'
           def norm(s): return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
           def words(s): return set(norm(s).split())
           def jac(a,b): return len(a&b)/len(a|b) if (a or b) else 0.0
@@ -82,7 +82,7 @@ jobs:
               status='PASS' if not hits and not th else 'BLOCKED'; blocked|=status!='PASS'
               report.append({'num':x['num'],'diagnosis':x['diagnosis'],'status':status,'exact_or_semantic_hits':hits,'unique_term_hits':th,'top_lexical_jaccard':[{'candidate_id':cid,'score':round(j,4)} for j,cid in sorted(top,reverse=True)[:5]]})
           con.close()
-          result={'preflight_id':'Q1186-Q1190-PREFLIGHT-20260904','authoritative_db':'usmle/data/usmle-step1.db','authoritative_db_blob':db_blob,'authoritative_final_count':1185,'sqlite_integrity_check':'ok','contiguous_q0001_q1185':True,'duplicate_candidate_id_count':0,'spec_path':str(specp),'spec_git_blob':spec_blob,'items':report,'overall_status':'BLOCKED' if blocked else 'PASS'}
+          result={'preflight_id':'Q1186-Q1190-PREFLIGHT-R2-20260904','authoritative_db':'usmle/data/usmle-step1.db','authoritative_db_blob':db_blob,'authoritative_final_count':1185,'sqlite_integrity_check':'ok','contiguous_q0001_q1185':True,'duplicate_candidate_id_count':0,'spec_path':str(specp),'spec_git_blob':spec_blob,'items':report,'overall_status':'BLOCKED' if blocked else 'PASS'}
           outp.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
           print(json.dumps(result,indent=2,ensure_ascii=False))
           if blocked: raise SystemExit('material canonical overlap detected')
@@ -93,7 +93,7 @@ jobs:
           git config user.email 'actions@users.noreply.github.com'
           git add usmle/audit/PREFLIGHT_Q1186_Q1190.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Preflight USMLE Q1186-Q1190 against canonical 1185'
+            git commit -m 'Preflight R2 USMLE Q1186-Q1190 against canonical 1185'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
