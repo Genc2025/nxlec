@@ -1,0 +1,67 @@
+name: USMLE Repair Q1187 MC2R
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-repair-q1187-mc2r.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Replace only Q1187
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path('usmle/batch_specs_1101_1200/11_q1186_q1190.json')
+          arr=json.loads(p.read_text())
+          assert [x['num'] for x in arr]==[1186,1187,1188,1189,1190]
+          i=next(i for i,x in enumerate(arr) if x['num']==1187)
+          arr[i]={
+            'num':1187,
+            'system':'Reproductive and Endocrine Systems',
+            'outline':['Endocrine System','Adrenal disorders','adrenal insufficiency and congenital adrenal disorders'],
+            'primary_competency':'Medical Knowledge: Applying Foundational Science Concepts',
+            'discipline':'Physiology / Genetics','disciplines':['Physiology','Genetics'],
+            'diagnosis':'Familial glucocorticoid deficiency type 1 due to MC2R dysfunction',
+            'mechanism':'Biallelic loss-of-function MC2R variants impair the adrenal ACTH receptor. The adrenal cortex therefore cannot respond normally to ACTH to generate glucocorticoids, causing very low cortisol with markedly elevated ACTH and hyperpigmentation. Mineralocorticoid secretion is classically preserved, distinguishing isolated ACTH resistance from global primary adrenal destruction or many steroidogenic defects.',
+            'vignette':'A 3-year-old boy is evaluated after recurrent fasting hypoglycemia and poor weight gain. His skin and gingiva are diffusely hyperpigmented. Morning serum cortisol is very low and plasma ACTH is markedly elevated. Serum sodium and potassium are normal, plasma renin activity is normal, and aldosterone is appropriate for sodium intake. He has no ambiguous genitalia or history of salt-wasting crises. His parents are first cousins.',
+            'lead':'Which molecular defect most likely explains this patient’s disorder?',
+            'correct':'Loss of function of the melanocortin 2 receptor, preventing normal adrenal responsiveness to ACTH',
+            'distractors':['Loss of 21-hydroxylase activity causing impaired cortisol and aldosterone synthesis with androgen excess','Autoimmune destruction of the adrenal cortex causing loss of both glucocorticoid and mineralocorticoid production','Loss of the glucocorticoid receptor causing generalized cortisol resistance with elevated circulating cortisol','Loss of ACTH production by pituitary corticotrophs causing secondary adrenal insufficiency'],
+            'distractor_notes':['Classic 21-hydroxylase deficiency often causes mineralocorticoid deficiency with salt wasting and androgen excess; the preserved mineralocorticoid function and isolated ACTH resistance pattern point elsewhere.','Autoimmune Addison disease can cause high ACTH and hyperpigmentation but typically impairs mineralocorticoid secretion as adrenal destruction progresses and is less consistent with this early-childhood recessive familial phenotype.','Glucocorticoid receptor resistance produces high cortisol and high ACTH because target tissues are resistant to cortisol; this patient has very low cortisol due to adrenal ACTH-receptor failure.','Pituitary ACTH deficiency causes low ACTH and no ACTH-driven hyperpigmentation, the opposite hormonal pattern.' ],
+            'key_expl':'Familial glucocorticoid deficiency type 1 is caused by biallelic MC2R variants. MC2R encodes the adrenal ACTH receptor. Loss of receptor function produces ACTH resistance, very low cortisol, compensatory ACTH excess and hyperpigmentation, while mineralocorticoid secretion is typically preserved.',
+            'objective':'Recognize familial glucocorticoid deficiency from childhood hypoglycemia, hyperpigmentation, low cortisol, very high ACTH, and preserved mineralocorticoid function and connect it to MC2R-mediated ACTH resistance.',
+            'clues':['early-childhood recurrent hypoglycemia','hyperpigmentation','very low cortisol','markedly elevated ACTH','normal sodium and potassium','normal renin and aldosterone','consanguinity'],
+            'difficulty':'moderate-hard','reasoning_steps_count':4,
+            'duplicate_probe_terms':['familial glucocorticoid deficiency MC2R','ACTH resistance melanocortin 2 receptor','isolated glucocorticoid deficiency preserved mineralocorticoid','MC2R low cortisol high ACTH hyperpigmentation'],
+            'sources':[
+              {'organization':'United States Medical Licensing Examination','title':'Step 1 Exam Content','url':'https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications','date':'Current official Step 1 specifications; verified 2026-09-04','locator':'Step 1 Content Specifications — Reproductive and Endocrine Systems; Medical Knowledge: Applying Foundational Science Concepts','support':'Supports the Step 1 system and competency classification.'},
+              {'organization':'United States Medical Licensing Examination','title':'USMLE Content Outline (2026)','url':'https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf','date':'For Public Release: USMLE Content Outline (2026); verified 2026-09-04','locator':'p.31 — Endocrine System > Adrenal disorders, including adrenal insufficiency and congenital adrenal disorders','support':'Places adrenal insufficiency and congenital adrenal disorders in the official 2026 endocrine outline.'},
+              {'organization':'National Library of Medicine, MedlinePlus Genetics','title':'Familial glucocorticoid deficiency','url':'https://medlineplus.gov/genetics/condition/familial-glucocorticoid-deficiency/','date':'Current MedlinePlus Genetics page; verified 2026-09-04','locator':'Description; Causes; Inheritance','support':'Supports childhood hypoglycemia and hyperpigmentation, autosomal-recessive inheritance, and MC2R-mediated failure of ACTH signaling to produce glucocorticoids.'},
+              {'organization':'National Library of Medicine, MedlinePlus Genetics','title':'MC2R gene','url':'https://medlineplus.gov/genetics/gene/mc2r/','date':'Current MedlinePlus Genetics gene page; verified 2026-09-04','locator':'Normal Function; Health Conditions Related to Genetic Changes — Familial glucocorticoid deficiency','support':'Identifies MC2R as the adrenal ACTH receptor and explains that pathogenic variants impair receptor trafficking or ACTH binding, preventing the glucocorticoid-production signal.'},
+              {'organization':'National Center for Biotechnology Information, Endotext','title':'ACTH Action on the Adrenals','url':'https://www.ncbi.nlm.nih.gov/books/NBK279118/','date':'Current Endotext chapter; verified 2026-09-04','locator':'The Familial Glucocorticoid Deficiency Syndromes','support':'Supports ACTH excess with hypocortisolemia, autosomal-recessive ACTH resistance, MC2R causation, and classically preserved mineralocorticoid secretion.'},
+              {'organization':'National Center for Biotechnology Information, NCBI Gene','title':'MC2R melanocortin 2 receptor [Homo sapiens]','url':'https://www.ncbi.nlm.nih.gov/gene/4158','date':'NCBI Gene updated August 5, 2026; verified 2026-09-04','locator':'Summary','support':'Identifies MC2R as the ACTH-selective melanocortin receptor and links MC2R variants to familial glucocorticoid deficiency.'}
+            ]
+          }
+          p.write_text(json.dumps(arr,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist repaired spec
+        run: |
+          git config user.name 'USMLE Spec Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1101_1200/11_q1186_q1190.json
+          git commit -m 'Replace blocked Q1187 with MC2R ACTH resistance construct'
+          git pull --rebase origin main
+          git push origin HEAD:main
