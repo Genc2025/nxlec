@@ -1,0 +1,84 @@
+name: USMLE Strengthen Evidence Q1176-Q1180
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-strengthen-evidence-q1176-q1180.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  strengthen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Strengthen item-specific evidence
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path('usmle/batch_specs_1101_1200/09_q1176_q1180.json')
+          a=json.loads(p.read_text())
+          by={int(x['num']):x for x in a}
+
+          # Q1176: explicitly bind the critical-sample hyperinsulinism findings and genetic distinctions.
+          for s in by[1176]['sources']:
+              if s['title']=='Nonsyndromic Genetic Hyperinsulinism Overview':
+                  s['locator']='Diagnosis/critical-sample findings; Evaluation Strategies; Table 2 — GLUD1, HADH, SLC16A1, ABCC8/KCNJ11, GCK and distinguishing clinical features'
+                  s['support']='Supports inappropriately detectable insulin with suppressed ketones during hypoglycemia; identifies postprandial protein-sensitive hypoglycemia plus hyperammonemia as suggestive of GLUD1; and supports distinctions from the distractor genetic hyperinsulinism syndromes.'
+
+          def add_source(n,src):
+              if not any(s.get('url')==src['url'] for s in by[n]['sources']):
+                  by[n]['sources'].append(src)
+
+          add_source(1177,{
+            'organization':'National Center for Biotechnology Information, GeneReviews',
+            'title':'21-Hydroxylase-Deficient Congenital Adrenal Hyperplasia',
+            'url':'https://www.ncbi.nlm.nih.gov/books/NBK1171/',
+            'date':'GeneReviews chapter; GeneReviews 1993-2026 edition; verified 2026-09-04',
+            'locator':'Diagnosis/testing; Establishing the Diagnosis — elevated 17-hydroxyprogesterone and adrenal androgens in 21-hydroxylase deficiency',
+            'support':'Supports exclusion of 21-hydroxylase-deficient congenital adrenal hyperplasia when 17-hydroxyprogesterone is not elevated.'
+          })
+
+          add_source(1180,{
+            'organization':'National Center for Biotechnology Information, NCBI Bookshelf',
+            'title':'The Self-Assembly and Dynamic Structure of Cytoskeletal Filaments',
+            'url':'https://www.ncbi.nlm.nih.gov/books/NBK26862/',
+            'date':'NCBI Bookshelf cell-biology reference; verified 2026-09-04',
+            'locator':'Summary — three principal cytoskeletal filament classes; intermediate filaments provide mechanical strength; keratin filaments are epithelial intermediate filaments',
+            'support':'Supports the distinction of keratin intermediate filaments from actin filaments and microtubules and their mechanical-strength role.'
+          })
+          add_source(1180,{
+            'organization':'National Library of Medicine, MedlinePlus Genetics',
+            'title':'COL1A1 gene',
+            'url':'https://medlineplus.gov/genetics/gene/col1a1/',
+            'date':'Current MedlinePlus Genetics gene page; verified 2026-09-04',
+            'locator':'Normal Function — type I collagen production and extracellular fibril formation',
+            'support':'Supports exclusion of type I collagen fibrils as extracellular connective-tissue structures rather than KRT6A-derived intracellular keratin filaments.'
+          })
+          add_source(1180,{
+            'organization':'National Library of Medicine, MedlinePlus Genetics',
+            'title':'FBN1 gene',
+            'url':'https://medlineplus.gov/genetics/gene/fbn1/',
+            'date':'Current MedlinePlus Genetics gene page; verified 2026-09-04',
+            'locator':'Normal Function — extracellular fibrillin-1 microfibril network',
+            'support':'Supports exclusion of fibrillin-containing extracellular microfibrils from the KRT6A keratin-filament defect.'
+          })
+
+          p.write_text(json.dumps(a,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist strengthened spec
+        run: |
+          git config user.name 'USMLE Evidence Gate'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1101_1200/09_q1176_q1180.json
+          git commit -m 'Strengthen evidence for USMLE Q1176-Q1180'
+          git pull --rebase origin main
+          git push origin HEAD:main
