@@ -1,0 +1,77 @@
+name: USMLE Candidate Pool Q1191-Q1215
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/probes/q1191_q1215_candidate_pool.json'
+      - '.github/workflows/usmle-candidate-pool-q1191-q1215.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan 50-candidate pool against canonical 1190
+        run: |
+          python - <<'PY'
+          import json,pathlib,re,sqlite3,subprocess
+          from difflib import SequenceMatcher
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          poolp=pathlib.Path('usmle/probes/q1191_q1215_candidate_pool.json')
+          outp=pathlib.Path('usmle/audit/CANDIDATE_POOL_Q1191_Q1215.json')
+          expected='987c82084e1906854c03fe21e7dfc4f9d46be923'
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==expected,(blob,expected)
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1190,len(rows)
+          def norm(s): return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
+          canonical=[]
+          for cid,pj in rows:
+              p=json.loads(pj); i=p.get('item',{}); sf=p.get('semantic_fingerprint',{})
+              main=' '.join([sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),i.get('tested_construct',''),i.get('lead_in','')])
+              canonical.append((cid,norm(main),sf))
+          pool=json.load(open(poolp)); assert len(pool)==50
+          report=[]
+          for x in pool:
+              diag=norm(x.get('diagnosis','')); hits=[]
+              for cid,main,sf in canonical:
+                  sd=norm(sf.get('diagnosis_or_process','')); sm=norm(sf.get('mechanism',''))
+                  if sd and (diag==sd or (len(diag)>20 and diag in sd) or (len(sd)>20 and sd in diag)):
+                      hits.append({'candidate_id':cid,'type':'diagnosis_overlap','value':sf.get('diagnosis_or_process','')})
+                  for t0 in x.get('terms',[]):
+                      t=norm(t0)
+                      if t and t in main:
+                          hits.append({'candidate_id':cid,'type':'term_overlap','term':t0})
+              uniq=[]; seen=set()
+              for h in hits:
+                  k=(h.get('candidate_id'),h.get('type'),h.get('term'),h.get('value'))
+                  if k not in seen: seen.add(k); uniq.append(h)
+              report.append({'slot':x['slot'],'name':x['name'],'diagnosis':x['diagnosis'],'status':'PASS' if not uniq else 'BLOCKED','hits':uniq[:25]})
+          slots=sorted({x['slot'] for x in pool})
+          pass_by={s:[r['name'] for r in report if r['slot']==s and r['status']=='PASS'] for s in slots}
+          result={'authoritative_db_blob':blob,'authoritative_final_count':1190,'sqlite_integrity_check':'ok','pool_count':50,'results':report,'pass_by_slot':pass_by,'pass_counts':{s:len(v) for s,v in pass_by.items()}}
+          outp.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(result,indent=2,ensure_ascii=False))
+          if any(len(pass_by[s])<5 for s in slots): raise SystemExit('fewer than five clean candidates in one or more slots')
+          PY
+      - name: Persist candidate pool report
+        run: |
+          git config user.name 'USMLE Candidate Pool'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/CANDIDATE_POOL_Q1191_Q1215.json
+          git commit -m 'Record clean candidate pool for USMLE Q1191-Q1215'
+          git pull --rebase origin main
+          git push origin HEAD:main
