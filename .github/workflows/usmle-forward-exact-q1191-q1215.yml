@@ -1,0 +1,106 @@
+name: USMLE Forward Exact Q1191-Q1215
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-forward-exact-q1191-q1215.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-forward-exact-q1191-q1215
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan exact current Q1191-Q1215 specs against canonical 1190
+        run: |
+          python - <<'PY'
+          import json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          expected_db='987c82084e1906854c03fe21e7dfc4f9d46be923'
+          files=[
+            ('usmle/batch_specs_1101_1200/12_q1191_q1195.json','cbcec34a0d1791f344a9226305680bc2eec3debe'),
+            ('usmle/batch_specs_1101_1200/13_q1196_q1200.json','854078c41087450d3d05729c4f2fa430f1b5573e'),
+            ('usmle/batch_specs_1201_1300/01_q1201_q1205.json','1e350647b0f68ff2e7a20cbfc903949307306179'),
+            ('usmle/batch_specs_1201_1300/02_q1206_q1210.json','6a6782a926c9b598539e3d9ef9ffc11cacc2916e'),
+            ('usmle/batch_specs_1201_1300/03_q1211_q1215.json','fc6053ebafcf9751d2c00e5cb70264bbe9d7418a')
+          ]
+          def blob(p): return subprocess.check_output(['git','hash-object',p],text=True).strip()
+          def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
+          def walk(v,path='$'):
+              if isinstance(v,dict):
+                  for k,x in v.items(): yield from walk(x,f'{path}.{k}')
+              elif isinstance(v,list):
+                  for i,x in enumerate(v): yield from walk(x,f'{path}[{i}]')
+              elif isinstance(v,str): yield path,v
+          dbb=blob(str(db)); assert dbb==expected_db,(dbb,expected_db)
+          specs=[]; spec_blobs={}
+          for p,e in files:
+              b=blob(p); assert b==e,(p,b,e); spec_blobs[p]=b
+              specs.extend(json.load(open(p)))
+          assert [int(x['num']) for x in specs]==list(range(1191,1216))
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1190
+          canonical=[]
+          for cid,pj in rows:
+              obj=json.loads(pj)
+              strings=[(p,s,norm(s)) for p,s in walk(obj)]
+              sf=obj.get('semantic_fingerprint',{}); it=obj.get('item',{})
+              main=norm(' '.join([sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),it.get('tested_construct',''),it.get('lead_in','')]))
+              canonical.append((cid,strings,main))
+          report=[]; blocked=False
+          for x in specs:
+              nd=norm(x['diagnosis']); hits=[]; term_hits=[]
+              for cid,strings,main in canonical:
+                  for p,s,ns in strings:
+                      if nd and nd in ns:
+                          hits.append({'candidate_id':cid,'json_path':p,'text':s[:260]}); break
+                  for term0 in x.get('duplicate_probe_terms',[]):
+                      t=norm(term0)
+                      if t and t in main:
+                          term_hits.append({'candidate_id':cid,'term':term0})
+              # dedupe
+              h2=[]; seen=set()
+              for h in hits:
+                  k=(h['candidate_id'],h['json_path'])
+                  if k not in seen: seen.add(k); h2.append(h)
+              t2=[]; seen=set()
+              for h in term_hits:
+                  k=(h['candidate_id'],h['term'])
+                  if k not in seen: seen.add(k); t2.append(h)
+              st='PASS' if not h2 and not t2 else 'BLOCKED'; blocked|=st!='PASS'
+              report.append({'num':x['num'],'diagnosis':x['diagnosis'],'status':st,'canonical_hits':h2,'canonical_main_term_hits':t2})
+          result={
+            'forward_check_id':'Q1191-Q1215-FORWARD-EXACT-20260904',
+            'authoritative_db_blob':dbb,'authoritative_final_count':1190,'sqlite_integrity_check':'ok',
+            'spec_blobs':spec_blobs,'checked_item_count':len(specs),'items':report,
+            'clear_count':sum(r['status']=='PASS' for r in report),'overall_status':'BLOCKED' if blocked else 'PASS'
+          }
+          pathlib.Path('usmle/audit/FORWARD_EXACT_Q1191_Q1215.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(result,indent=2,ensure_ascii=False))
+          con.close()
+          if blocked: raise SystemExit('forward exact/main-term overlap detected')
+          PY
+      - name: Persist forward report
+        run: |
+          git config user.name 'USMLE Forward Check'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/FORWARD_EXACT_Q1191_Q1215.json
+          git commit -m 'Forward-check USMLE Q1191-Q1215 against canonical 1190'
+          git pull --rebase origin main
+          git push origin HEAD:main
