@@ -1,0 +1,114 @@
+name: USMLE Repair Spec Q1181-Q1185
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-repair-spec-q1181-q1185.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Replace canonical-overlap constructs
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path('usmle/batch_specs_1101_1200/10_q1181_q1185.json')
+          arr=json.loads(p.read_text())
+          assert [x['num'] for x in arr]==[1181,1182,1183,1184,1185]
+          by={x['num']:x for x in arr}
+          by[1181]={
+            'num':1181,
+            'system':'Social Sciences: Communication and Interpersonal Skills',
+            'outline':['Social Sciences','Communication and interpersonal skills','patient interviewing, consultation, and interactions with the family','information provision; supporting emotions; making decisions'],
+            'primary_competency':'Communication and Interpersonal Skills',
+            'discipline':'Behavioral Sciences','disciplines':['Behavioral Sciences'],
+            'diagnosis':'SPIKES Invitation step before delivering serious medical news',
+            'mechanism':'The SPIKES framework structures delivery of serious news as Setting, Perception, Invitation, Knowledge, Empathy, and Summary/Strategy. After establishing a private setting and assessing the patient’s perception, the clinician should obtain the patient’s invitation by determining how much information the patient wants before giving detailed knowledge.',
+            'vignette':'A 54-year-old woman returns to discuss a biopsy that confirms pancreatic adenocarcinoma. The physician meets with her in a private room and asks what she understands about the testing so far. She says, “I know the scan and biopsy were concerning, but I do not know the final result.” The physician is preparing to disclose the diagnosis.',
+            'lead':'Which of the following is the most appropriate next step before providing detailed information about the diagnosis?',
+            'correct':'Ask the patient how much detail she would like to receive about the results and diagnosis',
+            'distractors':['Immediately explain the stage, prognosis, and treatment options in detail','Ask a family member to enter the room before discussing the diagnosis, regardless of the patient’s preference','Begin by reassuring the patient that treatment will be successful','Delay disclosure until the patient specifically asks whether the biopsy showed cancer'],
+            'distractor_notes':['The Knowledge step follows assessment of perception and the patient’s invitation; immediately delivering extensive details skips the patient’s information preference and risks overload.','Family involvement should follow the patient’s preferences; automatically bringing family into a sensitive disclosure can violate autonomy and privacy.','Premature reassurance can be misleading and bypasses honest disclosure and response to emotion.','The clinician should communicate serious results rather than withholding them until a specific question is asked; the patient’s preference concerns how much detail to receive, not whether clinically important information should be concealed.'],
+            'key_expl':'In SPIKES, after Setting and Perception, the Invitation step asks how much information the patient wants before the clinician proceeds to Knowledge. This respects individual communication preferences and allows serious news to be delivered in an amount and level of detail the patient is prepared to receive.',
+            'objective':'Apply the SPIKES sequence by obtaining the patient’s invitation and information preference after assessing perception and before delivering detailed serious news.',
+            'clues':['confirmed serious diagnosis','private setting established','patient perception already elicited','details not yet disclosed','next step before knowledge'],
+            'difficulty':'moderate','reasoning_steps_count':4,
+            'duplicate_probe_terms':['SPIKES Invitation','serious news invitation step','ask how much information patient wants before knowledge','Setting Perception Invitation Knowledge Empathy Summary'],
+            'sources':[
+              {'organization':'United States Medical Licensing Examination','title':'Step 1 Exam Content','url':'https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications','date':'Current official Step 1 specifications; verified 2026-09-04','locator':'Step 1 Content Specifications — Social Sciences: Communication and Interpersonal Skills; Communication and Interpersonal Skills competency','support':'Supports the Step 1 system and competency classification.'},
+              {'organization':'United States Medical Licensing Examination','title':'USMLE Content Outline (2026)','url':'https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf','date':'For Public Release: USMLE Content Outline (2026); verified 2026-09-04','locator':'p.39 — Social Sciences > Communication and interpersonal skills > patient-centered communication: information gathering/provision, making decisions, supporting emotions','support':'Places patient-centered information provision and emotional support in the official 2026 Social Sciences outline.'},
+              {'organization':'National Cancer Institute','title':'Communication in Cancer Care (PDQ®) — Health Professional Version','url':'https://www.cancer.gov/about-cancer/coping/adjusting-to-cancer/communication-hp-pdq','date':'Current NCI PDQ communication summary; verified 2026-09-04','locator':'Diagnostic Disclosure and Breaking Bad News; SPIKES: A six-step approach to delivering bad news','support':'Defines SPIKES as Setting, Perception, Invitation, Knowledge, Empathy, and Summary; the Invitation step discovers how much information the patient wants.'}
+            ]
+          }
+          by[1182]={
+            'num':1182,
+            'system':'Reproductive and Endocrine Systems',
+            'outline':['Endocrine System','Parathyroid disorders','hypoparathyroidism'],
+            'primary_competency':'Medical Knowledge: Applying Foundational Science Concepts',
+            'discipline':'Physiology / Genetics','disciplines':['Physiology','Genetics'],
+            'diagnosis':'Autosomal dominant hypocalcemia type 1 due to an activating CASR variant',
+            'mechanism':'Gain-of-function CASR variants make the calcium-sensing receptor abnormally sensitive to extracellular calcium. CaSR signaling is therefore activated at lower calcium concentrations, suppressing parathyroid hormone release and promoting renal calcium excretion despite systemic hypocalcemia.',
+            'vignette':'A 15-year-old boy is evaluated after two episodes of perioral tingling and carpopedal spasm. Serum calcium is low and parathyroid hormone is inappropriately low for the degree of hypocalcemia. Urinary calcium excretion is relatively high despite the low serum calcium. His father has lifelong mild hypocalcemia and recurrent nephrolithiasis. Genetic testing identifies a heterozygous pathogenic variant in CASR.',
+            'lead':'Which functional effect of this variant most likely explains the patient’s laboratory findings?',
+            'correct':'Increased sensitivity of the calcium-sensing receptor to extracellular calcium, suppressing PTH release at abnormally low calcium concentrations',
+            'distractors':['Decreased sensitivity of the calcium-sensing receptor to extracellular calcium, raising the set point for suppression of PTH','Loss of Gs-alpha signaling in target tissues, causing resistance to circulating PTH','Loss of renal 1-alpha-hydroxylase activity, reducing conversion of 25-hydroxyvitamin D to calcitriol','Loss of the calcium-sensing receptor in parathyroid cells, causing autonomous PTH secretion'],
+            'distractor_notes':['Reduced CaSR sensitivity is the mechanism of familial hypocalciuric hypercalcemia, which causes hypercalcemia with relative hypocalciuria rather than hypocalcemia with inappropriate urinary calcium loss.','Gs-alpha deficiency causing PTH resistance produces elevated PTH rather than inappropriately low PTH and is not explained by a CASR variant.','Renal 1-alpha-hydroxylase deficiency impairs calcitriol production and causes a vitamin-D-dependent rickets phenotype; it does not explain the familial CASR-associated low-PTH/hypercalciuric pattern.','Loss of CaSR function increases rather than suppresses PTH secretion and causes a hypercalcemic phenotype; the patient has an activating receptor defect.'],
+            'key_expl':'Autosomal dominant hypocalcemia type 1 is caused by activating CASR variants. The overactive calcium-sensing receptor signals as if extracellular calcium were sufficient even when calcium is low, suppressing PTH release and reducing renal calcium conservation; hypercalciuria can therefore accompany hypocalcemia.',
+            'objective':'Distinguish activating from inactivating CaSR disorders by recognizing that gain-of-function CASR variants suppress PTH and renal calcium reabsorption at abnormally low serum calcium concentrations.',
+            'clues':['hypocalcemia','inappropriately low PTH','relative hypercalciuria','autosomal-dominant family history','heterozygous CASR variant'],
+            'difficulty':'moderate-hard','reasoning_steps_count':4,
+            'duplicate_probe_terms':['autosomal dominant hypocalcemia type 1','activating CASR hypocalcemia','gain of function calcium sensing receptor hypercalciuria','CaSR suppress PTH low calcium'],
+            'sources':[
+              {'organization':'United States Medical Licensing Examination','title':'Step 1 Exam Content','url':'https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications','date':'Current official Step 1 specifications; verified 2026-09-04','locator':'Step 1 Content Specifications — Reproductive and Endocrine Systems; Medical Knowledge: Applying Foundational Science Concepts','support':'Supports the Step 1 system and competency classification.'},
+              {'organization':'United States Medical Licensing Examination','title':'USMLE Content Outline (2026)','url':'https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf','date':'For Public Release: USMLE Content Outline (2026); verified 2026-09-04','locator':'p.31 — Endocrine System > Parathyroid disorders > hypoparathyroidism','support':'Places hypoparathyroid disorders in the official 2026 endocrine outline.'},
+              {'organization':'National Library of Medicine, MedlinePlus Genetics','title':'Autosomal dominant hypocalcemia','url':'https://medlineplus.gov/genetics/condition/autosomal-dominant-hypocalcemia/','date':'Current MedlinePlus Genetics page; verified 2026-09-04','locator':'Causes','support':'Supports CASR as the principal cause of autosomal dominant hypocalcemia type 1 and identifies overactive calcium-sensing-receptor signaling.'},
+              {'organization':'National Library of Medicine, MedlinePlus Genetics','title':'CASR gene','url':'https://medlineplus.gov/genetics/gene/casr/','date':'Current MedlinePlus Genetics gene page; verified 2026-09-04','locator':'Health Conditions Related to Genetic Changes — Autosomal dominant hypocalcemia','support':'Supports gain-of-function CaSR sensitivity, PTH suppression at low calcium, and renal calcium loss.'}
+            ]
+          }
+          by[1184]={
+            'num':1184,
+            'system':'Respiratory and Renal/Urinary Systems',
+            'outline':['Renal & Urinary System','Metabolic and regulatory disorders','chronic kidney disease / renal insufficiency','tubular interstitial disease'],
+            'primary_competency':'Patient Care: Diagnosis, including history and physical examination',
+            'discipline':'Physiology / Genetics / Pathology','disciplines':['Physiology','Genetics','Pathology'],
+            'diagnosis':'Autosomal dominant tubulointerstitial kidney disease due to UMOD (ADTKD-UMOD)',
+            'mechanism':'Heterozygous UMOD pathogenic variants cause autosomal-dominant tubulointerstitial kidney disease characterized by bland urinalysis, slowly progressive chronic kidney disease, reduced renal urate excretion, early hyperuricemia and gout, often across multiple generations.',
+            'vignette':'A 19-year-old man is evaluated after a second episode of acute podagra. Serum uric acid is elevated, and serum creatinine is mildly increased. Urinalysis shows no hematuria and only trace protein. Renal ultrasonography shows normal-sized kidneys without numerous cysts. His father and paternal grandmother developed chronic kidney disease, and his father began treatment for gout in his twenties. There is no family history of hearing loss.',
+            'lead':'Which diagnosis best explains this patient’s findings?',
+            'correct':'Autosomal dominant tubulointerstitial kidney disease due to UMOD',
+            'distractors':['Autosomal dominant polycystic kidney disease','Alport syndrome','Autosomal dominant tubulointerstitial kidney disease due to MUC1','HNF1B-associated kidney disease'],
+            'distractor_notes':['ADPKD commonly develops multiple renal cysts and does not characteristically present with a bland urine plus early hyperuricemia/gout phenotype across generations.','Alport syndrome is a glomerular basement-membrane disorder with persistent hematuria and often hearing/ocular findings, which are absent here.','ADTKD-MUC1 also causes autosomal-dominant bland-sediment CKD, but early hyperuricemia and gout are particularly characteristic of UMOD disease and are not the defining MUC1 phenotype.','HNF1B disease can cause congenital renal abnormalities, cysts, diabetes and other extrarenal features; the isolated multigenerational bland CKD with early gout is more characteristic of ADTKD-UMOD.'],
+            'key_expl':'ADTKD-UMOD presents with autosomal-dominant slowly progressive CKD, a bland urinary sediment, and hyperuricemia due to reduced urate excretion; gout may begin in adolescence or early adulthood. The absence of substantial hematuria/proteinuria, numerous cysts, hearing loss, and other syndromic features narrows the diagnosis.',
+            'objective':'Recognize ADTKD-UMOD from multigenerational bland-sediment CKD with early hyperuricemia and gout, and distinguish it from ADPKD, Alport, ADTKD-MUC1 and HNF1B disease.',
+            'clues':['young adult gout','hyperuricemia','mild CKD','bland urinalysis','normal-sized kidneys without numerous cysts','autosomal-dominant CKD family history','no hearing loss'],
+            'difficulty':'moderate-hard','reasoning_steps_count':5,
+            'duplicate_probe_terms':['ADTKD UMOD','autosomal dominant tubulointerstitial kidney disease uromodulin','bland urine early gout UMOD','uromodulin kidney disease hyperuricemia'],
+            'sources':[
+              {'organization':'United States Medical Licensing Examination','title':'Step 1 Exam Content','url':'https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications','date':'Current official Step 1 specifications; verified 2026-09-04','locator':'Step 1 Content Specifications — Respiratory and Renal/Urinary Systems; Patient Care: Diagnosis, including history and physical examination','support':'Supports the Step 1 system and competency classification.'},
+              {'organization':'United States Medical Licensing Examination','title':'USMLE Content Outline (2026)','url':'https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf','date':'For Public Release: USMLE Content Outline (2026); verified 2026-09-04','locator':'p.24 — Renal & Urinary System > immunologic/inflammatory upper urinary tract: tubular interstitial disease; Metabolic/regulatory disorders > chronic kidney disease/renal insufficiency','support':'Places tubulointerstitial disease and chronic kidney disease in the official 2026 renal outline.'},
+              {'organization':'National Center for Biotechnology Information, GeneReviews','title':'Autosomal Dominant Tubulointerstitial Kidney Disease – UMOD','url':'https://www.ncbi.nlm.nih.gov/books/NBK1356/','date':'Last Revision: December 23, 2021; current GeneReviews 1993-2026 edition; verified 2026-09-04','locator':'Summary; Suggestive Findings; Clinical Description — Hyperuricemia and Gout','support':'Supports autosomal-dominant inheritance, bland urinary sediment, slowly progressive CKD, early hyperuricemia from reduced urate excretion, and gout in adolescence/early adulthood.'}
+            ]
+          }
+          arr=[by[n] for n in [1181,1182,1183,1184,1185]]
+          p.write_text(json.dumps(arr,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist repaired spec
+        run: |
+          git config user.name 'USMLE Spec Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1101_1200/10_q1181_q1185.json
+          git commit -m 'Replace blocked USMLE Q1181 Q1182 Q1184 constructs'
+          git pull --rebase origin main
+          git push origin HEAD:main
