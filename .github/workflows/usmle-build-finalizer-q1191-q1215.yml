@@ -28,17 +28,16 @@ jobs:
           python-version: '3.12'
       - name: Build and compile strict finalizer
         run: python usmle/build_finalizer_q1191_q1215.py
-      - name: Validate generated workflow and finalizer markers
+      - name: Validate generated finalizer markers
         run: |
           python -m py_compile usmle/step2_import_q1191_q1215.py
-          grep -q "Q1191-Q1215" .github/workflows/usmle-step2-import-q1191-q1215.yml
           grep -q "1215" usmle/step2_import_q1191_q1215.py
           grep -q "987c82084e1906854c03fe21e7dfc4f9d46be923" usmle/step2_import_q1191_q1215.py
-      - name: Persist generated finalizer and production workflow
+      - name: Persist generated finalizer script
         run: |
           git config user.name 'USMLE Finalizer Builder'
           git config user.email 'actions@users.noreply.github.com'
-          git add usmle/step2_import_q1191_q1215.py .github/workflows/usmle-step2-import-q1191-q1215.yml
+          git add usmle/step2_import_q1191_q1215.py
           git commit -m 'Build strict USMLE Q1191-Q1215 finalizer'
           git pull --rebase origin main
           git push origin HEAD:main
