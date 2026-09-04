@@ -1,0 +1,54 @@
+{
+  "item": "Q1182",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-09-04T03:05:00Z",
+  "auditor_model": "GPT-5.6 Sol",
+  "authoritative_db_blob": "b9644e7f31a9a4340800db511832da954b6736e6",
+  "authoritative_db_final_count": 1180,
+  "exact_spec_sha": "b3a937efdb331dc6e95484ef432c023d6f1d426c",
+  "preflight_run_id": 33831751198,
+  "forward_duplicate_run_id": 33831821047,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "source_authority": "PASS",
+  "source_currentness": {"status": "PASS", "verified_at": "2026-09-04", "note": "Current USMLE specifications and current NLM MedlinePlus CASR material verified."},
+  "exact_locator": "PASS",
+  "source_verification": [
+    {"source": "USMLE Step 1 Exam Content", "locator": "Step 1 Content Specifications — Reproductive and Endocrine Systems; Medical Knowledge competency", "status": "PASS"},
+    {"source": "USMLE Content Outline 2026", "locator": "p.31 Endocrine System — Parathyroid disorders — hypoparathyroidism", "status": "PASS"},
+    {"source": "MedlinePlus Genetics — Autosomal dominant hypocalcemia", "locator": "Causes", "status": "PASS", "claim": "Type 1 is primarily due to CASR variants; overactive CaSR is more sensitive to calcium and can signal at low calcium."},
+    {"source": "MedlinePlus Genetics — CASR gene", "locator": "Health Conditions Related to Genetic Changes — Autosomal dominant hypocalcemia", "status": "PASS", "claim": "Activating CaSR suppresses PTH and renal calcium reabsorption, producing hypocalcemia with inappropriate calcium loss."}
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractors": ["PASS", "PASS", "PASS", "PASS"],
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "second_answer_attack": {
+    "strongest_alternative": "An activating GNA11 variant can also cause autosomal dominant hypocalcemia.",
+    "resolution": "The stem explicitly identifies a heterozygous CASR pathogenic variant and asks for the functional effect of this variant. Activating CASR increases calcium sensitivity. Inactivating CASR causes the opposite FHH phenotype; PTH resistance raises rather than suppresses PTH.",
+    "result": "PASS_NONE"
+  },
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "forward_exact_duplicate_check": "PASS",
+  "canonical_main_construct_overlap": "PASS_NONE",
+  "adversarial_second_pass": {"result": "PASS", "note": "Directionality of CaSR gain versus loss, PTH response, renal calcium handling, and all distractors rechecked from zero."},
+  "expert_review_layer": {
+    "status": "PASS",
+    "answer_granularity": "PASS", "mechanism_direction": "PASS", "temporal_sequence": "PASS", "scope_match": "PASS", "negative_evidence": "PASS", "distractor_ontology": "PASS", "answer_key_inversion": "PASS", "minimal_information": "PASS", "clinical_base_rate": "PASS", "units_numbers_thresholds": "PASS", "terminology_drift": "PASS", "source_disagreement": "PASS", "educational_objective_leakage": "PASS", "cross_item_contamination": "PASS", "expert_reviewer_reversal": "PASS"
+  },
+  "key_integrity_gate": {
+    "status": "PASS",
+    "factually_correct": "PASS", "stem_supports_key": "PASS", "lead_in_matches_answer_granularity": "PASS", "no_second_defensible_answer": "PASS", "no_authoritative_source_conflict": "PASS", "no_required_hidden_assumption": "PASS"
+  },
+  "realism_gate": {
+    "status": "PASS",
+    "clinically_contextualized": "PASS", "foundational_science_application": "PASS", "stem_signal_to_noise": "PASS", "distractor_plausibility": "PASS", "option_parallelism": "PASS", "nbme_style_single_best_answer": "PASS", "core_step1_relevance": "PASS", "mechanism_depth": "PASS"
+  },
+  "official_discipline_gate": {"status": "PASS", "all_tags_in_usmle_table3": true, "tags": ["Physiology", "Genetics"]}
+}
