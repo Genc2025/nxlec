@@ -1,0 +1,46 @@
+name: USMLE Close Second Answer Q1177
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-close-second-answer-q1177.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Remove nonclassic CAH residual pathway
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path('usmle/batch_specs_1101_1200/09_q1176_q1180.json')
+          a=json.loads(p.read_text())
+          x=next(z for z in a if int(z['num'])==1177)
+          x['vignette']=x['vignette'].replace('Serum human chorionic gonadotropin is undetectable, and 17-hydroxyprogesterone is not elevated.', 'Serum human chorionic gonadotropin is undetectable, and ACTH-stimulated 17-hydroxyprogesterone is within the reference range.')
+          x['distractor_notes'][1]=x['distractor_notes'][1].replace('the normal 17-hydroxyprogesterone', 'the normal ACTH-stimulated 17-hydroxyprogesterone')
+          x['clues']=[('normal ACTH-stimulated 17-hydroxyprogesterone' if c=='normal 17-hydroxyprogesterone' else c) for c in x['clues']]
+          for s in x['sources']:
+              if s.get('title')=='21-Hydroxylase-Deficient Congenital Adrenal Hyperplasia':
+                  s['locator']='Diagnosis/testing; Establishing the Diagnosis; Table 1 — baseline and ACTH-stimulated 17-hydroxyprogesterone in classic/nonclassic 21-hydroxylase deficiency'
+                  s['support']='Supports exclusion of classic and nonclassic 21-hydroxylase-deficient congenital adrenal hyperplasia when ACTH-stimulated 17-hydroxyprogesterone is within the reference range.'
+          p.write_text(json.dumps(a,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist repair
+        run: |
+          git config user.name 'USMLE Second-Answer Gate'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1101_1200/09_q1176_q1180.json
+          git commit -m 'Close Q1177 nonclassic CAH second-answer pathway'
+          git pull --rebase origin main
+          git push origin HEAD:main
