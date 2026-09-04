@@ -1,0 +1,106 @@
+name: USMLE Build Finalizer Q1176-Q1180 R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-build-finalizer-q1176-q1180-r2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Derive strict dedicated finalizer without cascading range replacement
+        run: |
+          python - <<'PY'
+          import pathlib
+          src=pathlib.Path('usmle/step2_import_q1171_q1175.py').read_text()
+          def once(old,new):
+              global src
+              c=src.count(old)
+              if c!=1: raise SystemExit(f'expected exactly one marker, got {c}: {old}')
+              src=src.replace(old,new)
+
+          # Immutable identity/binding.
+          once("SPEC = ROOT / 'batch_specs_1101_1200' / '08_q1171_q1175.json'", "SPEC = ROOT / 'batch_specs_1101_1200' / '09_q1176_q1180.json'")
+          once("PREFLIGHT = AUDIT_DIR / 'PREFLIGHT_Q1171_Q1175.json'", "PREFLIGHT = AUDIT_DIR / 'PREFLIGHT_Q1176_Q1180.json'")
+          once("FINAL_AUDIT = AUDIT_DIR / 'STEP2_FINAL_10_10_Q0001_Q1175.json'", "FINAL_AUDIT = AUDIT_DIR / 'STEP2_FINAL_10_10_Q0001_Q1180.json'")
+          once("FINAL_STATE = ROOT / 'state' / 'step2_final_q0001_q1175.json'", "FINAL_STATE = ROOT / 'state' / 'step2_final_q0001_q1180.json'")
+          once("EXPECTED_PRE_DB_BLOB = '029f5d77e1e7f2c2a48850b4e7f889f05df773b3'", "EXPECTED_PRE_DB_BLOB = 'c42033ba0c8de7bdb6aae7d9c978dcef24123a64'")
+          once("EXPECTED_SPEC_BLOB = 'ad42fc04ba62fc2a0d66a60457709a275120e08f'", "EXPECTED_SPEC_BLOB = 'f0b337fae4b13a0a75a994b67010144e37c4f127'")
+          once("AUDIT_ID = 'STEP2-FINAL-Q0001-Q1175-20260903'", "AUDIT_ID = 'STEP2-FINAL-Q0001-Q1180-20260904'")
+          once("NEW_RANGE = range(1171,1176)", "NEW_RANGE = range(1176,1181)")
+          once("KEY_SCHEDULE = {1171:'C',1172:'A',1173:'E',1174:'B',1175:'D'}", "KEY_SCHEDULE = {1176:'B',1177:'D',1178:'A',1179:'C',1180:'E'}")
+
+          # Distribution targets.
+          for old,new in [
+            ('"Respiratory and Renal/Urinary Systems":146,','"Respiratory and Renal/Urinary Systems":147,'),
+            ('"Behavioral Health, Nervous Systems and Special Senses":132,','"Behavioral Health, Nervous Systems and Special Senses":133,'),
+            ('"Musculoskeletal, Skin and Subcutaneous Tissue":112,','"Musculoskeletal, Skin and Subcutaneous Tissue":113,'),
+            ('"Reproductive and Endocrine Systems":152,','"Reproductive and Endocrine Systems":154,'),
+            ('"Medical Knowledge: Applying Foundational Science Concepts":796,','"Medical Knowledge: Applying Foundational Science Concepts":799,'),
+            ('"Patient Care: Diagnosis, including history and physical examination":235,','"Patient Care: Diagnosis, including history and physical examination":237,')
+          ]: once(old,new)
+          once('"Pathology":3,\n    "Physiology":2,\n    "Nutrition":0,\n    "Gross Anatomy & Embryology":1,\n    "Microbiology":0,\n    "Pharmacology":0,\n    "Behavioral Sciences":1,\n    "Biochemistry":1,\n    "Histology & Cell Biology":2,\n    "Immunology":0,\n    "Genetics":4,',
+               '"Pathology":3,\n    "Physiology":4,\n    "Nutrition":0,\n    "Gross Anatomy & Embryology":0,\n    "Microbiology":0,\n    "Pharmacology":0,\n    "Behavioral Sciences":0,\n    "Biochemistry":2,\n    "Histology & Cell Biology":1,\n    "Immunology":1,\n    "Genetics":5,')
+
+          # Pre-state binding/counts.
+          once("int(p.get('authoritative_final_count',-1))!=1170", "int(p.get('authoritative_final_count',-1))!=1175")
+          once("int(a.get('authoritative_db_final_count',-1))!=1170", "int(a.get('authoritative_db_final_count',-1))!=1175")
+          once("if len(old_items)!=1170 or len(old_reviews)!=1170:", "if len(old_items)!=1175 or len(old_reviews)!=1175:")
+          once("raise SystemExit(f'expected 1170 authoritative finals/reviews, got {len(old_items)}/{len(old_reviews)}')", "raise SystemExit(f'expected 1175 authoritative finals/reviews, got {len(old_items)}/{len(old_reviews)}')")
+          # IMPORTANT: transform original post-state range first so it cannot collide with the newly created pre-state range.
+          once("set(range(1,1176))", "set(range(1,1181))")
+          once("set(range(1,1171))", "set(range(1,1176))")
+          once("qnum(c['candidate_id'])<=1170", "qnum(c['candidate_id'])<=1175")
+
+          # New item/review identity.
+          once("cid=f'S1-DIRECT-{n:04d}-20260903T230000Z'", "cid=f'S1-DIRECT-{n:04d}-20260904T043000Z'")
+          once("'step2_audit_id':'STEP2-FINAL-Q1171-Q1175-20260903'", "'step2_audit_id':'STEP2-FINAL-Q1176-Q1180-20260904'")
+
+          # Post-state counts and persisted audit/state markers.
+          once("(AUDIT_ID,1175,key_hash,aggregate_review_hash,FINAL_AT)", "(AUDIT_ID,1180,key_hash,aggregate_review_hash,FINAL_AT)")
+          once("if len(items)!=1175 or len(revs)!=1175:", "if len(items)!=1180 or len(revs)!=1180:")
+          once("raise SystemExit('Q1171-Q1175 exact-once failure')", "raise SystemExit('Q1176-Q1180 exact-once failure')")
+          once("if reread!=1175 or new!=5:", "if reread!=1180 or new!=5:")
+          once("if not fin or fin[0]!=AUDIT_ID or fin[1]!=1175:", "if not fin or fin[0]!=AUDIT_ID or fin[1]!=1180:")
+          once("'item_count':1175,", "'item_count':1180,")
+          once("'step2_final_review_count':1175,", "'step2_final_review_count':1180,")
+          once("'range':'Q1171-Q1175',", "'range':'Q1176-Q1180',")
+          once("'verified_at':'2026-09-03',", "'verified_at':'2026-09-04',")
+          once("'reread_verified_count':1175,", "'reread_verified_count':1180,")
+          once("'q1171_q1175_present_exactly_once':True,", "'q1176_q1180_present_exactly_once':True,")
+          once("'contiguous_q0001_q1175':True,", "'contiguous_q0001_q1180':True,")
+
+          forbidden=['08_q1171_q1175.json','PREFLIGHT_Q1171_Q1175.json','Q0001_Q1175','q0001_q1175','STEP2-FINAL-Q1171-Q1175-20260903','Q1171-Q1175 exact-once','reread!=1175','fin[1]!=1175','len(old_items)!=1170','set(range(1,1171))','<=1170']
+          for m in forbidden:
+              if m in src: raise SystemExit('stale finalizer marker remains: '+m)
+          required=["EXPECTED_PRE_DB_BLOB = 'c42033ba0c8de7bdb6aae7d9c978dcef24123a64'","EXPECTED_SPEC_BLOB = 'f0b337fae4b13a0a75a994b67010144e37c4f127'","NEW_RANGE = range(1176,1181)","KEY_SCHEDULE = {1176:'B',1177:'D',1178:'A',1179:'C',1180:'E'}","if len(old_items)!=1175 or len(old_reviews)!=1175:","set(range(1,1176))","set(range(1,1181))","if len(items)!=1180 or len(revs)!=1180:","'item_count':1180,","'contiguous_q0001_q1180':True,"]
+          for m in required:
+              if m not in src: raise SystemExit('required finalizer marker missing: '+m)
+          pathlib.Path('usmle/step2_import_q1176_q1180.py').write_text(src)
+          PY
+      - name: Compile and static-assert finalizer
+        run: |
+          python -m py_compile usmle/step2_import_q1176_q1180.py
+          grep -F "KEY_SCHEDULE = {1176:'B',1177:'D',1178:'A',1179:'C',1180:'E'}" usmle/step2_import_q1176_q1180.py
+          grep -F "if len(old_items)!=1175 or len(old_reviews)!=1175:" usmle/step2_import_q1176_q1180.py
+          grep -F "if len(items)!=1180 or len(revs)!=1180:" usmle/step2_import_q1176_q1180.py
+      - name: Persist dedicated finalizer
+        run: |
+          git config user.name 'USMLE Finalizer Builder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/step2_import_q1176_q1180.py
+          git commit -m 'Add strict USMLE Q1176-Q1180 finalizer'
+          git pull --rebase origin main
+          git push origin HEAD:main
