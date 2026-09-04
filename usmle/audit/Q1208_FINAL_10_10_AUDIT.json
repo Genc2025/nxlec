@@ -1,0 +1,154 @@
+{
+  "audit_id": "Q1208-FINAL-10-10-20260904",
+  "item": "Q1208",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-09-04T04:40:00Z",
+  "auditor_model": "GPT-5.6 Sol",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
+  "authoritative_db_final_count": 1190,
+  "exact_spec_sha": "6a6782a926c9b598539e3d9ef9ffc11cacc2916e",
+  "preflight_run_id": 33837206278,
+  "forward_duplicate_run_id": 33837406273,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "construct": {
+    "diagnosis_or_process": "Hereditary xanthinuria type I due to XDH deficiency",
+    "mechanism": "Xanthine dehydrogenase catalyzes the final two steps of purine degradation: hypoxanthine to xanthine and xanthine to uric acid. XDH loss therefore causes profound hypouricemia/hypouricosuria with xanthine accumulation and xanthine nephrolithiasis.",
+    "primary_system": "Respiratory and Renal/Urinary Systems",
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts"
+  },
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-09-04",
+    "note": "All item sources are current official USMLE, U.S. government, NLM/NCBI/GeneReviews/Endotext, or NIH/NLM-indexed primary literature as specified."
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": "Each source entry contains an explicit locator tied to the supported claim.",
+  "source_verification": [
+    {
+      "source": "Step 1 Exam Content",
+      "organization": "United States Medical Licensing Examination",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+      "locator": "Respiratory & Renal/Urinary Systems; Medical Knowledge competency",
+      "status": "PASS",
+      "claim": "Supports blueprint classification."
+    },
+    {
+      "source": "XDH gene: MedlinePlus Genetics",
+      "organization": "National Library of Medicine",
+      "url": "https://medlineplus.gov/genetics/gene/xdh/",
+      "locator": "Hereditary xanthinuria",
+      "status": "PASS",
+      "claim": "Explains that XDH deficiency blocks the final two steps of purine breakdown, produces high xanthine and very low uric acid, and causes xanthine kidney stones."
+    },
+    {
+      "source": "Hereditary xanthinuria: MedlinePlus Genetics",
+      "organization": "National Library of Medicine",
+      "url": "https://medlineplus.gov/genetics/condition/hereditary-xanthinuria/",
+      "locator": "Description; Causes",
+      "status": "PASS",
+      "claim": "Supports xanthine accumulation, low uric acid, kidney stones, and type I XDH disease."
+    }
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "option_total": 5,
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "second_answer_attack": {
+    "strongest_alternative": "HGPRT deficiency causing Lesch-Nyhan syndrome.",
+    "resolution": "HGPRT deficiency drives uric-acid overproduction and hyperuricemia. XDH loss blocks terminal purine oxidation, producing xanthine accumulation with extremely low serum and urinary uric acid and xanthine stones.",
+    "result": "PASS_NONE"
+  },
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "difficulty": "PASS",
+  "difficulty_rating": "moderate-hard",
+  "construct_fit": "PASS",
+  "hidden_assumptions": "PASS_NONE_MATERIAL",
+  "fabricated_distractors": "PASS_NONE",
+  "numerical_claims": {
+    "status": "PASS",
+    "note": "No unsupported threshold or calculated numerical claim is required to distinguish the key."
+  },
+  "forward_exact_duplicate_check": "PASS",
+  "canonical_main_construct_overlap": "PASS_NONE",
+  "within_batch_construct_collision": "PASS_NONE",
+  "duplicate_gate": {
+    "status": "PASS",
+    "preflight_run_id": 33837206278,
+    "forward_run_id": 33837406273,
+    "canonical_count_checked": 1190,
+    "within_batch_count_checked": 25
+  },
+  "option_audit": {
+    "status": "PASS",
+    "option_count": 5,
+    "unique_options": true,
+    "single_best_answer": true,
+    "parallel_enough_for_construct": true
+  },
+  "adversarial_second_pass": {
+    "result": "PASS",
+    "note": "Re-read from zero after exact-source, canonical-overlap, within-batch, option, mechanism-direction, and second-answer attacks; no material defect remained."
+  },
+  "expert_review_layer": {
+    "status": "PASS",
+    "answer_granularity": "PASS",
+    "mechanism_direction": "PASS",
+    "temporal_sequence": "PASS",
+    "scope_match": "PASS",
+    "negative_evidence": "PASS",
+    "distractor_ontology": "PASS",
+    "answer_key_inversion": "PASS",
+    "minimal_information": "PASS",
+    "clinical_base_rate": "PASS",
+    "units_numbers_thresholds": "PASS",
+    "terminology_drift": "PASS",
+    "source_disagreement": "PASS",
+    "educational_objective_leakage": "PASS",
+    "cross_item_contamination": "PASS",
+    "expert_reviewer_reversal": "PASS"
+  },
+  "key_integrity_gate": {
+    "status": "PASS",
+    "factually_correct": "PASS",
+    "stem_supports_key": "PASS",
+    "lead_in_matches_answer_granularity": "PASS",
+    "no_second_defensible_answer": "PASS",
+    "no_authoritative_source_conflict": "PASS",
+    "no_required_hidden_assumption": "PASS"
+  },
+  "realism_gate": {
+    "status": "PASS",
+    "clinically_contextualized": "PASS",
+    "foundational_science_application": "PASS",
+    "stem_signal_to_noise": "PASS",
+    "distractor_plausibility": "PASS",
+    "option_parallelism": "PASS",
+    "nbme_style_single_best_answer": "PASS",
+    "core_step1_relevance": "PASS",
+    "mechanism_depth": "PASS"
+  },
+  "official_discipline_gate": {
+    "status": "PASS",
+    "all_tags_in_usmle_table3": true,
+    "tags": [
+      "Biochemistry",
+      "Genetics"
+    ]
+  },
+  "reverified_at": "2026-09-04T04:40:00Z"
+}

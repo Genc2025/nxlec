@@ -1,0 +1,155 @@
+{
+  "audit_id": "Q1206-FINAL-10-10-20260904",
+  "item": "Q1206",
+  "status": "FINAL_10_10_PASS",
+  "audited_at": "2026-09-04T04:40:00Z",
+  "auditor_model": "GPT-5.6 Sol",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
+  "authoritative_db_final_count": 1190,
+  "exact_spec_sha": "6a6782a926c9b598539e3d9ef9ffc11cacc2916e",
+  "preflight_run_id": 33837206278,
+  "forward_duplicate_run_id": 33837406273,
+  "db_write": false,
+  "unresolved_conflicts": 0,
+  "construct": {
+    "diagnosis_or_process": "Hereditary hypophosphatemic rickets with hypercalciuria due to SLC34A3 dysfunction",
+    "mechanism": "SLC34A3 encodes the proximal-tubule sodium-phosphate cotransporter NaPi-IIc. Loss of function causes renal phosphate wasting and hypophosphatemia. The low phosphate appropriately stimulates 1,25-dihydroxyvitamin D, increasing intestinal calcium absorption and producing hypercalciuria—a key discriminator from FGF23-mediated hypophosphatemic disorders.",
+    "primary_system": "Respiratory and Renal/Urinary Systems",
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts"
+  },
+  "source_authority": "PASS",
+  "source_currentness": {
+    "status": "PASS",
+    "verified_at": "2026-09-04",
+    "note": "All item sources are current official USMLE, U.S. government, NLM/NCBI/GeneReviews/Endotext, or NIH/NLM-indexed primary literature as specified."
+  },
+  "exact_locator": "PASS",
+  "exact_locator_notes": "Each source entry contains an explicit locator tied to the supported claim.",
+  "source_verification": [
+    {
+      "source": "Step 1 Exam Content",
+      "organization": "United States Medical Licensing Examination",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+      "locator": "Respiratory & Renal/Urinary Systems; Medical Knowledge competency",
+      "status": "PASS",
+      "claim": "Supports blueprint classification."
+    },
+    {
+      "source": "X-Linked Hypophosphatemia — Differential hereditary phosphate-wasting disorders",
+      "organization": "National Center for Biotechnology Information, GeneReviews",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK83985/",
+      "locator": "Table: Hereditary disorders with renal phosphate wasting — SLC34A3/HHRH",
+      "status": "PASS",
+      "claim": "Identifies SLC34A3 HHRH and its hypophosphatemia, hypercalciuria, elevated 1,25-dihydroxyvitamin D, osteopenia, and nephrolithiasis/nephrocalcinosis pattern."
+    },
+    {
+      "source": "Hereditary Hypophosphatemic Rickets with Hypercalciuria Is Caused by Mutations in the Sodium-Phosphate Cotransporter Gene SLC34A3",
+      "organization": "National Library of Medicine, PubMed Central",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1380229/",
+      "locator": "Abstract; SLC34A3/NaPi-IIc mechanism",
+      "status": "PASS",
+      "claim": "Supports proximal-tubule NaPi-IIc dysfunction, phosphate wasting, elevated calcitriol, and hypercalciuria."
+    }
+  ],
+  "stem": "PASS",
+  "lead_in": "PASS",
+  "correct_answer": "PASS",
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
+  "option_total": 5,
+  "rationale": "PASS",
+  "educational_objective": "PASS",
+  "ambiguity": "PASS",
+  "second_possible_answer": "PASS_NONE",
+  "second_answer_attack": {
+    "strongest_alternative": "FGF23-mediated X-linked hypophosphatemia.",
+    "resolution": "Both cause renal phosphate wasting, but FGF23 excess suppresses or inappropriately normalizes calcitriol and typically does not cause the marked hypercalciuria of HHRH. High calcitriol plus hypercalciuria and SLC34A3 point to NaPi-IIc loss.",
+    "result": "PASS_NONE"
+  },
+  "cueing": "PASS",
+  "overlap": "PASS",
+  "zero_unsupported_precision": "PASS",
+  "difficulty": "PASS",
+  "difficulty_rating": "hard",
+  "construct_fit": "PASS",
+  "hidden_assumptions": "PASS_NONE_MATERIAL",
+  "fabricated_distractors": "PASS_NONE",
+  "numerical_claims": {
+    "status": "PASS",
+    "note": "No unsupported threshold or calculated numerical claim is required to distinguish the key."
+  },
+  "forward_exact_duplicate_check": "PASS",
+  "canonical_main_construct_overlap": "PASS_NONE",
+  "within_batch_construct_collision": "PASS_NONE",
+  "duplicate_gate": {
+    "status": "PASS",
+    "preflight_run_id": 33837206278,
+    "forward_run_id": 33837406273,
+    "canonical_count_checked": 1190,
+    "within_batch_count_checked": 25
+  },
+  "option_audit": {
+    "status": "PASS",
+    "option_count": 5,
+    "unique_options": true,
+    "single_best_answer": true,
+    "parallel_enough_for_construct": true
+  },
+  "adversarial_second_pass": {
+    "result": "PASS",
+    "note": "Re-read from zero after exact-source, canonical-overlap, within-batch, option, mechanism-direction, and second-answer attacks; no material defect remained."
+  },
+  "expert_review_layer": {
+    "status": "PASS",
+    "answer_granularity": "PASS",
+    "mechanism_direction": "PASS",
+    "temporal_sequence": "PASS",
+    "scope_match": "PASS",
+    "negative_evidence": "PASS",
+    "distractor_ontology": "PASS",
+    "answer_key_inversion": "PASS",
+    "minimal_information": "PASS",
+    "clinical_base_rate": "PASS",
+    "units_numbers_thresholds": "PASS",
+    "terminology_drift": "PASS",
+    "source_disagreement": "PASS",
+    "educational_objective_leakage": "PASS",
+    "cross_item_contamination": "PASS",
+    "expert_reviewer_reversal": "PASS"
+  },
+  "key_integrity_gate": {
+    "status": "PASS",
+    "factually_correct": "PASS",
+    "stem_supports_key": "PASS",
+    "lead_in_matches_answer_granularity": "PASS",
+    "no_second_defensible_answer": "PASS",
+    "no_authoritative_source_conflict": "PASS",
+    "no_required_hidden_assumption": "PASS"
+  },
+  "realism_gate": {
+    "status": "PASS",
+    "clinically_contextualized": "PASS",
+    "foundational_science_application": "PASS",
+    "stem_signal_to_noise": "PASS",
+    "distractor_plausibility": "PASS",
+    "option_parallelism": "PASS",
+    "nbme_style_single_best_answer": "PASS",
+    "core_step1_relevance": "PASS",
+    "mechanism_depth": "PASS"
+  },
+  "official_discipline_gate": {
+    "status": "PASS",
+    "all_tags_in_usmle_table3": true,
+    "tags": [
+      "Physiology",
+      "Genetics",
+      "Biochemistry"
+    ]
+  },
+  "reverified_at": "2026-09-04T04:40:00Z"
+}
