@@ -1,0 +1,125 @@
+name: USMLE Preflight Q1191-Q1215
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-preflight-q1191-q1215.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-preflight-q1191-q1215
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact specs, canonical overlap, and within-batch collisions
+        run: |
+          python - <<'PY'
+          import json,pathlib,re,sqlite3,subprocess
+          from difflib import SequenceMatcher
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          files=[
+            ('usmle/batch_specs_1101_1200/12_q1191_q1195.json','cbcec34a0d1791f344a9226305680bc2eec3debe'),
+            ('usmle/batch_specs_1101_1200/13_q1196_q1200.json','854078c41087450d3d05729c4f2fa430f1b5573e'),
+            ('usmle/batch_specs_1201_1300/01_q1201_q1205.json','1e350647b0f68ff2e7a20cbfc903949307306179'),
+            ('usmle/batch_specs_1201_1300/02_q1206_q1210.json','6a6782a926c9b598539e3d9ef9ffc11cacc2916e'),
+            ('usmle/batch_specs_1201_1300/03_q1211_q1215.json','fc6053ebafcf9751d2c00e5cb70264bbe9d7418a'),
+          ]
+          expected_db='987c82084e1906854c03fe21e7dfc4f9d46be923'
+          def blob(p): return subprocess.check_output(['git','hash-object',p],text=True).strip()
+          def norm(s): return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
+          def words(s): return set(norm(s).split())
+          def jac(a,b): return len(a&b)/len(a|b) if (a or b) else 0.0
+          def qnum(cid):
+              m=re.search(r'DIRECT-(\d{4})',cid or '')
+              return int(m.group(1)) if m else None
+          db_blob=blob(str(db)); assert db_blob==expected_db,(db_blob,expected_db)
+          specs=[]; spec_blobs={}
+          for p,e in files:
+              b=blob(p); assert b==e,(p,b,e); spec_blobs[p]=b
+              x=json.load(open(p)); assert len(x)==5,(p,len(x)); specs.extend(x)
+          assert [int(x['num']) for x in specs]==list(range(1191,1216))
+          assert all(len(x.get('distractors',[]))==4 and len(x.get('distractor_notes',[]))==4 for x in specs)
+          assert all(len(x.get('sources',[]))>=2 for x in specs)
+          assert all(x.get('primary_competency') and x.get('disciplines') for x in specs)
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1190
+          assert {qnum(cid) for cid,_ in rows}==set(range(1,1191))
+          assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
+          canonical=[]
+          for cid,pj in rows:
+              p=json.loads(pj); i=p.get('item',{}); sf=p.get('semantic_fingerprint',{})
+              full=' '.join([i.get('vignette',''),i.get('lead_in',''),' '.join(i.get('options',{}).values()),sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),i.get('tested_construct','')])
+              main=' '.join([sf.get('diagnosis_or_process',''),sf.get('mechanism',''),sf.get('correct_answer_concept',''),i.get('tested_construct',''),i.get('lead_in','')])
+              canonical.append((cid,norm(full),words(full),sf,norm(main)))
+          report=[]; blocked=False
+          for x in specs:
+              diag=norm(x['diagnosis']); mech=norm(x['mechanism']); corr=norm(x['correct']); qw=words(' '.join([diag,mech,corr]))
+              terms=[norm(t) for t in x.get('duplicate_probe_terms',[]) if norm(t)]
+              hits=[]; termhits=[]; top=[]
+              for cid,full,fw,sf,main in canonical:
+                  sd=norm(sf.get('diagnosis_or_process','')); sm=norm(sf.get('mechanism',''))
+                  if sd and (diag==sd or (len(diag)>20 and diag in sd) or (len(sd)>20 and sd in diag)):
+                      hits.append({'candidate_id':cid,'type':'semantic_diagnosis_overlap','canonical':sf.get('diagnosis_or_process','')})
+                  if sm and mech and SequenceMatcher(None,mech,sm).ratio()>=0.82:
+                      hits.append({'candidate_id':cid,'type':'mechanism_high_similarity'})
+                  for t in terms:
+                      if t in main: termhits.append({'candidate_id':cid,'term':t,'scope':'canonical_main_construct'})
+                  j=jac(qw,fw)
+                  if j>=0.10: top.append((j,cid))
+              def dedup(a,keys):
+                  out=[]; seen=set()
+                  for e in a:
+                      k=tuple(e.get(z) for z in keys)
+                      if k not in seen: seen.add(k); out.append(e)
+                  return out
+              hits=dedup(hits,['candidate_id','type']); termhits=dedup(termhits,['candidate_id','term'])
+              st='PASS' if not hits and not termhits else 'BLOCKED'; blocked|=st!='PASS'
+              report.append({'num':x['num'],'diagnosis':x['diagnosis'],'status':st,'exact_or_semantic_hits':hits,'unique_term_hits':termhits,'top_lexical_jaccard':[{'candidate_id':cid,'score':round(j,4)} for j,cid in sorted(top,reverse=True)[:5]]})
+          internal=[]
+          for i,a in enumerate(specs):
+              for b in specs[i+1:]:
+                  da,dbb=norm(a['diagnosis']),norm(b['diagnosis']); ma,mb=norm(a['mechanism']),norm(b['mechanism'])
+                  reasons=[]
+                  if da==dbb or (len(da)>20 and da in dbb) or (len(dbb)>20 and dbb in da): reasons.append('diagnosis_overlap')
+                  ms=SequenceMatcher(None,ma,mb).ratio() if ma and mb else 0
+                  if ms>=0.78: reasons.append('mechanism_similarity_'+str(round(ms,3)))
+                  ta={norm(t) for t in a.get('duplicate_probe_terms',[]) if norm(t)}; tb={norm(t) for t in b.get('duplicate_probe_terms',[]) if norm(t)}
+                  if ta&tb: reasons.append('shared_duplicate_probe_term')
+                  if reasons: internal.append({'a':a['num'],'b':b['num'],'reasons':reasons})
+          if internal: blocked=True
+          result={
+            'preflight_id':'Q1191-Q1215-PREFLIGHT-20260904',
+            'authoritative_db':'usmle/data/usmle-step1.db','authoritative_db_blob':db_blob,'authoritative_final_count':1190,
+            'sqlite_integrity_check':'ok','contiguous_q0001_q1190':True,'duplicate_candidate_id_count':0,
+            'spec_blobs':spec_blobs,'spec_count':25,'items':report,'within_batch_collisions':internal,
+            'overall_status':'BLOCKED' if blocked else 'PASS'
+          }
+          pathlib.Path('usmle/audit/PREFLIGHT_Q1191_Q1215.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(result,indent=2,ensure_ascii=False))
+          con.close()
+          if blocked: raise SystemExit('material canonical or within-batch overlap detected')
+          PY
+      - name: Persist preflight report
+        run: |
+          git config user.name 'USMLE Preflight'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/PREFLIGHT_Q1191_Q1215.json
+          git commit -m 'Preflight USMLE Q1191-Q1215 against canonical 1190'
+          git pull --rebase origin main
+          git push origin HEAD:main
