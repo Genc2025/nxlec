@@ -14,7 +14,7 @@ SPEC_FILES = [
     (ROOT / 'batch_specs_1201_1300/02_q1206_q1210.json', '6a6782a926c9b598539e3d9ef9ffc11cacc2916e', 1206, 1210),
     (ROOT / 'batch_specs_1201_1300/03_q1211_q1215.json', 'fc6053ebafcf9751d2c00e5cb70264bbe9d7418a', 1211, 1215),
 ]
-EXPECTED_SPEC_BLOBS = {str(p.relative_to(ROOT)):h for p,h,_,_ in SPEC_FILES}
+EXPECTED_SPEC_BLOBS = {str(p.relative_to(REPO)):h for p,h,_,_ in SPEC_FILES}
 AUDIT_DIR = ROOT / 'audit'
 PREFLIGHT = AUDIT_DIR / 'PREFLIGHT_Q1191_Q1215.json'
 FORWARD = AUDIT_DIR / 'FORWARD_EXACT_Q1191_Q1215.json'
@@ -27,6 +27,12 @@ AUDIT_ID = 'STEP2-FINAL-Q0001-Q1215-20260904'
 NEW_RANGE = range(1191,1216)
 KEY_SEQUENCE = 'CEBADDABECEACDBBDECAACBED'
 KEY_SCHEDULE = {n:k for n,k in zip(NEW_RANGE,KEY_SEQUENCE)}
+AUDIT_SCORE_DOMAINS = (
+    'blueprint_fidelity', 'key_correctness', 'distractor_integrity',
+    'single_best_answer', 'reasoning_and_difficulty', 'item_writing',
+    'cueing_bias_fairness', 'evidence_quality',
+    'originality_duplication_rights', 'technical_integrity',
+)
 
 EXPECTED_BLUEPRINT = {'Human Development': 33, 'Respiratory and Renal/Urinary Systems': 154, 'Blood, Lymphoreticular and Immune Systems': 127, 'Behavioral Health, Nervous Systems and Special Senses': 140, 'Musculoskeletal, Skin and Subcutaneous Tissue': 120, 'Cardiovascular System': 105, 'Gastrointestinal System': 99, 'Reproductive and Endocrine Systems': 161, 'Multisystem Processes and Disorders': 127, 'Biostatistics, Epidemiology and Population Health': 65, 'Social Sciences: Communication and Interpersonal Skills': 84}
 EXPECTED_COMPETENCIES = {'Medical Knowledge: Applying Foundational Science Concepts': 820, 'Patient Care: Diagnosis, including history and physical examination': 244, 'Practice-Based Learning and Improvement': 66, 'Communication and Interpersonal Skills': 85}
@@ -147,6 +153,24 @@ def load_preflight():
             raise SystemExit(f"Q{int(x.get('num',-1)):04d} forward exact failure")
     return p
 
+def require_recorded_audit(a, n):
+    """Necessary acceptance evidence; this does not perform an independent audit."""
+    scores = a.get('scores')
+    if not isinstance(scores, dict) or set(scores) != set(AUDIT_SCORE_DOMAINS):
+        raise SystemExit(f'Q{n:04d}: missing recorded ten-domain auditor scores')
+    if any(type(scores[k]) is not int or scores[k] != 10 for k in AUDIT_SCORE_DOMAINS):
+        raise SystemExit(f'Q{n:04d}: auditor scores must each be integer 10')
+    if a.get('verdict') != 'PASS_WITH_NO_CHANGES':
+        raise SystemExit(f'Q{n:04d}: missing PASS_WITH_NO_CHANGES auditor verdict')
+    if a.get('defects') != [] or a.get('suggested_changes') != []:
+        raise SystemExit(f'Q{n:04d}: missing or nonempty auditor findings')
+    blind = a.get('blind_audit')
+    if not isinstance(blind, dict) or blind.get('selected_key') != KEY_SCHEDULE[n]:
+        raise SystemExit(f'Q{n:04d}: missing or mismatched recorded blind answer')
+    for field in ('alternative_defensible_options', 'missing_assumptions', 'cueing_findings'):
+        if blind.get(field) != []:
+            raise SystemExit(f'Q{n:04d}: missing or unresolved blind audit {field}')
+
 def load_audits():
     out={}
     for n in NEW_RANGE:
@@ -154,6 +178,7 @@ def load_audits():
         if not p.exists():
             raise SystemExit('missing audit '+str(p))
         a=json.loads(p.read_text())
+        require_recorded_audit(a, n)
         if a.get('item')!=f'Q{n:04d}' or a.get('status')!='FINAL_10_10_PASS':
             raise SystemExit(f'Q{n:04d} audit identity/status failure')
         if a.get('authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB or int(a.get('authoritative_db_final_count',-1))!=1190:
@@ -207,6 +232,9 @@ def load_audits():
 
 def build_payload(template,x,key,audit,audit_path):
     n=int(x['num'])
+    require_recorded_audit(audit, n)
+    if key != KEY_SCHEDULE[n]:
+        raise SystemExit(f'Q{n:04d}: payload key differs from audited option schedule')
     if len(x.get('distractors',[]))!=4 or len(x.get('distractor_notes',[]))!=4:
         raise SystemExit(f'Q{n:04d}: four distractors/notes required')
     if len(x.get('sources',[]))<2:
@@ -304,10 +332,11 @@ def build_payload(template,x,key,audit,audit_path):
         'difficulty_remediation':{'passed':True,'rating':c['item']['difficulty'],'basis':c['item']['difficulty_basis']},
         'evidence_remediation':{'passed':True,'five_option_map':True,'authoritative_source_count':len(src),
                                 'source_urls':[s['url'] for s in src],'exact_locator_required':True},
-        'scores':{k:10 for k in ('blueprint_fidelity','key_correctness','distractor_integrity','single_best_answer',
-                                  'reasoning_and_difficulty','item_writing','cueing_bias_fairness','evidence_quality',
-                                  'originality_duplication_rights','technical_integrity')},
-        'defects':[],
+        'scores':copy.deepcopy(audit['scores']),
+        'blind_audit':copy.deepcopy(audit['blind_audit']),
+        'defects':copy.deepcopy(audit['defects']),
+        'suggested_changes':copy.deepcopy(audit['suggested_changes']),
+        'independent_auditor_verdict':audit['verdict'],
         'verdict':audit['status']
     }
     rh=hobj(review)
