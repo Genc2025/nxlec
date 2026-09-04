@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'usmle/build_finalizer_q1191_q1215.py'
       - '.github/workflows/usmle-build-finalizer-q1191-q1215.yml'
 
 permissions:
@@ -25,226 +26,19 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Derive 25-item finalizer from last production-success finalizer
-        run: |
-          python - <<'PY'
-          import pathlib,subprocess
-          base=pathlib.Path('usmle/step2_import_q1186_q1190.py')
-          src=base.read_text()
-          assert subprocess.check_output(['git','hash-object',str(base)],text=True).strip()=='60c5063698fecd7b160304781953a3df3e1c9b9f'
-          # Replace constant/config block in one operation.
-          a=src.index("SPEC = ROOT / 'batch_specs_1101_1200' / '11_q1186_q1190.json'")
-          b=src.index("GOV_ROOTS =",a)
-          config="""SPEC_FILES = [
-    (ROOT / 'batch_specs_1101_1200' / '12_q1191_q1195.json','cbcec34a0d1791f344a9226305680bc2eec3debe'),
-    (ROOT / 'batch_specs_1101_1200' / '13_q1196_q1200.json','854078c41087450d3d05729c4f2fa430f1b5573e'),
-    (ROOT / 'batch_specs_1201_1300' / '01_q1201_q1205.json','1e350647b0f68ff2e7a20cbfc903949307306179'),
-    (ROOT / 'batch_specs_1201_1300' / '02_q1206_q1210.json','6a6782a926c9b598539e3d9ef9ffc11cacc2916e'),
-    (ROOT / 'batch_specs_1201_1300' / '03_q1211_q1215.json','fc6053ebafcf9751d2c00e5cb70264bbe9d7418a'),
-]
-EXPECTED_SPEC_BLOBS = {str(p.relative_to(ROOT)):h for p,h in SPEC_FILES}
-AUDIT_DIR = ROOT / 'audit'
-PREFLIGHT = AUDIT_DIR / 'PREFLIGHT_Q1191_Q1215.json'
-FORWARD = AUDIT_DIR / 'FORWARD_EXACT_Q1191_Q1215.json'
-FINAL_AUDIT = AUDIT_DIR / 'STEP2_FINAL_10_10_Q0001_Q1215.json'
-FINAL_STATE = ROOT / 'state' / 'step2_final_q0001_q1215.json'
-FINAL_AT = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
-
-EXPECTED_PRE_DB_BLOB = '987c82084e1906854c03fe21e7dfc4f9d46be923'
-AUDIT_ID = 'STEP2-FINAL-Q0001-Q1215-20260904'
-NEW_RANGE = range(1191,1216)
-KEY_SEQUENCE = 'CEBADDABECEACDBBDECAACBED'
-KEY_SCHEDULE = {n:k for n,k in zip(NEW_RANGE,KEY_SEQUENCE)}
-
-EXPECTED_BLUEPRINT = {
-    "Human Development":33,
-    "Respiratory and Renal/Urinary Systems":154,
-    "Blood, Lymphoreticular and Immune Systems":127,
-    "Behavioral Health, Nervous Systems and Special Senses":140,
-    "Musculoskeletal, Skin and Subcutaneous Tissue":120,
-    "Cardiovascular System":105,
-    "Gastrointestinal System":99,
-    "Reproductive and Endocrine Systems":161,
-    "Multisystem Processes and Disorders":127,
-    "Biostatistics, Epidemiology and Population Health":65,
-    "Social Sciences: Communication and Interpersonal Skills":84,
-}
-EXPECTED_COMPETENCIES = {
-    "Medical Knowledge: Applying Foundational Science Concepts":821,
-    "Patient Care: Diagnosis, including history and physical examination":243,
-    "Practice-Based Learning and Improvement":66,
-    "Communication and Interpersonal Skills":85,
-}
-OFFICIAL_DISCIPLINES = (
-    'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology',
-    'Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'
-)
-EXPECTED_NEW_DISCIPLINES = {
-    "Pathology":10,
-    "Physiology":14,
-    "Nutrition":0,
-    "Gross Anatomy & Embryology":1,
-    "Microbiology":0,
-    "Pharmacology":0,
-    "Behavioral Sciences":5,
-    "Biochemistry":9,
-    "Histology & Cell Biology":2,
-    "Immunology":0,
-    "Genetics":20,
-}
-"""
-          src=src[:a]+config+src[b:]
-          # Replace loaders as whole functions.
-          s=src.index('def load_specs():')
-          e=src.index('def load_preflight():',s)
-          load_specs="""def load_specs():
-    specs={}; sha_by={}
-    for path,expected in SPEC_FILES:
-        got=file_blob(path)
-        if got!=expected:
-            raise SystemExit(f'spec blob mismatch {path}: expected {expected}, got {got}')
-        arr=json.loads(path.read_text())
-        if not isinstance(arr,list) or len(arr)!=5:
-            raise SystemExit('spec file shape failure '+str(path))
-        for x in arr:
-            n=int(x.get('num',-1))
-            if n in specs:
-                raise SystemExit(f'duplicate staged spec Q{n:04d}')
-            specs[n]=x; sha_by[n]=expected
-    if sorted(specs)!=list(NEW_RANGE):
-        raise SystemExit('spec coverage/order failure')
-    return specs,sha_by
-
-"""
-          src=src[:s]+load_specs+src[e:]
-          s=src.index('def load_preflight():')
-          e=src.index('def load_audits():',s)
-          load_pre="""def load_preflight():
-    p=json.loads(PREFLIGHT.read_text())
-    if p.get('overall_status')!='PASS' or int(p.get('spec_count',-1))!=25:
-        raise SystemExit('preflight overall/count failure')
-    if p.get('authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB or int(p.get('authoritative_final_count',-1))!=1190:
-        raise SystemExit('preflight bound to wrong DB state')
-    if p.get('spec_blobs')!=EXPECTED_SPEC_BLOBS:
-        raise SystemExit(f'preflight spec-blob binding failure {p.get("spec_blobs")}')
-    if p.get('within_batch_collisions')!=[]:
-        raise SystemExit('preflight within-batch collision failure')
-    rows=p.get('items',[])
-    if {int(x.get('num',-1)) for x in rows}!=set(NEW_RANGE) or len(rows)!=25:
-        raise SystemExit('preflight item coverage failure')
-    for x in rows:
-        if x.get('status')!='PASS' or x.get('exact_or_semantic_hits') or x.get('unique_term_hits'):
-            raise SystemExit(f"Q{int(x.get('num',-1)):04d} preflight overlap failure")
-    f=json.loads(FORWARD.read_text())
-    if f.get('overall_status')!='PASS' or int(f.get('checked_item_count',-1))!=25 or int(f.get('clear_count',-1))!=25:
-        raise SystemExit('forward exact overall/count failure')
-    if f.get('authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB or int(f.get('authoritative_final_count',-1))!=1190:
-        raise SystemExit('forward exact DB binding failure')
-    if f.get('spec_blobs')!=EXPECTED_SPEC_BLOBS:
-        raise SystemExit('forward exact spec-blob binding failure')
-    for x in f.get('items',[]):
-        if x.get('status')!='PASS' or x.get('canonical_hits') or x.get('canonical_main_term_hits'):
-            raise SystemExit(f"Q{int(x.get('num',-1)):04d} forward exact failure")
-    return p,f
-
-"""
-          src=src[:s]+load_pre+src[e:]
-          s=src.index('def load_audits():')
-          e=src.index('def build_payload',s)
-          load_aud="""def load_audits(sha_by):
-    out={}
-    for n in NEW_RANGE:
-        p=AUDIT_DIR/f'Q{n:04d}_FINAL_10_10_AUDIT.json'
-        if not p.exists(): raise SystemExit('missing audit '+str(p))
-        a=json.loads(p.read_text())
-        if a.get('item')!=f'Q{n:04d}' or a.get('status')!='FINAL_10_10_PASS':
-            raise SystemExit(f'Q{n:04d} audit identity/status failure')
-        if a.get('authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB or int(a.get('authoritative_db_final_count',-1))!=1190:
-            raise SystemExit(f'Q{n:04d} audit DB binding failure')
-        if a.get('exact_spec_sha')!=sha_by[n]:
-            raise SystemExit(f'Q{n:04d} audit spec binding failure')
-        if a.get('db_write') is not False or int(a.get('unresolved_conflicts',-1))!=0:
-            raise SystemExit(f'Q{n:04d} staged/write/conflict failure')
-        required={'source_authority':'PASS','exact_locator':'PASS','stem':'PASS','lead_in':'PASS','correct_answer':'PASS','rationale':'PASS','educational_objective':'PASS','ambiguity':'PASS','second_possible_answer':'PASS_NONE','cueing':'PASS','overlap':'PASS','zero_unsupported_precision':'PASS','forward_exact_duplicate_check':'PASS','canonical_main_construct_overlap':'PASS_NONE','within_batch_construct_collision':'PASS_NONE'}
-        for k,v in required.items():
-            if a.get(k)!=v: raise SystemExit(f'Q{n:04d}: audit gate {k}={a.get(k)!r}, expected {v!r}')
-        if a.get('source_currentness',{}).get('status')!='PASS' or a.get('distractors')!=['PASS']*4:
-            raise SystemExit(f'Q{n:04d} source/distractor audit failure')
-        if a.get('second_answer_attack',{}).get('result')!='PASS_NONE' or a.get('adversarial_second_pass',{}).get('result')!='PASS':
-            raise SystemExit(f'Q{n:04d} second-answer/adversarial failure')
-        expert=a.get('expert_review_layer',{}); expert_required=('answer_granularity','mechanism_direction','temporal_sequence','scope_match','negative_evidence','distractor_ontology','answer_key_inversion','minimal_information','clinical_base_rate','units_numbers_thresholds','terminology_drift','source_disagreement','educational_objective_leakage','cross_item_contamination','expert_reviewer_reversal')
-        if expert.get('status')!='PASS' or any(expert.get(k)!='PASS' for k in expert_required): raise SystemExit(f'Q{n:04d} expert layer failure')
-        kig=a.get('key_integrity_gate',{}); key_required=('factually_correct','stem_supports_key','lead_in_matches_answer_granularity','no_second_defensible_answer','no_authoritative_source_conflict','no_required_hidden_assumption')
-        if kig.get('status')!='PASS' or any(kig.get(k)!='PASS' for k in key_required): raise SystemExit(f'Q{n:04d} key-integrity failure')
-        rg=a.get('realism_gate',{}); realism_required=('clinically_contextualized','foundational_science_application','stem_signal_to_noise','distractor_plausibility','option_parallelism','nbme_style_single_best_answer','core_step1_relevance','mechanism_depth')
-        if rg.get('status')!='PASS' or any(rg.get(k)!='PASS' for k in realism_required): raise SystemExit(f'Q{n:04d} realism failure')
-        dg=a.get('official_discipline_gate',{})
-        if dg.get('status')!='PASS' or dg.get('all_tags_in_usmle_table3') is not True or not dg.get('tags') or any(t not in OFFICIAL_DISCIPLINES for t in dg.get('tags',[])):
-            raise SystemExit(f'Q{n:04d} discipline gate failure')
-        out[n]=(a,p)
-    return out
-
-"""
-          src=src[:s]+load_aud+src[e:]
-          # Remaining exact guarded replacements.
-          reps={
-            "'preflight_spec_blob':EXPECTED_SPEC_BLOB,":"'preflight_spec_blob':audit['exact_spec_sha'],",
-            "'step2_audit_id':'STEP2-FINAL-Q1186-Q1190-20260904'":"'step2_audit_id':'STEP2-FINAL-Q1191-Q1215-20260904'",
-            "cid=f'S1-DIRECT-{n:04d}-20260904T061000Z'":"cid=f'S1-DIRECT-{n:04d}-20260904T064000Z'",
-            "specs=load_specs()\n    preflight=load_preflight()\n    audits=load_audits()":"specs,sha_by=load_specs()\n    preflight,forward=load_preflight()\n    audits=load_audits(sha_by)",
-            "if len(old_items)!=1185 or len(old_reviews)!=1185:":"if len(old_items)!=1190 or len(old_reviews)!=1190:",
-            "expected 1185 authoritative finals/reviews":"expected 1190 authoritative finals/reviews",
-            "set(range(1,1186))":"set(range(1,1191))",
-            "Counter({'A':1,'B':1,'C':1,'D':1,'E':1})":"Counter({'A':5,'B':5,'C':5,'D':5,'E':5})",
-            "qnum(c['candidate_id'])<=1185":"qnum(c['candidate_id'])<=1190",
-            "(AUDIT_ID,1190,key_hash,aggregate_review_hash,FINAL_AT)":"(AUDIT_ID,1215,key_hash,aggregate_review_hash,FINAL_AT)",
-            "if len(items)!=1190 or len(revs)!=1190:":"if len(items)!=1215 or len(revs)!=1215:",
-            "set(range(1,1191))":"__POST_RANGE__",
-            "Q1186-Q1190 exact-once failure":"Q1191-Q1215 exact-once failure",
-            "if reread!=1190 or new!=5:":"if reread!=1215 or new!=25:",
-            "if not fin or fin[0]!=AUDIT_ID or fin[1]!=1190:":"if not fin or fin[0]!=AUDIT_ID or fin[1]!=1215:",
-            "'item_count':1190,":"'item_count':1215,",
-            "'step2_final_review_count':1190,":"'step2_final_review_count':1215,",
-            "'range':'Q1186-Q1190',":"'range':'Q1191-Q1215',",
-            "'item_count':5,":"'item_count':25,",
-            "'clinical_audit_files_verified':5,":"'clinical_audit_files_verified':25,",
-            "'preflight_spec_blob':EXPECTED_SPEC_BLOB,":"'preflight_spec_blobs':EXPECTED_SPEC_BLOBS,",
-            "'reread_verified_count':1190,":"'reread_verified_count':1215,",
-            "'new_block_reread_verified_count':5,":"'new_block_reread_verified_count':25,",
-            "'q1186_q1190_present_exactly_once':True,":"'q1191_q1215_present_exactly_once':True,",
-            "'contiguous_q0001_q1190':True,":"'contiguous_q0001_q1215':True,"
-          }
-          # Protect the pre-range occurrence before generic post-range replacement.
-          # The earlier pre-contiguity range was already changed to 1..1190 above; replace only remaining post range marker later.
-          for old,new in reps.items():
-              if old not in src: raise SystemExit('missing transform marker: '+old)
-              src=src.replace(old,new,1)
-          src=src.replace('__POST_RANGE__',"set(range(1,1216))",1)
-          # Insert explicit forward verification metadata in final state.
-          marker="'preflight_db_blob':EXPECTED_PRE_DB_BLOB\n        },"
-          if marker not in src: raise SystemExit('state preflight marker missing')
-          src=src.replace(marker,"'preflight_db_blob':EXPECTED_PRE_DB_BLOB,\n            'forward_exact_verified':True,\n            'forward_exact_report':'audit/FORWARD_EXACT_Q1191_Q1215.json'\n        },",1)
-          forbidden=['EXPECTED_SPEC_BLOB =','11_q1186_q1190.json','PREFLIGHT_Q1186_Q1190','Q0001_Q1190.json','q0001_q1190.json',"NEW_RANGE = range(1186,1191)","<=1185","len(old_items)!=1185","reread!=1190","new!=5","Q1186-Q1190"]
-          for m in forbidden:
-              if m in src: raise SystemExit('stale marker remains: '+m)
-          required=["NEW_RANGE = range(1191,1216)","KEY_SEQUENCE = 'CEBADDABECEACDBBDECAACBED'","if len(old_items)!=1190 or len(old_reviews)!=1190:","if len(items)!=1215 or len(revs)!=1215:","set(range(1,1191))","set(range(1,1216))","'item_count':1215,","'new_block_reread_verified_count':25,","'q1191_q1215_present_exactly_once':True,","'contiguous_q0001_q1215':True,"]
-          for m in required:
-              if m not in src: raise SystemExit('required marker missing: '+m)
-          out=pathlib.Path('usmle/step2_import_q1191_q1215.py'); out.write_text(src)
-          PY
-      - name: Compile and static inspect
+      - name: Build and compile strict finalizer
+        run: python usmle/build_finalizer_q1191_q1215.py
+      - name: Validate generated workflow and finalizer markers
         run: |
           python -m py_compile usmle/step2_import_q1191_q1215.py
-          grep -F "NEW_RANGE = range(1191,1216)" usmle/step2_import_q1191_q1215.py
-          grep -F "KEY_SEQUENCE = 'CEBADDABECEACDBBDECAACBED'" usmle/step2_import_q1191_q1215.py
-          grep -F "if len(old_items)!=1190 or len(old_reviews)!=1190:" usmle/step2_import_q1191_q1215.py
-          grep -F "if len(items)!=1215 or len(revs)!=1215:" usmle/step2_import_q1191_q1215.py
-          grep -F "'q1191_q1215_present_exactly_once':True," usmle/step2_import_q1191_q1215.py
-      - name: Persist dedicated finalizer
+          grep -q "Q1191-Q1215" .github/workflows/usmle-step2-import-q1191-q1215.yml
+          grep -q "1215" usmle/step2_import_q1191_q1215.py
+          grep -q "987c82084e1906854c03fe21e7dfc4f9d46be923" usmle/step2_import_q1191_q1215.py
+      - name: Persist generated finalizer and production workflow
         run: |
           git config user.name 'USMLE Finalizer Builder'
           git config user.email 'actions@users.noreply.github.com'
-          git add usmle/step2_import_q1191_q1215.py
-          git commit -m 'Add strict USMLE Q1191-Q1215 25-item finalizer'
+          git add usmle/step2_import_q1191_q1215.py .github/workflows/usmle-step2-import-q1191-q1215.yml
+          git commit -m 'Build strict USMLE Q1191-Q1215 finalizer'
           git pull --rebase origin main
           git push origin HEAD:main
