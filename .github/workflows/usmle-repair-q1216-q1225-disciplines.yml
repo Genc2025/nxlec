@@ -1,0 +1,107 @@
+name: USMLE Repair Q1216-Q1225 Disciplines
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-repair-q1216-q1225-disciplines.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-repair-q1216-q1225-disciplines
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Normalize discipline labels to current official USMLE Table 3 names
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib
+
+          root=pathlib.Path('usmle/batch_specs_1201_1300')
+          official={
+            'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology',
+            'Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'
+          }
+          replace={
+            'Cell Biology':'Histology & Cell Biology',
+            'Molecular Biology':'Biochemistry',
+          }
+          changed=[]
+
+          for n in range(1216,1221):
+            p=root/'q1216_q1220_retry_20260905'/f'q{n}.json'
+            o=json.loads(p.read_text())
+            tags=o['blueprint']['disciplines']
+            new=[]
+            for t in tags:
+              t=replace.get(t,t)
+              if t not in new: new.append(t)
+            assert new and all(t in official for t in new),(n,new)
+            if new!=tags:
+              o['blueprint']['disciplines']=new
+              o.setdefault('repair_history',[]).append({
+                'date':'2026-09-05','field':'blueprint.disciplines',
+                'reason':'Normalize to current official USMLE discipline names; no item content/key change.'
+              })
+              p.write_text(json.dumps(o,ensure_ascii=False,separators=(',',':'))+'\n')
+              changed.append(str(p))
+
+          p=root/'05_q1221_q1225_retry_20260905_author.json'
+          o=json.loads(p.read_text())
+          for item in o['items']:
+            n=item['num']; tags=item['blueprint']['disciplines']
+            new=[]
+            for t in tags:
+              t=replace.get(t,t)
+              if t not in new: new.append(t)
+            assert new and all(t in official for t in new),(n,new)
+            if new!=tags:
+              item['blueprint']['disciplines']=new
+              item.setdefault('repair_history',[]).append({
+                'date':'2026-09-05','field':'blueprint.disciplines',
+                'reason':'Normalize to current official USMLE discipline names; no item content/key change.'
+              })
+              changed.append(f'{p}#Q{n}')
+          p.write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n')
+
+          # fail closed: every Q1216-Q1225 tag must now be official
+          for n in range(1216,1221):
+            x=json.loads((root/'q1216_q1220_retry_20260905'/f'q{n}.json').read_text())
+            assert all(t in official for t in x['blueprint']['disciplines'])
+          x=json.loads((root/'05_q1221_q1225_retry_20260905_author.json').read_text())
+          assert [i['num'] for i in x['items']]==list(range(1221,1226))
+          for i in x['items']:
+            assert all(t in official for t in i['blueprint']['disciplines'])
+
+          print(json.dumps({'status':'PASS','changed':changed},indent=2))
+          PY
+      - name: Persist discipline repairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo 'No changes required'
+            exit 0
+          fi
+          git config user.name 'USMLE QA Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1201_1300/q1216_q1220_retry_20260905/q12*.json usmle/batch_specs_1201_1300/05_q1221_q1225_retry_20260905_author.json
+          git commit -m 'Repair Q1216-Q1225 official USMLE discipline labels'
+          git pull --rebase origin main
+          git push origin HEAD:main
