@@ -1,0 +1,87 @@
+name: USMLE Final QA Q1231-Q1240
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/FINAL_QA_TRIGGER_Q1231_Q1240'
+
+permissions:
+  contents: write
+
+jobs:
+  final-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run fail-closed FINAL QA bound to canonical Q1230
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/final_qa_q1231_q1240.py
+          python usmle/final_qa_q1231_q1240.py | tee /tmp/q1231-q1240-final-qa-result.json
+      - name: Independently re-read generated FINAL QA package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('usmle/audit')
+          m=json.loads((root/'Q1231_Q1240_FINAL_QA_PASS.json').read_text())
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['production_import_ready'] is True
+          assert m['production_db_modified'] is False
+          assert m['authoritative_db_final_count']==1230
+          assert m['authoritative_db_blob']=='bbfff305e86386f8788e67ea60827416bfb9b3d6'
+          assert m['item_count']==10
+          assert m['material_duplicates_found']==0
+          assert m['within_batch_material_collisions']==0
+          assert m['answer_key_distribution']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert m['answer_key_sequence']=='CAEBDBDACE'
+          assert m['competency_distribution']=={'Patient Care: Diagnosis, including history and physical examination':6,'Medical Knowledge: Applying Foundational Science Concepts':4}
+          assert m['ncjmm_present'] is False
+          assert m['all_scores_10'] is True
+          assert m['second_answer_attacks_passed'] is True
+          assert m['source_gate_passed'] is True
+          assert m['official_system_gate_passed'] is True
+          assert m['official_discipline_gate_passed'] is True
+          assert m['max_canonical_similarity'] < 0.45
+          assert m['max_within_batch_similarity'] < 0.45
+          assert len(m['items'])==10
+          for n in range(1231,1241):
+              a=json.loads((root/f'Q{n:04d}_FINAL_10_10_AUDIT.json').read_text())
+              assert a['status']=='FINAL_10_10_PASS'
+              assert a['verdict']=='PASS_WITH_NO_CHANGES'
+              assert a['authoritative_db_final_count']==1230
+              assert a['authoritative_db_blob']=='bbfff305e86386f8788e67ea60827416bfb9b3d6'
+              assert a['second_possible_answer']=='PASS_NONE'
+              assert a['second_answer_attack']['result']=='PASS_NONE'
+              assert a['defects']==[] and a['suggested_changes']==[]
+              assert len(a['scores'])==10 and all(v==10 for v in a['scores'].values())
+              assert a['duplicate_gate']['status']=='PASS'
+              assert a['adversarial_second_pass']['result']=='PASS'
+              assert a['key_integrity_gate']['status']=='PASS'
+              assert a['realism_gate']['status']=='PASS'
+              assert a['official_discipline_gate']['status']=='PASS'
+              assert a['official_system_gate']['status']=='PASS'
+          print('FINAL_QA_REVALIDATION=PASS ITEMS=10')
+          PY
+      - name: Persist immutable FINAL QA evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Final QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/Q1231_Q1240_FINAL_QA_PASS.json usmle/audit/Q1231_FINAL_10_10_AUDIT.json usmle/audit/Q1232_FINAL_10_10_AUDIT.json usmle/audit/Q1233_FINAL_10_10_AUDIT.json usmle/audit/Q1234_FINAL_10_10_AUDIT.json usmle/audit/Q1235_FINAL_10_10_AUDIT.json usmle/audit/Q1236_FINAL_10_10_AUDIT.json usmle/audit/Q1237_FINAL_10_10_AUDIT.json usmle/audit/Q1238_FINAL_10_10_AUDIT.json usmle/audit/Q1239_FINAL_10_10_AUDIT.json usmle/audit/Q1240_FINAL_10_10_AUDIT.json
+          git diff --cached --quiet && { echo 'No FINAL QA evidence to persist'; exit 1; }
+          git commit -m 'USMLE: FINAL_QA_PASS Q1231-Q1240 bound to Q1230'
+          git pull --rebase origin main
+          git push origin HEAD:main
