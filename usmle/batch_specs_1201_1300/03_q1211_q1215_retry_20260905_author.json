@@ -1,0 +1,267 @@
+{
+  "batch_id": "Q1211-Q1215-RETRY-20260905-AUTHOR",
+  "replaces_blocked_artifact": "usmle/batch_specs_1201_1300/03_q1211_q1215.json",
+  "production_count_before": 1190,
+  "production_count_after": 1190,
+  "status": "AUTHOR_ZERO_TRUST_PASS_PENDING_ISOLATED_BLIND_AND_AUDITOR_EXECUTIONS",
+  "created_at": "2026-09-05",
+  "country_scope": "United States",
+  "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+  "blueprint_cell": {
+    "primary_system": "Musculoskeletal, Skin and Subcutaneous Tissue",
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "coverage_deficit_addressed": "Fresh musculoskeletal/skin foundational-science coverage while prior Q1211-Q1215 cohort remains non-production"
+  },
+  "format_gate": {
+    "single_patient_centered_vignette": true,
+    "options_per_item": 5,
+    "single_best_answer": true,
+    "official_format_url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats",
+    "verified_at": "2026-09-05"
+  },
+  "duplicate_probe": {
+    "repository": "Genc2025/nxlec",
+    "queries": [
+      "osteogenesis imperfecta COL1A1 glycine type I collagen",
+      "hypophosphatasia ALPL pyrophosphate",
+      "malignant hyperthermia RYR1 calcium",
+      "vascular Ehlers Danlos COL3A1 type III collagen",
+      "epidermolysis bullosa simplex KRT5 KRT14"
+    ],
+    "exact_material_matches_found": 0,
+    "checked_at": "2026-09-05"
+  },
+  "items": [
+    {
+      "num": 1211,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin and Subcutaneous Tissue",
+        "official_outline_path": ["Musculoskeletal System", "Genetic and developmental disorders of bone", "Osteogenesis imperfecta"],
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": ["Biochemistry", "Genetics", "Pathology"],
+        "coverage_deficit_addressed": "Collagen structure-function and inherited bone fragility"
+      },
+      "item": {
+        "vignette": "A 7-year-old girl has had multiple fractures after minor trauma. Examination shows blue-gray sclerae and mild dentinogenesis imperfecta. Her father has a similar history. Genetic testing identifies a heterozygous missense variant in COL1A1 that replaces a glycine residue within the triple-helical region of the pro-alpha1(I) chain.",
+        "lead_in": "Which of the following molecular consequences most directly explains the bone fragility in this patient?",
+        "options": {
+          "A": "Reduced production of type III collagen in blood-vessel walls",
+          "B": "Production of half the normal amount of structurally normal type I collagen",
+          "C": "Incorporation of structurally abnormal pro-alpha1(I) chains into type I collagen molecules",
+          "D": "Failure of keratin 5 and keratin 14 to assemble into an intermediate-filament network",
+          "E": "Accumulation of extracellular inorganic pyrophosphate because of deficient tissue-nonspecific alkaline phosphatase"
+        },
+        "intended_key": "C",
+        "difficulty": "moderate-hard",
+        "tested_construct": "Qualitative collagen defect in osteogenesis imperfecta from a glycine-substituting COL1A1 missense variant",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "COL1A1 missense variants that replace glycine in the triple-helical region can produce abnormal pro-alpha1(I) chains. These abnormal chains become incorporated into type I collagen, creating a qualitative structural defect. This contrasts with COL1A1 haploinsufficiency, which reduces the amount of otherwise structurally normal type I collagen and typically causes milder osteogenesis imperfecta type I.",
+        "distractor_explanations": {
+          "A": "Type III collagen deficiency is characteristic of vascular Ehlers-Danlos syndrome, not COL1A1-related osteogenesis imperfecta.",
+          "B": "Reduced production of otherwise normal type I collagen is the typical quantitative mechanism of mild osteogenesis imperfecta type I; the stem instead specifies a glycine-substituting missense variant.",
+          "C": "Correct. A glycine-substituting COL1A1 missense variant produces abnormal type I procollagen chains that disrupt collagen structure.",
+          "D": "KRT5/KRT14 defects cause epidermolysis bullosa simplex by destabilizing basal-keratinocyte intermediate filaments.",
+          "E": "ALPL deficiency causes hypophosphatasia by allowing extracellular pyrophosphate to accumulate and inhibit mineralization."
+        },
+        "educational_objective": "Differentiate qualitative COL1A1 defects that produce abnormal type I collagen from quantitative COL1A1 haploinsufficiency in osteogenesis imperfecta."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1211-C","option":"C","claim":"Glycine-substituting COL1A1 missense variants can produce abnormal type I collagen and more severe osteogenesis imperfecta.","source_ids":["Q1211-S2","Q1211-S3"],"direct_or_inference":"direct","item_specific_application":"The specified glycine substitution points to a qualitative abnormal-collagen mechanism."},
+        {"claim_id":"Q1211-A","option":"A","claim":"Vascular Ehlers-Danlos syndrome is usually caused by COL3A1 variants affecting type III collagen.","source_ids":["Q1211-S4"],"direct_or_inference":"direct","item_specific_application":"Does not match the COL1A1 genotype or classic osteogenesis imperfecta phenotype."},
+        {"claim_id":"Q1211-B","option":"B","claim":"Mild osteogenesis imperfecta type I often results from reduced production of structurally normal type I collagen.","source_ids":["Q1211-S2","Q1211-S3"],"direct_or_inference":"direct","item_specific_application":"Contrasts with the missense glycine substitution in this stem."},
+        {"claim_id":"Q1211-D","option":"D","claim":"KRT5/KRT14 defects impair keratin intermediate-filament assembly and cause epidermolysis bullosa simplex.","source_ids":["Q1211-S5"],"direct_or_inference":"direct","item_specific_application":"Explains skin fragility, not inherited bone fragility from COL1A1."},
+        {"claim_id":"Q1211-E","option":"E","claim":"ALPL deficiency causes pyrophosphate accumulation and defective mineralization in hypophosphatasia.","source_ids":["Q1211-S6"],"direct_or_inference":"direct","item_specific_application":"A distinct mineralization disorder not supported by this genotype and phenotype."}
+      ],
+      "sources": [
+        {"source_id":"Q1211-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Step 1 systems, competencies, and disciplines","supporting_passage":"Step 1 emphasizes application of foundational science concepts in integrated organ-system content.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1211-S2","agency":"National Library of Medicine","title":"COL1A1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/col1a1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Osteogenesis imperfecta","supporting_passage":"Mild OI commonly reflects reduced pro-alpha1(I) production, whereas severe forms can result from amino-acid substitutions, often replacement of glycine, that produce abnormal type I collagen.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1211-S3","agency":"National Library of Medicine","title":"Osteogenesis imperfecta: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/osteogenesis-imperfecta/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"COL1A1/COL1A2 variants cause most OI; type I commonly reduces collagen quantity, while more severe forms produce abnormal type I collagen.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1211-S4","agency":"National Library of Medicine","title":"Ehlers-Danlos syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/ehlers-danlos-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"Most vascular EDS is caused by COL3A1 variants affecting type III collagen.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1211-S5","agency":"National Library of Medicine","title":"Epidermolysis bullosa simplex: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/epidermolysis-bullosa-simplex/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"KRT5/KRT14 variants disrupt keratin filament networks and cause epidermal fragility.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1211-S6","agency":"National Library of Medicine","title":"Hypophosphatasia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/hypophosphatasia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"ALPL variants reduce tissue-nonspecific alkaline phosphatase and allow inorganic pyrophosphate to accumulate, impairing bone and tooth mineralization.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["osteogenesis imperfecta","COL1A1","glycine substitution","qualitative type I collagen defect","blue sclera"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "hashes": {"candidate_sha256":"3077ddd5328ecfddbe6b3709265d7352e1240fbf2a050368dafe03372d7135c3","input_sha256":"3077ddd5328ecfddbe6b3709265d7352e1240fbf2a050368dafe03372d7135c3"},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1212,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {"primary_system":"Musculoskeletal, Skin and Subcutaneous Tissue","official_outline_path":["Musculoskeletal System","Disorders of mineralization","Hypophosphatasia"],"primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Biochemistry","Physiology","Genetics"],"coverage_deficit_addressed":"Mineralization chemistry and alkaline-phosphatase physiology"},
+      "item": {
+        "vignette": "A 4-year-old boy is evaluated for delayed walking, bowed legs, and premature loss of several primary teeth with intact roots. Radiographs show poor skeletal mineralization. Serum calcium and phosphate are within reference ranges, but serum alkaline phosphatase activity is markedly decreased. Genetic testing identifies biallelic pathogenic variants in ALPL.",
+        "lead_in": "Which of the following biochemical abnormalities most directly causes the defective skeletal mineralization in this patient?",
+        "options": {"A":"Decreased extracellular inorganic pyrophosphate with loss of inhibition of hydroxyapatite deposition","B":"Increased fibroblast growth factor 23 causing renal phosphate wasting","C":"Reduced synthesis of structurally normal type I collagen","D":"Excess release of calcium from the skeletal-muscle sarcoplasmic reticulum","E":"Accumulation of extracellular inorganic pyrophosphate that inhibits hydroxyapatite formation"},
+        "intended_key": "E",
+        "difficulty": "moderate-hard",
+        "tested_construct": "Biochemical mechanism of ALPL-related hypophosphatasia",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "Tissue-nonspecific alkaline phosphatase helps metabolize extracellular inorganic pyrophosphate. ALPL deficiency allows pyrophosphate to accumulate. Because pyrophosphate inhibits hydroxyapatite deposition, the result is defective mineralization of bones and teeth despite relatively preserved calcium and phosphate.",
+        "distractor_explanations": {"A":"Decreased pyrophosphate promotes ectopic hydroxyapatite deposition and is the opposite biochemical direction from hypophosphatasia.","B":"FGF23-mediated disorders cause renal phosphate wasting and hypophosphatemia, not the characteristic very low alkaline phosphatase with premature tooth loss in ALPL deficiency.","C":"Reduced type I collagen production causes a quantitative collagen defect such as mild osteogenesis imperfecta, not a low-alkaline-phosphatase mineralization disorder.","D":"Excess sarcoplasmic-reticulum calcium release is central to malignant hyperthermia and does not explain chronic skeletal hypomineralization.","E":"Correct. Accumulated inorganic pyrophosphate inhibits hydroxyapatite formation and is a central mechanism of hypophosphatasia."},
+        "educational_objective": "Recognize that ALPL deficiency causes hypophosphatasia by increasing extracellular inorganic pyrophosphate, which inhibits hydroxyapatite deposition and impairs bone and tooth mineralization."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1212-E","option":"E","claim":"ALPL/TNSALP deficiency causes inorganic pyrophosphate accumulation that inhibits mineralization.","source_ids":["Q1212-S2"],"direct_or_inference":"direct","item_specific_application":"Explains low alkaline phosphatase, premature tooth loss, and poor skeletal mineralization."},
+        {"claim_id":"Q1212-A","option":"A","claim":"Low extracellular pyrophosphate removes an inhibitor of hydroxyapatite deposition and favors ectopic calcification.","source_ids":["Q1212-S3"],"direct_or_inference":"direct","item_specific_application":"Opposite biochemical direction from ALPL deficiency."},
+        {"claim_id":"Q1212-B","option":"B","claim":"FGF23-mediated phosphate-wasting disorders produce hypophosphatemia through renal phosphate loss.","source_ids":["Q1212-S4"],"direct_or_inference":"direct","item_specific_application":"The stem instead has preserved phosphate and markedly low alkaline phosphatase."},
+        {"claim_id":"Q1212-C","option":"C","claim":"Reduced production of normal type I collagen is a mechanism of mild osteogenesis imperfecta.","source_ids":["Q1212-S5"],"direct_or_inference":"direct","item_specific_application":"Does not explain the biochemical hallmark of hypophosphatasia."},
+        {"claim_id":"Q1212-D","option":"D","claim":"Malignant hyperthermia involves excessive skeletal-muscle calcium release through abnormal RYR1/CACNA1S signaling.","source_ids":["Q1212-S6"],"direct_or_inference":"direct","item_specific_application":"An acute muscle-crisis mechanism, not chronic defective mineralization."}
+      ],
+      "sources": [
+        {"source_id":"Q1212-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Musculoskeletal, Skin and Subcutaneous Tissue; foundational science","supporting_passage":"Supports system and competency classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1212-S2","agency":"National Library of Medicine","title":"Hypophosphatasia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/hypophosphatasia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Description; Causes","supporting_passage":"ALPL variants reduce TNSALP activity; inorganic pyrophosphate accumulates and underlies defective bone and tooth mineralization.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1212-S3","agency":"National Center for Biotechnology Information","title":"Generalized Arterial Calcification of Infancy - GeneReviews","url":"https://www.ncbi.nlm.nih.gov/books/NBK253403/","publication_or_revision_date":"updated 2026","retrieved_at":"2026-09-05","section_locator":"Molecular pathogenesis","supporting_passage":"Reduced extracellular pyrophosphate permits pathologic hydroxyapatite deposition in ENPP1 deficiency.","government_status_verified":true,"rights_status":"NCBI Bookshelf reference source"},
+        {"source_id":"Q1212-S4","agency":"National Center for Biotechnology Information","title":"X-Linked Hypophosphatemia - GeneReviews","url":"https://www.ncbi.nlm.nih.gov/books/NBK83985/","publication_or_revision_date":"current GeneReviews edition","retrieved_at":"2026-09-05","section_locator":"Pathophysiology; hereditary phosphate-wasting disorders","supporting_passage":"FGF23 excess reduces renal phosphate reabsorption and causes hypophosphatemia.","government_status_verified":true,"rights_status":"NCBI Bookshelf reference source"},
+        {"source_id":"Q1212-S5","agency":"National Library of Medicine","title":"Osteogenesis imperfecta: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/osteogenesis-imperfecta/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"Type I OI can result from reduced quantity of otherwise normal type I collagen.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1212-S6","agency":"National Library of Medicine","title":"Malignant hyperthermia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/malignant-hyperthermia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"RYR1/CACNA1S variants permit abnormal calcium release in skeletal muscle during triggering anesthesia.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["hypophosphatasia","ALPL","low alkaline phosphatase","inorganic pyrophosphate","poor mineralization","premature tooth loss"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "hashes": {"candidate_sha256":"b8619e235fa82ebf3737c36f6d163e186230e97f86c6611b8070add2683c069b","input_sha256":"b8619e235fa82ebf3737c36f6d163e186230e97f86c6611b8070add2683c069b"},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1213,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {"primary_system":"Musculoskeletal, Skin and Subcutaneous Tissue","official_outline_path":["Musculoskeletal System","Skeletal muscle disorders","Malignant hyperthermia susceptibility"],"primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Physiology","Pharmacology","Genetics"],"coverage_deficit_addressed":"Excitation-contraction coupling and anesthesia-triggered skeletal-muscle pathophysiology"},
+      "item": {
+        "vignette": "A 23-year-old man undergoes general anesthesia for an emergency appendectomy. Shortly after receiving a volatile anesthetic and succinylcholine, the end-tidal carbon dioxide rises rapidly despite increased ventilation. He develops generalized muscle rigidity, tachycardia, metabolic acidosis, and a rapidly increasing core temperature. His father had a life-threatening reaction during surgery years earlier.",
+        "lead_in": "Which of the following cellular abnormalities most directly causes this patient's acute syndrome?",
+        "options": {"A":"Excessive release of calcium from the skeletal-muscle sarcoplasmic reticulum through abnormally regulated ryanodine receptor channels","B":"Failure of keratin intermediate filaments to provide mechanical resilience to basal keratinocytes","C":"Reduced production of type III collagen in arterial walls","D":"Accumulation of extracellular inorganic pyrophosphate that inhibits hydroxyapatite deposition","E":"Incorporation of structurally abnormal type I procollagen chains into collagen fibrils"},
+        "intended_key": "A",
+        "difficulty": "moderate",
+        "tested_construct": "RYR1-mediated calcium dysregulation in malignant hyperthermia",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "Malignant hyperthermia susceptibility is most often associated with RYR1 variants. Triggering anesthetics can cause the RYR1 channel to open more readily and close more slowly, producing excessive calcium release from the sarcoplasmic reticulum. Sustained contraction and intense ATP-consuming calcium cycling generate hypercapnia, acidosis, heat, and muscle rigidity.",
+        "distractor_explanations": {"A":"Correct. Excess sarcoplasmic-reticulum calcium release through abnormal RYR1 regulation drives the hypermetabolic crisis.","B":"KRT5/KRT14 network defects cause epidermolysis bullosa simplex, not anesthesia-triggered hypermetabolism.","C":"Type III collagen abnormalities cause vascular Ehlers-Danlos syndrome, characterized by vessel and hollow-organ fragility.","D":"Pyrophosphate accumulation from ALPL deficiency causes hypophosphatasia and defective mineralization.","E":"Abnormal incorporation of type I collagen chains is a mechanism of qualitative osteogenesis imperfecta, not acute malignant hyperthermia."},
+        "educational_objective": "Recognize malignant hyperthermia as an inherited excitation-contraction coupling disorder in which triggering anesthetics cause excessive RYR1-mediated calcium release from skeletal-muscle sarcoplasmic reticulum."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1213-A","option":"A","claim":"Malignant hyperthermia commonly results from RYR1 variants that cause excessive calcium release from skeletal-muscle stores after triggering anesthetics.","source_ids":["Q1213-S2","Q1213-S3"],"direct_or_inference":"direct","item_specific_application":"Explains rigidity, rising end-tidal CO2, acidosis, tachycardia, and hyperthermia after anesthesia."},
+        {"claim_id":"Q1213-B","option":"B","claim":"KRT5/KRT14 defects disrupt basal-keratinocyte intermediate filaments and cause EBS.","source_ids":["Q1213-S4"],"direct_or_inference":"direct","item_specific_application":"Produces mechanical skin fragility, not an anesthetic-triggered skeletal-muscle crisis."},
+        {"claim_id":"Q1213-C","option":"C","claim":"COL3A1/type III collagen defects cause vascular EDS.","source_ids":["Q1213-S5"],"direct_or_inference":"direct","item_specific_application":"Does not explain acute hypermetabolic skeletal-muscle physiology."},
+        {"claim_id":"Q1213-D","option":"D","claim":"ALPL deficiency allows inorganic pyrophosphate to accumulate and inhibits mineralization.","source_ids":["Q1213-S6"],"direct_or_inference":"direct","item_specific_application":"Chronic mineralization defect, not acute anesthesia reaction."},
+        {"claim_id":"Q1213-E","option":"E","claim":"Qualitative COL1A1 defects produce abnormal type I collagen in osteogenesis imperfecta.","source_ids":["Q1213-S7"],"direct_or_inference":"direct","item_specific_application":"Bone-fragility mechanism unrelated to malignant hyperthermia."}
+      ],
+      "sources": [
+        {"source_id":"Q1213-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Musculoskeletal, Skin and Subcutaneous Tissue; foundational science","supporting_passage":"Supports system and competency classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1213-S2","agency":"National Library of Medicine","title":"Malignant hyperthermia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/malignant-hyperthermia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"RYR1/CACNA1S variants alter calcium movement; triggering drugs cause excessive intracellular calcium, heat production, acidosis, and rigidity.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1213-S3","agency":"National Library of Medicine","title":"RYR1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/ryr1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Malignant hyperthermia","supporting_passage":"Susceptibility variants can make the RYR1 channel open more easily and close more slowly, releasing excessive calcium from sarcoplasmic-reticulum stores.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1213-S4","agency":"National Center for Biotechnology Information","title":"Epidermolysis Bullosa Simplex - GeneReviews","url":"https://www.ncbi.nlm.nih.gov/books/NBK1369/","publication_or_revision_date":"updated 2022; GeneReviews 1993-2026 edition","retrieved_at":"2026-09-05","section_locator":"Molecular pathogenesis","supporting_passage":"KRT5/KRT14 are expressed in basal keratinocytes and form the intermediate-filament network that provides mechanical resilience.","government_status_verified":true,"rights_status":"NCBI Bookshelf reference source"},
+        {"source_id":"Q1213-S5","agency":"National Library of Medicine","title":"COL3A1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/col3a1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Vascular Ehlers-Danlos syndrome","supporting_passage":"COL3A1 variants alter type III collagen and weaken vessel walls and internal organs.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1213-S6","agency":"National Library of Medicine","title":"Hypophosphatasia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/hypophosphatasia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"ALPL deficiency permits inorganic pyrophosphate accumulation and defective mineralization.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1213-S7","agency":"National Library of Medicine","title":"COL1A1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/col1a1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Osteogenesis imperfecta","supporting_passage":"Severe OI can result from COL1A1 amino-acid substitutions that create abnormal type I collagen.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["malignant hyperthermia","RYR1","volatile anesthetic","succinylcholine","sarcoplasmic reticulum calcium","hypercapnia rigidity"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "hashes": {"candidate_sha256":"d871242002724a3912ad2f280bba1f2361ceaecd635dd4e405926d061f466618","input_sha256":"d871242002724a3912ad2f280bba1f2361ceaecd635dd4e405926d061f466618"},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1214,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {"primary_system":"Musculoskeletal, Skin and Subcutaneous Tissue","official_outline_path":["Skin and Subcutaneous Tissue","Heritable connective-tissue disorders","Vascular Ehlers-Danlos syndrome"],"primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Histology & Cell Biology","Genetics","Pathology"],"coverage_deficit_addressed":"Extracellular-matrix composition and connective-tissue fragility"},
+      "item": {
+        "vignette": "A 28-year-old woman is evaluated after spontaneous dissection of a medium-sized artery. She has thin translucent skin, easy bruising, and hypermobility mainly of the small joints of the hands. Her mother died suddenly at age 34 after an intestinal rupture. Genetic testing identifies a pathogenic variant in COL3A1.",
+        "lead_in": "Which of the following structural proteins is most directly abnormal in this patient?",
+        "options": {"A":"Type I collagen","B":"Keratin 14","C":"Elastin","D":"Type III collagen","E":"Type VII collagen"},
+        "intended_key": "D",
+        "difficulty": "moderate",
+        "tested_construct": "Vascular Ehlers-Danlos syndrome and type III collagen",
+        "reasoning_steps_count": 3
+      },
+      "explanation": {
+        "key_explanation": "Vascular Ehlers-Danlos syndrome is usually caused by pathogenic COL3A1 variants. COL3A1 encodes the alpha-1 chain of type III collagen, an important structural component of tissues such as arterial walls and hollow organs. Defective type III collagen causes marked tissue fragility and predisposes to spontaneous arterial and intestinal rupture.",
+        "distractor_explanations": {"A":"Type I collagen is primarily implicated in osteogenesis imperfecta and certain other connective-tissue disorders; the stem specifies COL3A1.","B":"Keratin 14 forms intermediate filaments in basal keratinocytes and is implicated in epidermolysis bullosa simplex.","C":"Elastin defects cause a different group of connective-tissue phenotypes and are not encoded by COL3A1.","D":"Correct. COL3A1 encodes type III collagen, and vascular EDS predisposes to arterial and hollow-organ rupture.","E":"Type VII collagen forms anchoring fibrils at the dermal-epidermal junction and is associated with dystrophic epidermolysis bullosa."},
+        "educational_objective": "Associate vascular Ehlers-Danlos syndrome with COL3A1-related type III collagen defects and spontaneous arterial or hollow-organ rupture."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1214-D","option":"D","claim":"COL3A1 encodes type III collagen; pathogenic variants cause most vascular EDS.","source_ids":["Q1214-S2","Q1214-S3"],"direct_or_inference":"direct","item_specific_application":"Matches arterial dissection, translucent skin, family history of intestinal rupture, and genotype."},
+        {"claim_id":"Q1214-A","option":"A","claim":"COL1A1/COL1A2 encode type I collagen and are major causes of osteogenesis imperfecta.","source_ids":["Q1214-S4"],"direct_or_inference":"direct","item_specific_application":"Not the protein encoded by COL3A1."},
+        {"claim_id":"Q1214-B","option":"B","claim":"KRT14 encodes keratin 14 and KRT14 variants cause forms of EBS.","source_ids":["Q1214-S5"],"direct_or_inference":"direct","item_specific_application":"A cytoskeletal skin-fragility mechanism, not vascular EDS."},
+        {"claim_id":"Q1214-C","option":"C","claim":"ELN encodes elastin and elastin defects cause a distinct set of connective-tissue phenotypes.","source_ids":["Q1214-S6"],"direct_or_inference":"direct","item_specific_application":"The stem gives a definitive COL3A1 genotype."},
+        {"claim_id":"Q1214-E","option":"E","claim":"COL7A1 encodes type VII collagen, a major component of anchoring fibrils; defects cause dystrophic epidermolysis bullosa.","source_ids":["Q1214-S7"],"direct_or_inference":"direct","item_specific_application":"Would produce skin blistering/scarring rather than arterial and intestinal rupture."}
+      ],
+      "sources": [
+        {"source_id":"Q1214-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Musculoskeletal, Skin and Subcutaneous Tissue; foundational science","supporting_passage":"Supports system and competency classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1214-S2","agency":"National Library of Medicine","title":"Ehlers-Danlos syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/ehlers-danlos-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"Most vascular EDS results from COL3A1 variants; collagen defects weaken connective tissue.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1214-S3","agency":"National Library of Medicine","title":"COL3A1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/col3a1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Vascular Ehlers-Danlos syndrome","supporting_passage":"COL3A1 variants alter type III procollagen/collagen and cause potentially life-threatening vessel and organ rupture.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1214-S4","agency":"National Library of Medicine","title":"Osteogenesis imperfecta: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/osteogenesis-imperfecta/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"COL1A1/COL1A2 encode components of type I collagen and cause most osteogenesis imperfecta.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1214-S5","agency":"National Library of Medicine","title":"KRT14 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/krt14/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Epidermolysis bullosa simplex","supporting_passage":"KRT14 encodes keratin 14; pathogenic variants interfere with keratin intermediate-filament assembly and cause EBS.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1214-S6","agency":"National Library of Medicine","title":"ELN gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/eln/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Normal function; related conditions","supporting_passage":"ELN encodes tropoelastin, which is processed into elastin, a major component of elastic fibers.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1214-S7","agency":"National Library of Medicine","title":"Dystrophic epidermolysis bullosa: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/dystrophic-epidermolysis-bullosa/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"COL7A1 variants disrupt type VII collagen anchoring fibrils at the dermal-epidermal junction.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["vascular Ehlers-Danlos syndrome","COL3A1","type III collagen","arterial rupture","intestinal rupture","translucent skin"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "hashes": {"candidate_sha256":"86cd7108f253bfbdac0b15eba73a8df2f99e046a08f4c6c59d92167ec5db95a8","input_sha256":"86cd7108f253bfbdac0b15eba73a8df2f99e046a08f4c6c59d92167ec5db95a8"},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1215,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {"primary_system":"Musculoskeletal, Skin and Subcutaneous Tissue","official_outline_path":["Skin and Subcutaneous Tissue","Inherited blistering disorders","Epidermolysis bullosa simplex"],"primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Histology & Cell Biology","Genetics","Pathology"],"coverage_deficit_addressed":"Basal keratinocyte cytoskeleton and inherited skin fragility"},
+      "item": {
+        "vignette": "A 2-year-old boy has recurrent blisters on the hands and feet after friction since he began crawling. The lesions heal without significant scarring. His father had similar blistering during childhood. Skin-biopsy mapping shows cleavage within basal keratinocytes rather than below the basement membrane. Genetic testing identifies a heterozygous pathogenic variant in KRT14.",
+        "lead_in": "The affected protein normally contributes to which of the following cellular structures?",
+        "options": {"A":"Type VII collagen anchoring fibrils beneath the basal lamina","B":"Keratin intermediate filaments in basal epidermal keratinocytes","C":"Type III collagen fibrils in vascular connective tissue","D":"Extracellular hydroxyapatite-inhibitory pyrophosphate","E":"Ryanodine receptor calcium-release channels in skeletal muscle"},
+        "intended_key": "B",
+        "difficulty": "moderate",
+        "tested_construct": "Cell biology of KRT14-related epidermolysis bullosa simplex",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "Keratin 14 pairs with keratin 5 in basal epidermal keratinocytes to form the intracellular intermediate-filament network. Pathogenic KRT14 or KRT5 variants can destabilize this network, making basal keratinocytes mechanically fragile and causing friction-induced intraepidermal blistering characteristic of epidermolysis bullosa simplex.",
+        "distractor_explanations": {"A":"Type VII collagen forms anchoring fibrils below the basement membrane; COL7A1 defects cause dystrophic epidermolysis bullosa with a deeper level of tissue separation.","B":"Correct. Keratin 14 is a basal-keratinocyte intermediate-filament protein that pairs with keratin 5.","C":"Type III collagen is encoded by COL3A1 and is abnormal in vascular Ehlers-Danlos syndrome.","D":"Extracellular pyrophosphate is a mineralization regulator rather than a keratinocyte cytoskeletal structure.","E":"RYR1 calcium-release channels are located in skeletal-muscle sarcoplasmic reticulum and are implicated in malignant hyperthermia."},
+        "educational_objective": "Localize epidermolysis bullosa simplex to basal keratinocytes and connect KRT14/KRT5 variants with failure of the keratin intermediate-filament network."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1215-B","option":"B","claim":"KRT14 and KRT5 are expressed in basal keratinocytes and form the keratin intermediate-filament network.","source_ids":["Q1215-S2","Q1215-S3"],"direct_or_inference":"direct","item_specific_application":"Explains friction-induced intraepidermal blistering with a KRT14 variant."},
+        {"claim_id":"Q1215-A","option":"A","claim":"Type VII collagen forms anchoring fibrils and COL7A1 defects cause dystrophic EB.","source_ids":["Q1215-S4"],"direct_or_inference":"direct","item_specific_application":"A deeper basement-membrane-zone disorder than the basal-keratinocyte cleavage described."},
+        {"claim_id":"Q1215-C","option":"C","claim":"COL3A1/type III collagen defects cause vascular EDS.","source_ids":["Q1215-S5"],"direct_or_inference":"direct","item_specific_application":"Connective-tissue fragility distinct from basal epidermal blistering."},
+        {"claim_id":"Q1215-D","option":"D","claim":"Inorganic pyrophosphate regulates hydroxyapatite deposition and accumulates in ALPL deficiency.","source_ids":["Q1215-S6"],"direct_or_inference":"direct","item_specific_application":"Mineralization chemistry, not a cellular structural filament."},
+        {"claim_id":"Q1215-E","option":"E","claim":"RYR1 is a skeletal-muscle calcium-release channel implicated in malignant hyperthermia.","source_ids":["Q1215-S7"],"direct_or_inference":"direct","item_specific_application":"Muscle excitation-contraction protein, not epidermal cytoskeleton."}
+      ],
+      "sources": [
+        {"source_id":"Q1215-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Musculoskeletal, Skin and Subcutaneous Tissue; foundational science","supporting_passage":"Supports system and competency classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1215-S2","agency":"National Library of Medicine","title":"Epidermolysis bullosa simplex: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/epidermolysis-bullosa-simplex/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"KRT5/KRT14 variants prevent keratin proteins from forming strong networks, producing epidermal fragility and blistering after friction.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1215-S3","agency":"National Center for Biotechnology Information","title":"Epidermolysis Bullosa Simplex - GeneReviews","url":"https://www.ncbi.nlm.nih.gov/books/NBK1369/","publication_or_revision_date":"updated 2022; GeneReviews 1993-2026 edition","retrieved_at":"2026-09-05","section_locator":"Molecular pathogenesis","supporting_passage":"KRT5 and KRT14 are expressed in basal keratinocytes, form heterodimers, and assemble into the intracellular keratin intermediate-filament network linked to adhesion complexes.","government_status_verified":true,"rights_status":"NCBI Bookshelf reference source"},
+        {"source_id":"Q1215-S4","agency":"National Library of Medicine","title":"Dystrophic epidermolysis bullosa: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/dystrophic-epidermolysis-bullosa/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"COL7A1 encodes type VII collagen used in anchoring fibrils that connect epidermis to dermis.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1215-S5","agency":"National Library of Medicine","title":"COL3A1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/col3a1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Vascular Ehlers-Danlos syndrome","supporting_passage":"COL3A1 encodes type III collagen; variants weaken vessels and hollow organs.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1215-S6","agency":"National Library of Medicine","title":"Hypophosphatasia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/hypophosphatasia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"ALPL deficiency causes inorganic pyrophosphate accumulation and impaired mineralization.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1215-S7","agency":"National Library of Medicine","title":"RYR1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/ryr1/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Normal function; malignant hyperthermia","supporting_passage":"RYR1 forms a skeletal-muscle calcium-release channel and pathogenic variants can confer malignant-hyperthermia susceptibility.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["epidermolysis bullosa simplex","KRT14","KRT5","basal keratinocyte","intermediate filaments","friction blisters"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "hashes": {"candidate_sha256":"d4cbf1b467fdab53aaa7943edc89af9aecfc116410a44a443c270ceafb56671a","input_sha256":"d4cbf1b467fdab53aaa7943edc89af9aecfc116410a44a443c270ceafb56671a"},
+      "status": "CANDIDATE_FROZEN"
+    }
+  ],
+  "key_distribution": {"A":1,"B":1,"C":1,"D":1,"E":1},
+  "author_batch_audit": {
+    "all_items_have_exactly_five_unique_options": true,
+    "all_items_have_exactly_one_intended_key": true,
+    "all_key_and_distractor_claims_mapped_to_sources": true,
+    "second_answer_attack": "PASS",
+    "hidden_assumption_attack": "PASS",
+    "fabricated_distractor_attack": "PASS",
+    "key_balance": "PASS_A_B_C_D_E_each_once",
+    "duplicate_probe": "PASS_no_exact_material_repo_match_found",
+    "currentness_gate": "PASS_2026-09-05",
+    "ncjmm_metadata": "ABSENT_NOT_APPLICABLE_TO_USMLE",
+    "independent_isolation_gate": "PENDING",
+    "production_import": "NOT_ATTEMPTED"
+  }
+}
