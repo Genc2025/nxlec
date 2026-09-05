@@ -1,0 +1,55 @@
+name: USMLE Q1226-Q1230 Construct Probe V2
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/usmle-q1226-q1230-construct-probe-v2.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe candidate immune constructs against production SQLite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/corpus_probe.py \
+            --term 'AIRE' \
+            --term 'tissue-restricted antigen' \
+            --term 'negative selection' \
+            --term 'medullary thymic' \
+            --term 'TAP2' \
+            --term 'antigen peptide transporter' \
+            --term 'peptide transport into the endoplasmic reticulum' \
+            --term 'bare lymphocyte syndrome type I' \
+            --term 'IL2RG' \
+            --term 'common gamma chain' \
+            --term 'CD132' \
+            --term 'JAK3' \
+            --term 'ZAP70' \
+            --term 'ZAP-70' \
+            --term 'MYD88' \
+            --term 'IRAK4' \
+            --term 'Toll-like receptor signaling' \
+            --term 'IL12RB1' \
+            --term 'IFNGR1' \
+            --term 'interferon-gamma receptor' \
+            --term 'IL-12 receptor' \
+            --term 'STAT3' \
+            --term 'Th17' \
+            --term 'DOCK8' \
+            --term 'C3 deficiency' \
+            --term 'properdin' \
+            > q1226-q1230-construct-probe-v2.json
+          cat q1226-q1230-construct-probe-v2.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1226-q1230-construct-probe-v2
+          path: q1226-q1230-construct-probe-v2.json
+          if-no-files-found: error
