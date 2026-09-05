@@ -47,7 +47,7 @@ jobs:
           blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
           assert blob==s['post_authoritative_db_blob']
           assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
-          con=sqlite3.connect(db.as_uri()+'?mode=ro',uri=True)
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True)
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
           ic=con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
           rc=con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
@@ -83,7 +83,7 @@ jobs:
           db=pathlib.Path('usmle/data/usmle-step1.db')
           s=json.loads(pathlib.Path('usmle/state/step2_final_q0001_q1230.json').read_text())
           assert subprocess.check_output(['git','hash-object',str(db)],text=True).strip()==s['post_authoritative_db_blob']
-          con=sqlite3.connect(db.as_uri()+'?mode=ro',uri=True)
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True)
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
           assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1230
           assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1230
