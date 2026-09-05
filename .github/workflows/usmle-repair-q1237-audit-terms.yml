@@ -1,0 +1,50 @@
+name: USMLE Repair Q1237 Audit Terms
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/REPAIR_TRIGGER_Q1237_AUDIT_TERMS'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Update Q1237 exact-probe terms to repaired construct
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('usmle/q1231_q1240_readonly_audit.py')
+          s=p.read_text()
+          old="1237:['tjp2','pfic4','tight junction protein 2','preserved bsep'],"
+          new="1237:['neurog3','enteric anendocrinosis','congenital malabsorptive diarrhea','enteroendocrine cells'],"
+          assert old in s
+          s=s.replace(old,new)
+          p.write_text(s)
+          print('Q1237_AUDIT_TERMS_REPAIR=PASS')
+          PY
+          python -m py_compile usmle/q1231_q1240_readonly_audit.py
+      - name: Persist audit tooling repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE QA Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/q1231_q1240_readonly_audit.py
+          git diff --cached --quiet && { echo 'No audit-tool changes'; exit 1; }
+          git commit -m 'USMLE: align Q1237 duplicate probes with NEUROG3 repair'
+          git pull --rebase origin main
+          git push origin HEAD:main
