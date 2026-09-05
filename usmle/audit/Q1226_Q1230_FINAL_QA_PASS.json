@@ -1,0 +1,100 @@
+{
+  "audit_id": "Q1226-Q1230-FINAL-QA-PASS-20260905",
+  "status": "FINAL_QA_PASS",
+  "item_status": "FINAL_10_10_PASS",
+  "auditor_model": "GPT-5.6 Sol",
+  "validated_at": "2026-09-05",
+  "authoritative_db": "usmle/data/usmle-step1.db",
+  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
+  "authoritative_db_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
+  "authoritative_db_final_count": 1190,
+  "sqlite_integrity_check": "ok",
+  "canonical_contiguous_range": "Q0001-Q1190",
+  "readonly_corpus_audit_run_id": 33984594043,
+  "readonly_corpus_audit_conclusion": "success",
+  "canonical_items_compared": 1190,
+  "material_duplicates_found": 0,
+  "within_batch_material_collisions": 0,
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "candidate_blobs": {
+    "Q1226": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
+    "Q1227": "8a4111d8f6e730d91f836bd1b946012a14ce7646",
+    "Q1228": "c7707f6f0a4cb26f663db472995f24b9bf82d1e8",
+    "Q1229": "2471a7c8420875ba138e5eb1e90dde015c7d6c70",
+    "Q1230": "cfa0a9de9bb02762d3174253afd23bb84139544a"
+  },
+  "audit_blobs": {
+    "Q1226": "238bebe06c3edbde12a1584b55cc62dd8d24c28b",
+    "Q1227": "14831bb1da35e0d12812a61a4065589baca97ca0",
+    "Q1228": "d623931104c66c841da82ff67131dcc2bc46f690",
+    "Q1229": "63ff714f8e3b89ad35f250b7105366eb54dee3a8",
+    "Q1230": "29983478dc5d89c798e6c6c77cb10ace0dbde8b7"
+  },
+  "items": [
+    {
+      "num": 1226,
+      "key": "B",
+      "candidate_blob": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
+      "audit_blob": "238bebe06c3edbde12a1584b55cc62dd8d24c28b",
+      "verdict": "FINAL_10_10_PASS",
+      "material_defects": 0
+    },
+    {
+      "num": 1227,
+      "key": "D",
+      "candidate_blob": "8a4111d8f6e730d91f836bd1b946012a14ce7646",
+      "audit_blob": "14831bb1da35e0d12812a61a4065589baca97ca0",
+      "verdict": "FINAL_10_10_PASS",
+      "material_defects": 0
+    },
+    {
+      "num": 1228,
+      "key": "A",
+      "candidate_blob": "c7707f6f0a4cb26f663db472995f24b9bf82d1e8",
+      "audit_blob": "d623931104c66c841da82ff67131dcc2bc46f690",
+      "verdict": "FINAL_10_10_PASS",
+      "material_defects": 0
+    },
+    {
+      "num": 1229,
+      "key": "E",
+      "candidate_blob": "2471a7c8420875ba138e5eb1e90dde015c7d6c70",
+      "audit_blob": "63ff714f8e3b89ad35f250b7105366eb54dee3a8",
+      "verdict": "FINAL_10_10_PASS",
+      "material_defects": 0
+    },
+    {
+      "num": 1230,
+      "key": "C",
+      "candidate_blob": "cfa0a9de9bb02762d3174253afd23bb84139544a",
+      "audit_blob": "29983478dc5d89c798e6c6c77cb10ace0dbde8b7",
+      "verdict": "FINAL_10_10_PASS",
+      "material_defects": 0
+    }
+  ],
+  "all_ten_domain_scores_exactly_10": true,
+  "all_blind_keys_match": true,
+  "all_second_answer_attacks_pass": true,
+  "all_source_currentness_gates_pass": true,
+  "all_exact_locator_gates_pass": true,
+  "all_expert_second_passes_pass": true,
+  "all_key_integrity_gates_pass": true,
+  "all_realism_gates_pass": true,
+  "official_discipline_metadata_repaired_and_revalidated": true,
+  "ncjmm_present": false,
+  "content_qa_complete": true,
+  "production_import_ready": false,
+  "production_blocker": {
+    "type": "SEQUENTIAL_CANONICAL_GAP",
+    "missing_range_before_this_batch": "Q1191-Q1225",
+    "reason": "Canonical production currently ends at Q1190. Importing Q1226-Q1230 alone would create a numbering gap and violate the established contiguous canonical invariant."
+  },
+  "production_database_modified": false,
+  "final_qa_verdict": "FINAL_QA_PASS_NO_MATERIAL_DEFECT"
+}
