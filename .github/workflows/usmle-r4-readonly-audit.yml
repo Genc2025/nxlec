@@ -1,0 +1,57 @@
+name: USMLE R4 Readonly Audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'usmle/r4_readonly_db_audit.py'
+      - 'usmle/reviewed/q1221_q1225_direct_chatgpt_r3.json'
+      - '.github/workflows/usmle-r4-readonly-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run read-only production DB audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/r4_readonly_db_audit.py --top 8 > usmle-r4-audit-report.json
+
+      - name: Print integrity and count summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle-r4-audit-report.json', encoding='utf-8'))
+          print('DB_SHA256=' + r['database_sha256'])
+          print('INTEGRITY=' + json.dumps(r['sqlite_integrity_check']))
+          print('ROW_COUNT=' + str(r['row_count']))
+          print('STATUS_COUNTS=' + json.dumps(r['status_counts'], sort_keys=True))
+          print('PAYLOAD_HASH_MISMATCHES=' + str(len(r['payload_hash_mismatches'])))
+          for q, terms in r['term_hits'].items():
+              print(q + '_TERM_HIT_COUNTS=' + json.dumps({k: len(v) for k,v in terms.items()}, sort_keys=True))
+          for q, rows in r['nearest_neighbours'].items():
+              print(q + '_TOP_NEIGHBOURS=' + json.dumps([
+                  {'candidate_id': x['candidate_id'], 'score': x['tfidf_cosine'], 'overlap': x['highest_idf_overlap']}
+                  for x in rows[:8]
+              ], ensure_ascii=False))
+          PY
+
+      - name: Print full audit report
+        shell: bash
+        run: cat usmle-r4-audit-report.json
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: usmle-r4-readonly-audit-report
+          path: usmle-r4-audit-report.json
+          if-no-files-found: error
