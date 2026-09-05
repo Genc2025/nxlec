@@ -9,8 +9,8 @@
   "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
   "authoritative_db_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
   "authoritative_db_final_count": 1190,
-  "exact_spec_sha": "c3920134b98e789332d800c97891e545b0b7856b",
-  "readonly_audit_run_id": 33984278684,
+  "exact_spec_sha": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
+  "readonly_audit_run_id": 33984594043,
   "db_write": false,
   "unresolved_conflicts": 0,
   "scores": {
@@ -44,7 +44,12 @@
   "stem": "PASS",
   "lead_in": "PASS",
   "correct_answer": "PASS",
-  "distractors": ["PASS","PASS","PASS","PASS"],
+  "distractors": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ],
   "rationale": "PASS",
   "educational_objective": "PASS",
   "ambiguity": "PASS",
@@ -62,27 +67,92 @@
   "construct_fit": "PASS",
   "hidden_assumptions": "PASS_NONE_MATERIAL",
   "fabricated_distractors": "PASS_NONE",
-  "numerical_claims": {"status":"PASS","note":"Age is synthetic context; no diagnostic cutoff, dose, or calculation is required."},
+  "numerical_claims": {
+    "status": "PASS",
+    "note": "Age is synthetic context; no diagnostic cutoff, dose, or calculation is required."
+  },
   "forward_exact_duplicate_check": "PASS",
   "canonical_main_construct_overlap": "PASS_NONE",
   "within_batch_construct_collision": "PASS_NONE",
   "duplicate_gate": {
     "status": "PASS",
     "canonical_count_checked": 1190,
-    "readonly_audit_run_id": 33984278684,
+    "readonly_audit_run_id": 33984594043,
     "nearest_material_review": {
       "candidate_id": "S1-DIRECT-0719-20260829T094500Z",
       "tfidf_cosine": 0.266434,
       "resolution": "CIITA/MHC-II transcription and CD4 selection is not AIRE-mediated medullary self-antigen expression/negative selection."
     }
   },
-  "option_audit": {"status":"PASS","option_count":5,"unique_options":true,"single_best_answer":true,"parallel_enough_for_construct":true},
-  "adversarial_second_pass": {"result":"PASS","note":"Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, corpus-neighbor, blueprint and difficulty attacks; no material defect remained."},
-  "expert_review_layer": {
-    "status":"PASS","answer_granularity":"PASS","mechanism_direction":"PASS","temporal_sequence":"PASS","scope_match":"PASS","negative_evidence":"PASS","distractor_ontology":"PASS","answer_key_inversion":"PASS","minimal_information":"PASS","clinical_base_rate":"PASS","units_numbers_thresholds":"PASS","terminology_drift":"PASS","source_disagreement":"PASS","educational_objective_leakage":"PASS","cross_item_contamination":"PASS","expert_reviewer_reversal":"PASS"
+  "option_audit": {
+    "status": "PASS",
+    "option_count": 5,
+    "unique_options": true,
+    "single_best_answer": true,
+    "parallel_enough_for_construct": true
   },
-  "key_integrity_gate": {"status":"PASS","factually_correct":"PASS","stem_supports_key":"PASS","lead_in_matches_answer_granularity":"PASS","no_second_defensible_answer":"PASS","no_authoritative_source_conflict":"PASS","no_required_hidden_assumption":"PASS"},
-  "realism_gate": {"status":"PASS","clinically_contextualized":"PASS","foundational_science_application":"PASS","stem_signal_to_noise":"PASS","distractor_plausibility":"PASS","option_parallelism":"PASS","nbme_style_single_best_answer":"PASS","core_step1_relevance":"PASS","mechanism_depth":"PASS"},
-  "official_discipline_gate": {"status":"PASS","all_tags_in_usmle_table3":true,"tags":["Immunology","Genetics","Histology & Cell Biology"]},
-  "production_note": "Item QA is final. Production insertion is a separate sequential database operation; canonical DB currently ends at Q1190."
+  "adversarial_second_pass": {
+    "result": "PASS",
+    "note": "Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, corpus-neighbor, blueprint and difficulty attacks; no material defect remained."
+  },
+  "expert_review_layer": {
+    "status": "PASS",
+    "answer_granularity": "PASS",
+    "mechanism_direction": "PASS",
+    "temporal_sequence": "PASS",
+    "scope_match": "PASS",
+    "negative_evidence": "PASS",
+    "distractor_ontology": "PASS",
+    "answer_key_inversion": "PASS",
+    "minimal_information": "PASS",
+    "clinical_base_rate": "PASS",
+    "units_numbers_thresholds": "PASS",
+    "terminology_drift": "PASS",
+    "source_disagreement": "PASS",
+    "educational_objective_leakage": "PASS",
+    "cross_item_contamination": "PASS",
+    "expert_reviewer_reversal": "PASS"
+  },
+  "key_integrity_gate": {
+    "status": "PASS",
+    "factually_correct": "PASS",
+    "stem_supports_key": "PASS",
+    "lead_in_matches_answer_granularity": "PASS",
+    "no_second_defensible_answer": "PASS",
+    "no_authoritative_source_conflict": "PASS",
+    "no_required_hidden_assumption": "PASS"
+  },
+  "realism_gate": {
+    "status": "PASS",
+    "clinically_contextualized": "PASS",
+    "foundational_science_application": "PASS",
+    "stem_signal_to_noise": "PASS",
+    "distractor_plausibility": "PASS",
+    "option_parallelism": "PASS",
+    "nbme_style_single_best_answer": "PASS",
+    "core_step1_relevance": "PASS",
+    "mechanism_depth": "PASS"
+  },
+  "official_discipline_gate": {
+    "status": "PASS",
+    "all_tags_in_usmle_table3": true,
+    "tags": [
+      "Immunology",
+      "Genetics",
+      "Histology & Cell Biology"
+    ]
+  },
+  "production_note": "Item QA is final. Production insertion is a separate sequential database operation; canonical DB currently ends at Q1190.",
+  "revalidated_after_discipline_repair": {
+    "status": "PASS",
+    "repair": "Replaced non-official discipline label Cell Biology with current official USMLE discipline label Histology & Cell Biology.",
+    "candidate_blob": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
+    "readonly_corpus_audit_run_id": 33984594043,
+    "readonly_corpus_audit_conclusion": "success",
+    "db_count": 1190,
+    "db_integrity": "ok",
+    "payload_hash_mismatches": 0,
+    "material_duplicates_found": 0,
+    "revalidated_at": "2026-09-05"
+  }
 }
