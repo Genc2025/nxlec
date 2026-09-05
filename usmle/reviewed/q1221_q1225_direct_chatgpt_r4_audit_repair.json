@@ -1,0 +1,144 @@
+{
+  "batch_id": "Q1221-Q1225-DIRECT-CHATGPT-R4-AUDIT-REPAIR-20260905",
+  "status": "CONTENT_AUDIT_REPAIR_COMPLETE_NOT_PRODUCTION_READY",
+  "supersedes": "usmle/reviewed/q1221_q1225_direct_chatgpt_r3.json",
+  "production_import_permitted": false,
+  "production_count_before": 1190,
+  "production_count_after": 1190,
+  "review_mode": "Repository-aware direct ChatGPT zero-trust re-audit; not an isolated Author or independent Auditor execution",
+  "review_date": "2026-09-05",
+  "defects_found": [
+    {
+      "candidate_id": "Q1225-R3-20260905",
+      "severity": "material_evidence_metadata_defect",
+      "field": "evidence_map option A",
+      "finding": "The R3 claim stated that the androgen receptor binds testosterone and DHT, but the cited AR MedlinePlus locator explicitly identifies androgen binding and testosterone while not naming DHT in the relevant narrative. Under the batch evidence gate, that support was not exact enough for the DHT-specific wording.",
+      "effect_on_key": "none; intended key D remains unchanged",
+      "repair_action": "Add an NLM MedlinePlus SRD5A2 source whose Normal Function section explicitly identifies DHT as a more potent androgen formed from testosterone; pair it with the AR source for the receptor-class inference."
+    }
+  ],
+  "source_additions": [
+    {
+      "source_id": "SRD5A2",
+      "title": "SRD5A2 gene: MedlinePlus Genetics",
+      "agency": "National Library of Medicine",
+      "url": "https://medlineplus.gov/genetics/gene/srd5a2/",
+      "publication_or_revision_date": "2008-04-01",
+      "retrieved_at": "2026-09-05",
+      "section_locator": "Normal Function",
+      "verified_claim": "The enzyme converts testosterone to the more potent androgen dihydrotestosterone (DHT); both testosterone and DHT are androgens involved in male sexual development.",
+      "date_note": "MedlinePlus displays Last updated April 1, 2008. Page age alone does not invalidate the stable biochemical fact."
+    }
+  ],
+  "candidate_repair": {
+    "candidate_id": "Q1225-R4-EVIDENCE-20260905",
+    "inherits_item_text_and_key_from": "Q1225-R3-20260905",
+    "intended_key": "D",
+    "replacement_evidence_map_entry": {
+      "option": "A",
+      "source_ids": ["AR", "SRD5A2", "LCH"],
+      "application": "Application to the synthetic case; not a quotation or an assertion that this patient was published.",
+      "claim": "AR is the receptor for androgens; MedlinePlus identifies testosterone as an androgen and DHT as a more potent androgen derived from testosterone. Thus testosterone and DHT belong to the androgen-receptor pathway, whereas the sibling phenotype is better accounted for by documented LHCGR loss.",
+      "evidence_type": "direct_and_inference",
+      "locators": {
+        "AR": "Normal Function; Androgen insensitivity syndrome",
+        "SRD5A2": "Normal Function",
+        "LCH": "Description; Causes; Inheritance"
+      }
+    },
+    "replacement_option_rationale": "Testosterone and DHT act through the androgen-receptor pathway, but impaired androgen action does not identify the shared LH/hCG receptor and does not directly account for the stated Leydig-cell hypoplasia as well as LHCGR loss does."
+  },
+  "full_reaudit": {
+    "Q1221": {
+      "rederived_key": "C",
+      "key_status": "PASS",
+      "second_answer_attack": "PASS; GH1 synthesis defects and peripheral GH resistance do not explain the receptor-specific failure to bind GHRH with an active hormone preparation.",
+      "source_locator_gate": "PASS",
+      "currentness_gate": "PASS; stable receptor physiology verified against current-access NLM pages and current USMLE Step 1 content specifications.",
+      "numeric_gate": "PASS; age is synthetic context and no clinical cutoff, dose, diagnostic performance, or calculated quantity is claimed.",
+      "options_gate": "PASS; one best answer after assay controls.",
+      "blueprint_gate": "PASS; Reproductive and Endocrine Systems / Medical Knowledge: Applying Foundational Science Concepts; no NCJMM.",
+      "difficulty_gate": "PASS_WITH_ESTIMATE; easy-to-moderate is an expert estimate, not psychometric calibration.",
+      "rationale_gate": "PASS",
+      "educational_objective_gate": "PASS"
+    },
+    "Q1222": {
+      "rederived_key": "A",
+      "key_status": "PASS",
+      "second_answer_attack": "PASS; ABCC8 loss causing reduced KATP function explains inappropriate insulin secretion, while persistent channel opening predicts reduced insulin release/neonatal diabetes.",
+      "source_locator_gate": "PASS",
+      "currentness_gate": "PASS; ABCC8 page last updated 2026-01-13 and mechanism cross-checked with congenital hyperinsulinism page.",
+      "numeric_gate": "PASS; age is synthetic context and no cutoff/dose/calculation claim is used.",
+      "options_gate": "PASS",
+      "blueprint_gate": "PASS; no NCJMM.",
+      "difficulty_gate": "PASS_WITH_ESTIMATE; easy-to-moderate, not psychometrically calibrated.",
+      "rationale_gate": "PASS",
+      "educational_objective_gate": "PASS"
+    },
+    "Q1223": {
+      "rederived_key": "E",
+      "key_status": "PASS",
+      "second_answer_attack": "PASS; the heterozygous GCK loss specifically identifies impaired beta-cell glucose sensing, not HNF transcription, KATP-channel dysfunction, peripheral insulin resistance, or autoimmune beta-cell destruction.",
+      "source_locator_gate": "PASS",
+      "currentness_gate": "PASS; stable GCK/MODY physiology verified against current-access NLM pages.",
+      "numeric_gate": "PASS; no glucose threshold or treatment cutoff is invented.",
+      "options_gate": "PASS",
+      "blueprint_gate": "PASS; no NCJMM.",
+      "difficulty_gate": "PASS_WITH_ESTIMATE; easy-to-moderate, not psychometrically calibrated.",
+      "rationale_gate": "PASS",
+      "educational_objective_gate": "PASS"
+    },
+    "Q1224": {
+      "rederived_key": "B",
+      "key_status": "PASS",
+      "second_answer_attack": "PASS; active ligand, preserved receptor surface abundance, preserved binding, and matched normal-receptor signaling jointly localize the defect to post-binding receptor signaling.",
+      "source_locator_gate": "PASS",
+      "currentness_gate": "PASS; LEPR source directly supports preserved ligand binding with impaired signaling in some variants.",
+      "numeric_gate": "PASS; no unsupported leptin cutoff or quantitative assay threshold is used.",
+      "options_gate": "PASS",
+      "blueprint_gate": "PASS; no NCJMM.",
+      "difficulty_gate": "PASS_WITH_ESTIMATE; moderate, not psychometrically calibrated.",
+      "rationale_gate": "PASS",
+      "educational_objective_gate": "PASS"
+    },
+    "Q1225": {
+      "rederived_key": "D",
+      "key_status": "PASS",
+      "second_answer_attack": "PASS after evidence repair; LH and hCG are the two ligands of LHCGR. The sex-specific sibling findings are concordant with LHCGR loss, while testosterone/DHT identify the androgen-receptor pathway rather than the shared receptor in the stem.",
+      "source_locator_gate": "PASS_AFTER_REPAIR; option A exact-evidence gap repaired with SRD5A2 Normal Function.",
+      "currentness_gate": "PASS; LHCGR/Leydig-cell-hypoplasia facts and AR/SRD5A2 pathway facts are stable and verified on current-access NLM pages; displayed revision dates are recorded separately from retrieval date.",
+      "numeric_gate": "PASS; ages and karyotypes are synthetic case context, with no numeric diagnostic cutoff or calculation claim.",
+      "options_gate": "PASS",
+      "blueprint_gate": "PASS; no NCJMM.",
+      "difficulty_gate": "PASS_WITH_ESTIMATE; moderate, not psychometrically calibrated.",
+      "rationale_gate": "PASS_AFTER_REPAIR",
+      "educational_objective_gate": "PASS"
+    }
+  },
+  "adversarial_second_pass": {
+    "performed": true,
+    "material_defects_after_repair": 0,
+    "key_changes": 0,
+    "fabricated_distractor_claims_detected_after_repair": 0,
+    "hidden_assumption_findings": "No hidden assumption changes the one-best-answer key in the five repaired item texts. Synthetic patient/assay details remain explicitly labeled as constructed educational data.",
+    "difficulty_note": "Difficulty labels remain expert estimates only; no UWorld-equivalence or psychometric score is claimed."
+  },
+  "duplicate_originality_gate": {
+    "status": "NOT_REESTABLISHED_BY_THIS_EXECUTION",
+    "reason": "The repository production SQLite file is binary and could not be queried through the connected GitHub text interface in this execution. Prior R2 records contain corpus/staged-term comparisons, but no new exhaustive semantic-originality claim is made here.",
+    "policy": "A term hit alone does not prove duplication and a no-hit result does not prove originality. Semantic and staged-candidate review remains required by the production pipeline."
+  },
+  "database_integrity_gate": {
+    "status": "NOT_REQUERIED_BY_THIS_EXECUTION",
+    "reason": "Binary SQLite contents were not exposed by the connected GitHub text interface. No production write was attempted.",
+    "last_recorded_database_sha256_from_r3": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a"
+  },
+  "independent_execution_gate": {
+    "AUTHOR_ISOLATED_EXECUTION": "NOT_SATISFIED_THIS_IS_REPOSITORY_AWARE_REVIEW",
+    "AUDITOR_EXECUTION_PASS_A": "NOT_RUN",
+    "AUDITOR_EXECUTION_PASS_B": "NOT_RUN",
+    "production_ready": false,
+    "reason": "Repository policy requires fresh isolated Author and blind/evidence Auditor executions from a different configured model family. This direct ChatGPT review cannot substitute for those gates."
+  },
+  "final_direct_review_verdict": "CONTENT_REPAIR_COMPLETE; BLOCKED_FROM_PRODUCTION_PENDING_DUPLICATE_DB_RECHECK_AND_INDEPENDENT_EXECUTION_GATES"
+}
