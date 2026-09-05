@@ -32,6 +32,8 @@ p.subprocess.run = _route_importer
 
 def _fresh_execution(prompt, requested_model, phase, execution_id):
     """Every Author/Auditor pass is a brand-new Copilot process and context."""
+    if p.model_family(requested_model) is None:
+        raise ValueError("Explicit supported model required; automatic routing is not auditable")
     home = Path(tempfile.mkdtemp(prefix=f"copilot-{phase}-"))
     work = Path(tempfile.mkdtemp(prefix=f"work-{phase}-"))
     env = os.environ.copy()
@@ -40,7 +42,7 @@ def _fresh_execution(prompt, requested_model, phase, execution_id):
 
     cmd = [
         "copilot", "-p", prompt, "-s", "--no-ask-user",
-        "--model", "auto",
+        "--model", requested_model,
         "--available-tools=web_search,web_fetch",
         "--allow-tool=web_search", "--allow-tool=web_fetch",
         "--disable-builtin-mcps", "-C", str(work),
@@ -54,7 +56,7 @@ def _fresh_execution(prompt, requested_model, phase, execution_id):
 
     return p.extract_json(proc.stdout), {
         "execution_id": execution_id,
-        "model": "auto",
+        "model": requested_model,
         "copilot_home": str(home),
         "workdir": str(work),
         "prompt_sha256": p.sha_text(prompt),
@@ -65,30 +67,9 @@ def _fresh_execution(prompt, requested_model, phase, execution_id):
 p.run_copilot = _fresh_execution
 
 
-def _isolation_gate(author_meta, blind_meta, audit_meta):
-    ids = {author_meta["execution_id"], blind_meta["execution_id"], audit_meta["execution_id"]}
-    homes = {author_meta["copilot_home"], blind_meta["copilot_home"], audit_meta["copilot_home"]}
-    works = {author_meta["workdir"], blind_meta["workdir"], audit_meta["workdir"]}
-    return len(ids) == 3 and len(homes) == 3 and len(works) == 3
-
-
-def _isolation_gate_db(con, cid):
-    rows = con.execute(
-        """SELECT role,execution_id,context_namespace_sha256
-           FROM executions WHERE candidate_id=? ORDER BY role""",
-        (cid,),
-    ).fetchall()
-    return (
-        len(rows) == 3
-        and {r[0] for r in rows}
-        == {"AUTHOR_EXECUTION", "AUDITOR_EXECUTION_PASS_A", "AUDITOR_EXECUTION_PASS_B"}
-        and len({r[1] for r in rows}) == 3
-        and len({r[2] for r in rows}) == 3
-    )
-
-
-p.isolation_gate = _isolation_gate
-p.isolation_gate_db = _isolation_gate_db
+# Use the canonical gates; local wrappers must not weaken family separation.
+_isolation_gate = p.isolation_gate
+_isolation_gate_db = p.isolation_gate_db
 
 
 def main():

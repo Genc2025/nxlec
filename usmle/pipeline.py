@@ -631,6 +631,19 @@ def insert_execution(con,cid,role,meta):
                    VALUES(?,?,?,?,?,?,?)""",
                 (cid,role,meta["execution_id"],meta["model"],meta["prompt_sha256"],ns,meta["completed_at"]))
 
+def model_family(model):
+    # Explicit allowlist for this pipeline's configured models. Unknown/automatic
+    # routing does not prove distinct model families.
+    return {"gpt-5.4": "openai-gpt", "claude-sonnet-4.6": "anthropic-claude"}.get(model)
+
+
+def distinct_model_families(author_model, blind_model, audit_model):
+    author = model_family(author_model)
+    blind = model_family(blind_model)
+    audit = model_family(audit_model)
+    return bool(author and blind and audit and author != blind and author != audit)
+
+
 def isolation_gate_db(con,cid):
     rows=con.execute("""SELECT role,execution_id,model,prompt_sha256,context_namespace_sha256
                         FROM executions WHERE candidate_id=? ORDER BY role""",(cid,)).fetchall()
@@ -638,7 +651,8 @@ def isolation_gate_db(con,cid):
     roles={r[0] for r in rows}
     if roles!={"AUTHOR_EXECUTION","AUDITOR_EXECUTION_PASS_A","AUDITOR_EXECUTION_PASS_B"}: return False
     if len({r[1] for r in rows})!=3 or len({r[4] for r in rows})!=3: return False
-    return True
+    models = {r[0]: r[2] for r in rows}
+    return distinct_model_families(models["AUTHOR_EXECUTION"], models["AUDITOR_EXECUTION_PASS_A"], models["AUDITOR_EXECUTION_PASS_B"])
 
 def insert_candidate(con,candidate,author_meta):
     cid=candidate["candidate_id"]
@@ -709,7 +723,7 @@ def isolation_gate(author_meta,blind_meta,audit_meta):
     works={author_meta["workdir"],blind_meta["workdir"],audit_meta["workdir"]}
     if len(ids)!=3 or len(homes)!=3 or len(works)!=3:
         return False
-    return True
+    return distinct_model_families(author_meta.get("model"), blind_meta.get("model"), audit_meta.get("model"))
 
 def trusted_import_candidate(cid):
     con=connect(); integrity(con)
@@ -765,7 +779,7 @@ def run(max_accepted=5,max_attempts=20):
         pp=passb_prompt(author,blind,bhash,dup)
         audit,aumeta=run_copilot(pp,"claude-sonnet-4.6","auditor-passb",uuid.uuid4().hex)
         audit["candidate_id"]=cid
-        audit["auditor_model"]="claude-sonnet-4.6"
+        audit["auditor_model"]=aumeta["model"]
         audit["audited_at"]=now()
         audit["audit_record_sha256"]=""
         audit["audit_record_sha256"]=hash_obj(audit)
