@@ -1,0 +1,53 @@
+name: USMLE Repair Q1237 NEUROG3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/REPAIR_TRIGGER_Q1237_NEUROG3'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Replace Q1237 and validate batch invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/repair_q1237_neurog3.py
+          python usmle/repair_q1237_neurog3.py
+          python - <<'PY'
+          import json
+          p='usmle/batch_specs_1201_1300/06_q1231_q1240_author_20260906.json'
+          d=json.load(open(p))
+          assert [x['num'] for x in d['items']]==list(range(1231,1241))
+          assert ''.join(x['item']['intended_key'] for x in d['items'])=='CAEBDBDACE'
+          q=[x for x in d['items'] if x['num']==1237][0]
+          assert q['item']['intended_key']=='D' and 'NEUROG3' in q['item']['options']['D']
+          assert q['status']=='CANDIDATE_FROZEN'
+          assert sum(x['blueprint']['primary_competency'].startswith('Patient Care') for x in d['items'])==6
+          assert d['production_count_after']==1230
+          print('Q1237_REPAIR_REVALIDATION=PASS')
+          PY
+      - name: Persist repaired staging batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE QA Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1201_1300/06_q1231_q1240_author_20260906.json
+          git diff --cached --quiet && { echo 'No candidate repair changes'; exit 1; }
+          git commit -m 'USMLE: replace Q1237 cholestasis collision with NEUROG3 enteric anendocrinosis'
+          git pull --rebase origin main
+          git push origin HEAD:main
