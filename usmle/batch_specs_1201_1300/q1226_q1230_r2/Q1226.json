@@ -1,0 +1,64 @@
+{
+  "num": 1226,
+  "status": "CANDIDATE_FROZEN",
+  "production_import_permitted": false,
+  "blueprint": {
+    "primary_system": "Blood & Lymphoreticular/Immune Systems",
+    "official_outline_path": ["Blood & Lymphoreticular/Immune Systems"],
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": ["Immunology", "Genetics", "Cell Biology"],
+    "content_focus": "AIRE-mediated central tolerance"
+  },
+  "item": {
+    "vignette": "A 12-year-old girl has chronic mucocutaneous candidiasis, hypoparathyroidism, and primary adrenal insufficiency. Genetic testing identifies biallelic loss-of-function variants in AIRE. Her circulating T-cell count is normal.",
+    "lead_in": "Which thymic process is most directly impaired by this genetic defect?",
+    "options": {
+      "A": "Positive selection of thymocytes that can recognize self-MHC molecules in the thymic cortex",
+      "B": "Ectopic expression of tissue-restricted self antigens by medullary thymic epithelial cells for deletion of strongly self-reactive T cells",
+      "C": "Somatic recombination of variable, diversity, and joining gene segments during lymphocyte development",
+      "D": "FOXP3-dependent suppression of activated lymphocytes by mature peripheral regulatory T cells",
+      "E": "Immunoglobulin class-switch recombination after CD40 signaling in germinal centers"
+    },
+    "intended_key": "B",
+    "difficulty": "moderate-hard",
+    "difficulty_basis": "Expert estimate only; requires recognition of APECED/AIRE and localization to medullary self-antigen display and central negative selection.",
+    "tested_construct": "AIRE-dependent tissue-restricted self-antigen expression in medullary thymic epithelial cells enables central negative selection"
+  },
+  "explanation": {
+    "key_explanation": "AIRE promotes expression of tissue-restricted self antigens in medullary thymic epithelial cells. This broad self-antigen display exposes developing thymocytes to peripheral self proteins and supports deletion of strongly self-reactive clones. Loss of AIRE therefore disrupts central tolerance and permits multiorgan autoimmunity.",
+    "distractor_explanations": {
+      "A": "Positive selection is a cortical self-MHC-recognition step and is not the defining AIRE-dependent process.",
+      "B": "Correct. AIRE-mediated medullary self-antigen display supports negative selection of autoreactive thymocytes.",
+      "C": "V(D)J recombination is performed by the RAG complex, not AIRE.",
+      "D": "FOXP3 is essential for regulatory T-cell production and function, a distinct tolerance mechanism.",
+      "E": "CD40L-CD40 signaling drives immunoglobulin class switching in mature B cells, not thymic central tolerance."
+    },
+    "educational_objective": "AIRE promotes tissue-restricted self-antigen expression in medullary thymic epithelial cells, enabling central negative selection; loss permits autoreactive T cells to escape and causes APECED."
+  },
+  "evidence_map": [
+    {"option":"B","claim":"AIRE-mediated medullary self-antigen display supports central tolerance and deletion of strongly self-reactive thymocytes.","source_ids":["S2","S3","S4"],"evidence_type":"direct_and_synthesis"},
+    {"option":"C","claim":"RAG1 participates in V(D)J recombination.","source_ids":["S5"],"evidence_type":"direct"},
+    {"option":"D","claim":"FOXP3 is essential for regulatory T-cell production and normal function.","source_ids":["S6"],"evidence_type":"direct"},
+    {"option":"E","claim":"CD40L-CD40 signaling is required for B-cell class switching beyond IgM.","source_ids":["S7"],"evidence_type":"direct"}
+  ],
+  "sources": [
+    {"source_id":"S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-05","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies; Discipline Specifications"},
+    {"source_id":"S2","agency":"National Library of Medicine","title":"AIRE gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/aire/","retrieved_at":"2026-09-05","section_locator":"Normal Function; APECED"},
+    {"source_id":"S3","agency":"PubMed","title":"Antigen presentation for central tolerance induction","url":"https://pubmed.ncbi.nlm.nih.gov/39294277/","publication_or_revision_date":"2024-09-18 online; 2025-01 issue","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S4","agency":"PubMed","title":"Aire-dependent interferon signalling shapes thymocyte maturation and central tolerance in mice","url":"https://pubmed.ncbi.nlm.nih.gov/41366551/","publication_or_revision_date":"2025-12-09","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S5","agency":"National Library of Medicine","title":"RAG1 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/rag1/","retrieved_at":"2026-09-05","section_locator":"Normal Function"},
+    {"source_id":"S6","agency":"National Library of Medicine","title":"FOXP3 gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/foxp3/","retrieved_at":"2026-09-05","section_locator":"Normal Function"},
+    {"source_id":"S7","agency":"National Library of Medicine","title":"CD40LG gene: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/gene/cd40lg/","retrieved_at":"2026-09-05","section_locator":"Normal Function"}
+  ],
+  "zero_trust_audit": {
+    "key_rederived": "B",
+    "second_answer_attack": "PASS",
+    "numeric_claim_gate": "PASS; no diagnostic cutoff or dose claim",
+    "url_locator_gate": "PASS",
+    "currentness_gate": "PASS; stable mechanism cross-checked against current-access sources including 2024/2025 central-tolerance literature",
+    "fabricated_distractor_gate": "PASS",
+    "blueprint_gate": "PASS; no granular topic is mislabeled as an official USMLE outline path",
+    "difficulty_gate": "PASS_AS_EXPERT_ESTIMATE_ONLY",
+    "material_defects_remaining": 0
+  }
+}
