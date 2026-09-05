@@ -1,0 +1,46 @@
+name: USMLE Q1216-Q1230 Readonly Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/READONLY_TRIGGER_Q1216_Q1230'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run Q1216-Q1230 read-only corpus audit against canonical Q1215
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/q1216_q1230_readonly_audit.py > q1216-q1230-audit.json
+      - name: Print compact retrieval report
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('q1216-q1230-audit.json'))
+          print('DB_BLOB=',r['authoritative_db_blob'])
+          print('COUNT=',r['canonical_count'],'INTEGRITY=',r['sqlite_integrity_check'],'HASH_MISMATCHES=',len(r['payload_hash_mismatches']))
+          print('KEY_DIST=',r['answer_key_distribution'])
+          for q,rows in r['nearest_neighbours'].items():
+            print(q,'TOP5=',json.dumps([{'id':x['candidate_id'],'score':x['tfidf_cosine'],'overlap':x['overlap']} for x in rows[:5]],ensure_ascii=False))
+          print('WITHIN_TOP=',json.dumps(r['within_batch_similarity'][:15],ensure_ascii=False))
+          PY
+      - name: Upload full report
+        uses: actions/upload-artifact@v4
+        with:
+          name: q1216-q1230-readonly-audit
+          path: q1216-q1230-audit.json
+          if-no-files-found: error
