@@ -15,6 +15,7 @@ READONLY_RUN_ID=33990646632
 EXPECTED_DB_BLOB='15345ce6a3c3ca72097b28aaf7e1ccd73b394c3f'
 EXPECTED_KEYS={1216:'C',1217:'A',1218:'D',1219:'B',1220:'E',1221:'C',1222:'A',1223:'E',1224:'B',1225:'D',1226:'B',1227:'D',1228:'A',1229:'E',1230:'C'}
 OFFICIAL_DISC={'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology','Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'}
+OFFICIAL_SYSTEMS={'Human Development','Respiratory and Renal/Urinary Systems','Blood, Lymphoreticular and Immune Systems','Behavioral Health, Nervous Systems and Special Senses','Musculoskeletal, Skin and Subcutaneous Tissue','Cardiovascular System','Gastrointestinal System','Reproductive and Endocrine Systems','Multisystem Processes and Disorders','Biostatistics, Epidemiology and Population Health','Social Sciences: Communication and Interpersonal Skills'}
 SCORE_DOMAINS=('blueprint_fidelity','key_correctness','distractor_integrity','single_best_answer','reasoning_and_difficulty','item_writing','cueing_bias_fairness','evidence_quality','originality_duplication_rights','technical_integrity')
 EXPERT_KEYS=('answer_granularity','mechanism_direction','temporal_sequence','scope_match','negative_evidence','distractor_ontology','answer_key_inversion','minimal_information','clinical_base_rate','units_numbers_thresholds','terminology_drift','source_disagreement','educational_objective_leakage','cross_item_contamination','expert_reviewer_reversal')
 KEY_KEYS=('factually_correct','stem_supports_key','lead_in_matches_answer_granularity','no_second_defensible_answer','no_authoritative_source_conflict','no_required_hidden_assumption')
@@ -117,6 +118,7 @@ def main():
         assert int(d['num'])==n
         item=d['item']; opts=item['options']; assert list(opts)==['A','B','C','D','E'] and len(set(opts.values()))==5
         assert item['intended_key']==EXPECTED_KEYS[n] and item['intended_key'] in opts; keys.append(item['intended_key'])
+        assert d['blueprint']['primary_system'] in OFFICIAL_SYSTEMS,(n,d['blueprint']['primary_system'])
         tags=d['blueprint']['disciplines']; assert tags and all(t in OFFICIAL_DISC for t in tags),(n,tags)
         assert 'ncjmm' not in json.dumps(d,ensure_ascii=False).casefold(),n
         sources=d['sources']; assert len(sources)>=2,n
