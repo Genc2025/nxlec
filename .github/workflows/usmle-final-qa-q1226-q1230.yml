@@ -41,12 +41,13 @@ jobs:
           OUT=AUD/'Q1226_Q1230_FINAL_QA_PASS.json'
           EXPECTED_DB_BLOB='987c82084e1906854c03fe21e7dfc4f9d46be923'
           EXPECTED_DB_SHA256='a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a'
+          READONLY_RUN=33984594043
           EXPECTED_SPEC={
-            1226:'c3920134b98e789332d800c97891e545b0b7856b',
-            1227:'53779e2529382cbe7f250e28146121b65077dd48',
-            1228:'cae352c6043db09d9dde95abf578b98117de8888',
-            1229:'9a9dd881afce7168073821dddf0e1f80fd1efe2a',
-            1230:'07375051fd2dd76553910e9ccf0e2b61c6a09db7',
+            1226:'46493b9d6e9dfc324c85fbb7933d57d7a6f6c546',
+            1227:'8a4111d8f6e730d91f836bd1b946012a14ce7646',
+            1228:'c7707f6f0a4cb26f663db472995f24b9bf82d1e8',
+            1229:'2471a7c8420875ba138e5eb1e90dde015c7d6c70',
+            1230:'cfa0a9de9bb02762d3174253afd23bb84139544a',
           }
           EXPECTED_KEYS={1226:'B',1227:'D',1228:'A',1229:'E',1230:'C'}
           SCORE_DOMAINS={
@@ -82,59 +83,87 @@ jobs:
             m=re.search(r'DIRECT-(\d{4})',cid or '')
             return int(m.group(1)) if m else None
 
-          db_blob=gitblob(DB); assert db_blob==EXPECTED_DB_BLOB,(db_blob,EXPECTED_DB_BLOB)
-          db_sha=sha256_file(DB); assert db_sha==EXPECTED_DB_SHA256,(db_sha,EXPECTED_DB_SHA256)
+          db_blob=gitblob(DB)
+          assert db_blob==EXPECTED_DB_BLOB,(db_blob,EXPECTED_DB_BLOB)
+          db_sha=sha256_file(DB)
+          assert db_sha==EXPECTED_DB_SHA256,(db_sha,EXPECTED_DB_SHA256)
           con=sqlite3.connect(DB)
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
-          rows=con.execute("SELECT candidate_id,final_status FROM step2_final_items").fetchall()
+          rows=con.execute('SELECT candidate_id,final_status FROM step2_final_items').fetchall()
           assert len(rows)==1190
           assert Counter(st for _,st in rows)==Counter({'FINAL_10_10_PASS':1190})
-          nums={qnum(cid) for cid,_ in rows}; assert nums==set(range(1,1191)),(min(nums),max(nums),len(nums))
+          nums={qnum(cid) for cid,_ in rows}
+          assert nums==set(range(1,1191)),(min(nums),max(nums),len(nums))
           assert con.execute('SELECT COUNT(*) FROM (SELECT candidate_id FROM step2_final_items GROUP BY candidate_id HAVING COUNT(*)>1)').fetchone()[0]==0
           con.close()
 
           item_report=[]; keys=[]; spec_blobs={}; audit_blobs={}
           for n in range(1226,1231):
             cp=CAND/f'Q{n}.json'; ap=AUD/f'Q{n}_FINAL_10_10_AUDIT.json'
-            assert cp.exists() and ap.exists()
-            cb=gitblob(cp); assert cb==EXPECTED_SPEC[n],(n,cb,EXPECTED_SPEC[n]); spec_blobs[f'Q{n}']=cb
+            assert cp.exists() and ap.exists(),n
+            cb=gitblob(cp)
+            assert cb==EXPECTED_SPEC[n],(n,cb,EXPECTED_SPEC[n])
+            spec_blobs[f'Q{n}']=cb
             c=json.loads(cp.read_text())
-            assert c['num']==n and c['status']=='CANDIDATE_FROZEN' and c['production_import_permitted'] is False
+            assert c['num']==n
+            assert c['status']=='CANDIDATE_FROZEN'
+            assert c['production_import_permitted'] is False
             assert c['blueprint']['primary_system']=='Blood & Lymphoreticular/Immune Systems'
             assert c['blueprint']['primary_competency']=='Medical Knowledge: Applying Foundational Science Concepts'
             assert c['blueprint']['official_outline_path']==['Blood & Lymphoreticular/Immune Systems']
             assert c['blueprint']['disciplines'] and all(x in OFFICIAL_DISC for x in c['blueprint']['disciplines'])
+            assert 'Cell Biology' not in c['blueprint']['disciplines']
+            assert 'Histology & Cell Biology' in c['blueprint']['disciplines']
             assert 'ncjmm' not in json.dumps(c).casefold()
-            item=c['item']; opts=item['options']
+            opts=c['item']['options']
             assert list(opts)==['A','B','C','D','E'] and len(set(opts.values()))==5
-            assert item['intended_key']==EXPECTED_KEYS[n] and item['intended_key'] in opts; keys.append(item['intended_key'])
+            assert c['item']['intended_key']==EXPECTED_KEYS[n] and EXPECTED_KEYS[n] in opts
+            keys.append(EXPECTED_KEYS[n])
             assert c['zero_trust_audit']['material_defects_remaining']==0
             assert len(c['sources'])>=2
             for s in c['sources']:
               assert s.get('url','').startswith('https://') and s.get('section_locator')
 
-            a=json.loads(ap.read_text()); audit_blobs[f'Q{n}']=gitblob(ap)
-            assert a['item']==f'Q{n}' and a['status']=='FINAL_10_10_PASS' and a['verdict']=='PASS_WITH_NO_CHANGES'
-            assert a['exact_spec_sha']==cb and a['authoritative_db_blob']==EXPECTED_DB_BLOB
+            a=json.loads(ap.read_text())
+            audit_blobs[f'Q{n}']=gitblob(ap)
+            assert a['item']==f'Q{n}'
+            assert a['status']=='FINAL_10_10_PASS' and a['verdict']=='PASS_WITH_NO_CHANGES'
+            assert a['exact_spec_sha']==cb
+            assert a['authoritative_db_blob']==EXPECTED_DB_BLOB
             assert a['authoritative_db_sha256']==EXPECTED_DB_SHA256 and a['authoritative_db_final_count']==1190
-            assert a['readonly_audit_run_id']==33984278684 and a['db_write'] is False and a['unresolved_conflicts']==0
+            assert a['readonly_audit_run_id']==READONLY_RUN
+            assert a['db_write'] is False and a['unresolved_conflicts']==0
             assert set(a['scores'])==SCORE_DOMAINS and all(type(v) is int and v==10 for v in a['scores'].values())
             assert a['defects']==[] and a['suggested_changes']==[]
-            blind=a['blind_audit']; assert blind['selected_key']==EXPECTED_KEYS[n]
-            assert blind['alternative_defensible_options']==[] and blind['missing_assumptions']==[] and blind['cueing_findings']==[]
+            blind=a['blind_audit']
+            assert blind['selected_key']==EXPECTED_KEYS[n]
+            assert blind['alternative_defensible_options']==[]
+            assert blind['missing_assumptions']==[] and blind['cueing_findings']==[]
             assert a['source_authority']=='PASS' and a['source_currentness']['status']=='PASS' and a['exact_locator']=='PASS'
             assert a['stem']=='PASS' and a['lead_in']=='PASS' and a['correct_answer']=='PASS' and a['distractors']==['PASS']*4
             assert a['rationale']=='PASS' and a['educational_objective']=='PASS' and a['ambiguity']=='PASS'
             assert a['second_possible_answer']=='PASS_NONE' and a['second_answer_attack']['result']=='PASS_NONE'
             assert a['hidden_assumptions']=='PASS_NONE_MATERIAL' and a['fabricated_distractors']=='PASS_NONE'
-            assert a['forward_exact_duplicate_check']=='PASS' and a['canonical_main_construct_overlap']=='PASS_NONE' and a['within_batch_construct_collision']=='PASS_NONE'
+            assert a['forward_exact_duplicate_check']=='PASS'
+            assert a['canonical_main_construct_overlap']=='PASS_NONE' and a['within_batch_construct_collision']=='PASS_NONE'
             assert a['duplicate_gate']['status']=='PASS' and a['duplicate_gate']['canonical_count_checked']==1190
+            assert a['duplicate_gate']['readonly_audit_run_id']==READONLY_RUN
             assert a['option_audit']['status']=='PASS' and a['option_audit']['option_count']==5 and a['option_audit']['single_best_answer'] is True
             assert a['adversarial_second_pass']['result']=='PASS'
-            ex=a['expert_review_layer']; assert ex['status']=='PASS' and all(ex[k]=='PASS' for k in EXPERT_KEYS)
-            kg=a['key_integrity_gate']; assert kg['status']=='PASS' and all(kg[k]=='PASS' for k in KEY_KEYS)
-            rg=a['realism_gate']; assert rg['status']=='PASS' and all(rg[k]=='PASS' for k in REALISM_KEYS)
-            dg=a['official_discipline_gate']; assert dg['status']=='PASS' and dg['all_tags_in_usmle_table3'] is True and all(x in OFFICIAL_DISC for x in dg['tags'])
+            ex=a['expert_review_layer']
+            assert ex['status']=='PASS' and all(ex[k]=='PASS' for k in EXPERT_KEYS)
+            kg=a['key_integrity_gate']
+            assert kg['status']=='PASS' and all(kg[k]=='PASS' for k in KEY_KEYS)
+            rg=a['realism_gate']
+            assert rg['status']=='PASS' and all(rg[k]=='PASS' for k in REALISM_KEYS)
+            dg=a['official_discipline_gate']
+            assert dg['status']=='PASS' and dg['all_tags_in_usmle_table3'] is True and all(x in OFFICIAL_DISC for x in dg['tags'])
+            rv=a['revalidated_after_discipline_repair']
+            assert rv['status']=='PASS' and rv['candidate_blob']==cb
+            assert rv['readonly_corpus_audit_run_id']==READONLY_RUN
+            assert rv['readonly_corpus_audit_conclusion']=='success'
+            assert rv['db_count']==1190 and rv['db_integrity']=='ok'
+            assert rv['payload_hash_mismatches']==0 and rv['material_duplicates_found']==0
             item_report.append({'num':n,'key':EXPECTED_KEYS[n],'candidate_blob':cb,'audit_blob':audit_blobs[f'Q{n}'],'verdict':'FINAL_10_10_PASS','material_defects':0})
 
           assert Counter(keys)==Counter({'A':1,'B':1,'C':1,'D':1,'E':1})
@@ -150,7 +179,7 @@ jobs:
             'authoritative_db_final_count':1190,
             'sqlite_integrity_check':'ok',
             'canonical_contiguous_range':'Q0001-Q1190',
-            'readonly_corpus_audit_run_id':33984278684,
+            'readonly_corpus_audit_run_id':READONLY_RUN,
             'readonly_corpus_audit_conclusion':'success',
             'canonical_items_compared':1190,
             'material_duplicates_found':0,
@@ -167,6 +196,7 @@ jobs:
             'all_expert_second_passes_pass':True,
             'all_key_integrity_gates_pass':True,
             'all_realism_gates_pass':True,
+            'official_discipline_metadata_repaired_and_revalidated':True,
             'ncjmm_present':False,
             'content_qa_complete':True,
             'production_import_ready':False,
