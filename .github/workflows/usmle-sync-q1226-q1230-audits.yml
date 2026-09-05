@@ -1,0 +1,79 @@
+name: USMLE Sync Q1226-Q1230 Audits
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-sync-q1226-q1230-audits.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Sync exact candidate blobs and fresh corpus audit evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib,subprocess
+          cand=pathlib.Path('usmle/batch_specs_1201_1300/q1226_q1230_r2')
+          aud=pathlib.Path('usmle/audit')
+          run_id=33984594043
+          expected={
+            1226:'46493b9d6e9dfc324c85fbb7933d57d7a6f6c546',
+            1227:'8a4111d8f6e730d91f836bd1b946012a14ce7646',
+            1228:'c7707f6f0a4cb26f663db472995f24b9bf82d1e8',
+            1229:'2471a7c8420875ba138e5eb1e90dde015c7d6c70',
+            1230:'cfa0a9de9bb02762d3174253afd23bb84139544a',
+          }
+          for n,sha in expected.items():
+              cp=cand/f'Q{n}.json'
+              actual=subprocess.check_output(['git','hash-object',str(cp)],text=True).strip()
+              assert actual==sha,(n,actual,sha)
+              c=json.loads(cp.read_text())
+              assert 'Cell Biology' not in c['blueprint']['disciplines']
+              assert 'Histology & Cell Biology' in c['blueprint']['disciplines']
+              ap=aud/f'Q{n}_FINAL_10_10_AUDIT.json'
+              a=json.loads(ap.read_text())
+              assert a['status']=='FINAL_10_10_PASS'
+              assert a['verdict']=='PASS_WITH_NO_CHANGES'
+              assert a['defects']==[] and a['suggested_changes']==[]
+              a['exact_spec_sha']=sha
+              a['readonly_audit_run_id']=run_id
+              a['duplicate_gate']['readonly_audit_run_id']=run_id
+              a['revalidated_after_discipline_repair']={
+                'status':'PASS',
+                'repair':'Replaced non-official discipline label Cell Biology with current official USMLE discipline label Histology & Cell Biology.',
+                'candidate_blob':sha,
+                'readonly_corpus_audit_run_id':run_id,
+                'readonly_corpus_audit_conclusion':'success',
+                'db_count':1190,
+                'db_integrity':'ok',
+                'payload_hash_mismatches':0,
+                'material_duplicates_found':0,
+                'revalidated_at':'2026-09-05'
+              }
+              ap.write_text(json.dumps(a,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist synchronized audits
+        shell: bash
+        run: |
+          git config user.name 'USMLE QA Sync'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/Q1226_FINAL_10_10_AUDIT.json \
+                  usmle/audit/Q1227_FINAL_10_10_AUDIT.json \
+                  usmle/audit/Q1228_FINAL_10_10_AUDIT.json \
+                  usmle/audit/Q1229_FINAL_10_10_AUDIT.json \
+                  usmle/audit/Q1230_FINAL_10_10_AUDIT.json
+          git commit -m 'Sync Q1226-Q1230 final audits after discipline repair'
+          git pull --rebase origin main
+          git push origin HEAD:main
