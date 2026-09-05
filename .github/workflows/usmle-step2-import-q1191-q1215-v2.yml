@@ -1,0 +1,112 @@
+name: USMLE Step2 Import Approved Q1191-Q1215 V2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/STEP2_FINALIZE_TRIGGER_Q1191_Q1215_V2'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-step2-import-q1191-q1215-v2
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile strict finalizer and corrected wrapper
+        run: |
+          python -m py_compile usmle/step2_import_q1191_q1215.py
+          python -m py_compile usmle/step2_import_q1191_q1215_v2.py
+      - name: Finalize Q1191-Q1215 through strict fail-closed finalizer
+        run: python usmle/step2_import_q1191_q1215_v2.py
+      - name: Independently verify SQLite and state before persist
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          from collections import Counter
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def h(o): return hashlib.sha256(canon(o).encode()).hexdigest()
+          def qnum(cid):
+            m=re.search(r'DIRECT-(\d{4})',cid or '')
+            assert m,cid
+            return int(m.group(1))
+          db='usmle/data/usmle-step1.db'
+          con=sqlite3.connect(db)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          items=con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          revs=con.execute("SELECT candidate_id,review_json,review_sha256,final_status FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(items)==1215 and len(revs)==1215
+          assert {qnum(x[0]) for x in items}==set(range(1,1216))
+          assert len({x[0] for x in items})==1215 and len({x[0] for x in revs})==1215
+          payloads=[]
+          for cid,pj,ps,ash in items:
+            o=json.loads(pj); payloads.append(o); assert h(o)==ps,cid
+            rr=con.execute('SELECT review_json,review_sha256,final_status FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone()
+            assert rr and rr[1]==ash and rr[2]=='FINAL_10_10_PASS'
+            r=json.loads(rr[0]); assert r.get('review_sha256')==rr[1]
+            assert o.get('step2_final_audit',{}).get('review_sha256')==rr[1]
+          comp=Counter(p['blueprint']['primary_competency'] for p in payloads)
+          expected_comp={
+            'Medical Knowledge: Applying Foundational Science Concepts':821,
+            'Patient Care: Diagnosis, including history and physical examination':243,
+            'Practice-Based Learning and Improvement':66,
+            'Communication and Interpersonal Skills':85,
+          }
+          assert dict(comp)==expected_comp,(dict(comp),expected_comp)
+          state=json.load(open('usmle/state/step2_final_q0001_q1215.json'))
+          audit=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1215.json'))
+          assert state==audit
+          assert state['final_status']=='FINAL_10_10_PASS' and state['item_count']==1215 and state['step2_final_review_count']==1215
+          assert state['new_block']['range']=='Q1191-Q1215' and state['new_block']['item_count']==25
+          assert state['competency_counts']==expected_comp
+          assert state['answer_position_new_block']['balanced']=={'A':5,'B':5,'C':5,'D':5,'E':5}
+          assert state['answer_position_new_block']['sequence']=='CEBADDABECEACDBBDECAACBED'
+          assert state['q1191_q1215_present_exactly_once'] is True and state['contiguous_q0001_q1215'] is True
+          fin=con.execute('SELECT audit_id,item_count FROM step2_finalization WHERE id=1').fetchone()
+          assert fin==('STEP2-FINAL-Q0001-Q1215-20260904',1215),fin
+          con.close()
+          assert not pathlib.Path(db+'-wal').exists() and not pathlib.Path(db+'-shm').exists()
+          blob=subprocess.check_output(['git','hash-object',db],text=True).strip()
+          assert blob==state['post_authoritative_db_blob'] and blob!=state['pre_authoritative_db_blob']
+          print(json.dumps({'status':'PASS','items':1215,'reviews':1215,'integrity':'ok','competencies':expected_comp,'post_db_blob':blob},sort_keys=True))
+          PY
+      - name: Persist authoritative USMLE Q1215 state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Step2 Finalizer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -f usmle/data/usmle-step1.db usmle/audit/STEP2_FINAL_10_10_Q0001_Q1215.json usmle/state/step2_final_q0001_q1215.json
+          git commit -m 'Finalize USMLE Step 1 Q1191-Q1215 at Step2 10/10'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          python - <<'PY'
+          import json,pathlib,sqlite3,subprocess
+          db='usmle/data/usmle-step1.db'; s=json.load(open('usmle/state/step2_final_q0001_q1215.json'))
+          assert subprocess.check_output(['git','rev-parse','HEAD:'+db],text=True).strip()==s['post_authoritative_db_blob']
+          con=sqlite3.connect(db); assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1215
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1215
+          con.close(); assert not pathlib.Path(db+'-wal').exists() and not pathlib.Path(db+'-shm').exists()
+          print('PERSISTED_Q1215_PASS')
+          PY
