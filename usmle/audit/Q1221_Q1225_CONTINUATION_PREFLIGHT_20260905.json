@@ -1,0 +1,258 @@
+{
+  "record_type": "CONTINUATION_PREFLIGHT_REJECTION",
+  "status": "BLOCKED",
+  "review_scope": "Targeted originality, source attribution and item-writing review; not complete clinical QA and not an isolated blind audit.",
+  "recorded_at": "2026-09-05",
+  "repository": "Genc2025/nxlec",
+  "inspected_commit": "b606e40c292732e648f04a3cfbae226b9987af01",
+  "candidate_file": "usmle/batch_specs_1201_1300/05_q1221_q1225_retry_20260905_author.json",
+  "candidate_file_sha256": "3fdc8636d58250996a00e1c6476b3ed895d9249180a4e404e0a36166278287d2",
+  "production_count_before": 1190,
+  "production_count_after": 1190,
+  "new_items_imported": 0,
+  "authoritative_counts": {
+    "FINAL_10_10_PASS": 1190
+  },
+  "database_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
+  "database_integrity": "ok",
+  "findings": [
+    {
+      "code": "MATERIAL_CONSTRUCT_DUPLICATE",
+      "item": 1221,
+      "explanation": "Same Albright phenotype, PTH resistance and impaired Gs/adenylyl cyclase response. Adding maternal inheritance does not change the requested signaling construct.",
+      "candidate_item": {
+        "vignette": "A 13-year-old girl is evaluated after several episodes of carpopedal spasm. She has short stature, obesity, a round face, and shortened fourth metacarpals. Laboratory studies show low serum calcium, high serum phosphate, and markedly elevated parathyroid hormone despite normal renal function. Her mother has similar skeletal features and required calcium treatment during adolescence. Genetic testing identifies an inactivating variant in GNAS inherited from her mother.",
+        "lead_in": "Which cellular signaling abnormality most directly explains this patient's biochemical findings?",
+        "options": {
+          "A": "Constitutive activation of the calcium-sensing receptor in parathyroid chief cells",
+          "B": "Failure of parathyroid chief cells to synthesize parathyroid hormone",
+          "C": "Reduced Gs-alpha stimulation of adenylate cyclase after parathyroid hormone receptor activation",
+          "D": "Constitutive activation of the parathyroid hormone receptor in renal tubular cells",
+          "E": "Reduced vitamin D receptor binding to DNA in intestinal epithelial cells"
+        },
+        "intended_key": "C",
+        "difficulty": "moderate-hard",
+        "tested_construct": "GNAS-mediated PTH resistance in pseudohypoparathyroidism type Ia",
+        "reasoning_steps_count": 5
+      },
+      "production_matches": [
+        {
+          "candidate_id": "S1-DIRECT-0604-20260827T120000Z",
+          "matched_terms": [
+            "gnas"
+          ],
+          "stored_payload_sha256": "ffb9d511f63234bd954583ab5bf334a0604ddc2945995f9b8933a35203877911",
+          "computed_payload_sha256": "ffb9d511f63234bd954583ab5bf334a0604ddc2945995f9b8933a35203877911",
+          "final_status": "FINAL_10_10_PASS",
+          "item": {
+            "difficulty": "moderate",
+            "difficulty_basis": "Difficulty assigned during the documented fresh item-by-item clinical audit.",
+            "intended_key": "A",
+            "lead_in": "Which intracellular signaling abnormality most directly explains these findings?",
+            "options": {
+              "A": "Reduced Gs-alpha stimulation of adenylyl cyclase after PTH receptor activation",
+              "B": "Reduced synthesis and secretion of PTH by parathyroid chief cells",
+              "C": "Constitutive Gs-alpha activation with persistent adenylyl cyclase signaling",
+              "D": "Increased calcium-sensing receptor activity that suppresses PTH release",
+              "E": "Defective CYP27B1-mediated conversion of vitamin D to calcitriol"
+            },
+            "reasoning_steps_count": 3,
+            "tested_construct": "Inactivating GNAS-related defects can reduce Gs-alpha signaling downstream of the PTH receptor. Impaired stimulation of adenylyl cyclase lowers the cAMP response to PTH, producing end-organ PTH resistance despite elevated circulating PTH.",
+            "vignette": "A 14-year-old girl is evaluated for intermittent muscle cramps. She has a round face, short stature, and shortening of the fourth and fifth metacarpals. Laboratory studies show hypocalcemia, hyperphosphatemia, and an elevated parathyroid hormone concentration; renal function is normal."
+          }
+        },
+        {
+          "candidate_id": "S1-DIRECT-0807-20260830T220000Z",
+          "matched_terms": [
+            "gnas"
+          ],
+          "stored_payload_sha256": "14e8cd4cfd9cfb781864f7a9c5cba9be77771099e7d48ddd14082e9bdf45fb53",
+          "computed_payload_sha256": "14e8cd4cfd9cfb781864f7a9c5cba9be77771099e7d48ddd14082e9bdf45fb53",
+          "final_status": "FINAL_10_10_PASS",
+          "item": {
+            "difficulty": "moderate",
+            "difficulty_basis": "Difficulty assigned during the documented fresh item-by-item clinical audit.",
+            "intended_key": "B",
+            "lead_in": "Which intracellular signaling response is most directly impaired in the PTH-resistant target tissues?",
+            "options": {
+              "A": "Gq-mediated activation of phospholipase C and generation of IP3",
+              "B": "Gs alpha-mediated stimulation of adenylyl cyclase and generation of cyclic AMP",
+              "C": "Receptor tyrosine kinase-mediated Ras-MAPK activation",
+              "D": "JAK-STAT signaling after cytokine-receptor activation",
+              "E": "Guanylyl cyclase-mediated generation of cyclic GMP"
+            },
+            "reasoning_steps_count": 3,
+            "tested_construct": "Reduced Gs alpha signaling impairs PTH-receptor coupling to adenylyl cyclase, decreasing cAMP generation in target tissues and causing end-organ PTH resistance with hypocalcemia, hyperphosphatemia, and elevated PTH.",
+            "vignette": "A child has short stature, round facies, shortening of the fourth and fifth metacarpals, hypocalcemia, hyperphosphatemia, and an elevated parathyroid hormone concentration. A disorder of GNAS inactivation is suspected."
+          }
+        },
+        {
+          "candidate_id": "S1-DIRECT-1134-20260902T100000Z",
+          "matched_terms": [
+            "gnas"
+          ],
+          "stored_payload_sha256": "954dafe51b0a4197155a719c40f86e962aff879835299316a2dad15d767c38d5",
+          "computed_payload_sha256": "954dafe51b0a4197155a719c40f86e962aff879835299316a2dad15d767c38d5",
+          "final_status": "FINAL_10_10_PASS",
+          "item": {
+            "difficulty": "hard",
+            "difficulty_basis": "Difficulty assigned during the documented fresh item-by-item clinical audit.",
+            "intended_key": "B",
+            "lead_in": "Which molecular abnormality best explains this patient's findings?",
+            "options": {
+              "A": "Loss of function of the paternally inherited GNAS allele without hormone resistance",
+              "B": "Loss of function of the maternally inherited GNAS allele with impaired Gs-alpha signaling",
+              "C": "Activating mutation of GNAS causing constitutive Gs-alpha signaling",
+              "D": "Loss-of-function mutation of the calcium-sensing receptor",
+              "E": "Inactivating mutation of the PTH gene causing reduced hormone secretion"
+            },
+            "reasoning_steps_count": 4,
+            "tested_construct": "In tissues such as the renal proximal tubule, Gs-alpha is preferentially expressed from the maternal GNAS allele. Maternal GNAS loss of function impairs receptor-coupled adenylyl cyclase signaling, producing resistance to PTH and other Gs-coupled hormones together with Albright hereditary osteodystrophy.",
+            "vignette": "A 13-year-old girl has short stature, obesity, a round face, and shortening of the fourth metacarpals. Laboratory studies show low serum calcium, high serum phosphate, and markedly elevated parathyroid hormone. Renal function and 25-hydroxyvitamin D are normal."
+          }
+        }
+      ]
+    },
+    {
+      "code": "MATERIAL_CONSTRUCT_DUPLICATE",
+      "item": 1224,
+      "explanation": "Same childhood hypoglycemia/hyperpigmentation, high ACTH/low cortisol and MC2R receptor failure. The new wording narrows receptor dysfunction to trafficking/binding but preserves the same causal recognition task.",
+      "candidate_item": {
+        "vignette": "A 4-year-old boy has recurrent fasting hypoglycemia, poor weight gain, and progressive diffuse hyperpigmentation. Serum cortisol is very low and plasma ACTH is markedly elevated. Serum sodium and potassium are normal. Genetic testing identifies a biallelic pathogenic variant in MC2R. His adrenal glands are structurally normal on imaging.",
+        "lead_in": "Which molecular defect most directly explains this patient's low cortisol concentration?",
+        "options": {
+          "A": "Constitutive activation of the mineralocorticoid receptor in the distal nephron",
+          "B": "Failure of the adrenal ACTH receptor to reach the cell surface or bind ACTH effectively",
+          "C": "Loss of 21-hydroxylase activity with accumulation of 17-hydroxyprogesterone",
+          "D": "Constitutive activation of the glucocorticoid receptor in peripheral tissues",
+          "E": "Failure of the pituitary corticotroph to synthesize ACTH"
+        },
+        "intended_key": "B",
+        "difficulty": "moderate-hard",
+        "tested_construct": "MC2R-mediated familial glucocorticoid deficiency",
+        "reasoning_steps_count": 4
+      },
+      "production_matches": [
+        {
+          "candidate_id": "S1-DIRECT-1187-20260904T061000Z",
+          "matched_terms": [
+            "mc2r"
+          ],
+          "stored_payload_sha256": "8bb15ba6168f25b10a8e508383b455e1358b77617270050c04b80143701aaec7",
+          "computed_payload_sha256": "8bb15ba6168f25b10a8e508383b455e1358b77617270050c04b80143701aaec7",
+          "final_status": "FINAL_10_10_PASS",
+          "item": {
+            "difficulty": "moderate-hard",
+            "difficulty_basis": "Difficulty assigned during documented fresh item-by-item clinical audit.",
+            "intended_key": "A",
+            "lead_in": "Which molecular defect most likely explains this patient’s disorder?",
+            "options": {
+              "A": "Loss of function of the melanocortin 2 receptor, preventing normal adrenal responsiveness to ACTH",
+              "B": "Loss of 21-hydroxylase activity causing impaired cortisol and aldosterone synthesis with androgen excess",
+              "C": "Autoimmune destruction of the adrenal cortex causing loss of both glucocorticoid and mineralocorticoid production",
+              "D": "Loss of the glucocorticoid receptor causing generalized cortisol resistance with elevated circulating cortisol",
+              "E": "Loss of ACTH production by pituitary corticotrophs causing secondary adrenal insufficiency"
+            },
+            "reasoning_steps_count": 4,
+            "tested_construct": "Biallelic loss-of-function MC2R variants impair the adrenal ACTH receptor. The adrenal cortex therefore cannot respond normally to ACTH to generate glucocorticoids, causing very low cortisol with markedly elevated ACTH and hyperpigmentation. Mineralocorticoid secretion is classically preserved, distinguishing isolated ACTH resistance from global primary adrenal destruction or many steroidogenic defects.",
+            "vignette": "A 3-year-old boy is evaluated after recurrent fasting hypoglycemia and poor weight gain. His skin and gingiva are diffusely hyperpigmented. Morning serum cortisol is very low and plasma ACTH is markedly elevated. Serum sodium and potassium are normal, plasma renin activity is normal, and aldosterone is appropriate for sodium intake. He has no ambiguous genitalia or history of salt-wasting crises. His parents are first cousins."
+          }
+        }
+      ]
+    },
+    {
+      "code": "MATERIAL_CONSTRUCT_DUPLICATE",
+      "item": 1225,
+      "explanation": "Same asymptomatic familial hypercalcemia/hypocalciuria, CASR loss and shifted PTH/renal calcium sensing set point.",
+      "candidate_item": {
+        "vignette": "A 31-year-old woman is referred for persistent mild hypercalcemia discovered on routine testing. She feels well. Serum parathyroid hormone is in the upper-normal range despite the elevated calcium concentration. Twenty-four-hour urinary calcium excretion is low. Her father and two siblings have similar laboratory findings without nephrolithiasis. Genetic testing identifies a heterozygous loss-of-function variant in CASR.",
+        "lead_in": "Which physiologic change most directly explains this patient's findings?",
+        "options": {
+          "A": "Increased sensitivity of parathyroid cells to extracellular calcium, causing excessive suppression of PTH",
+          "B": "Increased renal calcium excretion due to exaggerated calcium-sensing receptor signaling",
+          "C": "Autonomous PTH secretion from a monoclonal parathyroid adenoma",
+          "D": "Reduced sensitivity of parathyroid and renal cells to extracellular calcium, shifting calcium feedback to a higher set point",
+          "E": "Reduced intestinal calcium absorption due to impaired vitamin D receptor signaling"
+        },
+        "intended_key": "D",
+        "difficulty": "moderate",
+        "tested_construct": "Familial hypocalciuric hypercalcemia due to loss of CaSR function",
+        "reasoning_steps_count": 4
+      },
+      "production_matches": [
+        {
+          "candidate_id": "S1-DIRECT-0747-20260830T150000Z",
+          "matched_terms": [
+            "casr",
+            "hypocalciur"
+          ],
+          "stored_payload_sha256": "949660e3840a6babfd394438409317b4d2a21971d1b642da6a5736c358a4d6eb",
+          "computed_payload_sha256": "949660e3840a6babfd394438409317b4d2a21971d1b642da6a5736c358a4d6eb",
+          "final_status": "FINAL_10_10_PASS",
+          "item": {
+            "difficulty": "moderate",
+            "difficulty_basis": "Difficulty assigned during the documented fresh item-by-item clinical audit.",
+            "intended_key": "A",
+            "lead_in": "Which of the following physiologic changes best explains this patient's laboratory findings?",
+            "options": {
+              "A": "An increased calcium-sensing set point for suppression of parathyroid hormone together with increased renal calcium reabsorption",
+              "B": "Autonomous parathyroid hormone secretion from a monoclonal parathyroid adenoma with increased urinary calcium",
+              "C": "Constitutive activation of the calcium-sensing receptor causing excessive suppression of parathyroid hormone",
+              "D": "Loss of parathyroid hormone receptor signaling in renal tubules causing hypocalcemia and hyperphosphatemia",
+              "E": "Excess calcitonin secretion causing increased renal calcium excretion and reduced bone resorption"
+            },
+            "reasoning_steps_count": 3,
+            "tested_construct": "Heterozygous loss-of-function CASR variants raise the extracellular-calcium set point required to suppress parathyroid hormone secretion and increase renal tubular calcium reabsorption, producing mild lifelong hypercalcemia with inappropriately normal or mildly elevated PTH and relative hypocalciuria.",
+            "vignette": "A 27-year-old woman is found incidentally to have mild hypercalcemia on repeated testing. She feels well. Parathyroid hormone is in the upper-normal range rather than suppressed, and urinary calcium excretion is low. Her mother and brother have the same biochemical pattern. Genetic testing identifies a heterozygous loss-of-function variant in CASR."
+          }
+        }
+      ]
+    },
+    {
+      "code": "SOURCE_AUTHORSHIP_MISCLASSIFIED",
+      "item": 1221,
+      "source_id": "Q1221-S3",
+      "url": "https://medlineplus.gov/ency/article/000364.htm",
+      "locator": "Review Date 5/20/2024; Updated by; copyright footer",
+      "observed_authorship": "A.D.A.M. editorial team; licensed encyclopedia content",
+      "explanation": "Government hosting does not establish government authorship. This source cannot satisfy the project government-authored evidence restriction as labeled.",
+      "verified_at": "2026-09-05"
+    },
+    {
+      "code": "IMPLAUSIBLE_MECHANISTIC_DISTRACTORS",
+      "item": 1222,
+      "options": [
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "Options explicitly append insulin release to reduced calcium entry/hyperpolarization, or excessive low-glucose release to reduced glucokinase activity. These internally inconsistent chains are readily discarded without the vignette and do not support the claimed perfect distractor/difficulty scores. Rewrite as coherent competing physiological mechanisms and re-audit.",
+      "supporting_urls": [
+        "https://medlineplus.gov/genetics/gene/abcc8/",
+        "https://medlineplus.gov/genetics/gene/gck/"
+      ],
+      "locators": [
+        "ABCC8: Normal Function; Permanent neonatal diabetes mellitus",
+        "GCK: Normal Function; Maturity-onset diabetes of the young"
+      ]
+    }
+  ],
+  "remaining_item_status": {
+    "Q1223": "NOT_FULLY_AUDITED; no acceptance verdict"
+  },
+  "supersedes_claim": "The frozen batch claim material_matches_found=0 and all-perfect author scores cannot be relied upon for acceptance.",
+  "preservation": "Existing frozen candidates, audits and production database were not changed.",
+  "runtime_blocker": {
+    "repository_rule": "usmle/README.md requires fresh isolated Author and Auditor executions using different model families.",
+    "observed_state": "usmle-production.yml explicitly disables Copilot production; copilot is absent locally. No compliant execution route was established in this session.",
+    "action": "Do not enable the disabled paid runtime or fabricate independent-audit provenance."
+  },
+  "next_steps": [
+    "Replace duplicate constructs with new candidates; preserve rejected frozen versions.",
+    "Rewrite Q1222 distractors as coherent mechanisms, verify exact source support, and assign defensible uncalibrated difficulty.",
+    "Complete source authorship/currentness checks and full semantic corpus review on replacement versions.",
+    "Use the required independent execution route before production import."
+  ],
+  "reproduction_command": "python usmle/corpus_probe.py --term GNAS --term MC2R --term CASR",
+  "retrieval_limit": "Term retrieval is not a complete semantic duplicate audit."
+}
