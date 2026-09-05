@@ -1,0 +1,51 @@
+name: USMLE Diagnose Q1191-Q1215 Competency
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-diagnose-q1191-q1215-competency.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Report baseline and staged competency counts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,sqlite3
+          from collections import Counter
+          files=[
+            ('usmle/batch_specs_1101_1200/12_q1191_q1195.json',1191,1195),
+            ('usmle/batch_specs_1101_1200/13_q1196_q1200.json',1196,1200),
+            ('usmle/batch_specs_1201_1300/01_q1201_q1205.json',1201,1205),
+            ('usmle/batch_specs_1201_1300/02_q1206_q1210.json',1206,1210),
+            ('usmle/batch_specs_1201_1300/03_q1211_q1215.json',1211,1215),
+          ]
+          con=sqlite3.connect('usmle/data/usmle-step1.db')
+          rows=con.execute("SELECT payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall(); con.close()
+          base=Counter(json.loads(r[0])['blueprint']['primary_competency'] for r in rows)
+          staged=[]
+          for p,lo,hi in files:
+            arr=json.load(open(p))
+            assert [int(x['num']) for x in arr]==list(range(lo,hi+1))
+            for x in arr: staged.append((int(x['num']),x['primary_competency'],x.get('diagnosis'),x.get('mechanism')))
+          add=Counter(x[1] for x in staged)
+          print('BASE=',dict(base))
+          print('ADD=',dict(add))
+          print('FINAL=',dict(base+add))
+          for row in staged: print('ITEM=',json.dumps({'num':row[0],'competency':row[1],'diagnosis':row[2],'mechanism':row[3]},ensure_ascii=False))
+          PY
