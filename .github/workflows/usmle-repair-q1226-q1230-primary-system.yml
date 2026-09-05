@@ -1,0 +1,84 @@
+name: USMLE Repair Q1226-Q1230 Primary System
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/REPAIR_TRIGGER_Q1226_Q1230_PRIMARY_SYSTEM'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Normalize Q1226-Q1230 primary-system metadata and harden QA gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('usmle/batch_specs_1201_1300/q1226_q1230_r2')
+          old='Blood & Lymphoreticular/Immune Systems'
+          new='Blood, Lymphoreticular and Immune Systems'
+          changed=[]
+          for n in range(1226,1231):
+              p=root/f'Q{n}.json'
+              d=json.loads(p.read_text())
+              assert d['blueprint']['primary_system']==old,(n,d['blueprint']['primary_system'])
+              d['blueprint']['primary_system']=new
+              # Preserve the source's outline wording, but canonical aggregation must use the normalized primary-system label.
+              rh=d.setdefault('repair_history',[])
+              rh.append({'date':'2026-09-06','field':'blueprint.primary_system','reason':'Normalize to canonical production DB system label; content/key unchanged.'})
+              p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
+              changed.append(str(p))
+          qa=pathlib.Path('usmle/final_qa_q1216_q1230.py')
+          s=qa.read_text()
+          anchor="OFFICIAL_DISC={'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology','Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'}\n"
+          assert anchor in s
+          systems="OFFICIAL_SYSTEMS={'Human Development','Respiratory and Renal/Urinary Systems','Blood, Lymphoreticular and Immune Systems','Behavioral Health, Nervous Systems and Special Senses','Musculoskeletal, Skin and Subcutaneous Tissue','Cardiovascular System','Gastrointestinal System','Reproductive and Endocrine Systems','Multisystem Processes and Disorders','Biostatistics, Epidemiology and Population Health','Social Sciences: Communication and Interpersonal Skills'}\n"
+          if systems not in s:
+              s=s.replace(anchor,anchor+systems)
+          gate="        tags=d['blueprint']['disciplines']; assert tags and all(t in OFFICIAL_DISC for t in tags),(n,tags)\n"
+          assert gate in s
+          hardened="        assert d['blueprint']['primary_system'] in OFFICIAL_SYSTEMS,(n,d['blueprint']['primary_system'])\n"+gate
+          if hardened not in s:
+              s=s.replace(gate,hardened)
+          qa.write_text(s)
+          print(json.dumps({'status':'PASS','normalized_items':changed,'qa_primary_system_gate_added':True},indent=2))
+          PY
+          python -m py_compile usmle/final_qa_q1216_q1230.py
+      - name: Re-read repaired metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib
+          expected='Blood, Lymphoreticular and Immune Systems'
+          for n in range(1226,1231):
+              p=pathlib.Path(f'usmle/batch_specs_1201_1300/q1226_q1230_r2/Q{n}.json')
+              d=json.loads(p.read_text())
+              assert d['blueprint']['primary_system']==expected
+              assert d['status']=='CANDIDATE_FROZEN'
+          print('PRIMARY_SYSTEM_REPAIR_REVALIDATION=PASS')
+          PY
+      - name: Persist metadata repair and hardened QA gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE QA Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1226.json usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1227.json usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1228.json usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1229.json usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1230.json usmle/final_qa_q1216_q1230.py
+          git diff --cached --quiet && { echo 'No repair changes'; exit 1; }
+          git commit -m 'Repair Q1226-Q1230 canonical primary-system metadata'
+          git pull --rebase origin main
+          git push origin HEAD:main
