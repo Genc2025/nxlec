@@ -1,8 +1,8 @@
 {
   "batch_id": "Q1221-Q1225-20260905-AUTHOR",
-  "production_count_before": 1190,
-  "production_count_after": 1190,
-  "status": "AUTHOR_ZERO_TRUST_PASS_PENDING_ISOLATED_BLIND_AND_AUDITOR_EXECUTIONS",
+  "production_count_before": 1215,
+  "production_count_after": 1215,
+  "status": "AUTHOR_REPAIRED_MATERIAL_DUPLICATES_REQUIRES_FRESH_CORPUS_AUDIT",
   "created_at": "2026-09-05",
   "country_scope": "United States",
   "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
@@ -21,7 +21,7 @@
   "duplicate_probe": {
     "repository": "Genc2025/nxlec",
     "checked_at": "2026-09-05",
-    "material_matches_found": 0,
+    "material_matches_found": "REQUIRES_FRESH_AUDIT_AFTER_REPAIR",
     "queries": [
       "pseudohypoparathyroidism GNAS maternal hormone resistance Albright",
       "congenital hyperinsulinism ABCC8 KATP beta cell depolarization",
@@ -47,153 +47,101 @@
         "official_outline_path": [
           "Endocrine System",
           "Parathyroid disorders",
-          "PTH resistance"
+          "Hereditary parathyroid neoplasia"
         ],
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
-          "Physiology",
+          "Pathology",
           "Genetics",
           "Biochemistry"
         ],
-        "coverage_deficit_addressed": "G-protein signaling and genomic imprinting"
+        "coverage_deficit_addressed": "Tumor-suppressor biology in hereditary hyperparathyroidism"
       },
       "item": {
-        "vignette": "A 13-year-old girl is evaluated after several episodes of carpopedal spasm. She has short stature, obesity, a round face, and shortened fourth metacarpals. Laboratory studies show low serum calcium, high serum phosphate, and markedly elevated parathyroid hormone despite normal renal function. Her mother has similar skeletal features and required calcium treatment during adolescence. Genetic testing identifies an inactivating variant in GNAS inherited from her mother.",
-        "lead_in": "Which cellular signaling abnormality most directly explains this patient's biochemical findings?",
+        "vignette": "A 21-year-old woman has recurrent nephrolithiasis and marked hypercalcemia with an elevated parathyroid hormone concentration. Imaging reveals a single parathyroid mass and an ossifying fibroma of the mandible. Her father had parathyroid carcinoma. Germline testing identifies a pathogenic variant in CDC73.",
+        "lead_in": "Loss of which normal protein function most directly promotes tumor formation in this syndrome?",
         "options": {
-          "A": "Constitutive activation of the calcium-sensing receptor in parathyroid chief cells",
-          "B": "Failure of parathyroid chief cells to synthesize parathyroid hormone",
-          "C": "Reduced Gs-alpha stimulation of adenylate cyclase after parathyroid hormone receptor activation",
-          "D": "Constitutive activation of the parathyroid hormone receptor in renal tubular cells",
-          "E": "Reduced vitamin D receptor binding to DNA in intestinal epithelial cells"
+          "A": "Calcium sensing by a G-protein-coupled receptor on parathyroid chief cells",
+          "B": "Gs-alpha coupling of the parathyroid hormone receptor to adenylate cyclase",
+          "C": "Nuclear parafibromin tumor-suppressor activity that restrains cell proliferation",
+          "D": "24-hydroxylation and inactivation of calcitriol",
+          "E": "ACTH-dependent cAMP signaling in adrenal zona fasciculata cells"
         },
         "intended_key": "C",
         "difficulty": "moderate-hard",
-        "tested_construct": "GNAS-mediated PTH resistance in pseudohypoparathyroidism type Ia",
-        "reasoning_steps_count": 5
+        "difficulty_basis": "Expert estimate only; requires linking CDC73 to parafibromin and tumor-suppressor biology.",
+        "tested_construct": "CDC73 encodes nuclear parafibromin, a tumor suppressor involved in transcriptional regulation and control of proliferation",
+        "reasoning_steps_count": 4
       },
       "explanation": {
-        "key_explanation": "A maternally inherited inactivating GNAS variant can cause Albright hereditary osteodystrophy with PTH resistance. Reduced Gs-alpha signaling blunts adenylate cyclase/cAMP responses downstream of the PTH receptor, so PTH rises while calcium remains low and phosphate remains high.",
+        "key_explanation": "CDC73 encodes parafibromin, a predominantly nuclear protein involved in transcriptional regulation that functions as a tumor suppressor. Loss of functional parafibromin permits uncontrolled proliferation and predisposes to parathyroid tumors in hyperparathyroidism-jaw tumor syndrome.",
         "distractor_explanations": {
-          "A": "Activating CaSR variants suppress PTH and cause hypocalcemia with inappropriately low PTH, not high PTH resistance.",
-          "B": "The measured PTH is markedly elevated, excluding failed PTH synthesis.",
-          "C": "Correct; GNAS encodes stimulatory G-protein signaling that couples receptors to adenylate cyclase.",
-          "D": "Constitutive PTH-receptor activity would increase phosphate excretion and does not produce this resistance phenotype.",
-          "E": "Vitamin D receptor dysfunction is a distinct disorder and does not explain the GNAS/Albright phenotype."
+          "A": "CaSR controls PTH secretion but is not the CDC73 tumor-suppressor product.",
+          "B": "Gs-alpha signaling mediates receptor responses but does not explain CDC73-associated tumor predisposition.",
+          "C": "Correct. Parafibromin is a nuclear tumor suppressor; loss promotes uncontrolled proliferation.",
+          "D": "Vitamin-D 24-hydroxylation is performed by CYP24A1.",
+          "E": "ACTH signaling is mediated by MC2R and is unrelated to CDC73."
         },
-        "educational_objective": "Recognize maternally inherited GNAS loss as impaired Gs-alpha/adenylate-cyclase signaling causing Albright hereditary osteodystrophy with PTH resistance."
+        "educational_objective": "Connect CDC73 loss to deficient nuclear parafibromin tumor-suppressor activity in hyperparathyroidism-jaw tumor syndrome."
       },
       "evidence_map": [
         {
           "claim_id": "Q1221-C",
           "option": "C",
-          "claim": "GNAS participates in stimulatory G-protein signaling to adenylate cyclase; maternal inactivating variants can produce AHO with hormone resistance.",
+          "claim": "CDC73 encodes nuclear parafibromin, a transcription-associated tumor suppressor that restrains proliferation.",
           "source_ids": [
             "Q1221-S2",
             "Q1221-S3"
           ],
           "direct_or_inference": "direct",
-          "item_specific_application": "Explains high PTH with hypocalcemia/hyperphosphatemia and Albright features."
-        },
-        {
-          "claim_id": "Q1221-A",
-          "option": "A",
-          "claim": "CaSR activation suppresses PTH release.",
-          "source_ids": [
-            "Q1221-S4"
-          ],
-          "direct_or_inference": "direct",
-          "item_specific_application": "Conflicts with markedly elevated PTH."
-        },
-        {
-          "claim_id": "Q1221-B",
-          "option": "B",
-          "claim": "Pseudohypoparathyroidism is PTH resistance rather than absent PTH production.",
-          "source_ids": [
-            "Q1221-S3"
-          ],
-          "direct_or_inference": "direct",
-          "item_specific_application": "High PTH excludes failed synthesis."
-        },
-        {
-          "claim_id": "Q1221-D",
-          "option": "D",
-          "claim": "The documented GNAS defect reduces downstream signaling rather than constitutively activating PTHR.",
-          "source_ids": [
-            "Q1221-S2"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Opposite signaling direction."
-        },
-        {
-          "claim_id": "Q1221-E",
-          "option": "E",
-          "claim": "The phenotype and maternal GNAS finding support G-protein hormone resistance rather than VDR dysfunction.",
-          "source_ids": [
-            "Q1221-S2",
-            "Q1221-S3"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Wrong pathway."
+          "item_specific_application": "Explains familial parathyroid neoplasia with jaw ossifying fibroma."
         }
       ],
       "sources": [
         {
-          "source_id": "Q1221-S1",
           "agency": "USMLE",
           "title": "Step 1 Exam Content",
           "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-          "publication_or_revision_date": "current",
+          "publication_or_revision_date": "current official specifications",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Reproductive & Endocrine Systems; Medical Knowledge",
-          "supporting_passage": "Supports blueprint classification.",
+          "section_locator": "Step 1 Content Specifications; Medical Knowledge competency; Discipline Specifications",
+          "supporting_passage": "Step 1 emphasizes application of foundational science within integrated organ-system content.",
           "government_status_verified": false,
           "official_exam_specification": true,
-          "rights_status": "official exam specification"
+          "rights_status": "official exam specification",
+          "source_id": "Q1221-S1"
         },
         {
           "source_id": "Q1221-S2",
           "agency": "National Library of Medicine",
-          "title": "GNAS gene: MedlinePlus Genetics",
-          "url": "https://medlineplus.gov/genetics/gene/gnas/",
-          "publication_or_revision_date": "current page",
+          "title": "CDC73 gene: MedlinePlus Genetics",
+          "url": "https://medlineplus.gov/genetics/gene/cdc73/",
+          "publication_or_revision_date": "Last updated 2026-01-23; reverified 2026-09-05",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Normal Function; Other disorders",
-          "supporting_passage": "GNAS is part of stimulatory G-protein signaling to adenylate cyclase; maternal inactivating variants can produce AHO with multiple-hormone resistance.",
+          "section_locator": "Normal Function; Hyperparathyroidism-jaw tumor syndrome; Parathyroid cancer",
+          "supporting_passage": "CDC73 encodes nuclear parafibromin, a transcription-associated tumor suppressor; loss permits excessive cell proliferation.",
           "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
+          "rights_status": "authoritative educational source"
         },
         {
           "source_id": "Q1221-S3",
-          "agency": "National Library of Medicine",
-          "title": "Pseudohypoparathyroidism: MedlinePlus Medical Encyclopedia",
-          "url": "https://medlineplus.gov/ency/article/000364.htm",
-          "publication_or_revision_date": "reviewed 2024-05-20",
+          "agency": "NCBI Bookshelf / GeneReviews",
+          "title": "CDC73-Related Disorders",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK3789/",
+          "publication_or_revision_date": "current NCBI-hosted GeneReviews; reverified 2026-09-05",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Overview; Causes",
-          "supporting_passage": "Pseudohypoparathyroidism is resistance to PTH and produces low calcium with high phosphate despite PTH production.",
+          "section_locator": "Summary: Hyperparathyroidism-jaw tumor syndrome",
+          "supporting_passage": "CDC73-related HPT-JT features primary hyperparathyroidism, ossifying jaw fibromas, and increased risk of parathyroid carcinoma.",
           "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
-        },
-        {
-          "source_id": "Q1221-S4",
-          "agency": "National Library of Medicine",
-          "title": "CASR gene: MedlinePlus Genetics",
-          "url": "https://medlineplus.gov/genetics/gene/casr/",
-          "publication_or_revision_date": "2026",
-          "retrieved_at": "2026-09-05",
-          "section_locator": "Autosomal dominant hypocalcemia",
-          "supporting_passage": "Overactive CaSR suppresses PTH release.",
-          "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
+          "rights_status": "NCBI-hosted GeneReviews; facts paraphrased"
         }
       ],
       "semantic_fingerprint": [
-        "pseudohypoparathyroidism type Ia",
-        "maternal GNAS",
-        "Albright hereditary osteodystrophy",
-        "Gs alpha",
-        "PTH resistance"
+        "CDC73",
+        "parafibromin",
+        "hyperparathyroidism-jaw tumor syndrome",
+        "tumor suppressor",
+        "parathyroid carcinoma"
       ],
       "author_self_audit": {
         "blueprint_fidelity": 10,
@@ -209,7 +157,15 @@
         "unresolved_concerns": [],
         "suggested_changes": []
       },
-      "status": "CANDIDATE_FROZEN"
+      "status": "CANDIDATE_FROZEN",
+      "repair_history": [
+        {
+          "date": "2026-09-05",
+          "field": "entire_item_construct",
+          "reason": "Material semantic overlap with canonical Q0001-Q1215 corpus; construct replaced and source/audit chain restarted.",
+          "prior_construct": "GNAS-mediated PTH resistance in pseudohypoparathyroidism type Ia"
+        }
+      ]
     },
     {
       "num": 1222,
@@ -582,141 +538,101 @@
         "official_outline_path": [
           "Endocrine System",
           "Adrenal disorders",
-          "Primary adrenal hormone deficiencies"
+          "Congenital adrenal developmental disorders"
         ],
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
-          "Physiology",
           "Genetics",
-          "Histology & Cell Biology"
+          "Gross Anatomy & Embryology",
+          "Physiology"
         ],
-        "coverage_deficit_addressed": "ACTH receptor biology"
+        "coverage_deficit_addressed": "Developmental transcriptional regulation of adrenal and gonadal axes"
       },
       "item": {
-        "vignette": "A 4-year-old boy has recurrent fasting hypoglycemia, poor weight gain, and progressive diffuse hyperpigmentation. Serum cortisol is very low and plasma ACTH is markedly elevated. Serum sodium and potassium are normal. Genetic testing identifies a biallelic pathogenic variant in MC2R. His adrenal glands are structurally normal on imaging.",
-        "lead_in": "Which molecular defect most directly explains this patient's low cortisol concentration?",
+        "vignette": "A 15-year-old boy had a salt-wasting adrenal crisis in infancy and has required lifelong glucocorticoid and mineralocorticoid replacement. He now has absent pubertal development with low testosterone and inappropriately low gonadotropins. A maternal uncle had a similar history. Genetic testing identifies a hemizygous loss-of-function variant in NR0B1.",
+        "lead_in": "Which normal function of the encoded protein is most directly lost?",
         "options": {
-          "A": "Constitutive activation of the mineralocorticoid receptor in the distal nephron",
-          "B": "Failure of the adrenal ACTH receptor to reach the cell surface or bind ACTH effectively",
-          "C": "Loss of 21-hydroxylase activity with accumulation of 17-hydroxyprogesterone",
-          "D": "Constitutive activation of the glucocorticoid receptor in peripheral tissues",
-          "E": "Failure of the pituitary corticotroph to synthesize ACTH"
+          "A": "ACTH binding and Gs-mediated cAMP generation at the adrenal cell membrane",
+          "B": "Regulation of gene programs required for development and function of adrenal, hypothalamic-pituitary, and gonadal tissues",
+          "C": "21-hydroxylation of adrenal steroid precursors",
+          "D": "Conversion of cholesterol to pregnenolone in all steroidogenic tissues",
+          "E": "Angiotensin II signaling through Gq in zona glomerulosa cells"
         },
         "intended_key": "B",
-        "difficulty": "moderate-hard",
-        "tested_construct": "MC2R-mediated familial glucocorticoid deficiency",
-        "reasoning_steps_count": 4
+        "difficulty": "hard",
+        "difficulty_basis": "Expert estimate only; requires integrating X-linked adrenal hypoplasia congenita with DAX1/NR0B1 developmental biology.",
+        "tested_construct": "NR0B1/DAX1 regulates development and function of adrenal and reproductive endocrine tissues",
+        "reasoning_steps_count": 5
       },
       "explanation": {
-        "key_explanation": "MC2R encodes the adrenal ACTH receptor. Pathogenic MC2R variants can prevent proper receptor trafficking or ACTH binding, producing ACTH resistance and low cortisol despite markedly elevated ACTH.",
+        "key_explanation": "NR0B1 encodes DAX1, a nuclear regulatory protein important for development and function of the adrenal glands, hypothalamus, pituitary, and gonads. Loss can cause X-linked adrenal hypoplasia congenita with primary adrenal insufficiency and later hypogonadotropic hypogonadism.",
         "distractor_explanations": {
-          "A": "Mineralocorticoid-receptor activation does not explain isolated severe cortisol deficiency with high ACTH.",
-          "B": "Correct; MC2R variants can impair receptor trafficking or ligand binding and block ACTH-driven glucocorticoid synthesis.",
-          "C": "21-hydroxylase deficiency is a steroidogenic enzyme defect, not the documented MC2R receptor defect.",
-          "D": "Peripheral glucocorticoid-receptor activation does not block adrenal ACTH signaling.",
-          "E": "Pituitary ACTH failure would produce low or inappropriately normal ACTH, not marked elevation."
+          "A": "ACTH receptor signaling is mediated by MC2R, not NR0B1.",
+          "B": "Correct. DAX1 regulates developmental and functional gene programs across adrenal and reproductive endocrine tissues.",
+          "C": "21-hydroxylase is encoded by CYP21A2 and causes a different form of congenital adrenal hyperplasia.",
+          "D": "Cholesterol side-chain cleavage is mediated by CYP11A1 rather than DAX1.",
+          "E": "Angiotensin II signaling helps regulate aldosterone but is not the NR0B1 developmental function."
         },
-        "educational_objective": "Recognize familial glucocorticoid deficiency due to MC2R as ACTH resistance caused by defective adrenal ACTH-receptor trafficking or ligand binding."
+        "educational_objective": "Recognize NR0B1/DAX1 as a developmental regulator of adrenal and hypothalamic-pituitary-gonadal tissues in X-linked adrenal hypoplasia congenita."
       },
       "evidence_map": [
         {
           "claim_id": "Q1224-B",
           "option": "B",
-          "claim": "MC2R encodes the adrenal ACTH receptor; variants can impair surface trafficking or ACTH binding and block glucocorticoid production.",
+          "claim": "NR0B1 encodes DAX1, which regulates development and function of adrenal, hypothalamic, pituitary, and gonadal endocrine tissues.",
           "source_ids": [
             "Q1224-S2",
             "Q1224-S3"
           ],
           "direct_or_inference": "direct",
-          "item_specific_application": "Explains low cortisol despite very high ACTH."
-        },
-        {
-          "claim_id": "Q1224-E",
-          "option": "E",
-          "claim": "Familial glucocorticoid deficiency is adrenal unresponsiveness to ACTH rather than pituitary failure.",
-          "source_ids": [
-            "Q1224-S3"
-          ],
-          "direct_or_inference": "direct",
-          "item_specific_application": "High ACTH excludes synthesis failure."
-        },
-        {
-          "claim_id": "Q1224-C",
-          "option": "C",
-          "claim": "The documented MC2R variant identifies an ACTH-receptor signaling disorder rather than a steroidogenic enzyme defect.",
-          "source_ids": [
-            "Q1224-S2"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Wrong locus."
-        },
-        {
-          "claim_id": "Q1224-A",
-          "option": "A",
-          "claim": "MC2R affects ACTH-triggered glucocorticoid production, not distal-nephron mineralocorticoid signaling.",
-          "source_ids": [
-            "Q1224-S2"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Wrong receptor and tissue."
-        },
-        {
-          "claim_id": "Q1224-D",
-          "option": "D",
-          "claim": "The causal defect is adrenal ACTH-receptor function rather than constitutive peripheral glucocorticoid-receptor activation.",
-          "source_ids": [
-            "Q1224-S2",
-            "Q1224-S3"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Does not explain high ACTH with low cortisol."
+          "item_specific_application": "Explains primary adrenal insufficiency plus hypogonadotropic hypogonadism in an X-linked pedigree."
         }
       ],
       "sources": [
         {
-          "source_id": "Q1224-S1",
           "agency": "USMLE",
           "title": "Step 1 Exam Content",
           "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-          "publication_or_revision_date": "current",
+          "publication_or_revision_date": "current official specifications",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Reproductive & Endocrine Systems; Medical Knowledge",
-          "supporting_passage": "Supports blueprint classification.",
+          "section_locator": "Step 1 Content Specifications; Medical Knowledge competency; Discipline Specifications",
+          "supporting_passage": "Step 1 emphasizes application of foundational science within integrated organ-system content.",
           "government_status_verified": false,
           "official_exam_specification": true,
-          "rights_status": "official exam specification"
+          "rights_status": "official exam specification",
+          "source_id": "Q1224-S1"
         },
         {
           "source_id": "Q1224-S2",
           "agency": "National Library of Medicine",
-          "title": "MC2R gene: MedlinePlus Genetics",
-          "url": "https://medlineplus.gov/genetics/gene/mc2r/",
-          "publication_or_revision_date": "current page",
+          "title": "NR0B1 gene: MedlinePlus Genetics",
+          "url": "https://medlineplus.gov/genetics/gene/nr0b1/",
+          "publication_or_revision_date": "Last updated 2022-05-19; reverified 2026-09-05",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Normal Function; Familial glucocorticoid deficiency",
-          "supporting_passage": "MC2R encodes the ACTH receptor; variants may prevent receptor transport to the membrane or ACTH binding, blocking glucocorticoid production.",
+          "section_locator": "Normal Function; X-linked adrenal hypoplasia congenita",
+          "supporting_passage": "NR0B1 encodes DAX1, which is important for development and function of adrenal, hypothalamic, pituitary, and gonadal tissues.",
           "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
+          "rights_status": "authoritative educational source"
         },
         {
           "source_id": "Q1224-S3",
-          "agency": "National Library of Medicine",
-          "title": "Familial glucocorticoid deficiency: MedlinePlus Genetics",
-          "url": "https://medlineplus.gov/genetics/condition/familial-glucocorticoid-deficiency/",
-          "publication_or_revision_date": "current page",
+          "agency": "NCBI Bookshelf / GeneReviews",
+          "title": "NR0B1-Related Adrenal Hypoplasia Congenita",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1431/",
+          "publication_or_revision_date": "Last Update 2018-01-25; stable mechanism reverified 2026-09-05",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Description; Causes",
-          "supporting_passage": "Familial glucocorticoid deficiency causes hypoglycemia and hyperpigmentation; MC2R variants produce adrenal unresponsiveness to ACTH.",
+          "section_locator": "Summary; Molecular genetics",
+          "supporting_passage": "NR0B1-related disease combines primary adrenal insufficiency with hypogonadotropic hypogonadism.",
           "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
+          "rights_status": "NCBI-hosted GeneReviews; facts paraphrased"
         }
       ],
       "semantic_fingerprint": [
-        "familial glucocorticoid deficiency",
-        "MC2R",
-        "ACTH resistance",
-        "hyperpigmentation",
-        "low cortisol high ACTH"
+        "NR0B1",
+        "DAX1",
+        "X-linked adrenal hypoplasia congenita",
+        "adrenal development",
+        "hypogonadotropic hypogonadism"
       ],
       "author_self_audit": {
         "blueprint_fidelity": 10,
@@ -738,6 +654,12 @@
           "date": "2026-09-05",
           "field": "blueprint.disciplines",
           "reason": "Normalize to current official USMLE discipline names; no item content/key change."
+        },
+        {
+          "date": "2026-09-05",
+          "field": "entire_item_construct",
+          "reason": "Material semantic overlap with canonical Q0001-Q1215 corpus; construct replaced and source/audit chain restarted.",
+          "prior_construct": "MC2R-mediated familial glucocorticoid deficiency"
         }
       ]
     },
@@ -749,141 +671,90 @@
         "primary_system": "Reproductive and Endocrine Systems",
         "official_outline_path": [
           "Endocrine System",
-          "Parathyroid disorders",
-          "Calcium-sensing receptor disorders"
+          "Calcium and vitamin D disorders",
+          "Vitamin D catabolism"
         ],
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
+          "Biochemistry",
           "Physiology",
-          "Genetics",
-          "Histology & Cell Biology"
+          "Genetics"
         ],
-        "coverage_deficit_addressed": "Calcium sensing and PTH feedback"
+        "coverage_deficit_addressed": "Vitamin D catabolism and hypercalcemia"
       },
       "item": {
-        "vignette": "A 31-year-old woman is referred for persistent mild hypercalcemia discovered on routine testing. She feels well. Serum parathyroid hormone is in the upper-normal range despite the elevated calcium concentration. Twenty-four-hour urinary calcium excretion is low. Her father and two siblings have similar laboratory findings without nephrolithiasis. Genetic testing identifies a heterozygous loss-of-function variant in CASR.",
-        "lead_in": "Which physiologic change most directly explains this patient's findings?",
+        "vignette": "A 7-month-old infant has poor feeding, vomiting, failure to thrive, hypercalcemia, hypercalciuria, and bilateral nephrocalcinosis. Parathyroid hormone is suppressed. Genetic testing identifies biallelic loss-of-function variants in CYP24A1.",
+        "lead_in": "Which metabolic reaction is most directly impaired in this disorder?",
         "options": {
-          "A": "Increased sensitivity of parathyroid cells to extracellular calcium, causing excessive suppression of PTH",
-          "B": "Increased renal calcium excretion due to exaggerated calcium-sensing receptor signaling",
-          "C": "Autonomous PTH secretion from a monoclonal parathyroid adenoma",
-          "D": "Reduced sensitivity of parathyroid and renal cells to extracellular calcium, shifting calcium feedback to a higher set point",
-          "E": "Reduced intestinal calcium absorption due to impaired vitamin D receptor signaling"
+          "A": "Renal 1-alpha-hydroxylation of 25-hydroxyvitamin D to calcitriol",
+          "B": "Hepatic 25-hydroxylation of cholecalciferol",
+          "C": "Vitamin D receptor binding to DNA response elements",
+          "D": "24-hydroxylase-mediated catabolism of calcitriol and 25-hydroxyvitamin D",
+          "E": "Calcium-sensing receptor activation by extracellular calcium"
         },
         "intended_key": "D",
-        "difficulty": "moderate",
-        "tested_construct": "Familial hypocalciuric hypercalcemia due to loss of CaSR function",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Expert estimate only; genotype is provided and the item tests the direction of vitamin-D metabolism.",
+        "tested_construct": "CYP24A1 encodes vitamin D 24-hydroxylase that inactivates calcitriol and 25-hydroxyvitamin D",
         "reasoning_steps_count": 4
       },
       "explanation": {
-        "key_explanation": "Loss-of-function CASR variants reduce cellular sensitivity to extracellular calcium. Parathyroid cells require a higher calcium concentration to suppress PTH, while renal CaSR dysfunction favors calcium conservation and hypocalciuria.",
+        "key_explanation": "CYP24A1 encodes 24-hydroxylase, an enzyme that catabolizes active calcitriol and also 25-hydroxyvitamin D. Loss reduces vitamin-D degradation, increasing calcium absorption and causing hypercalcemia, hypercalciuria, and nephrocalcinosis.",
         "distractor_explanations": {
-          "A": "Increased CaSR sensitivity causes autosomal dominant hypocalcemia by suppressing PTH at abnormally low calcium levels.",
-          "B": "Exaggerated renal CaSR signaling decreases calcium reabsorption and promotes urinary calcium loss.",
-          "C": "Adenoma-related primary hyperparathyroidism does not explain the inherited CASR variant with multigenerational hypocalciuria.",
-          "D": "Correct; reduced CaSR function raises the calcium set point for PTH suppression and renal calcium excretion.",
-          "E": "Impaired vitamin D signaling tends to reduce calcium absorption and does not explain familial hypercalcemia with hypocalciuria."
+          "A": "Loss of renal 1-alpha-hydroxylase would reduce calcitriol rather than cause vitamin-D-mediated hypercalcemia.",
+          "B": "Hepatic 25-hydroxylation is an activation step upstream of CYP24A1.",
+          "C": "Vitamin-D receptor dysfunction causes resistance to calcitriol rather than impaired catabolism.",
+          "D": "Correct. CYP24A1 24-hydroxylase inactivates calcitriol and 25-hydroxyvitamin D.",
+          "E": "CaSR signaling regulates PTH and renal calcium handling but is not the CYP24A1 enzymatic reaction."
         },
-        "educational_objective": "Recognize familial hypocalciuric hypercalcemia as reduced CaSR sensitivity that raises the PTH suppression set point and increases renal calcium conservation."
+        "educational_objective": "Recognize CYP24A1 loss as impaired vitamin-D 24-hydroxylation and catabolism, causing infantile hypercalcemia and nephrocalcinosis."
       },
       "evidence_map": [
         {
           "claim_id": "Q1225-D",
           "option": "D",
-          "claim": "Loss of CaSR function reduces sensitivity to extracellular calcium and causes familial hypocalciuric hypercalcemia.",
+          "claim": "CYP24A1 encodes 24-hydroxylase, which breaks down calcitriol and 25-hydroxyvitamin D; loss causes hypercalcemia and hypercalciuria.",
           "source_ids": [
             "Q1225-S2"
           ],
           "direct_or_inference": "direct",
-          "item_specific_application": "Explains mild hypercalcemia, non-suppressed PTH, hypocalciuria, and family history."
-        },
-        {
-          "claim_id": "Q1225-A",
-          "option": "A",
-          "claim": "Increased CaSR sensitivity suppresses PTH and causes autosomal dominant hypocalcemia.",
-          "source_ids": [
-            "Q1225-S2",
-            "Q1225-S3"
-          ],
-          "direct_or_inference": "direct",
-          "item_specific_application": "Opposite phenotype."
-        },
-        {
-          "claim_id": "Q1225-B",
-          "option": "B",
-          "claim": "Renal CaSR activation inhibits calcium reabsorption and increases urinary calcium.",
-          "source_ids": [
-            "Q1225-S2"
-          ],
-          "direct_or_inference": "direct",
-          "item_specific_application": "Opposite of hypocalciuria."
-        },
-        {
-          "claim_id": "Q1225-C",
-          "option": "C",
-          "claim": "The identified CASR loss-of-function variant and familial hypocalciuria support altered calcium sensing rather than acquired adenoma.",
-          "source_ids": [
-            "Q1225-S2"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Genetic and urinary pattern discriminate FHH."
-        },
-        {
-          "claim_id": "Q1225-E",
-          "option": "E",
-          "claim": "The causal lesion is CaSR-mediated calcium sensing rather than VDR signaling.",
-          "source_ids": [
-            "Q1225-S2"
-          ],
-          "direct_or_inference": "inference",
-          "item_specific_application": "Wrong pathway and calcium direction."
+          "item_specific_application": "Explains suppressed PTH, hypercalcemia, hypercalciuria, and nephrocalcinosis."
         }
       ],
       "sources": [
         {
-          "source_id": "Q1225-S1",
           "agency": "USMLE",
           "title": "Step 1 Exam Content",
           "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
-          "publication_or_revision_date": "current",
+          "publication_or_revision_date": "current official specifications",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Reproductive & Endocrine Systems; Medical Knowledge",
-          "supporting_passage": "Supports blueprint classification.",
+          "section_locator": "Step 1 Content Specifications; Medical Knowledge competency; Discipline Specifications",
+          "supporting_passage": "Step 1 emphasizes application of foundational science within integrated organ-system content.",
           "government_status_verified": false,
           "official_exam_specification": true,
-          "rights_status": "official exam specification"
+          "rights_status": "official exam specification",
+          "source_id": "Q1225-S1"
         },
         {
           "source_id": "Q1225-S2",
           "agency": "National Library of Medicine",
-          "title": "CASR gene: MedlinePlus Genetics",
-          "url": "https://medlineplus.gov/genetics/gene/casr/",
-          "publication_or_revision_date": "2026",
+          "title": "CYP24A1 gene: MedlinePlus Genetics",
+          "url": "https://medlineplus.gov/genetics/gene/cyp24a1/",
+          "publication_or_revision_date": "page last updated 2017-12-01; stable mechanism reverified 2026-09-05",
           "retrieved_at": "2026-09-05",
-          "section_locator": "Normal Function; Other disorders; Autosomal dominant hypocalcemia",
-          "supporting_passage": "CaSR suppresses PTH and limits renal calcium reabsorption when calcium is high; loss of function can cause familial hypocalciuric hypercalcemia, whereas gain of function causes hypocalcemia.",
+          "section_locator": "Normal Function; Idiopathic infantile hypercalcemia",
+          "supporting_passage": "CYP24A1 encodes 24-hydroxylase, which breaks down calcitriol and 25-hydroxyvitamin D; loss impairs calcitriol breakdown and causes hypercalcemia.",
           "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
-        },
-        {
-          "source_id": "Q1225-S3",
-          "agency": "National Library of Medicine",
-          "title": "Autosomal dominant hypocalcemia: MedlinePlus Genetics",
-          "url": "https://medlineplus.gov/genetics/condition/autosomal-dominant-hypocalcemia/",
-          "publication_or_revision_date": "current page",
-          "retrieved_at": "2026-09-05",
-          "section_locator": "Causes",
-          "supporting_passage": "Activating CASR variants make the receptor more sensitive to calcium, suppressing PTH and lowering serum calcium.",
-          "government_status_verified": true,
-          "rights_status": "U.S. government health-information source"
+          "rights_status": "authoritative educational source"
         }
       ],
       "semantic_fingerprint": [
-        "familial hypocalciuric hypercalcemia",
-        "CASR loss",
-        "calcium set point",
-        "non-suppressed PTH",
-        "hypocalciuria"
+        "CYP24A1",
+        "24-hydroxylase",
+        "vitamin D catabolism",
+        "infantile hypercalcemia",
+        "hypercalciuria",
+        "nephrocalcinosis"
       ],
       "author_self_audit": {
         "blueprint_fidelity": 10,
@@ -905,6 +776,12 @@
           "date": "2026-09-05",
           "field": "blueprint.disciplines",
           "reason": "Normalize to current official USMLE discipline names; no item content/key change."
+        },
+        {
+          "date": "2026-09-05",
+          "field": "entire_item_construct",
+          "reason": "Material semantic overlap with canonical Q0001-Q1215 corpus; construct replaced and source/audit chain restarted.",
+          "prior_construct": "Familial hypocalciuric hypercalcemia due to loss of CaSR function"
         }
       ]
     }
