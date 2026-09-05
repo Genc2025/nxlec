@@ -1,0 +1,242 @@
+{
+  "batch_id": "Q1191-Q1195-RETRY-20260905-AUTHOR",
+  "replaces_blocked_artifact": "usmle/batch_specs_1101_1200/12_q1191_q1195.json",
+  "production_count_before": 1190,
+  "production_count_after": 1190,
+  "status": "AUTHOR_ZERO_TRUST_PASS_PENDING_ISOLATED_BLIND_AND_AUDITOR_EXECUTIONS",
+  "blueprint_cell": {
+    "primary_system": "Social Sciences: Communication and Interpersonal Skills",
+    "primary_competency": "Communication and Interpersonal Skills",
+    "discipline": "Behavioral Sciences",
+    "reason": "largest live proportional system deficit at production count 1190"
+  },
+  "currentness_verified": "2026-09-05",
+  "items": [
+    {
+      "num": 1191,
+      "system": "Social Sciences: Communication and Interpersonal Skills",
+      "outline": ["Social Sciences", "Communication and interpersonal skills", "health literacy and cultural competence", "Use of an interpreter or surrogate"],
+      "primary_competency": "Communication and Interpersonal Skills",
+      "discipline": "Behavioral Sciences",
+      "disciplines": ["Behavioral Sciences"],
+      "diagnosis": "Use of a qualified interpreter for a patient with limited English proficiency",
+      "mechanism": "When a patient prefers a language other than English, a qualified interpreter supports accurate two-way communication. Basic clinician language skills, family members, and untrained staff should not substitute for a qualified interpreter for substantive medical communication.",
+      "vignette": "A 58-year-old woman who speaks very limited English comes to a clinic visit to discuss the results of an abnormal breast biopsy and the next diagnostic steps. Her adult daughter is fluent in English and offers to interpret. The physician knows several conversational phrases in the patient's language but cannot discuss medical terminology fluently. The patient looks toward her daughter whenever the physician asks a question.",
+      "lead": "Which of the following is the most appropriate next step by the physician?",
+      "options": {
+        "A": "Ask the daughter to interpret because she already knows the patient's medical history",
+        "B": "Use the physician's conversational language skills and switch to English only for technical terms",
+        "C": "Arrange for a qualified medical interpreter and speak directly to the patient through the interpreter",
+        "D": "Give the daughter written English instructions and ask her to explain them to the patient at home",
+        "E": "Postpone the discussion until the patient can bring a bilingual friend of her choosing"
+      },
+      "correct_key": "C",
+      "key_expl": "A qualified interpreter should be used for substantive communication with a patient who prefers another language. The physician should continue to address the patient directly; family members, friends, or limited clinician language skills should not replace qualified interpretation.",
+      "distractor_notes": {
+        "A": "Family members are unqualified interpreters and can introduce errors, omissions, or filtering of sensitive information.",
+        "B": "AHRQ advises clinicians not to rely on basic or intermediate language skills when qualified interpretation is needed.",
+        "D": "Written material can supplement communication but does not replace accurate real-time interpretation of clinically important information.",
+        "E": "A bilingual friend is also an unqualified interpreter; delaying care to wait for one is not preferable to arranging a qualified interpreter."
+      },
+      "objective": "Use a qualified interpreter rather than family, friends, or limited clinician language skills when conducting substantive medical communication with a patient who prefers another language.",
+      "clues": ["very limited English", "adult daughter offers to interpret", "physician has only conversational language skills", "substantive diagnostic discussion"],
+      "difficulty": "moderate",
+      "reasoning_steps_count": 3,
+      "duplicate_probe_terms": ["qualified medical interpreter limited English proficiency", "family member interpreter medical visit", "clinician conversational language skills interpreter"],
+      "sources": [
+        {"source_id":"S1","organization":"United States Medical Licensing Examination","title":"USMLE Content Outline (2026)","url":"https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf","publication_or_revision_date":"For Public Release: USMLE Content Outline (2026)","retrieved_at":"2026-09-05","locator":"Social Sciences — Communication and interpersonal skills — Use of an interpreter or surrogate","support":"Places interpreter use within the official Social Sciences communication content outline."},
+        {"source_id":"S2","organization":"Agency for Healthcare Research and Quality","title":"Communicate Clearly: Tool 4","url":"https://www.ahrq.gov/health-literacy/improve/precautions/tool4.html","publication_or_revision_date":"Current Health Literacy Universal Precautions Toolkit, 3rd Edition","retrieved_at":"2026-09-05","locator":"Actions — Use strategies for communicating clearly — qualified interpreter","support":"Recommends a qualified interpreter when a patient wants another language and advises against family/untrained interpreters or relying on basic/intermediate clinician language skills."}
+      ],
+      "evidence_map": [
+        {"claim_id":"Q1191-C","option":"C","claim":"Qualified interpretation is the preferred communication method here.","source_ids":["S1","S2"],"direct_or_inference":"direct","item_specific_application":"The patient has limited English and the discussion is clinically substantive."},
+        {"claim_id":"Q1191-A","option":"A","claim":"Using a family member instead of a qualified interpreter is not the recommended strategy.","source_ids":["S2"],"direct_or_inference":"direct","item_specific_application":"The daughter is a family member, not a qualified interpreter."},
+        {"claim_id":"Q1191-B","option":"B","claim":"Basic/intermediate clinician language skills should not substitute for qualified interpretation.","source_ids":["S2"],"direct_or_inference":"direct","item_specific_application":"The physician cannot discuss medical terminology fluently."},
+        {"claim_id":"Q1191-D","option":"D","claim":"Written instructions mediated by a family member do not satisfy the need for qualified two-way interpretation.","source_ids":["S2"],"direct_or_inference":"inference","item_specific_application":"The option still delegates interpretation to the daughter."},
+        {"claim_id":"Q1191-E","option":"E","claim":"A bilingual friend is also an unqualified interpreter and is not preferable to arranging qualified interpretation.","source_ids":["S2"],"direct_or_inference":"inference","item_specific_application":"The friend is not identified as a qualified interpreter."}
+      ]
+    },
+    {
+      "num": 1192,
+      "system": "Social Sciences: Communication and Interpersonal Skills",
+      "outline": ["Social Sciences", "Communication and interpersonal skills", "patient-centered communication skills", "making decisions and eliciting patient perspectives"],
+      "primary_competency": "Communication and Interpersonal Skills",
+      "discipline": "Behavioral Sciences",
+      "disciplines": ["Behavioral Sciences"],
+      "diagnosis": "Shared decision making when more than one medically reasonable option exists",
+      "mechanism": "Shared decision making integrates evidence about options with the clinician's expertise and the patient's values and preferences. The clinician invites participation, compares benefits and harms, elicits what matters to the patient, and reaches a decision together.",
+      "vignette": "A 66-year-old man with decision-making capacity has a condition for which two evidence-based treatments are medically reasonable. The treatments have similar expected efficacy but differ in adverse effects, monitoring burden, and convenience. After hearing that either option would be acceptable, he asks, ‘Which one should I choose?’ His values and preferences have not yet been discussed.",
+      "lead": "Which of the following is the most appropriate response by the physician?",
+      "options": {
+        "A": "Choose the treatment the physician usually prescribes because clinical experience should determine the final choice",
+        "B": "List the two treatments and ask the patient to select one without further discussion to avoid influencing him",
+        "C": "Ask the patient's spouse to choose because family members are less affected by the stress of illness",
+        "D": "Recommend the treatment with the lowest direct cost without discussing other differences",
+        "E": "Compare the benefits and harms of both options, ask what outcomes and burdens matter most to the patient, and reach a decision together"
+      },
+      "correct_key": "E",
+      "key_expl": "Shared decision making is appropriate when multiple reasonable options exist and the tradeoffs depend on patient preferences. The clinician should explain the options and their benefits/harms, elicit the patient's values, and make the decision collaboratively.",
+      "distractor_notes": {
+        "A": "Clinician expertise is important, but choosing without eliciting patient values omits a core component of shared decision making.",
+        "B": "Merely transferring the choice to the patient without helping compare options is not shared decision making.",
+        "C": "A capable patient remains the decision maker; family may participate if desired but should not replace the patient's values.",
+        "D": "Cost can matter to patients, but automatically using it as the deciding criterion ignores other tradeoffs and the patient's preferences."
+      },
+      "objective": "Apply shared decision making by comparing medically reasonable options, eliciting the patient's values and preferences, and reaching a decision collaboratively.",
+      "clues": ["two evidence-based treatments", "similar efficacy", "different tradeoffs", "patient values not yet discussed"],
+      "difficulty": "moderate",
+      "reasoning_steps_count": 3,
+      "duplicate_probe_terms": ["shared decision making values preferences", "compare benefits harms treatment options", "reach decision together patient"],
+      "sources": [
+        {"source_id":"S1","organization":"United States Medical Licensing Examination","title":"USMLE Content Outline (2026)","url":"https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf","publication_or_revision_date":"For Public Release: USMLE Content Outline (2026)","retrieved_at":"2026-09-05","locator":"Social Sciences — patient-centered communication skills — making decisions (eg, eliciting patient's perspectives)","support":"Places patient-centered decision making within the official Social Sciences outline."},
+        {"source_id":"S2","organization":"Agency for Healthcare Research and Quality","title":"The SHARE Approach Essential Steps of Shared Decision Making","url":"https://www.ahrq.gov/health-literacy/professional-training/shared-decision/tools/share-poster.html","publication_or_revision_date":"Content last reviewed September 2020; current page verified 2026-09-05","retrieved_at":"2026-09-05","locator":"SHARE — Steps 1-5","support":"Describes inviting participation, comparing benefits/harms, assessing values/preferences, reaching a decision together, and revisiting the decision."}
+      ],
+      "evidence_map": [
+        {"claim_id":"Q1192-E","option":"E","claim":"The described collaborative process matches AHRQ's SHARE approach.","source_ids":["S1","S2"],"direct_or_inference":"direct","item_specific_application":"Multiple acceptable options differ mainly in preference-sensitive tradeoffs."},
+        {"claim_id":"Q1192-A","option":"A","claim":"Choosing solely from clinician preference omits assessment of patient values/preferences.","source_ids":["S2"],"direct_or_inference":"direct","item_specific_application":"The patient's values have not been elicited."},
+        {"claim_id":"Q1192-B","option":"B","claim":"Shared decision making includes helping the patient compare benefits and harms, not simply handing over the decision.","source_ids":["S2"],"direct_or_inference":"direct","item_specific_application":"The option withholds the comparison step."},
+        {"claim_id":"Q1192-C","option":"C","claim":"The patient's values/preferences are the relevant input to the shared decision process.","source_ids":["S2"],"direct_or_inference":"inference","item_specific_application":"The patient explicitly has decision-making capacity."},
+        {"claim_id":"Q1192-D","option":"D","claim":"A single clinician-selected criterion does not replace eliciting what matters most to the patient.","source_ids":["S2"],"direct_or_inference":"inference","item_specific_application":"Costs are only one potential tradeoff among several."}
+      ]
+    },
+    {
+      "num": 1193,
+      "system": "Social Sciences: Communication and Interpersonal Skills",
+      "outline": ["Social Sciences", "Communication and interpersonal skills", "information provision and supporting emotions", "patient safety and adverse-event communication"],
+      "primary_competency": "Communication and Interpersonal Skills",
+      "discipline": "Behavioral Sciences",
+      "disciplines": ["Behavioral Sciences"],
+      "diagnosis": "Initial disclosure after a confirmed adverse event when the root cause is not yet known",
+      "mechanism": "Early adverse-event disclosure should communicate known facts honestly, avoid speculation or blame, acknowledge harm with empathy/apology, explain immediate care, and establish follow-up as the investigation clarifies why the event occurred.",
+      "vignette": "A hospitalized patient accidentally received another patient's medication and developed transient hypotension that required treatment. She is now stable. The medication error has been confirmed, but the team has not yet determined how it occurred. The attending physician is preparing for the initial conversation with the patient.",
+      "lead": "Which of the following is the most appropriate approach?",
+      "options": {
+        "A": "Explain the known facts, express sincere regret, describe the current care plan, state that the cause is still being investigated, and arrange follow-up communication",
+        "B": "Wait until the investigation is complete so that every detail can be disclosed in a single conversation",
+        "C": "Tell the patient that a nurse probably selected the wrong medication but that the exact details are uncertain",
+        "D": "Avoid discussing the error because the patient recovered without permanent injury",
+        "E": "Document the event in the medical record but do not raise it unless the patient asks whether an error occurred"
+      },
+      "correct_key": "A",
+      "key_expl": "AHRQ's CANDOR disclosure guidance supports prompt initial disclosure of an adverse event, honest explanation of what is known, no speculation, sincere apology/empathy, discussion of current care and potential consequences, and planned follow-up as more information becomes available.",
+      "distractor_notes": {
+        "B": "Initial disclosure should not be withheld until the full investigation is complete; disclosure is an ongoing process with follow-up.",
+        "C": "The clinician should explain what is known and explicitly avoid speculation or unsupported blame.",
+        "D": "Disclosure is appropriate after an adverse event even when lasting harm is not established; the patient should be informed of what occurred and what is being done.",
+        "E": "Documentation does not replace transparent communication with the patient after a confirmed adverse event."
+      },
+      "objective": "Disclose a confirmed adverse event promptly by communicating known facts, avoiding speculation or blame, expressing empathy/apology, addressing current care, and planning follow-up.",
+      "clues": ["confirmed medication error", "transient harm", "root cause not yet known", "initial conversation"],
+      "difficulty": "moderate",
+      "reasoning_steps_count": 3,
+      "duplicate_probe_terms": ["adverse event disclosure do not speculate", "CANDOR initial disclosure known facts apology", "medication error disclosure follow-up"],
+      "sources": [
+        {"source_id":"S1","organization":"United States Medical Licensing Examination","title":"USMLE Content Outline (2026)","url":"https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf","publication_or_revision_date":"For Public Release: USMLE Content Outline (2026)","retrieved_at":"2026-09-05","locator":"Social Sciences — communication/interpersonal skills; systems-based practice and patient safety","support":"Supports classification of patient-safety communication within the Step content outline."},
+        {"source_id":"S2","organization":"Agency for Healthcare Research and Quality","title":"Disclosure Checklist — Communication and Optimal Resolution (CANDOR) Toolkit","url":"https://www.ahrq.gov/patient-safety/settings/hospital/candor/modules/checklist5.html","publication_or_revision_date":"Content last reviewed August 2022; current page verified 2026-09-05","retrieved_at":"2026-09-05","locator":"Part I — Initial Disclosure Conversation; Key Disclosure Communication Skills","support":"Calls for early disclosure, explanation of known facts without speculation, sincere apology, current-care planning, questions, and follow-up."},
+        {"source_id":"S3","organization":"Agency for Healthcare Research and Quality","title":"Implementation Guide for the CANDOR Process","url":"https://www.ahrq.gov/patient-safety/settings/hospital/candor/impguide.html","publication_or_revision_date":"Current CANDOR implementation guide; verified 2026-09-05","retrieved_at":"2026-09-05","locator":"Component 3 — Response and Disclosure","support":"Describes disclosure as an ongoing process with an initial conversation followed by fuller disclosure after investigation."}
+      ],
+      "evidence_map": [
+        {"claim_id":"Q1193-A","option":"A","claim":"Prompt, factual, empathic disclosure with follow-up is the recommended approach.","source_ids":["S2","S3"],"direct_or_inference":"direct","item_specific_application":"The event is confirmed but the root cause is still under investigation."},
+        {"claim_id":"Q1193-B","option":"B","claim":"Waiting for the full investigation before any disclosure is inconsistent with the CANDOR process.","source_ids":["S2","S3"],"direct_or_inference":"direct","item_specific_application":"An initial conversation should occur before all causes are known."},
+        {"claim_id":"Q1193-C","option":"C","claim":"Speculation about why the event occurred should be avoided.","source_ids":["S2"],"direct_or_inference":"direct","item_specific_application":"The team has not established that a nurse caused the error."},
+        {"claim_id":"Q1193-D","option":"D","claim":"A confirmed adverse event should be communicated rather than concealed because lasting injury is absent.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"The patient experienced a medication error and transient hypotension."},
+        {"claim_id":"Q1193-E","option":"E","claim":"Documentation alone does not replace disclosure of a confirmed adverse event.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"The option withholds the confirmed event from the patient unless she independently asks."}
+      ]
+    },
+    {
+      "num": 1194,
+      "system": "Social Sciences: Communication and Interpersonal Skills",
+      "outline": ["Social Sciences", "Communication and interpersonal skills", "health literacy and numeracy", "information provision"],
+      "primary_competency": "Communication and Interpersonal Skills",
+      "discipline": "Behavioral Sciences",
+      "disciplines": ["Behavioral Sciences"],
+      "diagnosis": "Communicating treatment benefit using absolute risk with a consistent denominator and time frame",
+      "mechanism": "Risk information is easier to understand when presented as absolute frequencies with consistent denominators and a meaningful time horizon rather than relative risk alone or technical statistical notation.",
+      "vignette": "A validated decision aid estimates that a patient's 10-year risk of a cardiovascular event is 6 in 100 without preventive therapy and 3 in 100 with therapy. The patient asks how large the expected benefit is.",
+      "lead": "Which of the following statements best follows recommended health-numeracy communication principles?",
+      "options": {
+        "A": "‘The treatment reduces your risk by 50%.’",
+        "B": "‘Your relative risk with treatment is 0.50 compared with no treatment.’",
+        "C": "‘Your absolute risk reduction is 0.03.’",
+        "D": "‘Over 10 years, the risk goes from about 6 in 100 to 3 in 100—about 3 fewer people out of every 100.’",
+        "E": "‘The number needed to treat is about 33 over 10 years.’"
+      },
+      "correct_key": "D",
+      "key_expl": "The clearest option gives absolute risk using the same denominator and the same time frame, allowing direct comparison. AHRQ specifically recommends absolute rather than relative risk and consistent denominators.",
+      "distractor_notes": {
+        "A": "A 50% relative reduction is mathematically correct but can exaggerate perceived benefit when presented without the corresponding absolute risk.",
+        "B": "A relative-risk ratio is technically correct but less directly interpretable for many patients than absolute frequencies.",
+        "C": "The decimal is mathematically correct but lacks an intuitive frequency representation and does not directly compare both risks.",
+        "E": "The NNT is mathematically consistent with a 3-per-100 absolute risk reduction, but it is a transformed summary measure rather than the recommended direct absolute-frequency comparison."
+      },
+      "objective": "Communicate treatment effects with absolute frequencies, a consistent denominator, and a meaningful time horizon rather than relative risk alone.",
+      "clues": ["validated decision aid", "10-year risk", "6 in 100 vs 3 in 100", "patient asks magnitude of benefit"],
+      "difficulty": "moderate",
+      "reasoning_steps_count": 3,
+      "duplicate_probe_terms": ["absolute risk consistent denominator", "health numeracy risk communication", "relative risk versus absolute frequencies"],
+      "sources": [
+        {"source_id":"S1","organization":"United States Medical Licensing Examination","title":"USMLE Content Outline (2026)","url":"https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf","publication_or_revision_date":"For Public Release: USMLE Content Outline (2026)","retrieved_at":"2026-09-05","locator":"Social Sciences — Communication and interpersonal skills, including health literacy and numeracy","support":"Explicitly includes health literacy and numeracy in the Step content outline."},
+        {"source_id":"S2","organization":"Agency for Healthcare Research and Quality","title":"Assess, Select, and Create Easy-to-Understand Materials: Tool 11","url":"https://www.ahrq.gov/health-literacy/improve/precautions/tool11.html","publication_or_revision_date":"Current Health Literacy Universal Precautions Toolkit, 3rd Edition; page verified 2026-09-05","retrieved_at":"2026-09-05","locator":"Action guidance for communicating risk and benefit numbers","support":"Recommends absolute rather than relative risk, both positive/negative framing, doing the math for patients, consistent denominators, and meaningful time spans."},
+        {"source_id":"S3","organization":"Agency for Healthcare Research and Quality","title":"The Patient Education Materials Assessment Tool — Topic: Use of Numbers","url":"https://www.ahrq.gov/health-literacy/patient-education/pemat5.html","publication_or_revision_date":"Current AHRQ PEMAT page; verified 2026-09-05","retrieved_at":"2026-09-05","locator":"Item 6 — Numbers are clear and easy to understand","support":"Notes that frequencies are generally easier to understand than percentages."}
+      ],
+      "evidence_map": [
+        {"claim_id":"Q1194-D","option":"D","claim":"Absolute frequencies with the same denominator and time horizon follow AHRQ numeracy guidance.","source_ids":["S1","S2","S3"],"direct_or_inference":"direct","item_specific_application":"Both baseline and treated risks are stated as events per 100 over 10 years."},
+        {"claim_id":"Q1194-A","option":"A","claim":"Relative risk alone is less preferred than absolute risk for patient communication.","source_ids":["S2"],"direct_or_inference":"direct","item_specific_application":"The 50% figure omits the 6-in-100 to 3-in-100 absolute change."},
+        {"claim_id":"Q1194-B","option":"B","claim":"Technical ratio notation is less clear than direct absolute frequencies.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"The ratio 0.50 requires additional interpretation."},
+        {"claim_id":"Q1194-C","option":"C","claim":"A decimal absolute-risk change is less clear than a frequency comparison and requires interpretation.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"0.03 must be converted to 3 in 100 for intuitive comparison."},
+        {"claim_id":"Q1194-E","option":"E","claim":"A transformed statistic is less direct than the recommended absolute-frequency comparison.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"NNT summarizes benefit but does not show baseline and treated risks directly."}
+      ],
+      "numeric_audit": {"baseline_risk":0.06,"treated_risk":0.03,"relative_risk_reduction":0.50,"absolute_risk_reduction":0.03,"nnt_approx":33.33,"checked":"2026-09-05"}
+    },
+    {
+      "num": 1195,
+      "system": "Social Sciences: Communication and Interpersonal Skills",
+      "outline": ["Social Sciences", "Communication and interpersonal skills", "enabling patient behaviors", "education and counseling"],
+      "primary_competency": "Communication and Interpersonal Skills",
+      "discipline": "Behavioral Sciences",
+      "disciplines": ["Behavioral Sciences"],
+      "diagnosis": "Motivational interviewing using reflection plus an open-ended question to explore ambivalence",
+      "mechanism": "Motivational interviewing uses patient-centered communication skills such as open-ended questions, affirmations, reflective listening, and summaries (OARS). Reflecting ambivalence and inviting the patient to elaborate supports engagement rather than confrontation or coercion.",
+      "vignette": "A 42-year-old man who smokes one pack of cigarettes daily says, ‘I know smoking is hurting me, but it is the only thing that calms me down after work. My wife wants me to quit, but I am not sure I can.’ He is not asking for a medication recommendation.",
+      "lead": "Which of the following is the most appropriate response by the physician?",
+      "options": {
+        "A": "‘You need to quit now; continuing to smoke despite knowing the risks is irresponsible.’",
+        "B": "‘Smoking helps you manage stress, and you also see reasons to quit. What concerns you most about continuing to smoke?’",
+        "C": "‘Do you promise to stop smoking before your next visit?’",
+        "D": "‘I will prescribe smoking-cessation medication now so you do not have to decide whether you are ready.’",
+        "E": "‘If you cared enough about your family, you would find a way to quit.’"
+      },
+      "correct_key": "B",
+      "key_expl": "The response reflects the patient's ambivalence and follows with an open-ended question, both consistent with OARS communication skills used in motivational interviewing. It explores the patient's own concerns without confrontation or coercion.",
+      "distractor_notes": {
+        "A": "Confrontational and judgmental language undermines the collaborative, patient-centered style of motivational interviewing.",
+        "C": "A closed, commitment-seeking question does not explore ambivalence or invite the patient's perspective.",
+        "D": "Prematurely imposing a treatment plan bypasses the patient's readiness and the communication task presented in the vignette.",
+        "E": "Guilt-based persuasion is judgmental and does not use reflective listening or an open-ended exploration of the patient's motivations."
+      },
+      "objective": "Use reflective listening and open-ended questions to explore ambivalence and elicit the patient's own motivations for behavior change.",
+      "clues": ["ambivalence", "smoking relieves stress", "recognizes harm", "not sure about quitting"],
+      "difficulty": "moderate",
+      "reasoning_steps_count": 3,
+      "duplicate_probe_terms": ["motivational interviewing OARS smoking ambivalence", "reflective listening open-ended question behavior change", "patient ambivalence change talk"],
+      "sources": [
+        {"source_id":"S1","organization":"United States Medical Licensing Examination","title":"USMLE Content Outline (2026)","url":"https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf","publication_or_revision_date":"For Public Release: USMLE Content Outline (2026)","retrieved_at":"2026-09-05","locator":"Social Sciences — patient-centered communication skills — enabling patient behaviors (eg, education and counseling)","support":"Places counseling and enabling patient behaviors within the official Social Sciences communication outline."},
+        {"source_id":"S2","organization":"Agency for Healthcare Research and Quality","title":"Building Rapport with Patients: OARS Communication Skills","url":"https://www.ahrq.gov/evidencenow/tools/oars-model.html","publication_or_revision_date":"Content last reviewed November 2018; current page verified 2026-09-05","retrieved_at":"2026-09-05","locator":"OARS model description","support":"Defines OARS as open-ended questions, affirming, reflective listening, and summarizing, used to engage and build rapport with patients."},
+        {"source_id":"S3","organization":"Agency for Healthcare Research and Quality","title":"Motivational Interviewing in Practice","url":"https://www.ahrq.gov/sites/default/files/wysiwyg/evidencenow/tools-and-materials/interviewing.pdf","publication_or_revision_date":"AHRQ EvidenceNOW resource; current PDF verified 2026-09-05","retrieved_at":"2026-09-05","locator":"Strategy 3 — Using your OARS","support":"Lists open-ended questions, affirmations, reflection, and summarizing as OARS strategies in motivational interviewing."}
+      ],
+      "evidence_map": [
+        {"claim_id":"Q1195-B","option":"B","claim":"Reflection plus an open-ended question is consistent with OARS and motivational interviewing.","source_ids":["S1","S2","S3"],"direct_or_inference":"direct","item_specific_application":"The patient expresses ambivalence rather than requesting a treatment prescription."},
+        {"claim_id":"Q1195-A","option":"A","claim":"Judgmental confrontation does not implement OARS engagement skills.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"The statement directs and criticizes rather than reflects or explores."},
+        {"claim_id":"Q1195-C","option":"C","claim":"A closed commitment question does not use the open-ended exploration emphasized in OARS.","source_ids":["S2","S3"],"direct_or_inference":"direct","item_specific_application":"The question can be answered yes/no and does not explore the patient's reasons."},
+        {"claim_id":"Q1195-D","option":"D","claim":"Immediate unilateral treatment bypasses the communication task of exploring the patient's perspective.","source_ids":["S1","S2","S3"],"direct_or_inference":"inference","item_specific_application":"The patient is expressing ambivalence and has not requested medication."},
+        {"claim_id":"Q1195-E","option":"E","claim":"Guilt-based persuasion is not reflective listening, affirmation, open questioning, or summarizing.","source_ids":["S2","S3"],"direct_or_inference":"inference","item_specific_application":"The statement uses judgment rather than OARS."}
+      ]
+    }
+  ],
+  "author_qa": {
+    "key_distribution": {"A":1,"B":1,"C":1,"D":1,"E":1},
+    "duplicate_probe": "No exact construct phrase matches returned by repository code search for the five fresh constructs.",
+    "numeric_check_Q1194": {"6_in_100":0.06,"3_in_100":0.03,"relative_risk_reduction":0.5,"absolute_risk_reduction":0.03,"nnt":33.3333333333},
+    "material_defects_after_adversarial_repair": [],
+    "independent_isolation_gate": "PENDING — current ChatGPT execution is not falsely represented as three isolated executions"
+  }
+}
