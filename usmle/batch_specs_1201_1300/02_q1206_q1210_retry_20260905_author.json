@@ -1,0 +1,316 @@
+{
+  "batch_id": "Q1206-Q1210-RETRY-20260905-AUTHOR",
+  "replaces_blocked_artifact": "usmle/batch_specs_1201_1300/02_q1206_q1210.json",
+  "production_count_before": 1190,
+  "production_count_after": 1190,
+  "status": "AUTHOR_ZERO_TRUST_PASS_PENDING_ISOLATED_BLIND_AND_AUDITOR_EXECUTIONS",
+  "created_at": "2026-09-05",
+  "country_scope": "United States",
+  "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+  "blueprint_cell": {
+    "primary_system": "Respiratory and Renal/Urinary Systems",
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "coverage_deficit_addressed": "Respiratory and renal foundational-science coverage; prior Q1206-Q1210 cohort remains non-production"
+  },
+  "format_gate": {
+    "single_patient_centered_vignette": true,
+    "options_per_item": 5,
+    "single_best_answer": true,
+    "official_format_url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats",
+    "verified_at": "2026-09-05"
+  },
+  "duplicate_probe": {
+    "repository": "Genc2025/nxlec",
+    "queries": [
+      "Liddle syndrome SCNN1B ENaC degradation",
+      "Dent disease CLCN5 low molecular weight proteinuria hypercalciuria",
+      "Gitelman syndrome SLC12A3 hypomagnesemia hypocalciuria",
+      "Alport syndrome COL4A5 hematuria hearing loss anterior lenticonus",
+      "primary ciliary dyskinesia DNAH5 situs inversus dynein"
+    ],
+    "exact_material_matches_found": 0,
+    "checked_at": "2026-09-05"
+  },
+  "key_distribution": {"A":1,"B":1,"C":1,"D":1,"E":1},
+  "items": [
+    {
+      "num": 1206,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {
+        "primary_system": "Respiratory and Renal/Urinary Systems",
+        "official_outline_path": ["Renal & Urinary System", "Disorders of sodium handling", "Hypertension"],
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": ["Physiology", "Genetics", "Pharmacology"],
+        "coverage_deficit_addressed": "Collecting-duct sodium transport and monogenic hypertension"
+      },
+      "item": {
+        "vignette": "A 14-year-old boy is evaluated for persistent hypertension discovered during a sports physical. Blood pressure is 168/102 mm Hg. Laboratory studies show hypokalemia and metabolic alkalosis. Plasma renin activity is suppressed, and serum aldosterone is also low. His father and paternal aunt developed severe hypertension before age 20. Genetic testing identifies a pathogenic variant in SCNN1B.",
+        "lead_in": "Which of the following molecular effects most directly causes this patient's hypertension?",
+        "options": {
+          "A": "Constitutive activation of the mineralocorticoid receptor by aldosterone",
+          "B": "Reduced sodium chloride reabsorption through the thiazide-sensitive cotransporter",
+          "C": "Impaired degradation of epithelial sodium channels, increasing their abundance at the collecting-duct cell surface",
+          "D": "Increased renin release caused by reduced renal perfusion pressure",
+          "E": "Deficient cortisol synthesis with accumulation of a mineralocorticoid steroid precursor"
+        },
+        "intended_key": "C",
+        "difficulty": "moderate-hard",
+        "tested_construct": "Molecular mechanism of Liddle syndrome",
+        "reasoning_steps_count": 5
+      },
+      "explanation": {
+        "key_explanation": "Liddle syndrome results from pathogenic variants in SCNN1B or SCNN1G that disrupt degradation signals in ENaC subunits. Excess ENaC remains at the collecting-duct cell surface, increasing sodium and water reabsorption and producing early hypertension with hypokalemic metabolic alkalosis. Volume expansion suppresses both renin and aldosterone.",
+        "distractor_explanations": {
+          "A": "Aldosterone-mediated mineralocorticoid receptor activation would not explain the suppressed aldosterone level; Liddle syndrome acts downstream through constitutively increased ENaC abundance.",
+          "B": "Reduced thiazide-sensitive NaCl cotransport causes renal salt wasting rather than sodium-retaining low-renin hypertension.",
+          "C": "Correct. Failure to remove mutant ENaC subunits from the cell surface increases renal sodium reabsorption.",
+          "D": "Renal hypoperfusion stimulates renin; this patient has suppressed renin due to sodium and volume retention.",
+          "E": "Steroidogenic enzyme defects can cause mineralocorticoid excess, but the genotype and ENaC phenotype identify Liddle syndrome."
+        },
+        "educational_objective": "Recognize Liddle syndrome as an autosomal-dominant ENaC degradation defect causing increased collecting-duct sodium reabsorption, early hypertension, hypokalemic alkalosis, and suppression of renin and aldosterone."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1206-C","option":"C","claim":"SCNN1B/SCNN1G variants impair ENaC degradation, leaving excess channels at the cell surface and increasing sodium reabsorption.","source_ids":["Q1206-S2"],"direct_or_inference":"direct","item_specific_application":"Explains early low-renin, low-aldosterone hypertension with hypokalemia."},
+        {"claim_id":"Q1206-A","option":"A","claim":"Liddle hypertension is driven by ENaC abundance rather than elevated aldosterone signaling.","source_ids":["Q1206-S2"],"direct_or_inference":"inference","item_specific_application":"Suppressed aldosterone excludes aldosterone-driven ENaC activation."},
+        {"claim_id":"Q1206-B","option":"B","claim":"Gitelman syndrome is caused by impaired renal NaCl reabsorption and salt wasting, not sodium-retaining hypertension.","source_ids":["Q1206-S3"],"direct_or_inference":"direct","item_specific_application":"Opposite volume phenotype."},
+        {"claim_id":"Q1206-D","option":"D","claim":"The Liddle phenotype is sodium-retaining with suppressed renin, not renin-driven hypertension.","source_ids":["Q1206-S2"],"direct_or_inference":"inference","item_specific_application":"Stem already demonstrates suppressed renin."},
+        {"claim_id":"Q1206-E","option":"E","claim":"The identified SCNN1B defect directly establishes an ENaC-mediated mechanism rather than a steroidogenic mechanism.","source_ids":["Q1206-S2"],"direct_or_inference":"inference","item_specific_application":"Genotype anchors the causal pathway."}
+      ],
+      "sources": [
+        {"source_id":"Q1206-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Respiratory and Renal/Urinary Systems; foundational science","supporting_passage":"Supports system and competency classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1206-S2","agency":"National Library of Medicine","title":"Liddle syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/liddle-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"SCNN1B/SCNN1G variants alter ENaC degradation signals, increasing cell-surface ENaC and sodium reabsorption and causing hypertension with hypokalemia.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1206-S3","agency":"National Library of Medicine","title":"Gitelman syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/gitelman-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Causes","supporting_passage":"SLC12A3-related impaired renal salt reabsorption causes salt wasting and abnormalities of potassium, magnesium, and calcium.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["Liddle syndrome","SCNN1B","ENaC degradation","low renin low aldosterone","hypokalemic alkalosis"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1207,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {
+        "primary_system": "Respiratory and Renal/Urinary Systems",
+        "official_outline_path": ["Renal & Urinary System", "Tubular disorders", "Protein and calcium handling"],
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": ["Physiology", "Genetics", "Pathology"],
+        "coverage_deficit_addressed": "Proximal-tubule endosomal reabsorption"
+      },
+      "item": {
+        "vignette": "A 9-year-old boy is evaluated for recurrent nephrolithiasis. Urinalysis shows marked low-molecular-weight proteinuria and hypercalciuria. Renal ultrasonography demonstrates medullary nephrocalcinosis. Serum glucose is normal. His maternal uncle developed chronic kidney disease after having similar findings in childhood. Genetic testing identifies a pathogenic variant in CLCN5.",
+        "lead_in": "Which renal process is most directly impaired by this mutation?",
+        "options": {
+          "A": "Acid secretion by alpha-intercalated cells in the collecting duct",
+          "B": "Reabsorption of sodium chloride by the thick ascending limb",
+          "C": "Filtration barrier formation by podocyte slit diaphragms",
+          "D": "Reabsorption of cystine and dibasic amino acids from proximal tubular fluid",
+          "E": "Endosomal reabsorption of filtered low-molecular-weight proteins by proximal tubular cells"
+        },
+        "intended_key": "E",
+        "difficulty": "hard",
+        "tested_construct": "Tubular mechanism of CLCN5-associated Dent disease 1",
+        "reasoning_steps_count": 5
+      },
+      "explanation": {
+        "key_explanation": "Dent disease is an X-linked proximal-tubule disorder. CLCN5 encodes a protein involved in proximal-tubule endosomal function; pathogenic variants impair normal reabsorption of filtered low-molecular-weight proteins. Hypercalciuria, nephrolithiasis, and nephrocalcinosis commonly accompany the proteinuria.",
+        "distractor_explanations": {
+          "A": "Distal acidification defects cause distal renal tubular acidosis and nephrocalcinosis but do not explain the characteristic low-molecular-weight proteinuria with a CLCN5 variant.",
+          "B": "Thick-ascending-limb salt transport defects produce a Bartter phenotype rather than isolated proximal low-molecular-weight protein wasting.",
+          "C": "Podocyte slit-diaphragm defects produce primarily glomerular proteinuria, not the characteristic proximal-tubule low-molecular-weight proteinuria of Dent disease.",
+          "D": "Cystine/dibasic amino-acid transport defects cause cystinuria and cystine stones, not CLCN5-associated low-molecular-weight proteinuria.",
+          "E": "Correct. Dent disease 1 reflects abnormal proximal-tubule endosomal protein reabsorption caused by CLCN5 variants."
+        },
+        "educational_objective": "Identify Dent disease 1 as an X-linked CLCN5 proximal-tubule disorder characterized by low-molecular-weight proteinuria, hypercalciuria, nephrocalcinosis, and nephrolithiasis."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1207-E","option":"E","claim":"CLCN5 variants cause Dent disease 1 with defective proximal-tubule protein reabsorption.","source_ids":["Q1207-S2"],"direct_or_inference":"direct","item_specific_application":"Explains LMW proteinuria plus hypercalciuria and nephrocalcinosis."},
+        {"claim_id":"Q1207-A","option":"A","claim":"The characteristic lesion in Dent disease is proximal-tubule protein reabsorption rather than collecting-duct acid secretion.","source_ids":["Q1207-S2"],"direct_or_inference":"inference","item_specific_application":"CLCN5 genotype and LMW proteinuria localize the defect proximally."},
+        {"claim_id":"Q1207-B","option":"B","claim":"The disease-defining abnormality described by NLM is proximal-tubule dysfunction, not thick-ascending-limb sodium transport.","source_ids":["Q1207-S2"],"direct_or_inference":"inference","item_specific_application":"The tubular localization excludes this option."},
+        {"claim_id":"Q1207-C","option":"C","claim":"Dent disease causes loss of proteins because proximal tubular reabsorption is abnormal.","source_ids":["Q1207-S2"],"direct_or_inference":"direct","item_specific_application":"This is tubular rather than a primary glomerular filtration-barrier lesion."},
+        {"claim_id":"Q1207-D","option":"D","claim":"CLCN5-related Dent disease is defined by proximal protein-reabsorption abnormalities, hypercalciuria, stones, and nephrocalcinosis rather than isolated amino-acid transporter failure.","source_ids":["Q1207-S2"],"direct_or_inference":"inference","item_specific_application":"Genotype and protein pattern distinguish the process."}
+      ],
+      "sources": [
+        {"source_id":"Q1207-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Respiratory and Renal/Urinary Systems","supporting_passage":"Supports blueprint classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1207-S2","agency":"National Library of Medicine","title":"Dent disease: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/dent-disease/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Description; Causes","supporting_passage":"Dent disease results from proximal-tubule dysfunction; CLCN5 causes Dent disease 1 and pathogenic variants impair protein reabsorption, producing LMW proteinuria with frequent hypercalciuria/nephrocalcinosis/nephrolithiasis.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["Dent disease 1","CLCN5","low molecular weight proteinuria","proximal tubule endosomal reabsorption","hypercalciuria"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1208,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {
+        "primary_system": "Respiratory and Renal/Urinary Systems",
+        "official_outline_path": ["Renal & Urinary System", "Tubular transport disorders", "Salt wasting"],
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": ["Physiology", "Genetics", "Pharmacology"],
+        "coverage_deficit_addressed": "Distal convoluted tubule physiology"
+      },
+      "item": {
+        "vignette": "A 17-year-old girl has recurrent muscle cramps, fatigue, and salt craving. Blood pressure is 92/58 mm Hg. Laboratory studies show hypokalemia, metabolic alkalosis, and hypomagnesemia. Plasma renin activity and aldosterone are elevated. Urinary calcium excretion is low. Genetic testing shows biallelic pathogenic variants in SLC12A3.",
+        "lead_in": "Which renal transport protein is primarily defective in this patient?",
+        "options": {
+          "A": "Thiazide-sensitive sodium-chloride cotransporter in the distal convoluted tubule",
+          "B": "Epithelial sodium channel in collecting-duct principal cells",
+          "C": "Sodium-potassium-2 chloride cotransporter in the thick ascending limb",
+          "D": "Sodium-phosphate cotransporter in the proximal tubule",
+          "E": "Vasopressin V2 receptor in collecting-duct principal cells"
+        },
+        "intended_key": "A",
+        "difficulty": "moderate",
+        "tested_construct": "Transport defect in Gitelman syndrome",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "Gitelman syndrome is usually caused by biallelic SLC12A3 variants that impair the thiazide-sensitive NaCl cotransporter in the distal convoluted tubule. Renal salt wasting activates renin and aldosterone and produces hypokalemic metabolic alkalosis, hypomagnesemia, and typically reduced urinary calcium excretion.",
+        "distractor_explanations": {
+          "A": "Correct. SLC12A3 encodes the thiazide-sensitive NaCl cotransporter of the distal convoluted tubule.",
+          "B": "Increased ENaC activity causes Liddle syndrome with hypertension and suppressed renin/aldosterone, the opposite hemodynamic pattern.",
+          "C": "NKCC2 dysfunction produces a loop-diuretic-like Bartter phenotype, not the SLC12A3-defined Gitelman syndrome.",
+          "D": "Proximal phosphate transporter defects cause renal phosphate wasting rather than this hypokalemic, hypomagnesemic salt-wasting phenotype.",
+          "E": "V2-receptor dysfunction primarily disrupts water balance and urinary concentration rather than NaCl reabsorption in the distal convoluted tubule."
+        },
+        "educational_objective": "Recognize SLC12A3 loss as a thiazide-sensitive distal-convoluted-tubule NaCl transport defect causing Gitelman syndrome."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1208-A","option":"A","claim":"Gitelman syndrome is usually caused by SLC12A3 variants that impair renal NaCl reabsorption.","source_ids":["Q1208-S2"],"direct_or_inference":"direct","item_specific_application":"Explains salt wasting, low blood pressure, elevated renin/aldosterone, hypokalemia, hypomagnesemia, and hypocalciuria."},
+        {"claim_id":"Q1208-B","option":"B","claim":"Liddle syndrome involves excess ENaC-mediated sodium reabsorption and early hypertension.","source_ids":["Q1208-S3"],"direct_or_inference":"direct","item_specific_application":"Opposite volume and blood-pressure phenotype."},
+        {"claim_id":"Q1208-C","option":"C","claim":"The genotype identifies SLC12A3 rather than a thick-ascending-limb transporter.","source_ids":["Q1208-S2"],"direct_or_inference":"direct","item_specific_application":"Direct gene-transporter mapping excludes NKCC2."},
+        {"claim_id":"Q1208-D","option":"D","claim":"SLC12A3-related disease is a renal salt-reabsorption disorder rather than a phosphate-wasting disorder.","source_ids":["Q1208-S2"],"direct_or_inference":"direct","item_specific_application":"Electrolyte signature is characteristic of Gitelman syndrome."},
+        {"claim_id":"Q1208-E","option":"E","claim":"The identified SLC12A3 defect causes salt-transport abnormalities, not primary vasopressin signaling failure.","source_ids":["Q1208-S2"],"direct_or_inference":"inference","item_specific_application":"No water-balance phenotype is present."}
+      ],
+      "sources": [
+        {"source_id":"Q1208-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Respiratory and Renal/Urinary Systems","supporting_passage":"Supports blueprint classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1208-S2","agency":"National Library of Medicine","title":"Gitelman syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/gitelman-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Description; Causes","supporting_passage":"SLC12A3 variants impair renal salt reabsorption and cause abnormalities of potassium, magnesium, and calcium.","government_status_verified":true,"rights_status":"U.S. government health-information source"},
+        {"source_id":"Q1208-S3","agency":"National Library of Medicine","title":"Liddle syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/liddle-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Description; Causes","supporting_passage":"Excess ENaC at the cell surface increases sodium reabsorption and causes early hypertension with hypokalemia.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["Gitelman syndrome","SLC12A3","thiazide-sensitive NCC","hypomagnesemia","hypocalciuria"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1209,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {
+        "primary_system": "Respiratory and Renal/Urinary Systems",
+        "official_outline_path": ["Renal & Urinary System", "Glomerular disease", "Hereditary nephritis"],
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": ["Pathology", "Genetics", "Gross Anatomy & Embryology"],
+        "coverage_deficit_addressed": "Glomerular basement membrane structure"
+      },
+      "item": {
+        "vignette": "A 13-year-old boy has persistent microscopic hematuria and increasing proteinuria. Audiometry shows bilateral sensorineural hearing loss. Ophthalmologic examination reveals anterior lenticonus. His maternal uncle required kidney transplantation at age 29. Genetic testing identifies a pathogenic variant in COL4A5.",
+        "lead_in": "Abnormality of which structural protein most directly accounts for this patient's renal disease?",
+        "options": {
+          "A": "Polycystin-1 in the primary cilium of renal tubular epithelial cells",
+          "B": "Nephrin in the slit diaphragm between podocyte foot processes",
+          "C": "Type I collagen in bone and connective tissue",
+          "D": "Alpha-5 chain of type IV collagen in the glomerular basement membrane",
+          "E": "Uromodulin produced by epithelial cells of the thick ascending limb"
+        },
+        "intended_key": "D",
+        "difficulty": "moderate",
+        "tested_construct": "Basement-membrane defect in X-linked Alport syndrome",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "COL4A5 encodes a component of type IV collagen. X-linked Alport syndrome causes abnormal type IV collagen in glomerular basement membranes and also affects inner-ear and ocular structures, producing the classic combination of hematuria/progressive renal disease, sensorineural hearing loss, and anterior lenticonus.",
+        "distractor_explanations": {
+          "A": "Polycystin defects cause autosomal dominant polycystic kidney disease, characterized by renal cysts rather than the Alport triad.",
+          "B": "Nephrin defects disrupt podocyte slit diaphragms and classically cause nephrotic protein loss, not COL4A5-associated hereditary nephritis with hearing and ocular findings.",
+          "C": "Type I collagen abnormalities are associated with connective-tissue and bone disorders rather than this glomerular basement-membrane disease.",
+          "D": "Correct. COL4A5 encodes the alpha-5 chain of type IV collagen, a key basement-membrane component.",
+          "E": "Uromodulin disorders are tubulointerstitial rather than a type IV collagen basement-membrane nephropathy."
+        },
+        "educational_objective": "Associate X-linked Alport syndrome with COL4A5/type IV collagen abnormalities affecting the glomerular basement membrane, inner ear, and eye."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1209-D","option":"D","claim":"COL4A5 variants cause Alport syndrome by producing abnormal type IV collagen in glomeruli.","source_ids":["Q1209-S2"],"direct_or_inference":"direct","item_specific_application":"Explains hematuria/proteinuria plus hearing loss and lenticonus."},
+        {"claim_id":"Q1209-A","option":"A","claim":"The NLM source identifies collagen IV, not a tubular ciliary protein, as the structural lesion in this genotype-defined disease.","source_ids":["Q1209-S2"],"direct_or_inference":"inference","item_specific_application":"COL4A5 anchors the molecular lesion."},
+        {"claim_id":"Q1209-B","option":"B","claim":"Alport syndrome is a collagen IV glomerular basement-membrane disorder rather than a primary slit-diaphragm protein disorder.","source_ids":["Q1209-S2"],"direct_or_inference":"direct","item_specific_application":"Multisystem phenotype reinforces basement-membrane collagen pathology."},
+        {"claim_id":"Q1209-C","option":"C","claim":"The implicated collagen subtype in Alport syndrome is type IV collagen.","source_ids":["Q1209-S2"],"direct_or_inference":"direct","item_specific_application":"Type I collagen is therefore not the causal structural protein here."},
+        {"claim_id":"Q1209-E","option":"E","claim":"The renal disease described by NLM arises from abnormal collagen IV in glomeruli, not a thick-ascending-limb secreted protein.","source_ids":["Q1209-S2"],"direct_or_inference":"direct","item_specific_application":"Histologic compartment differs."}
+      ],
+      "sources": [
+        {"source_id":"Q1209-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Respiratory and Renal/Urinary Systems","supporting_passage":"Supports blueprint classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1209-S2","agency":"National Library of Medicine","title":"Alport syndrome: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/alport-syndrome/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Description; Causes; Inheritance","supporting_passage":"COL4A3/COL4A4/COL4A5 encode type IV collagen components; abnormal collagen IV in glomeruli causes hematuria/proteinuria and progressive kidney disease, with inner-ear and ocular involvement; COL4A5 commonly causes X-linked disease.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["Alport syndrome","COL4A5","type IV collagen","hematuria hearing loss","anterior lenticonus"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "status": "CANDIDATE_FROZEN"
+    },
+    {
+      "num": 1210,
+      "country_scope": "United States",
+      "specification_version": "USMLE Step 1 current official specifications verified 2026-09-05",
+      "blueprint": {
+        "primary_system": "Respiratory and Renal/Urinary Systems",
+        "official_outline_path": ["Respiratory System", "Congenital and genetic disorders", "Mucociliary clearance"],
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": ["Cell Biology", "Genetics", "Gross Anatomy & Embryology"],
+        "coverage_deficit_addressed": "Motile-cilia function and embryonic left-right patterning"
+      },
+      "item": {
+        "vignette": "A 7-year-old boy has chronic sinusitis, recurrent otitis media, and a daily productive cough. He required supplemental oxygen for respiratory distress shortly after birth. Chest imaging shows bronchiectasis and dextrocardia; abdominal ultrasonography shows the liver on the left and spleen on the right. Genetic testing identifies a pathogenic variant in DNAH5.",
+        "lead_in": "Which cellular defect most directly explains both the recurrent respiratory infections and abnormal organ laterality?",
+        "options": {
+          "A": "Defective chloride transport across respiratory epithelial membranes",
+          "B": "Impaired dynein-dependent motility of cilia, disrupting mucociliary clearance and embryonic left-right axis formation",
+          "C": "Deficient alpha-1 antitrypsin activity causing unopposed neutrophil elastase",
+          "D": "Failure of surfactant protein B production by type II pneumocytes",
+          "E": "Defective elastin cross-linking in the bronchial wall"
+        },
+        "intended_key": "B",
+        "difficulty": "moderate",
+        "tested_construct": "Cellular mechanism of primary ciliary dyskinesia with situs inversus",
+        "reasoning_steps_count": 4
+      },
+      "explanation": {
+        "key_explanation": "Primary ciliary dyskinesia results from pathogenic variants affecting proteins required for motile-cilia structure or force generation. DNAH5 encodes an axonemal dynein heavy chain. Impaired coordinated ciliary motion compromises airway clearance and also disrupts cilia-dependent establishment of the embryonic left-right axis, explaining situs inversus.",
+        "distractor_explanations": {
+          "A": "CFTR dysfunction impairs chloride transport and mucociliary clearance but does not characteristically randomize embryonic organ laterality.",
+          "B": "Correct. Motile-cilia dysfunction links chronic respiratory disease with abnormal left-right patterning.",
+          "C": "Alpha-1 antitrypsin deficiency causes protease-mediated emphysema and does not explain childhood otosinopulmonary disease with situs inversus.",
+          "D": "Surfactant protein B deficiency causes severe neonatal lung disease but not chronic ciliary-clearance failure with laterality defects.",
+          "E": "Elastin abnormalities do not provide a unified mechanism for impaired mucociliary clearance and situs inversus."
+        },
+        "educational_objective": "Recognize that primary ciliary dyskinesia causes recurrent sinopulmonary disease and laterality defects through impaired motile-cilia function, including dynein-dependent force generation and embryonic left-right axis establishment."
+      },
+      "evidence_map": [
+        {"claim_id":"Q1210-B","option":"B","claim":"Primary ciliary dyskinesia variants disrupt coordinated ciliary movement; ciliary motility is required for airway clearance and establishment of the embryonic left-right axis.","source_ids":["Q1210-S2"],"direct_or_inference":"direct","item_specific_application":"Explains neonatal respiratory distress, chronic infections/bronchiectasis, and situs inversus."},
+        {"claim_id":"Q1210-A","option":"A","claim":"The defining mechanism in this DNAH5-associated phenotype is abnormal ciliary motility rather than epithelial chloride transport.","source_ids":["Q1210-S2"],"direct_or_inference":"direct","item_specific_application":"Laterality defect specifically supports motile-cilia dysfunction."},
+        {"claim_id":"Q1210-C","option":"C","claim":"PCD signs and symptoms are caused by abnormal cilia and flagella, not a protease-antiprotease imbalance.","source_ids":["Q1210-S2"],"direct_or_inference":"direct","item_specific_application":"Unified mechanism excludes alpha-1 antitrypsin deficiency."},
+        {"claim_id":"Q1210-D","option":"D","claim":"PCD commonly causes neonatal respiratory distress through defective ciliary clearance, while laterality defects arise from ciliary dysfunction.","source_ids":["Q1210-S2"],"direct_or_inference":"direct","item_specific_application":"The neonatal feature plus situs inversus is not isolated surfactant deficiency."},
+        {"claim_id":"Q1210-E","option":"E","claim":"The NLM source attributes the syndrome to abnormal cilia/flagella and impaired coordinated motion.","source_ids":["Q1210-S2"],"direct_or_inference":"direct","item_specific_application":"An elastin defect would not explain the laterality phenotype."}
+      ],
+      "sources": [
+        {"source_id":"Q1210-S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","publication_or_revision_date":"current","retrieved_at":"2026-09-05","section_locator":"Respiratory and Renal/Urinary Systems","supporting_passage":"Supports blueprint classification.","government_status_verified":false,"official_exam_specification":true,"rights_status":"official exam specification"},
+        {"source_id":"Q1210-S2","agency":"National Library of Medicine","title":"Primary ciliary dyskinesia: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/primary-ciliary-dyskinesia/","publication_or_revision_date":"current page","retrieved_at":"2026-09-05","section_locator":"Description; Causes","supporting_passage":"PCD is caused by abnormal cilia/flagella; impaired coordinated ciliary movement causes respiratory disease and disrupts establishment of the embryonic left-right axis; DNAH5 and DNAH11 are major causes.","government_status_verified":true,"rights_status":"U.S. government health-information source"}
+      ],
+      "semantic_fingerprint": ["primary ciliary dyskinesia","DNAH5","dynein motility","situs inversus","mucociliary clearance"],
+      "author_self_audit": {"blueprint_fidelity":10,"key_correctness":10,"distractor_integrity":10,"single_best_answer":10,"reasoning_and_difficulty":10,"item_writing":10,"cueing_bias_fairness":10,"evidence_quality":10,"originality_duplication_rights":10,"technical_integrity":10,"unresolved_concerns":[],"suggested_changes":[]},
+      "status": "CANDIDATE_FROZEN"
+    }
+  ],
+  "batch_adversarial_pass": {
+    "second_answer_attack": "PASS",
+    "hidden_assumption_attack": "PASS",
+    "fabricated_distractor_attack": "PASS",
+    "key_balance_attack": "PASS",
+    "duplicate_material_attack": "PASS",
+    "source_policy_attack": "PASS",
+    "ncjmm_present": false,
+    "material_defects_remaining": 0
+  },
+  "independent_isolation_gate": {
+    "author_execution": "THIS_ARTIFACT_ONLY",
+    "auditor_execution_pass_a": "PENDING",
+    "auditor_execution_pass_b": "PENDING",
+    "production_import": "PENDING",
+    "note": "No claim of FINAL_QA_PASS or PRODUCTION_READY is made until the repository's required isolated blind/auditor executions and import gates legitimately pass."
+  }
+}
