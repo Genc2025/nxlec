@@ -1,0 +1,44 @@
+name: USMLE Prospect Scout Q1231-Q1240
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/PROSPECT_TRIGGER_Q1231_Q1240'
+
+permissions:
+  contents: read
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan candidate constructs against canonical Q1230
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/prospect_scout_q1231_q1240.py
+          python usmle/prospect_scout_q1231_q1240.py > prospect-q1231-q1240.json
+      - name: Print compact prospect counts
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('prospect-q1231-q1240.json'))
+          print('COUNT=',r['canonical_count'],'DB=',r['db_blob'])
+          for name,x in r['prospects'].items():
+              print(name,'HITS=',x['unique_hit_count'],'TERMS=',x['by_term_counts'])
+              for h in x['hits'][:3]: print('  ',h['candidate_id'],h['item'].get('tested_construct'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prospect-q1231-q1240
+          path: prospect-q1231-q1240.json
+          if-no-files-found: error
