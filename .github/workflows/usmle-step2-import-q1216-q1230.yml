@@ -43,11 +43,14 @@ jobs:
           assert s['contiguous_q0001_q1230'] is True and s['q1216_q1230_present_exactly_once'] is True
           assert s['sqlite_integrity_check']=='ok' and s['payload_review_consistency']=='PASS'
           assert s['official_system_labels_validated'] is True and s['official_discipline_metadata_validated'] is True
+          assert s['wal_sidecar_present_after_close'] is False and s['shm_sidecar_present_after_close'] is False
+          assert isinstance(s.get('wal_checkpoint_result'),list) and s['wal_checkpoint_result'][0]==0
           assert f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT' and f['production_import_completed'] is True
           blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
           assert blob==s['post_authoritative_db_blob']
           assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
-          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True)
+          # immutable=1 prevents this independent read from creating WAL/SHM sidecars itself.
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
           ic=con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
           rc=con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
@@ -58,7 +61,6 @@ jobs:
               m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid; nums.append(int(m.group(1)))
           assert set(nums)==set(range(1,1231)) and len(nums)==len(set(nums))==1230
           con.close()
-          assert not pathlib.Path(str(db)+'-wal').exists() and not pathlib.Path(str(db)+'-shm').exists()
           print('PRE_PERSIST_VERIFY=PASS COUNT=1230 REVIEWS=1230 BLOB='+blob)
           PY
       - name: Persist authoritative Q1230 database state
@@ -82,8 +84,9 @@ jobs:
           import json,pathlib,re,sqlite3,subprocess
           db=pathlib.Path('usmle/data/usmle-step1.db')
           s=json.loads(pathlib.Path('usmle/state/step2_final_q0001_q1230.json').read_text())
+          assert s['item_count']==1230 and s['step2_final_review_count']==1230 and s['contiguous_q0001_q1230'] is True
           assert subprocess.check_output(['git','hash-object',str(db)],text=True).strip()==s['post_authoritative_db_blob']
-          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True)
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
           assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
           assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1230
           assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1230
