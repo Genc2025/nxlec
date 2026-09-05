@@ -1,0 +1,58 @@
+{
+  "num": 1229,
+  "status": "CANDIDATE_FROZEN",
+  "production_import_permitted": false,
+  "blueprint": {
+    "primary_system": "Blood & Lymphoreticular/Immune Systems",
+    "official_outline_path": ["Blood & Lymphoreticular/Immune Systems"],
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": ["Immunology", "Cell Biology", "Genetics"],
+    "content_focus": "ZAP70-mediated T-cell receptor signaling"
+  },
+  "item": {
+    "vignette": "An 8-month-old girl has recurrent viral and fungal infections. Total CD3+ and CD4+ T-cell counts are near the age-appropriate range, but CD8+ T cells are nearly absent; B-cell and NK-cell numbers are preserved. Her T cells fail to proliferate after stimulation with an anti-CD3 antibody but proliferate normally when exposed to phorbol ester plus ionomycin. Genetic testing identifies biallelic loss-of-function variants in ZAP70.",
+    "lead_in": "Which signaling step is most directly defective in this patient?",
+    "options": {
+      "A": "Recombination of T-cell receptor variable-region gene segments during thymocyte development",
+      "B": "Binding of peptide-MHC complexes to the antigen-recognition site of the T-cell receptor",
+      "C": "Phosphorylation of CD3 immunoreceptor tyrosine-based activation motifs by Src-family kinases",
+      "D": "Generation of diacylglycerol and intracellular calcium signals by pharmacologic activation of protein kinase C and ion channels",
+      "E": "Propagation of the signal from phosphorylated T-cell receptor/CD3 complexes to downstream T-cell activation pathways"
+    },
+    "intended_key": "E",
+    "difficulty": "hard",
+    "difficulty_basis": "Expert estimate only; requires integrating the CD4+/CD8- phenotype with a stimulation experiment that localizes the lesion between proximal TCR engagement and downstream second-messenger bypass.",
+    "tested_construct": "ZAP70 transduces signals downstream of activated TCR/CD3 complexes; loss causes impaired TCR-mediated activation with preserved response to downstream pharmacologic bypass"
+  },
+  "explanation": {
+    "key_explanation": "ZAP70 is an intracellular kinase that acts downstream of the T-cell receptor. In ZAP70 deficiency, TCR-triggered responses are absent or markedly impaired, whereas stimuli such as phorbol ester plus ionomycin that bypass the proximal TCR signaling defect can preserve proliferation. The characteristic phenotype includes markedly reduced or absent CD8+ T cells with quantitatively preserved but functionally impaired CD4+ T cells.",
+    "distractor_explanations": {
+      "A": "TCR V(D)J recombination occurs upstream during lymphocyte development and is not the ZAP70-dependent step.",
+      "B": "The genetic defect does not primarily prevent extracellular peptide-MHC binding to the TCR.",
+      "C": "Src-family kinase activity phosphorylates CD3 ITAMs upstream of ZAP70 recruitment; ZAP70 deficiency disrupts signaling after those proximal phosphorylation events.",
+      "D": "Phorbol ester plus ionomycin is the downstream bypass condition that remains functional in the stem, not the defective physiologic step.",
+      "E": "Correct. ZAP70 is required to propagate signals from activated/phosphorylated TCR-CD3 complexes to downstream T-cell activation."
+    },
+    "educational_objective": "ZAP70 deficiency impairs signaling downstream of the TCR/CD3 complex, producing severely reduced CD8+ T cells and dysfunctional CD4+ T cells; preserved response to PMA/ionomycin localizes the defect proximal to those downstream second messengers."
+  },
+  "evidence_map": [
+    {"option":"E","claim":"ZAP70 deficiency is caused by loss of ZAP70 kinase activity downstream of the TCR and produces impaired TCR-triggered responses.","source_ids":["S2"],"evidence_type":"direct"},
+    {"option":"E","claim":"Responses that bypass the TCR with PMA/ionomycin can remain intact in ZAP70 deficiency.","source_ids":["S2"],"evidence_type":"direct"},
+    {"option":"E","claim":"CD8+ T cells are typically absent or extremely low while CD4+ counts can remain normal.","source_ids":["S2"],"evidence_type":"direct"}
+  ],
+  "sources": [
+    {"source_id":"S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-05","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies; Discipline Specifications"},
+    {"source_id":"S2","agency":"NCBI Bookshelf","title":"ZAP70 Deficiency - GeneReviews","url":"https://www.ncbi.nlm.nih.gov/books/NBK20221/","publication_or_revision_date":"2026-06-09","retrieved_at":"2026-09-05","section_locator":"Summary; Supportive Laboratory Findings; Lymphocyte function"}
+  ],
+  "zero_trust_audit": {
+    "key_rederived": "E",
+    "second_answer_attack": "PASS; option C is upstream of ZAP70 and option D is explicitly preserved by the bypass experiment",
+    "numeric_claim_gate": "PASS; no diagnostic cutoff is invented",
+    "url_locator_gate": "PASS",
+    "currentness_gate": "PASS; GeneReviews last updated 2026-06-09 directly supports phenotype and localization",
+    "fabricated_distractor_gate": "PASS",
+    "blueprint_gate": "PASS",
+    "difficulty_gate": "PASS_AS_EXPERT_ESTIMATE_ONLY",
+    "material_defects_remaining": 0
+  }
+}
