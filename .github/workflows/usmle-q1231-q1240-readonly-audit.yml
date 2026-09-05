@@ -1,0 +1,46 @@
+name: USMLE Q1231-Q1240 Readonly Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/READONLY_TRIGGER_Q1231_Q1240'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run read-only canonical audit Q1231-Q1240
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/q1231_q1240_readonly_audit.py
+          python usmle/q1231_q1240_readonly_audit.py > q1231-q1240-audit.json
+      - name: Print compact report
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('q1231-q1240-audit.json'))
+          print('COUNT=',r['canonical_count'],'DB=',r['authoritative_db_blob'],'KEYS=',r['answer_key_distribution'])
+          for q,rows in r['nearest_neighbours'].items():
+              print(q,'TOP5=',json.dumps([{'id':x['candidate_id'],'score':x['tfidf_cosine'],'construct':x['item'].get('tested_construct')} for x in rows[:5]],ensure_ascii=False))
+          print('WITHIN=',json.dumps(r['within_batch_similarity'][:12],ensure_ascii=False))
+          for q,terms in r['term_hits'].items():
+              print(q,'TERM_COUNTS=',{t:len(v) for t,v in terms.items()})
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1231-q1240-readonly-audit
+          path: q1231-q1240-audit.json
+          if-no-files-found: error
