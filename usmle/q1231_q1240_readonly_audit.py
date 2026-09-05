@@ -18,7 +18,7 @@ TERMS={
 1234:['nkx2-5','homeobox','atrial septal defect','atrioventricular block'],
 1235:['jph2','junctophilin-2','junctional complexes','t-tubule'],
 1236:['atp8b1','pfic1','progressive familial intrahepatic cholestasis type 1','hearing loss'],
-1237:['tjp2','pfic4','tight junction protein 2','preserved bsep'],
+1237:['neurog3','enteric anendocrinosis','congenital malabsorptive diarrhea','enteroendocrine cells'],
 1238:['vps33b','arc syndrome','arthrogryposis-renal dysfunction-cholestasis'],
 1239:['slc51b','ost-beta','ostalpha-ostbeta','basolateral export'],
 1240:['hsd3b7','3beta-hydroxy-delta5','bile acid synthesis defect']}
