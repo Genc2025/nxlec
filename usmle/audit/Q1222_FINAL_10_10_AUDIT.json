@@ -1,6 +1,6 @@
 {
-  "audit_id": "Q1227-FINAL-10-10-Q1215-BOUND-20260905",
-  "item": "Q1227",
+  "audit_id": "Q1222-FINAL-10-10-Q1215-BOUND-20260905",
+  "item": "Q1222",
   "status": "FINAL_10_10_PASS",
   "verdict": "PASS_WITH_NO_CHANGES",
   "audited_at": "2026-09-05T22:13:20Z",
@@ -9,9 +9,9 @@
   "authoritative_db_blob": "15345ce6a3c3ca72097b28aaf7e1ccd73b394c3f",
   "authoritative_db_sha256": "e12318a0249e0bacacf68acc942528720dc29c823c711da87a827d9a95673d5a",
   "authoritative_db_final_count": 1215,
-  "exact_candidate_file": "usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1227.json",
-  "exact_candidate_file_blob": "8a4111d8f6e730d91f836bd1b946012a14ce7646",
-  "exact_candidate_object_sha256": "319029a222717035d1a87bd73c941a046f9b27f903623e0a7cfad3a7f8543c5c",
+  "exact_candidate_file": "usmle/batch_specs_1201_1300/05_q1221_q1225_retry_20260905_author.json",
+  "exact_candidate_file_blob": "f59759633f34e423c5759cd402f6a6b8b355b9fa",
+  "exact_candidate_object_sha256": "fb39ee4decc728c11f52afd413eaee65a74895be85067e43bac84a91a3997061",
   "readonly_audit_run_id": 33990646632,
   "db_write": false,
   "unresolved_conflicts": 0,
@@ -30,11 +30,11 @@
   "defects": [],
   "suggested_changes": [],
   "blind_audit": {
-    "selected_key": "D",
+    "selected_key": "A",
     "alternative_defensible_options": [],
     "missing_assumptions": [],
     "cueing_findings": [],
-    "rationale": "TAP is a heterodimer composed of TAP1 and TAP2 that uses ATP to move cytosolic peptides into the endoplasmic reticulum. These peptides are loaded onto nascent MHC class I molecules before surface expression. TAP2 loss therefore reduces peptide-loaded MHC class I at the cell surface and is associated with selective CD8+ T-cell lymphopenia."
+    "rationale": "ABCC8 loss can reduce or abolish beta-cell KATP-channel activity. Persistent depolarization opens voltage-gated calcium channels and drives insulin granule exocytosis even when glucose is low."
   },
   "source_authority": "PASS",
   "source_currentness": {
@@ -57,15 +57,15 @@
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "second_answer_attack": {
-    "strongest_alternative": "B: Removal of invariant-chain-derived peptide from MHC class II molecules in acidified endosomes",
-    "resolution": "MHC-II loading occurs in endosomal compartments and does not use TAP2; TAP2 transports cytosolic peptides into the ER for MHC-I loading.",
+    "strongest_alternative": "B: Failure of KATP channels to close → beta-cell hyperpolarization → reduced calcium entry → insulin release",
+    "resolution": "Failure of KATP closure would reduce insulin secretion and cause the opposite glucose phenotype; ABCC8 loss reduces channel activity and drives depolarization, calcium entry, and insulin release.",
     "result": "PASS_NONE"
   },
   "cueing": "PASS",
   "overlap": "PASS",
   "zero_unsupported_precision": "PASS",
   "difficulty": "PASS",
-  "difficulty_rating": "moderate; expert estimate only",
+  "difficulty_rating": "moderate-hard; expert estimate only",
   "construct_fit": "PASS",
   "hidden_assumptions": "PASS_NONE_MATERIAL",
   "fabricated_distractors": "PASS_NONE",
@@ -82,30 +82,30 @@
     "readonly_audit_run_id": 33990646632,
     "exact_rare_term_zero_hits": {},
     "nearest_material_review": {
-      "candidate_id": "S1-DIRECT-0719-20260829T094500Z",
-      "tfidf_cosine": 0.402158,
+      "candidate_id": "S1-DIRECT-0837-20260831T010000Z",
+      "tfidf_cosine": 0.408617,
       "overlap": [
-        "onto",
-        "mhc",
-        "presentation",
-        "peptides",
-        "loading",
-        "cytometry",
-        "molecules",
-        "antigen",
-        "cytosolic",
-        "class",
-        "endoplasmic",
-        "t-cell",
-        "reticulum",
-        "expression",
-        "preserved",
-        "flow",
-        "loss-of",
-        "transport"
+        "katp",
+        "glucokinase",
+        "beta-cell",
+        "atp-sensitive",
+        "hyperpolarization",
+        "voltage-gated",
+        "subunit",
+        "insulin",
+        "channel",
+        "glucose",
+        "pancreatic",
+        "channels",
+        "potassium",
+        "infant",
+        "encodes",
+        "persistent",
+        "membrane",
+        "calcium"
       ],
-      "tested_construct": "CIITA and the RFX complex are transcriptional regulators required for MHC class II gene expression. Loss of CIITA can abolish MHC II expression on antigen-presenting cells, impairing positive selection and peripheral activation of CD4-positive T cells and causing combined immunodeficiency.",
-      "resolution": "Nearest antigen-presentation items test MHC-II/invariant-chain or CIITA biology; this item tests TAP2 transport of cytosolic peptides into the ER for MHC-I loading."
+      "tested_construct": "Activating KCNJ11 variants reduce ATP inhibition of the Kir6.2-containing beta-cell KATP channel. The channel remains excessively open despite glucose metabolism, maintaining membrane hyperpolarization and suppressing voltage-gated calcium influx and glucose-stimulated insulin secretion.",
+      "resolution": "Nearest KATP item tests activating KCNJ11 with persistent channel opening and neonatal diabetes; this item tests ABCC8 loss with depolarization and congenital hyperinsulinism—the mechanism and phenotype are directionally distinct."
     }
   },
   "option_audit": {
@@ -161,9 +161,9 @@
     "status": "PASS",
     "all_tags_in_usmle_table3": true,
     "tags": [
-      "Immunology",
-      "Histology & Cell Biology",
-      "Genetics"
+      "Physiology",
+      "Genetics",
+      "Histology & Cell Biology"
     ]
   },
   "production_note": "QA is final and bound to canonical Q0001-Q1215. Production import is permitted only through the sequential Q1216-Q1230 transactional finalizer."

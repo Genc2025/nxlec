@@ -1,16 +1,18 @@
 {
-  "audit_id": "Q1230-FINAL-10-10-20260905",
+  "audit_id": "Q1230-FINAL-10-10-Q1215-BOUND-20260905",
   "item": "Q1230",
   "status": "FINAL_10_10_PASS",
   "verdict": "PASS_WITH_NO_CHANGES",
-  "audited_at": "2026-09-05T18:35:00Z",
+  "audited_at": "2026-09-05T22:13:20Z",
   "auditor_model": "GPT-5.6 Sol",
   "authoritative_db": "usmle/data/usmle-step1.db",
-  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
-  "authoritative_db_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
-  "authoritative_db_final_count": 1190,
-  "exact_spec_sha": "cfa0a9de9bb02762d3174253afd23bb84139544a",
-  "readonly_audit_run_id": 33984594043,
+  "authoritative_db_blob": "15345ce6a3c3ca72097b28aaf7e1ccd73b394c3f",
+  "authoritative_db_sha256": "e12318a0249e0bacacf68acc942528720dc29c823c711da87a827d9a95673d5a",
+  "authoritative_db_final_count": 1215,
+  "exact_candidate_file": "usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1230.json",
+  "exact_candidate_file_blob": "cfa0a9de9bb02762d3174253afd23bb84139544a",
+  "exact_candidate_object_sha256": "d285810537e7dcb0cacfe6cf417e951e66e879563b73f2395f5880978876f30a",
+  "readonly_audit_run_id": 33990646632,
   "db_write": false,
   "unresolved_conflicts": 0,
   "scores": {
@@ -32,13 +34,13 @@
     "alternative_defensible_options": [],
     "missing_assumptions": [],
     "cueing_findings": [],
-    "rationale": "MyD88 is the shared downstream adaptor for most Toll-like receptors and most IL-1 receptor family members. The invasive pyogenic infection phenotype with muted early inflammation is concordant with biallelic MYD88 loss."
+    "rationale": "MYD88 is required for signaling through most Toll-like receptors and most members of the interleukin-1 receptor family. Autosomal recessive MYD88 deficiency selectively impairs these innate inflammatory pathways and predisposes to recurrent invasive pyogenic bacterial infections, particularly early in life."
   },
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
     "verified_at": "2026-09-05",
-    "note": "The stable receptor-adaptor mechanism was checked against the direct human MyD88 literature and the currently accessible NLM MedlinePlus MyD88-deficiency page; the latter also supports pneumococcal infection and blunted early fever."
+    "note": "Current official USMLE blueprint plus current-access NLM/NCBI sources, or stable foundational mechanism reverified on 2026-09-05."
   },
   "exact_locator": "PASS",
   "stem": "PASS",
@@ -55,8 +57,8 @@
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "second_answer_attack": {
-    "strongest_alternative": "B: interleukin-12 receptor and interferon-gamma receptor signaling",
-    "resolution": "That axis is a distinct macrophage/Th1 pathway and does not use MyD88 as its shared defining adaptor. C directly matches the documented MYD88-dependent receptor families.",
+    "strongest_alternative": "B: Interleukin-12 receptor and interferon-gamma receptor signaling",
+    "resolution": "IL-12/IFN-gamma signaling is distinct; MYD88 is the shared adaptor for most TLR and IL-1 receptor-family pathways.",
     "result": "PASS_NONE"
   },
   "cueing": "PASS",
@@ -69,19 +71,32 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": {
     "status": "PASS",
-    "note": "No clinical cutoff, dose, or calculated quantity is required."
+    "note": "Any age/laboratory values are vignette context; the keyed inference does not depend on an unsupported diagnostic cutoff, dose, or calculation."
   },
   "forward_exact_duplicate_check": "PASS",
   "canonical_main_construct_overlap": "PASS_NONE",
   "within_batch_construct_collision": "PASS_NONE",
   "duplicate_gate": {
     "status": "PASS",
-    "canonical_count_checked": 1190,
-    "readonly_audit_run_id": 33984594043,
+    "canonical_count_checked": 1215,
+    "readonly_audit_run_id": 33990646632,
+    "exact_rare_term_zero_hits": {},
     "nearest_material_review": {
       "candidate_id": "S1-DIRECT-0449-202608270340Z",
-      "tfidf_cosine": 0.155107,
-      "resolution": "The nearest production item concerns pneumococcal capsule/host defense, not MYD88-mediated TLR/IL-1R signal transduction. Production has no MYD88 or IRAK4 construct hit."
+      "tfidf_cosine": 0.147003,
+      "overlap": [
+        "pneumoniae",
+        "streptococcus",
+        "invasive",
+        "complement",
+        "bacterial",
+        "factor",
+        "recurrent",
+        "are",
+        "requires"
+      ],
+      "tested_construct": "The polysaccharide capsule is the major virulence factor of S pneumoniae because it inhibits phagocytosis unless opsonizing antibody and complement are present.",
+      "resolution": "Nearby pyogenic-infection items test complement or other immune defects; this item tests MYD88 as the shared adaptor for most TLR and IL-1 receptor-family signaling."
     }
   },
   "option_audit": {
@@ -93,7 +108,7 @@
   },
   "adversarial_second_pass": {
     "result": "PASS",
-    "note": "A current-source hardening pass was performed before the second full audit; no material defect remained."
+    "note": "Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, canonical-neighbor, within-batch, blueprint, difficulty and key-integrity attacks; no material defect remained."
   },
   "expert_review_layer": {
     "status": "PASS",
@@ -142,17 +157,5 @@
       "Genetics"
     ]
   },
-  "production_note": "Item QA is final; database insertion is separate because canonical production numbering currently ends at Q1190.",
-  "revalidated_after_discipline_repair": {
-    "status": "PASS",
-    "repair": "Replaced non-official discipline label Cell Biology with current official USMLE discipline label Histology & Cell Biology.",
-    "candidate_blob": "cfa0a9de9bb02762d3174253afd23bb84139544a",
-    "readonly_corpus_audit_run_id": 33984594043,
-    "readonly_corpus_audit_conclusion": "success",
-    "db_count": 1190,
-    "db_integrity": "ok",
-    "payload_hash_mismatches": 0,
-    "material_duplicates_found": 0,
-    "revalidated_at": "2026-09-05"
-  }
+  "production_note": "QA is final and bound to canonical Q0001-Q1215. Production import is permitted only through the sequential Q1216-Q1230 transactional finalizer."
 }

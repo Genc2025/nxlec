@@ -1,16 +1,18 @@
 {
-  "audit_id": "Q1229-FINAL-10-10-20260905",
+  "audit_id": "Q1229-FINAL-10-10-Q1215-BOUND-20260905",
   "item": "Q1229",
   "status": "FINAL_10_10_PASS",
   "verdict": "PASS_WITH_NO_CHANGES",
-  "audited_at": "2026-09-05T18:34:00Z",
+  "audited_at": "2026-09-05T22:13:20Z",
   "auditor_model": "GPT-5.6 Sol",
   "authoritative_db": "usmle/data/usmle-step1.db",
-  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
-  "authoritative_db_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
-  "authoritative_db_final_count": 1190,
-  "exact_spec_sha": "2471a7c8420875ba138e5eb1e90dde015c7d6c70",
-  "readonly_audit_run_id": 33984594043,
+  "authoritative_db_blob": "15345ce6a3c3ca72097b28aaf7e1ccd73b394c3f",
+  "authoritative_db_sha256": "e12318a0249e0bacacf68acc942528720dc29c823c711da87a827d9a95673d5a",
+  "authoritative_db_final_count": 1215,
+  "exact_candidate_file": "usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1229.json",
+  "exact_candidate_file_blob": "2471a7c8420875ba138e5eb1e90dde015c7d6c70",
+  "exact_candidate_object_sha256": "1226232e62b7fcb15cdcbe1e92c63f1c717c2e4d68d1dc3845c6a064ee752dff",
+  "readonly_audit_run_id": 33990646632,
   "db_write": false,
   "unresolved_conflicts": 0,
   "scores": {
@@ -32,13 +34,13 @@
     "alternative_defensible_options": [],
     "missing_assumptions": [],
     "cueing_findings": [],
-    "rationale": "ZAP70 acts in proximal TCR signaling after activated/phosphorylated TCR-CD3 complexes. The failure of anti-CD3 stimulation with preserved PMA/ionomycin response localizes the defect upstream of the pharmacologic bypass and downstream of receptor engagement."
+    "rationale": "ZAP70 is an intracellular kinase that acts downstream of the T-cell receptor. In ZAP70 deficiency, TCR-triggered responses are absent or markedly impaired, whereas stimuli such as phorbol ester plus ionomycin that bypass the proximal TCR signaling defect can preserve proliferation. The characteristic phenotype includes markedly reduced or absent CD8+ T cells with quantitatively preserved but functionally impaired CD4+ T cells."
   },
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
     "verified_at": "2026-09-05",
-    "note": "GeneReviews was comprehensively updated 2026-06-09 and directly supports normal CD3/CD4, markedly low CD8, impaired anti-CD3 response, and intact PMA/ionomycin bypass."
+    "note": "Current official USMLE blueprint plus current-access NLM/NCBI sources, or stable foundational mechanism reverified on 2026-09-05."
   },
   "exact_locator": "PASS",
   "stem": "PASS",
@@ -55,8 +57,8 @@
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "second_answer_attack": {
-    "strongest_alternative": "C: phosphorylation of CD3 ITAMs by Src-family kinases",
-    "resolution": "That phosphorylation is upstream of ZAP70 recruitment. The named ZAP70 loss plus intact PMA/ionomycin bypass identifies failed propagation from phosphorylated TCR/CD3 complexes to downstream activation, making E uniquely best.",
+    "strongest_alternative": "A: Recombination of T-cell receptor variable-region gene segments during thymocyte development",
+    "resolution": "Alternative downstream signaling defects would not be bypassed in the same way; ZAP70 is the proximal TCR kinase identified by the genotype and stimulation pattern.",
     "result": "PASS_NONE"
   },
   "cueing": "PASS",
@@ -69,19 +71,36 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": {
     "status": "PASS",
-    "note": "No diagnostic numeric threshold is invented or required."
+    "note": "Any age/laboratory values are vignette context; the keyed inference does not depend on an unsupported diagnostic cutoff, dose, or calculation."
   },
   "forward_exact_duplicate_check": "PASS",
   "canonical_main_construct_overlap": "PASS_NONE",
   "within_batch_construct_collision": "PASS_NONE",
   "duplicate_gate": {
     "status": "PASS",
-    "canonical_count_checked": 1190,
-    "readonly_audit_run_id": 33984594043,
+    "canonical_count_checked": 1215,
+    "readonly_audit_run_id": 33990646632,
+    "exact_rare_term_zero_hits": {},
     "nearest_material_review": {
       "candidate_id": "S1-DIRECT-0667-20260828T230000Z",
-      "tfidf_cosine": 0.181868,
-      "resolution": "The nearest production item tests somatostatin/GPCR signaling, not TCR-ZAP70 signaling; no ZAP70, anti-CD3, PMA, or ionomycin term hit exists in production."
+      "tfidf_cosine": 0.181961,
+      "overlap": [
+        "diacylglycerol",
+        "signal",
+        "downstream",
+        "stimulation",
+        "generation",
+        "kinase",
+        "intracellular",
+        "calcium",
+        "activation",
+        "are",
+        "after",
+        "during",
+        "old"
+      ],
+      "tested_construct": "Octreotide is a somatostatin analogue that suppresses growth hormone secretion. Somatostatin receptors are G protein-coupled receptors that signal through inhibitory G proteins; a major downstream effect is inhibition of adenylyl cyclase with reduced intracellular cAMP. Somatostatin-receptor activation also reduces intracellular calcium and promotes other inhibitory signaling, collectively decreasing hormone secretion.",
+      "resolution": "Nearby T-cell signaling items do not test ZAP70-dependent proximal TCR signaling with pharmacologic bypass downstream of the blocked step."
     }
   },
   "option_audit": {
@@ -93,7 +112,7 @@
   },
   "adversarial_second_pass": {
     "result": "PASS",
-    "note": "Re-read from zero after exact current GeneReviews verification and second-answer/localization attacks; no material defect remained."
+    "note": "Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, canonical-neighbor, within-batch, blueprint, difficulty and key-integrity attacks; no material defect remained."
   },
   "expert_review_layer": {
     "status": "PASS",
@@ -142,17 +161,5 @@
       "Genetics"
     ]
   },
-  "production_note": "Item QA is final; database insertion is separate because canonical production numbering currently ends at Q1190.",
-  "revalidated_after_discipline_repair": {
-    "status": "PASS",
-    "repair": "Replaced non-official discipline label Cell Biology with current official USMLE discipline label Histology & Cell Biology.",
-    "candidate_blob": "2471a7c8420875ba138e5eb1e90dde015c7d6c70",
-    "readonly_corpus_audit_run_id": 33984594043,
-    "readonly_corpus_audit_conclusion": "success",
-    "db_count": 1190,
-    "db_integrity": "ok",
-    "payload_hash_mismatches": 0,
-    "material_duplicates_found": 0,
-    "revalidated_at": "2026-09-05"
-  }
+  "production_note": "QA is final and bound to canonical Q0001-Q1215. Production import is permitted only through the sequential Q1216-Q1230 transactional finalizer."
 }

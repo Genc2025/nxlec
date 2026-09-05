@@ -1,16 +1,18 @@
 {
-  "audit_id": "Q1226-FINAL-10-10-20260905",
+  "audit_id": "Q1226-FINAL-10-10-Q1215-BOUND-20260905",
   "item": "Q1226",
   "status": "FINAL_10_10_PASS",
   "verdict": "PASS_WITH_NO_CHANGES",
-  "audited_at": "2026-09-05T18:31:00Z",
+  "audited_at": "2026-09-05T22:13:20Z",
   "auditor_model": "GPT-5.6 Sol",
   "authoritative_db": "usmle/data/usmle-step1.db",
-  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
-  "authoritative_db_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
-  "authoritative_db_final_count": 1190,
-  "exact_spec_sha": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
-  "readonly_audit_run_id": 33984594043,
+  "authoritative_db_blob": "15345ce6a3c3ca72097b28aaf7e1ccd73b394c3f",
+  "authoritative_db_sha256": "e12318a0249e0bacacf68acc942528720dc29c823c711da87a827d9a95673d5a",
+  "authoritative_db_final_count": 1215,
+  "exact_candidate_file": "usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1226.json",
+  "exact_candidate_file_blob": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
+  "exact_candidate_object_sha256": "cb321e091dcfdc169fe50585978e28615b56c85e1b3e2ee01e3801d760636345",
+  "readonly_audit_run_id": 33990646632,
   "db_write": false,
   "unresolved_conflicts": 0,
   "scores": {
@@ -32,13 +34,13 @@
     "alternative_defensible_options": [],
     "missing_assumptions": [],
     "cueing_findings": [],
-    "rationale": "B uniquely identifies AIRE-dependent ectopic display of tissue-restricted self antigens in medullary thymic epithelial cells for central deletion of strongly self-reactive thymocytes. Positive selection, RAG-mediated recombination, FOXP3 peripheral regulation, and CD40-dependent class switching are distinct processes."
+    "rationale": "AIRE promotes expression of tissue-restricted self antigens in medullary thymic epithelial cells. This broad self-antigen display exposes developing thymocytes to peripheral self proteins and supports deletion of strongly self-reactive clones. Loss of AIRE therefore disrupts central tolerance and permits multiorgan autoimmunity."
   },
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
     "verified_at": "2026-09-05",
-    "note": "AIRE mechanism and blueprint classification were rechecked against current-access NLM/USMLE sources; recent central-tolerance literature was also used."
+    "note": "Current official USMLE blueprint plus current-access NLM/NCBI sources, or stable foundational mechanism reverified on 2026-09-05."
   },
   "exact_locator": "PASS",
   "stem": "PASS",
@@ -55,8 +57,8 @@
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "second_answer_attack": {
-    "strongest_alternative": "D: FOXP3-dependent peripheral regulatory T-cell suppression",
-    "resolution": "FOXP3 is a separate peripheral/regulatory tolerance mechanism. The stem names biallelic AIRE loss and asks for the thymic process most directly impaired, making medullary tissue-restricted self-antigen display and central negative selection uniquely correct.",
+    "strongest_alternative": "D: FOXP3-dependent suppression of activated lymphocytes by mature peripheral regulatory T cells",
+    "resolution": "FOXP3-dependent peripheral regulatory T-cell suppression is a distinct tolerance mechanism; AIRE loss specifically impairs thymic display of tissue-restricted self antigens and central deletion.",
     "result": "PASS_NONE"
   },
   "cueing": "PASS",
@@ -69,19 +71,41 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": {
     "status": "PASS",
-    "note": "Age is synthetic context; no diagnostic cutoff, dose, or calculation is required."
+    "note": "Any age/laboratory values are vignette context; the keyed inference does not depend on an unsupported diagnostic cutoff, dose, or calculation."
   },
   "forward_exact_duplicate_check": "PASS",
   "canonical_main_construct_overlap": "PASS_NONE",
   "within_batch_construct_collision": "PASS_NONE",
   "duplicate_gate": {
     "status": "PASS",
-    "canonical_count_checked": 1190,
-    "readonly_audit_run_id": 33984594043,
+    "canonical_count_checked": 1215,
+    "readonly_audit_run_id": 33990646632,
+    "exact_rare_term_zero_hits": {},
     "nearest_material_review": {
       "candidate_id": "S1-DIRECT-0719-20260829T094500Z",
-      "tfidf_cosine": 0.266434,
-      "resolution": "CIITA/MHC-II transcription and CD4 selection is not AIRE-mediated medullary self-antigen expression/negative selection."
+      "tfidf_cosine": 0.266545,
+      "overlap": [
+        "thymocytes",
+        "aire-dependent",
+        "candidiasis",
+        "cd40",
+        "recombination",
+        "molecules",
+        "somatic",
+        "immunoglobulin",
+        "t-cell",
+        "gene",
+        "activated",
+        "expression",
+        "selection",
+        "positive",
+        "negative",
+        "loss-of",
+        "peripheral",
+        "chronic"
+      ],
+      "tested_construct": "CIITA and the RFX complex are transcriptional regulators required for MHC class II gene expression. Loss of CIITA can abolish MHC II expression on antigen-presenting cells, impairing positive selection and peripheral activation of CD4-positive T cells and causing combined immunodeficiency.",
+      "resolution": "Nearest immune item tests CIITA/MHC-II transcription and CD4 selection; this item tests AIRE-dependent tissue-restricted self-antigen display and central negative selection."
     }
   },
   "option_audit": {
@@ -93,7 +117,7 @@
   },
   "adversarial_second_pass": {
     "result": "PASS",
-    "note": "Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, corpus-neighbor, blueprint and difficulty attacks; no material defect remained."
+    "note": "Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, canonical-neighbor, within-batch, blueprint, difficulty and key-integrity attacks; no material defect remained."
   },
   "expert_review_layer": {
     "status": "PASS",
@@ -142,17 +166,5 @@
       "Histology & Cell Biology"
     ]
   },
-  "production_note": "Item QA is final. Production insertion is a separate sequential database operation; canonical DB currently ends at Q1190.",
-  "revalidated_after_discipline_repair": {
-    "status": "PASS",
-    "repair": "Replaced non-official discipline label Cell Biology with current official USMLE discipline label Histology & Cell Biology.",
-    "candidate_blob": "46493b9d6e9dfc324c85fbb7933d57d7a6f6c546",
-    "readonly_corpus_audit_run_id": 33984594043,
-    "readonly_corpus_audit_conclusion": "success",
-    "db_count": 1190,
-    "db_integrity": "ok",
-    "payload_hash_mismatches": 0,
-    "material_duplicates_found": 0,
-    "revalidated_at": "2026-09-05"
-  }
+  "production_note": "QA is final and bound to canonical Q0001-Q1215. Production import is permitted only through the sequential Q1216-Q1230 transactional finalizer."
 }

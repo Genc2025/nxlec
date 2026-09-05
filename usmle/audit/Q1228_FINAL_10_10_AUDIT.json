@@ -1,16 +1,18 @@
 {
-  "audit_id": "Q1228-FINAL-10-10-20260905",
+  "audit_id": "Q1228-FINAL-10-10-Q1215-BOUND-20260905",
   "item": "Q1228",
   "status": "FINAL_10_10_PASS",
   "verdict": "PASS_WITH_NO_CHANGES",
-  "audited_at": "2026-09-05T18:33:00Z",
+  "audited_at": "2026-09-05T22:13:20Z",
   "auditor_model": "GPT-5.6 Sol",
   "authoritative_db": "usmle/data/usmle-step1.db",
-  "authoritative_db_blob": "987c82084e1906854c03fe21e7dfc4f9d46be923",
-  "authoritative_db_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
-  "authoritative_db_final_count": 1190,
-  "exact_spec_sha": "c7707f6f0a4cb26f663db472995f24b9bf82d1e8",
-  "readonly_audit_run_id": 33984594043,
+  "authoritative_db_blob": "15345ce6a3c3ca72097b28aaf7e1ccd73b394c3f",
+  "authoritative_db_sha256": "e12318a0249e0bacacf68acc942528720dc29c823c711da87a827d9a95673d5a",
+  "authoritative_db_final_count": 1215,
+  "exact_candidate_file": "usmle/batch_specs_1201_1300/q1226_q1230_r2/Q1228.json",
+  "exact_candidate_file_blob": "c7707f6f0a4cb26f663db472995f24b9bf82d1e8",
+  "exact_candidate_object_sha256": "9f63eda83019046fd39be2055906429b31f2655bf2e252928705ca69b0dbea27",
+  "readonly_audit_run_id": 33990646632,
   "db_write": false,
   "unresolved_conflicts": 0,
   "scores": {
@@ -32,13 +34,13 @@
     "alternative_defensible_options": [],
     "missing_assumptions": [],
     "cueing_findings": [],
-    "rationale": "Complete IL2RG loss produces T-B+NK- X-SCID; IL-7 is critical for T-lineage development and IL-15 for NK-lineage development through common-gamma-chain receptor signaling."
+    "rationale": "IL2RG encodes the common gamma chain shared by several cytokine receptors. Complete loss of function causes the classic T-B+NK- X-SCID phenotype. GeneReviews specifically links the developmental arrest of T and NK lymphocytes to loss of IL-7 and IL-15 signaling, respectively."
   },
   "source_authority": "PASS",
   "source_currentness": {
     "status": "PASS",
     "verified_at": "2026-09-05",
-    "note": "The IL2RG T-B+NK- phenotype and IL-7/IL-15 developmental explanation were rechecked against current-access GeneReviews, including its current SCID genetic-cause table."
+    "note": "Current official USMLE blueprint plus current-access NLM/NCBI sources, or stable foundational mechanism reverified on 2026-09-05."
   },
   "exact_locator": "PASS",
   "stem": "PASS",
@@ -55,8 +57,8 @@
   "ambiguity": "PASS",
   "second_possible_answer": "PASS_NONE",
   "second_answer_attack": {
-    "strongest_alternative": "B: interleukin-4 and interleukin-13",
-    "resolution": "This pair does not explain simultaneous T- and NK-lineage absence. The documented developmental consequences of complete IL2RG loss specifically implicate IL-7 signaling for T cells and IL-15 signaling for NK cells.",
+    "strongest_alternative": "D: B-cell activating factor and APRIL",
+    "resolution": "Other cytokine pathways can affect lymphocytes, but IL2RG is the common gamma chain required by several cytokine receptors and best explains the characteristic developmental phenotype.",
     "result": "PASS_NONE"
   },
   "cueing": "PASS",
@@ -69,27 +71,38 @@
   "fabricated_distractors": "PASS_NONE",
   "numerical_claims": {
     "status": "PASS",
-    "note": "Age is synthetic context; no threshold, dose, or calculation determines the key."
+    "note": "Any age/laboratory values are vignette context; the keyed inference does not depend on an unsupported diagnostic cutoff, dose, or calculation."
   },
   "forward_exact_duplicate_check": "PASS",
   "canonical_main_construct_overlap": "PASS_NONE",
   "within_batch_construct_collision": "PASS_NONE",
   "duplicate_gate": {
     "status": "PASS",
-    "canonical_count_checked": 1190,
-    "readonly_audit_run_id": 33984594043,
-    "nearest_material_review": [
-      {
-        "candidate_id": "S1-DIRECT-0013-20260827T020000Z",
-        "tfidf_cosine": 0.204674,
-        "resolution": "ADA-SCID metabolic toxicity is a different causal mechanism and requested construct from IL2RG cytokine-lineage signaling."
-      },
-      {
-        "candidate_id": "S1-DIRECT-0411-202608270340Z",
-        "tfidf_cosine": 0.152203,
-        "resolution": "General SCID recognition does not test the IL-7/IL-15 common-gamma-chain mechanism."
-      }
-    ]
+    "canonical_count_checked": 1215,
+    "readonly_audit_run_id": 33990646632,
+    "exact_rare_term_zero_hits": {},
+    "nearest_material_review": {
+      "candidate_id": "S1-DIRECT-0013-20260827T020000Z",
+      "tfidf_cosine": 0.200178,
+      "overlap": [
+        "candidiasis",
+        "profoundly",
+        "4-month",
+        "particularly",
+        "pneumonia",
+        "oral",
+        "diarrhea",
+        "decreased",
+        "persistent",
+        "chronic",
+        "causes",
+        "requires",
+        "old",
+        "has"
+      ],
+      "tested_construct": "ADA deficiency causes accumulation of toxic purine metabolites, including deoxyadenosine-derived nucleotides, which are particularly toxic to developing lymphocytes and cause severe combined immunodeficiency.",
+      "resolution": "Nearby immunodeficiency items do not test the IL2RG common-gamma-chain cytokine-receptor developmental mechanism with the T−B+NK− phenotype."
+    }
   },
   "option_audit": {
     "status": "PASS",
@@ -100,7 +113,7 @@
   },
   "adversarial_second_pass": {
     "result": "PASS",
-    "note": "Full source, second-answer, hidden-assumption, distractor, corpus and blueprint attacks were repeated after drafting; no material defect remained."
+    "note": "Re-read from zero after source, locator, currentness, option, second-answer, hidden-assumption, fabricated-distractor, canonical-neighbor, within-batch, blueprint, difficulty and key-integrity attacks; no material defect remained."
   },
   "expert_review_layer": {
     "status": "PASS",
@@ -149,17 +162,5 @@
       "Histology & Cell Biology"
     ]
   },
-  "production_note": "Item QA is final; database insertion is separate because canonical production numbering currently ends at Q1190.",
-  "revalidated_after_discipline_repair": {
-    "status": "PASS",
-    "repair": "Replaced non-official discipline label Cell Biology with current official USMLE discipline label Histology & Cell Biology.",
-    "candidate_blob": "c7707f6f0a4cb26f663db472995f24b9bf82d1e8",
-    "readonly_corpus_audit_run_id": 33984594043,
-    "readonly_corpus_audit_conclusion": "success",
-    "db_count": 1190,
-    "db_integrity": "ok",
-    "payload_hash_mismatches": 0,
-    "material_duplicates_found": 0,
-    "revalidated_at": "2026-09-05"
-  }
+  "production_note": "QA is final and bound to canonical Q0001-Q1215. Production import is permitted only through the sequential Q1216-Q1230 transactional finalizer."
 }
