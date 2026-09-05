@@ -1,0 +1,59 @@
+{
+  "num": 1227,
+  "status": "CANDIDATE_FROZEN",
+  "production_import_permitted": false,
+  "blueprint": {
+    "primary_system": "Blood & Lymphoreticular/Immune Systems",
+    "official_outline_path": ["Blood & Lymphoreticular/Immune Systems"],
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": ["Immunology", "Cell Biology", "Genetics"],
+    "content_focus": "TAP2-dependent MHC class I peptide loading"
+  },
+  "item": {
+    "vignette": "A 9-year-old boy has recurrent bacterial respiratory infections and bronchiectasis. Flow cytometry shows markedly reduced HLA class I expression on nucleated cells, preserved HLA class II expression, and a low CD8+ T-cell count with a normal CD4+ T-cell count. Genetic testing identifies biallelic loss-of-function variants in TAP2.",
+    "lead_in": "Which intracellular step is most directly impaired by this defect?",
+    "options": {
+      "A": "Proteasomal cleavage of cytosolic proteins into peptide fragments",
+      "B": "Removal of invariant-chain-derived peptide from MHC class II molecules in acidified endosomes",
+      "C": "Transport of newly synthesized MHC class II molecules from the endoplasmic reticulum to endosomal compartments",
+      "D": "ATP-dependent transport of cytosolic peptides into the endoplasmic reticulum for loading onto MHC class I molecules",
+      "E": "Endocytosis of extracellular proteins for presentation to CD4+ T cells"
+    },
+    "intended_key": "D",
+    "difficulty": "moderate",
+    "difficulty_basis": "Expert estimate only; requires linking TAP2 loss and low MHC I/CD8 cells to the peptide-translocation step of endogenous antigen presentation.",
+    "tested_construct": "TAP1/TAP2 transport cytosolic peptides into the ER for MHC class I loading"
+  },
+  "explanation": {
+    "key_explanation": "TAP is a heterodimer composed of TAP1 and TAP2 that uses ATP to move cytosolic peptides into the endoplasmic reticulum. These peptides are loaded onto nascent MHC class I molecules before surface expression. TAP2 loss therefore reduces peptide-loaded MHC class I at the cell surface and is associated with selective CD8+ T-cell lymphopenia.",
+    "distractor_explanations": {
+      "A": "The proteasome generates many cytosolic peptides upstream of TAP; TAP2 transports those peptides rather than cleaving proteins.",
+      "B": "Removal of CLIP from MHC class II is mediated by HLA-DM in endosomal compartments and belongs to the exogenous antigen-presentation pathway.",
+      "C": "MHC class II trafficking to endosomes depends on the invariant-chain pathway, not TAP2.",
+      "D": "Correct. TAP1/TAP2 translocate cytosolic peptides into the ER for MHC class I loading.",
+      "E": "Endocytosis of extracellular antigen primarily supports MHC class II presentation to CD4+ T cells and does not explain the selective MHC class I defect."
+    },
+    "educational_objective": "TAP1/TAP2 use ATP to transport cytosolic peptides into the ER for MHC class I loading; TAP deficiency lowers surface MHC I and can produce selective CD8+ T-cell lymphopenia."
+  },
+  "evidence_map": [
+    {"option":"D","claim":"TAP1/TAP2 form an ATP-dependent transporter that moves cytosolic peptides into the ER for MHC class I loading.","source_ids":["S2","S3"],"evidence_type":"direct"},
+    {"option":"D","claim":"TAP2-associated MHC class I deficiency is associated with selective CD8+ T-cell lymphopenia and recurrent respiratory disease.","source_ids":["S4"],"evidence_type":"direct"}
+  ],
+  "sources": [
+    {"source_id":"S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-05","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies; Discipline Specifications"},
+    {"source_id":"S2","agency":"PubMed","title":"The transporter associated with antigen processing: function and implications in human diseases","url":"https://pubmed.ncbi.nlm.nih.gov/11773612/","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S3","agency":"PubMed","title":"Spotlight on TAP and its vital role in antigen presentation and cross-presentation","url":"https://pubmed.ncbi.nlm.nih.gov/34973498/","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S4","agency":"NCBI Bookshelf","title":"ZAP70 Deficiency - Table 2 differential diagnosis","url":"https://www.ncbi.nlm.nih.gov/books/NBK20221/table/zap70-scid.T.zap70_deficiency_combined_i/","publication_or_revision_date":"GeneReviews chapter last updated 2026-06-09","retrieved_at":"2026-09-05","section_locator":"MHC class I deficiency (B2M/TAP1/TAP2/TAPBP)"}
+  ],
+  "zero_trust_audit": {
+    "key_rederived": "D",
+    "second_answer_attack": "PASS; all other options describe antigen-processing steps outside the TAP-dependent peptide-translocation step",
+    "numeric_claim_gate": "PASS; no cutoff, dose, or calculated quantity is asserted",
+    "url_locator_gate": "PASS",
+    "currentness_gate": "PASS; mechanism is stable and phenotype cross-checked against a 2026 GeneReviews differential table",
+    "fabricated_distractor_gate": "PASS",
+    "blueprint_gate": "PASS",
+    "difficulty_gate": "PASS_AS_EXPERT_ESTIMATE_ONLY",
+    "material_defects_remaining": 0
+  }
+}
