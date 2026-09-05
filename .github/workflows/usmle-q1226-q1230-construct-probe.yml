@@ -1,0 +1,44 @@
+name: USMLE Q1226-Q1230 Construct Probe
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/usmle-q1226-q1230-construct-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe candidate immune constructs against production SQLite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/corpus_probe.py \
+            --term AIRE \
+            --term FOXP3 \
+            --term TAP1 \
+            --term TAP2 \
+            --term ITGB2 \
+            --term CYBB \
+            --term WAS \
+            --term BTK \
+            --term ADA \
+            --term IL2RG \
+            --term 'MHC class I' \
+            --term 'central tolerance' \
+            --term 'regulatory T cell' \
+            --term 'leukocyte adhesion deficiency' \
+            --term 'chronic granulomatous disease' \
+            > q1226-q1230-construct-probe.json
+          cat q1226-q1230-construct-probe.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1226-q1230-construct-probe
+          path: q1226-q1230-construct-probe.json
+          if-no-files-found: error
