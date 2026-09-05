@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: usmle-r4-readonly-audit
+  cancel-in-progress: false
+
 jobs:
   audit:
     runs-on: ubuntu-latest
