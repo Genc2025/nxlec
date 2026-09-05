@@ -1,0 +1,48 @@
+name: USMLE Q1226-Q1230 Readonly Audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'usmle/q1226_q1230_readonly_audit.py'
+      - 'usmle/batch_specs_1201_1300/q1226_q1230_r2/**'
+      - '.github/workflows/usmle-q1226-q1230-readonly-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/q1226_q1230_readonly_audit.py > q1226-q1230-audit.json
+      - name: Print summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('q1226-q1230-audit.json'))
+          print('ROW_COUNT=',r['row_count'])
+          print('INTEGRITY=',r['sqlite_integrity_check'])
+          print('STATUS_COUNTS=',r['status_counts'])
+          print('HASH_MISMATCHES=',len(r['payload_hash_mismatches']))
+          print('KEY_DIST=',r['answer_key_distribution'])
+          print('VALIDATION=',json.dumps(r['candidate_validation'],sort_keys=True))
+          for q, rows in r['nearest_neighbours'].items():
+              print(q,'TOP=',json.dumps([{'id':x['candidate_id'],'score':x['tfidf_cosine'],'overlap':x['overlap']} for x in rows[:12]],ensure_ascii=False))
+          for q, terms in r['term_hits'].items():
+              print(q,'TERM_COUNTS=',json.dumps({k:len(v) for k,v in terms.items()},sort_keys=True))
+          PY
+      - name: Print full report
+        run: cat q1226-q1230-audit.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1226-q1230-readonly-audit
+          path: q1226-q1230-audit.json
+          if-no-files-found: error
