@@ -1,0 +1,135 @@
+{
+  "batch_id": "Q1221-Q1225-DIRECT-CHATGPT-R5-DB-ORIGINALITY-20260905",
+  "status": "DIRECT_REPOSITORY_AWARE_CONTENT_DB_ORIGINALITY_PASS_NOT_PRODUCTION_READY",
+  "supersedes": "usmle/reviewed/q1221_q1225_direct_chatgpt_r4_audit_repair.json",
+  "production_import_permitted": false,
+  "production_count_before": 1190,
+  "production_count_after": 1190,
+  "review_date": "2026-09-05",
+  "review_mode": "Repository-aware direct ChatGPT adversarial review with read-only GitHub Actions SQLite execution; not an isolated Author or independent Auditor execution",
+  "candidate_keys_rederived": {
+    "Q1221": "C",
+    "Q1222": "A",
+    "Q1223": "E",
+    "Q1224": "B",
+    "Q1225": "D"
+  },
+  "content_gate": {
+    "status": "PASS_AFTER_R4_REPAIR",
+    "material_defects_remaining": 0,
+    "note": "R4 repaired the Q1225 option-A evidence chain by adding an NLM SRD5A2 source explicitly supporting DHT as an androgen derived from testosterone. No key changed."
+  },
+  "database_integrity_gate": {
+    "status": "PASS",
+    "execution_method": "GitHub Actions checkout plus read-only SQLite URI, PRAGMA query_only=ON",
+    "workflow": ".github/workflows/usmle-r4-readonly-audit.yml",
+    "script": "usmle/r4_readonly_db_audit.py",
+    "successful_runs": [33976537299, 33976561198],
+    "database_sha256": "a919e091c3e4da9dbfd8722ebad70627c836c66b92dc6fb8413e02a9ec91451a",
+    "sqlite_integrity_check": "ok",
+    "row_count": 1190,
+    "status_counts": {
+      "FINAL_10_10_PASS": 1190
+    },
+    "payload_hash_mismatches": 0,
+    "write_attempted": false
+  },
+  "originality_review_standard": {
+    "rule": "Shared topic, pathway, gene family, distractor vocabulary, or broad physiology alone is not a material duplicate. A material duplicate requires substantially the same causal mechanism/phenotype and substantially the same requested reasoning construct, even if wording is changed.",
+    "precedent": "Repository commit 367e5a0c51f579d796d6385254022b62b4da16b4 rejected GNAS/PTH, MC2R/glucocorticoid-deficiency and CASR/FHH retries because they reproduced the existing causal recognition/signaling task rather than merely sharing a system.",
+    "retrieval": "Exact construct-term search plus TF-IDF nearest-neighbour retrieval across all 1190 production item payloads, followed by manual adversarial construct comparison of retrieved neighbours.",
+    "limitation": "Lexical similarity is retrieval evidence, not an automatic semantic originality verdict. This repository-aware review is not an independent blind Auditor execution."
+  },
+  "candidate_originality_review": {
+    "Q1221": {
+      "status": "PASS_REPOSITORY_AWARE",
+      "highest_tfidf_cosine": 0.184074,
+      "highest_match": "S1-DIRECT-0267-20260827T030000Z",
+      "term_hits": {
+        "ghrhr": 0,
+        "growth hormone-releasing hormone": 1,
+        "somatotroph": 1
+      },
+      "adversarial_finding": "No retrieved item asks the same receptor-localization construct. The closest production items test primary thyroid feedback, peripheral GH/JAK-STAT signaling, dopamine control of prolactin, TSH/cAMP signaling, or somatostatin signaling. The repaired item asks which physiologic interaction is disrupted when a patient-derived GHRHR specifically fails to bind active GHRH.",
+      "material_duplicate": false
+    },
+    "Q1222": {
+      "status": "PASS_REPOSITORY_AWARE_AFTER_HIGH_SIMILARITY_REVIEW",
+      "highest_tfidf_cosine": 0.388518,
+      "highest_match": "S1-DIRECT-0837-20260831T010000Z",
+      "term_hits": {
+        "abcc8": 1,
+        "atp-sensitive potassium": 2,
+        "congenital hyperinsulinism": 0
+      },
+      "adversarial_finding": "The high lexical overlap is real and comes from shared pancreatic beta-cell KATP physiology. Production Q0837 tests an activating KCNJ11 defect in which KATP channels remain excessively open, causing neonatal hyperglycemia and reduced insulin release; its requested construct is failure of ATP-mediated channel closure. Q1222 instead specifies biallelic ABCC8 loss of function with hypoglycemia and inappropriate insulin secretion and asks for the reduced KATP-channel activity that links the lesion to insulin excess. These are opposite functional directions, different causal genes/subunits, opposite glycemic phenotypes, and different requested lesion localization. Production Q1176 contains ABCC8 only as a distractor while testing GLUD1 hyperinsulinism. Under the repository duplicate precedent, this is same pathway family but not the same causal/requested construct.",
+      "material_duplicate": false,
+      "same_pathway_family": true
+    },
+    "Q1223": {
+      "status": "PASS_REPOSITORY_AWARE",
+      "highest_tfidf_cosine": 0.237043,
+      "highest_match": "S1-DIRECT-0566-202608270530Z",
+      "term_hits": {
+        "gck": 1,
+        "glucokinase": 1,
+        "maturity-onset diabetes of the young": 0
+      },
+      "adversarial_finding": "The GCK/glucokinase production hits occur as distractors in items testing other mechanisms. Retrieved neighbours test peripheral insulin resistance, KCNJ11 channel physiology, autoimmune beta-cell destruction, thyroid signaling or unrelated transcription factors. No production item retrieved tests heterozygous GCK loss as a beta-cell glucose-sensing defect causing stable mild familial hyperglycemia.",
+      "material_duplicate": false
+    },
+    "Q1224": {
+      "status": "PASS_REPOSITORY_AWARE",
+      "highest_tfidf_cosine": 0.232014,
+      "highest_match": "S1-DIRECT-0826-20260831T010000Z",
+      "term_hits": {
+        "lepr": 0,
+        "leptin receptor": 0,
+        "leptin-receptor": 0
+      },
+      "adversarial_finding": "Production Q0826 tests complete LEP ligand deficiency and absence of an adipocyte-derived satiety signal. Q1224 uses active ligand, preserved surface receptor abundance, preserved ligand binding, matched normal-receptor controls and selectively impaired intracellular signaling to localize a post-binding LEPR signaling defect. Same endocrine axis, different molecular lesion and different experimental localization task.",
+      "material_duplicate": false,
+      "same_axis_family": true
+    },
+    "Q1225": {
+      "status": "PASS_REPOSITORY_AWARE_AFTER_SAME_LOCUS_REVIEW",
+      "highest_tfidf_cosine": 0.207293,
+      "highest_match": "S1-DIRECT-0636-20260827T180000Z",
+      "same_locus_match": "S1-DIRECT-1177-20260904T043000Z",
+      "same_locus_tfidf_cosine": 0.1911,
+      "term_hits": {
+        "human chorionic gonadotropin": 3,
+        "leydig cell hypoplasia": 0,
+        "lhcgr": 1
+      },
+      "adversarial_finding": "Production Q1177 tests an activating germline LHCGR variant causing ligand-independent testosterone production and male-limited gonadotropin-independent precocious puberty; the learner identifies the diagnosis. Q1225 specifies a biallelic loss-of-function receptor shared by 46,XX and 46,XY siblings, with anovulation and Leydig-cell hypoplasia, and asks the learner to identify the receptor's two physiologic ligands, LH and hCG. This is the same locus but opposite variant direction, different inheritance/sex phenotype, and a different requested construct. Other nearest neighbours concern AMH signaling, 5-alpha-reductase deficiency or androgen-receptor defects and do not reproduce the dual-ligand LHCGR-loss task.",
+      "material_duplicate": false,
+      "same_locus_family": true
+    }
+  },
+  "originality_gate": {
+    "status": "PASS_FOR_THIS_REPOSITORY_AWARE_REVIEW",
+    "material_duplicates_identified": 0,
+    "high_similarity_cases_manually_reviewed": ["Q1222", "Q1225"],
+    "note": "This closes the previously unqueried production-DB/originality review for direct author-side QA only. It does not substitute for the required independent Auditor execution."
+  },
+  "blueprint_gate": {
+    "status": "PASS",
+    "classification": "Reproductive and Endocrine Systems / Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": ["Physiology", "Genetics"],
+    "ncjmm_used": false
+  },
+  "difficulty_gate": {
+    "status": "PASS_AS_EXPERT_ESTIMATE_ONLY",
+    "note": "Difficulty labels are qualitative expert estimates; no psychometric calibration or measured UWorld-equivalence is claimed."
+  },
+  "independent_execution_gate": {
+    "AUTHOR_ISOLATED_EXECUTION": "NOT_SATISFIED_THIS_IS_REPOSITORY_AWARE_REVIEW",
+    "AUDITOR_EXECUTION_PASS_A": "NOT_RUN",
+    "AUDITOR_EXECUTION_PASS_B": "NOT_RUN",
+    "production_ready": false,
+    "reason": "Repository policy requires fresh isolated Author execution plus blind and evidence Auditor executions from a different configured model family. Direct ChatGPT repository-aware work cannot be relabeled as independent execution evidence."
+  },
+  "final_direct_review_verdict": "DIRECT_CONTENT_DB_AND_ORIGINALITY_REVIEW_PASS; PRODUCTION_IMPORT_BLOCKED_ONLY_BY_REQUIRED_INDEPENDENT_EXECUTION_GATES",
+  "production_database_modified": false
+}
