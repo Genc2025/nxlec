@@ -36,19 +36,21 @@
     "educational_objective": "MYD88 is the shared adaptor for most Toll-like receptor and most IL-1 receptor family signaling; loss impairs early innate inflammatory responses and predisposes to recurrent invasive pyogenic bacterial infection."
   },
   "evidence_map": [
-    {"option":"C","claim":"Autosomal recessive MYD88 deficiency predisposes to recurrent invasive pyogenic bacterial infection and impairs cellular responses to most TLRs and most IL-1 receptor family members.","source_ids":["S2","S3"],"evidence_type":"direct"}
+    {"option":"C","claim":"Autosomal recessive MYD88 deficiency predisposes to recurrent invasive pyogenic bacterial infection and impairs cellular responses to most TLRs and most IL-1 receptor family members.","source_ids":["S2","S3","S4"],"evidence_type":"direct"},
+    {"option":"C","claim":"MyD88 deficiency is associated with severe pyogenic infections including Streptococcus pneumoniae and can show an initially blunted febrile response.","source_ids":["S4"],"evidence_type":"direct"}
   ],
   "sources": [
     {"source_id":"S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-05","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies; Discipline Specifications"},
-    {"source_id":"S2","agency":"PubMed","title":"Infectious diseases in patients with IRAK-4, MyD88, NEMO, or IkappaBalpha deficiency","url":"https://pubmed.ncbi.nlm.nih.gov/21734245/","publication_or_revision_date":"2011-07","retrieved_at":"2026-09-05","section_locator":"Abstract"},
-    {"source_id":"S3","agency":"NCBI PMC","title":"Infectious Diseases in Patients with IRAK-4, MyD88, NEMO, or IkappaBalpha Deficiency","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3131061/","publication_or_revision_date":"2011-07","retrieved_at":"2026-09-05","section_locator":"Abstract; MYD88/IRAK4 clinical phenotype discussion"}
+    {"source_id":"S2","agency":"PubMed","title":"Pyogenic bacterial infections in humans with MyD88 deficiency","url":"https://pubmed.ncbi.nlm.nih.gov/18669862/","publication_or_revision_date":"2008-08-01","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S3","agency":"PubMed","title":"Infectious diseases in patients with IRAK-4, MyD88, NEMO, or IkappaBalpha deficiency","url":"https://pubmed.ncbi.nlm.nih.gov/21734245/","publication_or_revision_date":"2011-07","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S4","agency":"National Library of Medicine","title":"MyD88 deficiency: MedlinePlus Genetics","url":"https://medlineplus.gov/genetics/condition/myd88-deficiency/","retrieved_at":"2026-09-05","section_locator":"Description; Causes"}
   ],
   "zero_trust_audit": {
     "key_rederived": "C",
     "second_answer_attack": "PASS; none of the alternate paired receptor pathways uses MYD88 as the shared defining adaptor",
     "numeric_claim_gate": "PASS; no clinical cutoff or quantitative diagnostic claim is used",
     "url_locator_gate": "PASS",
-    "currentness_gate": "PASS_FOR_STABLE_MECHANISM; primary mechanistic/clinical review is older but the receptor-adaptor relationship is stable and no time-sensitive treatment recommendation is asserted",
+    "currentness_gate": "PASS; stable TLR/IL-1R adaptor mechanism is directly supported by PubMed and was rechecked on the currently accessible NLM MedlinePlus MyD88-deficiency page on 2026-09-05",
     "fabricated_distractor_gate": "PASS",
     "blueprint_gate": "PASS",
     "difficulty_gate": "PASS_AS_EXPERT_ESTIMATE_ONLY",
