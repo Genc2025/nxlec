@@ -1,0 +1,57 @@
+{
+  "num": 1230,
+  "status": "CANDIDATE_FROZEN",
+  "production_import_permitted": false,
+  "blueprint": {
+    "primary_system": "Blood & Lymphoreticular/Immune Systems",
+    "official_outline_path": ["Blood & Lymphoreticular/Immune Systems"],
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": ["Immunology", "Cell Biology", "Genetics"],
+    "content_focus": "MYD88-dependent Toll-like receptor and interleukin-1 receptor signaling"
+  },
+  "item": {
+    "vignette": "A 3-year-old boy has had recurrent episodes of invasive Streptococcus pneumoniae infection. During several episodes, fever and acute inflammatory responses were initially less prominent than expected for the severity of infection. Immunoglobulin concentrations, complement testing, and lymphocyte subsets are normal. Genetic testing identifies biallelic loss-of-function variants in MYD88.",
+    "lead_in": "Which receptor-signaling pathways are most directly impaired by this defect?",
+    "options": {
+      "A": "T-cell antigen receptor and B-cell antigen receptor signaling",
+      "B": "Interleukin-12 receptor and interferon-gamma receptor signaling",
+      "C": "Most Toll-like receptors and most interleukin-1 receptor family members",
+      "D": "C3a and C5a complement receptor signaling",
+      "E": "Tumor necrosis factor receptor and Fas death-receptor signaling"
+    },
+    "intended_key": "C",
+    "difficulty": "moderate-hard",
+    "difficulty_basis": "Expert estimate only; requires recognizing MYD88 as a shared adaptor for most TLR and IL-1 receptor family signaling rather than a general immune-receptor adaptor.",
+    "tested_construct": "MYD88 is a shared intracellular adaptor for most Toll-like receptors and most IL-1 receptor family members; loss predisposes to invasive pyogenic bacterial infection"
+  },
+  "explanation": {
+    "key_explanation": "MYD88 is required for signaling through most Toll-like receptors and most members of the interleukin-1 receptor family. Autosomal recessive MYD88 deficiency selectively impairs these innate inflammatory pathways and predisposes to recurrent invasive pyogenic bacterial infections, particularly early in life.",
+    "distractor_explanations": {
+      "A": "TCR and BCR signaling use distinct antigen-receptor kinase/adaptor pathways rather than MYD88 as their principal shared adaptor.",
+      "B": "IL-12 and IFN-gamma signaling form a distinct axis important for intracellular pathogen defense and do not define MYD88 deficiency.",
+      "C": "Correct. MYD88 deficiency impairs responses to most TLRs and most IL-1 receptor family members.",
+      "D": "Complement anaphylatoxin receptors are G-protein-coupled receptors and do not use MYD88 as the defining adaptor.",
+      "E": "TNF receptor and Fas signaling use other adaptor/death-domain pathways and are not the receptor class jointly disabled by MYD88 loss."
+    },
+    "educational_objective": "MYD88 is the shared adaptor for most Toll-like receptor and most IL-1 receptor family signaling; loss impairs early innate inflammatory responses and predisposes to recurrent invasive pyogenic bacterial infection."
+  },
+  "evidence_map": [
+    {"option":"C","claim":"Autosomal recessive MYD88 deficiency predisposes to recurrent invasive pyogenic bacterial infection and impairs cellular responses to most TLRs and most IL-1 receptor family members.","source_ids":["S2","S3"],"evidence_type":"direct"}
+  ],
+  "sources": [
+    {"source_id":"S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-05","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies; Discipline Specifications"},
+    {"source_id":"S2","agency":"PubMed","title":"Infectious diseases in patients with IRAK-4, MyD88, NEMO, or IkappaBalpha deficiency","url":"https://pubmed.ncbi.nlm.nih.gov/21734245/","publication_or_revision_date":"2011-07","retrieved_at":"2026-09-05","section_locator":"Abstract"},
+    {"source_id":"S3","agency":"NCBI PMC","title":"Infectious Diseases in Patients with IRAK-4, MyD88, NEMO, or IkappaBalpha Deficiency","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC3131061/","publication_or_revision_date":"2011-07","retrieved_at":"2026-09-05","section_locator":"Abstract; MYD88/IRAK4 clinical phenotype discussion"}
+  ],
+  "zero_trust_audit": {
+    "key_rederived": "C",
+    "second_answer_attack": "PASS; none of the alternate paired receptor pathways uses MYD88 as the shared defining adaptor",
+    "numeric_claim_gate": "PASS; no clinical cutoff or quantitative diagnostic claim is used",
+    "url_locator_gate": "PASS",
+    "currentness_gate": "PASS_FOR_STABLE_MECHANISM; primary mechanistic/clinical review is older but the receptor-adaptor relationship is stable and no time-sensitive treatment recommendation is asserted",
+    "fabricated_distractor_gate": "PASS",
+    "blueprint_gate": "PASS",
+    "difficulty_gate": "PASS_AS_EXPERT_ESTIMATE_ONLY",
+    "material_defects_remaining": 0
+  }
+}
