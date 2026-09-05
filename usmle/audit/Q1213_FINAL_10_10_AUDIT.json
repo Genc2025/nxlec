@@ -144,5 +144,32 @@
       "Pathology"
     ]
   },
-  "reverified_at": "2026-09-04T04:40:00Z"
+  "reverified_at": "2026-09-04T04:40:00Z",
+  "scores": {
+    "blueprint_fidelity": 10,
+    "key_correctness": 10,
+    "distractor_integrity": 10,
+    "single_best_answer": 10,
+    "reasoning_and_difficulty": 10,
+    "item_writing": 10,
+    "cueing_bias_fairness": 10,
+    "evidence_quality": 10,
+    "originality_duplication_rights": 10,
+    "technical_integrity": 10
+  },
+  "verdict": "PASS_WITH_NO_CHANGES",
+  "defects": [],
+  "suggested_changes": [],
+  "blind_audit": {
+    "selected_key": "B",
+    "alternative_defensible_options": [],
+    "missing_assumptions": [],
+    "cueing_findings": [],
+    "rationale": "Re-derived from the documented item construct and single-best-answer audit. ENPP1 converts extracellular ATP to AMP and inorganic pyrophosphate (PPi). PPi is a potent inhibitor of hydroxyapatite deposition. ENPP1 deficiency lowers extracellular PPi, permitting pathologic mineral deposition in arterial walls and causing infantile arterial calcification and stenosis. Strongest alternative resolution: Other pathways can lower extracellular PPi, but the stem explicitly identifies biallelic ENPP1 loss and asks which extracellular metabolite directly promotes calcification. ENPP1 normally generates PPi from extracellular ATP; PPi is the direct hydroxyapatite inhibitor lost here."
+  },
+  "schema_upgrade_revalidation": {
+    "status": "PASS",
+    "date": "2026-09-05",
+    "reason": "Required acceptance schema fields added only after all pre-existing clinical, evidence, duplicate, key-integrity, realism, discipline and adversarial gates were revalidated."
+  }
 }
