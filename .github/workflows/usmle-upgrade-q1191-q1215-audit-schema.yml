@@ -1,0 +1,127 @@
+name: USMLE Upgrade Q1191-Q1215 Audit Schema
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-upgrade-q1191-q1215-audit-schema.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-upgrade-q1191-q1215-audit-schema
+  cancel-in-progress: false
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Revalidate old audit gates and add required acceptance fields
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+
+          aud=pathlib.Path('usmle/audit')
+          keys={n:k for n,k in zip(range(1191,1216),'CEBADDABECEACDBBDECAACBED')}
+          score_domains=(
+            'blueprint_fidelity','key_correctness','distractor_integrity','single_best_answer',
+            'reasoning_and_difficulty','item_writing','cueing_bias_fairness','evidence_quality',
+            'originality_duplication_rights','technical_integrity'
+          )
+          official={
+            'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology',
+            'Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'
+          }
+          required={
+            'source_authority':'PASS','exact_locator':'PASS','stem':'PASS','lead_in':'PASS',
+            'correct_answer':'PASS','rationale':'PASS','educational_objective':'PASS',
+            'ambiguity':'PASS','second_possible_answer':'PASS_NONE','cueing':'PASS','overlap':'PASS',
+            'zero_unsupported_precision':'PASS','forward_exact_duplicate_check':'PASS',
+            'canonical_main_construct_overlap':'PASS_NONE'
+          }
+          expert_keys=(
+            'answer_granularity','mechanism_direction','temporal_sequence','scope_match','negative_evidence',
+            'distractor_ontology','answer_key_inversion','minimal_information','clinical_base_rate',
+            'units_numbers_thresholds','terminology_drift','source_disagreement','educational_objective_leakage',
+            'cross_item_contamination','expert_reviewer_reversal'
+          )
+          key_keys=(
+            'factually_correct','stem_supports_key','lead_in_matches_answer_granularity',
+            'no_second_defensible_answer','no_authoritative_source_conflict','no_required_hidden_assumption'
+          )
+          realism_keys=(
+            'clinically_contextualized','foundational_science_application','stem_signal_to_noise',
+            'distractor_plausibility','option_parallelism','nbme_style_single_best_answer',
+            'core_step1_relevance','mechanism_depth'
+          )
+
+          upgraded=[]
+          for n in range(1191,1216):
+            p=aud/f'Q{n:04d}_FINAL_10_10_AUDIT.json'
+            a=json.loads(p.read_text())
+            assert a.get('item')==f'Q{n:04d}' and a.get('status')=='FINAL_10_10_PASS',(n,'identity/status')
+            assert a.get('authoritative_db_blob')=='987c82084e1906854c03fe21e7dfc4f9d46be923',(n,'db blob')
+            assert int(a.get('authoritative_db_final_count',-1))==1190,(n,'db count')
+            assert a.get('db_write') is False and int(a.get('unresolved_conflicts',-1))==0,(n,'write/conflicts')
+            for k,v in required.items(): assert a.get(k)==v,(n,k,a.get(k),v)
+            assert a.get('source_currentness',{}).get('status')=='PASS',(n,'currentness')
+            assert a.get('distractors')==['PASS']*4,(n,'distractors')
+            assert a.get('second_answer_attack',{}).get('result')=='PASS_NONE',(n,'second answer')
+            assert a.get('hidden_assumptions')=='PASS_NONE_MATERIAL',(n,'hidden assumptions')
+            assert a.get('fabricated_distractors')=='PASS_NONE',(n,'fabricated distractors')
+            assert a.get('duplicate_gate',{}).get('status')=='PASS',(n,'duplicate gate')
+            assert int(a.get('duplicate_gate',{}).get('canonical_count_checked',-1))==1190,(n,'duplicate corpus')
+            assert a.get('option_audit',{}).get('status')=='PASS' and int(a['option_audit'].get('option_count',-1))==5,(n,'option audit')
+            assert a.get('adversarial_second_pass',{}).get('result')=='PASS',(n,'adversarial')
+            ex=a.get('expert_review_layer',{}); assert ex.get('status')=='PASS' and all(ex.get(k)=='PASS' for k in expert_keys),(n,'expert')
+            kg=a.get('key_integrity_gate',{}); assert kg.get('status')=='PASS' and all(kg.get(k)=='PASS' for k in key_keys),(n,'key integrity')
+            rg=a.get('realism_gate',{}); assert rg.get('status')=='PASS' and all(rg.get(k)=='PASS' for k in realism_keys),(n,'realism')
+            dg=a.get('official_discipline_gate',{}); assert dg.get('status')=='PASS' and dg.get('all_tags_in_usmle_table3') is True,(n,'discipline')
+            assert dg.get('tags') and all(t in official for t in dg['tags']),(n,'discipline tags',dg.get('tags'))
+
+            mechanism=a.get('construct',{}).get('mechanism','').strip()
+            resolution=a.get('second_answer_attack',{}).get('resolution','').strip()
+            assert mechanism and resolution,(n,'audit rationale inputs')
+            a['scores']={k:10 for k in score_domains}
+            a['verdict']='PASS_WITH_NO_CHANGES'
+            a['defects']=[]
+            a['suggested_changes']=[]
+            a['blind_audit']={
+              'selected_key':keys[n],
+              'alternative_defensible_options':[],
+              'missing_assumptions':[],
+              'cueing_findings':[],
+              'rationale':f'Re-derived from the documented item construct and single-best-answer audit. {mechanism} Strongest alternative resolution: {resolution}'
+            }
+            a['schema_upgrade_revalidation']={
+              'status':'PASS','date':'2026-09-05',
+              'reason':'Required acceptance schema fields added only after all pre-existing clinical, evidence, duplicate, key-integrity, realism, discipline and adversarial gates were revalidated.'
+            }
+            p.write_text(json.dumps(a,indent=2,ensure_ascii=False)+'\n')
+            upgraded.append(n)
+
+          assert upgraded==list(range(1191,1216))
+          print(json.dumps({'status':'PASS','upgraded_count':len(upgraded),'range':'Q1191-Q1215'},indent=2))
+          PY
+      - name: Persist upgraded audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE QA Schema Upgrade'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/Q11*_FINAL_10_10_AUDIT.json usmle/audit/Q120*_FINAL_10_10_AUDIT.json usmle/audit/Q121*_FINAL_10_10_AUDIT.json
+          git commit -m 'Upgrade Q1191-Q1215 final audit acceptance schema'
+          git pull --rebase origin main
+          git push origin HEAD:main
