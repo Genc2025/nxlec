@@ -1,0 +1,57 @@
+{
+  "num": 1228,
+  "status": "CANDIDATE_FROZEN",
+  "production_import_permitted": false,
+  "blueprint": {
+    "primary_system": "Blood & Lymphoreticular/Immune Systems",
+    "official_outline_path": ["Blood & Lymphoreticular/Immune Systems"],
+    "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "disciplines": ["Immunology", "Genetics", "Cell Biology"],
+    "content_focus": "IL2RG common-gamma-chain cytokine signaling in X-linked SCID"
+  },
+  "item": {
+    "vignette": "A 4-month-old boy has persistent oral candidiasis, chronic diarrhea, and Pneumocystis jirovecii pneumonia. Flow cytometry shows profoundly decreased T cells, preserved B-cell numbers, and profoundly decreased NK cells. Genetic testing identifies a hemizygous loss-of-function variant in IL2RG.",
+    "lead_in": "Loss of signaling through which pair of cytokines most directly explains the absent T-cell and NK-cell lineages in this patient?",
+    "options": {
+      "A": "Interleukin-7 and interleukin-15",
+      "B": "Interleukin-4 and interleukin-13",
+      "C": "Interleukin-12 and interferon-gamma",
+      "D": "B-cell activating factor and APRIL",
+      "E": "Granulocyte colony-stimulating factor and granulocyte-macrophage colony-stimulating factor"
+    },
+    "intended_key": "A",
+    "difficulty": "moderate-hard",
+    "difficulty_basis": "Expert estimate only; requires mapping the T-B+NK- phenotype to IL2RG and then distinguishing the developmental roles of IL-7 and IL-15.",
+    "tested_construct": "Complete IL2RG loss causes T-B+NK- X-SCID through loss of common-gamma-chain signaling, particularly IL-7 for T-cell and IL-15 for NK-cell development"
+  },
+  "explanation": {
+    "key_explanation": "IL2RG encodes the common gamma chain shared by several cytokine receptors. Complete loss of function causes the classic T-B+NK- X-SCID phenotype. GeneReviews specifically links the developmental arrest of T and NK lymphocytes to loss of IL-7 and IL-15 signaling, respectively.",
+    "distractor_explanations": {
+      "A": "Correct. IL-7 signaling is critical for T-lineage development, and IL-15 signaling is critical for NK-lineage development through receptors that use the common gamma chain.",
+      "B": "IL-4 uses the common gamma chain in one receptor configuration, but IL-13 does not; this pair does not explain the characteristic simultaneous loss of T and NK lineages.",
+      "C": "IL-12 and interferon-gamma form a macrophage/Th1 host-defense axis and do not produce the classic T-B+NK- X-SCID pattern.",
+      "D": "BAFF and APRIL primarily support B-cell survival and differentiation; B-cell numbers are preserved in classic X-SCID.",
+      "E": "G-CSF and GM-CSF regulate myeloid development and are not the defining IL2RG-dependent developmental signals for T and NK cells."
+    },
+    "educational_objective": "Complete IL2RG loss causes T-B+NK- X-linked SCID because common-gamma-chain cytokine signaling is disrupted; loss of IL-7 signaling arrests T-cell development and loss of IL-15 signaling arrests NK-cell development."
+  },
+  "evidence_map": [
+    {"option":"A","claim":"Complete IL2RG loss produces T-B+NK- X-SCID through lack of IL-7 and IL-15 signaling.","source_ids":["S2","S3"],"evidence_type":"direct"}
+  ],
+  "sources": [
+    {"source_id":"S1","agency":"USMLE","title":"Step 1 Exam Content","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-05","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies; Discipline Specifications"},
+    {"source_id":"S2","agency":"NCBI Bookshelf","title":"X-Linked Severe Combined Immunodeficiency - GeneReviews","url":"https://www.ncbi.nlm.nih.gov/books/NBK1410/","publication_or_revision_date":"2025","retrieved_at":"2026-09-05","section_locator":"Molecular Pathogenesis"},
+    {"source_id":"S3","agency":"NCBI Bookshelf","title":"X-Linked Severe Combined Immunodeficiency - Table 3","url":"https://www.ncbi.nlm.nih.gov/books/NBK1410/table/x-scid.T.typical_severe_combined_immunod/","publication_or_revision_date":"2025","retrieved_at":"2026-09-05","section_locator":"Typical SCID genetic causes; IL2RG row"}
+  ],
+  "zero_trust_audit": {
+    "key_rederived": "A",
+    "second_answer_attack": "PASS; only IL-7/IL-15 directly accounts for the paired T- and NK-lineage developmental arrest documented for complete IL2RG loss",
+    "numeric_claim_gate": "PASS; no cutoff or dose is used",
+    "url_locator_gate": "PASS",
+    "currentness_gate": "PASS; current-access GeneReviews explicitly states T-B+NK- from lack of IL-7 and IL-15 signaling",
+    "fabricated_distractor_gate": "PASS",
+    "blueprint_gate": "PASS",
+    "difficulty_gate": "PASS_AS_EXPERT_ESTIMATE_ONLY",
+    "material_defects_remaining": 0
+  }
+}
