@@ -1,0 +1,23 @@
+name: USMLE Diagnose Q1261 Anchor Hits
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/DIAG_TRIGGER_Q1261_ANCHORS'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Diagnose canonical anchor hits
+        run: python usmle/diagnose_q1261_anchor_hits.py
