@@ -62,6 +62,10 @@ jobs:
           p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
           d=json.loads(p.read_text())
           items=d['items']; keys=''.join(x['item']['intended_key'] for x in items)
+          IMM='Blood & Lymphoreticular/Immune Systems'
+          SKIN='Musculoskeletal, Skin & Subcutaneous Tissue'
+          DX='Patient Care: Diagnosis'
+          MK='Medical Knowledge: Applying Foundational Science Concepts'
           assert d['production_count_before']==1240 and d['production_count_after']==1240
           assert d['canonical_pre_state']['db_blob']=='ec4393c3699a68616ea2877b464916b0db680328'
           assert [x['num'] for x in items]==list(range(1241,1251)) and len(items)==10
@@ -73,10 +77,13 @@ jobs:
           assert all(x['author_self_audit']['unresolved_concerns']==[] for x in items)
           assert all(x['author_self_audit']['suggested_changes']==[] for x in items)
           assert 'NCJMM' not in p.read_text()
-          assert sum(x['blueprint']['primary_system']=='Blood, Lymphoreticular and Immune Systems' for x in items)==5
-          assert sum(x['blueprint']['primary_system']=='Musculoskeletal, Skin and Subcutaneous Tissue' for x in items)==5
-          assert sum(x['blueprint']['primary_competency']=='Patient Care: Diagnosis, including history and physical examination' for x in items)==5
-          assert sum(x['blueprint']['primary_competency']=='Medical Knowledge: Applying Foundational Science Concepts' for x in items)==5
+          assert sum(x['blueprint']['primary_system']==IMM for x in items)==5
+          assert sum(x['blueprint']['primary_system']==SKIN for x in items)==5
+          assert sum(x['blueprint']['primary_competency']==DX for x in items)==5
+          assert sum(x['blueprint']['primary_competency']==MK for x in items)==5
+          assert all(x['blueprint']['official_outline_path']==[x['blueprint']['primary_system']] for x in items)
+          assert all('internal_content_path' in x['blueprint'] for x in items)
+          assert all(x['sources'][0]['url']=='https://www.usmle.org/step-exams/step-1/step-1-exam-content' for x in items)
           print('CANDIDATE_INVARIANTS=PASS ITEMS=10 KEYS='+keys)
           PY
       - name: Persist frozen candidate
@@ -102,5 +109,6 @@ jobs:
           d=json.loads(p.read_text()); items=d['items']
           assert len(items)==10 and [x['num'] for x in items]==list(range(1241,1251))
           assert ''.join(x['item']['intended_key'] for x in items)=='BDAECAECDB'
+          assert all(x['blueprint']['official_outline_path']==[x['blueprint']['primary_system']] for x in items)
           print('PERSISTED_CANDIDATE=PASS BLOB='+subprocess.check_output(['git','hash-object',str(p)],text=True).strip())
           PY
