@@ -1,0 +1,97 @@
+name: USMLE Simulate Import Q1271-Q1280
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/SIMULATE_IMPORT_TRIGGER_Q1271_Q1280'
+
+permissions:
+  contents: read
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify immutable simulation inputs
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/step2_import_q1271_q1280.py)" = "629c24cc669d18ce4e3504d42e2aeadbca5a2f96"
+          test "$(git hash-object usmle/step2_import_q1261_q1270.py)" = "c73f192deb88d6703845a8976e10dbd05d8e34fb"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "cbfe7c4b469fa49555813cffcc6604d2003dcdac"
+          test "$(git hash-object usmle/batch_specs_1201_1300/10_q1271_q1280_author_20260906.json)" = "8d4dbeff50a3ec7301a3d915a694645bb007514a"
+          test "$(git hash-object usmle/audit/Q1271_Q1280_FINAL_QA_PASS.json)" = "8b3db6913c2d3d8f24297814e182e88b01f46c45"
+      - name: Create detached production simulation worktree
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/usmle-q1280-sim
+          git worktree add --detach /tmp/usmle-q1280-sim HEAD
+          cd /tmp/usmle-q1280-sim
+          python -m py_compile usmle/step2_import_q1271_q1280.py usmle/step2_import_q1261_q1270.py
+      - name: Execute full importer only in detached worktree
+        env:
+          Q1271_Q1280_MANIFEST_BLOB: 8b3db6913c2d3d8f24297814e182e88b01f46c45
+        run: |
+          set -euo pipefail
+          cd /tmp/usmle-q1280-sim
+          python usmle/step2_import_q1271_q1280.py | tee /tmp/q1271-q1280-simulation-result.json
+      - name: Independently verify simulated post-state
+        run: |
+          set -euo pipefail
+          cd /tmp/usmle-q1280-sim
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          s=json.loads(pathlib.Path('usmle/state/step2_final_q0001_q1280.json').read_text())
+          f=json.loads(pathlib.Path('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1280.json').read_text())
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1280 and s['step2_final_review_count']==1280
+          assert s['contiguous_q0001_q1280'] is True and s['q1271_q1280_present_exactly_once'] is True
+          assert s['sqlite_integrity_check']=='ok' and s['payload_review_consistency']=='PASS'
+          assert s['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert s['answer_position_new_block']['sequence']=='CEADBADCBE'
+          assert s['blueprint_increment_new_block']=={'Behavioral Health & Nervous Systems/Special Senses':5,'Blood & Lymphoreticular/Immune Systems':5}
+          assert s['competency_increment_new_block']=={'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5}
+          assert s['new_block']['candidate_batch_blob']=='8d4dbeff50a3ec7301a3d915a694645bb007514a'
+          assert s['new_block']['final_qa_manifest_blob']=='8b3db6913c2d3d8f24297814e182e88b01f46c45'
+          assert f['production_import_completed'] is True and f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT'
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==s['post_authoritative_db_blob'] and blob!='cbfe7c4b469fa49555813cffcc6604d2003dcdac'
+          assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("select count(*) from step2_final_items where final_status='FINAL_10_10_PASS'").fetchone()[0]==1280
+          assert con.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]==1280
+          rows=con.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall(); con.close()
+          nums=[]; new={}
+          for cid,pj in rows:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid
+              n=int(m.group(1)); nums.append(n)
+              if 1271<=n<=1280:new[n]=json.loads(pj)
+          assert set(nums)==set(range(1,1281)) and len(nums)==len(set(nums))==1280
+          assert set(new)==set(range(1271,1281))
+          assert ''.join(new[n]['item']['intended_key'] for n in range(1271,1281))=='CEADBADCBE'
+          assert all(new[n]['blueprint']['primary_system'] in {'Behavioral Health & Nervous Systems/Special Senses','Blood & Lymphoreticular/Immune Systems'} for n in new)
+          assert all(new[n]['blueprint']['primary_competency'] in {'Patient Care: Diagnosis','Medical Knowledge: Applying Foundational Science Concepts'} for n in new)
+          assert all(new[n]['blueprint']['official_outline_path']==[new[n]['blueprint']['primary_system']] for n in new)
+          assert all(new[n]['step2_final_audit']['final_10_10_gate']=='FINAL_10_10_PASS' for n in new)
+          assert all(new[n]['step2_final_audit']['canonical_duplicate_gate_passed'] is True for n in new)
+          assert all(new[n]['step2_final_audit']['second_answer_attack_passed'] is True for n in new)
+          assert not pathlib.Path(str(db)+'-wal').exists() and not pathlib.Path(str(db)+'-shm').exists()
+          print('SIMULATED_POSTSTATE_VERIFY=PASS COUNT=1280 REVIEWS=1280 BLOB='+blob)
+          PY
+      - name: Prove main checkout remained untouched
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "cbfe7c4b469fa49555813cffcc6604d2003dcdac"
+          test ! -e usmle/state/step2_final_q0001_q1280.json
+          test ! -e usmle/audit/STEP2_FINAL_10_10_Q0001_Q1280.json
+          echo MAIN_CHECKOUT_UNTOUCHED=PASS
