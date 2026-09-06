@@ -1,0 +1,93 @@
+name: USMLE Repair Q1241-Q1250 Evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/REPAIR_TRIGGER_Q1241_Q1250_EVIDENCE'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-repair-q1241-q1250-evidence
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact pre-repair candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json)" = "dedc535124e555e336c17e3d89fb45101f4b4134"
+      - name: Repair distractor evidence and semantic gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/repair_q1241_q1250_evidence_and_semantics.py
+          python usmle/repair_q1241_q1250_evidence_and_semantics.py
+          python -m py_compile usmle/generate_q1241_q1250_candidate.py usmle/audit_q1241_q1250_readonly.py
+          python usmle/generate_q1241_q1250_candidate.py
+      - name: Validate evidence-map repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
+          d=json.loads(p.read_text()); items=d['items']
+          assert len(items)==10
+          for x in items:
+              q=x['num']; key=x['item']['intended_key']; de=x['explanation']['distractor_explanations']
+              assert set(de)==set('ABCDE')
+              assert de[key].startswith('Correct.')
+              for L in 'ABCDE':
+                  if L==key: continue
+                  assert de[L].startswith(f"Option {L} proposes '")
+                  assert 'It is not selected because it does not account for' in de[L]
+              em={e['option']:e for e in x['evidence_map']}
+              assert set(em)==set('ABCDE')
+              assert all(em[L]['claim']==de[L] for L in 'ABCDE')
+              assert all(em[L]['direct_or_inference']=='inference' for L in 'ABCDE' if L!=key)
+              assert em[key]['direct_or_inference']=='direct'
+          q1247=next(x for x in items if x['num']==1247)
+          assert q1247['item']['options']['A']=='A primary dominant-negative defect intrinsic to keratin 14'
+          assert ''.join(x['item']['intended_key'] for x in items)=='BDAECAECDB'
+          assert 'NCJMM' not in p.read_text()
+          print('EVIDENCE_MAP_REPAIR=PASS')
+          PY
+      - name: Persist repaired candidate source and audit gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Evidence Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/generate_q1241_q1250_candidate.py usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json usmle/audit_q1241_q1250_readonly.py
+          git diff --cached --quiet && { echo 'No evidence changes'; exit 1; }
+          git commit -m 'USMLE: repair Q1241-Q1250 distractor evidence and semantic duplicate gate'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import json,pathlib,subprocess
+          p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
+          d=json.loads(p.read_text())
+          assert len(d['items'])==10
+          assert all('It is not selected because it does not account for' in e for x in d['items'] for L,e in x['explanation']['distractor_explanations'].items() if L!=x['item']['intended_key'])
+          print('PERSISTED_EVIDENCE_REPAIR=PASS CANDIDATE_BLOB='+subprocess.check_output(['git','hash-object',str(p)],text=True).strip())
+          PY
