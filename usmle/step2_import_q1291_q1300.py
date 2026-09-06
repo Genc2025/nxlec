@@ -22,6 +22,7 @@ repls=[
 ("EXPECTED_MANIFEST_BLOB='61e85d42cb173ee7ee5fc6f413161d7d1a3309e7'",f"EXPECTED_MANIFEST_BLOB='{manifest_blob}'"),
 ("AUDIT_ID='STEP2-FINAL-Q0001-Q1270-20260906'; CID_SUFFIX='20260906T101000Z'","AUDIT_ID='STEP2-FINAL-Q0001-Q1300-20260906'; CID_SUFFIX='20260906T185316Z'"),
 ("GI='Gastrointestinal System'; CV='Cardiovascular System'; DX='Patient Care: Diagnosis'; MK='Medical Knowledge: Applying Foundational Science Concepts'","SOC='Social Sciences: Communication and Interpersonal Skills'; MSK='Musculoskeletal, Skin & Subcutaneous Tissue'; COMM='Communication and Interpersonal Skills'; DX='Patient Care: Diagnosis'; MK='Medical Knowledge: Applying Foundational Science Concepts'"),
+("SOURCE_ROOTS=('usmle.org','medlineplus.gov','nih.gov','nlm.nih.gov','ncbi.nlm.nih.gov','pubmed.ncbi.nlm.nih.gov','pmc.ncbi.nlm.nih.gov','cdc.gov','fda.gov','hhs.gov','ahrq.gov')","SOURCE_ROOTS=('usmle.org','medlineplus.gov','nih.gov','nlm.nih.gov','ncbi.nlm.nih.gov','pubmed.ncbi.nlm.nih.gov','pmc.ncbi.nlm.nih.gov','cdc.gov','fda.gov','hhs.gov','ahrq.gov','ecfr.gov')"),
 ("'Behavioral Health, Nervous Systems and Special Senses'","'Behavioral Health, Nervous Systems and Special Senses','Behavioral Health & Nervous Systems/Special Senses'"),
 ("seq!='BECADCADEB'","seq!='CADBEBDACE'"),
 ("Counter({GI:5,CV:5})","Counter({SOC:3,MSK:7})"),
