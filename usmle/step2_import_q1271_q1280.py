@@ -32,7 +32,6 @@ repls=[
 ("'Q1261-Q1270-FINAL-QA-PASS-Q1260-BOUND-20260906'","'Q1271-Q1280-FINAL-QA-PASS-Q1270-BOUND-20260906'"),
 ("pre.get('contiguous_q0001_q1260')","pre.get('contiguous_q0001_q1270')"),
 ("'pre-state Q1260 binding failure'","'pre-state Q1270 binding failure'"),
-("inc_bp!=Counter({GI:5,CV:5})","inc_bp!=Counter({NEURO:5,BLOOD:5})"),
 ("p['blueprint']['primary_system'] not in {GI,CV}","p['blueprint']['primary_system'] not in {NEURO,BLOOD}"),
 ("!='BECADCADEB'", "!='CEADBADCBE'"),
 ("'range':'Q1261-Q1270'","'range':'Q1271-Q1280'"),
@@ -46,9 +45,7 @@ for old,new in repls:
     s=s.replace(old,new)
 s,n=re.subn(r"\n\s*if n==1266 and \(a\.get\('second_answer_attack'.*?Q1266 repaired adversarial audit binding failure'\)\n","\n",s)
 if n!=1: raise SystemExit(f'expected to remove exactly one Q1266 special gate, got {n}')
-# Global variable references left from the old GI/CV pair must be gone.
 if re.search(r'\bGI\b|\bCV\b',s): raise SystemExit('stale GI/CV variable remains after importer transform')
-# Old batch/range/status markers must not survive in executable logic.
 for stale in ["Q1261-Q1270","q1261_q1270","BECADCADEB","range(1261,1271)","EXPECTED_PRE_COUNT=1260"]:
     if stale in s: raise SystemExit('stale importer token remains: '+stale)
 compile(s,str(base)+'[Q1271-Q1280 transformed]','exec')
