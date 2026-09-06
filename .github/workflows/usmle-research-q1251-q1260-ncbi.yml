@@ -1,0 +1,46 @@
+name: USMLE Research Q1251-Q1260 NCBI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/RESEARCH_TRIGGER_Q1251_Q1260_NCBI'
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Query NCBI E-utilities directly
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/research_q1251_q1260_ncbi.py
+          python usmle/research_q1251_q1260_ncbi.py > q1251-q1260-ncbi-evidence.json
+      - name: Print evidence index
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('q1251-q1260-ncbi-evidence.json'))
+          for k,v in d.items():
+              print('\n###',k)
+              for h in v['hits']:
+                  print(h['pmid'],h['date'],h['title'])
+                  print('URL',h['url'])
+                  print('ABSTRACT',h['abstract'][:1400])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1251-q1260-ncbi-evidence
+          path: q1251-q1260-ncbi-evidence.json
+          if-no-files-found: error
