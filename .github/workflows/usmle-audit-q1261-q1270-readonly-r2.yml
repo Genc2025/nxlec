@@ -1,0 +1,65 @@
+name: USMLE Audit Q1261-Q1270 Readonly R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/AUDIT_TRIGGER_Q1261_Q1270_READONLY_R2'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind audit to repaired candidate and canonical state
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected="$(sed -n 's/^expected_candidate_blob=//p' usmle/audit/AUDIT_TRIGGER_Q1261_Q1270_READONLY_R2)"
+          test "${#expected}" = 40
+          test "$(git hash-object usmle/batch_specs_1201_1300/09_q1261_q1270_author_20260906.json)" = "$expected"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "2afb11e1d3490cedc757ecfbe7e4515c6bbd527c"
+          echo "EXPECTED_CANDIDATE_BLOB=$expected" >> "$GITHUB_ENV"
+      - name: Reverify author evidence contract from zero
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/verify_author_q1261_q1270.py usmle/audit_q1261_q1270_readonly.py usmle/audit_q1261_q1270_readonly_r2.py
+          python usmle/verify_author_q1261_q1270.py
+      - name: Execute corrected readonly zero-trust audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/audit_q1261_q1270_readonly_r2.py
+      - name: Verify audit output is PASS and blob-bound
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os
+          r=json.load(open('usmle/audit/Q1261_Q1270_READONLY_AUDIT.json'))
+          assert r['verdict']=='READONLY_QA_PASS' and r['failures']==[]
+          assert r['candidate_blob']==os.environ['EXPECTED_CANDIDATE_BLOB']
+          assert r['canonical_db_blob']=='2afb11e1d3490cedc757ecfbe7e4515c6bbd527c'
+          assert r['canonical_count']==r['canonical_review_count']==1260
+          assert len(r['item_reports'])==10
+          assert all(x['status']=='PASS' and x['adversarial_second_pass']=='PASS' for x in r['item_reports'])
+          assert all(x['blind_audit']['status']=='PASS' and x['second_possible_answer']=='PASS_NONE' for x in r['item_reports'])
+          assert all(x['ncjmm']=='NOT_APPLICABLE_USMLE' for x in r['item_reports'])
+          print('READONLY_ZERO_TRUST_AUDIT_R2=PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1261-q1270-readonly-audit-r2
+          path: usmle/audit/Q1261_Q1270_READONLY_AUDIT.json
+          if-no-files-found: error
