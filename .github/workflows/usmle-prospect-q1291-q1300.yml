@@ -1,0 +1,27 @@
+name: USMLE Prospect Q1291-Q1300
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/PROSPECT_TRIGGER_Q1291_Q1300'
+
+permissions:
+  contents: read
+
+jobs:
+  prospect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan canonical construct pool
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/prospect_q1291_q1300.py
+          python usmle/prospect_q1291_q1300.py
