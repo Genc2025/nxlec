@@ -1,0 +1,124 @@
+name: USMLE Step2 Import Q1251-Q1260
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/STEP2_IMPORT_TRIGGER_Q1251_Q1260'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-step2-canonical-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact production preconditions
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3eeb306808a842cdcd3ba08fb29ec5145ce36ced"
+          test "$(git hash-object usmle/step2_import_q1251_q1260.py)" = "3536eb45e6b618fbe15550e75e8c0b26fe640c22"
+          test "$(git hash-object usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json)" = "da4e113d17b5c588d9efbaad6af92a27021777a2"
+          test "$(git hash-object usmle/audit/Q1251_Q1260_FINAL_QA_PASS.json)" = "9f5a5f4f164cdec16088daa2d28c3e522ad1f0b8"
+          python - <<'PY'
+          import json,pathlib,sqlite3
+          s=json.load(open('usmle/state/step2_final_q0001_q1250.json')); m=json.load(open('usmle/audit/Q1251_Q1260_FINAL_QA_PASS.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1250 and s['step2_final_review_count']==1250 and s['contiguous_q0001_q1250'] is True
+          assert s['post_authoritative_db_blob']=='3eeb306808a842cdcd3ba08fb29ec5145ce36ced'
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT' and m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[] and m['all_items_final_10_10_pass'] is True
+          con=sqlite3.connect(pathlib.Path('usmle/data/usmle-step1.db').resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("select count(*) from step2_final_items where final_status='FINAL_10_10_PASS'").fetchone()[0]==1250
+          assert con.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]==1250
+          con.close(); print('PRODUCTION_PRECONDITIONS=PASS COUNT=1250')
+          PY
+      - name: Import Q1251-Q1260 transactionally
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/step2_import_q1251_q1260.py
+          python usmle/step2_import_q1251_q1260.py | tee /tmp/q1251-q1260-import-result.json
+      - name: Independent post-import verification before persist
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db'); s=json.load(open('usmle/state/step2_final_q0001_q1260.json')); f=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1260.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1260 and s['step2_final_review_count']==1260
+          assert s['contiguous_q0001_q1260'] is True and s['q1251_q1260_present_exactly_once'] is True and s['sqlite_integrity_check']=='ok' and s['payload_review_consistency']=='PASS'
+          assert s['new_block']['candidate_batch_blob']=='da4e113d17b5c588d9efbaad6af92a27021777a2' and s['new_block']['final_qa_manifest_blob']=='9f5a5f4f164cdec16088daa2d28c3e522ad1f0b8'
+          assert s['answer_position_new_block']=={'balanced':{'A':2,'B':2,'C':2,'D':2,'E':2},'sequence':'DAECBEBDAC'}
+          assert s['blueprint_increment_new_block']=={'Respiratory & Renal/Urinary Systems':5,'Reproductive & Endocrine Systems':5}
+          assert s['competency_increment_new_block']=={'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5}
+          assert f['production_import_completed'] is True and f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT'
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip(); assert blob==s['post_authoritative_db_blob'] and blob!='3eeb306808a842cdcd3ba08fb29ec5145ce36ced'
+          assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("select count(*) from step2_final_items where final_status='FINAL_10_10_PASS'").fetchone()[0]==1260
+          assert con.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]==1260
+          rows=con.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall(); con.close()
+          nums=[]; new={}
+          for cid,pj in rows:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid; n=int(m.group(1)); nums.append(n)
+              if 1251<=n<=1260:new[n]=json.loads(pj)
+          assert set(nums)==set(range(1,1261)) and len(nums)==len(set(nums))==1260 and set(new)==set(range(1251,1261))
+          assert ''.join(new[n]['item']['intended_key'] for n in range(1251,1261))=='DAECBEBDAC'
+          for n,p in new.items():
+              assert p['blueprint']['primary_system'] in {'Respiratory & Renal/Urinary Systems','Reproductive & Endocrine Systems'}
+              assert p['blueprint']['primary_competency'] in {'Patient Care: Diagnosis','Medical Knowledge: Applying Foundational Science Concepts'}
+              assert p['blueprint']['official_outline_path']==[p['blueprint']['primary_system']]
+              assert p['step2_final_audit']['final_10_10_gate']=='FINAL_10_10_PASS' and p['step2_final_audit']['canonical_duplicate_gate_passed'] is True and p['step2_final_audit']['second_answer_attack_passed'] is True
+              key=p['item']['intended_key']; de=p['explanation']['distractor_explanations']; em={e['option']:e for e in p['evidence_map']}; assert set(em)==set('ABCDE')
+              for L in 'ABCDE':
+                  assert em[L]['claim']==de[L] and em[L]['direct_or_inference']==('direct' if L==key else 'inference')
+          assert not pathlib.Path(str(db)+'-wal').exists() and not pathlib.Path(str(db)+'-shm').exists()
+          print('PRE_PERSIST_VERIFY=PASS COUNT=1260 REVIEWS=1260 BLOB='+blob)
+          PY
+      - name: Persist authoritative Q1260 canonical state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Production Finalizer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db usmle/state/step2_final_q0001_q1260.json usmle/audit/STEP2_FINAL_10_10_Q0001_Q1260.json
+          git diff --cached --quiet && { echo 'No production changes to persist'; exit 1; }
+          git commit -m 'USMLE: finalize canonical Q0001-Q1260'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main from scratch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db'); s=json.load(open('usmle/state/step2_final_q0001_q1260.json')); f=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1260.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1260 and s['step2_final_review_count']==1260 and s['contiguous_q0001_q1260'] is True and s['q1251_q1260_present_exactly_once'] is True
+          assert f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT' and f['production_import_completed'] is True
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip(); assert blob==s['post_authoritative_db_blob'] and hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True); assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("select count(*) from step2_final_items where final_status='FINAL_10_10_PASS'").fetchone()[0]==1260 and con.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]==1260
+          rows=con.execute("select candidate_id from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall(); con.close(); nums=[]
+          for (cid,) in rows:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid; nums.append(int(m.group(1)))
+          assert set(nums)==set(range(1,1261)) and len(nums)==len(set(nums))==1260
+          assert not pathlib.Path(str(db)+'-wal').exists() and not pathlib.Path(str(db)+'-shm').exists()
+          print('PERSISTED_MAIN_VERIFY=PASS COUNT=1260 REVIEWS=1260 BLOB='+blob)
+          PY
