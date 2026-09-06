@@ -6,13 +6,16 @@ ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent
 DB=ROOT/'data'/'usmle-step1.db'; STATE=ROOT/'state'/'step2_final_q0001_q1270.json'
 PRE_BLOB='cbfe7c4b469fa49555813cffcc6604d2003dcdac'
 TERMS=[
- 'KCNQ2','M-current','Kv7.2','ATP1A3','alternating hemiplegia','DNM1','dynamin-1','STXBP1','syntaxin-binding protein 1',
- 'CACNA1A','P/Q-type calcium channel','SLC12A5','KCC2','TUBB4A','KCNC1','Kv3.1','PRRT2','paroxysmal kinesigenic dyskinesia',
- 'GNAO1','HCN1','hyperpolarization-activated current','teach-back','health literacy','root cause analysis','failure mode and effects analysis',
- 'FMEA','SBAR','closed-loop communication','TeamSTEPPS','motivational interviewing','professional interpreter','decision-making capacity',
- 'medical error disclosure','I-PASS','shared decision making','two-challenge rule','CUS words','handoff communication'
+ 'KCNQ2','Kv7.2','M-current','DNM1','dynamin-1','STXBP1','syntaxin-binding protein 1','SLC12A5','KCC2','TUBB4A','KCNC1','Kv3.1','GNAO1','HCN1','hyperpolarization-activated current',
+ 'PCDH19','cellular interference','CDKL5','CHRNA4','KCNA1','DEPDC5','mTORC1','SLC2A1','GLUT1 deficiency','PNPO','pyridoxal phosphate','ALDH5A1','succinic semialdehyde dehydrogenase',
+ 'PIEZO1','hereditary xerocytosis','KCNN4','Gardos channel','FERMT3','leukocyte adhesion deficiency type III','PIK3CD','activated PI3K-delta syndrome','LRBA','CTLA4 recycling','ADA2','DADA2','CECR1','UNC13D','Munc13-4','XIAP','X-linked lymphoproliferative syndrome 2','NFKB2','DAVID syndrome','AP3B1','Hermansky-Pudlak syndrome type 2'
 ]
 def gitblob(p):return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
+def hit(term,text):
+ t=term.casefold()
+ if re.fullmatch(r'[A-Za-z0-9_.-]+',term):
+  return re.search(r'(?<![a-z0-9])'+re.escape(t)+r'(?![a-z0-9])',text.casefold()) is not None
+ return t in text.casefold()
 def main():
  s=json.load(open(STATE)); assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1270 and s['step2_final_review_count']==1270 and s['contiguous_q0001_q1270'] is True and s['post_authoritative_db_blob']==PRE_BLOB
  assert gitblob(DB)==PRE_BLOB
@@ -20,11 +23,13 @@ def main():
  rows=con.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall(); con.close(); assert len(rows)==1270
  out={}
  for term in TERMS:
-  t=term.casefold(); hits=[]
+  material=[]; incidental=[]
   for cid,pj in rows:
-   if t in pj.casefold():
-    p=json.loads(pj); i=p.get('item',p)
-    hits.append({'candidate_id':cid,'tested_construct':i.get('tested_construct',''),'lead_in':i.get('lead_in',''),'key':i.get('options',{}).get(i.get('intended_key',''),'')})
-  out[term]=hits
+   p=json.loads(pj); i=p.get('item',p); key=i.get('options',{}).get(i.get('intended_key',''),'')
+   mt=' '.join([i.get('tested_construct',''),i.get('lead_in',''),key])
+   if hit(term,mt):
+    material.append({'candidate_id':cid,'tested_construct':i.get('tested_construct',''),'lead_in':i.get('lead_in',''),'key':key})
+   elif hit(term,pj): incidental.append(cid)
+  out[term]={'material_hits':material,'incidental_hit_count':len(incidental),'incidental_examples':incidental[:5]}
  print(json.dumps({'status':'PASS','canonical_count':len(rows),'db_blob':PRE_BLOB,'hits':out},ensure_ascii=False))
 if __name__=='__main__':main()
