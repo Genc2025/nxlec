@@ -26,6 +26,8 @@ repls=[
 ("seq!='BECADCADEB'","seq!='CADBEBDACE'"),
 ("Counter({GI:5,CV:5})","Counter({SOC:3,MSK:7})"),
 ("Counter({DX:5,MK:5})","Counter({COMM:3,MK:5,DX:2})"),
+("m.get('candidate_batch_blob')!=EXPECTED_BATCH_BLOB or m.get('candidate_batch_object_sha256')!=hobj(json.loads(BATCH.read_text()))","m.get('candidate_batch_blob')!=EXPECTED_BATCH_BLOB or m.get('candidate_batch_object_sha256')!=hashlib.sha256(BATCH.read_bytes()).hexdigest()"),
+("if hobj(a)!=ref.get('audit_object_sha256')","if hashlib.sha256(ap.read_bytes()).hexdigest()!=ref.get('audit_object_sha256')"),
 ("m.get('item_range')!='Q1261-Q1270'","m.get('item_range')!='Q1291-Q1300'"),
 ("m.get('answer_key_sequence')!='BECADCADEB'","m.get('answer_key_sequence')!='CADBEBDACE'"),
 ("m.get('system_distribution')!={GI:5,CV:5}","m.get('system_distribution')!={SOC:3,MSK:7}"),
