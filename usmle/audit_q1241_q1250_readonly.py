@@ -32,6 +32,8 @@ SOURCE_EXPECT={
 1250:[('https://www.ncbi.nlm.nih.gov/books/NBK1369/','last update 2022-08-04; current GeneReviews 1993-2026 edition','Clinical Characteristics — PLEC-associated EBS; Molecular Genetics — Molecular Pathogenesis; Table 10')]
 }
 
+UNIQUE_ANCHORS={1241: ['WHIM syndrome', 'CXCR4 gain of function', 'myelokathexis'], 1242: ['GATA2 deficiency', 'MonoMAC'], 1243: ['DADA2', 'deficiency of adenosine deaminase 2'], 1244: ['activated PI3K delta syndrome', 'PIK3CD gain of function'], 1245: ['C1q deficiency', 'deficiency of C1q'], 1246: ['PNPLA1', 'omega-O-acylceramide'], 1247: ['KLHL24', 'stabilizing mutations of KLHL24'], 1248: ['PKP1', 'plakophilin 1 deficiency'], 1249: ['CDSN deficiency', 'corneodesmosin deficiency'], 1250: ['PLEC-associated epidermolysis bullosa simplex with muscular dystrophy', 'plectin muscular dystrophy']}
+
 SECOND_ANSWER={
 1241:{'strongest_distractor':'C','discriminator':'Pathogenic CXCR4 variant plus marrow myelokathexis directly identifies hyperactive CXCR4-CXCL12 retention; no alternative option explains that genotype-mechanism pair.'},
 1242:{'strongest_distractor':'E','discriminator':'The combined monocytopenia, B/NK-cell depletion, dysplasia, HPV susceptibility, and familial AML pattern is specific for GATA2 deficiency rather than isolated mycobacterial susceptibility.'},
@@ -150,11 +152,17 @@ def main():
             for phrase in fp:
                 if len(phrase)>=5 and phrase in nct:
                     exact_fp_hits.append({'candidate_id':cid,'phrase':phrase})
-        if exact_fp_hits: fail.append('canonical_semantic_fingerprint_hit')
+        unique_anchor_hits=[]
+        for anchor in UNIQUE_ANCHORS[q]:
+            na=norm(anchor)
+            for cid,ct in corpus:
+                if na in norm(ct):
+                    unique_anchor_hits.append({'candidate_id':cid,'anchor':na})
+        if unique_anchor_hits: fail.append('canonical_unique_construct_anchor_hit')
 
         sa=SECOND_ANSWER[q]
         if sa['strongest_distractor']==it['intended_key'] or sa['strongest_distractor'] not in it['options']: fail.append('second_answer_manifest')
-        item_reports.append({'q':q,'status':'PASS' if not fail else 'BLOCKED','failures':fail,'second_answer_attack':{**sa,'verdict':'NO_SECOND_DEFENSIBLE_ANSWER'},'canonical_top5':[{'candidate_id':z[3],'combined':round(z[0],4),'jaccard':round(z[1],4),'sequence':round(z[2],4)} for z in top],'max_canonical_jaccard':round(max_j,4),'max_canonical_sequence':round(max_s,4),'semantic_fingerprint_hits':exact_fp_hits})
+        item_reports.append({'q':q,'status':'PASS' if not fail else 'BLOCKED','failures':fail,'second_answer_attack':{**sa,'verdict':'NO_SECOND_DEFENSIBLE_ANSWER'},'canonical_top5':[{'candidate_id':z[3],'combined':round(z[0],4),'jaccard':round(z[1],4),'sequence':round(z[2],4)} for z in top],'max_canonical_jaccard':round(max_j,4),'max_canonical_sequence':round(max_s,4),'semantic_fingerprint_hits_advisory':exact_fp_hits,'unique_construct_anchor_hits':unique_anchor_hits})
         global_fail.extend(f'Q{q}:{f}' for f in fail)
 
     within=[]

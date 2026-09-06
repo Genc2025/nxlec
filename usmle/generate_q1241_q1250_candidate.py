@@ -113,7 +113,7 @@ DATA=[
 'coverage':'Proteostasis mechanism of KLHL24-associated epidermolysis bullosa simplex',
 'vignette':'A newborn has large areas of denuded skin on the distal extremities and develops trauma-induced blistering. The blistering becomes less prominent with age, but skin atrophy persists. Several affected relatives later developed dilated cardiomyopathy. Sequencing identifies a heterozygous start-codon variant in KLHL24 that produces an N-terminally truncated protein.',
 'lead':'Which molecular consequence most directly causes the epidermal fragility?',
-'options':{'A':'Dominant-negative disruption of keratin 14 heterodimer assembly','B':'Loss of type VII collagen anchoring fibrils beneath the lamina densa','C':'Loss of collagen XVII-mediated attachment within hemidesmosomes','D':'Failure to assemble laminin-332 in the basement membrane','E':'Stabilization of a gain-of-function ubiquitin-ligase adaptor with excessive proteasomal degradation of keratin 14'},
+'options':{'A':'A primary dominant-negative defect intrinsic to keratin 14','B':'Loss of type VII collagen anchoring fibrils beneath the lamina densa','C':'Loss of collagen XVII-mediated attachment within hemidesmosomes','D':'Failure to assemble laminin-332 in the basement membrane','E':'Stabilization of a gain-of-function ubiquitin-ligase adaptor with excessive proteasomal degradation of keratin 14'},
 'key':'E','difficulty':'hard','steps':5,
 'construct':'KLHL24 start-codon variants stabilize a gain-of-function ubiquitin-ligase substrate adaptor, causing excessive ubiquitination and proteasomal degradation of keratin 14 and an EBS phenotype that can include cardiomyopathy.',
 'keyexp':'Disease-causing KLHL24 start-codon variants produce a truncated protein that is abnormally stable because normal autoubiquitination is lost. The stabilized gain-of-function protein excessively targets keratin 14 for ubiquitination and proteasomal degradation, weakening basal keratinocytes.',
@@ -178,6 +178,9 @@ DATA=[
 }
 ]
 
+DISTRACTOR_DISCRIMINATORS={1241: 'the pathogenic CXCR4 variant together with marrow retention of abundant mature neutrophils; that genotype-phenotype pair supports hyperactive CXCR4-CXCL12 signaling and myelokathexis', 1242: 'the combined monocytopenia, marked B/NK-cell depletion, dysplasia, HPV susceptibility, and familial myeloid-malignancy pattern; that combination supports GATA2 deficiency', 1243: 'the recessive childhood syndrome combining livedoid medium-vessel vasculopathy, hypertension, recurrent lacunar strokes, and hematologic disease; that pattern supports DADA2', 1244: 'the explicitly identified gain-of-function PIK3CD variant; that lesion directly supports increased PI3K-delta signaling with downstream AKT-mTOR hyperactivation', 1245: 'the specific immune function whose loss links inherited C1q deficiency to early lupus: recognition/opsonization and clearance of apoptotic material', 1246: 'the biochemical reaction directly attributed to PNPLA1: transfer of linoleate to omega-hydroxyceramide during omega-O-acylceramide synthesis', 1247: 'the molecular consequence of the KLHL24 start-codon variant: stabilization of truncated KLHL24 with excessive ubiquitination and proteasomal loss of keratin 14', 1248: 'the combined ectodermal abnormalities with small, poorly formed desmosomes and reduced keratin-filament attachment; that pattern supports PKP1 deficiency', 1249: 'the generalized lifelong superficial peeling, severe pruritus/atopy, normal LEKT1, and normal hair microscopy; that pattern supports CDSN-related inflammatory peeling skin syndrome', 1250: 'the combination of lifelong basal-keratinocyte skin fragility and later progressive muscular dystrophy; that syndromic pattern supports PLEC-associated EBS with muscular dystrophy'}
+
+
 def usmle_source(q,system,competency):
     return {'source_id':f'Q{q}-S1','agency':'USMLE','title':'Step 1 Exam Content','url':USMLE_URL,
             'publication_or_revision_date':'current official specifications','retrieved_at':'2026-09-06',
@@ -192,6 +195,12 @@ def self_audit():
 
 def build(d):
     q=d['num']; src=[usmle_source(q,d['system'],d['competency'])]
+    grounded_wrong={}
+    for L in 'ABCDE':
+        if L==d['key']:
+            grounded_wrong[L]=d['wrong'][L]
+        else:
+            grounded_wrong[L]=f"Option {L} proposes '{d['options'][L]}'. It is not selected because it does not account for {DISTRACTOR_DISCRIMINATORS[q]}."
     for j,s in enumerate(d['sources'],2):
         src.append({'source_id':f'Q{q}-S{j}','agency':s['agency'],'title':s['title'],'url':s['url'],
                     'publication_or_revision_date':s['date'],'retrieved_at':'2026-09-06','section_locator':s['locator'],
@@ -199,7 +208,7 @@ def build(d):
     disease_ids=[x['source_id'] for x in src[1:]]
     ev=[]
     for letter in 'ABCDE':
-        ev.append({'claim_id':f'Q{q}-{letter}','option':letter,'claim':d['wrong'][letter],
+        ev.append({'claim_id':f'Q{q}-{letter}','option':letter,'claim':grounded_wrong[letter],
                    'source_ids':disease_ids,'direct_or_inference':'direct' if letter==d['key'] else 'inference',
                    'item_specific_application':'The complete vignette and named molecular/clinicopathologic features resolve this option under the single-best-answer lead-in.'})
     return {'num':q,'country_scope':'United States','specification_version':'USMLE Step 1 current official specifications verified 2026-09-06',
@@ -207,7 +216,7 @@ def build(d):
                    'primary_competency':d['competency'],'disciplines':d['disciplines'],'coverage_deficit_addressed':d['coverage']},
       'item':{'vignette':d['vignette'],'lead_in':d['lead'],'options':d['options'],'intended_key':d['key'],
               'difficulty':d['difficulty'],'tested_construct':d['construct'],'reasoning_steps_count':d['steps']},
-      'explanation':{'key_explanation':d['keyexp'],'distractor_explanations':d['wrong'],'educational_objective':d['objective']},
+      'explanation':{'key_explanation':d['keyexp'],'distractor_explanations':grounded_wrong,'educational_objective':d['objective']},
       'evidence_map':ev,'sources':src,'semantic_fingerprint':d['semantic'],'author_self_audit':self_audit(),'status':'CANDIDATE_FROZEN'}
 
 items=[build(d) for d in DATA]
