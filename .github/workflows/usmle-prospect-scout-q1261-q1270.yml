@@ -1,0 +1,44 @@
+name: USMLE Prospect Scout Q1261-Q1270
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/PROSPECT_TRIGGER_Q1261_Q1270'
+
+permissions:
+  contents: read
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan prospects against canonical Q1260
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/prospect_scout_q1261_q1270.py
+          python usmle/prospect_scout_q1261_q1270.py > prospect-q1261-q1270.json
+      - name: Print collisions
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('prospect-q1261-q1270.json'))
+          print('COUNT=',r['count'],'DB=',r['db_blob'])
+          for k,v in r['prospects'].items():
+              print(k,'HITS=',v['unique_hit_count'],'TERMS=',v['by_term_counts'])
+              for h in v['hits'][:4]: print(' ',h['candidate_id'],h.get('tested_construct'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prospect-q1261-q1270
+          path: prospect-q1261-q1270.json
+          if-no-files-found: error
