@@ -1,0 +1,21 @@
+name: USMLE Probe Q1291-Q1300 Sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/SOURCE_PROBE_TRIGGER_Q1291_Q1300'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Probe authoritative source URLs
+        run: python usmle/probe_q1291_q1300_sources.py
