@@ -1,0 +1,219 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import copy,hashlib,json,pathlib,re,sqlite3,subprocess
+from collections import Counter
+from datetime import datetime,timezone
+from urllib.parse import urlparse
+
+ROOT=pathlib.Path(__file__).resolve().parent; REPO=ROOT.parent
+DB=ROOT/'data'/'usmle-step1.db'
+STATE_PRE=ROOT/'state'/'step2_final_q0001_q1250.json'
+STATE_POST=ROOT/'state'/'step2_final_q0001_q1260.json'
+AUD=ROOT/'audit'
+MANIFEST=AUD/'Q1251_Q1260_FINAL_QA_PASS.json'
+FINAL_AUDIT=AUD/'STEP2_FINAL_10_10_Q0001_Q1260.json'
+BATCH=ROOT/'batch_specs_1201_1300'/'08_q1251_q1260_author_20260906.json'
+NEW_RANGE=range(1251,1261)
+EXPECTED_KEYS={1251:'D',1252:'A',1253:'E',1254:'C',1255:'B',1256:'E',1257:'B',1258:'D',1259:'A',1260:'C'}
+EXPECTED_PRE_COUNT=1250; EXPECTED_POST_COUNT=1260
+EXPECTED_PRE_DB_BLOB='3eeb306808a842cdcd3ba08fb29ec5145ce36ced'
+EXPECTED_BATCH_BLOB='da4e113d17b5c588d9efbaad6af92a27021777a2'
+EXPECTED_MANIFEST_BLOB='9f5a5f4f164cdec16088daa2d28c3e522ad1f0b8'
+AUDIT_ID='STEP2-FINAL-Q0001-Q1260-20260906'; CID_SUFFIX='20260906T081000Z'
+RR='Respiratory & Renal/Urinary Systems'; RE='Reproductive & Endocrine Systems'; DX='Patient Care: Diagnosis'; MK='Medical Knowledge: Applying Foundational Science Concepts'
+OFFICIAL_SYSTEMS={'Human Development','Respiratory and Renal/Urinary Systems','Respiratory & Renal/Urinary Systems','Blood, Lymphoreticular and Immune Systems','Blood & Lymphoreticular/Immune Systems','Behavioral Health, Nervous Systems and Special Senses','Musculoskeletal, Skin and Subcutaneous Tissue','Musculoskeletal, Skin & Subcutaneous Tissue','Cardiovascular System','Gastrointestinal System','Reproductive and Endocrine Systems','Reproductive & Endocrine Systems','Multisystem Processes and Disorders','Biostatistics, Epidemiology and Population Health','Social Sciences: Communication and Interpersonal Skills'}
+OFFICIAL_COMPETENCIES={'Medical Knowledge: Applying Foundational Science Concepts','Patient Care: Diagnosis, including history and physical examination','Patient Care: Diagnosis','Practice-Based Learning and Improvement','Communication and Interpersonal Skills'}
+OFFICIAL_DISCIPLINES={'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology','Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'}
+SOURCE_ROOTS=('usmle.org','medlineplus.gov','nih.gov','nlm.nih.gov','ncbi.nlm.nih.gov','pubmed.ncbi.nlm.nih.gov','pmc.ncbi.nlm.nih.gov','cdc.gov','fda.gov','hhs.gov','ahrq.gov')
+
+def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+def sha(s): return hashlib.sha256(s.encode()).hexdigest()
+def hobj(o): return sha(canon(o))
+def gitblob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
+def qnum(cid):
+    m=re.search(r'DIRECT-(\d{4})',cid or '')
+    if not m: raise SystemExit('bad candidate id '+str(cid))
+    return int(m.group(1))
+def norm(s): return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9 ]+',' ',(s or '').lower())).strip()
+def grams(s,n=5):
+    w=norm(s).split(); return {tuple(w)} if len(w)<n else {tuple(w[i:i+n]) for i in range(len(w)-n+1)}
+def jacc(a,b): return len(a&b)/len(a|b) if (a or b) else 0.0
+def authority_ok(url):
+    p=urlparse(url); host=(p.hostname or '').lower(); return p.scheme=='https' and any(host==r or host.endswith('.'+r) for r in SOURCE_ROOTS)
+
+def load_candidates():
+    if gitblob(BATCH)!=EXPECTED_BATCH_BLOB: raise SystemExit('candidate batch blob changed after FINAL QA')
+    b=json.loads(BATCH.read_text())
+    if b.get('production_count_before')!=EXPECTED_PRE_COUNT or b.get('production_count_after')!=EXPECTED_PRE_COUNT: raise SystemExit('candidate production-count invariant failure')
+    docs={int(x['num']):x for x in b.get('items',[])}
+    if set(docs)!=set(NEW_RANGE): raise SystemExit('candidate range failure')
+    if ''.join(docs[n]['item']['intended_key'] for n in NEW_RANGE)!='DAECBEBDAC': raise SystemExit('candidate key sequence failure')
+    if Counter(d['blueprint']['primary_system'] for d in docs.values())!=Counter({RR:5,RE:5}): raise SystemExit('candidate system distribution failure')
+    if Counter(d['blueprint']['primary_competency'] for d in docs.values())!=Counter({DX:5,MK:5}): raise SystemExit('candidate competency distribution failure')
+    return b,docs
+
+def source_normalize(s,idx):
+    u=str(s.get('url','')).strip(); loc=str(s.get('section_locator','')).strip()
+    if not authority_ok(u): raise SystemExit('source authority/url failure '+u)
+    if not loc: raise SystemExit('source locator missing '+u)
+    agency=str(s.get('agency') or s.get('organization') or '').strip(); title=str(s.get('title','')).strip()
+    if not agency or not title: raise SystemExit('source metadata missing '+u)
+    x=copy.deepcopy(s); x['source_id']=str(x.get('source_id') or f'S{idx}'); x['agency']=agency; x['title']=title; x['url']=u; x['section_locator']=loc
+    x.setdefault('retrieved_at','2026-09-06'); x.setdefault('publication_or_revision_date','current-access source; mechanism reverified 2026-09-06')
+    x.setdefault('rights_status','Official USMLE/U.S. government/NLM/PubMed-indexed source; item wording is original educational content.')
+    return x
+
+def load_manifest_and_audits(docs):
+    if gitblob(MANIFEST)!=EXPECTED_MANIFEST_BLOB: raise SystemExit('FINAL QA manifest blob changed')
+    m=json.loads(MANIFEST.read_text())
+    if m.get('status')!='FINAL_QA_PASS' or m.get('final_qa_verdict')!='FINAL_QA_PASS_NO_MATERIAL_DEFECT' or m.get('production_import_ready') is not True or m.get('production_db_modified') is not False: raise SystemExit('FINAL QA manifest status failure')
+    if m.get('authoritative_db_final_count')!=EXPECTED_PRE_COUNT or m.get('authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB: raise SystemExit('FINAL QA canonical binding failure')
+    if m.get('candidate_batch_blob')!=EXPECTED_BATCH_BLOB or m.get('candidate_batch_object_sha256')!=hobj(json.loads(BATCH.read_text())): raise SystemExit('FINAL QA candidate binding failure')
+    if m.get('item_count')!=10 or m.get('item_range')!='Q1251-Q1260' or m.get('fresh_rerun_from_zero') is not True: raise SystemExit('FINAL QA range/freshness failure')
+    if m.get('answer_key_sequence')!='DAECBEBDAC' or m.get('answer_key_distribution')!={'A':2,'B':2,'C':2,'D':2,'E':2}: raise SystemExit('FINAL QA answer-position failure')
+    if m.get('system_distribution')!={RR:5,RE:5} or m.get('competency_distribution')!={DX:5,MK:5}: raise SystemExit('FINAL QA blueprint distribution failure')
+    if m.get('all_items_final_10_10_pass') is not True or m.get('second_answer_attack_all')!='PASS_NONE' or m.get('canonical_duplicate_gate')!='PASS' or m.get('within_batch_collision_gate')!='PASS' or m.get('source_locator_currentness_gate')!='PASS' or m.get('blueprint_gate')!='PASS' or m.get('adversarial_second_pass')!='PASS': raise SystemExit('FINAL QA gate failure')
+    if m.get('ncjmm')!='NOT_APPLICABLE_USMLE' or m.get('unresolved_defects')!=[] or m.get('suggested_changes')!=[]: raise SystemExit('FINAL QA unresolved/NCJMM failure')
+    refs={int(x['item'][1:]):x for x in m.get('item_audits',[])}
+    if set(refs)!=set(NEW_RANGE): raise SystemExit('FINAL QA audit coverage failure')
+    audits={}
+    for n in NEW_RANGE:
+        ref=refs[n]; ap=REPO/ref['path']
+        if not ap.exists(): raise SystemExit(f'Q{n}: audit missing')
+        a=json.loads(ap.read_text())
+        if hobj(a)!=ref.get('audit_object_sha256'): raise SystemExit(f'Q{n}: audit object hash failure')
+        if a.get('status')!='FINAL_10_10_PASS' or a.get('verdict')!='PASS_WITH_NO_CHANGES': raise SystemExit(f'Q{n}: audit status failure')
+        if a.get('authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB or a.get('authoritative_db_final_count')!=EXPECTED_PRE_COUNT: raise SystemExit(f'Q{n}: audit DB binding failure')
+        if a.get('exact_candidate_file_blob')!=EXPECTED_BATCH_BLOB or a.get('exact_candidate_object_sha256')!=hobj(docs[n]): raise SystemExit(f'Q{n}: audit candidate binding failure')
+        if a.get('blind_audit',{}).get('selected_key')!=EXPECTED_KEYS[n] or a.get('second_possible_answer')!='PASS_NONE' or a.get('second_answer_attack',{}).get('result')!='PASS_NONE': raise SystemExit(f'Q{n}: second-answer failure')
+        if a.get('defects')!=[] or a.get('suggested_changes')!=[] or len(a.get('scores',{}))!=10 or any(v!=10 for v in a.get('scores',{}).values()): raise SystemExit(f'Q{n}: audit defect/score failure')
+        for gate in ('duplicate_gate','key_integrity_gate','realism_gate','official_discipline_gate','official_system_gate'):
+            if a.get(gate,{}).get('status')!='PASS': raise SystemExit(f'Q{n}: {gate} failure')
+        if a.get('adversarial_second_pass',{}).get('result')!='PASS': raise SystemExit(f'Q{n}: adversarial failure')
+        audits[n]=(a,ap)
+    return m,audits
+
+def build_payload(template,d,n,audit,audit_path,manifest_hash):
+    key=EXPECTED_KEYS[n]; bp=copy.deepcopy(d['blueprint'])
+    if d.get('status')!='CANDIDATE_FROZEN': raise SystemExit(f'Q{n}: candidate not frozen')
+    if bp.get('primary_system') not in {RR,RE}: raise SystemExit(f'Q{n}: current system label failure')
+    if bp.get('primary_competency') not in {DX,MK}: raise SystemExit(f'Q{n}: current competency label failure')
+    if bp.get('official_outline_path')!=[bp.get('primary_system')] or not bp.get('internal_content_path'): raise SystemExit(f'Q{n}: outline path failure')
+    tags=bp.get('disciplines',[])
+    if not tags or any(t not in OFFICIAL_DISCIPLINES for t in tags): raise SystemExit(f'Q{n}: discipline failure')
+    item=copy.deepcopy(d['item']); opts=item.get('options',{})
+    if item.get('intended_key')!=key or list(opts)!=list('ABCDE') or len(set(opts.values()))!=5: raise SystemExit(f'Q{n}: key/options failure')
+    item.setdefault('difficulty_basis','Difficulty assigned during documented fresh item-by-item FINAL QA; expert estimate only.')
+    exp=copy.deepcopy(d['explanation']); de=exp.get('distractor_explanations',{})
+    if set(de)!=set('ABCDE') or 'correct' not in str(de[key]).lower() or not exp.get('key_explanation') or not exp.get('educational_objective'): raise SystemExit(f'Q{n}: rationale/objective failure')
+    if any(L!=key and ('It is not selected because it does not account for' not in str(de[L]) or not str(de[L]).startswith(f"Option {L} proposes '")) for L in 'ABCDE'): raise SystemExit(f'Q{n}: distractor rationale failure')
+    src=[source_normalize(s,i+1) for i,s in enumerate(d.get('sources',[]))]
+    if len(src)<2: raise SystemExit(f'Q{n}: source count failure')
+    src_ids={s['source_id'] for s in src}; cm={str(e.get('option')):e for e in d.get('evidence_map',[]) if e.get('option') in 'ABCDE'}
+    if set(cm)!=set('ABCDE'): raise SystemExit(f'Q{n}: evidence-map coverage failure')
+    evidence=[]
+    for L in 'ABCDE':
+        e=copy.deepcopy(cm[L]); e['option']=L
+        if not e.get('source_ids') or not set(e['source_ids']).issubset(src_ids): raise SystemExit(f'Q{n}: evidence-source failure {L}')
+        if e.get('claim')!=de[L] or e.get('direct_or_inference')!=('direct' if L==key else 'inference'): raise SystemExit(f'Q{n}: evidence binding failure {L}')
+        e['rationale']=exp['key_explanation'] if L==key else de[L]; e['fresh_item_audit_verified']=True; e['evidence_basis']='Claim direction and option disposition were reverified in item-specific FINAL_10_10 audit.'; evidence.append(e)
+    c=copy.deepcopy(template); cid=f'S1-DIRECT-{n:04d}-{CID_SUFFIX}'
+    c['candidate_id']=cid; c['country_scope']=d.get('country_scope','United States'); c['specification_version']=d.get('specification_version')
+    c['blueprint']=bp; c['item']=item; c['explanation']=exp; c['sources']=src; c['evidence_map']=evidence
+    sf=d.get('semantic_fingerprint'); sf2=copy.deepcopy(sf) if isinstance(sf,dict) else {'keywords':copy.deepcopy(sf) if isinstance(sf,list) else []}; sf2['tested_construct']=item.get('tested_construct'); sf2['lead_in_task']=item.get('lead_in'); sf2['correct_answer_concept']=opts[key]; c['semantic_fingerprint']=sf2
+    ah=hobj(audit)
+    c['step2_final_audit']={'fresh_item_by_item_read':True,'fresh_content_status':'FINAL_10_10_PASS','final_10_10_gate':'FINAL_10_10_PASS','audited_at':audit.get('audited_at'),'auditor_model':'GPT-5.6 Sol','clinical_audit_path':str(audit_path.relative_to(ROOT)),'clinical_audit_sha256':ah,'qa_manifest_path':str(MANIFEST.relative_to(ROOT)),'qa_manifest_sha256':manifest_hash,'authoritative_pre_db_blob':EXPECTED_PRE_DB_BLOB,'authoritative_pre_count':EXPECTED_PRE_COUNT,'unresolved_conflicts':0,'source_currentness_verified':True,'canonical_duplicate_gate_passed':True,'second_answer_attack_passed':True,'official_system_metadata_validated':True,'official_discipline_metadata_validated':True}
+    review={'candidate_id':cid,'step2_audit_id':'Q1251-Q1260-FINAL-QA-PASS-Q1250-BOUND-20260906','reviewed_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z'),'auditor_model':'GPT-5.6 Sol','fresh_item_by_item_read':True,'fresh_content_status':'FINAL_10_10_PASS','clinical_audit_path':str(audit_path.relative_to(ROOT)),'clinical_audit_sha256':ah,'clinical_audit':copy.deepcopy(audit),'scores':copy.deepcopy(audit['scores']),'blind_audit':copy.deepcopy(audit['blind_audit']),'defects':[],'suggested_changes':[],'independent_auditor_verdict':'PASS_WITH_NO_CHANGES','verdict':'FINAL_10_10_PASS'}
+    rh=hobj(review); review['review_sha256']=rh; c['step2_final_audit']['review_sha256']=rh
+    return c,review
+
+def semantic_rescan(old_items,finals):
+    seen=[]
+    for cid,pj,_,_ in old_items:
+        p=json.loads(pj); i=p.get('item',p); t=' '.join([i.get('vignette',''),i.get('lead_in',''),*list(i.get('options',{}).values())]); seen.append((cid,norm(t),grams(t),norm(i.get('tested_construct',''))))
+    for n in NEW_RANGE:
+        p=finals[n]; i=p['item']; t=' '.join([i['vignette'],i['lead_in'],*list(i['options'].values())]); nt=norm(t); ng=grams(t); tc=norm(i.get('tested_construct',''))
+        for cid,ot,og,oc in seen:
+            if nt==ot: raise SystemExit(f'Q{n}: exact duplicate {cid}')
+            jj=jacc(ng,og)
+            if jj>=0.80: raise SystemExit(f'Q{n}: near duplicate {jj:.3f} {cid}')
+            if tc and tc==oc: raise SystemExit(f'Q{n}: exact tested-construct duplicate {cid}')
+        seen.append((p['candidate_id'],nt,ng,tc))
+
+def main():
+    now=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
+    pre=json.loads(STATE_PRE.read_text())
+    if pre.get('final_status')!='FINAL_10_10_PASS' or pre.get('item_count')!=EXPECTED_PRE_COUNT or pre.get('step2_final_review_count')!=EXPECTED_PRE_COUNT or pre.get('post_authoritative_db_blob')!=EXPECTED_PRE_DB_BLOB or pre.get('contiguous_q0001_q1250') is not True: raise SystemExit('pre-state Q1250 binding failure')
+    if gitblob(DB)!=EXPECTED_PRE_DB_BLOB: raise SystemExit('authoritative DB blob changed before import')
+    batch,docs=load_candidates(); manifest,audits=load_manifest_and_audits(docs); manifest_hash=hobj(manifest)
+    if Counter(EXPECTED_KEYS.values())!=Counter({'A':2,'B':2,'C':2,'D':2,'E':2}): raise SystemExit('key balance failure')
+    con=sqlite3.connect(DB)
+    if con.execute('PRAGMA integrity_check').fetchone()[0]!='ok': raise SystemExit('pre SQLite integrity failure')
+    tables={x[0] for x in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    if not {'step2_final_items','step2_final_reviews','step2_finalization'}.issubset(tables): raise SystemExit('required tables missing')
+    old_items=con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall(); old_reviews=con.execute("SELECT candidate_id,review_json,review_sha256,final_status FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall()
+    if len(old_items)!=EXPECTED_PRE_COUNT or len(old_reviews)!=EXPECTED_PRE_COUNT: raise SystemExit('pre count failure')
+    ids={r[0] for r in old_items}; rids={r[0] for r in old_reviews}
+    if ids!=rids or {qnum(cid) for cid in ids}!=set(range(1,EXPECTED_PRE_COUNT+1)): raise SystemExit('pre contiguity failure')
+    rmap={x[0]:x for x in old_reviews}; old_payloads=[]
+    for cid,pj,ps,ash in old_items:
+        p=json.loads(pj); old_payloads.append(p)
+        if hobj(p)!=ps: raise SystemExit(cid+' payload hash failure')
+        rr=rmap[cid]
+        if rr[2]!=ash or rr[3]!='FINAL_10_10_PASS' or json.loads(rr[1]).get('review_sha256')!=rr[2]: raise SystemExit(cid+' review link/hash failure')
+    baseline_bp=Counter(p['blueprint']['primary_system'] for p in old_payloads); baseline_cp=Counter(p['blueprint']['primary_competency'] for p in old_payloads)
+    inc_bp=Counter(d['blueprint']['primary_system'] for d in docs.values()); inc_cp=Counter(d['blueprint']['primary_competency'] for d in docs.values())
+    if inc_bp!=Counter({RR:5,RE:5}) or inc_cp!=Counter({DX:5,MK:5}): raise SystemExit('new-block distribution failure')
+    expected_bp=baseline_bp+inc_bp; expected_cp=baseline_cp+inc_cp
+    template=old_payloads[0]; finals={}; reviews={}
+    for n in NEW_RANGE:
+        a,ap=audits[n]; c,r=build_payload(template,docs[n],n,a,ap,manifest_hash)
+        if c['candidate_id'] in ids: raise SystemExit(f'Q{n}: candidate-id collision')
+        finals[n]=c; reviews[n]=r
+    semantic_rescan(old_items,finals)
+    try:
+        con.execute('BEGIN IMMEDIATE')
+        for n in NEW_RANGE:
+            c=finals[n]; r=reviews[n]; cid=c['candidate_id']; pj=canon(c); ph=hobj(c); rh=r['review_sha256']
+            if con.execute('SELECT 1 FROM step2_final_items WHERE candidate_id=?',(cid,)).fetchone() or con.execute('SELECT 1 FROM step2_final_reviews WHERE candidate_id=?',(cid,)).fetchone(): raise SystemExit(cid+' collision during transaction')
+            con.execute('INSERT INTO step2_final_items(candidate_id,payload_json,payload_sha256,audit_sha256,final_status,finalized_at) VALUES(?,?,?,?,?,?)',(cid,pj,ph,rh,'FINAL_10_10_PASS',now)); con.execute('INSERT INTO step2_final_reviews(candidate_id,review_json,review_sha256,final_status,finalized_at) VALUES(?,?,?,?,?)',(cid,canon(r),rh,'FINAL_10_10_PASS',now))
+        all_rows=con.execute("SELECT candidate_id,payload_json FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall(); ordered=sorted((qnum(cid),json.loads(pj)) for cid,pj in all_rows)
+        key_hash=sha(''.join(p['item']['intended_key'] for _,p in ordered)); rr=con.execute("SELECT candidate_id,review_sha256 FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall(); aggregate_review_hash=sha(''.join(rh for cid,rh in sorted(rr,key=lambda z:qnum(z[0]))))
+        con.execute('UPDATE step2_finalization SET audit_id=?,item_count=?,key_schedule_sha256=?,aggregate_review_sha256=?,finalized_at=? WHERE id=1',(AUDIT_ID,EXPECTED_POST_COUNT,key_hash,aggregate_review_hash,now)); con.commit()
+    except Exception:
+        con.rollback(); con.close(); raise
+    if con.execute('PRAGMA integrity_check').fetchone()[0]!='ok': raise SystemExit('post SQLite integrity failure')
+    rows=con.execute("SELECT candidate_id,payload_json,payload_sha256,audit_sha256 FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall(); revrows=con.execute("SELECT candidate_id,review_json,review_sha256,final_status FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchall()
+    if len(rows)!=EXPECTED_POST_COUNT or len(revrows)!=EXPECTED_POST_COUNT: raise SystemExit('post count failure')
+    nums=[qnum(x[0]) for x in rows]
+    if set(nums)!=set(range(1,EXPECTED_POST_COUNT+1)) or len(nums)!=len(set(nums)): raise SystemExit('post contiguity failure')
+    revmap={x[0]:x for x in revrows}; payloads=[]; new_seen={}
+    for cid,pj,ps,ash in rows:
+        p=json.loads(pj); payloads.append(p)
+        if hobj(p)!=ps: raise SystemExit(cid+' post payload hash failure')
+        rr=revmap[cid]
+        if rr[2]!=ash or rr[3]!='FINAL_10_10_PASS' or json.loads(rr[1]).get('review_sha256')!=rr[2]: raise SystemExit(cid+' post review consistency failure')
+        if p['blueprint']['primary_system'] not in OFFICIAL_SYSTEMS or p['blueprint']['primary_competency'] not in OFFICIAL_COMPETENCIES: raise SystemExit(cid+' global metadata reread failure')
+        n=qnum(cid)
+        if n in NEW_RANGE:
+            new_seen[n]=p
+            if p['blueprint']['primary_system'] not in {RR,RE} or p['blueprint']['primary_competency'] not in {DX,MK}: raise SystemExit(cid+' current metadata reread failure')
+            if p['blueprint']['official_outline_path']!=[p['blueprint']['primary_system']]: raise SystemExit(cid+' outline reread failure')
+            if p['step2_final_audit']['final_10_10_gate']!='FINAL_10_10_PASS': raise SystemExit(cid+' FINAL gate reread failure')
+    if set(new_seen)!=set(NEW_RANGE) or ''.join(new_seen[n]['item']['intended_key'] for n in NEW_RANGE)!='DAECBEBDAC': raise SystemExit('new block reread/key failure')
+    post_bp=Counter(p['blueprint']['primary_system'] for p in payloads); post_cp=Counter(p['blueprint']['primary_competency'] for p in payloads)
+    if post_bp!=expected_bp or post_cp!=expected_cp: raise SystemExit('aggregate blueprint/competency mismatch')
+    new_disc=Counter();
+    for n,p in new_seen.items(): new_disc.update(p['blueprint']['disciplines'])
+    checkpoint=con.execute('PRAGMA wal_checkpoint(TRUNCATE)').fetchone(); con.close()
+    post_blob=gitblob(DB); post_sha=hashlib.sha256(DB.read_bytes()).hexdigest()
+    if post_blob==EXPECTED_PRE_DB_BLOB: raise SystemExit('DB blob did not change')
+    if pathlib.Path(str(DB)+'-wal').exists() or pathlib.Path(str(DB)+'-shm').exists(): raise SystemExit('SQLite sidecar remains')
+    state={'audit_id':AUDIT_ID,'final_status':'FINAL_10_10_PASS','item_count':EXPECTED_POST_COUNT,'authoritative_final_table':'step2_final_items','step2_final_review_count':EXPECTED_POST_COUNT,'new_block':{'range':'Q1251-Q1260','item_count':10,'clinical_audit_files_verified':10,'final_qa_manifest':str(MANIFEST.relative_to(REPO)),'final_qa_manifest_blob':EXPECTED_MANIFEST_BLOB,'final_qa_manifest_sha256':manifest_hash,'candidate_batch_blob':EXPECTED_BATCH_BLOB,'fresh_item_by_item_audit':True,'canonical_duplicate_rescan':True},'answer_position_new_block':{'balanced':dict(sorted(Counter(EXPECTED_KEYS.values()).items())),'sequence':'DAECBEBDAC'},'blueprint_counts':dict(post_bp),'competency_counts':dict(post_cp),'blueprint_increment_new_block':dict(inc_bp),'competency_increment_new_block':dict(inc_cp),'official_discipline_new_block_counts':{d:new_disc.get(d,0) for d in sorted(OFFICIAL_DISCIPLINES)},'official_system_labels_validated':True,'official_competency_labels_validated':True,'official_discipline_metadata_validated':True,'sqlite_integrity_check':'ok','duplicate_candidate_id_count':0,'payload_review_consistency':'PASS','reread_verified_count':EXPECTED_POST_COUNT,'new_block_reread_verified_count':10,'q1251_q1260_present_exactly_once':True,'contiguous_q0001_q1260':True,'pre_authoritative_db_blob':EXPECTED_PRE_DB_BLOB,'post_authoritative_db_blob':post_blob,'post_authoritative_db_sha256':post_sha,'wal_checkpoint_result':list(checkpoint) if checkpoint else None,'wal_sidecar_present_after_close':False,'shm_sidecar_present_after_close':False,'schema_tables_verified':['step2_final_items','step2_final_reviews','step2_finalization'],'finalized_at':now}
+    STATE_POST.write_text(json.dumps(state,indent=2,ensure_ascii=False)+'\n')
+    fa=copy.deepcopy(state); fa['production_import_manifest_status']='FINAL_QA_PASS'; fa['production_import_ready_prewrite']=True; fa['production_import_completed']=True; fa['final_verdict']='FINAL_10_10_PASS_NO_MATERIAL_DEFECT'; FINAL_AUDIT.write_text(json.dumps(fa,indent=2,ensure_ascii=False)+'\n')
+    s=json.loads(STATE_POST.read_text()); f=json.loads(FINAL_AUDIT.read_text())
+    assert s['item_count']==1260 and s['step2_final_review_count']==1260 and s['contiguous_q0001_q1260'] is True and s['q1251_q1260_present_exactly_once'] is True
+    assert s['post_authoritative_db_blob']==gitblob(DB) and f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT'
+    print(json.dumps({'status':'SUCCESS','final_count':1260,'reviews':1260,'integrity':'ok','post_db_blob':post_blob,'state':str(STATE_POST.relative_to(REPO)),'final_audit':str(FINAL_AUDIT.relative_to(REPO))},sort_keys=True))
+if __name__=='__main__': main()
