@@ -15,7 +15,6 @@ repls=[
 ("for n in range(1271,1281):","for n in range(1281,1291):"),
 ("'authoritative_db_final_count':1270","'authoritative_db_final_count':1280"),
 ("Q1271-Q1280-FINAL-QA-PASS-Q1270-BOUND-20260906","Q1281-Q1290-FINAL-QA-PASS-Q1280-BOUND-20260906"),
-("'authoritative_db_final_count':1270","'authoritative_db_final_count':1280"),
 ("Q1271-Q1280","Q1281-Q1290"),
 ("CEADBADCBE","BDACECAEDB"),
 ("'Behavioral Health & Nervous Systems/Special Senses':5,'Blood & Lymphoreticular/Immune Systems':5","'Reproductive & Endocrine Systems':5,'Respiratory & Renal/Urinary Systems':5")]
