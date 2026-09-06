@@ -55,16 +55,6 @@ jobs:
                   raise SystemExit('missing expected generator text: '+old)
               s=s.replace(old,new)
           g.write_text(s)
-
-          w=Path('.github/workflows/usmle-generate-q1241-q1250.yml')
-          t=w.read_text()
-          for old,new in {
-            "Blood, Lymphoreticular and Immune Systems":"Blood & Lymphoreticular/Immune Systems",
-            "Musculoskeletal, Skin and Subcutaneous Tissue":"Musculoskeletal, Skin & Subcutaneous Tissue",
-            "Patient Care: Diagnosis, including history and physical examination":"Patient Care: Diagnosis"
-          }.items():
-              t=t.replace(old,new)
-          w.write_text(t)
           PY
           python -m py_compile usmle/generate_q1241_q1250_candidate.py
           python usmle/generate_q1241_q1250_candidate.py
@@ -99,7 +89,7 @@ jobs:
           set -euo pipefail
           git config user.name 'USMLE Zero Trust Repair'
           git config user.email 'actions@users.noreply.github.com'
-          git add usmle/generate_q1241_q1250_candidate.py usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json .github/workflows/usmle-generate-q1241-q1250.yml
+          git add usmle/generate_q1241_q1250_candidate.py usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json
           git diff --cached --quiet && { echo 'No repair changes'; exit 1; }
           git commit -m 'USMLE: repair Q1241-Q1250 official metadata and source dates'
           git pull --rebase origin main
