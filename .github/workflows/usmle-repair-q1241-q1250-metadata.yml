@@ -1,0 +1,121 @@
+name: USMLE Repair Q1241-Q1250 Metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/REPAIR_TRIGGER_Q1241_Q1250_METADATA'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-repair-q1241-q1250-metadata
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact pre-repair blobs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/generate_q1241_q1250_candidate.py)" = "7f659b092f209e41ece5908b757b6ef0d9a9e139"
+          test "$(git hash-object usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json)" = "225494e9b2b619088516637e2b8872ecf88b70b2"
+      - name: Repair source of truth and regenerate candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          g=Path('usmle/generate_q1241_q1250_candidate.py')
+          s=g.read_text()
+          replacements={
+            "IMM='Blood, Lymphoreticular and Immune Systems'":"IMM='Blood & Lymphoreticular/Immune Systems'",
+            "SKIN='Musculoskeletal, Skin and Subcutaneous Tissue'":"SKIN='Musculoskeletal, Skin & Subcutaneous Tissue'",
+            "DX='Patient Care: Diagnosis, including history and physical examination'":"DX='Patient Care: Diagnosis'",
+            "USMLE_URL='https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications'":"USMLE_URL='https://www.usmle.org/step-exams/step-1/step-1-exam-content'",
+            "'date':'current NCI PDQ summary'":"'date':'published online 2024-08-22; current NCI PDQ summary'",
+            "'date':'GeneReviews current 1993-2026 edition'":"'date':'review posted 2019-08-08; current GeneReviews 1993-2026 edition'",
+            "'date':'2016','locator':'Genetic and functional deficiency of C1q in SLE'":"'date':'2015 final publication; PMC 2016','locator':'Genetic and functional deficiency of C1q in SLE'",
+            "'date':'2011','locator':'Abstract','support':'Autosomal-recessive generalized peeling skin disease can result from CDSN loss":"'date':'2010','locator':'Abstract','support':'Autosomal-recessive generalized peeling skin disease can result from CDSN loss",
+            "'blueprint':{'primary_system':d['system'],'official_outline_path':[d['system'],*d['path']],":"'blueprint':{'primary_system':d['system'],'official_outline_path':[d['system']],'internal_content_path':d['path'],"
+          }
+          for old,new in replacements.items():
+              if old not in s:
+                  raise SystemExit('missing expected generator text: '+old)
+              s=s.replace(old,new)
+          g.write_text(s)
+
+          w=Path('.github/workflows/usmle-generate-q1241-q1250.yml')
+          t=w.read_text()
+          for old,new in {
+            "Blood, Lymphoreticular and Immune Systems":"Blood & Lymphoreticular/Immune Systems",
+            "Musculoskeletal, Skin and Subcutaneous Tissue":"Musculoskeletal, Skin & Subcutaneous Tissue",
+            "Patient Care: Diagnosis, including history and physical examination":"Patient Care: Diagnosis"
+          }.items():
+              t=t.replace(old,new)
+          w.write_text(t)
+          PY
+          python -m py_compile usmle/generate_q1241_q1250_candidate.py
+          python usmle/generate_q1241_q1250_candidate.py
+      - name: Validate repaired metadata and evidence dates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
+          d=json.loads(p.read_text()); items=d['items']
+          IMM='Blood & Lymphoreticular/Immune Systems'; SKIN='Musculoskeletal, Skin & Subcutaneous Tissue'
+          DX='Patient Care: Diagnosis'; MK='Medical Knowledge: Applying Foundational Science Concepts'
+          assert len(items)==10 and [x['num'] for x in items]==list(range(1241,1251))
+          assert d['batch_design']['systems']=={IMM:5,SKIN:5}
+          assert d['batch_design']['competencies']=={DX:5,MK:5}
+          assert all(x['blueprint']['official_outline_path']==[x['blueprint']['primary_system']] for x in items)
+          assert all('internal_content_path' in x['blueprint'] for x in items)
+          assert all(x['sources'][0]['url']=='https://www.usmle.org/step-exams/step-1/step-1-exam-content' for x in items)
+          assert items[1]['sources'][1]['publication_or_revision_date']=='published online 2024-08-22; current NCI PDQ summary'
+          assert items[2]['sources'][1]['publication_or_revision_date']=='review posted 2019-08-08; current GeneReviews 1993-2026 edition'
+          assert items[4]['sources'][1]['publication_or_revision_date']=='2015 final publication; PMC 2016'
+          assert items[8]['sources'][1]['publication_or_revision_date']=='2010'
+          assert ''.join(x['item']['intended_key'] for x in items)=='BDAECAECDB'
+          assert {k:sum(x['item']['intended_key']==k for x in items) for k in 'ABCDE'}=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert 'NCJMM' not in p.read_text()
+          print('METADATA_REPAIR_VERIFY=PASS')
+          PY
+      - name: Persist repaired source and frozen candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Zero Trust Repair'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/generate_q1241_q1250_candidate.py usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json .github/workflows/usmle-generate-q1241-q1250.yml
+          git diff --cached --quiet && { echo 'No repair changes'; exit 1; }
+          git commit -m 'USMLE: repair Q1241-Q1250 official metadata and source dates'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import json,pathlib,subprocess
+          p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
+          d=json.loads(p.read_text())
+          assert d['batch_design']['systems']=={'Blood & Lymphoreticular/Immune Systems':5,'Musculoskeletal, Skin & Subcutaneous Tissue':5}
+          assert d['batch_design']['competencies']=={'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5}
+          assert all(x['blueprint']['official_outline_path']==[x['blueprint']['primary_system']] for x in d['items'])
+          print('PERSISTED_METADATA_REPAIR=PASS CANDIDATE_BLOB='+subprocess.check_output(['git','hash-object',str(p)],text=True).strip())
+          PY
