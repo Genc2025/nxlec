@@ -22,6 +22,7 @@ repls=[
 ("EXPECTED_MANIFEST_BLOB='61e85d42cb173ee7ee5fc6f413161d7d1a3309e7'",f"EXPECTED_MANIFEST_BLOB='{manifest_blob}'"),
 ("AUDIT_ID='STEP2-FINAL-Q0001-Q1270-20260906'; CID_SUFFIX='20260906T101000Z'","AUDIT_ID='STEP2-FINAL-Q0001-Q1290-20260906'; CID_SUFFIX='20260906T140500Z'"),
 ("GI='Gastrointestinal System'; CV='Cardiovascular System'; DX='Patient Care: Diagnosis'; MK='Medical Knowledge: Applying Foundational Science Concepts'","ENDO='Reproductive & Endocrine Systems'; RENAL='Respiratory & Renal/Urinary Systems'; DX='Patient Care: Diagnosis'; MK='Medical Knowledge: Applying Foundational Science Concepts'"),
+("'Behavioral Health, Nervous Systems and Special Senses'","'Behavioral Health, Nervous Systems and Special Senses','Behavioral Health & Nervous Systems/Special Senses'"),
 ("seq!='BECADCADEB'","seq!='BDACECAEDB'"),
 ("Counter({GI:5,CV:5})","Counter({ENDO:5,RENAL:5})"),
 ("m.get('item_range')!='Q1261-Q1270'","m.get('item_range')!='Q1281-Q1290'"),
