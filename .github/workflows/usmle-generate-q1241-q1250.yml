@@ -1,0 +1,106 @@
+name: USMLE Generate Q1241-Q1250 Candidate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/GENERATE_TRIGGER_Q1241_Q1250'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-generate-q1241-q1250
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify canonical Q1240 pre-state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          state=pathlib.Path('usmle/state/step2_final_q0001_q1240.json')
+          s=json.loads(state.read_text())
+          assert s['final_status']=='FINAL_10_10_PASS'
+          assert s['item_count']==1240 and s['step2_final_review_count']==1240
+          assert s['contiguous_q0001_q1240'] is True
+          expected='ec4393c3699a68616ea2877b464916b0db680328'
+          assert s['post_authoritative_db_blob']==expected
+          assert subprocess.check_output(['git','hash-object',str(db)],text=True).strip()==expected
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1240
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1240
+          con.close()
+          print('CANONICAL_PRESTATE=PASS COUNT=1240 BLOB='+expected)
+          PY
+      - name: Compile and generate frozen candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/generate_q1241_q1250_candidate.py
+          python usmle/generate_q1241_q1250_candidate.py
+      - name: Validate candidate invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
+          d=json.loads(p.read_text())
+          items=d['items']; keys=''.join(x['item']['intended_key'] for x in items)
+          assert d['production_count_before']==1240 and d['production_count_after']==1240
+          assert d['canonical_pre_state']['db_blob']=='ec4393c3699a68616ea2877b464916b0db680328'
+          assert [x['num'] for x in items]==list(range(1241,1251)) and len(items)==10
+          assert keys=='BDAECAECDB'
+          assert {k:keys.count(k) for k in 'ABCDE'}=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert all(set(x['item']['options'])==set('ABCDE') for x in items)
+          assert all(len(set(x['item']['options'].values()))==5 for x in items)
+          assert all(x['status']=='CANDIDATE_FROZEN' for x in items)
+          assert all(x['author_self_audit']['unresolved_concerns']==[] for x in items)
+          assert all(x['author_self_audit']['suggested_changes']==[] for x in items)
+          assert 'NCJMM' not in p.read_text()
+          assert sum(x['blueprint']['primary_system']=='Blood, Lymphoreticular and Immune Systems' for x in items)==5
+          assert sum(x['blueprint']['primary_system']=='Musculoskeletal, Skin and Subcutaneous Tissue' for x in items)==5
+          assert sum(x['blueprint']['primary_competency']=='Patient Care: Diagnosis, including history and physical examination' for x in items)==5
+          assert sum(x['blueprint']['primary_competency']=='Medical Knowledge: Applying Foundational Science Concepts' for x in items)==5
+          print('CANDIDATE_INVARIANTS=PASS ITEMS=10 KEYS='+keys)
+          PY
+      - name: Persist frozen candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Candidate Freezer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json
+          git diff --cached --quiet && { echo 'No candidate generated'; exit 1; }
+          git commit -m 'USMLE: freeze candidate Q1241-Q1250'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted candidate on main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import json,pathlib,subprocess
+          p=pathlib.Path('usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json')
+          d=json.loads(p.read_text()); items=d['items']
+          assert len(items)==10 and [x['num'] for x in items]==list(range(1241,1251))
+          assert ''.join(x['item']['intended_key'] for x in items)=='BDAECAECDB'
+          print('PERSISTED_CANDIDATE=PASS BLOB='+subprocess.check_output(['git','hash-object',str(p)],text=True).strip())
+          PY
