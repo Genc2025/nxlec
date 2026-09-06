@@ -2,8 +2,7 @@
 import urllib.request,urllib.error,json
 URLS=[
 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-46/subpart-D/section-46.408',
-'https://www.fda.gov/regulatory-information/search-fda-guidance-documents/exception-informed-consent-requirements-emergency-research',
-'https://www.fda.gov/medical-devices/investigational-device-exemption-ide/ide-informed-consent',
+'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-50/subpart-B/section-50.24',
 'https://www.ada.gov/resources/effective-communication/',
 'https://www.ada.gov/resources/business-brief-hospital/'
 ]
