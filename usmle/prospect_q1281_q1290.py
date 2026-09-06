@@ -12,7 +12,9 @@ TERMS=[
  'SLC22A12','URAT1','renal hypouricemia','INF2','Charcot-Marie-Tooth','focal segmental glomerulosclerosis',
  'CA2 deficiency','carbonic anhydrase II deficiency','osteopetrosis renal tubular acidosis cerebral calcification',
  'KISS1R','GNRHR','hypogonadotropic hypogonadism','SECISBP2','selenocysteine insertion sequence-binding protein 2',
- 'TRPC6','DGKE','atypical hemolytic uremic syndrome','COQ8B','ADCK4','LAMB2','Pierson syndrome'
+ 'TRPC6','DGKE','atypical hemolytic uremic syndrome','COQ8B','ADCK4','LAMB2','Pierson syndrome',
+ 'MC2R','melanocortin 2 receptor','MRAP','familial glucocorticoid deficiency','HSD3B2','3 beta hydroxysteroid dehydrogenase type 2',
+ 'CYP11A1','cholesterol side-chain cleavage','STAR','steroidogenic acute regulatory protein','TSHR','familial nonautoimmune hyperthyroidism'
 ]
 def gitblob(p):return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def material_text(p):
