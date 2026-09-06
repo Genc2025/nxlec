@@ -1,0 +1,90 @@
+name: USMLE Build Importer Q1241-Q1250
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/BUILD_IMPORTER_TRIGGER_Q1241_Q1250'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify FINAL QA and canonical pre-state
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/audit/Q1241_Q1250_FINAL_QA_PASS.json)" = "3cdb253ed2e825593c3aba5b44bec7ea940a6a35"
+          test "$(git hash-object usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json)" = "74a9f64982189d58f0bff5e5204ff39cff931fdb"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "ec4393c3699a68616ea2877b464916b0db680328"
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1241_Q1250_FINAL_QA_PASS.json'))
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT' and m['production_import_ready'] is True
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          print('FINAL_QA_PRECONDITION=PASS')
+          PY
+      - name: Build importer from verified predecessor
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/build_step2_import_q1241_q1250.py
+          python usmle/build_step2_import_q1241_q1250.py
+          python -m py_compile usmle/step2_import_q1241_q1250.py
+      - name: Static fail-closed importer audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('usmle/step2_import_q1241_q1250.py'); s=p.read_text()
+          required=[
+            "STATE_PRE=ROOT/'state'/'step2_final_q0001_q1240.json'",
+            "STATE_POST=ROOT/'state'/'step2_final_q0001_q1250.json'",
+            "MANIFEST=AUD/'Q1241_Q1250_FINAL_QA_PASS.json'",
+            "FINAL_AUDIT=AUD/'STEP2_FINAL_10_10_Q0001_Q1250.json'",
+            "NEW_RANGE=range(1241,1251)",
+            "EXPECTED_PRE_COUNT=1240","EXPECTED_POST_COUNT=1250",
+            "EXPECTED_PRE_DB_BLOB='ec4393c3699a68616ea2877b464916b0db680328'",
+            "EXPECTED_BATCH_BLOB='74a9f64982189d58f0bff5e5204ff39cff931fdb'",
+            "EXPECTED_MANIFEST_BLOB='3cdb253ed2e825593c3aba5b44bec7ea940a6a35'",
+            "'Blood & Lymphoreticular/Immune Systems'","'Musculoskeletal, Skin & Subcutaneous Tissue'","'Patient Care: Diagnosis'",
+            "evidence claim/rationale binding failure","grounded distractor rationale failure",
+            "'q1241_q1250_present_exactly_once':True","'contiguous_q0001_q1250':True"
+          ]
+          for x in required: assert x in s,x
+          forbidden=["NEW_RANGE=range(1231,1241)","'range':'Q1231-Q1240'","'q1231_q1240_present_exactly_once':True"]
+          for x in forbidden: assert x not in s,x
+          print('STATIC_IMPORTER_AUDIT=PASS')
+          PY
+      - name: Persist importer
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Import Builder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/step2_import_q1241_q1250.py
+          git diff --cached --quiet && { echo 'No importer generated'; exit 1; }
+          git commit -m 'USMLE: build transactional importer Q1241-Q1250'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted importer and untouched DB
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          python -m py_compile usmle/step2_import_q1241_q1250.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "ec4393c3699a68616ea2877b464916b0db680328"
+          echo "PERSISTED_IMPORTER=PASS BLOB=$(git hash-object usmle/step2_import_q1241_q1250.py)"
