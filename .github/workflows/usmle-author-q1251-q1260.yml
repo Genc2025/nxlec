@@ -1,0 +1,134 @@
+name: USMLE Author Q1251-Q1260
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/AUTHOR_TRIGGER_Q1251_Q1260'
+
+permissions:
+  contents: write
+
+jobs:
+  author:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact Q1250 canonical pre-state
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3eeb306808a842cdcd3ba08fb29ec5145ce36ced"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1250.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1250 and s['step2_final_review_count']==1250
+          assert s['contiguous_q0001_q1250'] is True and s['post_authoritative_db_blob']=='3eeb306808a842cdcd3ba08fb29ec5145ce36ced'
+          print('Q1250_PRESTATE=PASS')
+          PY
+      - name: Generate evidence-bound Q1251-Q1260 candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1251_q1260.py
+          python usmle/author_q1251_q1260.py
+      - name: Independently verify source URLs, PubMed titles, metadata and evidence contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,re,time,urllib.request,urllib.parse,xml.etree.ElementTree as ET
+          from collections import Counter
+          p='usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json'
+          b=json.load(open(p)); items=b['items']
+          assert b['production_count_before']==b['production_count_after']==1250
+          assert b['status']=='AUTHOR_ZERO_TRUST_PASS_PENDING_CANONICAL_DUPLICATE_AND_FINAL_QA'
+          assert [x['num'] for x in items]==list(range(1251,1261)) and len(items)==10
+          assert b['answer_key_sequence']=='DAECBEBDAC' and b['answer_key_distribution']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert Counter(x['blueprint']['primary_system'] for x in items)==Counter({'Respiratory & Renal/Urinary Systems':5,'Reproductive & Endocrine Systems':5})
+          assert Counter(x['blueprint']['primary_competency'] for x in items)==Counter({'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5})
+          req=urllib.request.Request('https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications',headers={'User-Agent':'Mozilla/5.0'})
+          html=urllib.request.urlopen(req,timeout=30).read().decode('utf-8','ignore')
+          for text in ['Respiratory & Renal/Urinary Systems','Reproductive & Endocrine Systems','Medical Knowledge: Applying Foundational Science Concepts','Patient Care: Diagnosis']:
+              assert text in html,text
+          for x in items:
+              n=x['num']; key=x['item']['intended_key']; de=x['explanation']['distractor_explanations']; em={e['option']:e for e in x['evidence_map']}
+              assert list(x['item']['options'])==list('ABCDE') and len(set(x['item']['options'].values()))==5
+              assert x['blueprint']['official_outline_path']==[x['blueprint']['primary_system']] and x['blueprint']['internal_content_path']
+              assert set(de)==set(em)==set('ABCDE') and x['explanation']['key_explanation'] and x['explanation']['educational_objective']
+              assert 'ncjmm' not in json.dumps(x).casefold()
+              for L in 'ABCDE':
+                  assert em[L]['claim']==de[L]
+                  assert em[L]['direct_or_inference']==('direct' if L==key else 'inference')
+                  assert em[L]['source_ids']
+                  if L!=key: assert 'It is not selected because it does not account for' in de[L]
+              for s in x['sources']:
+                  assert s['url'].startswith('https://') and s['section_locator'] and s['supporting_passage']
+                  if 'pubmed.ncbi.nlm.nih.gov' not in s['url']: continue
+                  m=re.fullmatch(r'https://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/',s['url']); assert m,s['url']; pmid=m.group(1)
+                  u='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?'+urllib.parse.urlencode({'db':'pubmed','id':pmid,'retmode':'xml'})
+                  xml=ET.fromstring(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'USMLE-QA/1.0'}),timeout=30).read())
+                  title=''.join(xml.find('.//ArticleTitle').itertext()).strip()
+                  norm=lambda z: re.sub(r'[^a-z0-9]+','',z.casefold())
+                  assert norm(title)==norm(s['title']),(pmid,title,s['title'])
+                  abstract=' '.join(''.join(a.itertext()).strip() for a in xml.findall('.//Abstract/AbstractText'))
+                  assert len(abstract)>80,(pmid,'missing abstract')
+                  time.sleep(.2)
+          print('INDEPENDENT_AUTHOR_EVIDENCE_VERIFY=PASS')
+          PY
+      - name: Read-only similarity screen against canonical Q0001-Q1250 and intra-batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,re,sqlite3,math
+          from collections import Counter
+          b=json.load(open('usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json'))
+          con=sqlite3.connect('file:usmle/data/usmle-step1.db?mode=ro&immutable=1',uri=True)
+          rows=con.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall(); con.close(); assert len(rows)==1250
+          stop=set('a an the this that these those is are was were be been being to of in on at by for with from and or but as into due which what most likely patient patients his her their has have had shows show identifies identify'.split())
+          def toks(s): return [w for w in re.findall(r'[a-z0-9]+',s.casefold()) if len(w)>2 and w not in stop]
+          def text_item(d):
+              it=d.get('item',d); return ' '.join([it.get('vignette',''),it.get('lead_in',''),it.get('tested_construct','')]+list(it.get('options',{}).values()))
+          old=[(cid,set(toks(text_item(json.loads(pj))))) for cid,pj in rows]
+          new=[(x['num'],set(toks(text_item(x)))) for x in b['items']]
+          maxc=(0,None,None); maxi=(0,None,None)
+          for n,nt in new:
+              for cid,ot in old:
+                  j=len(nt&ot)/max(1,len(nt|ot))
+                  if j>maxc[0]: maxc=(j,n,cid)
+              for m,mt in new:
+                  if m>=n: continue
+                  j=len(nt&mt)/max(1,len(nt|mt))
+                  if j>maxi[0]: maxi=(j,n,m)
+          print('MAX_CANONICAL_JACCARD',maxc,'MAX_INTRA_BATCH_JACCARD',maxi)
+          assert maxc[0]<0.45,maxc
+          assert maxi[0]<0.45,maxi
+          PY
+      - name: Persist frozen candidate only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Author QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json
+          git diff --cached --quiet && { echo 'No candidate generated'; exit 1; }
+          git commit -m 'USMLE: freeze candidate Q1251-Q1260 pending FINAL QA'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main and untouched canonical DB
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3eeb306808a842cdcd3ba08fb29ec5145ce36ced"
+          test -f usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json
+          echo "CANDIDATE_PERSISTED=PASS BLOB=$(git hash-object usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json) DB_UNTOUCHED=PASS"
