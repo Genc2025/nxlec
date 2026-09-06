@@ -1,0 +1,66 @@
+name: USMLE Author Q1261-Q1270
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/AUTHOR_TRIGGER_Q1261_Q1270'
+
+permissions:
+  contents: write
+
+jobs:
+  author:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact Q1260 canonical pre-state
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "2afb11e1d3490cedc757ecfbe7e4515c6bbd527c"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1260.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1260 and s['step2_final_review_count']==1260
+          assert s['contiguous_q0001_q1260'] is True and s['post_authoritative_db_blob']=='2afb11e1d3490cedc757ecfbe7e4515c6bbd527c'
+          print('Q1260_PRESTATE=PASS')
+          PY
+      - name: Regenerate candidate from source of truth
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1261_q1270.py usmle/verify_author_q1261_q1270.py
+          python usmle/author_q1261_q1270.py
+      - name: Full independent author verification from zero
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/verify_author_q1261_q1270.py
+      - name: Persist frozen candidate only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Author QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/batch_specs_1201_1300/09_q1261_q1270_author_20260906.json
+          git diff --cached --quiet && { echo 'No candidate generated'; exit 1; }
+          git commit -m 'USMLE: freeze candidate Q1261-Q1270 pending FINAL QA'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted candidate and untouched canonical DB
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "2afb11e1d3490cedc757ecfbe7e4515c6bbd527c"
+          python usmle/verify_author_q1261_q1270.py
+          echo "CANDIDATE_PERSISTED=PASS BLOB=$(git hash-object usmle/batch_specs_1201_1300/09_q1261_q1270_author_20260906.json) DB_UNTOUCHED=PASS"
