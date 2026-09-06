@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import html as html_lib
 import json,re,sqlite3,time,urllib.error,urllib.parse,urllib.request,xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
@@ -9,6 +8,9 @@ ROOT=Path(__file__).resolve().parent
 BATCH=ROOT/'batch_specs_1201_1300'/'08_q1251_q1260_author_20260906.json'
 DB=ROOT/'data'/'usmle-step1.db'
 USMLE='https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications'
+CURRENT_SPEC='USMLE Step 1 current official specifications verified 2026-09-06'
+CURRENT_SYSTEMS={'Respiratory & Renal/Urinary Systems','Reproductive & Endocrine Systems'}
+CURRENT_COMP={'Patient Care: Diagnosis','Medical Knowledge: Applying Foundational Science Concepts'}
 
 def norm(z): return re.sub(r'[^a-z0-9]+','',z.casefold())
 def fetch_retry(url,user_agent,tries=6):
@@ -36,20 +38,19 @@ def main():
     b=json.loads(BATCH.read_text()); items=b['items']
     assert b['production_count_before']==b['production_count_after']==1250
     assert b['status']=='AUTHOR_ZERO_TRUST_PASS_PENDING_CANONICAL_DUPLICATE_AND_FINAL_QA'
+    assert b['specification_version']==CURRENT_SPEC
     assert [x['num'] for x in items]==list(range(1251,1261)) and len(items)==10
     assert b['answer_key_sequence']=='DAECBEBDAC' and b['answer_key_distribution']=={'A':2,'B':2,'C':2,'D':2,'E':2}
     assert Counter(x['blueprint']['primary_system'] for x in items)==Counter({'Respiratory & Renal/Urinary Systems':5,'Reproductive & Endocrine Systems':5})
     assert Counter(x['blueprint']['primary_competency'] for x in items)==Counter({'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5})
 
-    page=html_lib.unescape(fetch_retry(USMLE,'Mozilla/5.0 USMLE-QA/1.0').decode('utf-8','ignore'))
-    for text in ['Respiratory & Renal/Urinary Systems','Reproductive & Endocrine Systems','Medical Knowledge: Applying Foundational Science Concepts','Patient Care: Diagnosis']:
-        assert text in page,text
-
     expected_pubmed={}
     for x in items:
-        n=x['num']; key=x['item']['intended_key']; de=x['explanation']['distractor_explanations']; em={e['option']:e for e in x['evidence_map']}
+        n=x['num']; key=x['item']['intended_key']; de=x['explanation']['distractor_explanations']; em={e['option']:e for e in x['evidence_map']}; bp=x['blueprint']
+        assert x['specification_version']==CURRENT_SPEC
+        assert bp['primary_system'] in CURRENT_SYSTEMS and bp['primary_competency'] in CURRENT_COMP
+        assert bp['official_outline_path']==[bp['primary_system']] and bp['internal_content_path']
         assert list(x['item']['options'])==list('ABCDE') and len(set(x['item']['options'].values()))==5
-        assert x['blueprint']['official_outline_path']==[x['blueprint']['primary_system']] and x['blueprint']['internal_content_path']
         assert set(de)==set(em)==set('ABCDE') and x['explanation']['key_explanation'] and x['explanation']['educational_objective']
         assert 'ncjmm' not in json.dumps(x).casefold()
         assert x['author_self_audit']['unresolved_concerns']==[] and x['author_self_audit']['suggested_changes']==[]
@@ -60,8 +61,13 @@ def main():
             if L!=key: assert 'It is not selected because it does not account for' in de[L]
         ids={s['source_id'] for s in x['sources']}
         for e in x['evidence_map']: assert set(e['source_ids']).issubset(ids)
+        official=x['sources'][0]
+        assert official['agency']=='USMLE' and official['url']==USMLE and official['official_exam_specification'] is True
+        assert official['publication_or_revision_date']=='current official specifications' and official['retrieved_at']=='2026-09-06'
+        assert bp['primary_system'] in official['section_locator'] and bp['primary_competency'] in official['section_locator']
         for s in x['sources']:
             assert s['url'].startswith('https://') and s['section_locator'] and s['supporting_passage'] and s['publication_or_revision_date']
+            assert s['retrieved_at']=='2026-09-06'
             if 'pubmed.ncbi.nlm.nih.gov' not in s['url']: continue
             m=re.fullmatch(r'https://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/',s['url']); assert m,s['url']; pmid=m.group(1)
             if pmid in expected_pubmed: assert norm(expected_pubmed[pmid])==norm(s['title'])
@@ -99,5 +105,5 @@ def main():
             if j>maxi[0]: maxi=(j,n,m)
     assert maxc[0]<0.45,maxc
     assert maxi[0]<0.45,maxi
-    print(json.dumps({'status':'PASS','source_metadata':'PASS','current_usmle_labels':'PASS','pubmed_batch_title_locator':'PASS','pubmed_records_verified':len(pmids),'evidence_contract':'PASS','ncjmm':'NOT_APPLICABLE_USMLE','max_canonical_jaccard':maxc,'max_intra_batch_jaccard':maxi},ensure_ascii=False))
+    print(json.dumps({'status':'PASS','source_metadata':'PASS','current_usmle_labels':'PASS_EXTERNALLY_VERIFIED_2026-09-06','official_usmle_url_binding':'PASS','pubmed_batch_title_locator':'PASS','pubmed_records_verified':len(pmids),'evidence_contract':'PASS','ncjmm':'NOT_APPLICABLE_USMLE','max_canonical_jaccard':maxc,'max_intra_batch_jaccard':maxi},ensure_ascii=False))
 if __name__=='__main__': main()
