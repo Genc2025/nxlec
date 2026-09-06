@@ -37,8 +37,8 @@ jobs:
       - name: Fresh author source/evidence re-verification
         run: |
           set -euo pipefail
-          python -m py_compile usmle/verify_author_q1291_q1300.py usmle/verify_author_q1291_q1300_r4.py usmle/audit_q1291_q1300_readonly.py usmle/audit_q1291_q1300_readonly_r2.py usmle/finalize_q1291_q1300.py
-          python usmle/verify_author_q1291_q1300_r4.py
+          python -m py_compile usmle/verify_author_q1291_q1300.py usmle/verify_author_q1291_q1300_r5.py usmle/audit_q1291_q1300_readonly.py usmle/audit_q1291_q1300_readonly_r2.py usmle/finalize_q1291_q1300.py
+          python usmle/verify_author_q1291_q1300_r5.py
       - name: Fresh readonly adversarial audit from zero
         env:
           EXPECTED_CANDIDATE_BLOB: a9ae65f1508891a804c500f26ce3a7ea4e767a16
@@ -82,7 +82,6 @@ jobs:
           test "$(git hash-object usmle/batch_specs_1201_1300/12_q1291_q1300_author_20260906.json)" = "a9ae65f1508891a804c500f26ce3a7ea4e767a16"
           python - <<'PY'
           import hashlib,json,pathlib
-          root=pathlib.Path('.')
           m=json.load(open('usmle/audit/Q1291_Q1300_FINAL_QA_PASS.json'))
           r=json.load(open('usmle/audit/Q1291_Q1300_READONLY_AUDIT.json'))
           h=lambda p: hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
