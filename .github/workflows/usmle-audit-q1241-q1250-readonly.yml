@@ -1,0 +1,61 @@
+name: USMLE Audit Q1241-Q1250 Readonly
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/AUDIT_TRIGGER_Q1241_Q1250_READONLY'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Read expected candidate blob from trigger
+        shell: bash
+        run: |
+          set -euo pipefail
+          BLOB=$(sed -n 's/^expected_candidate_blob=//p' usmle/audit/AUDIT_TRIGGER_Q1241_Q1250_READONLY)
+          test -n "$BLOB"
+          echo "EXPECTED_CANDIDATE_BLOB=$BLOB" >> "$GITHUB_ENV"
+      - name: Compile and execute read-only zero-trust audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_q1241_q1250_readonly.py
+          python usmle/audit_q1241_q1250_readonly.py
+      - name: Verify audit output is pass and bound to candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,pathlib,subprocess
+          p=pathlib.Path('usmle/audit/Q1241_Q1250_READONLY_AUDIT.json')
+          d=json.loads(p.read_text())
+          assert d['verdict']=='READONLY_QA_PASS'
+          assert d['failures']==[]
+          assert d['candidate_blob']==os.environ['EXPECTED_CANDIDATE_BLOB']
+          assert d['canonical_db_blob']=='ec4393c3699a68616ea2877b464916b0db680328'
+          assert d['canonical_count']==1240 and d['canonical_review_count']==1240
+          assert len(d['item_reports'])==10 and all(x['status']=='PASS' for x in d['item_reports'])
+          assert all(x['second_answer_attack']['verdict']=='NO_SECOND_DEFENSIBLE_ANSWER' for x in d['item_reports'])
+          actual=subprocess.check_output(['git','hash-object','usmle/batch_specs_1201_1300/07_q1241_q1250_author_20260906.json'],text=True).strip()
+          assert actual==d['candidate_blob']
+          print('READONLY_ZERO_TRUST_AUDIT=PASS CANDIDATE_BLOB='+actual)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: q1241-q1250-readonly-audit
+          path: usmle/audit/Q1241_Q1250_READONLY_AUDIT.json
+          if-no-files-found: warn
