@@ -1,0 +1,27 @@
+name: USMLE Probe Q1293 Collision
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/PROBE_TRIGGER_Q1293_COLLISION'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind canonical DB and run focused probe
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e"
+          python usmle/probe_q1293_collision.py
