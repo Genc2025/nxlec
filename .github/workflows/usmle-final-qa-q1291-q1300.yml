@@ -1,0 +1,109 @@
+name: USMLE Final QA Q1291-Q1300
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/FINAL_QA_TRIGGER_Q1291_Q1300'
+
+permissions:
+  contents: write
+
+jobs:
+  final-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind exact frozen candidate and canonical Q1290 state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1201_1300/12_q1291_q1300_author_20260906.json)" = "a9ae65f1508891a804c500f26ce3a7ea4e767a16"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1290.json'))
+          assert s['final_status']=='FINAL_10_10_PASS'
+          assert s['item_count']==s['step2_final_review_count']==1290
+          assert s['contiguous_q0001_q1290'] is True
+          assert s['post_authoritative_db_blob']=='8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e'
+          PY
+      - name: Fresh author source/evidence re-verification
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/verify_author_q1291_q1300.py usmle/verify_author_q1291_q1300_r4.py usmle/audit_q1291_q1300_readonly.py usmle/audit_q1291_q1300_readonly_r2.py usmle/finalize_q1291_q1300.py
+          python usmle/verify_author_q1291_q1300_r4.py
+      - name: Fresh readonly adversarial audit from zero
+        env:
+          EXPECTED_CANDIDATE_BLOB: a9ae65f1508891a804c500f26ce3a7ea4e767a16
+        run: |
+          set -euo pipefail
+          rm -f usmle/audit/Q1291_Q1300_READONLY_AUDIT.json
+          python usmle/audit_q1291_q1300_readonly_r2.py
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1291_Q1300_READONLY_AUDIT.json'))
+          assert r['verdict']=='READONLY_QA_PASS' and r['failures']==[]
+          assert r['candidate_blob']=='a9ae65f1508891a804c500f26ce3a7ea4e767a16'
+          assert r['canonical_db_blob']=='8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e'
+          assert r['canonical_count']==r['canonical_review_count']==1290
+          assert len(r['item_reports'])==10
+          assert all(x['status']=='PASS' and x['adversarial_second_pass']=='PASS' and x['second_possible_answer']=='PASS_NONE' for x in r['item_reports'])
+          PY
+      - name: Materialize final 10/10 item audits and FINAL_QA_PASS manifest
+        run: |
+          set -euo pipefail
+          python usmle/finalize_q1291_q1300.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e"
+      - name: Persist audit artifacts only
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Final QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/Q1291_Q1300_READONLY_AUDIT.json usmle/audit/Q1291_Q1300_FINAL_QA_PASS.json
+          for q in $(seq 1291 1300); do git add "usmle/audit/Q${q}_FINAL_10_10_AUDIT.json"; done
+          git diff --cached --quiet && { echo 'No final QA artifacts generated'; exit 1; }
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e"
+          git commit -m 'USMLE: finalize Q1291-Q1300 FINAL_QA_PASS'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Fresh origin/main final contract verification
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e"
+          test "$(git hash-object usmle/batch_specs_1201_1300/12_q1291_q1300_author_20260906.json)" = "a9ae65f1508891a804c500f26ce3a7ea4e767a16"
+          python - <<'PY'
+          import hashlib,json,pathlib
+          root=pathlib.Path('.')
+          m=json.load(open('usmle/audit/Q1291_Q1300_FINAL_QA_PASS.json'))
+          r=json.load(open('usmle/audit/Q1291_Q1300_READONLY_AUDIT.json'))
+          h=lambda p: hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['authoritative_db_final_count']==1290 and m['authoritative_db_blob']=='8e2f2badc5e1cac3c4dc438cd469c3a05cc7092e'
+          assert m['candidate_batch_blob']=='a9ae65f1508891a804c500f26ce3a7ea4e767a16'
+          assert m['readonly_audit_sha256']==h('usmle/audit/Q1291_Q1300_READONLY_AUDIT.json')
+          assert r['verdict']=='READONLY_QA_PASS' and r['failures']==[]
+          assert m['item_count']==10 and m['item_range']=='Q1291-Q1300' and m['answer_key_sequence']=='CADBEBDACE'
+          assert m['answer_key_distribution']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert m['all_items_final_10_10_pass'] is True and m['second_answer_attack_all']=='PASS_NONE'
+          assert m['canonical_duplicate_gate']==m['within_batch_collision_gate']==m['source_locator_currentness_gate']==m['blueprint_gate']==m['adversarial_second_pass']=='PASS'
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[] and m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert len(m['item_audits'])==10
+          for e in m['item_audits']:
+              assert h(e['path'])==e['audit_object_sha256']
+              a=json.load(open(e['path']))
+              assert a['status']=='FINAL_10_10_PASS' and a['defects']==[] and a['suggested_changes']==[] and a['second_possible_answer']=='PASS_NONE'
+              assert a['adversarial_second_pass']['result']=='PASS'
+          print('FRESH_ORIGIN_FINAL_QA_CONTRACT=PASS')
+          PY
+          test ! -e usmle/data/usmle-step1.db-wal
+          test ! -e usmle/data/usmle-step1.db-shm
+          echo "FINAL_QA_PERSISTED=PASS MANIFEST_BLOB=$(git hash-object usmle/audit/Q1291_Q1300_FINAL_QA_PASS.json) DB_UNTOUCHED=PASS"
