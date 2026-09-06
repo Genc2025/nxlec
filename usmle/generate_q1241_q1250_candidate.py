@@ -4,11 +4,11 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'batch_specs_1201_1300'/'07_q1241_q1250_author_20260906.json'
-IMM='Blood, Lymphoreticular and Immune Systems'
-SKIN='Musculoskeletal, Skin and Subcutaneous Tissue'
+IMM='Blood & Lymphoreticular/Immune Systems'
+SKIN='Musculoskeletal, Skin & Subcutaneous Tissue'
 MK='Medical Knowledge: Applying Foundational Science Concepts'
-DX='Patient Care: Diagnosis, including history and physical examination'
-USMLE_URL='https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications'
+DX='Patient Care: Diagnosis'
+USMLE_URL='https://www.usmle.org/step-exams/step-1/step-1-exam-content'
 
 DATA=[
 {
@@ -42,7 +42,7 @@ DATA=[
 'wrong':{'A':'WHIM can cause warts and infections but classically features CXCR4-mediated myelokathexis rather than monocytopenia with B/NK-cell loss and myeloid-neoplasia predisposition.','B':'CVID causes antibody deficiency and recurrent infection but does not characteristically produce profound monocytopenia, B/NK-cell depletion, and familial MDS/AML predisposition.','C':'X-linked hyper-IgM syndrome presents in males with defective class switching; the lineage pattern here is different.','D':'Correct. This is the MonoMAC/DCML spectrum of GATA2 deficiency.','E':'IL-12 receptor defects predispose to mycobacterial disease but do not explain the combined monocytopenia, B/NK-cell deficiency, HPV susceptibility, dysplasia, and familial AML.'},
 'objective':'Recognize GATA2 deficiency when invasive nontuberculous mycobacterial or HPV disease occurs with monocytopenia, B/NK-cell deficiency, and myelodysplastic or AML predisposition.',
 'semantic':['GATA2 deficiency','MonoMAC','monocytopenia','B NK cell deficiency','MDS AML predisposition'],
-'sources':[{'agency':'National Cancer Institute / NCBI Bookshelf','title':'GATA2 Deficiency Syndrome (PDQ®)','url':'https://www.ncbi.nlm.nih.gov/books/NBK606140/','date':'current NCI PDQ summary','locator':'Introduction to GATA2 Deficiency Syndrome; Genetics and Molecular Biology; Clinical Phenotypes','support':'Germline GATA2 loss-of-function can produce MonoMAC/DCML phenotypes with monocytopenia, B- and NK-cell deficiency, mycobacterial/viral susceptibility, and predisposition to MDS/AML.'}]
+'sources':[{'agency':'National Cancer Institute / NCBI Bookshelf','title':'GATA2 Deficiency Syndrome (PDQ®)','url':'https://www.ncbi.nlm.nih.gov/books/NBK606140/','date':'published online 2024-08-22; current NCI PDQ summary','locator':'Introduction to GATA2 Deficiency Syndrome; Genetics and Molecular Biology; Clinical Phenotypes','support':'Germline GATA2 loss-of-function can produce MonoMAC/DCML phenotypes with monocytopenia, B- and NK-cell deficiency, mycobacterial/viral susceptibility, and predisposition to MDS/AML.'}]
 },
 {
 'num':1243,'system':IMM,'competency':DX,'disciplines':['Immunology','Genetics','Pathology'],
@@ -57,7 +57,7 @@ DATA=[
 'wrong':{'A':'Correct. The early strokes, livedoid rash, medium-vessel disease, anemia, and consanguineous familial clustering are highly characteristic of DADA2.','B':'Sporadic polyarteritis nodosa can produce medium-vessel vasculitis and livedo, but very early recurrent lacunar strokes plus an affected sibling and consanguinity strongly favor monogenic DADA2.','C':'Antiphospholipid syndrome can cause thrombosis but does not explain this inherited childhood inflammatory vasculopathy with livedo and hematologic features.','D':'Familial Mediterranean fever causes episodic fever and serositis but not this characteristic medium-vessel vasculopathy with childhood strokes.','E':'Classic ADA-SCID causes profound combined immunodeficiency in infancy and lacks the characteristic cerebrocutaneous vasculitic phenotype of ADA2 deficiency.'},
 'objective':'Distinguish DADA2 from sporadic polyarteritis nodosa and other inflammatory disorders when childhood livedoid vasculopathy, hypertension, strokes, hematologic abnormalities, and recessive familial clustering occur together.',
 'semantic':['DADA2','ADA2 deficiency','livedo racemosa','childhood lacunar stroke','PAN-like vasculitis'],
-'sources':[{'agency':'National Center for Biotechnology Information / GeneReviews','title':'Adenosine Deaminase 2 Deficiency','url':'https://www.ncbi.nlm.nih.gov/books/NBK544951/','date':'GeneReviews current 1993-2026 edition','locator':'Summary — Clinical characteristics; Diagnosis; Clinical Characteristics','support':'DADA2 is a systemic autoinflammatory disorder with vasculitis/vasculopathy, livedo, early ischemic or hemorrhagic stroke, hypertension, immune dysregulation, and hematologic disease; biallelic ADA2 variants cause disease.'}]
+'sources':[{'agency':'National Center for Biotechnology Information / GeneReviews','title':'Adenosine Deaminase 2 Deficiency','url':'https://www.ncbi.nlm.nih.gov/books/NBK544951/','date':'review posted 2019-08-08; current GeneReviews 1993-2026 edition','locator':'Summary — Clinical characteristics; Diagnosis; Clinical Characteristics','support':'DADA2 is a systemic autoinflammatory disorder with vasculitis/vasculopathy, livedo, early ischemic or hemorrhagic stroke, hypertension, immune dysregulation, and hematologic disease; biallelic ADA2 variants cause disease.'}]
 },
 {
 'num':1244,'system':IMM,'competency':MK,'disciplines':['Immunology','Biochemistry','Genetics'],
@@ -87,7 +87,7 @@ DATA=[
 'wrong':{'A':'Terminal complement components C5-C9 form the membrane attack complex; their deficiency classically predisposes to Neisseria infection rather than early lupus.','B':'C3b is a major opsonin, but the question asks for the function whose loss links inherited C1q deficiency to autoimmunity.','C':'Correct. Impaired clearance of apoptotic material is a major mechanism linking early classical complement deficiency to lupus.','D':'C5a is a downstream anaphylatoxin and neutrophil chemoattractant, not the principal autoimmune mechanism of C1q deficiency.','E':'Factor H regulates the alternative pathway and is not the missing classical-pathway function in this patient.'},
 'objective':'Explain the paradox that deficiency of an early classical complement component can cause autoimmunity: failure to clear apoptotic material increases persistent self-antigen exposure and promotes loss of tolerance.',
 'semantic':['C1q deficiency','early lupus','apoptotic cell clearance','self antigen','classical complement'],
-'sources':[{'agency':'National Library of Medicine / PubMed Central','title':'Fundamental role of C1q in autoimmunity and inflammation','url':'https://pmc.ncbi.nlm.nih.gov/articles/PMC4894527/','date':'2016','locator':'Genetic and functional deficiency of C1q in SLE','support':'Genetic C1q deficiency is strongly associated with early SLE; impaired clearance of apoptotic bodies is a key proposed mechanism, alongside altered tolerogenic signaling.'}]
+'sources':[{'agency':'National Library of Medicine / PubMed Central','title':'Fundamental role of C1q in autoimmunity and inflammation','url':'https://pmc.ncbi.nlm.nih.gov/articles/PMC4894527/','date':'2015 final publication; PMC 2016','locator':'Genetic and functional deficiency of C1q in SLE','support':'Genetic C1q deficiency is strongly associated with early SLE; impaired clearance of apoptotic bodies is a key proposed mechanism, alongside altered tolerogenic signaling.'}]
 },
 {
 'num':1246,'system':SKIN,'competency':MK,'disciplines':['Biochemistry','Genetics','Histology & Cell Biology'],
@@ -157,7 +157,7 @@ DATA=[
 'objective':'Differentiate CDSN-related generalized inflammatory peeling skin syndrome from Netherton and other peeling/ichthyotic disorders by lifelong generalized superficial peeling, severe atopy, normal LEKT1, and normal hair microscopy.',
 'semantic':['CDSN','corneodesmosin','generalized inflammatory peeling skin syndrome','pruritus atopy','upper epidermal adhesion'],
 'sources':[
- {'agency':'National Library of Medicine / PubMed','title':'Loss of corneodesmosin leads to severe skin barrier defect, pruritus, and atopy: unraveling the peeling skin disease','url':'https://pubmed.ncbi.nlm.nih.gov/20691404/','date':'2011','locator':'Abstract','support':'Autosomal-recessive generalized peeling skin disease can result from CDSN loss; corneodesmosin is an epidermal adhesion molecule and its loss causes barrier failure, peeling, pruritus, and atopy.'},
+ {'agency':'National Library of Medicine / PubMed','title':'Loss of corneodesmosin leads to severe skin barrier defect, pruritus, and atopy: unraveling the peeling skin disease','url':'https://pubmed.ncbi.nlm.nih.gov/20691404/','date':'2010','locator':'Abstract','support':'Autosomal-recessive generalized peeling skin disease can result from CDSN loss; corneodesmosin is an epidermal adhesion molecule and its loss causes barrier failure, peeling, pruritus, and atopy.'},
  {'agency':'National Library of Medicine / PubMed','title':'Inflammatory peeling skin syndrome caused a novel mutation in CDSN','url':'https://pubmed.ncbi.nlm.nih.gov/22146835/','date':'2012','locator':'Abstract','support':'Inflammatory peeling skin syndrome is caused by deleterious CDSN variants; corneodesmosin is a major component of adhesion junctions in the upper epidermis.'}
 ]
 },
@@ -203,7 +203,7 @@ def build(d):
                    'source_ids':disease_ids,'direct_or_inference':'direct' if letter==d['key'] else 'inference',
                    'item_specific_application':'The complete vignette and named molecular/clinicopathologic features resolve this option under the single-best-answer lead-in.'})
     return {'num':q,'country_scope':'United States','specification_version':'USMLE Step 1 current official specifications verified 2026-09-06',
-      'blueprint':{'primary_system':d['system'],'official_outline_path':[d['system'],*d['path']],
+      'blueprint':{'primary_system':d['system'],'official_outline_path':[d['system']],'internal_content_path':d['path'],
                    'primary_competency':d['competency'],'disciplines':d['disciplines'],'coverage_deficit_addressed':d['coverage']},
       'item':{'vignette':d['vignette'],'lead_in':d['lead'],'options':d['options'],'intended_key':d['key'],
               'difficulty':d['difficulty'],'tested_construct':d['construct'],'reasoning_steps_count':d['steps']},
