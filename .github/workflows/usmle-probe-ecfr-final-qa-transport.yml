@@ -1,0 +1,23 @@
+name: USMLE Probe eCFR Final QA Transport
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/PROBE_TRIGGER_ECFR_FINAL_QA_TRANSPORT'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python usmle/probe_ecfr_final_qa_transport.py
