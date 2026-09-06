@@ -1,0 +1,115 @@
+name: USMLE Step2 Import Q1231-Q1240
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/STEP2_IMPORT_TRIGGER_Q1231_Q1240'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usmle-step2-import-q1231-q1240
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile transactional importer
+        run: python -m py_compile usmle/step2_import_q1231_q1240.py
+      - name: Import Q1231-Q1240 transactionally
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/step2_import_q1231_q1240.py | tee /tmp/q1231-q1240-import-result.json
+      - name: Independently verify SQLite and state before persist
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          state=pathlib.Path('usmle/state/step2_final_q0001_q1240.json')
+          final=pathlib.Path('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1240.json')
+          s=json.loads(state.read_text()); f=json.loads(final.read_text())
+          assert s['final_status']=='FINAL_10_10_PASS'
+          assert s['item_count']==1240 and s['step2_final_review_count']==1240
+          assert s['contiguous_q0001_q1240'] is True and s['q1231_q1240_present_exactly_once'] is True
+          assert s['sqlite_integrity_check']=='ok' and s['payload_review_consistency']=='PASS'
+          assert s['official_system_labels_validated'] is True
+          assert s['official_competency_labels_validated'] is True
+          assert s['official_discipline_metadata_validated'] is True
+          assert s['new_block']['item_count']==10 and s['new_block']['fresh_item_by_item_audit'] is True
+          assert s['new_block']['canonical_duplicate_rescan'] is True
+          assert s['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert s['answer_position_new_block']['sequence']=='CAEBDBDACE'
+          assert f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT' and f['production_import_completed'] is True
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==s['post_authoritative_db_blob']
+          assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
+          con=sqlite3.connect(db.as_uri()+'?mode=ro',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          ic=con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
+          rc=con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]
+          assert (ic,rc)==(1240,1240)
+          rows=con.execute("SELECT candidate_id FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          nums=[]
+          for (cid,) in rows:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid; nums.append(int(m.group(1)))
+          assert set(nums)==set(range(1,1241)) and len(nums)==len(set(nums))==1240
+          assert all(nums.count(n)==1 for n in range(1231,1241))
+          con.close()
+          assert not pathlib.Path(str(db)+'-wal').exists() and not pathlib.Path(str(db)+'-shm').exists()
+          print('PRE_PERSIST_VERIFY=PASS COUNT=1240 REVIEWS=1240 BLOB='+blob)
+          PY
+      - name: Persist authoritative Q1240 database state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Production Finalizer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db usmle/state/step2_final_q0001_q1240.json usmle/audit/STEP2_FINAL_10_10_Q0001_Q1240.json
+          git diff --cached --quiet && { echo 'No production changes to persist'; exit 1; }
+          git commit -m 'USMLE: finalize canonical Q0001-Q1240'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          state=pathlib.Path('usmle/state/step2_final_q0001_q1240.json')
+          final=pathlib.Path('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1240.json')
+          s=json.loads(state.read_text()); f=json.loads(final.read_text())
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1240 and s['step2_final_review_count']==1240
+          assert s['contiguous_q0001_q1240'] is True and s['q1231_q1240_present_exactly_once'] is True
+          assert f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT' and f['production_import_completed'] is True
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==s['post_authoritative_db_blob']
+          assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
+          con=sqlite3.connect(db.as_uri()+'?mode=ro',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1240
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1240
+          rows=con.execute("SELECT candidate_id FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          nums=[]
+          for (cid,) in rows:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid; nums.append(int(m.group(1)))
+          assert set(nums)==set(range(1,1241)) and len(nums)==len(set(nums))==1240
+          con.close()
+          print('PERSISTED_MAIN_VERIFY=PASS COUNT=1240 REVIEWS=1240 BLOB='+blob)
+          PY
