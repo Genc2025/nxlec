@@ -24,7 +24,7 @@ jobs:
       - name: Verify immutable simulation inputs
         run: |
           set -euo pipefail
-          test "$(git hash-object usmle/step2_import_q1281_q1290.py)" = "7cfe92fba8105215e2615f8db947a265a201d197"
+          test "$(git hash-object usmle/step2_import_q1281_q1290.py)" = "fbbfeb7896b28ac03f26329a8e8f4e35de5bcb12"
           test "$(git hash-object usmle/step2_import_q1261_q1270.py)" = "c73f192deb88d6703845a8976e10dbd05d8e34fb"
           test "$(git hash-object usmle/data/usmle-step1.db)" = "c6d3a9df9c8887b6ff3f3dbac6c710ed564bb4ed"
           test "$(git hash-object usmle/batch_specs_1201_1300/11_q1281_q1290_author_20260906.json)" = "fdda09072509425b0321aafbe921aa95fed53aee"
