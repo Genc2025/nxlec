@@ -1,0 +1,105 @@
+name: USMLE Finalize Q1251-Q1260 QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/FINALIZE_TRIGGER_Q1251_Q1260'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact frozen inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json)" = "da4e113d17b5c588d9efbaad6af92a27021777a2"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3eeb306808a842cdcd3ba08fb29ec5145ce36ced"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1250.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1250 and s['step2_final_review_count']==1250
+          assert s['contiguous_q0001_q1250'] is True and s['post_authoritative_db_blob']=='3eeb306808a842cdcd3ba08fb29ec5145ce36ced'
+          PY
+      - name: Rerun source evidence verification from zero
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/verify_author_q1251_q1260.py usmle/audit_q1251_q1260_readonly.py usmle/finalize_q1251_q1260_qa.py
+          python usmle/verify_author_q1251_q1260.py
+      - name: Rerun zero-trust audit from zero
+        shell: bash
+        env:
+          EXPECTED_CANDIDATE_BLOB: da4e113d17b5c588d9efbaad6af92a27021777a2
+        run: |
+          set -euo pipefail
+          rm -f usmle/audit/Q1251_Q1260_READONLY_AUDIT.json
+          python usmle/audit_q1251_q1260_readonly.py
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1251_Q1260_READONLY_AUDIT.json'))
+          assert r['verdict']=='READONLY_QA_PASS' and r['failures']==[] and len(r['item_reports'])==10
+          PY
+      - name: Materialize item-by-item FINAL QA artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python usmle/finalize_q1251_q1260_qa.py
+      - name: Independent final artifact verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib
+          aud=pathlib.Path('usmle/audit')
+          m=json.loads((aud/'Q1251_Q1260_FINAL_QA_PASS.json').read_text())
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['candidate_batch_blob']=='da4e113d17b5c588d9efbaad6af92a27021777a2'
+          assert m['authoritative_db_blob']=='3eeb306808a842cdcd3ba08fb29ec5145ce36ced' and m['authoritative_db_final_count']==1250
+          assert m['all_items_final_10_10_pass'] is True and m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[] and len(m['item_audits'])==10
+          for n in range(1251,1261):
+              p=aud/f'Q{n}_FINAL_10_10_AUDIT.json'; a=json.loads(p.read_text())
+              assert a['status']=='FINAL_10_10_PASS' and a['verdict']=='PASS_WITH_NO_CHANGES'
+              assert a['defects']==[] and a['suggested_changes']==[] and a['second_possible_answer']=='PASS_NONE'
+              assert a['adversarial_second_pass']['result']=='PASS' and a['ncjmm']=='NOT_APPLICABLE_USMLE'
+              assert all(v==10 for v in a['scores'].values())
+          print('FINAL_ARTIFACT_VERIFY=PASS')
+          PY
+      - name: Persist FINAL QA only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Final QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/Q1251_Q1260_FINAL_QA_PASS.json usmle/audit/Q1251_FINAL_10_10_AUDIT.json usmle/audit/Q1252_FINAL_10_10_AUDIT.json usmle/audit/Q1253_FINAL_10_10_AUDIT.json usmle/audit/Q1254_FINAL_10_10_AUDIT.json usmle/audit/Q1255_FINAL_10_10_AUDIT.json usmle/audit/Q1256_FINAL_10_10_AUDIT.json usmle/audit/Q1257_FINAL_10_10_AUDIT.json usmle/audit/Q1258_FINAL_10_10_AUDIT.json usmle/audit/Q1259_FINAL_10_10_AUDIT.json usmle/audit/Q1260_FINAL_10_10_AUDIT.json
+          git diff --cached --quiet && { echo 'No FINAL QA artifacts'; exit 1; }
+          git commit -m 'USMLE: FINAL QA PASS Q1251-Q1260'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main and DB untouched
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3eeb306808a842cdcd3ba08fb29ec5145ce36ced"
+          test "$(git hash-object usmle/batch_specs_1201_1300/08_q1251_q1260_author_20260906.json)" = "da4e113d17b5c588d9efbaad6af92a27021777a2"
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1251_Q1260_FINAL_QA_PASS.json'))
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT' and m['production_import_ready'] is True
+          print('PERSISTED_FINAL_QA=PASS DB_UNTOUCHED=PASS')
+          PY
