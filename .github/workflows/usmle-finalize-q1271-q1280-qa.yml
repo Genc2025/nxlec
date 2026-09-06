@@ -1,0 +1,101 @@
+name: USMLE Finalize Q1271-Q1280 QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/FINALIZE_TRIGGER_Q1271_Q1280'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify exact frozen inputs
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1201_1300/10_q1271_q1280_author_20260906.json)" = "8d4dbeff50a3ec7301a3d915a694645bb007514a"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "cbfe7c4b469fa49555813cffcc6604d2003dcdac"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1270.json'))
+          assert s['final_status']=='FINAL_10_10_PASS' and s['item_count']==1270 and s['step2_final_review_count']==1270
+          assert s['contiguous_q0001_q1270'] is True and s['post_authoritative_db_blob']=='cbfe7c4b469fa49555813cffcc6604d2003dcdac'
+          PY
+      - name: Rerun live source and evidence verification from zero
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/verify_author_q1271_q1280.py usmle/audit_q1271_q1280_readonly.py usmle/finalize_q1271_q1280_qa.py
+          python usmle/verify_author_q1271_q1280.py
+      - name: Rerun zero-trust adversarial audit from zero
+        env:
+          EXPECTED_CANDIDATE_BLOB: 8d4dbeff50a3ec7301a3d915a694645bb007514a
+        run: |
+          set -euo pipefail
+          rm -f usmle/audit/Q1271_Q1280_READONLY_AUDIT.json
+          python usmle/audit_q1271_q1280_readonly.py
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1271_Q1280_READONLY_AUDIT.json'))
+          assert r['verdict']=='READONLY_QA_PASS' and r['failures']==[] and len(r['item_reports'])==10
+          assert all(x['blind_audit']['status']=='PASS' and x['second_possible_answer']=='PASS_NONE' and x['adversarial_second_pass']=='PASS' for x in r['item_reports'])
+          PY
+      - name: Materialize item-by-item FINAL QA artifacts
+        run: |
+          set -euo pipefail
+          python usmle/finalize_q1271_q1280_qa.py
+      - name: Independent final artifact verification
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib
+          aud=pathlib.Path('usmle/audit');m=json.loads((aud/'Q1271_Q1280_FINAL_QA_PASS.json').read_text())
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['candidate_batch_blob']=='8d4dbeff50a3ec7301a3d915a694645bb007514a'
+          assert m['authoritative_db_blob']=='cbfe7c4b469fa49555813cffcc6604d2003dcdac' and m['authoritative_db_final_count']==1270
+          assert m['answer_key_sequence']=='CEADBADCBE' and m['answer_key_distribution']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert m['system_distribution']=={'Behavioral Health & Nervous Systems/Special Senses':5,'Blood & Lymphoreticular/Immune Systems':5}
+          assert m['competency_distribution']=={'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5}
+          assert m['all_items_final_10_10_pass'] is True and m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[] and len(m['item_audits'])==10
+          for n in range(1271,1281):
+              a=json.loads((aud/f'Q{n}_FINAL_10_10_AUDIT.json').read_text())
+              assert a['status']=='FINAL_10_10_PASS' and a['verdict']=='PASS_WITH_NO_CHANGES'
+              assert a['defects']==[] and a['suggested_changes']==[] and a['second_possible_answer']=='PASS_NONE'
+              assert a['adversarial_second_pass']['result']=='PASS' and a['ncjmm']=='NOT_APPLICABLE_USMLE'
+              assert all(v==10 for v in a['scores'].values())
+          print('FINAL_ARTIFACT_VERIFY=PASS')
+          PY
+      - name: Persist FINAL QA only
+        run: |
+          set -euo pipefail
+          git config user.name 'USMLE Final QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add usmle/audit/Q1271_Q1280_FINAL_QA_PASS.json usmle/audit/Q1271_FINAL_10_10_AUDIT.json usmle/audit/Q1272_FINAL_10_10_AUDIT.json usmle/audit/Q1273_FINAL_10_10_AUDIT.json usmle/audit/Q1274_FINAL_10_10_AUDIT.json usmle/audit/Q1275_FINAL_10_10_AUDIT.json usmle/audit/Q1276_FINAL_10_10_AUDIT.json usmle/audit/Q1277_FINAL_10_10_AUDIT.json usmle/audit/Q1278_FINAL_10_10_AUDIT.json usmle/audit/Q1279_FINAL_10_10_AUDIT.json usmle/audit/Q1280_FINAL_10_10_AUDIT.json
+          git diff --cached --quiet && { echo 'No FINAL QA artifacts'; exit 1; }
+          git commit -m 'USMLE: FINAL QA PASS Q1271-Q1280'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Verify persisted main and DB untouched
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "cbfe7c4b469fa49555813cffcc6604d2003dcdac"
+          test "$(git hash-object usmle/batch_specs_1201_1300/10_q1271_q1280_author_20260906.json)" = "8d4dbeff50a3ec7301a3d915a694645bb007514a"
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1271_Q1280_FINAL_QA_PASS.json'))
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT' and m['production_import_ready'] is True
+          print('PERSISTED_FINAL_QA=PASS DB_UNTOUCHED=PASS')
+          PY
