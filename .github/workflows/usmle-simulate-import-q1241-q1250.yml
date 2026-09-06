@@ -1,0 +1,93 @@
+name: USMLE Simulate Import Q1241-Q1250
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/SIMULATE_IMPORT_TRIGGER_Q1241_Q1250'
+
+permissions:
+  contents: read
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify immutable simulation inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/step2_import_q1241_q1250.py)" = "e2b573a63b4932908c4cc9045f0b7dbd2dcb7270"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "ec4393c3699a68616ea2877b464916b0db680328"
+          test "$(git hash-object usmle/audit/Q1241_Q1250_FINAL_QA_PASS.json)" = "3cdb253ed2e825593c3aba5b44bec7ea940a6a35"
+      - name: Create detached production simulation worktree
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/usmle-q1250-sim
+          git worktree add --detach /tmp/usmle-q1250-sim HEAD
+          cd /tmp/usmle-q1250-sim
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "ec4393c3699a68616ea2877b464916b0db680328"
+          python -m py_compile usmle/step2_import_q1241_q1250.py
+      - name: Execute full importer only in detached worktree
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/usmle-q1250-sim
+          python usmle/step2_import_q1241_q1250.py | tee /tmp/q1241-q1250-simulation-result.json
+      - name: Independently verify simulated post-state
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/usmle-q1250-sim
+          python - <<'PY'
+          import hashlib,json,pathlib,re,sqlite3,subprocess
+          db=pathlib.Path('usmle/data/usmle-step1.db')
+          state=pathlib.Path('usmle/state/step2_final_q0001_q1250.json')
+          final=pathlib.Path('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1250.json')
+          s=json.loads(state.read_text()); f=json.loads(final.read_text())
+          assert s['final_status']=='FINAL_10_10_PASS'
+          assert s['item_count']==1250 and s['step2_final_review_count']==1250
+          assert s['contiguous_q0001_q1250'] is True and s['q1241_q1250_present_exactly_once'] is True
+          assert s['sqlite_integrity_check']=='ok' and s['payload_review_consistency']=='PASS'
+          assert s['answer_position_new_block']['balanced']=={'A':2,'B':2,'C':2,'D':2,'E':2}
+          assert s['answer_position_new_block']['sequence']=='BDAECAECDB'
+          assert s['blueprint_increment_new_block']=={'Blood & Lymphoreticular/Immune Systems':5,'Musculoskeletal, Skin & Subcutaneous Tissue':5}
+          assert s['competency_increment_new_block']=={'Patient Care: Diagnosis':5,'Medical Knowledge: Applying Foundational Science Concepts':5}
+          assert s['new_block']['candidate_batch_blob']=='74a9f64982189d58f0bff5e5204ff39cff931fdb'
+          assert s['new_block']['final_qa_manifest_blob']=='3cdb253ed2e825593c3aba5b44bec7ea940a6a35'
+          assert f['production_import_completed'] is True and f['final_verdict']=='FINAL_10_10_PASS_NO_MATERIAL_DEFECT'
+          blob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert blob==s['post_authoritative_db_blob'] and blob!='ec4393c3699a68616ea2877b464916b0db680328'
+          assert hashlib.sha256(db.read_bytes()).hexdigest()==s['post_authoritative_db_sha256']
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+          assert con.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert con.execute("SELECT COUNT(*) FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1250
+          assert con.execute("SELECT COUNT(*) FROM step2_final_reviews WHERE final_status='FINAL_10_10_PASS'").fetchone()[0]==1250
+          rows=con.execute("SELECT candidate_id FROM step2_final_items WHERE final_status='FINAL_10_10_PASS'").fetchall()
+          nums=[]
+          for (cid,) in rows:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m,cid; nums.append(int(m.group(1)))
+          assert set(nums)==set(range(1,1251)) and len(nums)==len(set(nums))==1250
+          assert all(nums.count(n)==1 for n in range(1241,1251))
+          con.close()
+          assert not pathlib.Path(str(db)+'-wal').exists() and not pathlib.Path(str(db)+'-shm').exists()
+          print('SIMULATED_POSTSTATE_VERIFY=PASS COUNT=1250 REVIEWS=1250 BLOB='+blob)
+          PY
+      - name: Prove main checkout remained untouched
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "ec4393c3699a68616ea2877b464916b0db680328"
+          test ! -e usmle/state/step2_final_q0001_q1250.json
+          test ! -e usmle/audit/STEP2_FINAL_10_10_Q0001_Q1250.json
+          echo MAIN_CHECKOUT_UNTOUCHED=PASS
