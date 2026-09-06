@@ -1,0 +1,44 @@
+name: USMLE Prospect Scout Q1241-Q1250 R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'usmle/audit/PROSPECT_TRIGGER_Q1241_Q1250_R2'
+
+permissions:
+  contents: read
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan diversified prospects against canonical Q1240
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/prospect_scout_q1241_q1250_r2.py
+          python usmle/prospect_scout_q1241_q1250_r2.py > prospect-q1241-q1250-r2.json
+      - name: Print prospect collisions
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('prospect-q1241-q1250-r2.json'))
+          print('COUNT=',r['count'],'DB=',r['db_blob'])
+          for k,v in r['prospects'].items():
+              print(k,'HITS=',v['unique_hit_count'],'TERMS=',v['by_term_counts'])
+              for h in v['hits'][:4]: print(' ',h['candidate_id'],h.get('tested_construct'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prospect-q1241-q1250-r2
+          path: prospect-q1241-q1250-r2.json
+          if-no-files-found: error
