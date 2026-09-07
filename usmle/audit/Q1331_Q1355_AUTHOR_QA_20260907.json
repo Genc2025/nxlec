@@ -1,0 +1,983 @@
+{
+  "batch_id": "Q1331-Q1355-20260907",
+  "checked_at": "2026-09-07",
+  "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+  "audit_type": "Same-author adversarial content review plus deterministic structure/source metadata checks; not isolated or blind A/B review.",
+  "candidate_count": 25,
+  "new_workstream_candidate_count": 55,
+  "candidate_file": "usmle/batch_specs_1301_1400/03_q1331_q1355_author_20260907.json",
+  "candidate_file_sha256": "8738da0c1e0f11093c0bf21a6cfb645116bae46409a2936fad3c13ae6af0a532",
+  "canonical_count_before": 1300,
+  "canonical_count_after": 1300,
+  "canonical_db_sha256": "932217063872e675c797a81cb23db213359289ec564ef2078f2fc7e177d2edde",
+  "canonical_integrity_check": "ok",
+  "production_import_performed": false,
+  "answer_key_distribution": {
+    "E": 5,
+    "C": 5,
+    "D": 5,
+    "A": 5,
+    "B": 5
+  },
+  "difficulty_distribution": {
+    "easy": 6,
+    "moderate": 19
+  },
+  "exact_duplicate_stems": 0,
+  "prior_drug_name_matches": 0,
+  "comparison_pool": {
+    "canonical_items": 1300,
+    "preceding_candidates": 30,
+    "within_batch_pairs": 300
+  },
+  "lexical_method": "Lowercase word-set Jaccard on vignette plus lead-in. Screening only; low similarity is not proof of originality. Related constructs were separately assessed by the author.",
+  "source_review": {
+    "live_prescribing_labels": 25,
+    "additional_primary_studies": 1,
+    "official_usmle_sources": 2,
+    "retrieval_date": "2026-09-07",
+    "checks": [
+      "Claim scope and explicit distinction of stipulated experiments from published findings",
+      "URL and SetID agreement, label identity and section presence",
+      "Displayed highlights revision date separate from DailyMed publication/update date",
+      "Full mechanism-section hash agreement with retrieved text",
+      "Indicated population and prior-therapy counts where relevant",
+      "Separate 7.1 assay-interference and 12.2 receptor-blockade evidence where needed"
+    ]
+  },
+  "coverage": {
+    "systems": {
+      "Blood & Lymphoreticular/Immune Systems": 7,
+      "Respiratory & Renal/Urinary Systems": 4,
+      "Musculoskeletal, Skin & Subcutaneous Tissue": 2,
+      "Behavioral Health & Nervous Systems/Special Senses": 4,
+      "Reproductive & Endocrine Systems": 6,
+      "Gastrointestinal System": 2
+    },
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "scope": "Targeted pharmacology and foundational-science supplement; not a standalone full-exam blueprint or whole-bank balance certification."
+  },
+  "repairs_before_release": [
+    "Replaced the initial cystinosis enzyme distractor with a transporter-restoration alternative.",
+    "Rebuilt assay-interference alternatives around real analytical mechanisms and added a purified-drug control to exclude a second explanation.",
+    "Replaced weak tyrosinemia alternatives with distinct real enzyme targets/actions.",
+    "Shortened the mutant KIT answer to reduce length cueing.",
+    "Assigned easy versus moderate difficulty with item-specific author rationales.",
+    "Preserved uncertainty for ganaxolone, ziconotide, difelikefalin, and the independent clinical contribution of angiopoietin-2 blockade.",
+    "Added primary FcRn salvage/degradation evidence and precise claim locators."
+  ],
+  "author_review_result": "No unresolved material defect identified in the same-author review; independent production acceptance is not established.",
+  "limitations": [
+    "No independent audit execution or numerical 10/10 score is asserted.",
+    "Difficulty estimates lack empirical calibration.",
+    "Absence of exact duplication does not establish universal semantic originality.",
+    "Retrieved-page hashes identify the reviewed snapshots; live source pages may subsequently change."
+  ],
+  "required_before_production": [
+    "Fresh isolated Author execution with required tool allowlist and execution evidence.",
+    "Blind Auditor A and Auditor B under required context and model-family separation.",
+    "Evidence and decision gates accepted by deterministic TRUSTED_IMPORTER."
+  ],
+  "items": [
+    {
+      "num": 1331,
+      "item_sha256": "c9834826a9d14a76986ffd62a1a0a93bf1610aaaa9ce1e89d99189b7c2d96383",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e33001e7-3650-42b1-ae56-cddb5c43aa2b",
+      "source_setid": "e33001e7-3650-42b1-ae56-cddb5c43aa2b",
+      "source_revision": "11/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "B",
+        "resolution": "Both mechanisms can inhibit the same kinase, but the observed binding location specifically excludes ATP-site occupancy."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1307",
+          "word_jaccard": 0.1892,
+          "tested_construct": "Soluble guanylate cyclase stimulation rather than phosphodiesterase inhibition"
+        },
+        {
+          "candidate_id": "Q1324",
+          "word_jaccard": 0.1818,
+          "tested_construct": "Restoration of mitochondrial apoptosis by BCL-2 inhibition"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1341,
+          "word_jaccard": 0.1842
+        }
+      ],
+      "semantic_author_review": "The BCR::ABL1 disease context is familiar, but this item tests myristoyl-pocket versus ATP-site inhibition.",
+      "difficulty": "easy",
+      "difficulty_basis": "Recognize a named allosteric binding site from an explicit structural clue. Author estimate; empirical calibration unavailable.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1332,
+      "item_sha256": "547b51ecf840199c0e4e7db5ae68daf8542cb2b00128e690caba36dff2df5a7d",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bd551845-0878-49a4-860f-839b83f6b801",
+      "source_setid": "bd551845-0878-49a4-860f-839b83f6b801",
+      "source_revision": "12/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "E",
+        "resolution": "The C481S change and absence of an adduct exclude a mechanism requiring covalent attachment to cysteine 481."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1308",
+          "word_jaccard": 0.2373,
+          "tested_construct": "Pharmacologic stabilization of an amyloid precursor tetramer"
+        },
+        {
+          "candidate_id": "Q1324",
+          "word_jaccard": 0.1935,
+          "tested_construct": "Restoration of mitochondrial apoptosis by BCL-2 inhibition"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1333,
+          "word_jaccard": 0.2836
+        }
+      ],
+      "semantic_author_review": "No existing C481/pirtobrutinib construct found. This is a biochemical binding-mode question, not a general CLL apoptosis item.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The assay does not imply that every clinical resistance mutation remains sensitive."
+    },
+    {
+      "num": 1333,
+      "item_sha256": "dd209553502ad4888f870d70a4dc847f3d448a7eb8c05a0ed43ac1cac10ca769",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0b8bf078-34c2-4f45-9012-38a8ac082b01",
+      "source_setid": "0b8bf078-34c2-4f45-9012-38a8ac082b01",
+      "source_revision": "3/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "C",
+        "resolution": "The alternatives differ in signaling direction; increased activation cannot explain the stipulated reduction."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1308",
+          "word_jaccard": 0.2742,
+          "tested_construct": "Pharmacologic stabilization of an amyloid precursor tetramer"
+        },
+        {
+          "candidate_id": "S1-DIRECT-0895-20260901T010000Z",
+          "word_jaccard": 0.2059,
+          "tested_construct": "Hydroxyurea increases the proportion of fetal hemoglobin (HbF). HbF reduces the effective concentration and polymerization of deoxygenated HbS, decreasing erythrocyte sickling and vaso-occlusive events."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1332,
+          "word_jaccard": 0.2836
+        }
+      ],
+      "semantic_author_review": "No existing G12C/adagrasib construct found; the item tests covalent stabilization of an inactive mutant signaling state.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1334,
+      "item_sha256": "a7d740fa3d541c3ad3e6342adb8ff48b4273f42af3108c334558855ad402ca9e",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=82f4d266-3f52-41eb-86ba-0abf3cf468e8",
+      "source_setid": "82f4d266-3f52-41eb-86ba-0abf3cf468e8",
+      "source_revision": "2/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "D",
+        "resolution": "Both can support red-cell production, but only the ligand trap matches reduced SMAD2/3 signaling with no direct erythropoietin-receptor activation."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1305",
+          "word_jaccard": 0.2603,
+          "tested_construct": "Viral kinase inhibition distinguished from direct polymerase inhibition"
+        },
+        {
+          "candidate_id": "S1-DIRECT-0994-20260902T004000Z",
+          "word_jaccard": 0.2237,
+          "tested_construct": "In beta-thalassemia, ineffective erythropoiesis expands erythroid precursors and increases erythroferrone production. Erythroferrone suppresses hepatic hepcidin despite iron loading, preserving ferroportin activity and increasing intestinal iron absorption and iron release from stores. This can cause clinically important iron overload even without regular transfusions."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1341,
+          "word_jaccard": 0.2703
+        }
+      ],
+      "semantic_author_review": "Q0994 addresses erythroferrone/hepcidin in beta thalassemia; this item tests a TGF-beta ligand trap and late erythroid maturation.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1335,
+      "item_sha256": "4765ca854a3e20fa8b4e3f360f5e23009dcc1422e095ef78013953a1cdff4821",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+      "source_setid": "f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+      "source_revision": "8/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "D",
+        "resolution": "Reduced generation of the activated fragment is distinct from reduced destruction of a fragment already generated."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1330",
+          "word_jaccard": 0.2712,
+          "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention"
+        },
+        {
+          "candidate_id": "Q1320",
+          "word_jaccard": 0.2647,
+          "tested_construct": "IFNAR1 blockade in type I interferon signaling"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1348,
+          "word_jaccard": 0.2459
+        }
+      ],
+      "semantic_author_review": "No prior gamma-secretase drug construct found; receptor proteolysis differs from prior receptor signaling and nuclear export questions.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1336,
+      "item_sha256": "f655f3ed95bc8b7681799937d69e5c1469a4589d4bcbe1f10a36965b55cf90fc",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=645c887c-8cd4-4623-8da9-ac223d71a8b9",
+      "source_setid": "645c887c-8cd4-4623-8da9-ac223d71a8b9",
+      "source_revision": "11/2024",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "E",
+        "resolution": "Constitutive phosphorylation in ligand-free conditions rules out removal of stem cell factor as the explanation."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1308",
+          "word_jaccard": 0.2188,
+          "tested_construct": "Pharmacologic stabilization of an amyloid precursor tetramer"
+        },
+        {
+          "candidate_id": "Q1325",
+          "word_jaccard": 0.2078,
+          "tested_construct": "SYK inhibition downstream of activating Fc receptors"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1333,
+          "word_jaccard": 0.2297
+        }
+      ],
+      "semantic_author_review": "Q0689 addresses the pathogenic KIT D816V mechanism; the new assay tests direct kinase inhibition versus ligand or mediator blockade.",
+      "difficulty": "easy",
+      "difficulty_basis": "Identify direct kinase inhibition from a ligand-free phosphorylation experiment. Author estimate; empirical calibration unavailable.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1337,
+      "item_sha256": "fc058589646045c06a52ec3976808c1fc5bfc8087d82e4515e67b7f172b5e75d",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=54e0f974-ccee-44ea-9254-40e9883cee1e",
+      "source_setid": "54e0f974-ccee-44ea-9254-40e9883cee1e",
+      "source_revision": "3/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "A",
+        "resolution": "The BCMA-only clue does not determine the second target; the drug’s documented CD3 binding excludes the CD28 alternative."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1330",
+          "word_jaccard": 0.2,
+          "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention"
+        },
+        {
+          "candidate_id": "Q1325",
+          "word_jaccard": 0.1975,
+          "tested_construct": "SYK inhibition downstream of activating Fc receptors"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1338,
+          "word_jaccard": 0.1899
+        }
+      ],
+      "semantic_author_review": "BCMA/CD3 bridging is distinct from prior myeloma nuclear-export therapy Q1330 and Fc-mediated NK-cell cytotoxicity Q1323.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1338,
+      "item_sha256": "272677844ca681a324e450372853eb0beaffcb25d48e9cac936098a6d0936756",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=04cc9ef7-c02a-4e92-a655-0062674e8487",
+      "source_setid": "04cc9ef7-c02a-4e92-a655-0062674e8487",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "E",
+        "resolution": "Receptor blockade may affect related pathways, but direct ligand-binding assays distinguish the actual target pair."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1330",
+          "word_jaccard": 0.2121,
+          "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention"
+        },
+        {
+          "candidate_id": "Q1320",
+          "word_jaccard": 0.1974,
+          "tested_construct": "IFNAR1 blockade in type I interferon signaling"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1337,
+          "word_jaccard": 0.1899
+        }
+      ],
+      "semantic_author_review": "No prior faricimab/angiopoietin-2 construct found; the item distinguishes dual soluble-ligand targeting from receptor blockade.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The independent contribution of angiopoietin-2 inhibition to clinical benefit is not established in the label."
+    },
+    {
+      "num": 1339,
+      "item_sha256": "1ca5dcf1c283e87f013aced2a6ae6bdc6867434d15bf919d825de829131e3478",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a76b5845-6e21-4d3b-ad07-cd8df1b60bee",
+      "source_setid": "a76b5845-6e21-4d3b-ad07-cd8df1b60bee",
+      "source_revision": "7/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "B",
+        "resolution": "Isolated terminal inhibition is plausible for another PNH drug, but factor B lies upstream of both measured effects."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0252-20260827T030000Z",
+          "word_jaccard": 0.18,
+          "tested_construct": "Efferent arteriolar dilation lowers glomerular capillary hydrostatic pressure and therefore lowers GFR, especially when renal perfusion is already reduced."
+        },
+        {
+          "candidate_id": "S1-DIRECT-0792-20260830T200000Z",
+          "word_jaccard": 0.1786,
+          "tested_construct": "Warm-reactive IgG binds erythrocyte surface antigens. Splenic macrophages recognize Fc-coated erythrocytes and partially phagocytose or remove them from the circulation, producing predominantly extravascular hemolysis and microspherocyte formation."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1340,
+          "word_jaccard": 0.1864
+        }
+      ],
+      "semantic_author_review": "Q1326 tests direct C5 blockade without clone repair; this item instead predicts paired opsonization and terminal effects from factor B blockade.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. This is a controlled alternative-pathway assay, not a claim that all complement activity is abolished."
+    },
+    {
+      "num": 1340,
+      "item_sha256": "3db1056eefac5a29cff6c3bb1e2abe42191ad044c92534e89795677389fda35b",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=281cf1d4-6296-4416-858e-9bff46d01b71",
+      "source_setid": "281cf1d4-6296-4416-858e-9bff46d01b71",
+      "source_revision": "2/2024",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "D",
+        "resolution": "Classical and lectin pathways share downstream components, but preserved lectin activity favors the classical-specific C1s target."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1071-20260902T100000Z",
+          "word_jaccard": 0.2329,
+          "tested_construct": "C2 is cleaved during classical and lectin pathway activation and combines with C4b to form the pathway's C3 convertase. Complete C2 deficiency therefore markedly reduces classical-pathway hemolytic activity while leaving the alternative pathway intact and is associated with recurrent bacterial infections and lupus-like autoimmune disease, in part because early classical complement participates in clearance of immune complexes and apoptotic material."
+        },
+        {
+          "candidate_id": "Q1330",
+          "word_jaccard": 0.2241,
+          "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1335,
+          "word_jaccard": 0.2459
+        }
+      ],
+      "semantic_author_review": "Q1071 addresses C2 deficiency; this item localizes a classical-specific C1s drug effect with lectin preservation.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1341,
+      "item_sha256": "a1d02d081e59934c571f6f5c0957d8fe2b2c4ebcd9719be77ba1c714af55f111",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8aefc8e3-26d6-4ff6-aab9-a7542927e084",
+      "source_setid": "8aefc8e3-26d6-4ff6-aab9-a7542927e084",
+      "source_revision": "5/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "C",
+        "resolution": "Both may reduce antibody burden clinically, but the cell preparation excludes B-cell depletion as the mechanism."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1321",
+          "word_jaccard": 0.2174,
+          "tested_construct": "Shared IL-4 receptor alpha blockade of IL-4 and IL-13 signaling"
+        },
+        {
+          "candidate_id": "Q1305",
+          "word_jaccard": 0.2162,
+          "tested_construct": "Viral kinase inhibition distinguished from direct polymerase inhibition"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1334,
+          "word_jaccard": 0.2703
+        }
+      ],
+      "semantic_author_review": "No prior FcRn/efgartigimod construct found. Controlled IgG catabolism differs from myasthenia receptor pathology or antibody-production suppression.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1342,
+      "item_sha256": "13c21a053375db5e33dda7cd6090cfba881af946d9383e48c5c676e7276bba99",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e",
+      "source_setid": "d91612c4-b03a-4be4-a1ee-6a13e3b83d4e",
+      "source_revision": "11/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "D",
+        "resolution": "The fixed transmitter amount and absence of uptake machinery exclude transporter inhibition despite its potential to enhance GABA signaling in intact tissue."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0235-20260827T030000Z",
+          "word_jaccard": 0.2,
+          "tested_construct": "Skin-barrier dysfunction and type 2 immune responses promote chronic pruritic eczematous inflammation, often associated with asthma and allergic rhinitis."
+        },
+        {
+          "candidate_id": "S1-DIRECT-0899-20260901T010000Z",
+          "word_jaccard": 0.1875,
+          "tested_construct": "Naloxone is a competitive opioid receptor antagonist with greatest affinity for the mu receptor, rapidly reversing opioid-induced respiratory depression and CNS effects."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1341,
+          "word_jaccard": 0.2222
+        }
+      ],
+      "semantic_author_review": "Prior GABA pharmacology exists, but this experiment distinguishes receptor modulation from altered availability using ganaxolone.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The precise therapeutic mechanism in CDKL5 deficiency disorder remains unknown; the label describes this mechanism as proposed."
+    },
+    {
+      "num": 1343,
+      "item_sha256": "2e1c0dd1e60cf1c1ae8059ec9564e2ecc8106a948fcb89a491b798aa15f1e09c",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b025d8ed-937d-4597-9ad1-0b2f6e0ee5b1",
+      "source_setid": "b025d8ed-937d-4597-9ad1-0b2f6e0ee5b1",
+      "source_revision": "5/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "D",
+        "resolution": "Blocking action-potential propagation is less consistent when the terminal is directly depolarized and the measured defect is calcium entry."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1325",
+          "word_jaccard": 0.1625,
+          "tested_construct": "SYK inhibition downstream of activating Fc receptors"
+        },
+        {
+          "candidate_id": "S1-DIRECT-1100-20260902T100000Z",
+          "word_jaccard": 0.1519,
+          "tested_construct": "In a directed acyclic graph, a collider is a node that receives arrows from two variables. The path through a collider is naturally closed, but conditioning, stratifying, restricting, or selecting on the collider can open a noncausal path between its causes and induce a spurious association."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1344,
+          "word_jaccard": 0.16
+        }
+      ],
+      "semantic_author_review": "No prior ziconotide construct found; directly depolarized animal terminals isolate presynaptic calcium entry from impulse propagation.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The experiment is explicitly animal-based; the label does not establish the full mechanism in humans."
+    },
+    {
+      "num": 1344,
+      "item_sha256": "120d7b0f1bab1b3bc2bbd8a9e521b4051369ae32768ec03a4ac1925b55e44799",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0c7b81f2-0fd3-47cb-8b0f-185e07f19c87",
+      "source_setid": "0c7b81f2-0fd3-47cb-8b0f-185e07f19c87",
+      "source_revision": "7/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "A",
+        "resolution": "Matching the receptor name alone is insufficient: the agent activates rather than antagonizes kappa receptors."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1311",
+          "word_jaccard": 0.2568,
+          "tested_construct": "Liver-directed thyroid hormone receptor beta partial agonism"
+        },
+        {
+          "candidate_id": "Q1325",
+          "word_jaccard": 0.2,
+          "tested_construct": "SYK inhibition downstream of activating Fc receptors"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1347,
+          "word_jaccard": 0.2174
+        }
+      ],
+      "semantic_author_review": "Q0899 covers naloxone antagonism; this item identifies kappa agonism while limiting the inference to established receptor pharmacology.",
+      "difficulty": "easy",
+      "difficulty_basis": "Recall the established receptor and direction of action; no multistep clinical inference. Author estimate; empirical calibration unavailable.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. No claim is made that kappa activation fully explains clinical efficacy or that peripheral restriction is absolute."
+    },
+    {
+      "num": 1345,
+      "item_sha256": "15de2dc419a508f9282454573e0e13c41fb460da49b8fdc9a4199f7f61cd6732",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=25f21d25-14f8-4fda-91f6-7aa8b68aa1c8",
+      "source_setid": "25f21d25-14f8-4fda-91f6-7aa8b68aa1c8",
+      "source_revision": "2/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "C",
+        "resolution": "Both classes may promote storage, but the named drug and adrenergic mechanism distinguish beta-3 activation from M3 blockade."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1114-20260902T100000Z",
+          "word_jaccard": 0.2034,
+          "tested_construct": "MEN1 encodes menin, a nuclear tumor-suppressor protein involved in transcriptional regulation, chromatin modification, DNA replication/repair, and restraint of cell proliferation. Germline loss-of-function variants predispose to multiple endocrine tumors, especially primary hyperparathyroidism, pituitary adenomas, and gastroenteropancreatic neuroendocrine tumors."
+        },
+        {
+          "candidate_id": "Q1302",
+          "word_jaccard": 0.197,
+          "tested_construct": "Direct sarcomere inhibition distinguished from upstream excitation-contraction effects"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1349,
+          "word_jaccard": 0.2097
+        }
+      ],
+      "semantic_author_review": "No prior vibegron construct found; the new item pairs the receptor action with bladder storage physiology.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1346,
+      "item_sha256": "0942848e3a116df32f14a5fe95b3ecb9f7a9afc8954f080ea69280ab52df992c",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cae9f798-24f9-4580-a4fc-e6c710cbda3c",
+      "source_setid": "cae9f798-24f9-4580-a4fc-e6c710cbda3c",
+      "source_revision": "2/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "B",
+        "resolution": "Related neurokinin receptor names are not interchangeable; the label specifically identifies NK3."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1320",
+          "word_jaccard": 0.2273,
+          "tested_construct": "IFNAR1 blockade in type I interferon signaling"
+        },
+        {
+          "candidate_id": "S1-DIRECT-0914-20260901T061500Z",
+          "word_jaccard": 0.1864,
+          "tested_construct": "Beta1 adrenergic receptors on juxtaglomerular cells promote renin release. Selective beta1 blockade decreases renin secretion, reducing downstream angiotensin II and aldosterone activity."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1347,
+          "word_jaccard": 0.2419
+        }
+      ],
+      "semantic_author_review": "No prior fezolinetant construct found; NK3 thermoregulation is the new pharmacologic target.",
+      "difficulty": "easy",
+      "difficulty_basis": "Identify a receptor subtype from a named ligand and drug. Author estimate; empirical calibration unavailable.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1347,
+      "item_sha256": "52eea2380b283f0768c74fdd8d0f42b267a6f12cffb4d243cfe80a95148fd808",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a86757b3-09c5-fd3b-1223-244e94f50a66",
+      "source_setid": "a86757b3-09c5-fd3b-1223-244e94f50a66",
+      "source_revision": "12/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "C",
+        "resolution": "An isolated ovarian effect could suggest different feedback behavior, but the experiment localizes the direct target to the pituitary."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1320",
+          "word_jaccard": 0.1892,
+          "tested_construct": "IFNAR1 blockade in type I interferon signaling"
+        },
+        {
+          "candidate_id": "S1-DIRECT-1101-20260902T100000Z",
+          "word_jaccard": 0.1875,
+          "tested_construct": "C1 inhibitor restrains plasma kallikrein and factor XIIa in the contact system. In hereditary angioedema caused by SERPING1-related C1-inhibitor deficiency or dysfunction, excessive kallikrein activity increases bradykinin generation, producing recurrent nonpruritic angioedema and abdominal attacks without urticaria."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1346,
+          "word_jaccard": 0.2419
+        }
+      ],
+      "semantic_author_review": "Endocrine feedback is a shared foundation; the pituitary-only experiment specifically distinguishes GnRH antagonism from an ovarian target.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The item predicts direction, not complete abolition of gonadotropins or a particular degree of estradiol suppression."
+    },
+    {
+      "num": 1348,
+      "item_sha256": "372ff6bad1834ace10fb33661b2e780bf981195e7c4cad9ca61c9308143fe51a",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f3a5ec24-63c3-4d83-b1c0-6c550fbe7ae2",
+      "source_setid": "f3a5ec24-63c3-4d83-b1c0-6c550fbe7ae2",
+      "source_revision": "11/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "D",
+        "resolution": "The explicit substrate-product pair distinguishes inhibition of the final step from an upstream reduction in precursor supply."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1306",
+          "word_jaccard": 0.2381,
+          "tested_construct": "Hepatically activated ATP-citrate lyase inhibitor versus HMG-CoA reductase inhibition"
+        },
+        {
+          "candidate_id": "Q1330",
+          "word_jaccard": 0.2241,
+          "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1335,
+          "word_jaccard": 0.2459
+        }
+      ],
+      "semantic_author_review": "Q0269 addresses inherited CYP11B1 deficiency; this item identifies pharmacologic inhibition using a controlled precursor-conversion assay.",
+      "difficulty": "easy",
+      "difficulty_basis": "Identify the enzyme for an explicit substrate-product conversion. Author estimate; empirical calibration unavailable.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1349,
+      "item_sha256": "435e4fa548de20e3ef3583b1d69e774f8a42e416f0fb4587fb91c9a2d7b70f44",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=542f3fae-8bc8-4f00-9228-e4b66c9ad6a9",
+      "source_setid": "542f3fae-8bc8-4f00-9228-e4b66c9ad6a9",
+      "source_revision": "9/2024",
+      "source_locator": "1 Indications and Usage; 5.1 Adrenal Insufficiency; 12.1 Mechanism of Action; 12.2 Pharmacodynamics",
+      "author_second_answer_attack": {
+        "option": "E",
+        "resolution": "A synthesis inhibitor and receptor antagonist are not interchangeable: persistent cortisol is compatible with receptor blockade."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1114-20260902T100000Z",
+          "word_jaccard": 0.2698,
+          "tested_construct": "MEN1 encodes menin, a nuclear tumor-suppressor protein involved in transcriptional regulation, chromatin modification, DNA replication/repair, and restraint of cell proliferation. Germline loss-of-function variants predispose to multiple endocrine tumors, especially primary hyperparathyroidism, pituitary adenomas, and gastroenteropancreatic neuroendocrine tumors."
+        },
+        {
+          "candidate_id": "S1-DIRECT-0070-20260827T020000Z",
+          "word_jaccard": 0.2131,
+          "tested_construct": "An ACTH-secreting pituitary corticotroph adenoma chronically stimulates the adrenal cortex to produce excess cortisol."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1345,
+          "word_jaccard": 0.2097
+        }
+      ],
+      "semantic_author_review": "Q0737 addresses inherited glucocorticoid resistance; this item tests dissociation between cortisol concentration and drug effect in a labeled treatment context.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The vignette is restricted to hyperglycemia secondary to endogenous Cushing syndrome after failed surgery."
+    },
+    {
+      "num": 1350,
+      "item_sha256": "5cf1b947c0f812c58f079e915207f6c6ecd41b6de4ef9eb3d563cdce96ed572f",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aeb30f1a-4815-47ae-a2cb-b6b4e26372e1",
+      "source_setid": "aeb30f1a-4815-47ae-a2cb-b6b4e26372e1",
+      "source_revision": "2/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "E",
+        "resolution": "Two different receptor systems can stimulate GH release; the named diagnostic agent identifies the secretagogue receptor."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1311",
+          "word_jaccard": 0.2222,
+          "tested_construct": "Liver-directed thyroid hormone receptor beta partial agonism"
+        },
+        {
+          "candidate_id": "S1-DIRECT-0347-202608270320Z",
+          "word_jaccard": 0.2,
+          "tested_construct": "Mycobacterium tuberculosis causes granulomatous pulmonary infection that can present with chronic cough, fever, night sweats, weight loss, and upper-lobe cavitation."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1344,
+          "word_jaccard": 0.197
+        }
+      ],
+      "semantic_author_review": "No prior macimorelin construct found; the target of a diagnostic secretagogue is distinguished from the peripheral GH receptor.",
+      "difficulty": "easy",
+      "difficulty_basis": "Identify the receptor targeted by a named diagnostic secretagogue. Author estimate; empirical calibration unavailable.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. No diagnostic cutoff or interpretation of an individual test result is supplied."
+    },
+    {
+      "num": 1351,
+      "item_sha256": "88fedda483f4478891278102c51fc07a474b80e4d0159b48eff43bb4d1014c7a",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=70c3ccf7-4df0-4c75-ba07-fede9970c8d9",
+      "source_setid": "70c3ccf7-4df0-4c75-ba07-fede9970c8d9",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "C",
+        "resolution": "Clinical improvement does not imply genetic correction; the stipulated functional downstream receptor provides the pharmacologic bypass."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0064-20260827T020000Z",
+          "word_jaccard": 0.1692,
+          "tested_construct": "Certain misfolded alpha-1 antitrypsin variants polymerize and accumulate within hepatocyte endoplasmic reticulum, causing toxic gain-of-function liver injury."
+        },
+        {
+          "candidate_id": "Q1321",
+          "word_jaccard": 0.1667,
+          "tested_construct": "Shared IL-4 receptor alpha blockade of IL-4 and IL-13 signaling"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1346,
+          "word_jaccard": 0.2131
+        }
+      ],
+      "semantic_author_review": "Q1281 addresses PCSK1 processing deficiency; this item uses a POMC-deficient model to test downstream MC4 receptor agonist bypass.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. This does not imply efficacy in all obesity syndromes or in a completely nonfunctional MC4 receptor."
+    },
+    {
+      "num": 1352,
+      "item_sha256": "97185bb3a89e17929dfbc5b7c7b3095d93f0d04f24f1fc957c360c6a6238ecfd",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d3a3ec28-f746-463a-bb92-3bc8826db09e",
+      "source_setid": "d3a3ec28-f746-463a-bb92-3bc8826db09e",
+      "source_revision": "12/2024",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "B",
+        "resolution": "Lower lysosomal content could suggest restored transport, but the unchanged defect and mixed-disulfide product identify a chemical bypass."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1330",
+          "word_jaccard": 0.2258,
+          "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention"
+        },
+        {
+          "candidate_id": "Q1307",
+          "word_jaccard": 0.1806,
+          "tested_construct": "Soluble guanylate cyclase stimulation rather than phosphodiesterase inhibition"
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1341,
+          "word_jaccard": 0.1918
+        }
+      ],
+      "semantic_author_review": "No prior cysteamine construct found; the mixed-disulfide product distinguishes chemical transport bypass from repair.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1353,
+      "item_sha256": "ffe5665ecfb4d0a4a82d857238eceaa51528a6a1f470925003af2489f7e2f9ba",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d449b73-d503-4132-b978-d890491975df",
+      "source_setid": "5d449b73-d503-4132-b978-d890491975df",
+      "source_revision": "11/2021",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "A",
+        "resolution": "Decreased toxic products do not require repair of FAH; persistent deficiency distinguishes substrate reduction from enzyme replacement."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0935-20260901T064500Z",
+          "word_jaccard": 0.16,
+          "tested_construct": "Mannitol is freely filtered and poorly reabsorbed, increasing tubular fluid osmolality and reducing passive water reabsorption, thereby increasing urinary water excretion."
+        },
+        {
+          "candidate_id": "S1-DIRECT-0914-20260901T061500Z",
+          "word_jaccard": 0.1525,
+          "tested_construct": "Beta1 adrenergic receptors on juxtaglomerular cells promote renin release. Selective beta1 blockade decreases renin secretion, reducing downstream angiotensin II and aldosterone activity."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1355,
+          "word_jaccard": 0.1607
+        }
+      ],
+      "semantic_author_review": "No prior nitisinone/4-hydroxyphenylpyruvate construct found; persistent FAH deficiency is used to distinguish upstream inhibition from replacement.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    },
+    {
+      "num": 1354,
+      "item_sha256": "67f41428f1b0f5b73023fca9c921623e21cef8da5125884884d5290755cfa4a0",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3387574f-5eaa-4501-a71d-4cbfbd563031",
+      "source_setid": "3387574f-5eaa-4501-a71d-4cbfbd563031",
+      "source_revision": "7/2024",
+      "source_locator": "1 Indications and Usage; 7.1 Drug Interference with Laboratory Tests; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "E",
+        "resolution": "Heterophile interference can also vary by platform, but the effect is reproduced without patient immunoglobulins by adding only purified drug."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0127-20260827T021500Z",
+          "word_jaccard": 0.1719,
+          "tested_construct": "Vitamin D deficiency reduces intestinal calcium and phosphate absorption, impairing mineralization of growing bone and widening growth plates."
+        },
+        {
+          "candidate_id": "S1-DIRECT-0985-20260901T210000Z",
+          "word_jaccard": 0.1566,
+          "tested_construct": "ABCC2 encodes the canalicular multidrug resistance-associated protein 2 (MRP2), which exports conjugated bilirubin and other organic anions from hepatocytes into bile. Loss of MRP2 causes benign isolated conjugated hyperbilirubinemia; pigment accumulation gives the liver a characteristic dark or black appearance."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1344,
+          "word_jaccard": 0.1558
+        }
+      ],
+      "semantic_author_review": "Prior hypophosphatasia items Q0607/Q0743/Q1185 address mineralization. The new construct is ALP-conjugated assay interference with a controlled drug spike.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. The question does not assert that every ALP-based assay is affected identically or predict a universal direction of error."
+    },
+    {
+      "num": 1355,
+      "item_sha256": "3e6d495b84007cd07994fe123fd1d5c38aa526dd8cc3204490b79a55c47ba2e3",
+      "structural_checks": "PASS",
+      "source_metadata_checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=83a77b9d-42f0-4645-8420-786285da7326",
+      "source_setid": "83a77b9d-42f0-4645-8420-786285da7326",
+      "source_revision": "7/2024",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "author_second_answer_attack": {
+        "option": "C",
+        "resolution": "Both alternatives are lysosomal reactions, but only cholesteryl-ester and triglyceride hydrolysis matches acid lipase replacement."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0285-20260827T030000Z",
+          "word_jaccard": 0.1842,
+          "tested_construct": "Argininosuccinate lyase deficiency blocks cleavage of argininosuccinate to arginine and fumarate, causing hyperammonemia and argininosuccinate accumulation."
+        },
+        {
+          "candidate_id": "S1-DIRECT-0091-20260827T020000Z",
+          "word_jaccard": 0.1698,
+          "tested_construct": "For a test with unchanged sensitivity and specificity, positive predictive value decreases as disease prevalence falls because a larger fraction of positive results are false positives."
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1352,
+          "word_jaccard": 0.1774
+        }
+      ],
+      "semantic_author_review": "No prior sebelipase/lysosomal acid lipase construct found; substrate and compartment distinguish replacement from other lipases and hydrolases.",
+      "difficulty": "moderate",
+      "difficulty_basis": "Author estimate of mechanism application; no empirical calibration or discrimination data.",
+      "limits": "Experimental results are stipulated, not attributed to an invented study. No treatment superiority, universal response, or cure is implied. "
+    }
+  ]
+}
