@@ -1,0 +1,179 @@
+{
+  "qa_id": "Q1331-Q1340-SOURCE-QA-20260907-GPT56SOL",
+  "created_at": "2026-09-07",
+  "scope": "Non-independent source/currentness, key, option, second-answer, and single-best-answer QA. This is not blind Auditor A/B evidence and not production acceptance.",
+  "source_batch": "usmle/batch_specs_1301_1400/03_q1331_q1355_author_20260907.json",
+  "package_decision": "BLOCKED_REPAIR_REQUIRED",
+  "items": [
+    {
+      "num": 1331,
+      "drug": "asciminib",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "E",
+      "setid": "e33001e7-3650-42b1-ae56-cddb5c43aa2b",
+      "verified_pi_revision": "11/2025",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Asciminib inhibits BCR::ABL1 by binding the ABL myristoyl pocket, supporting allosteric rather than ATP-site inhibition.",
+      "second_answer_attack": "ATP-site competition is plausible for other ABL inhibitors, but the structural clue explicitly places drug occupancy outside the ATP-binding site.",
+      "material_defects": []
+    },
+    {
+      "num": 1332,
+      "drug": "pirtobrutinib",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "C",
+      "setid": "bd551845-0878-49a4-860f-839b83f6b801",
+      "verified_pi_revision": "12/2025",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Pirtobrutinib is a noncovalent BTK inhibitor that binds wild-type BTK and BTK harboring C481 mutations.",
+      "second_answer_attack": "A covalent C481-dependent mechanism is excluded both by the C481S substitution and by the stipulated absence of a covalent drug-protein adduct.",
+      "material_defects": []
+    },
+    {
+      "num": 1333,
+      "drug": "adagrasib",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "D",
+      "setid": "0b8bf078-34c2-4f45-9012-38a8ac082b01",
+      "verified_pi_revision": "3/2026",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Adagrasib irreversibly and covalently binds KRAS G12C and locks the mutant protein in an inactive state, reducing downstream signaling.",
+      "second_answer_attack": "Options that increase active-state occupancy or effector association predict the opposite signaling direction; gene correction is not required.",
+      "material_defects": []
+    },
+    {
+      "num": 1334,
+      "drug": "luspatercept",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "C",
+      "setid": "82f4d266-3f52-41eb-86ba-0abf3cf468e8",
+      "verified_pi_revision": "2/2026",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Luspatercept binds several endogenous TGF-beta superfamily ligands, diminishes Smad2/3 signaling, and promotes erythroid maturation.",
+      "second_answer_attack": "Direct erythropoietin-receptor agonism is explicitly excluded by the separate receptor assay and does not match the ligand-trap mechanism.",
+      "material_defects": []
+    },
+    {
+      "num": 1335,
+      "drug": "nirogacestat",
+      "decision": "BLOCKED_REPAIR_REQUIRED",
+      "intended_key": "E",
+      "content_key_status": "PASS",
+      "single_best_answer_status": "PASS",
+      "candidate_setid": "f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+      "candidate_revision": "8/2026",
+      "latest_verified_fda_label": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/217677s008lbl.pdf",
+      "latest_verified_fda_pi_revision": "07/2026",
+      "dailyMed_sync_note": "The DailyMed page available in the current web index still displays Revised: 3/2026, while the later FDA Drugs@FDA s008 label displays Revised: 07/2026. The FDA label is used for the currentness repair decision.",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Nirogacestat inhibits gamma secretase and blocks proteolytic activation of the Notch receptor.",
+      "defects": [
+        {
+          "field": "items[4].sources[0].publication_or_revision_date",
+          "current_value": "8/2026",
+          "correct_value": "7/2026",
+          "severity": "material_metadata_defect",
+          "reason": "Latest verified FDA Drugs@FDA label 217677s008 displays Revised: 07/2026; no verified 08/2026 full prescribing-information revision supports the candidate value."
+        },
+        {
+          "field": "items[4].sources[0].source_currentness",
+          "severity": "material_currentness_defect",
+          "reason": "DailyMed and FDA label synchronization differs; the candidate must explicitly anchor the current revision to the latest verified FDA label rather than assert 8/2026."
+        }
+      ],
+      "second_answer_attack": "Proteasomal degradation would alter destruction of an already activated fragment; the stem specifically shows reduced generation of the activated fragment, localizing the effect to gamma-secretase-mediated proteolysis."
+    },
+    {
+      "num": 1336,
+      "drug": "avapritinib",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "A",
+      "setid": "645c887c-8cd4-4623-8da9-ac223d71a8b9",
+      "verified_pi_revision": "11/2024",
+      "verified_locator": "1.2 Advanced Systemic Mastocytosis; 12.1 Mechanism of Action",
+      "verified_construct": "Avapritinib directly inhibits KIT D816V kinase activity and autophosphorylation.",
+      "second_answer_attack": "Stem cell factor neutralization cannot explain inhibition in a ligand-free assay with constitutively active KIT D816V.",
+      "material_defects": []
+    },
+    {
+      "num": 1337,
+      "drug": "teclistamab",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "D",
+      "setid": "54e0f974-ccee-44ea-9254-40e9883cee1e",
+      "verified_pi_revision": "3/2026",
+      "verified_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "verified_construct": "Teclistamab is a bispecific T-cell engager binding CD3 on T cells and BCMA on multiple-myeloma cells.",
+      "second_answer_attack": "BCMA plus CD28 is a plausible engineered immunotherapy pairing but is not teclistamab's documented bispecific target pair; CD3-BCMA is unique.",
+      "material_defects": []
+    },
+    {
+      "num": 1338,
+      "drug": "faricimab",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "B",
+      "setid": "04cc9ef7-c02a-4e92-a655-0062674e8487",
+      "verified_pi_revision": "4/2026",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Faricimab is a bispecific antibody that binds VEGF-A and angiopoietin-2.",
+      "second_answer_attack": "VEGFR2/Tie2 would be receptor-directed blockade, whereas the stem stipulates direct binding of two soluble ligands.",
+      "material_defects": []
+    },
+    {
+      "num": 1339,
+      "drug": "iptacopan",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "D",
+      "setid": "a76b5845-6e21-4d3b-ad07-cd8df1b60bee",
+      "verified_pi_revision": "7/2026",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Iptacopan binds factor B in the alternative complement pathway, regulating C3 cleavage, downstream effectors and terminal-pathway amplification; in PNH it controls both C3b-mediated EVH and terminal-complement-mediated IVH.",
+      "second_answer_attack": "Isolated terminal-complement blockade can preserve proximal C3b opsonization, but factor B inhibition is proximal and therefore supports decreases in both readouts.",
+      "material_defects": []
+    },
+    {
+      "num": 1340,
+      "drug": "sutimlimab",
+      "decision": "BLOCKED_REPAIR_REQUIRED",
+      "intended_key": "C",
+      "content_key_status": "PASS",
+      "single_best_answer_status": "PASS",
+      "candidate_setid": "281cf1d4-6296-4416-858e-9bff46d01b71",
+      "candidate_pi_revision": "2/2024",
+      "candidate_source_status": "OLDER_LABEL_INSTANCE",
+      "current_verified_dailymed_setid": "0a25363a-7781-d9f8-cb1c-be22987bf03b",
+      "current_verified_pi_revision": "11/2024",
+      "current_verified_packager": "Recordati Rare Diseases, Inc.",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_construct": "Sutimlimab specifically binds C1s, blocks classical-pathway C4 cleavage, and does not inhibit lectin or alternative complement pathways.",
+      "defects": [
+        {
+          "field": "items[9].sources[0].url/setid",
+          "severity": "material_currentness_defect",
+          "reason": "The candidate points to an older ENJAYMO label instance. A newer current DailyMed label instance is available under SetID 0a25363a-7781-d9f8-cb1c-be22987bf03b."
+        },
+        {
+          "field": "items[9].sources[0].publication_or_revision_date",
+          "current_value": "2/2024",
+          "correct_value": "11/2024",
+          "severity": "material_metadata_defect",
+          "reason": "The newer current DailyMed label displays Revised: 11/2024."
+        }
+      ],
+      "second_answer_attack": "C5 and C3 are downstream/shared complement components; factor B belongs to the alternative pathway and MASP-2 to the lectin pathway. Preserved lectin and alternative activity with impaired classical C4 cleavage uniquely localizes C1s."
+    }
+  ],
+  "range_level_audit": {
+    "keys_checked": true,
+    "all_options_checked": true,
+    "second_answer_attack_checked": true,
+    "hidden_assumptions_checked": true,
+    "fabricated_numeric_claims_checked": true,
+    "setids_urls_locators_currentness_checked": true,
+    "ncjmm_present": false,
+    "difficulty_is_author_estimate_not_empirical": true,
+    "educational_objectives_present": true,
+    "raw_author_source_hashes_recomputed_in_this_pass": false
+  },
+  "next_required_action": "Repair and re-freeze Q1335 and Q1340 source metadata/currentness, then restart their audit from zero. Continue source/content QA with Q1341-Q1355. Passing items remain non-canonical until isolated blind Auditor A/B and TRUSTED_IMPORTER requirements are satisfied."
+}
