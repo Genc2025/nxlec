@@ -1,0 +1,88 @@
+{
+  "qa_id": "Q1326-Q1330-SOURCE-QA-20260907-GPT56SOL",
+  "created_at": "2026-09-07",
+  "scope": "Non-independent source/currentness, key, option, second-answer, and single-best-answer QA. This is not blind Auditor A/B evidence and not production acceptance.",
+  "source_batch": "usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json",
+  "package_decision": "SOURCE_QA_PASS_FOR_RANGE",
+  "items": [
+    {
+      "num": 1326,
+      "drug": "eculizumab",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "E",
+      "key_concept": "C5 binding prevents cleavage to C5a/C5b and terminal C5b-9 complex formation while the underlying GPI-anchor-deficient PNH clone remains unchanged",
+      "setid": "ebcd67fa-b4d1-4a22-b33d-ee8bf6b9c722",
+      "verified_pi_revision": "6/2026",
+      "verified_locator": "12.1 Mechanism of Action",
+      "second_answer_attack": "Restoring CD59 could theoretically protect erythrocytes, but the stem explicitly states that the abnormal GPI-anchored surface-protein phenotype persists; only complement C5 blockade explains benefit without clonal correction.",
+      "material_defects": []
+    },
+    {
+      "num": 1327,
+      "drug": "letermovir",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "B",
+      "key_concept": "inhibition of the CMV DNA terminase complex impairs viral DNA processing and packaging required for mature virion formation",
+      "setid": "1b49df80-be4f-47e0-a0b7-123f3e69395b",
+      "verified_pi_revision": "1/2026",
+      "verified_locator": "1.1 CMV Prophylaxis in HSCT Recipients; 12.4 Microbiology — Mechanism of Action",
+      "second_answer_attack": "Direct DNA-polymerase inhibition can reduce CMV replication, but the stipulated genome-processing/packaging defect and defective virion maturation uniquely identify the terminase complex.",
+      "material_defects": []
+    },
+    {
+      "num": 1328,
+      "drug": "olaparib",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "D",
+      "key_concept": "PARP inhibition and PARP-DNA complex formation create DNA-repair stress that is especially cytotoxic in homologous-recombination-deficient cells",
+      "setid": "741ff3e3-dc1a-45a6-84e5-2481b27131aa",
+      "verified_pi_revision": "7/2025",
+      "verified_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "second_answer_attack": "Topoisomerase inhibition also causes DNA damage but is not the direct molecular target of olaparib; the named drug and BRCA/HR-deficient context select PARP inhibition.",
+      "material_defects": []
+    },
+    {
+      "num": 1329,
+      "drug": "ivosidenib",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "A",
+      "key_concept": "inhibition of susceptible mutant IDH1 lowers the oncometabolite 2-hydroxyglutarate and permits myeloid differentiation",
+      "setid": "65d254c0-67ad-42c4-b972-ad463b755b2d",
+      "verified_pi_revision": "10/2023",
+      "current_spl_effective_date": "2025-12-22",
+      "revision_interpretation": "The current SPL has a later effective/version date, while the full prescribing-information highlights still explicitly display Revised: 10/2023. Under the candidate's declared revision_basis, 10/2023 is the correct PI revision metadata.",
+      "verified_locator": "12.1 Mechanism of Action",
+      "second_answer_attack": "BCL-2 inhibition is a plausible AML drug mechanism but cannot explain the specific reduction in mutant-IDH1-derived 2-hydroxyglutarate and associated release of differentiation block.",
+      "material_defects": []
+    },
+    {
+      "num": 1330,
+      "drug": "selinexor",
+      "decision": "SOURCE_QA_PASS",
+      "intended_key": "C",
+      "key_concept": "XPO1/exportin-1 inhibition blocks nuclear export and causes nuclear retention/accumulation of tumor-suppressor proteins",
+      "setid": "f6dd2682-75a6-4863-90a8-a3197f6f78a8",
+      "verified_pi_revision": "4/2026",
+      "current_spl_effective_date": "2026-05-12",
+      "revision_interpretation": "The current SPL effective/version date is later than the full prescribing-information revision. The PI highlights explicitly display Revised: 4/2026, which matches the candidate's declared revision_basis.",
+      "verified_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "second_answer_attack": "Blocking nuclear import would not produce the documented mechanism of nuclear retention by preventing export; the direction of transport uniquely identifies XPO1-mediated nuclear export.",
+      "material_defects": []
+    }
+  ],
+  "range_level_audit": {
+    "keys_checked": true,
+    "all_options_checked": true,
+    "second_answer_attack_checked": true,
+    "hidden_assumptions_checked": true,
+    "fabricated_numeric_claims_checked": true,
+    "setids_urls_locators_currentness_checked": true,
+    "blueprint_checked_against_current_step1_specifications": true,
+    "ncjmm_present": false,
+    "difficulty_is_author_estimate_not_empirical": true,
+    "educational_objectives_present": true,
+    "raw_author_source_hashes_recomputed_in_this_pass": false
+  },
+  "batch_result": "Q1306-Q1330 have now completed this non-independent source/content QA layer with no material defects identified. They remain non-canonical candidates until the repository's fresh isolated blind Auditor A/B and TRUSTED_IMPORTER requirements are satisfied.",
+  "next_required_action": "Proceed to Q1331-Q1355 source/content QA. Q1301 remains separately blocked for source metadata repair/re-freeze before independent auditing."
+}
