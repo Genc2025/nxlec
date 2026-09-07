@@ -1,0 +1,3264 @@
+{
+  "batch_id": "Q1306-Q1330-20260907",
+  "created_at": "2026-09-07",
+  "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 25,
+  "preceding_candidate_range": "Q1301-Q1305",
+  "new_workstream_candidate_count": 30,
+  "canonical_count_before": 1300,
+  "canonical_count_after": 1300,
+  "canonical_db_blob": "1a0f0b702f86a57624161413ba60fa4ce88e8d97",
+  "shared_sources": [
+    {
+      "source_id": "USMLE-SPEC",
+      "title": "Step 1 Exam Content",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+      "retrieved_at": "2026-09-07",
+      "section_locator": "Step 1 Content Specifications; Physician Tasks/Competencies Specifications; Discipline Specifications"
+    },
+    {
+      "source_id": "USMLE-FORMAT",
+      "title": "Step 1 Formats & Questions",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats",
+      "retrieved_at": "2026-09-07",
+      "section_locator": "Example Question: Pharmacology: Foundational Science"
+    }
+  ],
+  "answer_key_sequence": "CAEBDBECDAEBCADBEDACEBDAC",
+  "answer_key_distribution": {
+    "C": 5,
+    "A": 5,
+    "E": 5,
+    "B": 5,
+    "D": 5
+  },
+  "systems": {
+    "Cardiovascular System": 3,
+    "Respiratory & Renal/Urinary Systems": 3,
+    "Gastrointestinal System": 3,
+    "Behavioral Health & Nervous Systems/Special Senses": 5,
+    "Musculoskeletal, Skin & Subcutaneous Tissue": 3,
+    "Multisystem Processes & Disorders": 2,
+    "Blood & Lymphoreticular/Immune Systems": 5,
+    "Reproductive & Endocrine Systems": 1
+  },
+  "scope": "Twenty-five original Step 1 mechanism-focused questions. Author review does not substitute for independent A/B execution evidence or trusted importer acceptance. No numerical quality scores are fabricated.",
+  "items": [
+    {
+      "num": 1306,
+      "drug": "bempedoic acid",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 61-year-old man with hypercholesterolemia begins bempedoic acid after difficulty tolerating prior therapy. In hepatocytes, the drug is converted to a coenzyme A derivative. The active compound reduces cholesterol synthesis by inhibiting an enzyme upstream of HMG-CoA reductase.",
+        "lead_in": "Which enzyme is directly inhibited by this active compound?",
+        "options": {
+          "A": "HMG-CoA reductase",
+          "B": "Cholesterol 7-alpha-hydroxylase",
+          "C": "ATP-citrate lyase",
+          "D": "Lipoprotein lipase",
+          "E": "Acyl-CoA:cholesterol acyltransferase"
+        },
+        "intended_key": "C",
+        "tested_construct": "Hepatically activated ATP-citrate lyase inhibitor versus HMG-CoA reductase inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "The active CoA derivative inhibits ATP-citrate lyase. This reduces hepatic cholesterol synthesis at a step upstream of HMG-CoA reductase and increases LDL-receptor expression.",
+        "distractor_explanations": {
+          "A": "The stem places the inhibited step upstream of this enzyme.",
+          "B": "This is not the cholesterol-synthesis target identified for the drug.",
+          "C": "The active CoA derivative inhibits ATP-citrate lyase. This reduces hepatic cholesterol synthesis at a step upstream of HMG-CoA reductase and increases LDL-receptor expression.",
+          "D": "Intravascular lipoprotein hydrolysis does not match inhibition of hepatic cholesterol synthesis.",
+          "E": "Cholesterol esterification is not the inhibited upstream step."
+        },
+        "educational_objective": "Locate ATP-citrate lyase inhibition within the cholesterol-synthesis pathway."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Both interventions reduce cholesterol synthesis, but the specified upstream position excludes direct HMG-CoA reductase inhibition."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1306-LABEL",
+          "title": "NEXLETOL- bempedoic acid tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=88d06d89-a3da-40b4-b273-8f4f7d56c4c9",
+          "setid": "88d06d89-a3da-40b4-b273-8f4f7d56c4c9",
+          "publication_or_revision_date": "1/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "452746a57f43e821dc797a4418a328b1fee40eec55b60b214217df6e3576ec0c",
+          "mechanism_section_sha256": "26526e158faac12e6a2950cc07b5fbaf3178bdbb419f36bf2d1c0633d7042d62",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1306-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1306-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1306-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1306-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1306-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1306-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1306-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1306-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1306-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1306-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1307,
+      "drug": "vericiguat",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 68-year-old man with symptomatic heart failure and reduced ejection fraction is prescribed vericiguat after a recent heart-failure hospitalization. In a biochemical experiment, the drug increases cGMP production even when nitric oxide availability is low. The experiment shows no reduction in cGMP phosphodiesterase activity.",
+        "lead_in": "Which action best explains the observed increase in cGMP?",
+        "options": {
+          "A": "Stimulation of soluble guanylate cyclase",
+          "B": "Inhibition of phosphodiesterase type 5",
+          "C": "Stimulation of adenylyl cyclase",
+          "D": "Inhibition of the sodium-potassium ATPase",
+          "E": "Blockade of beta-1 adrenergic receptors"
+        },
+        "intended_key": "A",
+        "tested_construct": "Soluble guanylate cyclase stimulation rather than phosphodiesterase inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Vericiguat stimulates soluble guanylate cyclase, increasing cGMP synthesis. It can act independently of nitric oxide and also enhance sensitivity to nitric oxide.",
+        "distractor_explanations": {
+          "A": "Vericiguat stimulates soluble guanylate cyclase, increasing cGMP synthesis. It can act independently of nitric oxide and also enhance sensitivity to nitric oxide.",
+          "B": "Phosphodiesterase inhibition would reduce cGMP breakdown, which the assay excludes.",
+          "C": "Adenylyl cyclase produces a different cyclic nucleotide.",
+          "D": "This does not explain direct enhancement of cGMP synthesis.",
+          "E": "Beta-receptor blockade is not the identified cGMP-generating action."
+        },
+        "educational_objective": "Distinguish increased second-messenger synthesis from reduced second-messenger degradation."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Both can elevate cGMP, but preserved phosphodiesterase activity plus the named agent selects synthesis through soluble guanylate cyclase."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1307-LABEL",
+          "title": "VERQUVO- vericiguat tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17056d73-1b1b-4bf2-9c07-b7a9367f0d6d",
+          "setid": "17056d73-1b1b-4bf2-9c07-b7a9367f0d6d",
+          "publication_or_revision_date": "1/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "eb147ce8b06612f8b6f349a15a93728bbf55554597874842bf7ba3dcc8aabb5e",
+          "mechanism_section_sha256": "78eefebfe28395d7bdda3918532f5f6a125a6e8699e93a7cef1159fd2efebc2b",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1307-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1307-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1307-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1307-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1307-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1307-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1307-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1307-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1307-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1307-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1308,
+      "drug": "tafamidis",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 74-year-old man with transthyretin amyloid cardiomyopathy starts tafamidis. In a cell-free protein assay, the drug binds the thyroxine-binding sites of transthyretin without reducing the amount of protein in the preparation.",
+        "lead_in": "Which molecular effect of this binding limits amyloid formation?",
+        "options": {
+          "A": "Suppression of immunoglobulin light-chain production",
+          "B": "Degradation of transthyretin messenger RNA",
+          "C": "Inhibition of transthyretin gene transcription",
+          "D": "Correction of the transthyretin coding sequence",
+          "E": "Stabilization of the native transthyretin tetramer"
+        },
+        "intended_key": "E",
+        "tested_construct": "Pharmacologic stabilization of an amyloid precursor tetramer",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Tafamidis binds transthyretin and stabilizes its tetramer. Limiting dissociation reduces availability of subunits that can misfold and contribute to amyloid formation.",
+        "distractor_explanations": {
+          "A": "The assay studies transthyretin rather than immunoglobulin light chains.",
+          "B": "An isolated-protein assay cannot demonstrate messenger-RNA degradation.",
+          "C": "No gene transcription occurs in this preparation.",
+          "D": "The drug does not edit the protein-coding gene.",
+          "E": "Tafamidis binds transthyretin and stabilizes its tetramer. Limiting dissociation reduces availability of subunits that can misfold and contribute to amyloid formation."
+        },
+        "educational_objective": "Distinguish stabilization of an existing protein from suppression of its synthesis."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Reducing synthesis can reduce amyloid precursor supply, but it cannot explain a direct effect in the cell-free tetramer assay."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1308-LABEL",
+          "title": "VYNDAQEL- tafamidis meglumine capsule, liquid filled VYNDAMAX- tafamidis capsule, liquid filled",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b4121ee-a733-4456-a917-be2603477839",
+          "setid": "1b4121ee-a733-4456-a917-be2603477839",
+          "publication_or_revision_date": "10/2023",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "693953ab8952a45c0103c217c5f7bef31b9f06e2ba0464618949422be26ca542",
+          "mechanism_section_sha256": "f2ed2d6ce52da9aef46f20b5b7ba352f7be2bd9ec53c2ac45733142e2dc99ab2",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1308-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1308-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1308-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1308-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1308-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1308-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1308-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1308-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1308-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1308-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1309,
+      "drug": "patiromer",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 67-year-old woman with chronic kidney disease has persistent, nonemergent hyperkalemia. Patiromer is added to her regimen. During treatment, fecal potassium excretion increases. The administered polymer is not systemically absorbed.",
+        "lead_in": "Which process most directly explains the potassium reduction?",
+        "options": {
+          "A": "Movement of extracellular potassium into skeletal muscle",
+          "B": "Binding of potassium within the gastrointestinal lumen",
+          "C": "Increased aldosterone-dependent renal potassium secretion",
+          "D": "Increased potassium filtration at the glomerulus",
+          "E": "Enhanced potassium uptake by circulating erythrocytes"
+        },
+        "intended_key": "B",
+        "tested_construct": "Nonabsorbed intestinal potassium binding",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Patiromer binds potassium in the gastrointestinal tract. Bound potassium leaves in stool, reducing available potassium without requiring systemic absorption of the polymer.",
+        "distractor_explanations": {
+          "A": "An intracellular shift would not account for increased fecal elimination.",
+          "B": "Patiromer binds potassium in the gastrointestinal tract. Bound potassium leaves in stool, reducing available potassium without requiring systemic absorption of the polymer.",
+          "C": "A nonabsorbed intestinal polymer does not directly stimulate renal aldosterone signaling.",
+          "D": "The observed elimination route is intestinal rather than glomerular.",
+          "E": "Erythrocyte redistribution does not explain the stool finding."
+        },
+        "educational_objective": "Identify gastrointestinal removal as distinct from redistribution or renal excretion of potassium."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Both can lower serum potassium, but fecal loss and nonabsorption identify removal by a luminal binder."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1309-LABEL",
+          "title": "VELTASSA- patiromer powder, for suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bf002984-d6c9-46df-aecb-a07733f763c1",
+          "setid": "bf002984-d6c9-46df-aecb-a07733f763c1",
+          "publication_or_revision_date": "1/2025",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "fac74db9372d1d64ca340f1511b52c7db04b377ecb1c39878bdfe58bb451473e",
+          "mechanism_section_sha256": "073507c27732f3efb95c789c789efc098624d5b08a6d2f3d924c64c139709d67",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1309-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1309-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1309-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1309-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1309-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1309-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1309-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1309-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1309-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1309-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1310,
+      "drug": "tenapanor",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 43-year-old woman with irritable bowel syndrome with constipation begins tenapanor. In intestinal epithelial experiments, the drug reduces apical sodium uptake. Sodium and water remain in the intestinal lumen, and her stools become softer.",
+        "lead_in": "Which apical transport protein is the direct drug target?",
+        "options": {
+          "A": "Sodium-glucose cotransporter 1",
+          "B": "Cystic fibrosis transmembrane conductance regulator",
+          "C": "Sodium-potassium ATPase",
+          "D": "Sodium-hydrogen exchanger 3",
+          "E": "Sodium-potassium-chloride cotransporter 2"
+        },
+        "intended_key": "D",
+        "tested_construct": "Intestinal NHE3 inhibition and luminal water retention",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Tenapanor locally inhibits intestinal NHE3. Reduced sodium absorption retains water within the lumen and increases stool softness.",
+        "distractor_explanations": {
+          "A": "Glucose-coupled transport is not the identified sodium-hydrogen exchange mechanism.",
+          "B": "A chloride channel is not the sodium-uptake target in this experiment.",
+          "C": "The sodium-potassium pump is not the specified apical exchanger.",
+          "D": "Tenapanor locally inhibits intestinal NHE3. Reduced sodium absorption retains water within the lumen and increases stool softness.",
+          "E": "The drug target is NHE3, not this renal cotransporter."
+        },
+        "educational_objective": "Connect reduced intestinal sodium absorption with retention of luminal water."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Chloride secretion can also increase stool water, but the experiment specifies reduced sodium uptake and the drug targets NHE3."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1310-LABEL",
+          "title": "IBSRELA- tenapanor hydrochloride tablet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2102da5f-a1a0-4ac7-a1f6-38698cf7273a",
+          "setid": "2102da5f-a1a0-4ac7-a1f6-38698cf7273a",
+          "publication_or_revision_date": "5/2025",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "28ffb6eb588867a685d2b16f1c097945c917cee9bef2e22a1438b92f650fd5e8",
+          "mechanism_section_sha256": "c1857e434514235f9986c5d2ca0fee2b957b85ce37887b1b193a265b1306363b",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1310-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1310-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1310-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1310-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1310-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1310-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1310-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1310-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1310-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1310-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1311,
+      "drug": "resmetirom",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 55-year-old man with noncirrhotic metabolic dysfunction-associated steatohepatitis and moderate-to-advanced fibrosis starts resmetirom along with dietary and exercise measures. In a thyroid hormone receptor beta reporter assay, increasing drug concentrations produce a plateau response below the maximum produced by triiodothyronine under matched assay conditions.",
+        "lead_in": "Which receptor action is documented for this agent?",
+        "options": {
+          "A": "Antagonism of thyroid hormone receptor alpha",
+          "B": "Partial agonism of thyroid hormone receptor beta",
+          "C": "Antagonism of the TSH receptor",
+          "D": "Inhibition of thyroid peroxidase",
+          "E": "Inhibition of the sodium-iodide symporter"
+        },
+        "intended_key": "B",
+        "tested_construct": "Liver-directed thyroid hormone receptor beta partial agonism",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Resmetirom is a partial agonist of thyroid hormone receptor beta. This is a receptor-mediated hepatic action rather than blockade of thyroid hormone synthesis.",
+        "distractor_explanations": {
+          "A": "Antagonism of the alpha subtype does not match the observed beta-preferring activation.",
+          "B": "Resmetirom is a partial agonist of thyroid hormone receptor beta. This is a receptor-mediated hepatic action rather than blockade of thyroid hormone synthesis.",
+          "C": "The TSH receptor is not the nuclear thyroid-hormone receptor under study.",
+          "D": "Blocking hormone synthesis does not explain direct activation in a receptor assay.",
+          "E": "Iodide transport is distinct from direct receptor activation."
+        },
+        "educational_objective": "Distinguish a thyroid-hormone receptor agonist from inhibitors of thyroid hormone synthesis."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "The beta receptor is directly activated, but maximal efficacy is below the full agonist response; this selects beta partial agonism rather than alpha antagonism."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1311-LABEL",
+          "title": "REZDIFFRA- resmetirom tablet, coated REZDIFFRA- resmetirom tablet, coated REZDIFFRA- resmetirom tablet, coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e67ea09f-a840-439c-86c8-f98585f978b2",
+          "setid": "e67ea09f-a840-439c-86c8-f98585f978b2",
+          "publication_or_revision_date": "7/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "83d1e5260dbdfd4e668644c236065ff5da1353a719633f86ec33d0e320676d68",
+          "mechanism_section_sha256": "510f11df1397a683b9bc49e6b1439432ccc2d8316206d05d842f2eee8eb2cc16",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1311-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1311-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1311-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1311-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1311-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1311-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1311-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1311-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1311-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1311-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1312,
+      "drug": "vedolizumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 32-year-old woman with moderately to severely active ulcerative colitis begins vedolizumab. An adhesion assay shows reduced binding of a subset of memory T lymphocytes to mucosal addressin cell adhesion molecule 1. Binding through alpha-4 beta-1 integrin is preserved.",
+        "lead_in": "Which molecule on the lymphocyte is bound by the drug?",
+        "options": {
+          "A": "CD20 surface antigen",
+          "B": "Interleukin-6 receptor alpha",
+          "C": "CD80/CD86 costimulatory molecules",
+          "D": "Tumor necrosis factor alpha",
+          "E": "Alpha-4 beta-7 integrin"
+        },
+        "intended_key": "E",
+        "tested_construct": "Alpha-4 beta-7 integrin blockade in gut lymphocyte trafficking",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Vedolizumab binds alpha-4 beta-7 integrin and blocks its interaction with MAdCAM-1. This interferes with trafficking of the targeted lymphocyte population into gastrointestinal tissue.",
+        "distractor_explanations": {
+          "A": "A B-cell surface antigen does not explain the specified T-cell adhesion interaction.",
+          "B": "Cytokine-receptor blockade is distinct from this integrin-mediated adhesion step.",
+          "C": "Costimulatory molecules are not the MAdCAM-1-binding integrin.",
+          "D": "Neutralizing this cytokine does not identify the selectively blocked adhesion molecule.",
+          "E": "Vedolizumab binds alpha-4 beta-7 integrin and blocks its interaction with MAdCAM-1. This interferes with trafficking of the targeted lymphocyte population into gastrointestinal tissue."
+        },
+        "educational_objective": "Link an integrin-addressin interaction to tissue-selective leukocyte trafficking."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "TNF blockade can treat colitis, but the adhesion assay specifically isolates alpha-4 beta-7/MAdCAM-1 binding."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1312-LABEL",
+          "title": "ENTYVIO- vedolizumab injection, powder, lyophilized, for solution ENTYVIO PEN- vedolizumab injection, solution ENTYVIO- vedolizumab injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6e94621c-1a95-4af9-98d1-52b9e6f1949c",
+          "setid": "6e94621c-1a95-4af9-98d1-52b9e6f1949c",
+          "publication_or_revision_date": "2/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "6636def2ef691e732b9a4f5d166e2140428b20b5f1853e7c6f0c619ae4f8a596",
+          "mechanism_section_sha256": "cd145b38ca30142355989e18bd8e8d08b9c99b5f88d5cef8beb4b591418c8b6e",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1312-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1312-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1312-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1312-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1312-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1312-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1312-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1312-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1312-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1312-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1313,
+      "drug": "suvorexant",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 49-year-old man with difficulty initiating and maintaining sleep is prescribed suvorexant. His clinician explains that the drug opposes a wake-promoting signaling pathway rather than enhancing GABA-mediated chloride-channel activity.",
+        "lead_in": "Which receptor action characterizes this drug?",
+        "options": {
+          "A": "Agonism of melatonin receptors",
+          "B": "Positive modulation of GABA-A receptors",
+          "C": "Antagonism of orexin receptors",
+          "D": "Agonism of dopamine D2 receptors",
+          "E": "Antagonism of muscarinic receptors"
+        },
+        "intended_key": "C",
+        "tested_construct": "Dual orexin receptor antagonism",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Suvorexant antagonizes orexin receptors OX1R and OX2R. Blocking this wake-promoting pathway is its proposed mechanism for improving sleep.",
+        "distractor_explanations": {
+          "A": "Melatonin-receptor activation is not this drug’s receptor profile.",
+          "B": "The stem explicitly distinguishes the drug from GABA-A enhancement.",
+          "C": "Suvorexant antagonizes orexin receptors OX1R and OX2R. Blocking this wake-promoting pathway is its proposed mechanism for improving sleep.",
+          "D": "Dopamine D2 agonism is not its documented target.",
+          "E": "Muscarinic blockade does not describe orexin-receptor antagonism."
+        },
+        "educational_objective": "Distinguish suppression of wake-promoting orexin signaling from GABAergic sedation."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Both classes can promote sleep, but the stem and documented receptor profile exclude GABA-A enhancement."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1313-LABEL",
+          "title": "BELSOMRA- suvorexant tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e5b72731-1acb-45b7-9c13-290ad12d3951",
+          "setid": "e5b72731-1acb-45b7-9c13-290ad12d3951",
+          "publication_or_revision_date": "3/2025",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "6522c75e7e9f65f6d066e67c2f4d08bf8212db9c3271fd74089bfca146940359",
+          "mechanism_section_sha256": "8c935efa46493e62a84a06960fc8ce35a9754b21c0ea3b3ef0d73a586d4444eb",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1313-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1313-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1313-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1313-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1313-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1313-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1313-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1313-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1313-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1313-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1314,
+      "drug": "pimavanserin",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 72-year-old man with Parkinson disease develops persistent hallucinations and delusions. Pimavanserin is prescribed. A receptor-binding panel demonstrates high affinity for serotonin 5-HT2A receptors and no appreciable affinity for dopamine D2 receptors.",
+        "lead_in": "Which pharmacologic profile best describes the agent?",
+        "options": {
+          "A": "Dopamine D2 receptor antagonism",
+          "B": "Dopamine D2 receptor partial agonism",
+          "C": "Serotonin transporter inhibition",
+          "D": "Serotonin 5-HT2A inverse agonism and antagonism",
+          "E": "Monoamine oxidase B inhibition"
+        },
+        "intended_key": "D",
+        "tested_construct": "5-HT2A inverse agonism without appreciable dopamine D2 affinity",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Pimavanserin exhibits inverse agonist and antagonist activity at 5-HT2A receptors. Its documented binding profile differs from dopamine D2-blocking antipsychotics; the clinical mechanism is not fully established.",
+        "distractor_explanations": {
+          "A": "The binding panel excludes appreciable D2 affinity.",
+          "B": "A D2 partial agonist would require binding to the receptor.",
+          "C": "A serotonin transporter is distinct from the receptor identified in the assay.",
+          "D": "Pimavanserin exhibits inverse agonist and antagonist activity at 5-HT2A receptors. Its documented binding profile differs from dopamine D2-blocking antipsychotics; the clinical mechanism is not fully established.",
+          "E": "Enzyme inhibition does not match the stated receptor-binding profile."
+        },
+        "educational_objective": "Distinguish a serotonergic antipsychotic receptor profile from dopamine D2 blockade."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Psychosis treatment alone could suggest D2 blockade, but the provided receptor panel rules it out."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1314-LABEL",
+          "title": "NUPLAZID- pimavanserin tartrate capsule NUPLAZID- pimavanserin tartrate tablet, coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6bea44-57d6-4bac-9328-46e1ee59f83b",
+          "setid": "1e6bea44-57d6-4bac-9328-46e1ee59f83b",
+          "publication_or_revision_date": "4/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action; 12.2 Pharmacodynamics — receptor-binding profile",
+          "source_page_sha256": "182794a4892a249af61dff36dda3031d48a08d20737ab671b8adcc0da7f25ad9",
+          "mechanism_section_sha256": "a9bb3e12d0ebefec98df045916fc553ee2ebedd17342ed88fcfd46f3d329f897",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1314-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1314-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1314-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1314-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1314-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1314-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1314-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1314-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1314-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1314-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1315,
+      "drug": "deutetrabenazine",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 45-year-old man with Huntington disease receives deutetrabenazine for chorea. In presynaptic terminals, the active metabolites reduce transport of monoamines from the cytoplasm into storage vesicles.",
+        "lead_in": "Which protein is inhibited by these metabolites?",
+        "options": {
+          "A": "Vesicular monoamine transporter 2",
+          "B": "Dopamine transporter at the plasma membrane",
+          "C": "Catechol-O-methyltransferase",
+          "D": "Monoamine oxidase B",
+          "E": "Postsynaptic dopamine D2 receptor"
+        },
+        "intended_key": "A",
+        "tested_construct": "Presynaptic vesicular monoamine transport inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "The active metabolites inhibit VMAT2, reducing vesicular monoamine uptake and stores. This differs from blocking plasma-membrane reuptake or postsynaptic receptors.",
+        "distractor_explanations": {
+          "A": "The active metabolites inhibit VMAT2, reducing vesicular monoamine uptake and stores. This differs from blocking plasma-membrane reuptake or postsynaptic receptors.",
+          "B": "The plasma-membrane transporter moves dopamine between synaptic space and cytoplasm, not into storage vesicles.",
+          "C": "Monoamine metabolism does not identify the vesicular transport step.",
+          "D": "An enzyme that metabolizes monoamines is not the transporter in the stem.",
+          "E": "A postsynaptic receptor does not package presynaptic transmitter."
+        },
+        "educational_objective": "Locate VMAT2 action at the cytoplasm-to-vesicle transport step."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Both transport monoamines, but their membrane location and transport direction differ."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1315-LABEL",
+          "title": "AUSTEDO- deutetrabenazine tablet, coated AUSTEDO- deutetrabenazine kit AUSTEDO XR- deutetrabenazine tablet, film coated, extended release",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7ea3c60a-45c7-44cc-afc2-d87fa53993c0",
+          "setid": "7ea3c60a-45c7-44cc-afc2-d87fa53993c0",
+          "publication_or_revision_date": "2/2025",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "acc0f452884912d8f09810b2a2ae3602e9c89fac2248a63587bc9045e29b74ae",
+          "mechanism_section_sha256": "a98ee3bee01e7e96ece7aa7ce160672ff6fb52b5ca5a2ccc0ac466462af2b8b2",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1315-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1315-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1315-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1315-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1315-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1315-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1315-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1315-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1315-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1315-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1316,
+      "drug": "nusinersen",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A child with genetically confirmed 5q spinal muscular atrophy receives intrathecal nusinersen. After treatment, laboratory studies show a larger proportion of SMN2 transcripts containing exon 7. The number of SMN2 gene copies is unchanged.",
+        "lead_in": "Which mechanism best explains the increase in full-length SMN protein?",
+        "options": {
+          "A": "Insertion of a functional SMN1 gene into genomic DNA",
+          "B": "Selective destruction of all SMN2 messenger RNA",
+          "C": "Amplification of the SMN2 locus",
+          "D": "Removal of exon 7 from mature SMN2 transcripts",
+          "E": "Modification of SMN2 RNA processing to favor exon inclusion"
+        },
+        "intended_key": "E",
+        "tested_construct": "Antisense-mediated SMN2 exon 7 inclusion without gene amplification",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Nusinersen is an antisense oligonucleotide that promotes exon 7 inclusion in SMN2 transcripts. It changes RNA processing rather than gene copy number, increasing full-length SMN protein.",
+        "distractor_explanations": {
+          "A": "The observed effect is on SMN2 processing, not insertion of a replacement gene.",
+          "B": "Destroying the transcripts would not increase full-length product.",
+          "C": "The stem specifies unchanged copy number.",
+          "D": "Removing the exon predicts the opposite transcript pattern.",
+          "E": "Nusinersen is an antisense oligonucleotide that promotes exon 7 inclusion in SMN2 transcripts. It changes RNA processing rather than gene copy number, increasing full-length SMN protein."
+        },
+        "educational_objective": "Distinguish splice-modifying antisense therapy from gene replacement and transcript destruction."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Extra SMN2 copies can modify disease, but copy number is explicitly unchanged and exon inclusion increases."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1316-LABEL",
+          "title": "SPINRAZA- nusinersen injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd70cd5f-b0fc-4ba4-a5ea-89a34778bd94",
+          "setid": "dd70cd5f-b0fc-4ba4-a5ea-89a34778bd94",
+          "publication_or_revision_date": "3/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "789989b531f5c33371ed7bd6436acd050c178c8e9366419fcaada5f1279a3a59",
+          "mechanism_section_sha256": "3f100c4661498b0ee58c1458aa45995566e7f744af1c8a1b14e6049e36973611",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1316-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1316-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1316-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1316-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1316-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1316-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1316-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1316-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1316-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1316-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1317,
+      "drug": "pitolisant",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 28-year-old woman with narcolepsy receives pitolisant. Researchers study its documented inverse agonist activity at histamine H3 receptors using a receptor preparation that has constitutive signaling even when no histamine is present.",
+        "lead_in": "Which observation would demonstrate inverse agonism rather than neutral antagonism?",
+        "options": {
+          "A": "Increased receptor signaling in the absence of histamine",
+          "B": "Reduced receptor signaling below its ligand-free baseline",
+          "C": "Unchanged basal signaling with prevention of histamine binding",
+          "D": "Irreversible removal of histamine from the solution",
+          "E": "Increased histamine synthesis without receptor binding"
+        },
+        "intended_key": "B",
+        "tested_construct": "Functional definition of inverse agonism in a ligand-free H3 assay",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "An inverse agonist reduces constitutive receptor activity. A neutral antagonist can prevent agonist effects without lowering ligand-free baseline signaling. Pitolisant has documented H3 antagonist/inverse agonist activity.",
+        "distractor_explanations": {
+          "A": "Increasing ligand-free signaling indicates agonist activity.",
+          "B": "An inverse agonist reduces constitutive receptor activity. A neutral antagonist can prevent agonist effects without lowering ligand-free baseline signaling. Pitolisant has documented H3 antagonist/inverse agonist activity.",
+          "C": "This describes neutral antagonism, the comparator the question excludes.",
+          "D": "Removing ligand cannot explain reduced constitutive activity in an already ligand-free assay.",
+          "E": "Transmitter synthesis is not the receptor-level measurement in this preparation."
+        },
+        "educational_objective": "Distinguish inverse agonism from neutral antagonism using constitutive receptor activity."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "C describes receptor blockade but preserves baseline signaling; the requested discriminating feature is a fall below baseline."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1317-LABEL",
+          "title": "WAKIX- pitolisant hydrochloride tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8daa5562-824e-476c-9652-26ceef3d4b0e",
+          "setid": "8daa5562-824e-476c-9652-26ceef3d4b0e",
+          "publication_or_revision_date": "2/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "dcf07df1ad1698feb167962cde79f27b05f78c5f7a8faae3aa140094ac5583ea",
+          "mechanism_section_sha256": "2cad60f24c5620fead9bffaa62346aed4124f2cc7118ac4cf30104d69101bbf0",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        },
+        {
+          "source_id": "Q1317-PRIMARY",
+          "title": "High constitutive activity of native H3 receptors regulates histamine neurons in brain",
+          "agency": "Morisset et al.; primary experimental study indexed by PubMed",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11130725/",
+          "publication_or_revision_date": "2000",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "Abstract — constitutive activity, inverse agonists and neutral antagonist",
+          "scope": "Supports distinction between constitutive-activity suppression and neutral antagonism; not used as clinical efficacy evidence for pitolisant."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1317-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1317-LABEL",
+            "Q1317-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1317-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1317-LABEL",
+            "Q1317-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1317-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1317-LABEL",
+            "Q1317-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1317-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1317-LABEL",
+            "Q1317-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1317-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1317-LABEL",
+            "Q1317-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1318,
+      "drug": "burosumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adult with X-linked hypophosphatemia begins burosumab. Subsequent testing shows increased renal phosphate reabsorption and a rise in circulating 1,25-dihydroxyvitamin D. No change in the pathogenic PHEX variant occurs.",
+        "lead_in": "Neutralization of which circulating signal explains both changes?",
+        "options": {
+          "A": "Parathyroid hormone",
+          "B": "Calcitonin",
+          "C": "Fibroblast growth factor 23",
+          "D": "Sclerostin",
+          "E": "Receptor activator of nuclear factor kappa-B ligand"
+        },
+        "intended_key": "C",
+        "tested_construct": "FGF23 neutralization and restoration of renal phosphate retention",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Burosumab inhibits FGF23. Removing its phosphaturic and calcitriol-suppressing effects increases renal phosphate retention and circulating active vitamin D without repairing PHEX.",
+        "distractor_explanations": {
+          "A": "Neutralizing PTH would not explain the paired rise in active vitamin D through this drug’s target.",
+          "B": "Calcitonin is not the circulating signal bound by burosumab.",
+          "C": "Burosumab inhibits FGF23. Removing its phosphaturic and calcitriol-suppressing effects increases renal phosphate retention and circulating active vitamin D without repairing PHEX.",
+          "D": "Sclerostin is a different bone-regulatory target.",
+          "E": "RANKL blockade does not identify the phosphaturic hormone in the stem."
+        },
+        "educational_objective": "Infer the paired renal and vitamin-D consequences of FGF23 neutralization."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Both hormones can affect phosphate, but the paired calcitriol increase and the named antibody select FGF23 blockade."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1318-LABEL",
+          "title": "CRYSVITA- burosumab injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=102f96a0-6e3a-4fc1-b204-34d604683af6",
+          "setid": "102f96a0-6e3a-4fc1-b204-34d604683af6",
+          "publication_or_revision_date": "4/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "af0e6a9fea0b65a11d38fa40aebe0a2322851b7e4a51b7cd980e5593e15bced2",
+          "mechanism_section_sha256": "5106007a16e0ca2e927881d55f6436b91d44239afb54a0d6a0fc035e99eaf383",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1318-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1318-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1318-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1318-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1318-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1318-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1318-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1318-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1318-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1318-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1319,
+      "drug": "romosozumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 70-year-old postmenopausal woman at high fracture risk begins romosozumab for osteoporosis. Early monitoring shows increased markers of bone formation rather than solely suppression of bone resorption.",
+        "lead_in": "Which direct target accounts for this drug’s bone-forming action?",
+        "options": {
+          "A": "Sclerostin",
+          "B": "RANKL",
+          "C": "The parathyroid hormone receptor",
+          "D": "The calcium-sensing receptor",
+          "E": "The vitamin D receptor"
+        },
+        "intended_key": "A",
+        "tested_construct": "Sclerostin neutralization with increased bone formation",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Romosozumab inhibits sclerostin. It increases bone formation and also decreases resorption to a lesser extent, rather than acting only as an antiresorptive agent.",
+        "distractor_explanations": {
+          "A": "Romosozumab inhibits sclerostin. It increases bone formation and also decreases resorption to a lesser extent, rather than acting only as an antiresorptive agent.",
+          "B": "RANKL inhibition is a distinct antiresorptive mechanism.",
+          "C": "The drug is an antibody against a regulatory protein, not a PTH-receptor agonist.",
+          "D": "It does not act as a calcium-sensing-receptor agonist.",
+          "E": "It does not directly activate the vitamin D receptor."
+        },
+        "educational_objective": "Distinguish sclerostin inhibition from other pharmacologic targets in bone metabolism."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "PTH-receptor agonism can stimulate formation, but romosozumab directly neutralizes sclerostin."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1319-LABEL",
+          "title": "EVENITY- romosozumab-aqqg injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=471baba2-7154-4488-9891-0db2f46791e7",
+          "setid": "471baba2-7154-4488-9891-0db2f46791e7",
+          "publication_or_revision_date": "1/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "3cd27e3edfb88e728665f20f3e052355e178edabe98223b96569aaf90ba64191",
+          "mechanism_section_sha256": "8c648b3a7c9d7be0850257a406cffabeefb121704e6f8eecd201d44cbe3cf1f4",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1319-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1319-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1319-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1319-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1319-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1319-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1319-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1319-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1319-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1319-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1320,
+      "drug": "anifrolumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 35-year-old woman with moderate-to-severe systemic lupus erythematosus has persistent cutaneous and joint disease despite standard therapy. Anifrolumab is added. In cell-based testing, expression of genes induced by type I interferons decreases after drug exposure.",
+        "lead_in": "Which receptor component is directly bound by the drug?",
+        "options": {
+          "A": "Interferon-gamma receptor 1",
+          "B": "Interleukin-6 receptor alpha",
+          "C": "B-cell activating factor receptor",
+          "D": "Type I interferon receptor subunit 1",
+          "E": "Tumor necrosis factor receptor 1"
+        },
+        "intended_key": "D",
+        "tested_construct": "IFNAR1 blockade in type I interferon signaling",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Anifrolumab binds IFNAR1 and inhibits signaling by type I interferons. It also promotes receptor internalization, limiting surface receptor availability.",
+        "distractor_explanations": {
+          "A": "Interferon-gamma signaling uses a different receptor system.",
+          "B": "IL-6 receptor blockade does not explain selective type I interferon inhibition.",
+          "C": "This B-cell pathway is distinct from the interferon receptor identified here.",
+          "D": "Anifrolumab binds IFNAR1 and inhibits signaling by type I interferons. It also promotes receptor internalization, limiting surface receptor availability.",
+          "E": "TNF signaling is not the receptor pathway targeted by anifrolumab."
+        },
+        "educational_objective": "Distinguish blockade of type I interferon signaling from other immunomodulatory targets."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "The shared word interferon is insufficient; anifrolumab targets the type I receptor, not the interferon-gamma receptor."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1320-LABEL",
+          "title": "SAPHNELO- anifrolumab-fnia injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d6203302-2128-41a7-b0b4-0e6c0704d4dc",
+          "setid": "d6203302-2128-41a7-b0b4-0e6c0704d4dc",
+          "publication_or_revision_date": "4/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "9f34d7f9c62f84815c646114e07849b836ac758e3047c41d5f57e3ca7d5ec547",
+          "mechanism_section_sha256": "f2f42e21d733b4467f6c0b45a6b369b8c3b49c68217a3fc00b73a9829b4cbd97",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1320-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1320-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1320-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1320-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1320-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1320-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1320-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1320-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1320-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1320-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1321,
+      "drug": "dupilumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 26-year-old man with moderate-to-severe atopic dermatitis inadequately controlled by topical prescription therapy begins dupilumab. In separate cell assays, the antibody reduces responses to both interleukin-4 and interleukin-13.",
+        "lead_in": "Which target explains inhibition of both cytokine responses?",
+        "options": {
+          "A": "Interleukin-13 ligand",
+          "B": "Interleukin-4 receptor alpha",
+          "C": "Interleukin-5 receptor alpha",
+          "D": "Immunoglobulin E constant region",
+          "E": "Tumor necrosis factor alpha"
+        },
+        "intended_key": "B",
+        "tested_construct": "Shared IL-4 receptor alpha blockade of IL-4 and IL-13 signaling",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Dupilumab binds IL-4 receptor alpha, a component shared by IL-4 and IL-13 receptor complexes. One receptor-subunit target can therefore inhibit signaling by both cytokines.",
+        "distractor_explanations": {
+          "A": "Binding IL-13 alone would not explain direct inhibition of the separate IL-4 assay.",
+          "B": "Dupilumab binds IL-4 receptor alpha, a component shared by IL-4 and IL-13 receptor complexes. One receptor-subunit target can therefore inhibit signaling by both cytokines.",
+          "C": "IL-5 receptor alpha is not shared by the stated cytokine pathways.",
+          "D": "IgE neutralization is not direct blockade of the two receptor responses.",
+          "E": "TNF blockade does not identify their shared receptor component."
+        },
+        "educational_objective": "Use inhibition of two cytokine responses to identify a shared receptor-subunit target."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "A ligand-specific antibody could inhibit one assay, but the independent IL-4 effect requires the shared receptor explanation."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1321-LABEL",
+          "title": "DUPIXENT- dupilumab injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=595f437d-2729-40bb-9c62-c8ece1f82780",
+          "setid": "595f437d-2729-40bb-9c62-c8ece1f82780",
+          "publication_or_revision_date": "4/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "bd9101d4b85b1af65519a19e68ebaf3a4849a54c9871281c4e99eabc88ba744e",
+          "mechanism_section_sha256": "60ab33347a039048dc90658d1e265f87d72f375118ad1eedc204897a23b7e797",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1321-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1321-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1321-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1321-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1321-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1321-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1321-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1321-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1321-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1321-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1322,
+      "drug": "tezepelumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 40-year-old woman with severe asthma receives tezepelumab as add-on maintenance treatment. The antibody binds an epithelial-derived cytokine that acts upstream of multiple inflammatory pathways; it is not administered to reverse acute bronchospasm.",
+        "lead_in": "Which cytokine is directly bound?",
+        "options": {
+          "A": "Interleukin-5",
+          "B": "Interleukin-13",
+          "C": "Tumor necrosis factor alpha",
+          "D": "Interferon-gamma",
+          "E": "Thymic stromal lymphopoietin"
+        },
+        "intended_key": "E",
+        "tested_construct": "Neutralization of the epithelial cytokine TSLP",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Tezepelumab binds TSLP and prevents its receptor interaction. TSLP is mainly epithelial-derived and occupies an upstream position in inflammatory signaling. This identifies the target without asserting a fully established clinical mechanism.",
+        "distractor_explanations": {
+          "A": "IL-5 is not the cytokine directly neutralized by this antibody.",
+          "B": "IL-13 is not the stated upstream epithelial target.",
+          "C": "TNF is a different cytokine target.",
+          "D": "Interferon-gamma is not bound by tezepelumab.",
+          "E": "Tezepelumab binds TSLP and prevents its receptor interaction. TSLP is mainly epithelial-derived and occupies an upstream position in inflammatory signaling. This identifies the target without asserting a fully established clinical mechanism."
+        },
+        "educational_objective": "Identify TSLP as an upstream epithelial cytokine targeted by a maintenance asthma biologic."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "IL-13 participates in asthma inflammation, but tezepelumab directly binds TSLP rather than IL-13."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1322-LABEL",
+          "title": "TEZSPIRE- tezepelumab-ekko injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60f0aa03-ad25-4d48-80ce-7fcfa76f325f",
+          "setid": "60f0aa03-ad25-4d48-80ce-7fcfa76f325f",
+          "publication_or_revision_date": "10/2025",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "45bfd99b922bedcc6c18282523f00d24af238e52f3cfa42894cd745755005254",
+          "mechanism_section_sha256": "3720cd7a36757ba64b26c35d69f467805f2710bb909691632730eec1e61a3f34",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1322-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1322-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1322-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1322-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1322-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1322-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1322-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1322-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1322-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1322-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1323,
+      "drug": "benralizumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 48-year-old woman with severe eosinophilic asthma receives benralizumab as add-on maintenance therapy. In a cell assay, antibody-bound eosinophils are eliminated by natural killer cells. The antibody’s Fc region facilitates interaction with Fc-gamma-RIII on the effector cells.",
+        "lead_in": "Which paired action best explains the observed eosinophil depletion?",
+        "options": {
+          "A": "Binding soluble IL-5 and preventing receptor activation",
+          "B": "Binding IgE and blocking mast-cell sensitization",
+          "C": "Binding IL-4 receptor alpha and blocking IL-13 signaling",
+          "D": "Binding IL-5 receptor alpha and enabling antibody-dependent cytotoxicity",
+          "E": "Binding TSLP and preventing TSLP-receptor activation"
+        },
+        "intended_key": "D",
+        "tested_construct": "IL-5 receptor alpha targeting with Fc-mediated eosinophil depletion",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Benralizumab binds IL-5 receptor alpha on eosinophils. Its afucosylated Fc supports effector-cell engagement and antibody-dependent cell-mediated cytotoxicity in vitro.",
+        "distractor_explanations": {
+          "A": "The assay shows target-cell coating, not merely neutralization of soluble IL-5.",
+          "B": "IgE blockade does not identify the receptor on the depleted eosinophils.",
+          "C": "This is not the target associated with the demonstrated cytotoxicity.",
+          "D": "Benralizumab binds IL-5 receptor alpha on eosinophils. Its afucosylated Fc supports effector-cell engagement and antibody-dependent cell-mediated cytotoxicity in vitro.",
+          "E": "TSLP neutralization does not identify the eosinophil-surface target required for the demonstrated cytotoxicity."
+        },
+        "educational_objective": "Connect antibody binding to a cell-surface receptor with Fc-mediated immune-cell depletion."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Neutralizing the ligand differs from coating receptor-bearing eosinophils for NK-cell-mediated cytotoxicity."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1323-LABEL",
+          "title": "FASENRA- benralizumab injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784",
+          "setid": "da6aca1a-19ed-44a4-abb7-696c7d58b784",
+          "publication_or_revision_date": "5/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "097be3bd7a047feb5abfd24bc875b00cd04d13edf84d55979acdbbfe0f33a674",
+          "mechanism_section_sha256": "34bc01cee550e78c0d315de4c3e25038e9a2b8b75e43d1bb8801c5cd52fc9df7",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1323-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1323-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1323-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1323-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1323-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1323-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1323-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1323-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1323-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1323-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1324,
+      "drug": "venetoclax",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Pathology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 66-year-old man with chronic lymphocytic leukemia begins a venetoclax-containing regimen. In his leukemia cells, drug binding releases proapoptotic proteins previously sequestered by BCL-2.",
+        "lead_in": "Which downstream event is most consistent with this drug action?",
+        "options": {
+          "A": "Increased mitochondrial outer-membrane permeability followed by caspase activation",
+          "B": "Stabilization of the mitochondrial outer membrane followed by caspase inhibition",
+          "C": "Increased BCL-2 sequestration of proapoptotic proteins",
+          "D": "Inhibition of DNA topoisomerase II with accumulation of strand breaks",
+          "E": "Blockade of mitotic spindle assembly with metaphase arrest"
+        },
+        "intended_key": "A",
+        "tested_construct": "Restoration of mitochondrial apoptosis by BCL-2 inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Venetoclax inhibits antiapoptotic BCL-2. Displacement of proapoptotic proteins favors mitochondrial outer-membrane permeabilization and activation of the caspase pathway.",
+        "distractor_explanations": {
+          "A": "Venetoclax inhibits antiapoptotic BCL-2. Displacement of proapoptotic proteins favors mitochondrial outer-membrane permeabilization and activation of the caspase pathway.",
+          "B": "This predicts suppression rather than restoration of apoptosis.",
+          "C": "The stem states that the proteins are released, not increasingly sequestered.",
+          "D": "This is a different direct drug action, not the mitochondrial event following displacement from BCL-2.",
+          "E": "Mitotic spindle arrest does not identify the mitochondrial apoptosis event in the question."
+        },
+        "educational_objective": "Connect inhibition of an antiapoptotic protein to mitochondrial apoptosis."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "B reverses both membrane and caspase effects; releasing proapoptotic proteins supports A."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1324-LABEL",
+          "title": "VENCLEXTA- venetoclax kit VENCLEXTA- venetoclax tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b118a40d-6b56-cee3-10f6-ded821a97018",
+          "setid": "b118a40d-6b56-cee3-10f6-ded821a97018",
+          "publication_or_revision_date": "5/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "0fa0b316dd31abebc7f8ab40a1fc983fee271965c229e119c09a28dcac37827a",
+          "mechanism_section_sha256": "8e54fe1d24744dbc7c7d88d70a52b2700912b73a06ef95bf870bc6d91a0ac125",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1324-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1324-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1324-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1324-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1324-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1324-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1324-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1324-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1324-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1324-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1325,
+      "drug": "fostamatinib",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 57-year-old woman with chronic immune thrombocytopenia and an insufficient response to prior therapy begins fostamatinib. In a cell-based assay, its active metabolite R406 reduces destruction of antibody-coated platelets even when the amount of platelet-bound antibody is held constant.",
+        "lead_in": "Which action most directly explains this finding?",
+        "options": {
+          "A": "Stimulation of the thrombopoietin receptor",
+          "B": "Removal of platelet-bound antibody by proteolysis",
+          "C": "Inhibition of SYK-dependent activating Fc-receptor signaling",
+          "D": "Replacement of ADAMTS13 activity",
+          "E": "Inhibition of platelet cyclooxygenase activity"
+        },
+        "intended_key": "C",
+        "tested_construct": "SYK inhibition downstream of activating Fc receptors",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "R406 inhibits spleen tyrosine kinase and activating Fc-receptor signal transduction. This reduces antibody-mediated platelet destruction without requiring removal of the antibody in the assay.",
+        "distractor_explanations": {
+          "A": "Increased production would not explain reduced destruction of already-coated platelets.",
+          "B": "The assay holds platelet-bound antibody constant.",
+          "C": "R406 inhibits spleen tyrosine kinase and activating Fc-receptor signal transduction. This reduces antibody-mediated platelet destruction without requiring removal of the antibody in the assay.",
+          "D": "ADAMTS13 replacement does not identify the Fc-receptor pathway in this ITP experiment.",
+          "E": "Cyclooxygenase inhibition is not the stated antibody-mediated destruction target."
+        },
+        "educational_objective": "Distinguish reduced immune platelet destruction from increased platelet production."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "A can improve platelet counts clinically, but the controlled assay measures reduced destruction, not new platelet production."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1325-LABEL",
+          "title": "TAVALISSE- fostamatinib tablet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21149cc3-049b-43e2-b141-c9499160556c",
+          "setid": "21149cc3-049b-43e2-b141-c9499160556c",
+          "publication_or_revision_date": "11/2020",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "5689b2df9ab657636096de30a4c341387f2d481b33f432b457bb2a9dbefb4e21",
+          "mechanism_section_sha256": "cf742a0413e951fa296bd29d397340c15776350999eff883c7a09d1ab8c52884",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1325-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1325-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1325-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1325-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1325-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1325-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1325-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1325-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1325-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1325-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1326,
+      "drug": "eculizumab",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 42-year-old man with paroxysmal nocturnal hemoglobinuria begins eculizumab. Intravascular hemolysis decreases, but his abnormal blood-cell clone continues to lack normal surface expression of GPI-anchored protective proteins.",
+        "lead_in": "Which action explains protection without correction of the clone?",
+        "options": {
+          "A": "Repair of the PIGA mutation",
+          "B": "Replacement of GPI anchors on erythrocytes",
+          "C": "Stimulation of erythrocyte CD59 synthesis",
+          "D": "Direct inhibition of C3 synthesis",
+          "E": "Prevention of C5 cleavage and terminal complement-complex formation"
+        },
+        "intended_key": "E",
+        "tested_construct": "Terminal complement blockade despite persistent GPI-anchor deficiency",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Eculizumab binds C5 and prevents cleavage into C5a and C5b, limiting formation of C5b-9. It acts on complement rather than repairing the affected hematopoietic clone.",
+        "distractor_explanations": {
+          "A": "The persistent abnormal clone argues against genetic correction.",
+          "B": "The stem specifies continued absence of normal protective surface proteins.",
+          "C": "The drug does not restore GPI-anchored protein expression.",
+          "D": "Its direct target is C5, not C3 synthesis.",
+          "E": "Eculizumab binds C5 and prevents cleavage into C5a and C5b, limiting formation of C5b-9. It acts on complement rather than repairing the affected hematopoietic clone."
+        },
+        "educational_objective": "Distinguish terminal complement inhibition from correction of the cellular defect in PNH."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Restoring membrane protection could reduce hemolysis, but the stem states that the surface defect persists."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1326-LABEL",
+          "title": "SOLIRIS- eculizumab injection, solution, concentrate",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ebcd67fa-b4d1-4a22-b33d-ee8bf6b9c722",
+          "setid": "ebcd67fa-b4d1-4a22-b33d-ee8bf6b9c722",
+          "publication_or_revision_date": "6/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "a87197e765a7d8c189ca081eedc11fae5beccbd016f9143a966c11becdc7ed0f",
+          "mechanism_section_sha256": "bb352f7bc223a4e7ed62cb4d94eeaa007d061acc5c8dd9cadbd21fc4ea6c11f2",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1326-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1326-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1326-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1326-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1326-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1326-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1326-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1326-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1326-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1326-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1327,
+      "drug": "letermovir",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A CMV-seropositive adult undergoing allogeneic hematopoietic stem-cell transplantation receives letermovir prophylaxis. In an infected-cell experiment, viral genome processing and packaging are impaired, producing defective virion maturation.",
+        "lead_in": "Which viral target is inhibited?",
+        "options": {
+          "A": "UL97 protein kinase",
+          "B": "The DNA terminase complex",
+          "C": "UL54 DNA polymerase",
+          "D": "The viral entry fusion complex",
+          "E": "The capsid-associated protease"
+        },
+        "intended_key": "B",
+        "tested_construct": "CMV terminase inhibition during genome packaging",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Letermovir inhibits the CMV DNA terminase complex, which is required for genome processing and packaging. This is distinct from a kinase or direct polymerase target.",
+        "distractor_explanations": {
+          "A": "Kinase inhibition is not the processing-and-packaging target of letermovir.",
+          "B": "Letermovir inhibits the CMV DNA terminase complex, which is required for genome processing and packaging. This is distinct from a kinase or direct polymerase target.",
+          "C": "Direct DNA polymerase inhibition does not identify the maturation target in the stem.",
+          "D": "The experimental defect occurs after entry, during genome packaging.",
+          "E": "A protease target does not match the documented terminase inhibition."
+        },
+        "educational_objective": "Distinguish CMV genome-packaging inhibition from polymerase and kinase inhibition."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Both inhibit replication, but the specific processing and packaging defect identifies terminase."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1327-LABEL",
+          "title": "PREVYMIS- letermovir tablet, film coated PREVYMIS- letermovir injection, solution PREVYMIS- letermovir pellet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b49df80-be4f-47e0-a0b7-123f3e69395b",
+          "setid": "1b49df80-be4f-47e0-a0b7-123f3e69395b",
+          "publication_or_revision_date": "1/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1.1 CMV Prophylaxis in HSCT Recipients; 12.4 Microbiology — Mechanism of Action",
+          "source_page_sha256": "719d6730556f83228fc8f69d8cfd4131f11509d6994414401f6bdb4f7bc29d5c",
+          "mechanism_section_sha256": "5d0ecc7cf7c3b998dfb827a58e66baa40532edf573032f78bf2efa04a99b970f",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1327-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1327-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1327-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1327-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1327-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1327-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1327-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1327-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1327-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1327-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1328,
+      "drug": "olaparib",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Reproductive & Endocrine Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Reproductive & Endocrine Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 59-year-old woman with BRCA1-mutated advanced epithelial ovarian carcinoma receives olaparib maintenance after responding to first-line platinum-based chemotherapy. Tumor cells lacking effective homologous recombination are particularly vulnerable to the additional DNA-repair stress produced by the drug.",
+        "lead_in": "Which enzyme family is directly inhibited?",
+        "options": {
+          "A": "Histone deacetylases",
+          "B": "Cyclin-dependent kinases",
+          "C": "DNA methyltransferases",
+          "D": "Poly(ADP-ribose) polymerases",
+          "E": "Topoisomerases"
+        },
+        "intended_key": "D",
+        "tested_construct": "PARP inhibition in homologous-recombination-deficient ovarian cancer",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Olaparib inhibits PARP enzymes. PARP inhibition and formation of PARP-DNA complexes can produce DNA damage; impaired homologous recombination increases tumor susceptibility.",
+        "distractor_explanations": {
+          "A": "Chromatin deacetylation is not the directly inhibited repair-enzyme family.",
+          "B": "Cell-cycle kinase inhibition is not olaparib’s target.",
+          "C": "DNA methylation is not the direct enzyme target here.",
+          "D": "Olaparib inhibits PARP enzymes. PARP inhibition and formation of PARP-DNA complexes can produce DNA damage; impaired homologous recombination increases tumor susceptibility.",
+          "E": "Topoisomerases are not the PARP enzymes inhibited by this agent."
+        },
+        "educational_objective": "Link homologous-recombination deficiency with vulnerability to PARP inhibition."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "Other DNA-damaging agents may affect susceptible tumors, but the named drug directly inhibits PARP rather than topoisomerase."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1328-LABEL",
+          "title": "LYNPARZA- olaparib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=741ff3e3-dc1a-45a6-84e5-2481b27131aa",
+          "setid": "741ff3e3-dc1a-45a6-84e5-2481b27131aa",
+          "publication_or_revision_date": "7/2025",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "96c468066a0ce49a67a397c333c3d21b258dc9b01906898f7ec7b5651d345f87",
+          "mechanism_section_sha256": "d4f21d1f7977e41fa3e373d7410452d2efe598613cf7524cbed215924381e5ff",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1328-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1328-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1328-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1328-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1328-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1328-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1328-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1328-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1328-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1328-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1329,
+      "drug": "ivosidenib",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 63-year-old man with relapsed acute myeloid leukemia and a susceptible IDH1 mutation begins ivosidenib. During treatment, leukemia-cell 2-hydroxyglutarate levels decrease and more mature myeloid cells appear.",
+        "lead_in": "Which direct action explains this combination of findings?",
+        "options": {
+          "A": "Inhibition of the abnormal activity of mutant IDH1",
+          "B": "Inhibition of BCL-2 binding to proapoptotic proteins",
+          "C": "Blockade of the proteasome’s protein-degradation activity",
+          "D": "Inhibition of DNA topoisomerase II",
+          "E": "Blockade of the retinoic acid receptor"
+        },
+        "intended_key": "A",
+        "tested_construct": "Mutant IDH1 inhibition with reduced 2-hydroxyglutarate",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Ivosidenib inhibits susceptible mutant IDH1. Reducing the abnormal enzyme’s 2-hydroxyglutarate production is associated with release of the myeloid differentiation block.",
+        "distractor_explanations": {
+          "A": "Ivosidenib inhibits susceptible mutant IDH1. Reducing the abnormal enzyme’s 2-hydroxyglutarate production is associated with release of the myeloid differentiation block.",
+          "B": "BCL-2 inhibition promotes apoptosis but does not identify the mutant-enzyme metabolic target.",
+          "C": "Proteasome inhibition does not directly explain lower mutant-IDH1 product formation.",
+          "D": "Topoisomerase inhibition is not the abnormal metabolic target.",
+          "E": "The drug targets mutant IDH1 rather than retinoic acid receptors."
+        },
+        "educational_objective": "Connect suppression of an oncogenic metabolite with restoration of myeloid differentiation."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Both are AML drug mechanisms, but the mutant-IDH1 substrate-product finding uniquely supports A."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1329-LABEL",
+          "title": "TIBSOVO- ivosidenib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=65d254c0-67ad-42c4-b972-ad463b755b2d",
+          "setid": "65d254c0-67ad-42c4-b972-ad463b755b2d",
+          "publication_or_revision_date": "10/2023",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "837e99fdb1b669a2646feffa7b545d5e3f7cfeac0c8ce808034c74b97ae4fec6",
+          "mechanism_section_sha256": "e048c1031d11168c10b9d3e6ce04200497749b78c2e30021fbf0f1efc5309ff0",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1329-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1329-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1329-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1329-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1329-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1329-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1329-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1329-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1329-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1329-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    },
+    {
+      "num": 1330,
+      "drug": "selinexor",
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Histology & Cell Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 69-year-old woman with previously treated multiple myeloma receives selinexor with bortezomib and dexamethasone. In a tumor-cell experiment, proteins that restrain proliferation accumulate in the nucleus after drug exposure.",
+        "lead_in": "Which transport process is directly inhibited?",
+        "options": {
+          "A": "Importin-mediated movement from cytoplasm to nucleus",
+          "B": "Vesicular transport from endoplasmic reticulum to Golgi",
+          "C": "Exportin-1-mediated movement from nucleus to cytoplasm",
+          "D": "Lysosomal import of extracellular proteins",
+          "E": "Mitochondrial import of nuclear-encoded proteins"
+        },
+        "intended_key": "C",
+        "tested_construct": "Exportin-1 blockade and nuclear tumor-suppressor retention",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate of mechanistic application; not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Selinexor inhibits exportin 1. Retention of tumor-suppressor proteins in the nucleus is consistent with blocked nuclear export rather than blocked nuclear import.",
+        "distractor_explanations": {
+          "A": "Blocking entry would not explain nuclear retention through the documented mechanism.",
+          "B": "Secretory vesicle transport is a different cellular compartment.",
+          "C": "Selinexor inhibits exportin 1. Retention of tumor-suppressor proteins in the nucleus is consistent with blocked nuclear export rather than blocked nuclear import.",
+          "D": "Endolysosomal trafficking does not account for nuclear protein accumulation.",
+          "E": "Mitochondrial targeting is not the transport pathway inhibited by selinexor."
+        },
+        "educational_objective": "Infer the direction of a transport defect from the compartment in which cargo accumulates."
+      },
+      "author_qa": {
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "The direction matters: inhibition of export favors nuclear retention, whereas inhibition of import does not."
+        },
+        "unresolved_content_defects": [],
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "numerical_claims": "Fictional patient ages where present; protein names, exon numbers, and receptor identifiers are biological identifiers. No invented dose, response percentage, laboratory cutoff, or trial result.",
+        "hidden_assumptions": "Clinical and experimental findings are stipulated educational scenarios; these are mechanism questions, not treatment-selection recommendations.",
+        "difficulty": "Author estimate only; empirical item statistics unavailable.",
+        "options_review": "Five distinct alternatives; keys, option direction, parallelism, and strongest competing answer reviewed.",
+        "source_currentness": "Live label checked 2026-09-07; no efficacy extrapolation from labeling to an unapproved treatment population.",
+        "second_pass": "Completed by the same author after repairs; not represented as an independent or blind audit."
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+      "sources": [
+        {
+          "source_id": "Q1330-LABEL",
+          "title": "XPOVIO- selinexor tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f6dd2682-75a6-4863-90a8-a3197f6f78a8",
+          "setid": "f6dd2682-75a6-4863-90a8-a3197f6f78a8",
+          "publication_or_revision_date": "4/2026",
+          "revision_basis": "First Revised date in prescribing-information highlights, not the patient leaflet date.",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "source_page_sha256": "11ff1abe39dbc71ff33ebe2ad151a11b7b11820ba4bb66c7de60c5303ef34cd2",
+          "mechanism_section_sha256": "69c856c3e1e18c4194414fb55ac263c5878d3b7509eb97ac87a3523646049aac",
+          "verification": "Full live label fetched; identity, displayed revision, mechanism section, and vignette indication checked.",
+          "rights_note": "Original educational content; label facts paraphrased."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1330-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "source_ids": [
+            "Q1330-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1330-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "source_ids": [
+            "Q1330-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1330-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "source_ids": [
+            "Q1330-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1330-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "source_ids": [
+            "Q1330-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1330-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "source_ids": [
+            "Q1330-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "scope": "Direct drug target and downstream consequences; distractor rejection also uses stipulated experimental conditions."
+        }
+      ]
+    }
+  ]
+}

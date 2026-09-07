@@ -1,0 +1,840 @@
+{
+  "batch_id": "Q1306-Q1330-20260907",
+  "checked_at": "2026-09-07",
+  "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+  "audit_type": "Same-author review and deterministic validation, not independent blind A/B audit",
+  "candidate_count": 25,
+  "new_workstream_candidate_count": 30,
+  "candidate_file": "usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json",
+  "candidate_file_sha256": "3049d5c8774b4dddb89efbe3faad4af97e93de841e8cd3c6cfdacc37ea8ed71e",
+  "canonical_count_before": 1300,
+  "canonical_count_after": 1300,
+  "canonical_db_sha256": "932217063872e675c797a81cb23db213359289ec564ef2078f2fc7e177d2edde",
+  "canonical_integrity_check": "ok",
+  "production_import_performed": false,
+  "answer_key_distribution": {
+    "C": 5,
+    "A": 5,
+    "E": 5,
+    "B": 5,
+    "D": 5
+  },
+  "exact_duplicate_stems": 0,
+  "comparison_pool": {
+    "canonical_items": 1300,
+    "preceding_candidates": 5,
+    "within_batch_pairs": 300
+  },
+  "lexical_method": "Lowercase word-set Jaccard of vignette plus lead-in. A screening measure, not proof of semantic originality. Nearest neighbors and known related constructs reviewed by author.",
+  "coverage": {
+    "systems": {
+      "Cardiovascular System": 3,
+      "Respiratory & Renal/Urinary Systems": 3,
+      "Gastrointestinal System": 3,
+      "Behavioral Health & Nervous Systems/Special Senses": 5,
+      "Musculoskeletal, Skin & Subcutaneous Tissue": 3,
+      "Multisystem Processes & Disorders": 2,
+      "Blood & Lymphoreticular/Immune Systems": 5,
+      "Reproductive & Endocrine Systems": 1
+    },
+    "competency": "Medical Knowledge: Applying Foundational Science Concepts",
+    "scope": "Targeted pharmacology supplement. This batch alone is not a representative full-exam blueprint and does not establish whole-bank balance."
+  },
+  "repairs": [
+    "Separated cGMP synthesis from degradation with preserved phosphodiesterase activity.",
+    "Clarified tafamidis binding-to-effect lead-in.",
+    "Used matched reporter conditions for resmetirom partial agonism.",
+    "Added primary H3 constitutive-activity evidence for inverse-versus-neutral antagonism.",
+    "Shortened and made receptor-target alternatives more parallel in Q1320/Q1321.",
+    "Replaced weak benralizumab and venetoclax distractors with biologically coherent alternatives.",
+    "Specified indicated olaparib tumor context and selinexor combination."
+  ],
+  "limitations": [
+    "Author review cannot establish independent audit acceptance or a numerical 10/10 quality score.",
+    "Difficulty estimates require empirical calibration.",
+    "Drug names are explicit in this mechanism-focused supplement; items vary between target recall and application.",
+    "Source hashes identify pages retrieved on the stated date, not permanent future page content."
+  ],
+  "required_before_production": [
+    "Fresh isolated author execution under the production tool allowlist.",
+    "Blind Auditor A and Auditor B in required distinct execution contexts/model families with verifiable execution evidence.",
+    "Evidence audit, decision acceptance and deterministic TRUSTED_IMPORTER gates."
+  ],
+  "items": [
+    {
+      "num": 1306,
+      "item_sha256": "0842434e34c6c0d8ead29e62a2588566c42d0c809ac09c3c53fd87ab938af639",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=88d06d89-a3da-40b4-b273-8f4f7d56c4c9",
+      "source_setid": "88d06d89-a3da-40b4-b273-8f4f7d56c4c9",
+      "source_revision": "1/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "Both interventions reduce cholesterol synthesis, but the specified upstream position excludes direct HMG-CoA reductase inhibition."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1008-20260902T010000Z",
+          "word_jaccard": 0.2615
+        },
+        {
+          "candidate_id": "S1-DIRECT-1097-20260902T100000Z",
+          "word_jaccard": 0.2424
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1325,
+          "word_jaccard": 0.25
+        }
+      ],
+      "semantic_review": "Q0903: different inhibited enzyme, ACL versus HMG-CoA reductase.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1307,
+      "item_sha256": "39ed42bf6e56ab3dfedb4e626fcd118fa940fb2e9a22c1bcbd5c58b2ea80ac53",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17056d73-1b1b-4bf2-9c07-b7a9367f0d6d",
+      "source_setid": "17056d73-1b1b-4bf2-9c07-b7a9367f0d6d",
+      "source_revision": "1/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "Both can elevate cGMP, but preserved phosphodiesterase activity plus the named agent selects synthesis through soluble guanylate cyclase."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0041-20260827T020000Z",
+          "word_jaccard": 0.2295
+        },
+        {
+          "candidate_id": "S1-DIRECT-0899-20260901T010000Z",
+          "word_jaccard": 0.2188
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1313,
+          "word_jaccard": 0.2059
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1308,
+      "item_sha256": "3ca2afb62b726bfcb5f8863c3077a7fc9a1ca72ba4f4dd3f11acb2eca5abaf07",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b4121ee-a733-4456-a917-be2603477839",
+      "source_setid": "1b4121ee-a733-4456-a917-be2603477839",
+      "source_revision": "10/2023",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "Reducing synthesis can reduce amyloid precursor supply, but it cannot explain a direct effect in the cell-free tetramer assay."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1302",
+          "word_jaccard": 0.197
+        },
+        {
+          "candidate_id": "S1-DIRECT-1008-20260902T010000Z",
+          "word_jaccard": 0.1967
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1315,
+          "word_jaccard": 0.1786
+        }
+      ],
+      "semantic_review": "Q0608/Q0815: precursor pathology versus pharmacologic tetramer stabilization.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1309,
+      "item_sha256": "ed29a603158e9362d6fe09825ce2f66bd156739b66743312ba0dee82d38b5b23",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bf002984-d6c9-46df-aecb-a07733f763c1",
+      "source_setid": "bf002984-d6c9-46df-aecb-a07733f763c1",
+      "source_revision": "1/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "Both can lower serum potassium, but fecal loss and nonabsorption identify removal by a luminal binder."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1154-20260902T100000Z",
+          "word_jaccard": 0.2329
+        },
+        {
+          "candidate_id": "S1-DIRECT-0934-20260901T064500Z",
+          "word_jaccard": 0.2281
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1322,
+          "word_jaccard": 0.2031
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1310,
+      "item_sha256": "8a20febcaa8115e211d0209a8ae71462f5121e523362b201c42a98ba7f521e68",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2102da5f-a1a0-4ac7-a1f6-38698cf7273a",
+      "source_setid": "2102da5f-a1a0-4ac7-a1f6-38698cf7273a",
+      "source_revision": "5/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "Chloride secretion can also increase stool water, but the experiment specifies reduced sodium uptake and the drug targets NHE3."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0128-20260827T021500Z",
+          "word_jaccard": 0.1961
+        },
+        {
+          "candidate_id": "Q1302",
+          "word_jaccard": 0.1884
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1330,
+          "word_jaccard": 0.2034
+        }
+      ],
+      "semantic_review": "Q0991: renal NHE3 physiology versus intestinal NHE3 inhibition.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1311,
+      "item_sha256": "b2c241824b21862191f2ca2caba70470dfa71fe99f0fcdf0b4633a7d137597f2",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e67ea09f-a840-439c-86c8-f98585f978b2",
+      "source_setid": "e67ea09f-a840-439c-86c8-f98585f978b2",
+      "source_revision": "7/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "The beta receptor is directly activated, but maximal efficacy is below the full agonist response; this selects beta partial agonism rather than alpha antagonism."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1301",
+          "word_jaccard": 0.1647
+        },
+        {
+          "candidate_id": "S1-DIRECT-0813-20260830T230000Z",
+          "word_jaccard": 0.16
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1313,
+          "word_jaccard": 0.1711
+        }
+      ],
+      "semantic_review": "Q0621/Q1094: thyroid hormone resistance versus pharmacologic partial agonism.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1312,
+      "item_sha256": "11ec171b402b245ddddd11c256e04471ade7edc88e4e55f2fc50c236b3dac5dd",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6e94621c-1a95-4af9-98d1-52b9e6f1949c",
+      "source_setid": "6e94621c-1a95-4af9-98d1-52b9e6f1949c",
+      "source_revision": "2/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "D",
+        "resolution": "TNF blockade can treat colitis, but the adhesion assay specifically isolates alpha-4 beta-7/MAdCAM-1 binding."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0047-20260827T020000Z",
+          "word_jaccard": 0.197
+        },
+        {
+          "candidate_id": "S1-DIRECT-0574-202608270530Z",
+          "word_jaccard": 0.1774
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1325,
+          "word_jaccard": 0.2105
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1313,
+      "item_sha256": "7c82a30672b9acb7733af2c772337e31bf93bee8384bf3f6957c921abc405334",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e5b72731-1acb-45b7-9c13-290ad12d3951",
+      "source_setid": "e5b72731-1acb-45b7-9c13-290ad12d3951",
+      "source_revision": "3/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "Both classes can promote sleep, but the stem and documented receptor profile exclude GABA-A enhancement."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0899-20260901T010000Z",
+          "word_jaccard": 0.2203
+        },
+        {
+          "candidate_id": "S1-DIRECT-0914-20260901T061500Z",
+          "word_jaccard": 0.1967
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1307,
+          "word_jaccard": 0.2059
+        }
+      ],
+      "semantic_review": "Q0224: orexin loss in narcolepsy versus receptor antagonism for insomnia.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1314,
+      "item_sha256": "2f643cc13e403e31da4087ac9ce4137bcdce886651cb9afa3603ea67a6e3d09d",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6bea44-57d6-4bac-9328-46e1ee59f83b",
+      "source_setid": "1e6bea44-57d6-4bac-9328-46e1ee59f83b",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action; 12.2 Pharmacodynamics — receptor-binding profile",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "Psychosis treatment alone could suggest D2 blockade, but the provided receptor panel rules it out."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0899-20260901T010000Z",
+          "word_jaccard": 0.2
+        },
+        {
+          "candidate_id": "S1-DIRECT-0241-20260827T030000Z",
+          "word_jaccard": 0.1864
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1307,
+          "word_jaccard": 0.1714
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1315,
+      "item_sha256": "839ba1f115be30820d10969d3fcac2d3910ca9c97f47e0398c6793c23bc91b70",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7ea3c60a-45c7-44cc-afc2-d87fa53993c0",
+      "source_setid": "7ea3c60a-45c7-44cc-afc2-d87fa53993c0",
+      "source_revision": "2/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "Both transport monoamines, but their membrane location and transport direction differ."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1085-20260902T100000Z",
+          "word_jaccard": 0.2029
+        },
+        {
+          "candidate_id": "S1-DIRECT-1097-20260902T100000Z",
+          "word_jaccard": 0.1967
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1306,
+          "word_jaccard": 0.2097
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1316,
+      "item_sha256": "b11fab464ca2ec5e611967fab4eda919202c17c4eb074299a2cd69114f4961fc",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd70cd5f-b0fc-4ba4-a5ea-89a34778bd94",
+      "source_setid": "dd70cd5f-b0fc-4ba4-a5ea-89a34778bd94",
+      "source_revision": "3/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "C",
+        "resolution": "Extra SMN2 copies can modify disease, but copy number is explicitly unchanged and exon inclusion increases."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1218-20260906T001200Z",
+          "word_jaccard": 0.1875
+        },
+        {
+          "candidate_id": "S1-DIRECT-0902-20260901T054500Z",
+          "word_jaccard": 0.1587
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1315,
+          "word_jaccard": 0.1385
+        }
+      ],
+      "semantic_review": "Q1218: SMN2 copy-number modifier versus exon inclusion without copy change.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1317,
+      "item_sha256": "bb6b02b2ed32eea4ac309d57dcc5584fd2d62def3d8e8bbe0507ad50adf88d69",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8daa5562-824e-476c-9652-26ceef3d4b0e",
+      "source_setid": "8daa5562-824e-476c-9652-26ceef3d4b0e",
+      "source_revision": "2/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "C",
+        "resolution": "C describes receptor blockade but preserves baseline signaling; the requested discriminating feature is a fall below baseline."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0538-202608270530Z",
+          "word_jaccard": 0.1613
+        },
+        {
+          "candidate_id": "S1-DIRECT-0315-202608270320Z",
+          "word_jaccard": 0.1579
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1313,
+          "word_jaccard": 0.1791
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1318,
+      "item_sha256": "d8a72a2d9fca3301c9a9116cb369e2ce07cf349197152f6af1597847ac478a43",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=102f96a0-6e3a-4fc1-b204-34d604683af6",
+      "source_setid": "102f96a0-6e3a-4fc1-b204-34d604683af6",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "Both hormones can affect phosphate, but the paired calcitriol increase and the named antibody select FGF23 blockade."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0252-20260827T030000Z",
+          "word_jaccard": 0.2115
+        },
+        {
+          "candidate_id": "S1-DIRECT-0753-20260830T160000Z",
+          "word_jaccard": 0.2029
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1321,
+          "word_jaccard": 0.1515
+        }
+      ],
+      "semantic_review": "Q0753/Q1190: elevated FGF23 physiology versus reversal by neutralization.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1319,
+      "item_sha256": "619e746bb92e3134944dff0b59840737f6a08595456bb8855dd1a1f1d1421dfc",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=471baba2-7154-4488-9891-0db2f46791e7",
+      "source_setid": "471baba2-7154-4488-9891-0db2f46791e7",
+      "source_revision": "1/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "C",
+        "resolution": "PTH-receptor agonism can stimulate formation, but romosozumab directly neutralizes sclerostin."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0889-20260831T160000Z",
+          "word_jaccard": 0.2373
+        },
+        {
+          "candidate_id": "S1-DIRECT-0376-202608270320Z",
+          "word_jaccard": 0.1923
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1329,
+          "word_jaccard": 0.1452
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1320,
+      "item_sha256": "0e6d3386ecb9e2c63e42b6c4bc2eb92af3ec45af8352c2c00ec093cc18774c83",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d6203302-2128-41a7-b0b4-0e6c0704d4dc",
+      "source_setid": "d6203302-2128-41a7-b0b4-0e6c0704d4dc",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "The shared word interferon is insufficient; anifrolumab targets the type I receptor, not the interferon-gamma receptor."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1008-20260902T010000Z",
+          "word_jaccard": 0.2464
+        },
+        {
+          "candidate_id": "S1-DIRECT-0916-20260901T061500Z",
+          "word_jaccard": 0.2308
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1330,
+          "word_jaccard": 0.2273
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1321,
+      "item_sha256": "8807a64d5d374c75e0c3d6c9b1f8c61f9d95578022a23ead717c1fd3f4f2b26c",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=595f437d-2729-40bb-9c62-c8ece1f82780",
+      "source_setid": "595f437d-2729-40bb-9c62-c8ece1f82780",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "A ligand-specific antibody could inhibit one assay, but the independent IL-4 effect requires the shared receptor explanation."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1305",
+          "word_jaccard": 0.2239
+        },
+        {
+          "candidate_id": "S1-DIRECT-0914-20260901T061500Z",
+          "word_jaccard": 0.2167
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1325,
+          "word_jaccard": 0.2286
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1322,
+      "item_sha256": "417ecc716dfe17b29341fee02ebb0c0ed63a1802a59e7b81044aa1050d75c819",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60f0aa03-ad25-4d48-80ce-7fcfa76f325f",
+      "source_setid": "60f0aa03-ad25-4d48-80ce-7fcfa76f325f",
+      "source_revision": "10/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "IL-13 participates in asthma inflammation, but tezepelumab directly binds TSLP rather than IL-13."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0071-20260827T020000Z",
+          "word_jaccard": 0.1754
+        },
+        {
+          "candidate_id": "S1-DIRECT-0916-20260901T061500Z",
+          "word_jaccard": 0.1746
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1323,
+          "word_jaccard": 0.2319
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1323,
+      "item_sha256": "14f707a7228393c373c796694c9501788be6dafb016fb7596ac2f9d72c8c42d7",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784",
+      "source_setid": "da6aca1a-19ed-44a4-abb7-696c7d58b784",
+      "source_revision": "5/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "Neutralizing the ligand differs from coating receptor-bearing eosinophils for NK-cell-mediated cytotoxicity."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1302",
+          "word_jaccard": 0.1519
+        },
+        {
+          "candidate_id": "Q1303",
+          "word_jaccard": 0.1461
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1322,
+          "word_jaccard": 0.2319
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1324,
+      "item_sha256": "c69fbd8e13848600ff9a659fccd7889a834dd136fd8ba266190a8d5744c29c83",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b118a40d-6b56-cee3-10f6-ded821a97018",
+      "source_setid": "b118a40d-6b56-cee3-10f6-ded821a97018",
+      "source_revision": "5/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "B reverses both membrane and caspase effects; releasing proapoptotic proteins supports A."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0936-20260901T064500Z",
+          "word_jaccard": 0.1961
+        },
+        {
+          "candidate_id": "S1-DIRECT-0559-202608270530Z",
+          "word_jaccard": 0.1887
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1329,
+          "word_jaccard": 0.2105
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1325,
+      "item_sha256": "a4f37b6acfd8bd047bdef86bba6ea82d4692a695c83e578009d730a9f8887da6",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21149cc3-049b-43e2-b141-c9499160556c",
+      "source_setid": "21149cc3-049b-43e2-b141-c9499160556c",
+      "source_revision": "11/2020",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "A can improve platelet counts clinically, but the controlled assay measures reduced destruction, not new platelet production."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0041-20260827T020000Z",
+          "word_jaccard": 0.2344
+        },
+        {
+          "candidate_id": "S1-DIRECT-0889-20260831T160000Z",
+          "word_jaccard": 0.2319
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1306,
+          "word_jaccard": 0.25
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1326,
+      "item_sha256": "61acb03928abdba2a76b507c83771d6e5ef6723d6e8ca69fd84e95297fd64441",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ebcd67fa-b4d1-4a22-b33d-ee8bf6b9c722",
+      "source_setid": "ebcd67fa-b4d1-4a22-b33d-ee8bf6b9c722",
+      "source_revision": "6/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "C",
+        "resolution": "Restoring membrane protection could reduce hemolysis, but the stem states that the surface defect persists."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0914-20260901T061500Z",
+          "word_jaccard": 0.1967
+        },
+        {
+          "candidate_id": "S1-DIRECT-0899-20260901T010000Z",
+          "word_jaccard": 0.1803
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1321,
+          "word_jaccard": 0.1875
+        }
+      ],
+      "semantic_review": "Q0108/Q1091: PIGA/GPI defect versus terminal complement blockade without clone repair.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1327,
+      "item_sha256": "8e72e7a2757968e65086b15bbb890843b71de42bcc3bd731f2b6d91ee7af621b",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1b49df80-be4f-47e0-a0b7-123f3e69395b",
+      "source_setid": "1b49df80-be4f-47e0-a0b7-123f3e69395b",
+      "source_revision": "1/2026",
+      "source_locator": "1.1 CMV Prophylaxis in HSCT Recipients; 12.4 Microbiology — Mechanism of Action",
+      "strongest_alternative": {
+        "option": "C",
+        "resolution": "Both inhibit replication, but the specific processing and packaging defect identifies terminase."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1305",
+          "word_jaccard": 0.1515
+        },
+        {
+          "candidate_id": "S1-DIRECT-0179-20260827T021500Z",
+          "word_jaccard": 0.1481
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1330,
+          "word_jaccard": 0.1552
+        }
+      ],
+      "semantic_review": "Q1305: CMV terminase packaging versus maribavir UL97 kinase inhibition.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1328,
+      "item_sha256": "998c82f7898f46d2a528e8f273c835f4b24f485cb04f89f87d802dfd7fdc1982",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=741ff3e3-dc1a-45a6-84e5-2481b27131aa",
+      "source_setid": "741ff3e3-dc1a-45a6-84e5-2481b27131aa",
+      "source_revision": "7/2025",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "E",
+        "resolution": "Other DNA-damaging agents may affect susceptible tumors, but the named drug directly inhibits PARP rather than topoisomerase."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-1097-20260902T100000Z",
+          "word_jaccard": 0.2113
+        },
+        {
+          "candidate_id": "S1-DIRECT-0938-20260901T064500Z",
+          "word_jaccard": 0.1607
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1330,
+          "word_jaccard": 0.209
+        }
+      ],
+      "semantic_review": "Q0177: BRCA1 repair biology versus direct PARP inhibition.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1329,
+      "item_sha256": "ec46bde25dd921f550954d774500da158f445d5183cd9cdb0c17b265d1760f42",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=65d254c0-67ad-42c4-b972-ad463b755b2d",
+      "source_setid": "65d254c0-67ad-42c4-b972-ad463b755b2d",
+      "source_revision": "10/2023",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "B",
+        "resolution": "Both are AML drug mechanisms, but the mutant-IDH1 substrate-product finding uniquely supports A."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "Q1303",
+          "word_jaccard": 0.1948
+        },
+        {
+          "candidate_id": "S1-DIRECT-1242-20260906T074000Z",
+          "word_jaccard": 0.1875
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1324,
+          "word_jaccard": 0.2105
+        }
+      ],
+      "semantic_review": "Q0844: IDH neomorphic activity in another disease context versus mutant IDH1 inhibition and differentiation.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    },
+    {
+      "num": 1330,
+      "item_sha256": "5984255786c469571f35d948be362ae9f6e9d394d6656477d2c8f5a3940113ac",
+      "checks": "PASS",
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f6dd2682-75a6-4863-90a8-a3197f6f78a8",
+      "source_setid": "f6dd2682-75a6-4863-90a8-a3197f6f78a8",
+      "source_revision": "4/2026",
+      "source_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+      "strongest_alternative": {
+        "option": "A",
+        "resolution": "The direction matters: inhibition of export favors nuclear retention, whereas inhibition of import does not."
+      },
+      "nearest_lexical_existing": [
+        {
+          "candidate_id": "S1-DIRECT-0310-202608270320Z",
+          "word_jaccard": 0.2041
+        },
+        {
+          "candidate_id": "S1-DIRECT-0318-202608270320Z",
+          "word_jaccard": 0.2037
+        }
+      ],
+      "nearest_lexical_within_batch": [
+        {
+          "num": 1320,
+          "word_jaccard": 0.2273
+        }
+      ],
+      "semantic_review": "Distinct drug target and assessed mechanism; no exact duplication found in the author comparison.",
+      "difficulty": "Author estimate; not psychometrically calibrated."
+    }
+  ]
+}
