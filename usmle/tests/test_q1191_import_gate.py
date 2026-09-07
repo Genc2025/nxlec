@@ -6,6 +6,7 @@ import copy
 import importlib.util
 import json
 import pathlib
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -74,17 +75,38 @@ class AuditGateTests(unittest.TestCase):
         importer.require_recorded_audit(audit, 1191)
         self.assertEqual(before, audit)
 
-    def test_all_original_staged_audits_lack_required_scores(self):
+    def test_missing_scores_rejected_for_every_batch_key(self):
         for number in importer.NEW_RANGE:
             with self.subTest(item=number):
-                audit = json.loads((importer.AUDIT_DIR / f'Q{number:04d}_FINAL_10_10_AUDIT.json').read_text())
+                audit = self.fixture()
+                audit['blind_audit']['selected_key'] = importer.KEY_SCHEDULE[number]
+                del audit['scores']
                 with self.assertRaisesRegex(SystemExit, 'missing recorded ten-domain auditor scores'):
                     importer.require_recorded_audit(audit, number)
 
-    def test_staged_run_stops_before_opening_database(self):
-        with patch.object(importer.sqlite3, 'connect') as connect:
-            with self.assertRaisesRegex(SystemExit, 'missing recorded ten-domain auditor scores'):
+    def test_incomplete_audit_stops_before_opening_database(self):
+        # Isolate the historical import from subsequently updated repo artifacts.
+        # Keep the real load_audits/require_recorded_audit path under test.
+        with tempfile.TemporaryDirectory() as directory:
+            audit = self.fixture()
+            del audit['scores']
+            pathlib.Path(directory, 'Q1191_FINAL_10_10_AUDIT.json').write_text(json.dumps(audit))
+            with (patch.object(importer, 'AUDIT_DIR', pathlib.Path(directory)),
+                  patch.object(importer, 'db_blob', return_value=importer.EXPECTED_PRE_DB_BLOB),
+                  patch.object(importer, 'load_specs', return_value={}),
+                  patch.object(importer, 'load_preflight', return_value={}),
+                  patch.object(importer.sqlite3, 'connect') as connect):
+                with self.assertRaisesRegex(SystemExit, 'missing recorded ten-domain auditor scores'):
+                    importer.main()
+                connect.assert_not_called()
+
+    def test_changed_database_stops_before_loading_or_writing(self):
+        with (patch.object(importer, 'db_blob', return_value='different-db-blob'),
+              patch.object(importer, 'load_specs') as specs,
+              patch.object(importer.sqlite3, 'connect') as connect):
+            with self.assertRaisesRegex(SystemExit, 'authoritative DB blob changed'):
                 importer.main()
+            specs.assert_not_called()
             connect.assert_not_called()
 
 
