@@ -1,0 +1,104 @@
+{
+  "qa_id": "Q1301-Q1305-SOURCE-QA-20260907-GPT56SOL",
+  "created_at": "2026-09-07",
+  "scope": "Non-independent source/currentness QA and repair manifest. This file does not satisfy the repository requirement for isolated blind Auditor A/B executions and must not be treated as production acceptance evidence.",
+  "source_batch": "usmle/batch_specs_1301_1400/01_q1301_q1305_author_20260907.json",
+  "package_decision": "BLOCKED_REPAIR_REQUIRED",
+  "items": [
+    {
+      "num": 1301,
+      "decision": "BLOCKED_REPAIR_REQUIRED",
+      "content_key_status": "PASS",
+      "single_best_answer_status": "PASS",
+      "source_setid_status": "PASS",
+      "source_locator_status": "PASS",
+      "currentness_status": "FAIL_METADATA",
+      "defects": [
+        {
+          "field": "items[0].sources[0].publication_or_revision_date",
+          "current_value": "8/2026",
+          "correct_value": "2/2026",
+          "severity": "material_metadata_defect",
+          "reason": "The current DailyMed full prescribing information for LEQVIO displays 'Revised: 2/2026'. The 20260819 date visible in the current SPL belongs to the updated Indications and Usage section/publication activity and is not the full prescribing-information revision date.",
+          "canonical_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fc0afca-4513-4c35-b594-6544aee29a44",
+          "setid": "6fc0afca-4513-4c35-b594-6544aee29a44",
+          "verified_locator": "Highlights: Revised 2/2026; Section 12.1 Mechanism of Action",
+          "verified_on": "2026-09-07"
+        },
+        {
+          "field": "items[0].sources[0].currentness_note",
+          "severity": "material_metadata_defect",
+          "replacement": "Live DailyMed label checked 2026-09-07. The full prescribing information displays Revised: 2/2026. The current SPL also contains later section/publication activity (including an Indications and Usage section date of 20260819); that later date must not be represented as the full PI revision date."
+        }
+      ],
+      "verified_mechanism": "Inclisiran is a GalNAc-conjugated double-stranded siRNA that directs RNA-interference-mediated catalytic breakdown of PCSK9 mRNA in hepatocytes, increasing LDL-receptor recycling/expression and LDL-C uptake.",
+      "primary_source_check": {
+        "pmid": "28306389",
+        "title": "Inclisiran in Patients at High Cardiovascular Risk with Elevated LDL Cholesterol",
+        "status": "PASS"
+      }
+    },
+    {
+      "num": 1302,
+      "decision": "SOURCE_QA_PASS",
+      "verified_label_revision": "4/2025",
+      "setid": "669c936b-3ee6-4e36-8a22-79dd11b1255b",
+      "verified_locator": "12.1 Mechanism of Action",
+      "verified_mechanism": "Mavacamten is a selective allosteric reversible cardiac-myosin inhibitor that reduces the number of myosin heads entering force-generating actin states and shifts myosin toward the super-relaxed state.",
+      "primary_source_check": {
+        "pmid": "30018063",
+        "title": "Mavacamten stabilizes an autoinhibited state of two-headed cardiac myosin",
+        "status": "PASS"
+      },
+      "single_best_answer_status": "PASS"
+    },
+    {
+      "num": 1303,
+      "decision": "SOURCE_QA_PASS",
+      "verified_label_revision": "6/2026",
+      "setid": "13e15ee0-d679-4fa9-9430-e2e2170474da",
+      "verified_locator": "1.1 VHL disease; 12.1 Mechanism of Action",
+      "verified_mechanism": "Belzutifan binds HIF-2alpha and blocks HIF-2alpha/HIF-1beta interaction, reducing transcription of HIF-2alpha target genes without requiring restoration of VHL or degradation of HIF-2alpha protein.",
+      "primary_source_check": {
+        "pmid": "33888901",
+        "title": "Inhibition of hypoxia-inducible factor-2alpha in renal cell carcinoma with belzutifan: a phase 1 trial and biomarker analysis",
+        "status": "PASS"
+      },
+      "single_best_answer_status": "PASS"
+    },
+    {
+      "num": 1304,
+      "decision": "SOURCE_QA_PASS",
+      "verified_label_revision": "12/2025",
+      "setid": "2348f06e-8004-4040-832e-e9e86a39f905",
+      "verified_locator": "12.1 Mechanism of Action; persistent suppressed ADAMTS13 language in dosing/clinical-study sections",
+      "verified_mechanism": "Caplacizumab targets the A1 domain of von Willebrand factor and inhibits vWF-platelet interaction, reducing vWF-mediated platelet adhesion and platelet consumption while the underlying ADAMTS13 autoimmune defect can remain active.",
+      "primary_source_check": {
+        "pmid": "30625070",
+        "title": "Caplacizumab Treatment for Acquired Thrombotic Thrombocytopenic Purpura",
+        "status": "PASS"
+      },
+      "single_best_answer_status": "PASS"
+    },
+    {
+      "num": 1305,
+      "decision": "SOURCE_QA_PASS",
+      "verified_label_revision": "11/2025",
+      "setid": "c94fc2c5-e840-4f18-b7d8-d5eacb26d3a0",
+      "verified_locator": "5.1; 12.4 Microbiology — Mechanism of Action",
+      "verified_mechanism": "Maribavir competitively inhibits CMV pUL97 protein kinase. pUL97 is required for activation/phosphorylation of ganciclovir/valganciclovir, while maribavir itself does not directly inhibit CMV DNA polymerase in the cited biochemical assay.",
+      "single_best_answer_status": "PASS"
+    }
+  ],
+  "blueprint_check": {
+    "status": "PASS",
+    "source": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+    "note": "The listed organ-system categories and Medical Knowledge: Applying Foundational Science Concepts competency are current Step 1 specification categories."
+  },
+  "format_check": {
+    "status": "PASS",
+    "source": "https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats",
+    "note": "Current USMLE guidance describes a patient-centered vignette followed by four or more response options; five A-E options are valid and are not a defect."
+  },
+  "next_required_action": "Repair Q1301 source metadata, re-freeze the repaired candidate package, then restart the required independent blind/source/semantic audit sequence from zero. Q1302-Q1305 source checks passed this QA pass but remain non-canonical until the full repository pipeline completes."
+}
