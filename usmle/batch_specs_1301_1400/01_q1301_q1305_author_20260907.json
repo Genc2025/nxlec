@@ -1,0 +1,693 @@
+{
+  "batch_id": "Q1301-Q1305-20260907",
+  "created_at": "2026-09-07",
+  "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "canonical_count_before": 1300,
+  "canonical_count_after": 1300,
+  "candidate_count": 5,
+  "canonical_db_blob": "1a0f0b702f86a57624161413ba60fa4ce88e8d97",
+  "shared_sources": [
+    {
+      "source_id": "USMLE-SPEC",
+      "title": "Step 1 Exam Content",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+      "retrieved_at": "2026-09-07",
+      "section_locator": "Step 1 Content Specifications; Physician Tasks/Competencies Specifications; Discipline Specifications"
+    },
+    {
+      "source_id": "USMLE-FORMAT",
+      "title": "Step 1 Formats & Questions",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats",
+      "retrieved_at": "2026-09-07",
+      "section_locator": "Example Question: Pharmacology: Foundational Science"
+    }
+  ],
+  "audit_scope": "Author research and two self-review passes. No claim of independent or blind auditing; isolated A/B execution evidence required by usmle/README.md remains pending. No numerical 10/10 ratings fabricated.",
+  "items": [
+    {
+      "num": 1301,
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 58-year-old man with coronary artery disease continues to have elevated LDL cholesterol despite his current lipid-lowering therapy. Inclisiran is added. The agent is a double-stranded RNA conjugated to a carbohydrate that facilitates hepatocyte uptake. His LDL cholesterol subsequently decreases.",
+        "lead_in": "Which molecular change most directly accounts for the LDL reduction produced by this agent?",
+        "options": {
+          "A": "Inhibition of intestinal cholesterol transport into enterocytes",
+          "B": "Inhibition of hepatic HMG-CoA reductase catalytic activity",
+          "C": "Sequestration of circulating PCSK9 by an extracellular antibody",
+          "D": "Degradation of hepatic PCSK9 messenger RNA through RNA interference",
+          "E": "Permanent disruption of the hepatic PCSK9 gene by DNA editing"
+        },
+        "intended_key": "D",
+        "tested_construct": "RNA interference versus extracellular protein neutralization and DNA editing",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; clinical context plus discrimination among molecular mechanisms. Not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Inclisiran promotes PCSK9 mRNA breakdown in hepatocytes. Reduced PCSK9 production allows more LDL receptors to recycle to the surface, increasing circulating LDL clearance.",
+        "distractor_explanations": {
+          "A": "An intestinal transport mechanism does not match hepatocyte-directed RNA action.",
+          "B": "Inhibiting cholesterol synthesis is distinct from targeting PCSK9 mRNA.",
+          "C": "Neutralizing secreted PCSK9 can lower LDL, but an extracellular antibody does not explain this double-stranded RNA agent.",
+          "D": "Inclisiran promotes PCSK9 mRNA breakdown in hepatocytes. Reduced PCSK9 production allows more LDL receptors to recycle to the surface, increasing circulating LDL clearance.",
+          "E": "RNA interference changes mRNA availability without permanently editing DNA."
+        },
+        "educational_objective": "Link therapeutic RNA interference to increased hepatic LDL-receptor recycling."
+      },
+      "sources": [
+        {
+          "source_id": "Q1301-LABEL",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "title": "LEQVIO (inclisiran) prescribing information",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fc0afca-4513-4c35-b594-6544aee29a44",
+          "setid": "6fc0afca-4513-4c35-b594-6544aee29a44",
+          "publication_or_revision_date": "8/2026",
+          "section_locator": "12.1 Mechanism of Action",
+          "retrieved_at": "2026-09-07",
+          "currentness_note": "Live DailyMed label checked on retrieval date; revision is the displayed prescribing-information highlights date, not the patient leaflet date."
+        },
+        {
+          "source_id": "Q1301-PRIMARY",
+          "agency": "Primary clinical study indexed by PubMed",
+          "title": "Inclisiran in Patients at High Cardiovascular Risk with Elevated LDL Cholesterol",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28306389/",
+          "publication_or_revision_date": "2017",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "Abstract — Background and Conclusions",
+          "verification_transport": "NLM E-utilities PubMed XML; title/PMID and abstract inspected",
+          "scope": "Corroborates target and clinical context, not all hypothetical distractor mechanisms."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1301-A",
+          "option": "A",
+          "source_ids": [
+            "Q1301-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.A",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1301-B",
+          "option": "B",
+          "source_ids": [
+            "Q1301-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.B",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1301-C",
+          "option": "C",
+          "source_ids": [
+            "Q1301-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.C",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1301-D",
+          "option": "D",
+          "source_ids": [
+            "Q1301-LABEL",
+            "Q1301-PRIMARY"
+          ],
+          "claim_locator": "explanation.distractor_explanations.D",
+          "direct_or_inference": "direct",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1301-E",
+          "option": "E",
+          "source_ids": [
+            "Q1301-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.E",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        }
+      ],
+      "author_qa": {
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "second_answer_attack": {
+          "strongest_alternative": "C",
+          "resolution": "Both mechanisms affect PCSK9, but the stem specifies inclisiran and a hepatocyte-directed double-stranded RNA. Only D matches its intracellular action."
+        },
+        "hidden_assumptions": "The clinical and experimental observations are stipulated in this fictional educational vignette; no unmentioned treatment-selection criterion is needed.",
+        "numerical_claims": "Only a fictional adult age is used; no dose, diagnostic cutoff, effect size, or trial result is invented.",
+        "difficulty": "Moderate application, not hard by virtue of drug novelty.",
+        "option_review": "Five distinct mechanisms; no all/none choices; one answer directly matches the named agent and supplied observations.",
+        "unresolved_content_defects": []
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "num": 1302,
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 46-year-old woman with symptomatic obstructive hypertrophic cardiomyopathy begins mavacamten. A laboratory studies its action in a preparation containing purified cardiac myosin and actin, with ATP available. The preparation contains neither cell membranes nor adrenergic receptors. The drug reduces actin-activated myosin ATPase activity.",
+        "lead_in": "Which change best explains the direct drug effect in this preparation?",
+        "options": {
+          "A": "Reduced calcium entry through L-type membrane channels",
+          "B": "Reduced availability of myosin heads for force-producing interactions",
+          "C": "Reduced stimulation of beta-1 adrenergic receptors",
+          "D": "Reduced calcium binding to troponin C on thin filaments",
+          "E": "Reduced ATP synthesis by mitochondrial oxidative phosphorylation"
+        },
+        "intended_key": "B",
+        "tested_construct": "Direct sarcomere inhibition distinguished from upstream excitation-contraction effects",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; clinical context plus discrimination among molecular mechanisms. Not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Mavacamten directly inhibits cardiac myosin and favors its super-relaxed state. Fewer heads participate in force-generating cross-bridges. This mechanism operates in a purified contractile-protein preparation.",
+        "distractor_explanations": {
+          "A": "Membrane calcium channels are absent from the stated preparation.",
+          "B": "Mavacamten directly inhibits cardiac myosin and favors its super-relaxed state. Fewer heads participate in force-generating cross-bridges. This mechanism operates in a purified contractile-protein preparation.",
+          "C": "Adrenergic receptors are absent from the preparation.",
+          "D": "The experiment contains purified actin and myosin, not the troponin regulatory complex.",
+          "E": "ATP is supplied; mitochondrial ATP production is not the tested process."
+        },
+        "educational_objective": "Use an isolated-protein experiment to distinguish direct myosin inhibition from upstream negative inotropy."
+      },
+      "sources": [
+        {
+          "source_id": "Q1302-LABEL",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "title": "CAMZYOS (mavacamten) prescribing information",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=669c936b-3ee6-4e36-8a22-79dd11b1255b",
+          "setid": "669c936b-3ee6-4e36-8a22-79dd11b1255b",
+          "publication_or_revision_date": "4/2025",
+          "section_locator": "12.1 Mechanism of Action",
+          "retrieved_at": "2026-09-07",
+          "currentness_note": "Live DailyMed label checked on retrieval date; revision is the displayed prescribing-information highlights date, not the patient leaflet date."
+        },
+        {
+          "source_id": "Q1302-PRIMARY",
+          "agency": "Rohde et al.; primary experimental study indexed by PubMed",
+          "title": "Mavacamten stabilizes an autoinhibited state of two-headed cardiac myosin",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30018063/",
+          "publication_or_revision_date": "2018",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "Abstract; Figure 1 caption (purified myosin actin-activated ATPase experiments)"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1302-A",
+          "option": "A",
+          "source_ids": [
+            "Q1302-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.A",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1302-B",
+          "option": "B",
+          "source_ids": [
+            "Q1302-LABEL",
+            "Q1302-PRIMARY"
+          ],
+          "claim_locator": "explanation.distractor_explanations.B",
+          "direct_or_inference": "direct",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1302-C",
+          "option": "C",
+          "source_ids": [
+            "Q1302-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.C",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1302-D",
+          "option": "D",
+          "source_ids": [
+            "Q1302-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.D",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1302-E",
+          "option": "E",
+          "source_ids": [
+            "Q1302-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.E",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        }
+      ],
+      "author_qa": {
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "second_answer_attack": {
+          "strongest_alternative": "D",
+          "resolution": "Troponin regulation could change force in intact myofilaments, but the preparation excludes troponin and demonstrates a direct actomyosin effect."
+        },
+        "hidden_assumptions": "The clinical and experimental observations are stipulated in this fictional educational vignette; no unmentioned treatment-selection criterion is needed.",
+        "numerical_claims": "Only a fictional adult age is used; no dose, diagnostic cutoff, effect size, or trial result is invented.",
+        "difficulty": "Moderate application, not hard by virtue of drug novelty.",
+        "option_review": "Five distinct mechanisms; no all/none choices; one answer directly matches the named agent and supplied observations.",
+        "unresolved_content_defects": []
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "num": 1303,
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 39-year-old woman with von Hippel-Lindau disease has an associated renal cell carcinoma that requires therapy but does not require immediate surgery. She begins belzutifan. In a study of her tumor cells, HIF-2 alpha protein remains detectable, but expression of its downstream target genes decreases during drug exposure.",
+        "lead_in": "Which direct molecular action of belzutifan best explains this finding?",
+        "options": {
+          "A": "Restoration of functional VHL tumor-suppressor protein",
+          "B": "Stimulation of proteasomal destruction of HIF-2 alpha",
+          "C": "Inhibition of VEGF receptor tyrosine kinase activity",
+          "D": "Inhibition of the mTOR serine-threonine kinase complex",
+          "E": "Prevention of HIF-2 alpha binding to HIF-1 beta"
+        },
+        "intended_key": "E",
+        "tested_construct": "Transcription-factor complex inhibition downstream of VHL loss",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; clinical context plus discrimination among molecular mechanisms. Not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Belzutifan binds HIF-2 alpha and prevents its interaction with HIF-1 beta. Target-gene transcription can therefore decrease without restoration of VHL or elimination of HIF-2 alpha protein.",
+        "distractor_explanations": {
+          "A": "The drug does not repair or replace VHL.",
+          "B": "The labeled mechanism blocks complex formation rather than inducing HIF-2 alpha degradation.",
+          "C": "Blocking a downstream growth-factor receptor is not the direct action on this transcriptional complex.",
+          "D": "mTOR inhibition is a different molecular target.",
+          "E": "Belzutifan binds HIF-2 alpha and prevents its interaction with HIF-1 beta. Target-gene transcription can therefore decrease without restoration of VHL or elimination of HIF-2 alpha protein."
+        },
+        "educational_objective": "Distinguish inhibition of transcription-factor assembly from protein degradation or downstream receptor blockade."
+      },
+      "sources": [
+        {
+          "source_id": "Q1303-LABEL",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "title": "WELIREG (belzutifan) prescribing information",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=13e15ee0-d679-4fa9-9430-e2e2170474da",
+          "setid": "13e15ee0-d679-4fa9-9430-e2e2170474da",
+          "publication_or_revision_date": "6/2026",
+          "section_locator": "1.1 VHL disease; 12.1 Mechanism of Action",
+          "retrieved_at": "2026-09-07",
+          "currentness_note": "Live DailyMed label checked on retrieval date; revision is the displayed prescribing-information highlights date, not the patient leaflet date."
+        },
+        {
+          "source_id": "Q1303-PRIMARY",
+          "agency": "Primary clinical study indexed by PubMed",
+          "title": "Inhibition of hypoxia-inducible factor-2α in renal cell carcinoma with belzutifan: a phase 1 trial and biomarker analysis",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33888901/",
+          "publication_or_revision_date": "2021",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "Abstract — opening statements identifying HIF-2α and belzutifan",
+          "verification_transport": "NLM E-utilities PubMed XML; title/PMID and abstract inspected",
+          "scope": "Corroborates target and clinical context, not all hypothetical distractor mechanisms.",
+          "currentness_note": "PubMed lists an author correction (PMID 34453144); no trial numbers or corrected figures are used. Current mechanism is checked against the live prescribing information."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1303-A",
+          "option": "A",
+          "source_ids": [
+            "Q1303-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.A",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1303-B",
+          "option": "B",
+          "source_ids": [
+            "Q1303-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.B",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1303-C",
+          "option": "C",
+          "source_ids": [
+            "Q1303-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.C",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1303-D",
+          "option": "D",
+          "source_ids": [
+            "Q1303-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.D",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1303-E",
+          "option": "E",
+          "source_ids": [
+            "Q1303-LABEL",
+            "Q1303-PRIMARY"
+          ],
+          "claim_locator": "explanation.distractor_explanations.E",
+          "direct_or_inference": "direct",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        }
+      ],
+      "author_qa": {
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "second_answer_attack": {
+          "strongest_alternative": "B",
+          "resolution": "Protein degradation could decrease target-gene expression, but belzutifan specifically prevents HIF heterodimerization; the stipulated residual protein is compatible with that mechanism."
+        },
+        "hidden_assumptions": "The clinical and experimental observations are stipulated in this fictional educational vignette; no unmentioned treatment-selection criterion is needed.",
+        "numerical_claims": "Only a fictional adult age is used; no dose, diagnostic cutoff, effect size, or trial result is invented.",
+        "difficulty": "Moderate application, not hard by virtue of drug novelty.",
+        "option_review": "Five distinct mechanisms; no all/none choices; one answer directly matches the named agent and supplied observations.",
+        "unresolved_content_defects": []
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "num": 1304,
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 36-year-old woman with acquired thrombotic thrombocytopenic purpura receives plasma exchange and immunosuppressive therapy. Caplacizumab is added. Her platelet count improves even though testing continues to show severely reduced ADAMTS13 activity and a detectable ADAMTS13 inhibitor.",
+        "lead_in": "Which direct action of caplacizumab best explains improvement before recovery of ADAMTS13 activity?",
+        "options": {
+          "A": "Blocking von Willebrand factor binding to platelets",
+          "B": "Replacing the missing plasma ADAMTS13 enzyme",
+          "C": "Suppressing production of the ADAMTS13 autoantibody",
+          "D": "Inhibiting thrombin-mediated conversion of fibrinogen to fibrin",
+          "E": "Blocking platelet ADP signaling through P2Y12 receptors"
+        },
+        "intended_key": "A",
+        "tested_construct": "Platelet protection without correction of the underlying ADAMTS13 autoimmune defect",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; clinical context plus discrimination among molecular mechanisms. Not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Caplacizumab binds the A1 domain of von Willebrand factor and blocks platelet interaction. It can reduce platelet consumption while the ADAMTS13 defect persists; treatment of the underlying disease remains necessary.",
+        "distractor_explanations": {
+          "A": "Caplacizumab binds the A1 domain of von Willebrand factor and blocks platelet interaction. It can reduce platelet consumption while the ADAMTS13 defect persists; treatment of the underlying disease remains necessary.",
+          "B": "Enzyme replacement is not caplacizumab’s molecular action.",
+          "C": "Autoantibody suppression is distinct from this drug’s immediate extracellular target.",
+          "D": "Direct thrombin inhibition targets fibrin generation, not the vWF-platelet interaction.",
+          "E": "P2Y12 signaling is not the target of caplacizumab."
+        },
+        "educational_objective": "Distinguish interruption of vWF-mediated platelet consumption from restoration of ADAMTS13."
+      },
+      "sources": [
+        {
+          "source_id": "Q1304-LABEL",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "title": "CABLIVI (caplacizumab-yhdp) prescribing information",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2348f06e-8004-4040-832e-e9e86a39f905",
+          "setid": "2348f06e-8004-4040-832e-e9e86a39f905",
+          "publication_or_revision_date": "12/2025",
+          "section_locator": "1 Indications and Usage; 12.1 Mechanism of Action",
+          "retrieved_at": "2026-09-07",
+          "currentness_note": "Live DailyMed label checked on retrieval date; revision is the displayed prescribing-information highlights date, not the patient leaflet date."
+        },
+        {
+          "source_id": "Q1304-PRIMARY",
+          "agency": "Primary clinical study indexed by PubMed",
+          "title": "Caplacizumab Treatment for Acquired Thrombotic Thrombocytopenic Purpura",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30625070/",
+          "publication_or_revision_date": "2019",
+          "retrieved_at": "2026-09-07",
+          "section_locator": "Abstract — Background and Conclusions",
+          "verification_transport": "NLM E-utilities PubMed XML; title/PMID and abstract inspected",
+          "scope": "Corroborates target and clinical context, not all hypothetical distractor mechanisms."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1304-A",
+          "option": "A",
+          "source_ids": [
+            "Q1304-LABEL",
+            "Q1304-PRIMARY"
+          ],
+          "claim_locator": "explanation.distractor_explanations.A",
+          "direct_or_inference": "direct",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1304-B",
+          "option": "B",
+          "source_ids": [
+            "Q1304-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.B",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1304-C",
+          "option": "C",
+          "source_ids": [
+            "Q1304-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.C",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1304-D",
+          "option": "D",
+          "source_ids": [
+            "Q1304-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.D",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1304-E",
+          "option": "E",
+          "source_ids": [
+            "Q1304-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.E",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        }
+      ],
+      "author_qa": {
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "second_answer_attack": {
+          "strongest_alternative": "C",
+          "resolution": "Immunosuppression addresses the inhibitor, but the question asks for the direct effect of caplacizumab while the inhibitor remains detectable."
+        },
+        "hidden_assumptions": "The clinical and experimental observations are stipulated in this fictional educational vignette; no unmentioned treatment-selection criterion is needed.",
+        "numerical_claims": "Only a fictional adult age is used; no dose, diagnostic cutoff, effect size, or trial result is invented.",
+        "difficulty": "Moderate application, not hard by virtue of drug novelty.",
+        "option_review": "Five distinct mechanisms; no all/none choices; one answer directly matches the named agent and supplied observations.",
+        "unresolved_content_defects": []
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "num": 1305,
+      "country_scope": "United States",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 52-year-old transplant recipient with cytomegalovirus infection refractory to prior antiviral treatment is switched to maribavir. In an infected-cell experiment, maribavir reduces phosphorylation of ganciclovir. A separate biochemical assay shows no direct inhibition of viral DNA polymerase by maribavir.",
+        "lead_in": "Inhibition of which target best explains these experimental findings?",
+        "options": {
+          "A": "Viral UL54 DNA polymerase",
+          "B": "Viral DNA terminase complex",
+          "C": "Viral pUL97 protein kinase",
+          "D": "Host inosine monophosphate dehydrogenase",
+          "E": "Host dihydrofolate reductase"
+        },
+        "intended_key": "C",
+        "tested_construct": "Viral kinase inhibition distinguished from direct polymerase inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; clinical context plus discrimination among molecular mechanisms. Not empirically calibrated."
+      },
+      "explanation": {
+        "key_explanation": "Maribavir inhibits CMV pUL97 kinase. This enzyme also participates in ganciclovir activation, explaining reduced phosphorylation. The findings distinguish a kinase target from direct polymerase inhibition.",
+        "distractor_explanations": {
+          "A": "The isolated-polymerase finding argues against this direct target.",
+          "B": "This target does not account for inhibition of the kinase-dependent ganciclovir activation step.",
+          "C": "Maribavir inhibits CMV pUL97 kinase. This enzyme also participates in ganciclovir activation, explaining reduced phosphorylation. The findings distinguish a kinase target from direct polymerase inhibition.",
+          "D": "The observations identify a viral phosphorylation target rather than this host enzyme.",
+          "E": "This host enzyme does not explain the specified viral kinase-dependent activation step."
+        },
+        "educational_objective": "Connect inhibition of a viral kinase with impaired activation of another antiviral."
+      },
+      "sources": [
+        {
+          "source_id": "Q1305-LABEL",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "title": "LIVTENCITY (maribavir) prescribing information",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c94fc2c5-e840-4f18-b7d8-d5eacb26d3a0",
+          "setid": "c94fc2c5-e840-4f18-b7d8-d5eacb26d3a0",
+          "publication_or_revision_date": "11/2025",
+          "section_locator": "5.1; 12.4 Microbiology — Mechanism of Action and Combination Antiviral Activity",
+          "retrieved_at": "2026-09-07",
+          "currentness_note": "Live DailyMed label checked on retrieval date; revision is the displayed prescribing-information highlights date, not the patient leaflet date."
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1305-A",
+          "option": "A",
+          "source_ids": [
+            "Q1305-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.A",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1305-B",
+          "option": "B",
+          "source_ids": [
+            "Q1305-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.B",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1305-C",
+          "option": "C",
+          "source_ids": [
+            "Q1305-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.C",
+          "direct_or_inference": "direct",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1305-D",
+          "option": "D",
+          "source_ids": [
+            "Q1305-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.D",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        },
+        {
+          "claim_id": "Q1305-E",
+          "option": "E",
+          "source_ids": [
+            "Q1305-LABEL"
+          ],
+          "claim_locator": "explanation.distractor_explanations.E",
+          "direct_or_inference": "inference",
+          "scope": "Drug target and consequences; incorrect options are competing mechanisms, not claims about this drug."
+        }
+      ],
+      "author_qa": {
+        "status": "AUTHOR_QA_PASS",
+        "independent_audit": false,
+        "second_answer_attack": {
+          "strongest_alternative": "A",
+          "resolution": "Reduced replication alone could fit polymerase inhibition, but reduced ganciclovir phosphorylation plus the separate polymerase assay identifies pUL97."
+        },
+        "hidden_assumptions": "The clinical and experimental observations are stipulated in this fictional educational vignette; no unmentioned treatment-selection criterion is needed.",
+        "numerical_claims": "Only a fictional adult age is used; no dose, diagnostic cutoff, effect size, or trial result is invented.",
+        "difficulty": "Moderate application, not hard by virtue of drug novelty.",
+        "option_review": "Five distinct mechanisms; no all/none choices; one answer directly matches the named agent and supplied observations.",
+        "unresolved_content_defects": []
+      },
+      "status": "AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT"
+    }
+  ],
+  "batch_design": {
+    "reason": "Mechanism-focused pharmacology is underrepresented in the existing canonical metadata (60/1300 tagged Pharmacology). This batch adds five distinct drug-target constructs; it does not by itself repair whole-bank discipline coverage.",
+    "key_sequence": "DBEAC",
+    "key_distribution": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 1
+    },
+    "empirical_quality_score": null
+  }
+}
