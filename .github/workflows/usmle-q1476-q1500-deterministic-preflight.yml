@@ -1,0 +1,56 @@
+name: USMLE Q1476-Q1500 deterministic preflight
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-q1476-q1500-deterministic-preflight.yml'
+permissions:
+  contents: write
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install PDF parser for current FDA labels
+        run: python -m pip install --disable-pip-version-check 'pypdf>=6,<7'
+      - name: Execute immutable full deterministic preflight
+        id: gate
+        shell: bash
+        run: |
+          set +e
+          python usmle/verify_q1476_q1500_preflight.py
+          rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Materialize preflight evidence regardless of verdict
+        run: |
+          test -f usmle/audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add usmle/audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json
+          git commit -m 'usmle: materialize Q1476-Q1500 deterministic preflight' || exit 1
+          git push
+      - name: Enforce verdict
+        run: |
+          test "${{ steps.gate.outputs.rc }}" = "0"
+          python - <<'PY'
+          import json
+          p='usmle/audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json'
+          r=json.load(open(p))
+          assert r['verdict']=='DETERMINISTIC_PREFLIGHT_PASS'
+          assert r['failures']==[]
+          assert r['candidate_git_blob']=='36326c344c041be23ba393d5ea6ad5771112d600'
+          assert r['canonical_count']==r['canonical_review_count']==1300
+          assert r['prior_workstream_count']==175
+          assert r['independent_auditor_a_complete'] is False
+          assert r['independent_auditor_b_complete'] is False
+          assert r['production_import_ready'] is False
+          assert r['production_db_modified'] is False
+          assert 'ncjmm' not in open(p).read().casefold()
+          print('Q1476_Q1500_DETERMINISTIC_PREFLIGHT_PASS')
+          PY
