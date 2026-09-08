@@ -1,0 +1,71 @@
+name: USMLE materialize Q1401-Q1450 schema repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-materialize-q1401-q1450-schema-repair.yml'
+      - 'usmle/repair_q1401_q1450_candidate_schema.py'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Materialize repaired candidates
+        run: python usmle/repair_q1401_q1450_candidate_schema.py
+
+      - name: Validate repaired schema
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          files = [
+              Path('usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json'),
+              Path('usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json'),
+          ]
+          allowed = {
+              'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology',
+              'Microbiology','Pharmacology','Behavioral Sciences','Biochemistry',
+              'Histology & Cell Biology','Immunology','Genetics'
+          }
+          for p in files:
+              b=json.loads(p.read_text())
+              assert len(b['items']) == 25
+              for x in b['items']:
+                  assert set(x['blueprint']['disciplines']).issubset(allowed)
+                  assert isinstance(x['evidence_map'], list) and len(x['evidence_map']) == 5
+                  em={e['option']:e for e in x['evidence_map']}
+                  assert set(em)==set('ABCDE')
+                  key=x['item']['intended_key']
+                  de=x['explanation']['distractor_explanations']
+                  for L in 'ABCDE':
+                      assert em[L]['claim'] == de[L]
+                      assert em[L]['direct_or_inference'] == ('direct' if L == key else 'inference')
+              assert b['production_import_ready'] is False
+              assert b['schema_repair']['medical_content_changed'] is False
+              assert b['schema_repair']['intended_keys_changed'] is False
+          print('SCHEMA_REPAIR_VALIDATION_PASS')
+          PY
+
+      - name: Commit repaired candidate files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json \
+            usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'usmle: materialize repaired candidate schema Q1401-Q1450'
+            git push origin HEAD:main
+          fi
