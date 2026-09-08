@@ -1,0 +1,2341 @@
+{
+  "audit_id": "Q1476-Q1500-DETERMINISTIC-PREFLIGHT-20260908",
+  "scope": "Deterministic immutable-blob preflight. Not independent Auditor A/B and not production acceptance evidence.",
+  "canonical_db_blob": "1a0f0b702f86a57624161413ba60fa4ce88e8d97",
+  "canonical_count": 1300,
+  "canonical_review_count": 1300,
+  "candidate_file": "usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json",
+  "candidate_git_blob": "36326c344c041be23ba393d5ea6ad5771112d600",
+  "candidate_count": 25,
+  "item_range": "Q1476-Q1500",
+  "answer_distribution": {
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "D": 5,
+    "E": 5
+  },
+  "prior_workstream_range": "Q1301-Q1475",
+  "prior_workstream_count": 175,
+  "prior_workstream_files": [
+    {
+      "path": "usmle/batch_specs_1301_1400/01_q1301_q1305_author_20260907.json",
+      "git_blob": "f9e2cf5519886ee736e8bada097b5a745646ea29",
+      "count": 5
+    },
+    {
+      "path": "usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json",
+      "git_blob": "9e0119919ded410483bbd2fbb6cd8a768829b699",
+      "count": 25
+    },
+    {
+      "path": "usmle/batch_specs_1301_1400/03_q1331_q1355_author_20260907.json",
+      "git_blob": "cdec9061a0c92c36369fb572f4f8a47deb8e0f97",
+      "count": 25
+    },
+    {
+      "path": "usmle/batch_specs_1301_1400/04_q1356_q1380_author_20260908.json",
+      "git_blob": "7568789cd2e7535d3aaac808edd89f2979b0c4e1",
+      "count": 25
+    },
+    {
+      "path": "usmle/batch_specs_1301_1400/05_q1381_q1400_author_20260908.json",
+      "git_blob": "29a7b05a4733b8535c52d7ec08a76d357e98a1fa",
+      "count": 20
+    },
+    {
+      "path": "usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json",
+      "git_blob": "d55741f411f11a9b3d7b05d5e9b057ab1e4b9fa5",
+      "count": 25
+    },
+    {
+      "path": "usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json",
+      "git_blob": "bf75639d0d0725fb37f5c1eef588d5efda3930a3",
+      "count": 25
+    },
+    {
+      "path": "usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json",
+      "git_blob": "5b32187ea11d09aa147a421f4b8099e06a7d7632",
+      "count": 25
+    }
+  ],
+  "live_source_reverification_performed": true,
+  "current_usmle_blueprint_reverification_performed": true,
+  "source_identifier_policy": "DailyMed SetID or FDA NDA identifier, according to source system",
+  "item_reports": [
+    {
+      "q": 1476,
+      "status": "PASS",
+      "failures": [],
+      "key": "A",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.16981,
+        "max_sequence": 0.05945,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0903-20260901T054500Z",
+            "jaccard": 0.16981,
+            "sequence": 0.01975
+          },
+          {
+            "candidate_id": "S1-DIRECT-0902-20260901T054500Z",
+            "jaccard": 0.11321,
+            "sequence": 0.01847
+          },
+          {
+            "candidate_id": "S1-DIRECT-1008-20260902T010000Z",
+            "jaccard": 0.10833,
+            "sequence": 0.00916
+          },
+          {
+            "candidate_id": "S1-DIRECT-0710-20260828T230000Z",
+            "jaccard": 0.10596,
+            "sequence": 0.01067
+          },
+          {
+            "candidate_id": "S1-DIRECT-0765-20260830T170000Z",
+            "jaccard": 0.10156,
+            "sequence": 0.01378
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.16667,
+        "max_sequence": 0.07633,
+        "top5": [
+          {
+            "q": 1438,
+            "jaccard": 0.16667,
+            "sequence": 0.03797
+          },
+          {
+            "q": 1301,
+            "jaccard": 0.16239,
+            "sequence": 0.07633
+          },
+          {
+            "q": 1437,
+            "jaccard": 0.14433,
+            "sequence": 0.04286
+          },
+          {
+            "q": 1471,
+            "jaccard": 0.14141,
+            "sequence": 0.03682
+          },
+          {
+            "q": 1341,
+            "jaccard": 0.13861,
+            "sequence": 0.01121
+          }
+        ]
+      }
+    },
+    {
+      "q": 1477,
+      "status": "PASS",
+      "failures": [],
+      "key": "B",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.20561,
+        "max_sequence": 0.09434,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1199-20260904T061000Z",
+            "jaccard": 0.20561,
+            "sequence": 0.08656
+          },
+          {
+            "candidate_id": "S1-DIRECT-0778-20260830T180000Z",
+            "jaccard": 0.14019,
+            "sequence": 0.02973
+          },
+          {
+            "candidate_id": "S1-DIRECT-0370-202608270320Z",
+            "jaccard": 0.11429,
+            "sequence": 0.09434
+          },
+          {
+            "candidate_id": "S1-DIRECT-0072-20260827T020000Z",
+            "jaccard": 0.10127,
+            "sequence": 0.00711
+          },
+          {
+            "candidate_id": "S1-DIRECT-0269-20260827T030000Z",
+            "jaccard": 0.09589,
+            "sequence": 0.03727
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.1375,
+        "max_sequence": 0.05839,
+        "top5": [
+          {
+            "q": 1348,
+            "jaccard": 0.1375,
+            "sequence": 0.01159
+          },
+          {
+            "q": 1374,
+            "jaccard": 0.12987,
+            "sequence": 0.01864
+          },
+          {
+            "q": 1349,
+            "jaccard": 0.12,
+            "sequence": 0.02747
+          },
+          {
+            "q": 1406,
+            "jaccard": 0.1,
+            "sequence": 0.05119
+          },
+          {
+            "q": 1410,
+            "jaccard": 0.0875,
+            "sequence": 0.00568
+          }
+        ]
+      }
+    },
+    {
+      "q": 1478,
+      "status": "PASS",
+      "failures": [],
+      "key": "C",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.08475,
+        "max_sequence": 0.08446,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0371-202608270320Z",
+            "jaccard": 0.08475,
+            "sequence": 0.03056
+          },
+          {
+            "candidate_id": "S1-DIRECT-0093-20260827T020000Z",
+            "jaccard": 0.01538,
+            "sequence": 0.08446
+          },
+          {
+            "candidate_id": "S1-DIRECT-0339-202608270320Z",
+            "jaccard": 0.08333,
+            "sequence": 0.03195
+          },
+          {
+            "candidate_id": "S1-DIRECT-0466-202608270340Z",
+            "jaccard": 0.08197,
+            "sequence": 0.03955
+          },
+          {
+            "candidate_id": "S1-DIRECT-1044-20260902T091500Z",
+            "jaccard": 0.07692,
+            "sequence": 0.04716
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.15254,
+        "max_sequence": 0.06003,
+        "top5": [
+          {
+            "q": 1428,
+            "jaccard": 0.15254,
+            "sequence": 0.00856
+          },
+          {
+            "q": 1368,
+            "jaccard": 0.14925,
+            "sequence": 0.04348
+          },
+          {
+            "q": 1455,
+            "jaccard": 0.11268,
+            "sequence": 0.02766
+          },
+          {
+            "q": 1346,
+            "jaccard": 0.10769,
+            "sequence": 0.03253
+          },
+          {
+            "q": 1406,
+            "jaccard": 0.10256,
+            "sequence": 0.02903
+          }
+        ]
+      }
+    },
+    {
+      "q": 1479,
+      "status": "PASS",
+      "failures": [],
+      "key": "D",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.0873,
+        "max_sequence": 0.07618,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0858-20260831T030000Z",
+            "jaccard": 0.0873,
+            "sequence": 0.07507
+          },
+          {
+            "candidate_id": "S1-DIRECT-0698-20260828T230000Z",
+            "jaccard": 0.07407,
+            "sequence": 0.07618
+          },
+          {
+            "candidate_id": "S1-DIRECT-1205-20260904T061000Z",
+            "jaccard": 0.07092,
+            "sequence": 0.01068
+          },
+          {
+            "candidate_id": "S1-DIRECT-0701-20260828T230000Z",
+            "jaccard": 0.06993,
+            "sequence": 0.02275
+          },
+          {
+            "candidate_id": "S1-DIRECT-0504-202608270530Z",
+            "jaccard": 0.06957,
+            "sequence": 0.02639
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.13861,
+        "max_sequence": 0.10808,
+        "top5": [
+          {
+            "q": 1461,
+            "jaccard": 0.13861,
+            "sequence": 0.10808
+          },
+          {
+            "q": 1448,
+            "jaccard": 0.10744,
+            "sequence": 0.02473
+          },
+          {
+            "q": 1301,
+            "jaccard": 0.07563,
+            "sequence": 0.01708
+          },
+          {
+            "q": 1323,
+            "jaccard": 0.07216,
+            "sequence": 0.01353
+          },
+          {
+            "q": 1334,
+            "jaccard": 0.07143,
+            "sequence": 0.01401
+          }
+        ]
+      }
+    },
+    {
+      "q": 1480,
+      "status": "PASS",
+      "failures": [],
+      "key": "E",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.10833,
+        "max_sequence": 0.05728,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1051-20260902T093500Z",
+            "jaccard": 0.10833,
+            "sequence": 0.04289
+          },
+          {
+            "candidate_id": "S1-DIRECT-1041-20260902T091500Z",
+            "jaccard": 0.07619,
+            "sequence": 0.01575
+          },
+          {
+            "candidate_id": "S1-DIRECT-0162-20260827T021500Z",
+            "jaccard": 0.06316,
+            "sequence": 0.01411
+          },
+          {
+            "candidate_id": "S1-DIRECT-0087-20260827T020000Z",
+            "jaccard": 0.05769,
+            "sequence": 0.03439
+          },
+          {
+            "candidate_id": "S1-DIRECT-0398-202608270320Z",
+            "jaccard": 0.0122,
+            "sequence": 0.05728
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.13253,
+        "max_sequence": 0.10849,
+        "top5": [
+          {
+            "q": 1412,
+            "jaccard": 0.13253,
+            "sequence": 0.10849
+          },
+          {
+            "q": 1383,
+            "jaccard": 0.13187,
+            "sequence": 0.03212
+          },
+          {
+            "q": 1417,
+            "jaccard": 0.09783,
+            "sequence": 0.02968
+          },
+          {
+            "q": 1439,
+            "jaccard": 0.09574,
+            "sequence": 0.01607
+          },
+          {
+            "q": 1473,
+            "jaccard": 0.09474,
+            "sequence": 0.01716
+          }
+        ]
+      }
+    },
+    {
+      "q": 1481,
+      "status": "PASS",
+      "failures": [],
+      "key": "A",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.06024,
+        "max_sequence": 0.04938,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0939-20260901T064500Z",
+            "jaccard": 0.06024,
+            "sequence": 0.01081
+          },
+          {
+            "candidate_id": "S1-DIRECT-0889-20260831T160000Z",
+            "jaccard": 0.05769,
+            "sequence": 0.01429
+          },
+          {
+            "candidate_id": "S1-DIRECT-0467-202608270340Z",
+            "jaccard": 0.05714,
+            "sequence": 0.01465
+          },
+          {
+            "candidate_id": "S1-DIRECT-0271-20260827T030000Z",
+            "jaccard": 0.05714,
+            "sequence": 0.00842
+          },
+          {
+            "candidate_id": "S1-DIRECT-0371-202608270320Z",
+            "jaccard": 0.05634,
+            "sequence": 0.03325
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.11905,
+        "max_sequence": 0.06879,
+        "top5": [
+          {
+            "q": 1393,
+            "jaccard": 0.11905,
+            "sequence": 0.02268
+          },
+          {
+            "q": 1397,
+            "jaccard": 0.08974,
+            "sequence": 0.02655
+          },
+          {
+            "q": 1454,
+            "jaccard": 0.08511,
+            "sequence": 0.03214
+          },
+          {
+            "q": 1429,
+            "jaccard": 0.07595,
+            "sequence": 0.01893
+          },
+          {
+            "q": 1375,
+            "jaccard": 0.06897,
+            "sequence": 0.01124
+          }
+        ]
+      }
+    },
+    {
+      "q": 1482,
+      "status": "PASS",
+      "failures": [],
+      "key": "B",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07292,
+        "max_sequence": 0.05648,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1070-20260902T100000Z",
+            "jaccard": 0.07292,
+            "sequence": 0.01933
+          },
+          {
+            "candidate_id": "S1-DIRECT-0209-20260827T030000Z",
+            "jaccard": 0.06173,
+            "sequence": 0.03718
+          },
+          {
+            "candidate_id": "S1-DIRECT-1044-20260902T091500Z",
+            "jaccard": 0.05882,
+            "sequence": 0.01261
+          },
+          {
+            "candidate_id": "S1-DIRECT-0325-202608270320Z",
+            "jaccard": 0.01205,
+            "sequence": 0.05648
+          },
+          {
+            "candidate_id": "S1-DIRECT-1225-20260906T001200Z",
+            "jaccard": 0.05618,
+            "sequence": 0.01805
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.15385,
+        "max_sequence": 0.07671,
+        "top5": [
+          {
+            "q": 1377,
+            "jaccard": 0.15385,
+            "sequence": 0.05579
+          },
+          {
+            "q": 1381,
+            "jaccard": 0.14286,
+            "sequence": 0.01399
+          },
+          {
+            "q": 1468,
+            "jaccard": 0.11688,
+            "sequence": 0.02935
+          },
+          {
+            "q": 1334,
+            "jaccard": 0.10843,
+            "sequence": 0.0359
+          },
+          {
+            "q": 1370,
+            "jaccard": 0.10526,
+            "sequence": 0.02023
+          }
+        ]
+      }
+    },
+    {
+      "q": 1483,
+      "status": "PASS",
+      "failures": [],
+      "key": "C",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.17699,
+        "max_sequence": 0.05972,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1239-20260905T223800Z",
+            "jaccard": 0.17699,
+            "sequence": 0.0577
+          },
+          {
+            "candidate_id": "S1-DIRECT-1008-20260902T010000Z",
+            "jaccard": 0.13636,
+            "sequence": 0.01762
+          },
+          {
+            "candidate_id": "S1-DIRECT-1003-20260902T010000Z",
+            "jaccard": 0.12712,
+            "sequence": 0.04711
+          },
+          {
+            "candidate_id": "S1-DIRECT-1093-20260902T100000Z",
+            "jaccard": 0.11017,
+            "sequence": 0.04396
+          },
+          {
+            "candidate_id": "S1-DIRECT-0985-20260901T210000Z",
+            "jaccard": 0.10744,
+            "sequence": 0.04636
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.21429,
+        "max_sequence": 0.0549,
+        "top5": [
+          {
+            "q": 1393,
+            "jaccard": 0.21429,
+            "sequence": 0.02022
+          },
+          {
+            "q": 1310,
+            "jaccard": 0.10753,
+            "sequence": 0.02274
+          },
+          {
+            "q": 1306,
+            "jaccard": 0.09783,
+            "sequence": 0.02566
+          },
+          {
+            "q": 1410,
+            "jaccard": 0.09412,
+            "sequence": 0.02249
+          },
+          {
+            "q": 1359,
+            "jaccard": 0.09302,
+            "sequence": 0.03168
+          }
+        ]
+      }
+    },
+    {
+      "q": 1484,
+      "status": "PASS",
+      "failures": [],
+      "key": "D",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.11,
+        "max_sequence": 0.06396,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1107-20260902T100000Z",
+            "jaccard": 0.11,
+            "sequence": 0.06396
+          },
+          {
+            "candidate_id": "S1-DIRECT-0807-20260830T220000Z",
+            "jaccard": 0.10417,
+            "sequence": 0.04073
+          },
+          {
+            "candidate_id": "S1-DIRECT-0035-20260827T020000Z",
+            "jaccard": 0.10227,
+            "sequence": 0.04524
+          },
+          {
+            "candidate_id": "S1-DIRECT-0784-20260830T190000Z",
+            "jaccard": 0.09483,
+            "sequence": 0.04505
+          },
+          {
+            "candidate_id": "S1-DIRECT-0467-202608270340Z",
+            "jaccard": 0.08824,
+            "sequence": 0.02543
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.26829,
+        "max_sequence": 0.1137,
+        "top5": [
+          {
+            "q": 1421,
+            "jaccard": 0.26829,
+            "sequence": 0.1137
+          },
+          {
+            "q": 1422,
+            "jaccard": 0.09783,
+            "sequence": 0.01589
+          },
+          {
+            "q": 1452,
+            "jaccard": 0.09756,
+            "sequence": 0.02406
+          },
+          {
+            "q": 1367,
+            "jaccard": 0.09333,
+            "sequence": 0.00606
+          },
+          {
+            "q": 1406,
+            "jaccard": 0.08989,
+            "sequence": 0.02835
+          }
+        ]
+      }
+    },
+    {
+      "q": 1485,
+      "status": "PASS",
+      "failures": [],
+      "key": "E",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.2381,
+        "max_sequence": 0.05414,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0585-202608270530Z",
+            "jaccard": 0.2381,
+            "sequence": 0.04218
+          },
+          {
+            "candidate_id": "S1-DIRECT-0285-20260827T030000Z",
+            "jaccard": 0.20755,
+            "sequence": 0.01406
+          },
+          {
+            "candidate_id": "S1-DIRECT-0286-20260827T030000Z",
+            "jaccard": 0.2,
+            "sequence": 0.04177
+          },
+          {
+            "candidate_id": "S1-DIRECT-0798-20260830T200000Z",
+            "jaccard": 0.17045,
+            "sequence": 0.009
+          },
+          {
+            "candidate_id": "S1-DIRECT-0987-20260901T210000Z",
+            "jaccard": 0.09,
+            "sequence": 0.01931
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.13333,
+        "max_sequence": 0.07217,
+        "top5": [
+          {
+            "q": 1389,
+            "jaccard": 0.13333,
+            "sequence": 0.0516
+          },
+          {
+            "q": 1447,
+            "jaccard": 0.1194,
+            "sequence": 0.05375
+          },
+          {
+            "q": 1471,
+            "jaccard": 0.03614,
+            "sequence": 0.07217
+          },
+          {
+            "q": 1355,
+            "jaccard": 0.06098,
+            "sequence": 0.02439
+          },
+          {
+            "q": 1461,
+            "jaccard": 0.04348,
+            "sequence": 0.06039
+          }
+        ]
+      }
+    },
+    {
+      "q": 1486,
+      "status": "PASS",
+      "failures": [],
+      "key": "A",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.12644,
+        "max_sequence": 0.05094,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0287-20260827T030000Z",
+            "jaccard": 0.12644,
+            "sequence": 0.02231
+          },
+          {
+            "candidate_id": "S1-DIRECT-0748-20260830T150000Z",
+            "jaccard": 0.11811,
+            "sequence": 0.02487
+          },
+          {
+            "candidate_id": "S1-DIRECT-0848-20260831T010000Z",
+            "jaccard": 0.1129,
+            "sequence": 0.00919
+          },
+          {
+            "candidate_id": "S1-DIRECT-0827-20260831T010000Z",
+            "jaccard": 0.10377,
+            "sequence": 0.02484
+          },
+          {
+            "candidate_id": "S1-DIRECT-0059-20260827T020000Z",
+            "jaccard": 0.09804,
+            "sequence": 0.01033
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07609,
+        "max_sequence": 0.06893,
+        "top5": [
+          {
+            "q": 1351,
+            "jaccard": 0.07609,
+            "sequence": 0.04586
+          },
+          {
+            "q": 1446,
+            "jaccard": 0.07059,
+            "sequence": 0.0134
+          },
+          {
+            "q": 1307,
+            "jaccard": 0.0367,
+            "sequence": 0.06893
+          },
+          {
+            "q": 1359,
+            "jaccard": 0.06818,
+            "sequence": 0.02401
+          },
+          {
+            "q": 1352,
+            "jaccard": 0.06604,
+            "sequence": 0.04068
+          }
+        ]
+      }
+    },
+    {
+      "q": 1487,
+      "status": "BLOCKED",
+      "failures": [
+        "workstream_jaccard_collision"
+      ],
+      "key": "B",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.13333,
+        "max_sequence": 0.05409,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0808-20260830T220000Z",
+            "jaccard": 0.13333,
+            "sequence": 0.02174
+          },
+          {
+            "candidate_id": "S1-DIRECT-0902-20260901T054500Z",
+            "jaccard": 0.11702,
+            "sequence": 0.04031
+          },
+          {
+            "candidate_id": "S1-DIRECT-1101-20260902T100000Z",
+            "jaccard": 0.10435,
+            "sequence": 0.03359
+          },
+          {
+            "candidate_id": "S1-DIRECT-0288-20260827T030000Z",
+            "jaccard": 0.09877,
+            "sequence": 0.03691
+          },
+          {
+            "candidate_id": "S1-DIRECT-0822-20260831T010000Z",
+            "jaccard": 0.09677,
+            "sequence": 0.00525
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "BLOCKED",
+        "max_jaccard": 0.4,
+        "max_sequence": 0.10968,
+        "top5": [
+          {
+            "q": 1457,
+            "jaccard": 0.4,
+            "sequence": 0.10968
+          },
+          {
+            "q": 1364,
+            "jaccard": 0.24242,
+            "sequence": 0.08153
+          },
+          {
+            "q": 1365,
+            "jaccard": 0.18182,
+            "sequence": 0.02608
+          },
+          {
+            "q": 1418,
+            "jaccard": 0.14634,
+            "sequence": 0.01081
+          },
+          {
+            "q": 1362,
+            "jaccard": 0.13158,
+            "sequence": 0.01124
+          }
+        ]
+      }
+    },
+    {
+      "q": 1488,
+      "status": "PASS",
+      "failures": [],
+      "key": "C",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07317,
+        "max_sequence": 0.06078,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0111-20260827T021500Z",
+            "jaccard": 0.07317,
+            "sequence": 0.00949
+          },
+          {
+            "candidate_id": "S1-DIRECT-1044-20260902T091500Z",
+            "jaccard": 0.02041,
+            "sequence": 0.06078
+          },
+          {
+            "candidate_id": "S1-DIRECT-1022-20260902T070000Z",
+            "jaccard": 0.05607,
+            "sequence": 0.01165
+          },
+          {
+            "candidate_id": "S1-DIRECT-0890-20260831T160000Z",
+            "jaccard": 0.05385,
+            "sequence": 0.02058
+          },
+          {
+            "candidate_id": "S1-DIRECT-0925-20260901T063000Z",
+            "jaccard": 0.05,
+            "sequence": 0.01147
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.27273,
+        "max_sequence": 0.06191,
+        "top5": [
+          {
+            "q": 1386,
+            "jaccard": 0.27273,
+            "sequence": 0.02023
+          },
+          {
+            "q": 1443,
+            "jaccard": 0.23171,
+            "sequence": 0.00511
+          },
+          {
+            "q": 1329,
+            "jaccard": 0.11364,
+            "sequence": 0.04035
+          },
+          {
+            "q": 1379,
+            "jaccard": 0.08333,
+            "sequence": 0.00996
+          },
+          {
+            "q": 1460,
+            "jaccard": 0.08,
+            "sequence": 0.01135
+          }
+        ]
+      }
+    },
+    {
+      "q": 1489,
+      "status": "PASS",
+      "failures": [],
+      "key": "D",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.12766,
+        "max_sequence": 0.03993,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0177-20260827T021500Z",
+            "jaccard": 0.12766,
+            "sequence": 0.00959
+          },
+          {
+            "candidate_id": "S1-DIRECT-0085-20260827T020000Z",
+            "jaccard": 0.10377,
+            "sequence": 0.01549
+          },
+          {
+            "candidate_id": "S1-DIRECT-0774-20260830T180000Z",
+            "jaccard": 0.1037,
+            "sequence": 0.00896
+          },
+          {
+            "candidate_id": "S1-DIRECT-0181-20260827T021500Z",
+            "jaccard": 0.09091,
+            "sequence": 0.02078
+          },
+          {
+            "candidate_id": "S1-DIRECT-0187-20260827T021500Z",
+            "jaccard": 0.08333,
+            "sequence": 0.01282
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07767,
+        "max_sequence": 0.04719,
+        "top5": [
+          {
+            "q": 1389,
+            "jaccard": 0.07767,
+            "sequence": 0.02184
+          },
+          {
+            "q": 1326,
+            "jaccard": 0.07759,
+            "sequence": 0.01005
+          },
+          {
+            "q": 1316,
+            "jaccard": 0.07143,
+            "sequence": 0.01508
+          },
+          {
+            "q": 1324,
+            "jaccard": 0.06731,
+            "sequence": 0.01286
+          },
+          {
+            "q": 1308,
+            "jaccard": 0.06604,
+            "sequence": 0.01331
+          }
+        ]
+      }
+    },
+    {
+      "q": 1490,
+      "status": "PASS",
+      "failures": [],
+      "key": "E",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.12,
+        "max_sequence": 0.05086,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0224-20260827T030000Z",
+            "jaccard": 0.12,
+            "sequence": 0.02608
+          },
+          {
+            "candidate_id": "S1-DIRECT-0055-20260827T020000Z",
+            "jaccard": 0.0814,
+            "sequence": 0.01694
+          },
+          {
+            "candidate_id": "S1-DIRECT-0737-20260830T140000Z",
+            "jaccard": 0.07971,
+            "sequence": 0.0154
+          },
+          {
+            "candidate_id": "S1-DIRECT-0066-20260827T020000Z",
+            "jaccard": 0.07692,
+            "sequence": 0.0499
+          },
+          {
+            "candidate_id": "S1-DIRECT-1123-20260902T100000Z",
+            "jaccard": 0.07407,
+            "sequence": 0.0238
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.15068,
+        "max_sequence": 0.09934,
+        "top5": [
+          {
+            "q": 1434,
+            "jaccard": 0.15068,
+            "sequence": 0.00668
+          },
+          {
+            "q": 1351,
+            "jaccard": 0.125,
+            "sequence": 0.0185
+          },
+          {
+            "q": 1372,
+            "jaccard": 0.12162,
+            "sequence": 0.00768
+          },
+          {
+            "q": 1450,
+            "jaccard": 0.07229,
+            "sequence": 0.09934
+          },
+          {
+            "q": 1313,
+            "jaccard": 0.09877,
+            "sequence": 0.02637
+          }
+        ]
+      }
+    },
+    {
+      "q": 1491,
+      "status": "PASS",
+      "failures": [],
+      "key": "A",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07955,
+        "max_sequence": 0.06215,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1034-20260902T081500Z",
+            "jaccard": 0.07955,
+            "sequence": 0.01391
+          },
+          {
+            "candidate_id": "S1-DIRECT-1033-20260902T081500Z",
+            "jaccard": 0.06667,
+            "sequence": 0.04069
+          },
+          {
+            "candidate_id": "S1-DIRECT-1198-20260904T061000Z",
+            "jaccard": 0.06452,
+            "sequence": 0.02067
+          },
+          {
+            "candidate_id": "S1-DIRECT-0271-20260827T030000Z",
+            "jaccard": 0.0625,
+            "sequence": 0.00742
+          },
+          {
+            "candidate_id": "S1-DIRECT-0062-20260827T020000Z",
+            "jaccard": 0.0,
+            "sequence": 0.06215
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07595,
+        "max_sequence": 0.06321,
+        "top5": [
+          {
+            "q": 1351,
+            "jaccard": 0.07595,
+            "sequence": 0.03458
+          },
+          {
+            "q": 1445,
+            "jaccard": 0.07353,
+            "sequence": 0.04239
+          },
+          {
+            "q": 1428,
+            "jaccard": 0.07353,
+            "sequence": 0.01558
+          },
+          {
+            "q": 1317,
+            "jaccard": 0.06818,
+            "sequence": 0.01795
+          },
+          {
+            "q": 1325,
+            "jaccard": 0.06742,
+            "sequence": 0.03114
+          }
+        ]
+      }
+    },
+    {
+      "q": 1492,
+      "status": "PASS",
+      "failures": [],
+      "key": "B",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.09302,
+        "max_sequence": 0.06205,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0939-20260901T064500Z",
+            "jaccard": 0.09302,
+            "sequence": 0.00817
+          },
+          {
+            "candidate_id": "S1-DIRECT-0922-20260901T063000Z",
+            "jaccard": 0.06316,
+            "sequence": 0.01224
+          },
+          {
+            "candidate_id": "S1-DIRECT-1051-20260902T093500Z",
+            "jaccard": 0.0625,
+            "sequence": 0.02284
+          },
+          {
+            "candidate_id": "S1-DIRECT-0252-20260827T030000Z",
+            "jaccard": 0.01099,
+            "sequence": 0.06205
+          },
+          {
+            "candidate_id": "S1-DIRECT-0925-20260901T063000Z",
+            "jaccard": 0.06,
+            "sequence": 0.00847
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.26316,
+        "max_sequence": 0.06242,
+        "top5": [
+          {
+            "q": 1396,
+            "jaccard": 0.26316,
+            "sequence": 0.03494
+          },
+          {
+            "q": 1379,
+            "jaccard": 0.1413,
+            "sequence": 0.01451
+          },
+          {
+            "q": 1404,
+            "jaccard": 0.13542,
+            "sequence": 0.00511
+          },
+          {
+            "q": 1424,
+            "jaccard": 0.10577,
+            "sequence": 0.01332
+          },
+          {
+            "q": 1397,
+            "jaccard": 0.09639,
+            "sequence": 0.01042
+          }
+        ]
+      }
+    },
+    {
+      "q": 1493,
+      "status": "PASS",
+      "failures": [],
+      "key": "C",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.09783,
+        "max_sequence": 0.04813,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0925-20260901T063000Z",
+            "jaccard": 0.09783,
+            "sequence": 0.01895
+          },
+          {
+            "candidate_id": "S1-DIRECT-0923-20260901T063000Z",
+            "jaccard": 0.07955,
+            "sequence": 0.01475
+          },
+          {
+            "candidate_id": "S1-DIRECT-0938-20260901T064500Z",
+            "jaccard": 0.07071,
+            "sequence": 0.0142
+          },
+          {
+            "candidate_id": "S1-DIRECT-0924-20260901T063000Z",
+            "jaccard": 0.06977,
+            "sequence": 0.00996
+          },
+          {
+            "candidate_id": "S1-DIRECT-0933-20260901T064500Z",
+            "jaccard": 0.0625,
+            "sequence": 0.01217
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.14583,
+        "max_sequence": 0.07032,
+        "top5": [
+          {
+            "q": 1424,
+            "jaccard": 0.14583,
+            "sequence": 0.01339
+          },
+          {
+            "q": 1379,
+            "jaccard": 0.1236,
+            "sequence": 0.02897
+          },
+          {
+            "q": 1380,
+            "jaccard": 0.12048,
+            "sequence": 0.00383
+          },
+          {
+            "q": 1404,
+            "jaccard": 0.11828,
+            "sequence": 0.04567
+          },
+          {
+            "q": 1410,
+            "jaccard": 0.10256,
+            "sequence": 0.07032
+          }
+        ]
+      }
+    },
+    {
+      "q": 1494,
+      "status": "PASS",
+      "failures": [],
+      "key": "D",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.125,
+        "max_sequence": 0.0447,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0894-20260901T010000Z",
+            "jaccard": 0.125,
+            "sequence": 0.02331
+          },
+          {
+            "candidate_id": "S1-DIRECT-1063-20260902T100000Z",
+            "jaccard": 0.09783,
+            "sequence": 0.0174
+          },
+          {
+            "candidate_id": "S1-DIRECT-0375-202608270320Z",
+            "jaccard": 0.07463,
+            "sequence": 0.00657
+          },
+          {
+            "candidate_id": "S1-DIRECT-1135-20260902T100000Z",
+            "jaccard": 0.07368,
+            "sequence": 0.02779
+          },
+          {
+            "candidate_id": "S1-DIRECT-0778-20260830T180000Z",
+            "jaccard": 0.06863,
+            "sequence": 0.02365
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.15294,
+        "max_sequence": 0.05463,
+        "top5": [
+          {
+            "q": 1356,
+            "jaccard": 0.15294,
+            "sequence": 0.0206
+          },
+          {
+            "q": 1406,
+            "jaccard": 0.11688,
+            "sequence": 0.04223
+          },
+          {
+            "q": 1365,
+            "jaccard": 0.11594,
+            "sequence": 0.02817
+          },
+          {
+            "q": 1412,
+            "jaccard": 0.11111,
+            "sequence": 0.02057
+          },
+          {
+            "q": 1362,
+            "jaccard": 0.10769,
+            "sequence": 0.05263
+          }
+        ]
+      }
+    },
+    {
+      "q": 1495,
+      "status": "PASS",
+      "failures": [],
+      "key": "E",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.16129,
+        "max_sequence": 0.05171,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1041-20260902T091500Z",
+            "jaccard": 0.16129,
+            "sequence": 0.03867
+          },
+          {
+            "candidate_id": "S1-DIRECT-1051-20260902T093500Z",
+            "jaccard": 0.12281,
+            "sequence": 0.05171
+          },
+          {
+            "candidate_id": "S1-DIRECT-0787-20260830T190000Z",
+            "jaccard": 0.05607,
+            "sequence": 0.03057
+          },
+          {
+            "candidate_id": "S1-DIRECT-0745-20260830T150000Z",
+            "jaccard": 0.03571,
+            "sequence": 0.05146
+          },
+          {
+            "candidate_id": "S1-DIRECT-1247-20260906T074000Z",
+            "jaccard": 0.05072,
+            "sequence": 0.03868
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.06742,
+        "max_sequence": 0.06,
+        "top5": [
+          {
+            "q": 1337,
+            "jaccard": 0.06742,
+            "sequence": 0.00677
+          },
+          {
+            "q": 1428,
+            "jaccard": 0.05479,
+            "sequence": 0.06
+          },
+          {
+            "q": 1452,
+            "jaccard": 0.02326,
+            "sequence": 0.05903
+          },
+          {
+            "q": 1438,
+            "jaccard": 0.05208,
+            "sequence": 0.05843
+          },
+          {
+            "q": 1367,
+            "jaccard": 0.02564,
+            "sequence": 0.05774
+          }
+        ]
+      }
+    },
+    {
+      "q": 1496,
+      "status": "PASS",
+      "failures": [],
+      "key": "A",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.21951,
+        "max_sequence": 0.05642,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0937-20260901T064500Z",
+            "jaccard": 0.21951,
+            "sequence": 0.03704
+          },
+          {
+            "candidate_id": "S1-DIRECT-0925-20260901T063000Z",
+            "jaccard": 0.10417,
+            "sequence": 0.0078
+          },
+          {
+            "candidate_id": "S1-DIRECT-0938-20260901T064500Z",
+            "jaccard": 0.08824,
+            "sequence": 0.00828
+          },
+          {
+            "candidate_id": "S1-DIRECT-0923-20260901T063000Z",
+            "jaccard": 0.07527,
+            "sequence": 0.00983
+          },
+          {
+            "candidate_id": "S1-DIRECT-0922-20260901T063000Z",
+            "jaccard": 0.07447,
+            "sequence": 0.01241
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.19737,
+        "max_sequence": 0.05302,
+        "top5": [
+          {
+            "q": 1397,
+            "jaccard": 0.19737,
+            "sequence": 0.02559
+          },
+          {
+            "q": 1398,
+            "jaccard": 0.08929,
+            "sequence": 0.02444
+          },
+          {
+            "q": 1435,
+            "jaccard": 0.0885,
+            "sequence": 0.03061
+          },
+          {
+            "q": 1425,
+            "jaccard": 0.08696,
+            "sequence": 0.00931
+          },
+          {
+            "q": 1379,
+            "jaccard": 0.08247,
+            "sequence": 0.01569
+          }
+        ]
+      }
+    },
+    {
+      "q": 1497,
+      "status": "PASS",
+      "failures": [],
+      "key": "B",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.09722,
+        "max_sequence": 0.06548,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0271-20260827T030000Z",
+            "jaccard": 0.09722,
+            "sequence": 0.00937
+          },
+          {
+            "candidate_id": "S1-DIRECT-0667-20260828T230000Z",
+            "jaccard": 0.08,
+            "sequence": 0.01157
+          },
+          {
+            "candidate_id": "S1-DIRECT-0036-20260827T020000Z",
+            "jaccard": 0.07921,
+            "sequence": 0.03295
+          },
+          {
+            "candidate_id": "S1-DIRECT-0825-20260831T010000Z",
+            "jaccard": 0.07692,
+            "sequence": 0.01205
+          },
+          {
+            "candidate_id": "S1-DIRECT-1070-20260902T100000Z",
+            "jaccard": 0.07619,
+            "sequence": 0.0236
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.12222,
+        "max_sequence": 0.05949,
+        "top5": [
+          {
+            "q": 1324,
+            "jaccard": 0.12222,
+            "sequence": 0.00712
+          },
+          {
+            "q": 1335,
+            "jaccard": 0.11579,
+            "sequence": 0.00999
+          },
+          {
+            "q": 1381,
+            "jaccard": 0.1068,
+            "sequence": 0.0286
+          },
+          {
+            "q": 1474,
+            "jaccard": 0.09756,
+            "sequence": 0.02242
+          },
+          {
+            "q": 1403,
+            "jaccard": 0.09412,
+            "sequence": 0.02059
+          }
+        ]
+      }
+    },
+    {
+      "q": 1498,
+      "status": "PASS",
+      "failures": [],
+      "key": "C",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.12766,
+        "max_sequence": 0.0567,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-1035-20260902T081500Z",
+            "jaccard": 0.12766,
+            "sequence": 0.04079
+          },
+          {
+            "candidate_id": "S1-DIRECT-1235-20260905T223800Z",
+            "jaccard": 0.10484,
+            "sequence": 0.03553
+          },
+          {
+            "candidate_id": "S1-DIRECT-0795-20260830T200000Z",
+            "jaccard": 0.10185,
+            "sequence": 0.02703
+          },
+          {
+            "candidate_id": "S1-DIRECT-1021-20260902T070000Z",
+            "jaccard": 0.08462,
+            "sequence": 0.00816
+          },
+          {
+            "candidate_id": "S1-DIRECT-0865-20260831T040000Z",
+            "jaccard": 0.08182,
+            "sequence": 0.03252
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.17593,
+        "max_sequence": 0.08005,
+        "top5": [
+          {
+            "q": 1302,
+            "jaccard": 0.17593,
+            "sequence": 0.06226
+          },
+          {
+            "q": 1358,
+            "jaccard": 0.09091,
+            "sequence": 0.02615
+          },
+          {
+            "q": 1457,
+            "jaccard": 0.08889,
+            "sequence": 0.05587
+          },
+          {
+            "q": 1474,
+            "jaccard": 0.08642,
+            "sequence": 0.01196
+          },
+          {
+            "q": 1439,
+            "jaccard": 0.08421,
+            "sequence": 0.03268
+          }
+        ]
+      }
+    },
+    {
+      "q": 1499,
+      "status": "PASS",
+      "failures": [],
+      "key": "D",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.08333,
+        "max_sequence": 0.07819,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0018-20260827T020000Z",
+            "jaccard": 0.08333,
+            "sequence": 0.01327
+          },
+          {
+            "candidate_id": "S1-DIRECT-0916-20260901T061500Z",
+            "jaccard": 0.07527,
+            "sequence": 0.07819
+          },
+          {
+            "candidate_id": "S1-DIRECT-0914-20260901T061500Z",
+            "jaccard": 0.05618,
+            "sequence": 0.02575
+          },
+          {
+            "candidate_id": "S1-DIRECT-0267-20260827T030000Z",
+            "jaccard": 0.0,
+            "sequence": 0.05546
+          },
+          {
+            "candidate_id": "S1-DIRECT-0540-202608270530Z",
+            "jaccard": 0.02105,
+            "sequence": 0.05452
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.08696,
+        "max_sequence": 0.05281,
+        "top5": [
+          {
+            "q": 1345,
+            "jaccard": 0.08696,
+            "sequence": 0.02811
+          },
+          {
+            "q": 1433,
+            "jaccard": 0.05747,
+            "sequence": 0.01006
+          },
+          {
+            "q": 1459,
+            "jaccard": 0.05405,
+            "sequence": 0.00998
+          },
+          {
+            "q": 1302,
+            "jaccard": 0.05357,
+            "sequence": 0.0507
+          },
+          {
+            "q": 1351,
+            "jaccard": 0.0241,
+            "sequence": 0.05281
+          }
+        ]
+      }
+    },
+    {
+      "q": 1500,
+      "status": "PASS",
+      "failures": [],
+      "key": "E",
+      "evidence_contract": "PASS",
+      "source_live_binding": "PASS",
+      "blueprint": "PASS",
+      "canonical_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.07463,
+        "max_sequence": 0.04087,
+        "top5": [
+          {
+            "candidate_id": "S1-DIRECT-0369-202608270320Z",
+            "jaccard": 0.07463,
+            "sequence": 0.02023
+          },
+          {
+            "candidate_id": "S1-DIRECT-0467-202608270340Z",
+            "jaccard": 0.05634,
+            "sequence": 0.0034
+          },
+          {
+            "candidate_id": "S1-DIRECT-0368-202608270320Z",
+            "jaccard": 0.05,
+            "sequence": 0.01036
+          },
+          {
+            "candidate_id": "S1-DIRECT-0939-20260901T064500Z",
+            "jaccard": 0.04706,
+            "sequence": 0.01789
+          },
+          {
+            "candidate_id": "S1-DIRECT-0076-20260827T020000Z",
+            "jaccard": 0.04651,
+            "sequence": 0.03005
+          }
+        ]
+      },
+      "prior_workstream_duplicate_gate": {
+        "status": "PASS",
+        "max_jaccard": 0.12821,
+        "max_sequence": 0.04791,
+        "top5": [
+          {
+            "q": 1315,
+            "jaccard": 0.12821,
+            "sequence": 0.04791
+          },
+          {
+            "q": 1359,
+            "jaccard": 0.10127,
+            "sequence": 0.02459
+          },
+          {
+            "q": 1427,
+            "jaccard": 0.09574,
+            "sequence": 0.00707
+          },
+          {
+            "q": 1411,
+            "jaccard": 0.09412,
+            "sequence": 0.01765
+          },
+          {
+            "q": 1407,
+            "jaccard": 0.08791,
+            "sequence": 0.02286
+          }
+        ]
+      }
+    }
+  ],
+  "source_reports": [
+    {
+      "q": 1476,
+      "source_id": "Q1476-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=100ec543-fbd0-44fc-b740-db9cdff39145",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 11,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "A"
+    },
+    {
+      "q": 1477,
+      "source_id": "Q1477-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b1fc1ee7-facc-4099-b3db-a4c1daeaa4be",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 8,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "B"
+    },
+    {
+      "q": 1478,
+      "source_id": "Q1478-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aee3c963-edc0-4252-8769-cdf6c7cdc21a",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 5,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "C"
+    },
+    {
+      "q": 1479,
+      "source_id": "Q1479-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014d92c1-b643-4680-8ca6-f0b3307da915",
+      "status": "PASS",
+      "title_token_overlap": 8,
+      "title_token_minimum": 4,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 16,
+      "drug_token_overlap": 2,
+      "semantic_anchor_ok": true,
+      "key": "D"
+    },
+    {
+      "q": 1480,
+      "source_id": "Q1480-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=484e21ba-8fe1-4c6d-b923-8ba4cf5b2f20",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 13,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "E"
+    },
+    {
+      "q": 1481,
+      "source_id": "Q1481-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12391cc2-38c2-4cf5-86d3-2be9370127fc",
+      "status": "PASS",
+      "title_token_overlap": 6,
+      "title_token_minimum": 3,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 8,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "A"
+    },
+    {
+      "q": 1482,
+      "source_id": "Q1482-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24aa29f6-ccff-45d3-89af-4d26e525cef8",
+      "status": "PASS",
+      "title_token_overlap": 4,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 10,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "B"
+    },
+    {
+      "q": 1483,
+      "source_id": "Q1483-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c00317c8-709c-4707-a6d1-632bff123026",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 12,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "C"
+    },
+    {
+      "q": 1484,
+      "source_id": "Q1484-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e01c1197-338f-414c-b804-808e129ebc8c",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 13,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "D"
+    },
+    {
+      "q": 1485,
+      "source_id": "Q1485-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d5ceabf2-43a0-4746-9371-d98a39cf6cfc",
+      "status": "PASS",
+      "title_token_overlap": 4,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 7,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "E"
+    },
+    {
+      "q": 1486,
+      "source_id": "Q1486-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e3aeefc2-f44d-4337-9c2e-3dba44a89e48",
+      "status": "PASS",
+      "title_token_overlap": 7,
+      "title_token_minimum": 3,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 12,
+      "drug_token_overlap": 2,
+      "semantic_anchor_ok": true,
+      "key": "A"
+    },
+    {
+      "q": 1487,
+      "source_id": "Q1487-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=07b0b671-db81-49f0-a402-0c0219db7fa2",
+      "status": "PASS",
+      "title_token_overlap": 4,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 21,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "B"
+    },
+    {
+      "q": 1488,
+      "source_id": "Q1488-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b650f696-3391-4274-8b55-a5f5e9d04769",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 12,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "C"
+    },
+    {
+      "q": 1489,
+      "source_id": "Q1489-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7d5ce670-9314-4fd7-8b0a-1447910dcf9e",
+      "status": "PASS",
+      "title_token_overlap": 6,
+      "title_token_minimum": 3,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 15,
+      "drug_token_overlap": 2,
+      "semantic_anchor_ok": true,
+      "key": "D"
+    },
+    {
+      "q": 1490,
+      "source_id": "Q1490-FDA_PI",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/220860Orig1s000lbl.pdf",
+      "status": "PASS",
+      "title_token_overlap": 4,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "FDA_NDA",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 8,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "E"
+    },
+    {
+      "q": 1491,
+      "source_id": "Q1491-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b7715a1-035c-4002-b582-5238efee5d58",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 11,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "A"
+    },
+    {
+      "q": 1492,
+      "source_id": "Q1492-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=526acf60-abc3-2cc2-e063-6294a90affa6",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 14,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "B"
+    },
+    {
+      "q": 1493,
+      "source_id": "Q1493-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=11aaeb53-9848-433c-be7f-db8a5bc0b26f",
+      "status": "PASS",
+      "title_token_overlap": 6,
+      "title_token_minimum": 3,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 15,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "C"
+    },
+    {
+      "q": 1494,
+      "source_id": "Q1494-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fcebfb5-19d6-4f63-b852-999d68a13729",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 9,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "D"
+    },
+    {
+      "q": 1495,
+      "source_id": "Q1495-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3663d9cb-3f66-48ae-bf0a-6958bc0888de",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 11,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "E"
+    },
+    {
+      "q": 1496,
+      "source_id": "Q1496-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4beda35a-21b0-4b34-84ea-be6ea8cae50f",
+      "status": "PASS",
+      "title_token_overlap": 3,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 17,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "A"
+    },
+    {
+      "q": 1497,
+      "source_id": "Q1497-FDA_PI",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/220711Orig1s000lbl.pdf",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "FDA_NDA",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 12,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "B"
+    },
+    {
+      "q": 1498,
+      "source_id": "Q1498-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fd778507-1274-4d1a-a659-5431d55c543a",
+      "status": "PASS",
+      "title_token_overlap": 5,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 12,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "C"
+    },
+    {
+      "q": 1499,
+      "source_id": "Q1499-LABEL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7aed8024-ad30-44d6-8f3b-63338ad3ce52",
+      "status": "PASS",
+      "title_token_overlap": 4,
+      "title_token_minimum": 2,
+      "locator_ok": true,
+      "identifier_type": "DAILYMED_SETID",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 9,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "D"
+    },
+    {
+      "q": 1500,
+      "source_id": "Q1500-FDA_PI",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/218145s000lbl.pdf",
+      "status": "PASS",
+      "title_token_overlap": 7,
+      "title_token_minimum": 3,
+      "locator_ok": true,
+      "identifier_type": "FDA_NDA",
+      "identifier_ok": true,
+      "key_explanation_token_overlap": 9,
+      "drug_token_overlap": 1,
+      "semantic_anchor_ok": true,
+      "key": "E"
+    }
+  ],
+  "intrabatch_top10": [
+    {
+      "q1": 1480,
+      "q2": 1495,
+      "jaccard": 0.15584,
+      "sequence": 0.03113
+    },
+    {
+      "q1": 1476,
+      "q2": 1483,
+      "jaccard": 0.13131,
+      "sequence": 0.02625
+    },
+    {
+      "q1": 1478,
+      "q2": 1494,
+      "jaccard": 0.1,
+      "sequence": 0.01991
+    },
+    {
+      "q1": 1487,
+      "q2": 1498,
+      "jaccard": 0.09302,
+      "sequence": 0.06617
+    },
+    {
+      "q1": 1492,
+      "q2": 1493,
+      "jaccard": 0.09195,
+      "sequence": 0.02268
+    },
+    {
+      "q1": 1491,
+      "q2": 1499,
+      "jaccard": 0.08571,
+      "sequence": 0.01437
+    },
+    {
+      "q1": 1476,
+      "q2": 1490,
+      "jaccard": 0.08421,
+      "sequence": 0.01736
+    },
+    {
+      "q1": 1476,
+      "q2": 1484,
+      "jaccard": 0.08333,
+      "sequence": 0.04591
+    },
+    {
+      "q1": 1476,
+      "q2": 1478,
+      "jaccard": 0.0814,
+      "sequence": 0.01991
+    },
+    {
+      "q1": 1487,
+      "q2": 1497,
+      "jaccard": 0.07865,
+      "sequence": 0.01301
+    }
+  ],
+  "failures": [
+    "Q1487:workstream_jaccard_collision"
+  ],
+  "verdict": "BLOCKED",
+  "independent_auditor_a_complete": false,
+  "independent_auditor_b_complete": false,
+  "production_import_ready": false,
+  "production_db_modified": false
+}
