@@ -1,0 +1,23 @@
+name: USMLE Q1451-Q1475 repaired deterministic preflight
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-q1451-q1475-repaired-preflight.yml'
+permissions:
+  contents: write
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run full repaired preflight from zero
+        run: python usmle/verify_q1451_q1475_preflight_repaired.py
+      - name: Commit repaired preflight evidence
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add usmle/audit/Q1451_Q1475_DETERMINISTIC_PREFLIGHT_REPAIRED.json
+          git commit -m 'usmle: record repaired deterministic preflight Q1451-Q1475' || exit 1
+          git push
