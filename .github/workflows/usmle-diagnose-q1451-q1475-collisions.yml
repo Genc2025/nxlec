@@ -1,0 +1,16 @@
+name: USMLE diagnose Q1451-Q1475 collisions
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-diagnose-q1451-q1475-collisions.yml'
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Report top workstream matches
+        run: python usmle/diagnose_q1451_q1475_collisions.py
