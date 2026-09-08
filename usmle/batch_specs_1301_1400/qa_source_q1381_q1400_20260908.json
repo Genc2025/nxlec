@@ -1,0 +1,91 @@
+{
+  "qa_id": "Q1381-Q1400-SOURCE-QA-20260908-GPT56SOL",
+  "created_at": "2026-09-08",
+  "scope": "Non-independent source/currentness, key, option, second-answer, hidden-assumption, evidence-scope, blueprint, and single-best-answer QA. This is not blind Auditor A/B evidence and not production acceptance.",
+  "source_batch": "usmle/batch_specs_1301_1400/05_q1381_q1400_author_20260908.json",
+  "package_decision": "SOURCE_CONTENT_QA_PASS_FOR_RANGE",
+  "item_numbers": [1381,1382,1383,1384,1385,1386,1387,1388,1389,1390,1391,1392,1393,1394,1395,1396,1397,1398,1399,1400],
+  "answer_key_sequence": "ABCDEABCDEABCDEABCDE",
+  "answer_key_distribution": {"A":4,"B":4,"C":4,"D":4,"E":4},
+  "range_checks": {
+    "key_correctness": "PASS",
+    "all_A_to_E_options_reviewed": "PASS",
+    "single_best_answer": "PASS",
+    "second_answer_attack": "PASS",
+    "hidden_assumptions": "PASS",
+    "fabricated_numeric_claims": "PASS",
+    "fabricated_distractors": "PASS",
+    "source_identity_setid_url_locator": "PASS",
+    "currentness": "PASS with explicit per-source date_basis; SPL effective/update/section dates are not represented as PI Revised dates unless explicitly verified as such",
+    "evidence_scope": "PASS; items with incomplete therapeutic-mechanism knowledge explicitly restrict claims to directly documented molecular/pharmacologic effects",
+    "blueprint": "PASS against current USMLE Step 1 system/competency/discipline framework",
+    "ncjmm": "NOT_APPLICABLE_TO_USMLE",
+    "difficulty": "Author estimate only; not psychometrically calibrated",
+    "rationales_A_to_E": "PASS",
+    "educational_objectives": "PASS",
+    "adversarial_second_pass": "PASS",
+    "source_hashes_recomputed": false,
+    "technical_hash_gate": "PENDING_DETERMINISTIC_REFETCH_AND_HASH"
+  },
+  "high_risk_rechecks": [
+    {
+      "num": 1381,
+      "drug": "sotatercept-csrk",
+      "status": "PASS",
+      "finding": "Current DailyMed 12.1 identifies sotatercept-csrk as an ActRIIA-Fc fusion protein binding activin A and other TGF-beta-superfamily ligands, improving the balance between ActRIIA/Smad2/3 and BMPRII/Smad1/5/8 signaling.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21693ee2-cd23-4137-ac67-066bb3a4a9b7"
+    },
+    {
+      "num": 1383,
+      "drug": "tofersen",
+      "status": "PASS",
+      "finding": "Current QALSODY 12.1 states that tofersen binds SOD1 mRNA and causes its degradation, reducing SOD1 protein synthesis.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=81356b45-1cb7-4eef-88ea-e44cc18b47c5"
+    },
+    {
+      "num": 1384,
+      "drug": "omaveloxolone",
+      "status": "PASS",
+      "finding": "Current SKYCLARYS 12.1 documents Nrf2-pathway activation while explicitly stating that the precise therapeutic mechanism in Friedreich ataxia is unknown; the item preserves that evidence boundary.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2709e870-df3d-f30f-e063-6394a90aeda1"
+    },
+    {
+      "num": 1392,
+      "drug": "exagamglogene autotemcel",
+      "status": "PASS",
+      "finding": "The candidate tests CRISPR/Cas9 editing of the erythroid-specific BCL11A enhancer/GATA1-binding site rather than beta-globin gene replacement; no structural beta-globin repair is asserted.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bd2ea021-ee99-4844-96c6-9b7f24a12767"
+    },
+    {
+      "num": 1394,
+      "drug": "seladelpar",
+      "status": "PASS",
+      "finding": "Current LIVDELZI 12.1 identifies seladelpar as a PPAR-delta agonist and states that its therapeutic mechanism in PBC is not well understood; the item does not overstate causality.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89f79d98-135c-40b2-a585-6996c04e599c"
+    },
+    {
+      "num": 1395,
+      "drug": "givinostat",
+      "status": "PASS",
+      "finding": "Current DUVYZAT 12.1 identifies givinostat as a histone deacetylase inhibitor and states that the precise therapeutic mechanism in DMD is unknown; the item is limited to enzyme-class identification.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a28a3db-7880-4ac2-a2f2-2b4e362aafb6"
+    },
+    {
+      "num": 1396,
+      "drug": "nirmatrelvir/ritonavir",
+      "status": "PASS",
+      "finding": "Current PAXLOVID labeling separates nirmatrelvir's SARS-CoV-2 Mpro inhibition from ritonavir's CYP3A-mediated pharmacokinetic boosting; ritonavir is not active against SARS-CoV-2 Mpro.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8a99d6d6-fd9e-45bb-b1bf-48c7f761232a"
+    },
+    {
+      "num": 1400,
+      "drug": "suzetrigine",
+      "status": "PASS",
+      "finding": "Current JOURNAVX 12.1 identifies suzetrigine as a selective NaV1.8 voltage-gated sodium-channel blocker in peripheral sensory neurons.",
+      "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0976da4-1d20-4517-945c-b60ed2f41c12"
+    }
+  ],
+  "material_defects": [],
+  "canonical_promotions_from_this_layer": 0,
+  "next_required_action": "Deterministically re-fetch and hash all cited source instances, freeze the candidate package, then run fresh isolated blind Auditor A and Auditor B. Only TRUSTED_IMPORTER may promote dual-accepted items to PRODUCTION_READY."
+}
