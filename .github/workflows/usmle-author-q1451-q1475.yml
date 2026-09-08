@@ -1,0 +1,78 @@
+name: USMLE author Q1451-Q1475
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-author-q1451-q1475.yml'
+      - 'usmle/author_q1451_q1475.py'
+
+permissions:
+  contents: write
+
+jobs:
+  author:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate author batch
+        run: python usmle/author_q1451_q1475.py
+
+      - name: Validate generated candidate contract
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          p=Path('usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908.json')
+          b=json.loads(p.read_text())
+          items=b['items']
+          allowed={'Pathology','Physiology','Nutrition','Gross Anatomy & Embryology','Microbiology','Pharmacology','Behavioral Sciences','Biochemistry','Histology & Cell Biology','Immunology','Genetics'}
+          assert [x['num'] for x in items]==list(range(1451,1476))
+          assert len(items)==25 and b['candidate_count']==25
+          keys=''.join(x['item']['intended_key'] for x in items)
+          assert keys=='ABCDEABCDEABCDEABCDEABCDE'
+          assert Counter(keys)==Counter({'A':5,'B':5,'C':5,'D':5,'E':5})
+          assert b['answer_key_sequence']==keys
+          assert b['answer_key_distribution']=={'A':5,'B':5,'C':5,'D':5,'E':5}
+          assert b['production_import_ready'] is False
+          assert 'ncjmm' not in p.read_text().casefold()
+          for x in items:
+              assert set(x['blueprint']['disciplines']).issubset(allowed)
+              it=x['item']; ex=x['explanation']; ev=x['evidence_map']; src=x['sources']
+              assert list(it['options'])==list('ABCDE')
+              assert len(set(it['options'].values()))==5
+              assert it['intended_key'] in 'ABCDE'
+              assert it['lead_in'].strip().endswith('?')
+              assert set(ex['distractor_explanations'])==set('ABCDE')
+              assert ex['key_explanation']==ex['distractor_explanations'][it['intended_key']]
+              assert isinstance(ev,list) and len(ev)==5
+              em={e['option']:e for e in ev}
+              assert set(em)==set('ABCDE')
+              ids={s['source_id'] for s in src}
+              assert ids
+              for L in 'ABCDE':
+                  assert em[L]['claim']==ex['distractor_explanations'][L]
+                  assert em[L]['direct_or_inference']==('direct' if L==it['intended_key'] else 'inference')
+                  assert set(em[L]['source_ids']).issubset(ids)
+                  assert em[L]['source_locator']
+              assert x['author_qa']['unresolved_content_defects']==[]
+          print('Q1451_Q1475_AUTHOR_CONTRACT_PASS')
+          PY
+
+      - name: Commit generated candidate batch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908.json
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'usmle: materialize author batch Q1451-Q1475'
+            git push origin HEAD:main
+          fi
