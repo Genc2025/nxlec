@@ -1,0 +1,55 @@
+{
+  "qa_id": "Q1401-Q1450-SCHEMA-GATE-20260908-GPT56SOL",
+  "created_at": "2026-09-08",
+  "verdict": "BLOCKED_PENDING_SCHEMA_REPAIR_MATERIALIZATION",
+  "scope": "Schema/readiness gate after source/content author-QA. This manifest supersedes any earlier implication that Q1401-Q1425 or Q1426-Q1450 are technically freeze-ready.",
+  "source_batches": [
+    "usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908.json",
+    "usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908.json"
+  ],
+  "repair_tool": "usmle/repair_q1401_q1450_candidate_schema.py",
+  "prior_repair_overlay": "usmle/batch_specs_1401_1500/repair_overlay_q1412_q1414_20260908.json",
+  "findings": [
+    {
+      "range": "Q1401-Q1425",
+      "severity": "material_schema_defect",
+      "finding": "evidence_map is represented in a shortened object form rather than the repository audit contract's A-E list of evidence entries bound to each option rationale.",
+      "medical_content_status": "Previously reviewed; no medical key defect identified in that layer.",
+      "additional_repairs": [
+        "Q1412 blueprint discipline Cell Biology -> Histology & Cell Biology",
+        "Q1414 blueprint discipline Cell Biology -> Histology & Cell Biology"
+      ]
+    },
+    {
+      "range": "Q1426-Q1450",
+      "severity": "material_schema_defect",
+      "finding": "Dedicated evidence_map field was omitted even though key/rationale/source/author-QA fields are present.",
+      "medical_content_status": "Author/source/adversarial review completed before commit; no medical key defect identified, but schema gate blocks freeze-readiness."
+    }
+  ],
+  "repository_contract_evidence": {
+    "audit_script": "usmle/audit_q1251_q1260_readonly.py",
+    "required_behavior": "For each item, evidence_map must cover A-E; each entry's claim must bind to the corresponding distractor_explanations rationale; key is direct and non-key options are inference; evidence source IDs must resolve to item sources."
+  },
+  "repair_behavior": {
+    "discipline_normalization": "Exact Cell Biology values are replaced by Histology & Cell Biology.",
+    "evidence_map_materialization": "Generate five A-E entries using the existing rationale text verbatim as the claim; use direct for intended key and inference for distractors; bind only to existing source_ids and locators.",
+    "new_medical_claims": false,
+    "key_changes": false,
+    "source_hashes_fabricated": false
+  },
+  "content_layer_summary": {
+    "authored_candidates": 50,
+    "candidate_range": "Q1401-Q1450",
+    "key_distribution_per_25_item_batch": "A/B/C/D/E = 5 each",
+    "canonical_promotions": 0
+  },
+  "mandatory_next_gates": [
+    "Materialize the deterministic schema-repaired candidate files.",
+    "Validate exact A-E evidence-map coverage and rationale binding on repaired outputs.",
+    "Deterministically re-fetch cited sources and compute real source hashes.",
+    "Freeze immutable repaired candidates.",
+    "Run fresh isolated blind Auditor A and Auditor B.",
+    "Only TRUSTED_IMPORTER may promote dual-accepted candidates to PRODUCTION_READY."
+  ]
+}
