@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Generate author batch
-        run: python usmle/author_q1476_q1500_r2.py
+        run: python usmle/author_q1476_q1500_r3.py
       - name: Validate generated candidate contract
         run: |
           python - <<'PY'
@@ -31,6 +31,9 @@ jobs:
           assert b['technical_integrity']['independent_auditor_a_complete'] is False
           assert b['technical_integrity']['independent_auditor_b_complete'] is False
           assert 'ncjmm' not in p.read_text().casefold()
+          q1487=next(x for x in b['items'] if x['num']==1487)
+          assert q1487['drug']=='brensocatib'
+          assert q1487['item']['intended_key']=='B'
           for x in b['items']:
               assert set(x['item']['options'])==set('ABCDE')
               assert len(x['evidence_map'])==5
@@ -38,7 +41,7 @@ jobs:
               assert set(em)==set('ABCDE')
               for L in 'ABCDE':
                   assert em[L]['claim']==x['explanation']['distractor_explanations'][L]
-          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS')
+          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS_R3')
           PY
       - name: Commit generated candidate batch
         run: |
