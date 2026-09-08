@@ -1,0 +1,38 @@
+name: USMLE Q1401-Q1450 deterministic preflight
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/usmle-q1401-q1450-deterministic-preflight.yml'
+      - 'usmle/verify_q1401_q1450_repaired_preflight.py'
+      - 'usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json'
+      - 'usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json'
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run deterministic repaired-candidate preflight
+        run: python usmle/verify_q1401_q1450_repaired_preflight.py
+
+      - name: Commit preflight evidence
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1401_Q1450_DETERMINISTIC_PREFLIGHT.json
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'usmle: record deterministic preflight Q1401-Q1450'
+            git push origin HEAD:main
+          fi
