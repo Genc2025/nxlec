@@ -13,12 +13,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Generate author batch
-        run: python usmle/author_q1476_q1500_r5.py
+        run: python usmle/author_q1476_q1500_r6.py
       - name: Validate generated candidate contract
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+          from urllib.parse import urlparse
           p=Path('usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json')
           b=json.loads(p.read_text())
           assert b['candidate_count']==25
@@ -27,11 +28,14 @@ jobs:
           assert b['answer_key_distribution']=={'A':5,'B':5,'C':5,'D':5,'E':5}
           assert b['canonical_count_before']==b['canonical_count_after']==1300
           assert b['production_import_ready'] is False
-          assert b['technical_integrity']['exact_drug_reuse_gate_q1301_q1475']=='PASS'
-          assert b['technical_integrity']['independent_auditor_a_complete'] is False
-          assert b['technical_integrity']['independent_auditor_b_complete'] is False
+          ti=b['technical_integrity']
+          assert ti['exact_drug_reuse_gate_q1301_q1475']=='PASS'
+          assert ti['source_identifier_contract']=='PASS_DAILYMED_SETID_OR_FDA_NDA_AS_APPLICABLE'
+          assert ti['independent_auditor_a_complete'] is False
+          assert ti['independent_auditor_b_complete'] is False
           assert 'ncjmm' not in p.read_text().casefold()
           expected={1487:('garadacimab','B'),1490:('oveporexton','E'),1497:('sonrotoclax','B'),1500:('centanafadine','E')}
+          fda_ids={1490:'NDA 220860',1497:'NDA 220711',1500:'NDA 218145'}
           for q,(drug,key) in expected.items():
               x=next(x for x in b['items'] if x['num']==q)
               assert x['drug']==drug and x['item']['intended_key']==key
@@ -44,12 +48,22 @@ jobs:
               for L in 'ABCDE':
                   assert em[L]['claim']==x['explanation']['distractor_explanations'][L]
                   assert em[L]['direct_or_inference']==('direct' if L==x['item']['intended_key'] else 'inference')
-          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS_R5')
+              for s in x['sources']:
+                  host=urlparse(s['url']).netloc
+                  assert s['retrieved_at']=='2026-09-08' and s['section_locator']
+                  if host in {'dailymed.nlm.nih.gov','www.dailymed.nlm.nih.gov'}:
+                      assert s.get('setid') and not s.get('fda_application_id')
+                  elif host=='www.accessdata.fda.gov':
+                      assert not s.get('setid') and s.get('identifier_type')=='FDA_NDA'
+                      assert s.get('fda_application_id')==fda_ids[x['num']]
+                  else:
+                      raise AssertionError((x['num'],host))
+          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS_R6')
           PY
       - name: Commit generated candidate batch
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json
-          git commit -m 'usmle: materialize author batch Q1476-Q1500 R5' || exit 1
+          git commit -m 'usmle: materialize author batch Q1476-Q1500 R6' || exit 1
           git push
