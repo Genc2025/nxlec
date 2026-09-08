@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import author_q1476_q1500 as base
 
+ORIGINAL_ITEMS=base.items
+
 
 def prior_drugs_allow_historical_duplicates():
     out={}
@@ -28,7 +30,7 @@ def prior_drugs_allow_historical_duplicates():
 
 
 def items_r3():
-    z=base.items()
+    z=ORIGINAL_ITEMS()
     replacement=base.a.mk(
       1487,'brensocatib','Respiratory System',['Pharmacology','Immunology','Biochemistry'],
       'Bone-marrow neutrophil precursors are exposed to an oral small molecule during granule-protease maturation. After treatment, mature circulating neutrophils contain markedly reduced active neutrophil elastase, cathepsin G, and proteinase 3, although the genes encoding these proteases are transcribed normally.',
