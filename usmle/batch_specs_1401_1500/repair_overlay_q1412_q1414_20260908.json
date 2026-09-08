@@ -1,0 +1,33 @@
+{
+  "repair_id": "Q1412-Q1414-BLUEPRINT-DISCIPLINE-REPAIR-20260908",
+  "created_at": "2026-09-08",
+  "source_batch": "usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908.json",
+  "status": "REPAIR_DEFINED_PENDING_REFREEZE",
+  "reason": "Repository Step 1 discipline enum uses 'Histology & Cell Biology'; 'Cell Biology' alone is not an accepted discipline value.",
+  "enum_evidence": "usmle/author_q1251_q1260.py DISC set",
+  "repairs": [
+    {
+      "num": 1412,
+      "field": "blueprint.disciplines[1]",
+      "from": "Cell Biology",
+      "to": "Histology & Cell Biology",
+      "content_change": false,
+      "key_change": false
+    },
+    {
+      "num": 1414,
+      "field": "blueprint.disciplines[1]",
+      "from": "Cell Biology",
+      "to": "Histology & Cell Biology",
+      "content_change": false,
+      "key_change": false
+    }
+  ],
+  "mandatory_post_repair_gates": [
+    "Apply the overlay before candidate freeze.",
+    "Re-run blueprint/schema validation for Q1412 and Q1414 from zero.",
+    "Re-run key, all-option, second-answer, hidden-assumption, rationale, educational-objective, source/currentness, and adversarial checks for Q1412 and Q1414 after repair.",
+    "Recompute deterministic source hashes during technical freeze; do not fabricate hashes.",
+    "Fresh isolated blind Auditor A and Auditor B remain mandatory before TRUSTED_IMPORTER."
+  ]
+}
