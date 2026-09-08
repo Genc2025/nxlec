@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Generate author batch
-        run: python usmle/author_q1476_q1500_r4.py
+        run: python usmle/author_q1476_q1500_r5.py
       - name: Validate generated candidate contract
         run: |
           python - <<'PY'
@@ -31,22 +31,25 @@ jobs:
           assert b['technical_integrity']['independent_auditor_a_complete'] is False
           assert b['technical_integrity']['independent_auditor_b_complete'] is False
           assert 'ncjmm' not in p.read_text().casefold()
-          q1487=next(x for x in b['items'] if x['num']==1487)
-          assert q1487['drug']=='garadacimab'
-          assert q1487['item']['intended_key']=='B'
+          expected={1487:('garadacimab','B'),1490:('oveporexton','E'),1497:('sonrotoclax','B'),1500:('centanafadine','E')}
+          for q,(drug,key) in expected.items():
+              x=next(x for x in b['items'] if x['num']==q)
+              assert x['drug']==drug and x['item']['intended_key']==key
           for x in b['items']:
-              assert set(x['item']['options'])==set('ABCDE')
+              assert list(x['item']['options'])==list('ABCDE')
+              assert len(set(x['item']['options'].values()))==5
               assert len(x['evidence_map'])==5
               em={e['option']:e for e in x['evidence_map']}
               assert set(em)==set('ABCDE')
               for L in 'ABCDE':
                   assert em[L]['claim']==x['explanation']['distractor_explanations'][L]
-          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS_R4')
+                  assert em[L]['direct_or_inference']==('direct' if L==x['item']['intended_key'] else 'inference')
+          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS_R5')
           PY
       - name: Commit generated candidate batch
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json
-          git commit -m 'usmle: materialize author batch Q1476-Q1500' || exit 1
+          git commit -m 'usmle: materialize author batch Q1476-Q1500 R5' || exit 1
           git push
