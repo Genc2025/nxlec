@@ -1,0 +1,49 @@
+name: USMLE author Q1476-Q1500
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-author-q1476-q1500.yml'
+permissions:
+  contents: write
+jobs:
+  author:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate author batch
+        run: python usmle/author_q1476_q1500.py
+      - name: Validate generated candidate contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json')
+          b=json.loads(p.read_text())
+          assert b['candidate_count']==25
+          assert [x['num'] for x in b['items']]==list(range(1476,1501))
+          assert b['answer_key_sequence']=='ABCDEABCDEABCDEABCDEABCDE'
+          assert b['answer_key_distribution']=={'A':5,'B':5,'C':5,'D':5,'E':5}
+          assert b['canonical_count_before']==b['canonical_count_after']==1300
+          assert b['production_import_ready'] is False
+          assert b['technical_integrity']['exact_drug_reuse_gate_q1301_q1475']=='PASS'
+          assert b['technical_integrity']['independent_auditor_a_complete'] is False
+          assert b['technical_integrity']['independent_auditor_b_complete'] is False
+          assert 'ncjmm' not in p.read_text().casefold()
+          for x in b['items']:
+              assert set(x['item']['options'])==set('ABCDE')
+              assert len(x['evidence_map'])==5
+              em={e['option']:e for e in x['evidence_map']}
+              assert set(em)==set('ABCDE')
+              for L in 'ABCDE':
+                  assert em[L]['claim']==x['explanation']['distractor_explanations'][L]
+          print('Q1476_Q1500_AUTHOR_CONTRACT_PASS')
+          PY
+      - name: Commit generated candidate batch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json
+          git commit -m 'usmle: materialize author batch Q1476-Q1500' || exit 1
+          git push
