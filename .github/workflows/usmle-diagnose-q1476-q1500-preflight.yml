@@ -1,0 +1,14 @@
+name: USMLE diagnose Q1476-Q1500 preflight
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-diagnose-q1476-q1500-preflight.yml'
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print compact blocked findings
+        run: python usmle/diagnose_q1476_q1500_preflight.py
