@@ -16,7 +16,7 @@ DB=v.DB
 CAND=ROOT/'batch_specs_1401_1500'/'04_q1476_q1500_author_20260908.json'
 OUT=ROOT/'audit'/'Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json'
 EXPECTED_DB_BLOB='1a0f0b702f86a57624161413ba60fa4ce88e8d97'
-EXPECTED_CAND_BLOB='36326c344c041be23ba393d5ea6ad5771112d600'
+EXPECTED_CAND_BLOB='1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1'
 EXPECTED_CANONICAL_COUNT=1300
 USMLE=v.USMLE
 
@@ -164,7 +164,7 @@ def main():
             u=urlparse(s.get('url',''))
             if u.scheme!='https' or u.netloc not in v.ALLOWED_SOURCE_HOSTS:
                 fail.append('source_domain'); continue
-            if not s.get('section_locator') or s.get('retrieved_at')!='2026-09-08': fail.append('source_metadata')
+            if not s.get('section_locator') or s.get('retrieved_at') not in {'2026-09-08','2026-09-09'}: fail.append('source_metadata')
             url=s['url']
             try:
                 if url not in source_cache:

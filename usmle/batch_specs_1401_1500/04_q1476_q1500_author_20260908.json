@@ -17,13 +17,13 @@
     "E": 5
   },
   "systems": {
-    "Cardiovascular System": 3,
+    "Cardiovascular System": 4,
     "Musculoskeletal, Skin & Subcutaneous Tissue": 2,
     "Multisystem Processes & Disorders": 7,
     "Reproductive & Endocrine Systems": 2,
     "Gastrointestinal System": 2,
     "Respiratory & Renal/Urinary Systems": 1,
-    "Blood & Lymphoreticular/Immune Systems": 4,
+    "Blood & Lymphoreticular/Immune Systems": 3,
     "Behavioral Health & Nervous Systems/Special Senses": 4
   },
   "shared_sources": [
@@ -1635,60 +1635,59 @@
     },
     {
       "num": 1487,
-      "drug": "garadacimab",
+      "drug": "acoramidis",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_DETERMINISTIC_PREFLIGHT_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_system": "Cardiovascular System",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Immunology",
-          "Physiology"
+          "Biochemistry"
         ],
         "official_outline_path": [
-          "Blood & Lymphoreticular/Immune Systems"
+          "Cardiovascular System"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Plasma from a patient with hereditary angioedema is exposed to a monoclonal antibody before contact-system activation. Formation of kallikrein and bradykinin decreases, but C1 esterase inhibitor concentration is unchanged. The antibody binds the catalytic domain of an activated coagulation factor at the top of the contact pathway.",
-        "lead_in": "Which activated factor is directly inhibited?",
+        "vignette": "Purified transthyretin tetramers from a patient with transthyretin-mediated cardiac amyloidosis are incubated with a small molecule. The compound occupies thyroxine-binding sites on transthyretin. The rate of tetramer breakup falls, but transthyretin gene transcription is unchanged.",
+        "lead_in": "Which molecular step is directly slowed by this drug?",
         "options": {
-          "A": "Factor XIa",
-          "B": "Factor XIIa",
-          "C": "Plasma kallikrein",
-          "D": "Factor Xa",
-          "E": "Thrombin"
+          "A": "Hepatic transcription of the transthyretin gene",
+          "B": "Dissociation of transthyretin tetramers into monomers",
+          "C": "Proteolytic degradation of deposited amyloid fibrils",
+          "D": "Endocytosis of transthyretin by cardiac macrophages",
+          "E": "Binding of retinol-binding protein to circulating transthyretin"
         },
         "intended_key": "B",
-        "tested_construct": "Activated factor XII inhibition suppresses kallikrein-kinin activation and bradykinin generation",
+        "tested_construct": "TTR tetramer stabilization slows dissociation into monomers, the rate-limiting step in amyloidogenesis",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic application and distractor discrimination; no empirical item statistics are claimed."
       },
       "explanation": {
-        "key_explanation": "Garadacimab-gxii binds the catalytic domain of activated factor XII (FXIIa and beta-FXIIa) and inhibits its catalytic activity. This reduces activation of prekallikrein to kallikrein and decreases bradykinin generation in the kallikrein-kinin system.",
+        "key_explanation": "Acoramidis selectively stabilizes transthyretin by binding its thyroxine-binding sites and slowing dissociation of the TTR tetramer into monomers, the rate-limiting step in amyloidogenesis.",
         "distractor_explanations": {
-          "A": "Factor XIa participates in intrinsic coagulation downstream of FXII but is not the labeled catalytic-domain target responsible for suppressing the kallikrein-kinin pathway here.",
-          "B": "Garadacimab-gxii binds the catalytic domain of activated factor XII (FXIIa and beta-FXIIa) and inhibits its catalytic activity. This reduces activation of prekallikrein to kallikrein and decreases bradykinin generation in the kallikrein-kinin system.",
-          "C": "Direct plasma-kallikrein inhibition can also reduce bradykinin, but garadacimab acts one step upstream by inhibiting activated factor XII.",
-          "D": "Factor Xa inhibition is anticoagulant therapy and does not directly block initiation of the bradykinin-producing contact system.",
-          "E": "Thrombin inhibition acts downstream in coagulation and is not the labeled target of garadacimab."
+          "A": "Acoramidis is a TTR protein stabilizer; the described direct action is not suppression of hepatic TTR gene transcription.",
+          "B": "Acoramidis selectively stabilizes transthyretin by binding its thyroxine-binding sites and slowing dissociation of the TTR tetramer into monomers, the rate-limiting step in amyloidogenesis.",
+          "C": "The labeled mechanism stabilizes soluble TTR tetramers rather than directly proteolyzing preexisting amyloid fibrils.",
+          "D": "Cardiac macrophage endocytosis is not the labeled molecular target of acoramidis.",
+          "E": "The label identifies binding at TTR thyroxine-binding sites and tetramer stabilization; it does not describe blockade of retinol-binding-protein association as the therapeutic mechanism."
         },
-        "educational_objective": "Place FXIIa upstream of prekallikrein activation and bradykinin generation in the contact-system pathway of hereditary angioedema."
+        "educational_objective": "Relate transthyretin tetramer stabilization to reduced tetramer dissociation, the rate-limiting step in TTR amyloidogenesis."
       },
       "sources": [
         {
           "source_id": "Q1487-LABEL",
-          "title": "ANDEMBRY- garadacimab injection, solution",
+          "title": "ATTRUBY- acoramidis hydrochloride tablet, film coated",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=07b0b671-db81-49f0-a402-0c0219db7fa2",
-          "setid": "07b0b671-db81-49f0-a402-0c0219db7fa2",
-          "source_section_date": "2026-09-08",
-          "date_basis": "Current DailyMed label checked 2026-09-08; locator identifies the cited mechanism section and no separate PI revision date is inferred from this metadata.",
-          "retrieved_at": "2026-09-08",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=913552ef-875d-4cb7-bf05-a7d20a394c38",
+          "setid": "913552ef-875d-4cb7-bf05-a7d20a394c38",
+          "source_section_date": "2026-06",
+          "date_basis": "Current DailyMed label displays Revised 06/2026; cited mechanism section checked 2026-09-09.",
+          "retrieved_at": "2026-09-09",
           "section_locator": "12.1 Mechanism of Action",
-          "verification": "Current label identity, SetID, cited locator, and mechanism claim checked before author-QA.",
+          "verification": "Current label identity, SetID, cited locator, and mechanism claim checked before author-QA repair.",
           "rights_note": "Original educational item; prescribing-information facts paraphrased."
         }
       ],
@@ -1697,61 +1696,61 @@
           "claim_id": "Q1487-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Factor XIa participates in intrinsic coagulation downstream of FXII but is not the labeled catalytic-domain target responsible for suppressing the kallikrein-kinin pathway here.",
+          "claim": "Acoramidis is a TTR protein stabilizer; the described direct action is not suppression of hepatic TTR gene transcription.",
           "source_ids": [
             "Q1487-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "scope": "Direct labeled mechanism for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
         },
         {
           "claim_id": "Q1487-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Garadacimab-gxii binds the catalytic domain of activated factor XII (FXIIa and beta-FXIIa) and inhibits its catalytic activity. This reduces activation of prekallikrein to kallikrein and decreases bradykinin generation in the kallikrein-kinin system.",
+          "claim": "Acoramidis selectively stabilizes transthyretin by binding its thyroxine-binding sites and slowing dissociation of the TTR tetramer into monomers, the rate-limiting step in amyloidogenesis.",
           "source_ids": [
             "Q1487-LABEL"
           ],
           "direct_or_inference": "direct",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "scope": "Direct labeled mechanism for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
         },
         {
           "claim_id": "Q1487-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Direct plasma-kallikrein inhibition can also reduce bradykinin, but garadacimab acts one step upstream by inhibiting activated factor XII.",
+          "claim": "The labeled mechanism stabilizes soluble TTR tetramers rather than directly proteolyzing preexisting amyloid fibrils.",
           "source_ids": [
             "Q1487-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "scope": "Direct labeled mechanism for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
         },
         {
           "claim_id": "Q1487-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Factor Xa inhibition is anticoagulant therapy and does not directly block initiation of the bradykinin-producing contact system.",
+          "claim": "Cardiac macrophage endocytosis is not the labeled molecular target of acoramidis.",
           "source_ids": [
             "Q1487-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "scope": "Direct labeled mechanism for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
         },
         {
           "claim_id": "Q1487-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Thrombin inhibition acts downstream in coagulation and is not the labeled target of garadacimab.",
+          "claim": "The label identifies binding at TTR thyroxine-binding sites and tetramer stabilization; it does not describe blockade of retinol-binding-protein association as the therapeutic mechanism.",
           "source_ids": [
             "Q1487-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "scope": "Direct labeled mechanism for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
         }
       ],
       "author_qa": {
@@ -1761,15 +1760,15 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "C",
-          "resolution": "Plasma kallikrein is a plausible alternative because its inhibition also lowers bradykinin, but the stem specifies binding to the activated factor at the top of the contact pathway; the label identifies FXIIa.",
+          "option": "A",
+          "resolution": "TTR-lowering therapies can reduce substrate production, but the stem explicitly stipulates unchanged transcription and occupancy of TTR thyroxine-binding sites; acoramidis directly slows tetramer dissociation.",
           "status": "PASS"
         },
-        "hidden_assumptions": "PASS — experimental findings are stipulated teaching conditions; no treatment superiority, universal response, cure, or unsupported clinical efficacy claim is inferred.",
+        "hidden_assumptions": "PASS — biochemical findings are stipulated; no treatment superiority, universal response, cure, or unsupported clinical efficacy claim is inferred.",
         "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic is used.",
-        "fabricated_distractors": "PASS — distractors are established biological/pharmacologic mechanisms and are not presented as invented clinical facts.",
+        "fabricated_distractors": "PASS — distractors are biologically interpretable mechanisms and are not presented as invented clinical facts.",
         "source_identity_setid_url_locator": "PASS",
-        "currentness": "PASS — current source instance checked 2026-09-08; SPL effective/update dates are not mislabeled as PI Revised dates.",
+        "currentness": "PASS — current DailyMed label revised 06/2026 and mechanism section checked 2026-09-09.",
         "blueprint": "PASS against current Step 1 system/competency/discipline vocabulary.",
         "difficulty": "Author estimate only; not psychometrically calibrated.",
         "rationale": "PASS — keyed explanation plus A-E rationales present.",

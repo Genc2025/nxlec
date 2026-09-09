@@ -5,7 +5,7 @@
   "canonical_count": 1300,
   "canonical_review_count": 1300,
   "candidate_file": "usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json",
-  "candidate_git_blob": "36326c344c041be23ba393d5ea6ad5771112d600",
+  "candidate_git_blob": "1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1",
   "candidate_count": 25,
   "item_range": "Q1476-Q1500",
   "answer_distribution": {
@@ -868,75 +868,73 @@
     },
     {
       "q": 1487,
-      "status": "BLOCKED",
-      "failures": [
-        "workstream_jaccard_collision"
-      ],
+      "status": "PASS",
+      "failures": [],
       "key": "B",
       "evidence_contract": "PASS",
       "source_live_binding": "PASS",
       "blueprint": "PASS",
       "canonical_duplicate_gate": {
         "status": "PASS",
-        "max_jaccard": 0.13333,
-        "max_sequence": 0.05409,
+        "max_jaccard": 0.09375,
+        "max_sequence": 0.05674,
         "top5": [
           {
-            "candidate_id": "S1-DIRECT-0808-20260830T220000Z",
-            "jaccard": 0.13333,
-            "sequence": 0.02174
+            "candidate_id": "S1-DIRECT-0608-20260827T120000Z",
+            "jaccard": 0.09375,
+            "sequence": 0.03244
           },
           {
-            "candidate_id": "S1-DIRECT-0902-20260901T054500Z",
-            "jaccard": 0.11702,
-            "sequence": 0.04031
+            "candidate_id": "S1-DIRECT-1062-20260902T100000Z",
+            "jaccard": 0.07895,
+            "sequence": 0.0103
           },
           {
-            "candidate_id": "S1-DIRECT-1101-20260902T100000Z",
-            "jaccard": 0.10435,
-            "sequence": 0.03359
+            "candidate_id": "S1-DIRECT-1051-20260902T093500Z",
+            "jaccard": 0.0625,
+            "sequence": 0.0123
           },
           {
-            "candidate_id": "S1-DIRECT-0288-20260827T030000Z",
-            "jaccard": 0.09877,
-            "sequence": 0.03691
+            "candidate_id": "S1-DIRECT-0398-202608270320Z",
+            "jaccard": 0.0,
+            "sequence": 0.05674
           },
           {
-            "candidate_id": "S1-DIRECT-0822-20260831T010000Z",
-            "jaccard": 0.09677,
-            "sequence": 0.00525
+            "candidate_id": "S1-DIRECT-1000-20260902T004000Z",
+            "jaccard": 0.05357,
+            "sequence": 0.02751
           }
         ]
       },
       "prior_workstream_duplicate_gate": {
-        "status": "BLOCKED",
-        "max_jaccard": 0.4,
-        "max_sequence": 0.10968,
+        "status": "PASS",
+        "max_jaccard": 0.16854,
+        "max_sequence": 0.06785,
         "top5": [
           {
-            "q": 1457,
-            "jaccard": 0.4,
-            "sequence": 0.10968
+            "q": 1308,
+            "jaccard": 0.16854,
+            "sequence": 0.02911
           },
           {
-            "q": 1364,
-            "jaccard": 0.24242,
-            "sequence": 0.08153
+            "q": 1383,
+            "jaccard": 0.10417,
+            "sequence": 0.03973
           },
           {
-            "q": 1365,
-            "jaccard": 0.18182,
-            "sequence": 0.02608
+            "q": 1333,
+            "jaccard": 0.09474,
+            "sequence": 0.01837
           },
           {
-            "q": 1418,
-            "jaccard": 0.14634,
-            "sequence": 0.01081
+            "q": 1473,
+            "jaccard": 0.09184,
+            "sequence": 0.00831
           },
           {
-            "q": 1362,
-            "jaccard": 0.13158,
-            "sequence": 0.01124
+            "q": 1417,
+            "jaccard": 0.08333,
+            "sequence": 0.01193
           }
         ]
       }
@@ -2060,14 +2058,14 @@
     {
       "q": 1487,
       "source_id": "Q1487-LABEL",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=07b0b671-db81-49f0-a402-0c0219db7fa2",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=913552ef-875d-4cb7-bf05-a7d20a394c38",
       "status": "PASS",
-      "title_token_overlap": 4,
-      "title_token_minimum": 2,
+      "title_token_overlap": 6,
+      "title_token_minimum": 3,
       "locator_ok": true,
       "identifier_type": "DAILYMED_SETID",
       "identifier_ok": true,
-      "key_explanation_token_overlap": 21,
+      "key_explanation_token_overlap": 16,
       "drug_token_overlap": 1,
       "semantic_anchor_ok": true,
       "key": "B"
@@ -2288,12 +2286,6 @@
       "sequence": 0.01991
     },
     {
-      "q1": 1487,
-      "q2": 1498,
-      "jaccard": 0.09302,
-      "sequence": 0.06617
-    },
-    {
       "q1": 1492,
       "q2": 1493,
       "jaccard": 0.09195,
@@ -2324,16 +2316,20 @@
       "sequence": 0.01991
     },
     {
-      "q1": 1487,
+      "q1": 1480,
       "q2": 1497,
       "jaccard": 0.07865,
-      "sequence": 0.01301
+      "sequence": 0.0093
+    },
+    {
+      "q1": 1480,
+      "q2": 1488,
+      "jaccard": 0.07865,
+      "sequence": 0.00804
     }
   ],
-  "failures": [
-    "Q1487:workstream_jaccard_collision"
-  ],
-  "verdict": "BLOCKED",
+  "failures": [],
+  "verdict": "DETERMINISTIC_PREFLIGHT_PASS",
   "independent_auditor_a_complete": false,
   "independent_auditor_b_complete": false,
   "production_import_ready": false,
