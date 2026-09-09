@@ -63,7 +63,7 @@ replacement={
     {"claim_id":"Q1487-E","option":"E","claim_locator":"explanation.distractor_explanations.E","claim":"The label identifies binding at TTR thyroxine-binding sites and tetramer stabilization; it does not describe blockade of retinol-binding-protein association as the therapeutic mechanism.","source_ids":["Q1487-LABEL"],"direct_or_inference":"inference","source_locator":"12.1 Mechanism of Action","scope":"Direct labeled mechanism for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."}
   ],
   "author_qa": {
-    "status":"AUTHOR_QA_PASS","independent_audit":false,"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS",
+    "status":"AUTHOR_QA_PASS","independent_audit":False,"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS",
     "second_answer_attack":{"option":"A","resolution":"TTR-lowering therapies can reduce substrate production, but the stem explicitly stipulates unchanged transcription and occupancy of TTR thyroxine-binding sites; acoramidis directly slows tetramer dissociation.","status":"PASS"},
     "hidden_assumptions":"PASS — biochemical findings are stipulated; no treatment superiority, universal response, cure, or unsupported clinical efficacy claim is inferred.",
     "numerical_claims":"PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic is used.",
@@ -82,11 +82,9 @@ items=b['items']
 idx=next(i for i,x in enumerate(items) if x.get('num')==1487)
 assert items[idx]['item']['intended_key']=='B'
 items[idx]=replacement
-# Recompute system counts from the actual batch rather than hand-editing metadata.
 counts={}
 for x in items:
     s=x['blueprint']['primary_system']; counts[s]=counts.get(s,0)+1
-# Preserve existing key order of system metadata, adding any newly encountered systems at end.
 old=list(b['systems'])
 b['systems']={k:counts[k] for k in old if k in counts}
 for k,v in counts.items():
