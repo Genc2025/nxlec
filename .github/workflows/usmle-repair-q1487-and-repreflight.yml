@@ -1,0 +1,66 @@
+name: USMLE repair Q1487 and full repreflight
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-repair-q1487-and-repreflight.yml'
+permissions:
+  contents: write
+jobs:
+  repair-and-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install preflight dependency
+        run: python -m pip install --disable-pip-version-check 'pypdf>=6,<7'
+      - name: Repair Q1487 with non-colliding construct
+        run: python usmle/repair_q1487_acoramidis.py
+      - name: Rebind immutable candidate blob and currentness window
+        shell: bash
+        run: |
+          CAND='usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json'
+          BLOB="$(git hash-object "$CAND")"
+          python - "$BLOB" <<'PY'
+          from pathlib import Path
+          import re,sys
+          p=Path('usmle/verify_q1476_q1500_preflight.py')
+          s=p.read_text()
+          blob=sys.argv[1]
+          s=re.sub(r"EXPECTED_CAND_BLOB='[0-9a-f]{40}'",f"EXPECTED_CAND_BLOB='{blob}'",s,count=1)
+          s=s.replace("s.get('retrieved_at')!='2026-09-08'", "s.get('retrieved_at') not in {'2026-09-08','2026-09-09'}")
+          p.write_text(s)
+          print('candidate_blob',blob)
+          PY
+      - name: Execute full deterministic preflight
+        run: python usmle/verify_q1476_q1500_preflight.py
+      - name: Enforce repaired batch verdict
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json'))
+          assert r['verdict']=='DETERMINISTIC_PREFLIGHT_PASS', r['failures']
+          assert r['failures']==[]
+          q=next(x for x in r['item_reports'] if x['q']==1487)
+          assert q['status']=='PASS',q
+          assert q['canonical_duplicate_gate']['status']=='PASS',q
+          assert q['prior_workstream_duplicate_gate']['status']=='PASS',q
+          assert r['candidate_count']==25
+          assert r['answer_distribution']=={'A':5,'B':5,'C':5,'D':5,'E':5}
+          assert r['production_db_modified'] is False
+          assert r['production_import_ready'] is False
+          print('Q1476_Q1500_REPREFLIGHT_PASS')
+          print('Q1487 canonical',q['canonical_duplicate_gate']['max_jaccard'],q['canonical_duplicate_gate']['max_sequence'])
+          print('Q1487 workstream',q['prior_workstream_duplicate_gate']['max_jaccard'],q['prior_workstream_duplicate_gate']['max_sequence'])
+          PY
+      - name: Commit repaired immutable candidate and evidence
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json usmle/verify_q1476_q1500_preflight.py usmle/audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json
+          git commit -m 'usmle: repair Q1487 collision and pass Q1476-Q1500 preflight'
+          git push
