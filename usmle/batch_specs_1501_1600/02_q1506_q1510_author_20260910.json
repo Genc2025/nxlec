@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1506-Q1510-20260910",
+  "created_at": "2026-09-10",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1505,
+  "canonical_count_after": 1505,
+  "canonical_db_blob": "921a18dae711f516de4d90d8935c850bc611eff3",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1506,
+      "drug": "seladelpar",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Hepatocytes are exposed to seladelpar. A nuclear-receptor reporter increases, FGF21 signaling rises, and CYP7A1 expression falls with reduced bile-acid synthesis. Thyroid-hormone receptor signaling is unchanged.",
+        "lead_in": "Which direct receptor action best explains these findings?",
+        "options": {
+          "A": "Agonism of PPAR-delta",
+          "B": "Partial agonism of thyroid hormone receptor-beta",
+          "C": "Antagonism of the farnesoid X receptor",
+          "D": "Agonism of PPAR-gamma only",
+          "E": "Inhibition of the ileal bile-acid transporter"
+        },
+        "intended_key": "A",
+        "tested_construct": "PPAR-delta agonism with FGF21-dependent suppression of CYP7A1",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Seladelpar is a PPAR-delta agonist. PPAR-delta activation can reduce bile-acid synthesis through FGF21-dependent downregulation of CYP7A1.",
+        "distractor_explanations": {
+          "A": "Correct. PPAR-delta agonism directly fits the reporter signal and FGF21/CYP7A1 pattern.",
+          "B": "THR-beta agonism is excluded by unchanged thyroid-hormone receptor signaling.",
+          "C": "FXR antagonism is not the documented direct target.",
+          "D": "The labeled receptor target is PPAR-delta rather than selective PPAR-gamma agonism.",
+          "E": "An ileal transporter mechanism would not explain a direct hepatocyte nuclear-receptor reporter response."
+        },
+        "educational_objective": "Link PPAR-delta agonism to FGF21-dependent suppression of hepatic bile-acid synthesis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1506-LABEL",
+          "title": "LIVDELZI- seladelpar lysine capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89f79d98-135c-40b2-a585-6996c04e599c",
+          "setid": "89f79d98-135c-40b2-a585-6996c04e599c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "8c48a861ff140cf15b2aa8a62675bebfd306e8e467843c603d0ac028398dcce3",
+          "cited_section_sha256": "415312360ec620a988285ae52caa47886c688503857d13ed0c08307c486d1e70",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "415312360ec620a988285ae52caa47886c688503857d13ed0c08307c486d1e70"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1506-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. PPAR-delta agonism directly fits the reporter signal and FGF21/CYP7A1 pattern.",
+          "source_ids": [
+            "Q1506-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1506-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "THR-beta agonism is excluded by unchanged thyroid-hormone receptor signaling.",
+          "source_ids": [
+            "Q1506-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1506-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "FXR antagonism is not the documented direct target.",
+          "source_ids": [
+            "Q1506-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1506-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The labeled receptor target is PPAR-delta rather than selective PPAR-gamma agonism.",
+          "source_ids": [
+            "Q1506-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1506-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "An ileal transporter mechanism would not explain a direct hepatocyte nuclear-receptor reporter response.",
+          "source_ids": [
+            "Q1506-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "THR-beta agonism can also alter hepatic lipid metabolism, but the PPAR-delta reporter and FGF21/CYP7A1 pattern specifically identify seladelpar pharmacology.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1507,
+      "drug": "resmetirom",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A liver-cell preparation is exposed to resmetirom. A thyroid-hormone-responsive reporter is activated much more strongly through the beta receptor isoform than through the alpha isoform, and intracellular triglyceride content decreases.",
+        "lead_in": "Which direct action best explains this pattern?",
+        "options": {
+          "A": "PPAR-delta agonism",
+          "B": "Partial agonism of thyroid hormone receptor-beta",
+          "C": "Antagonism of thyroid hormone receptor-alpha",
+          "D": "Inhibition of acetyl-CoA carboxylase",
+          "E": "Activation of the farnesoid X receptor"
+        },
+        "intended_key": "B",
+        "tested_construct": "Liver-directed partial THR-beta agonism",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Resmetirom is a partial agonist of thyroid hormone receptor-beta. THR-beta is the major hepatic thyroid-hormone receptor isoform, and its stimulation reduces intrahepatic triglycerides.",
+        "distractor_explanations": {
+          "A": "PPAR-delta is a different nuclear receptor target.",
+          "B": "Correct. Preferential THR-beta agonism explains the receptor assay and hepatic triglyceride reduction.",
+          "C": "The documented action is THR-beta agonism, not THR-alpha antagonism.",
+          "D": "ACC inhibition is an enzymatic lipid-synthesis mechanism and would not explain the thyroid-receptor reporter.",
+          "E": "FXR activation would not account for the measured THR-beta-selective response."
+        },
+        "educational_objective": "Differentiate THR-beta agonism from other hepatic nuclear-receptor and lipid-synthesis mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1507-LABEL",
+          "title": "REZDIFFRA- resmetirom tablet, coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e67ea09f-a840-439c-86c8-f98585f978b2",
+          "setid": "e67ea09f-a840-439c-86c8-f98585f978b2",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "83d1e5260dbdfd4e668644c236065ff5da1353a719633f86ec33d0e320676d68",
+          "cited_section_sha256": "35113203e47e78f3bfcc0ca1b1f13254c512f937113b6428f4a8b5fd2080242a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "35113203e47e78f3bfcc0ca1b1f13254c512f937113b6428f4a8b5fd2080242a"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1507-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PPAR-delta is a different nuclear receptor target.",
+          "source_ids": [
+            "Q1507-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1507-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Preferential THR-beta agonism explains the receptor assay and hepatic triglyceride reduction.",
+          "source_ids": [
+            "Q1507-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1507-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The documented action is THR-beta agonism, not THR-alpha antagonism.",
+          "source_ids": [
+            "Q1507-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1507-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ACC inhibition is an enzymatic lipid-synthesis mechanism and would not explain the thyroid-receptor reporter.",
+          "source_ids": [
+            "Q1507-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1507-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "FXR activation would not account for the measured THR-beta-selective response.",
+          "source_ids": [
+            "Q1507-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "PPAR-delta agonism is a plausible liver-directed nuclear-receptor mechanism, but the assay directly demonstrates preferential activation of THR-beta.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1508,
+      "drug": "nirogacestat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Desmoid-tumor cells are exposed to nirogacestat. Cleavage-dependent activation of Notch receptors decreases, while receptor abundance at the cell surface and downstream kinase signaling through unrelated receptor tyrosine kinases are preserved.",
+        "lead_in": "Which direct action best explains these findings?",
+        "options": {
+          "A": "Antagonism of the extracellular Notch ligand-binding site",
+          "B": "Inhibition of proteasomal degradation of Notch",
+          "C": "Inhibition of gamma secretase, preventing proteolytic activation of Notch receptors",
+          "D": "Inhibition of MEK1 and MEK2",
+          "E": "Neutralization of transforming growth factor beta"
+        },
+        "intended_key": "C",
+        "tested_construct": "Gamma-secretase inhibition blocking proteolytic Notch activation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Nirogacestat is a gamma-secretase inhibitor that blocks proteolytic activation of the Notch receptor. Dysregulated Notch signaling can contribute to tumor growth.",
+        "distractor_explanations": {
+          "A": "Ligand-site antagonism would not directly identify the cleavage machinery measured in the experiment.",
+          "B": "Preventing proteasomal degradation would tend to preserve Notch protein rather than block its required proteolytic activation step.",
+          "C": "Correct. Gamma-secretase inhibition prevents proteolytic activation of Notch receptors.",
+          "D": "MEK inhibition targets MAP-kinase signaling and does not directly block Notch proteolysis.",
+          "E": "TGF-beta neutralization is a distinct extracellular signaling mechanism."
+        },
+        "educational_objective": "Recognize gamma-secretase inhibition as blockade of the proteolytic activation step required for Notch signaling."
+      },
+      "sources": [
+        {
+          "source_id": "Q1508-LABEL",
+          "title": "OGSIVEO- nirogacestat tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+          "setid": "f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "c408657c25f35a9664c6f9ab649b78de00f6c578aa7cbf41d463d04a7e82c2e8",
+          "cited_section_sha256": "40750935904b265752bd59f0b372e75232edcca425ebbc7af4c97183335737d5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "40750935904b265752bd59f0b372e75232edcca425ebbc7af4c97183335737d5"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1508-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Ligand-site antagonism would not directly identify the cleavage machinery measured in the experiment.",
+          "source_ids": [
+            "Q1508-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1508-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Preventing proteasomal degradation would tend to preserve Notch protein rather than block its required proteolytic activation step.",
+          "source_ids": [
+            "Q1508-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1508-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Gamma-secretase inhibition prevents proteolytic activation of Notch receptors.",
+          "source_ids": [
+            "Q1508-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1508-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "MEK inhibition targets MAP-kinase signaling and does not directly block Notch proteolysis.",
+          "source_ids": [
+            "Q1508-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1508-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "TGF-beta neutralization is a distinct extracellular signaling mechanism.",
+          "source_ids": [
+            "Q1508-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Direct blockade of Notch ligand binding could also reduce Notch signaling, but the measured loss of cleavage-dependent receptor activation localizes the effect to gamma secretase.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1509,
+      "drug": "gepotidacin",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Bacteria are exposed to gepotidacin. DNA replication stops despite preserved folate synthesis and ribosomal peptide elongation. Enzyme assays demonstrate inhibition of two bacterial type II topoisomerases.",
+        "lead_in": "Which direct target profile best explains this antibacterial effect?",
+        "options": {
+          "A": "Dihydrofolate reductase and thymidylate synthase",
+          "B": "The 30S and 50S ribosomal subunits",
+          "C": "Peptidoglycan transpeptidases",
+          "D": "DNA gyrase and topoisomerase IV",
+          "E": "RNA polymerase beta subunit"
+        },
+        "intended_key": "D",
+        "tested_construct": "Dual inhibition of bacterial DNA gyrase and topoisomerase IV",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Gepotidacin is a triazaacenaphthylene antibacterial that inhibits bacterial type II topoisomerases, including DNA gyrase and topoisomerase IV, thereby inhibiting DNA replication.",
+        "distractor_explanations": {
+          "A": "Folate synthesis is preserved in the stem.",
+          "B": "Ribosomal inhibition would impair peptide elongation, which remains intact.",
+          "C": "Transpeptidase inhibition targets cell-wall synthesis rather than type II topoisomerases.",
+          "D": "Correct. Gepotidacin inhibits DNA gyrase and topoisomerase IV.",
+          "E": "RNA-polymerase inhibition blocks transcription rather than the measured topoisomerase-dependent DNA-replication step."
+        },
+        "educational_objective": "Localize gepotidacin antibacterial activity to bacterial type II topoisomerases rather than folate, ribosomal, cell-wall, or RNA-polymerase targets."
+      },
+      "sources": [
+        {
+          "source_id": "Q1509-LABEL",
+          "title": "BLUJEPA- gepotidacin tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80b57cfe-7819-4d95-a57d-014af42f118d",
+          "setid": "80b57cfe-7819-4d95-a57d-014af42f118d",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_page_sha256": "034c3ff88df31ee270f42b13b307cade2375828447c026e2a81c440690c985ae",
+          "cited_section_sha256": "b1f231fcb9d6c4e4242fe9572ad78c1d8209e5d3d5fa4b37d2548dd902565355",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 2,
+          "mechanism_section_sha256": "b1f231fcb9d6c4e4242fe9572ad78c1d8209e5d3d5fa4b37d2548dd902565355"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1509-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Folate synthesis is preserved in the stem.",
+          "source_ids": [
+            "Q1509-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1509-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Ribosomal inhibition would impair peptide elongation, which remains intact.",
+          "source_ids": [
+            "Q1509-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1509-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Transpeptidase inhibition targets cell-wall synthesis rather than type II topoisomerases.",
+          "source_ids": [
+            "Q1509-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1509-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Gepotidacin inhibits DNA gyrase and topoisomerase IV.",
+          "source_ids": [
+            "Q1509-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1509-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "RNA-polymerase inhibition blocks transcription rather than the measured topoisomerase-dependent DNA-replication step.",
+          "source_ids": [
+            "Q1509-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Cell-wall inhibition is another bactericidal mechanism, but the direct enzyme assays identify DNA gyrase and topoisomerase IV.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1510,
+      "drug": "givinostat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A muscle-cell nuclear extract is exposed to givinostat. Histone acetylation increases. Investigators explicitly avoid claiming that this biochemical action fully explains the clinical benefit in Duchenne muscular dystrophy.",
+        "lead_in": "Which direct pharmacologic action is established for this drug?",
+        "options": {
+          "A": "Activation of histone deacetylases",
+          "B": "Inhibition of DNA methyltransferases",
+          "C": "Agonism of the glucocorticoid receptor",
+          "D": "Inhibition of histone acetyltransferases",
+          "E": "Inhibition of histone deacetylases"
+        },
+        "intended_key": "E",
+        "tested_construct": "Histone deacetylase inhibition without overclaiming the disease-level mechanism",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Givinostat is a histone deacetylase inhibitor. Its precise mechanism of therapeutic effect in Duchenne muscular dystrophy is not known, so the defensible direct claim is HDAC inhibition.",
+        "distractor_explanations": {
+          "A": "HDAC activation would reduce rather than increase histone acetylation.",
+          "B": "DNA methyltransferase inhibition is a distinct epigenetic mechanism.",
+          "C": "Glucocorticoid-receptor agonism is not the documented direct target.",
+          "D": "Histone acetyltransferase inhibition would tend to decrease histone acetylation.",
+          "E": "Correct. Givinostat is directly established as a histone deacetylase inhibitor."
+        },
+        "educational_objective": "Separate a documented biochemical target from an incompletely established disease-level therapeutic mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1510-LABEL",
+          "title": "DUVYZAT- givinostat suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a28a3db-7880-4ac2-a2f2-2b4e362aafb6",
+          "setid": "1a28a3db-7880-4ac2-a2f2-2b4e362aafb6",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "31567e25a4d321c417df1f93281c5b5f11db391da377798ec5d14994024ecdf2",
+          "cited_section_sha256": "4efb8b6709e5bc2967e4062979e4a76e695be0c70f3730efec2cc790fd2acfc5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "4efb8b6709e5bc2967e4062979e4a76e695be0c70f3730efec2cc790fd2acfc5"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1510-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "HDAC activation would reduce rather than increase histone acetylation.",
+          "source_ids": [
+            "Q1510-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1510-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "DNA methyltransferase inhibition is a distinct epigenetic mechanism.",
+          "source_ids": [
+            "Q1510-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1510-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Glucocorticoid-receptor agonism is not the documented direct target.",
+          "source_ids": [
+            "Q1510-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1510-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Histone acetyltransferase inhibition would tend to decrease histone acetylation.",
+          "source_ids": [
+            "Q1510-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1510-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Givinostat is directly established as a histone deacetylase inhibitor.",
+          "source_ids": [
+            "Q1510-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Histone acetyltransferase inhibition affects the same acetylation axis, but its direction is opposite the observed increase in histone acetylation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
