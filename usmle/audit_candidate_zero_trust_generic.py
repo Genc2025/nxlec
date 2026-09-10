@@ -17,7 +17,7 @@ def fetch_text(url):
  if 'pubmed.ncbi.nlm.nih.gov' in host:
   m=re.search(r'/([0-9]+)/?$',url)
   if m: url='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+m.group(1)+'&retmode=xml'
- req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/3.0'})
+ req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/3.1'})
  with urllib.request.urlopen(req,timeout=30) as r: raw=r.read(2500000)
  return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',raw.decode('utf-8','ignore')))
 def item_text(x):
@@ -45,15 +45,24 @@ def main():
   if set(de)!=set('ABCDE') or not ex.get('key_explanation') or not ex.get('educational_objective'): f.append('rationale_eo')
   if ex.get('key_explanation')!=de.get(key): f.append('key_rationale_binding')
   if bp.get('official_outline_path')!=[bp.get('primary_system')] or not bp.get('primary_competency') or not bp.get('disciplines'): f.append('blueprint')
-  em={e.get('option'):e for e in ev} if isinstance(ev,list) else {}
-  if set(em)!=set('ABCDE'): f.append('evidence_shape')
-  direct=[L for L,e in em.items() if e.get('direct_or_inference')=='direct']
-  if direct!=[key]: f.append('evidence_derived_key')
+  opt_entries=[e for e in ev if e.get('option') in 'ABCDE'] if isinstance(ev,list) else []
+  em={e.get('option'):e for e in opt_entries}
+  if set(em)!=set('ABCDE') or len(opt_entries)!=5: f.append('evidence_shape')
+  strong=[L for L,e in em.items() if e.get('direct_or_inference') in {'direct','mixed'}]
+  if strong!=[key]: f.append('evidence_derived_key')
+  if any(em.get(L,{}).get('direct_or_inference')!='inference' for L in 'ABCDE' if L!=key): f.append('distractor_evidence_class')
+  extra=[e for e in ev if e.get('option') not in 'ABCDE'] if isinstance(ev,list) else []
+  for e in extra:
+   loc=e.get('claim_locator','')
+   if loc and loc not in {'item.vignette','explanation.educational_objective'}: f.append('extra_evidence_binding')
   ids={s.get('source_id') for s in src}
   for L,e in em.items():
    if not set(e.get('source_ids',[])).issubset(ids): f.append('evidence_source_binding')
    loc=e.get('claim_locator') or e.get('source_locator')
    if loc and 'distractor_explanations' in loc and loc!=f'explanation.distractor_explanations.{L}': f.append('evidence_locator_binding')
+  for e in extra:
+   if not set(e.get('source_ids',[])).issubset(ids): f.append('evidence_source_binding')
+   if not (e.get('source_locator') or e.get('claim_locator')): f.append('extra_evidence_locator')
   if aq.get('status')!='AUTHOR_QA_PASS' or aq.get('unresolved_content_defects')!=[]: f.append('author_state')
   attack=aq.get('second_answer_attack',{}); alt=attack.get('strongest_alternative') or attack.get('option')
   if alt not in opts or alt==key or len(attack.get('resolution','').strip())<35: f.append('second_answer_attack')
@@ -75,7 +84,7 @@ def main():
    if not ok: f.append('live_source_binding')
   scored=sorted([(jac(item_text(x),ct),cid) for cid,ct in canon],reverse=True); maxj=scored[0][0] if scored else 0
   if maxj>=0.45: f.append('canonical_duplicate')
-  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':direct[0] if len(direct)==1 else None,'intended_key':key,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(maxj,5),'canonical_top_match':scored[0][1] if scored else None,'ncjmm':'NOT_APPLICABLE_USMLE','source_reports':source_status,'failures':sorted(set(f))})
+  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':strong[0] if len(strong)==1 else None,'intended_key':key,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(maxj,5),'canonical_top_match':scored[0][1] if scored else None,'ncjmm':'NOT_APPLICABLE_USMLE','source_reports':source_status,'failures':sorted(set(f))})
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
  out={'audit_id':f'Q{START}-Q{END}-ZERO-TRUST-20260910','candidate_blob':CAND_BLOB,'canonical_db_blob':DB_BLOB,'canonical_count':1300,'canonical_review_count':1300,'item_count':len(items),'item_reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_import_ready':False}
  OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n'); print(json.dumps({'verdict':out['verdict'],'failures':failures,'items':len(items)},sort_keys=True))
