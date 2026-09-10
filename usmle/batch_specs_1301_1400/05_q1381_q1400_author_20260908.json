@@ -9,198 +9,1843 @@
   "canonical_count_before": 1300,
   "canonical_count_after": 1300,
   "answer_key_sequence": "ABCDEABCDEABCDEABCDE",
-  "answer_key_distribution": {"A":4,"B":4,"C":4,"D":4,"E":4},
+  "answer_key_distribution": {
+    "A": 4,
+    "B": 4,
+    "C": 4,
+    "D": 4,
+    "E": 4
+  },
   "shared_sources": [
-    {"source_id":"USMLE-SPEC","title":"Step 1 Exam Content","agency":"USMLE","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications","retrieved_at":"2026-09-08","section_locator":"Step 1 Content Specifications; Physician Tasks/Competencies Specifications; Discipline Specifications"},
-    {"source_id":"USMLE-FORMAT","title":"Step 1 Formats & Questions","agency":"USMLE","url":"https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats","retrieved_at":"2026-09-08","section_locator":"Patient-centered single-best-answer vignette format; four or more response options"}
+    {
+      "source_id": "USMLE-SPEC",
+      "title": "Step 1 Exam Content",
+      "agency": "USMLE",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications",
+      "retrieved_at": "2026-09-08",
+      "section_locator": "Step 1 Content Specifications; Physician Tasks/Competencies Specifications; Discipline Specifications"
+    },
+    {
+      "source_id": "USMLE-FORMAT",
+      "title": "Step 1 Formats & Questions",
+      "agency": "USMLE",
+      "url": "https://www.usmle.org/exam-resources/step-1-materials/step-1-test-question-formats",
+      "retrieved_at": "2026-09-08",
+      "section_locator": "Patient-centered single-best-answer vignette format; four or more response options"
+    }
   ],
   "technical_integrity": {
     "source_hashes_fabricated": false,
-    "source_hashes_complete": false,
-    "required_before_freeze": "Deterministically re-fetch every cited source instance and compute source_page_sha256 and cited_section_sha256. No hash in this author layer may be inferred or fabricated.",
+    "source_hashes_complete": true,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bound to normalized declared locator",
     "independent_audit_complete": false,
     "trusted_importer_complete": false
   },
   "items": [
     {
-      "num":1381,"drug":"sotatercept-csrk","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Cardiovascular System","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Physiology"],"official_outline_path":["Cardiovascular System"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Pulmonary-artery smooth-muscle cells from a patient with pulmonary arterial hypertension are exposed to sotatercept-csrk. Ligand binding to an ActRIIA-derived extracellular domain decreases, Smad2/3 signaling falls, and the balance shifts toward BMPRII-associated Smad1/5/8 signaling. The drug does not inhibit an intracellular kinase directly.","lead_in":"Which direct action best explains these findings?","options":{"A":"Sequestration of activin A and related TGF-beta-superfamily ligands by an ActRIIA-Fc fusion protein","B":"Competitive antagonism of the endothelin-A receptor","C":"Inhibition of phosphodiesterase type 5","D":"Activation of soluble guanylate cyclase","E":"Inhibition of BMPRII kinase activity"},"intended_key":"A","tested_construct":"ActRIIA-Fc ligand trapping with rebalancing of Smad signaling","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires linking an extracellular ligand trap to reciprocal TGF-beta-superfamily signaling pathways. No empirical calibration claimed."},
-      "explanation":{"key_explanation":"Sotatercept-csrk is a recombinant ActRIIA-Fc fusion protein that binds activin A and other TGF-beta-superfamily ligands. This reduces pro-proliferative ActRIIA/Smad2/3 signaling and improves the balance toward BMPRII/Smad1/5/8 signaling.","distractor_explanations":{"A":"Correct. The extracellular ActRIIA-Fc ligand trap directly explains reduced activin signaling without intracellular kinase inhibition.","B":"ETA antagonism affects endothelin signaling, not the specified ActRIIA/Smad2/3 ligand-binding system.","C":"PDE5 inhibition raises cGMP and does not directly sequester TGF-beta-superfamily ligands.","D":"sGC activation increases cGMP and does not explain the observed ligand-binding result.","E":"BMPRII activity is relatively favored rather than directly inhibited by the stated mechanism."},"educational_objective":"Recognize extracellular ligand trapping as a mechanism for rebalancing opposing TGF-beta-superfamily signaling pathways in pulmonary vascular disease."},
-      "sources":[{"source_id":"Q1381-LABEL","title":"WINREVAIR- sotatercept-csrk kit","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21693ee2-cd23-4137-ac67-066bb3a4a9b7","setid":"21693ee2-cd23-4137-ac67-066bb3a4a9b7","source_section_date":"2026-06-17","date_basis":"Date shown on the current DailyMed 12.1 mechanism section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"direct from 12.1","B":"inference from alternative pathway","C":"inference from alternative pathway","D":"inference from alternative pathway","E":"inference contradicted by direction of labeled signaling balance"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"E","resolution":"BMPRII/Smad1/5/8 signaling is relatively restored/favored; the drug is not a BMPRII inhibitor.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS — no invented dose, cutoff, response percentage, or trial result.","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS with explicit source-section date basis","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1381,
+      "drug": "sotatercept-csrk",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Pulmonary-artery smooth-muscle cells from a patient with pulmonary arterial hypertension are exposed to sotatercept-csrk. Ligand binding to an ActRIIA-derived extracellular domain decreases, Smad2/3 signaling falls, and the balance shifts toward BMPRII-associated Smad1/5/8 signaling. The drug does not inhibit an intracellular kinase directly.",
+        "lead_in": "Which direct action best explains these findings?",
+        "options": {
+          "A": "Sequestration of activin A and related TGF-beta-superfamily ligands by an ActRIIA-Fc fusion protein",
+          "B": "Competitive antagonism of the endothelin-A receptor",
+          "C": "Inhibition of phosphodiesterase type 5",
+          "D": "Activation of soluble guanylate cyclase",
+          "E": "Inhibition of BMPRII kinase activity"
+        },
+        "intended_key": "A",
+        "tested_construct": "ActRIIA-Fc ligand trapping with rebalancing of Smad signaling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires linking an extracellular ligand trap to reciprocal TGF-beta-superfamily signaling pathways. No empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Sotatercept-csrk is a recombinant ActRIIA-Fc fusion protein that binds activin A and other TGF-beta-superfamily ligands. This reduces pro-proliferative ActRIIA/Smad2/3 signaling and improves the balance toward BMPRII/Smad1/5/8 signaling.",
+        "distractor_explanations": {
+          "A": "Correct. The extracellular ActRIIA-Fc ligand trap directly explains reduced activin signaling without intracellular kinase inhibition.",
+          "B": "ETA antagonism affects endothelin signaling, not the specified ActRIIA/Smad2/3 ligand-binding system.",
+          "C": "PDE5 inhibition raises cGMP and does not directly sequester TGF-beta-superfamily ligands.",
+          "D": "sGC activation increases cGMP and does not explain the observed ligand-binding result.",
+          "E": "BMPRII activity is relatively favored rather than directly inhibited by the stated mechanism."
+        },
+        "educational_objective": "Recognize extracellular ligand trapping as a mechanism for rebalancing opposing TGF-beta-superfamily signaling pathways in pulmonary vascular disease."
+      },
+      "sources": [
+        {
+          "source_id": "Q1381-LABEL",
+          "title": "WINREVAIR- sotatercept-csrk kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21693ee2-cd23-4137-ac67-066bb3a4a9b7",
+          "setid": "21693ee2-cd23-4137-ac67-066bb3a4a9b7",
+          "source_section_date": "2026-06-17",
+          "date_basis": "Date shown on the current DailyMed 12.1 mechanism section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "21d56582652aa4a81ea25ad6b3eb78932f9877101078bf835d54656c26b4f6b1",
+          "cited_section_sha256": "a72ee1aa7f8d48bb2c9bdf50a20653e8fca92491b71c936bd47158be04649df4",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "a72ee1aa7f8d48bb2c9bdf50a20653e8fca92491b71c936bd47158be04649df4"
+        }
+      ],
+      "evidence_map": {
+        "A": "direct from 12.1",
+        "B": "inference from alternative pathway",
+        "C": "inference from alternative pathway",
+        "D": "inference from alternative pathway",
+        "E": "inference contradicted by direction of labeled signaling balance"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "BMPRII/Smad1/5/8 signaling is relatively restored/favored; the drug is not a BMPRII inhibitor.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, or trial result.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS with explicit source-section date basis",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1382,"drug":"aprocitentan","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Cardiovascular System","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Physiology"],"official_outline_path":["Cardiovascular System"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Vascular smooth-muscle cells are stimulated separately with endothelin-1 through ETA-rich and ETB-rich receptor preparations. Aprocitentan suppresses signaling in both preparations while the endothelin-1 concentration remains unchanged.","lead_in":"Which direct action best explains the result?","options":{"A":"Selective ETA agonism","B":"Antagonism of both ETA and ETB receptors","C":"Selective ETB agonism","D":"Inhibition of endothelin-converting enzyme","E":"Neutralization of circulating endothelin-1"},"intended_key":"B","tested_construct":"Dual endothelin ETA/ETB receptor antagonism","difficulty":"moderate","difficulty_basis":"Author estimate; requires distinguishing receptor antagonism from reduced ligand production or ligand neutralization."},
-      "explanation":{"key_explanation":"Aprocitentan is an endothelin-receptor antagonist that inhibits endothelin-1 binding to both ETA and ETB receptors.","distractor_explanations":{"A":"ETA agonism would increase rather than suppress ETA-mediated signaling.","B":"Correct. Dual ETA/ETB antagonism explains suppression in both receptor preparations despite unchanged ligand concentration.","C":"ETB agonism has the wrong direction and cannot explain the ETA effect.","D":"Endothelin-converting-enzyme inhibition would reduce ligand production, but endothelin-1 is experimentally held unchanged.","E":"Ligand neutralization could suppress both pathways but is not aprocitentan's documented direct mechanism; it blocks the receptors."},"educational_objective":"Use fixed-ligand receptor assays to distinguish dual receptor antagonism from altered ligand generation."},
-      "sources":[{"source_id":"Q1382-LABEL","title":"TRYVIO- aprocitentan tablet, film coated","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dfe7a2ee-612c-4aba-834a-d68e6b59a0a6","setid":"dfe7a2ee-612c-4aba-834a-d68e6b59a0a6","source_section_date":"2026-08-14","date_basis":"Date shown on current DailyMed mechanism section/effective SPL; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"direct from 12.1","C":"inference","D":"inference using fixed-ligand condition","E":"inference using direct receptor target"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"E","resolution":"Ligand neutralization could suppress both receptor preparations, but the named drug is explicitly a dual endothelin receptor antagonist and ligand concentration is unchanged.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1382,
+      "drug": "aprocitentan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Vascular smooth-muscle cells are stimulated separately with endothelin-1 through ETA-rich and ETB-rich receptor preparations. Aprocitentan suppresses signaling in both preparations while the endothelin-1 concentration remains unchanged.",
+        "lead_in": "Which direct action best explains the result?",
+        "options": {
+          "A": "Selective ETA agonism",
+          "B": "Antagonism of both ETA and ETB receptors",
+          "C": "Selective ETB agonism",
+          "D": "Inhibition of endothelin-converting enzyme",
+          "E": "Neutralization of circulating endothelin-1"
+        },
+        "intended_key": "B",
+        "tested_construct": "Dual endothelin ETA/ETB receptor antagonism",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; requires distinguishing receptor antagonism from reduced ligand production or ligand neutralization."
+      },
+      "explanation": {
+        "key_explanation": "Aprocitentan is an endothelin-receptor antagonist that inhibits endothelin-1 binding to both ETA and ETB receptors.",
+        "distractor_explanations": {
+          "A": "ETA agonism would increase rather than suppress ETA-mediated signaling.",
+          "B": "Correct. Dual ETA/ETB antagonism explains suppression in both receptor preparations despite unchanged ligand concentration.",
+          "C": "ETB agonism has the wrong direction and cannot explain the ETA effect.",
+          "D": "Endothelin-converting-enzyme inhibition would reduce ligand production, but endothelin-1 is experimentally held unchanged.",
+          "E": "Ligand neutralization could suppress both pathways but is not aprocitentan's documented direct mechanism; it blocks the receptors."
+        },
+        "educational_objective": "Use fixed-ligand receptor assays to distinguish dual receptor antagonism from altered ligand generation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1382-LABEL",
+          "title": "TRYVIO- aprocitentan tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dfe7a2ee-612c-4aba-834a-d68e6b59a0a6",
+          "setid": "dfe7a2ee-612c-4aba-834a-d68e6b59a0a6",
+          "source_section_date": "2026-08-14",
+          "date_basis": "Date shown on current DailyMed mechanism section/effective SPL; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "42f9049d817bc2fd7c766a2ae15f59bdaf0cec742c956686e52a92a3a3a374e9",
+          "cited_section_sha256": "fbd5562e8e9d67e1e7b27a40a54ce155396dee11c42a5d83aa852d836672f2f2",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "fbd5562e8e9d67e1e7b27a40a54ce155396dee11c42a5d83aa852d836672f2f2"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "direct from 12.1",
+        "C": "inference",
+        "D": "inference using fixed-ligand condition",
+        "E": "inference using direct receptor target"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "Ligand neutralization could suppress both receptor preparations, but the named drug is explicitly a dual endothelin receptor antagonist and ligand concentration is unchanged.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1383,"drug":"tofersen","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Behavioral Health & Nervous Systems/Special Senses","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Genetics","Biochemistry"],"official_outline_path":["Behavioral Health & Nervous Systems/Special Senses"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Motor neurons carrying a pathogenic SOD1 variant are exposed to tofersen. SOD1 messenger RNA falls before SOD1 protein decreases. Genomic SOD1 sequence and transcription-initiation rate are unchanged.","lead_in":"Which molecular process most directly accounts for the decrease in SOD1 protein?","options":{"A":"CRISPR-mediated disruption of the SOD1 coding sequence","B":"Inhibition of ribosomal peptidyl-transferase activity","C":"Antisense binding to SOD1 mRNA followed by mRNA degradation","D":"Proteasomal degradation of preexisting SOD1 protein","E":"Promoter methylation that prevents SOD1 transcription"},"intended_key":"C","tested_construct":"Antisense oligonucleotide-mediated SOD1 mRNA degradation","difficulty":"moderate","difficulty_basis":"Author estimate; stem localizes the intervention between transcription and translation."},
-      "explanation":{"key_explanation":"Tofersen is an antisense oligonucleotide that binds SOD1 mRNA and causes its degradation, thereby reducing SOD1 protein synthesis.","distractor_explanations":{"A":"The genomic sequence is unchanged, excluding gene editing.","B":"Global ribosomal inhibition would not selectively lower SOD1 mRNA itself.","C":"Correct. Antisense binding causes SOD1 mRNA degradation, followed by reduced protein synthesis.","D":"Proteasomal degradation could lower protein but would not explain the preceding fall in SOD1 mRNA.","E":"Transcription initiation is stipulated to be unchanged, excluding promoter silencing."},"educational_objective":"Infer antisense-mediated mRNA degradation from selective loss of transcript followed by reduced protein without genomic editing or transcriptional suppression."},
-      "sources":[{"source_id":"Q1383-LABEL","title":"QALSODY- tofersen injection","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=81356b45-1cb7-4eef-88ea-e44cc18b47c5","setid":"81356b45-1cb7-4eef-88ea-e44cc18b47c5","source_section_date":"2023-04-25","date_basis":"Date encoded on the cited DailyMed 12.1 section; the current SetID page was rechecked 2026-09-08 and no newer mechanism claim is inferred from unrelated version dates","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"stem inference","B":"stem inference","C":"direct from 12.1","D":"stem inference","E":"stem inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"D","resolution":"Protein degradation could lower SOD1 protein, but it cannot explain the observed preceding decrease in SOD1 mRNA.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS with explicit section-date basis","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1383,
+      "drug": "tofersen",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Genetics",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Motor neurons carrying a pathogenic SOD1 variant are exposed to tofersen. SOD1 messenger RNA falls before SOD1 protein decreases. Genomic SOD1 sequence and transcription-initiation rate are unchanged.",
+        "lead_in": "Which molecular process most directly accounts for the decrease in SOD1 protein?",
+        "options": {
+          "A": "CRISPR-mediated disruption of the SOD1 coding sequence",
+          "B": "Inhibition of ribosomal peptidyl-transferase activity",
+          "C": "Antisense binding to SOD1 mRNA followed by mRNA degradation",
+          "D": "Proteasomal degradation of preexisting SOD1 protein",
+          "E": "Promoter methylation that prevents SOD1 transcription"
+        },
+        "intended_key": "C",
+        "tested_construct": "Antisense oligonucleotide-mediated SOD1 mRNA degradation",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; stem localizes the intervention between transcription and translation."
+      },
+      "explanation": {
+        "key_explanation": "Tofersen is an antisense oligonucleotide that binds SOD1 mRNA and causes its degradation, thereby reducing SOD1 protein synthesis.",
+        "distractor_explanations": {
+          "A": "The genomic sequence is unchanged, excluding gene editing.",
+          "B": "Global ribosomal inhibition would not selectively lower SOD1 mRNA itself.",
+          "C": "Correct. Antisense binding causes SOD1 mRNA degradation, followed by reduced protein synthesis.",
+          "D": "Proteasomal degradation could lower protein but would not explain the preceding fall in SOD1 mRNA.",
+          "E": "Transcription initiation is stipulated to be unchanged, excluding promoter silencing."
+        },
+        "educational_objective": "Infer antisense-mediated mRNA degradation from selective loss of transcript followed by reduced protein without genomic editing or transcriptional suppression."
+      },
+      "sources": [
+        {
+          "source_id": "Q1383-LABEL",
+          "title": "QALSODY- tofersen injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=81356b45-1cb7-4eef-88ea-e44cc18b47c5",
+          "setid": "81356b45-1cb7-4eef-88ea-e44cc18b47c5",
+          "source_section_date": "2023-04-25",
+          "date_basis": "Date encoded on the cited DailyMed 12.1 section; the current SetID page was rechecked 2026-09-08 and no newer mechanism claim is inferred from unrelated version dates",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b9331120d09b9f9383b78f0277c2fa6ce1e88a60cb9584dc74255bfddcddc782",
+          "cited_section_sha256": "feab7baee1656f0abb8662c33e4dfff9f6efa304f3a5c8853f4630a8186f1d0a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "feab7baee1656f0abb8662c33e4dfff9f6efa304f3a5c8853f4630a8186f1d0a"
+        }
+      ],
+      "evidence_map": {
+        "A": "stem inference",
+        "B": "stem inference",
+        "C": "direct from 12.1",
+        "D": "stem inference",
+        "E": "stem inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Protein degradation could lower SOD1 protein, but it cannot explain the observed preceding decrease in SOD1 mRNA.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS with explicit section-date basis",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1384,"drug":"omaveloxolone","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Behavioral Health & Nervous Systems/Special Senses","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Behavioral Health & Nervous Systems/Special Senses"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Cells exposed to omaveloxolone show increased expression of genes involved in the cellular response to oxidative stress. Investigators are asked to describe only the pharmacologic pathway demonstrated in current labeling, not to claim that this pathway fully explains clinical benefit in Friedreich ataxia.","lead_in":"Which pathway is documented to be activated?","options":{"A":"NF-kappaB","B":"mTORC1","C":"JAK-STAT","D":"Nrf2","E":"Wnt/beta-catenin"},"intended_key":"D","tested_construct":"Documented Nrf2-pathway activation without overstating therapeutic mechanism","difficulty":"moderate","difficulty_basis":"Author estimate; tests evidence-scope discipline as well as pathway recognition."},
-      "explanation":{"key_explanation":"Omaveloxolone has been shown to activate the Nrf2 pathway, which participates in the cellular oxidative-stress response. The precise mechanism of its therapeutic effect in Friedreich ataxia remains unknown.","distractor_explanations":{"A":"NF-kappaB is an inflammatory transcription pathway but is not the documented pathway named in the current label.","B":"mTORC1 regulates growth and metabolism but is not the demonstrated labeled pathway.","C":"JAK-STAT is cytokine-receptor signaling and is not the labeled target pathway.","D":"Correct. Nrf2 activation is directly documented while the full therapeutic mechanism remains uncertain.","E":"Wnt/beta-catenin is not the pathway identified in the label."},"educational_objective":"Separate a demonstrated pharmacodynamic pathway from an unproven complete therapeutic mechanism."},
-      "sources":[{"source_id":"Q1384-LABEL","title":"SKYCLARYS- omaveloxolone capsule","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2709e870-df3d-f30f-e063-6394a90aeda1","setid":"2709e870-df3d-f30f-e063-6394a90aeda1","source_section_date":"2024-12-20","date_basis":"Date encoded on cited current DailyMed 12.1 section; current SetID page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"inference","C":"inference","D":"direct from 12.1","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Oxidative-stress and inflammatory pathways interact biologically, but only Nrf2 activation is directly documented for omaveloxolone in the cited label.","status":"PASS"},"hidden_assumptions":"PASS — no claim that Nrf2 activation fully explains clinical benefit","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1384,
+      "drug": "omaveloxolone",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cells exposed to omaveloxolone show increased expression of genes involved in the cellular response to oxidative stress. Investigators are asked to describe only the pharmacologic pathway demonstrated in current labeling, not to claim that this pathway fully explains clinical benefit in Friedreich ataxia.",
+        "lead_in": "Which pathway is documented to be activated?",
+        "options": {
+          "A": "NF-kappaB",
+          "B": "mTORC1",
+          "C": "JAK-STAT",
+          "D": "Nrf2",
+          "E": "Wnt/beta-catenin"
+        },
+        "intended_key": "D",
+        "tested_construct": "Documented Nrf2-pathway activation without overstating therapeutic mechanism",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; tests evidence-scope discipline as well as pathway recognition."
+      },
+      "explanation": {
+        "key_explanation": "Omaveloxolone has been shown to activate the Nrf2 pathway, which participates in the cellular oxidative-stress response. The precise mechanism of its therapeutic effect in Friedreich ataxia remains unknown.",
+        "distractor_explanations": {
+          "A": "NF-kappaB is an inflammatory transcription pathway but is not the documented pathway named in the current label.",
+          "B": "mTORC1 regulates growth and metabolism but is not the demonstrated labeled pathway.",
+          "C": "JAK-STAT is cytokine-receptor signaling and is not the labeled target pathway.",
+          "D": "Correct. Nrf2 activation is directly documented while the full therapeutic mechanism remains uncertain.",
+          "E": "Wnt/beta-catenin is not the pathway identified in the label."
+        },
+        "educational_objective": "Separate a demonstrated pharmacodynamic pathway from an unproven complete therapeutic mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1384-LABEL",
+          "title": "SKYCLARYS- omaveloxolone capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2709e870-df3d-f30f-e063-6394a90aeda1",
+          "setid": "2709e870-df3d-f30f-e063-6394a90aeda1",
+          "source_section_date": "2024-12-20",
+          "date_basis": "Date encoded on cited current DailyMed 12.1 section; current SetID page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3d255035c52c0171a97f93deef7fc9425f41a1988ee0e487a456040268cf0f5c",
+          "cited_section_sha256": "92baf24ffa4034594472039db56ea80b7b573f6f278404753738e41af1a8ab9c",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "92baf24ffa4034594472039db56ea80b7b573f6f278404753738e41af1a8ab9c"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "inference",
+        "C": "inference",
+        "D": "direct from 12.1",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Oxidative-stress and inflammatory pathways interact biologically, but only Nrf2 activation is directly documented for omaveloxolone in the cited label.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS — no claim that Nrf2 activation fully explains clinical benefit",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1385,"drug":"elexacaftor/tezacaftor/ivacaftor","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Respiratory & Renal/Urinary Systems","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Physiology","Genetics"],"official_outline_path":["Respiratory & Renal/Urinary Systems"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Epithelial cells expressing F508del-CFTR are treated with the three components of TRIKAFTA. More mature CFTR reaches the cell surface, and the channels that reach the membrane spend a greater fraction of time in the open state.","lead_in":"Which pairing of actions best explains these two observations?","options":{"A":"All three agents directly open CFTR channels without changing trafficking","B":"Ivacaftor increases CFTR trafficking, whereas the other two inhibit ENaC","C":"Elexacaftor inhibits CFTR degradation, whereas tezacaftor and ivacaftor block chloride channels","D":"Elexacaftor and tezacaftor block CFTR gating, whereas ivacaftor increases protein synthesis","E":"Elexacaftor and tezacaftor improve CFTR processing/trafficking, whereas ivacaftor increases channel-open probability"},"intended_key":"E","tested_construct":"CFTR correctors plus potentiator","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires matching distinct protein-processing and channel-gating phenotypes to the three-drug combination."},
-      "explanation":{"key_explanation":"Elexacaftor and tezacaftor bind different sites on CFTR and improve processing/trafficking of susceptible mutant CFTR to the cell surface. Ivacaftor potentiates CFTR gating by increasing channel-open probability.","distractor_explanations":{"A":"The two correctors increase surface quantity; the entire combination is not simply three gating potentiators.","B":"Ivacaftor is the potentiator, not the principal trafficking corrector, and ENaC is not the documented target of the other two agents.","C":"The combination does not directly block CFTR chloride channels; its net effect is increased CFTR quantity and function.","D":"This reverses the roles and direction of the components.","E":"Correct. Elexacaftor/tezacaftor are correctors and ivacaftor is the gating potentiator."},"educational_objective":"Distinguish rescue of mutant-protein processing from potentiation of ion-channel gating in combination CFTR therapy."},
-      "sources":[{"source_id":"Q1385-LABEL","title":"TRIKAFTA- elexacaftor, tezacaftor, and ivacaftor kit","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f354423a-85c2-41c3-a9db-0f3aee135d8d","setid":"f354423a-85c2-41c3-a9db-0f3aee135d8d","source_section_date":"2026-03-23","date_basis":"Date encoded on current DailyMed 12.1 mechanism section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"inference","C":"inference","D":"inference","E":"direct from 12.1"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Increased gating alone cannot explain the separately observed increase in mature CFTR delivered to the cell surface.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1385,
+      "drug": "elexacaftor/tezacaftor/ivacaftor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Epithelial cells expressing F508del-CFTR are treated with the three components of TRIKAFTA. More mature CFTR reaches the cell surface, and the channels that reach the membrane spend a greater fraction of time in the open state.",
+        "lead_in": "Which pairing of actions best explains these two observations?",
+        "options": {
+          "A": "All three agents directly open CFTR channels without changing trafficking",
+          "B": "Ivacaftor increases CFTR trafficking, whereas the other two inhibit ENaC",
+          "C": "Elexacaftor inhibits CFTR degradation, whereas tezacaftor and ivacaftor block chloride channels",
+          "D": "Elexacaftor and tezacaftor block CFTR gating, whereas ivacaftor increases protein synthesis",
+          "E": "Elexacaftor and tezacaftor improve CFTR processing/trafficking, whereas ivacaftor increases channel-open probability"
+        },
+        "intended_key": "E",
+        "tested_construct": "CFTR correctors plus potentiator",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires matching distinct protein-processing and channel-gating phenotypes to the three-drug combination."
+      },
+      "explanation": {
+        "key_explanation": "Elexacaftor and tezacaftor bind different sites on CFTR and improve processing/trafficking of susceptible mutant CFTR to the cell surface. Ivacaftor potentiates CFTR gating by increasing channel-open probability.",
+        "distractor_explanations": {
+          "A": "The two correctors increase surface quantity; the entire combination is not simply three gating potentiators.",
+          "B": "Ivacaftor is the potentiator, not the principal trafficking corrector, and ENaC is not the documented target of the other two agents.",
+          "C": "The combination does not directly block CFTR chloride channels; its net effect is increased CFTR quantity and function.",
+          "D": "This reverses the roles and direction of the components.",
+          "E": "Correct. Elexacaftor/tezacaftor are correctors and ivacaftor is the gating potentiator."
+        },
+        "educational_objective": "Distinguish rescue of mutant-protein processing from potentiation of ion-channel gating in combination CFTR therapy."
+      },
+      "sources": [
+        {
+          "source_id": "Q1385-LABEL",
+          "title": "TRIKAFTA- elexacaftor, tezacaftor, and ivacaftor kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f354423a-85c2-41c3-a9db-0f3aee135d8d",
+          "setid": "f354423a-85c2-41c3-a9db-0f3aee135d8d",
+          "source_section_date": "2026-03-23",
+          "date_basis": "Date encoded on current DailyMed 12.1 mechanism section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "bcd605fb9910cbc1402db140467c89c122f03d21443591dd3530813b01372c81",
+          "cited_section_sha256": "9ce0008b72c216dc6ccd32b7fe6aac4f82fabee5dad69710b7893eee7883a38d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "9ce0008b72c216dc6ccd32b7fe6aac4f82fabee5dad69710b7893eee7883a38d"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "inference",
+        "C": "inference",
+        "D": "inference",
+        "E": "direct from 12.1"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Increased gating alone cannot explain the separately observed increase in mature CFTR delivered to the cell surface.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1386,"drug":"revumenib","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Blood & Lymphoreticular/Immune Systems","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Blood & Lymphoreticular/Immune Systems"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Leukemia cells containing a KMT2A fusion protein are exposed to revumenib. A protein-interaction assay shows loss of binding between the fusion protein and an essential chromatin-associated partner; transcription of leukemogenic target genes falls and differentiation markers rise.","lead_in":"Which interaction is directly inhibited?","options":{"A":"Menin binding to KMT2A/KMT2A-fusion proteins","B":"BCL-2 binding to proapoptotic proteins","C":"PML binding to retinoic-acid receptor alpha","D":"BRD4 binding to acetylated histones","E":"FLT3 binding to ATP"},"intended_key":"A","tested_construct":"Menin-KMT2A interaction blockade","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires mapping a protein-protein interaction defect to a leukemia transcriptional program."},
-      "explanation":{"key_explanation":"Revumenib is a menin inhibitor that blocks interaction of menin with wild-type KMT2A and KMT2A fusion proteins, disrupting leukemogenic transcriptional programs.","distractor_explanations":{"A":"Correct. Loss of menin-KMT2A interaction directly explains altered leukemogenic transcription and differentiation markers.","B":"BCL-2 inhibition affects mitochondrial apoptosis rather than the stated KMT2A-associated protein interaction.","C":"PML-RARalpha biology applies to acute promyelocytic leukemia and is not the interaction identified here.","D":"BRD4-bromodomain interactions can influence transcription but are not the direct revumenib target.","E":"FLT3 ATP-site inhibition is a kinase mechanism, not the specified menin-KMT2A protein-protein interaction."},"educational_objective":"Recognize pharmacologic disruption of a transcriptional protein-protein interaction as a targeted leukemia mechanism."},
-      "sources":[{"source_id":"Q1386-LABEL","title":"REVUFORJ- revumenib tablet, film coated","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f","setid":"6eb3cdbc-0e74-477d-82d6-3bb172d3f63f","source_section_date":"2025-10-31","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"direct from 12.1","B":"inference","C":"inference","D":"inference","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"D","resolution":"Both can alter transcription, but the experiment directly measures loss of a KMT2A-associated protein interaction and the label identifies menin as the partner.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1386,
+      "drug": "revumenib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Leukemia cells containing a KMT2A fusion protein are exposed to revumenib. A protein-interaction assay shows loss of binding between the fusion protein and an essential chromatin-associated partner; transcription of leukemogenic target genes falls and differentiation markers rise.",
+        "lead_in": "Which interaction is directly inhibited?",
+        "options": {
+          "A": "Menin binding to KMT2A/KMT2A-fusion proteins",
+          "B": "BCL-2 binding to proapoptotic proteins",
+          "C": "PML binding to retinoic-acid receptor alpha",
+          "D": "BRD4 binding to acetylated histones",
+          "E": "FLT3 binding to ATP"
+        },
+        "intended_key": "A",
+        "tested_construct": "Menin-KMT2A interaction blockade",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires mapping a protein-protein interaction defect to a leukemia transcriptional program."
+      },
+      "explanation": {
+        "key_explanation": "Revumenib is a menin inhibitor that blocks interaction of menin with wild-type KMT2A and KMT2A fusion proteins, disrupting leukemogenic transcriptional programs.",
+        "distractor_explanations": {
+          "A": "Correct. Loss of menin-KMT2A interaction directly explains altered leukemogenic transcription and differentiation markers.",
+          "B": "BCL-2 inhibition affects mitochondrial apoptosis rather than the stated KMT2A-associated protein interaction.",
+          "C": "PML-RARalpha biology applies to acute promyelocytic leukemia and is not the interaction identified here.",
+          "D": "BRD4-bromodomain interactions can influence transcription but are not the direct revumenib target.",
+          "E": "FLT3 ATP-site inhibition is a kinase mechanism, not the specified menin-KMT2A protein-protein interaction."
+        },
+        "educational_objective": "Recognize pharmacologic disruption of a transcriptional protein-protein interaction as a targeted leukemia mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1386-LABEL",
+          "title": "REVUFORJ- revumenib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
+          "setid": "6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
+          "source_section_date": "2025-10-31",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7c2776b2e778d61fef3a1d9ec444f61f6d5c636f4277f406e7f66cb3b2f97406",
+          "cited_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408"
+        }
+      ],
+      "evidence_map": {
+        "A": "direct from 12.1",
+        "B": "inference",
+        "C": "inference",
+        "D": "inference",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Both can alter transcription, but the experiment directly measures loss of a KMT2A-associated protein interaction and the label identifies menin as the partner.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1387,"drug":"capivasertib","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Reproductive & Endocrine Systems","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Reproductive & Endocrine Systems"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"A breast-cancer cell line with PI3K-pathway activation is exposed to capivasertib. Phosphorylation of multiple downstream AKT substrates decreases even though upstream PI3K activity remains measurable. In isolated kinase assays, all three AKT isoforms are inhibited.","lead_in":"Which proteins are the direct kinase targets?","options":{"A":"PI3K-alpha, PI3K-beta, and PI3K-delta","B":"AKT1, AKT2, and AKT3","C":"mTORC1, mTORC2, and AMPK","D":"ERK1, ERK2, and JNK","E":"CDK4, CDK6, and CDK9"},"intended_key":"B","tested_construct":"Pan-AKT isoform inhibition","difficulty":"moderate","difficulty_basis":"Author estimate; requires pathway localization from preserved upstream activity and downstream phosphorylation changes."},
-      "explanation":{"key_explanation":"Capivasertib inhibits all three AKT isoforms—AKT1, AKT2, and AKT3—and decreases phosphorylation of downstream AKT substrates.","distractor_explanations":{"A":"PI3K is upstream and remains active in the stem; capivasertib directly targets AKT isoforms.","B":"Correct. The label identifies AKT1/2/3 as direct targets.","C":"mTOR and AMPK are distinct downstream/metabolic kinases and do not match the isolated AKT assay.","D":"MAP-kinase targets are a separate signaling pathway.","E":"Cyclin-dependent kinases regulate cell cycle but are not the direct capivasertib targets."},"educational_objective":"Localize inhibition within the PI3K-AKT pathway using upstream and downstream phosphorylation measurements."},
-      "sources":[{"source_id":"Q1387-LABEL","title":"TRUQAP- capivasertib tablet, film coated","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d698c106-2322-401e-b738-cbd83c843ecf","setid":"d698c106-2322-401e-b738-cbd83c843ecf","source_section_date":"2025-11-14","date_basis":"Date encoded on cited current DailyMed mechanism section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"stem/pathway inference","B":"direct from 12.1","C":"inference","D":"inference","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"PI3K inhibition could reduce AKT signaling, but upstream PI3K activity remains measurable and the isolated assay shows direct inhibition of all AKT isoforms.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1387,
+      "drug": "capivasertib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Reproductive & Endocrine Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Reproductive & Endocrine Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A breast-cancer cell line with PI3K-pathway activation is exposed to capivasertib. Phosphorylation of multiple downstream AKT substrates decreases even though upstream PI3K activity remains measurable. In isolated kinase assays, all three AKT isoforms are inhibited.",
+        "lead_in": "Which proteins are the direct kinase targets?",
+        "options": {
+          "A": "PI3K-alpha, PI3K-beta, and PI3K-delta",
+          "B": "AKT1, AKT2, and AKT3",
+          "C": "mTORC1, mTORC2, and AMPK",
+          "D": "ERK1, ERK2, and JNK",
+          "E": "CDK4, CDK6, and CDK9"
+        },
+        "intended_key": "B",
+        "tested_construct": "Pan-AKT isoform inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; requires pathway localization from preserved upstream activity and downstream phosphorylation changes."
+      },
+      "explanation": {
+        "key_explanation": "Capivasertib inhibits all three AKT isoforms—AKT1, AKT2, and AKT3—and decreases phosphorylation of downstream AKT substrates.",
+        "distractor_explanations": {
+          "A": "PI3K is upstream and remains active in the stem; capivasertib directly targets AKT isoforms.",
+          "B": "Correct. The label identifies AKT1/2/3 as direct targets.",
+          "C": "mTOR and AMPK are distinct downstream/metabolic kinases and do not match the isolated AKT assay.",
+          "D": "MAP-kinase targets are a separate signaling pathway.",
+          "E": "Cyclin-dependent kinases regulate cell cycle but are not the direct capivasertib targets."
+        },
+        "educational_objective": "Localize inhibition within the PI3K-AKT pathway using upstream and downstream phosphorylation measurements."
+      },
+      "sources": [
+        {
+          "source_id": "Q1387-LABEL",
+          "title": "TRUQAP- capivasertib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d698c106-2322-401e-b738-cbd83c843ecf",
+          "setid": "d698c106-2322-401e-b738-cbd83c843ecf",
+          "source_section_date": "2025-11-14",
+          "date_basis": "Date encoded on cited current DailyMed mechanism section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "0fb4be9ebe28eba4300f7aef3a0cfbd9f91488a6b6573abea81f8de7e0e737c8",
+          "cited_section_sha256": "e80d707551bdc2df940af04d9d807eaa0aa6ce3b187e246893e1a39379538729",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "e80d707551bdc2df940af04d9d807eaa0aa6ce3b187e246893e1a39379538729"
+        }
+      ],
+      "evidence_map": {
+        "A": "stem/pathway inference",
+        "B": "direct from 12.1",
+        "C": "inference",
+        "D": "inference",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "PI3K inhibition could reduce AKT signaling, but upstream PI3K activity remains measurable and the isolated assay shows direct inhibition of all AKT isoforms.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1388,"drug":"mirvetuximab soravtansine-gynx","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Reproductive & Endocrine Systems","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Histology & Cell Biology"],"official_outline_path":["Reproductive & Endocrine Systems"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"FR-alpha-positive ovarian-cancer cells bind mirvetuximab soravtansine, internalize the antibody-drug conjugate, and then develop disorganized microtubules, mitotic arrest, and apoptosis. Cells lacking FR-alpha show much less internalization.","lead_in":"Which sequence best explains the cytotoxic effect?","options":{"A":"HER2 binding followed by release of a topoisomerase-I inhibitor","B":"CD30 binding followed by release of an auristatin","C":"FR-alpha binding and internalization followed by proteolytic release of the microtubule inhibitor DM4","D":"Trop-2 binding followed by extracellular release of an alkylating agent","E":"VEGF-A binding followed by inhibition of endothelial proliferation"},"intended_key":"C","tested_construct":"FR-alpha-targeted ADC internalization and DM4 microtubule disruption","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires integrating antibody target, internalization, linker cleavage, and payload mechanism."},
-      "explanation":{"key_explanation":"Mirvetuximab soravtansine is an FR-alpha-directed ADC. After FR-alpha binding and internalization, proteolytic cleavage releases DM4, a microtubule inhibitor that causes cell-cycle arrest and apoptosis.","distractor_explanations":{"A":"This describes a different ADC target/payload pairing and does not match FR-alpha dependence.","B":"CD30/auristatin is another ADC architecture, not mirvetuximab soravtansine.","C":"Correct. FR-alpha binding enables internalization and intracellular release of DM4, which disrupts microtubules.","D":"Trop-2 is a different ADC target, and the stem specifically demonstrates FR-alpha-dependent uptake.","E":"VEGF neutralization is antiangiogenic and does not explain intracellular microtubule disruption in tumor cells."},"educational_objective":"Trace an antibody-drug conjugate from target recognition through internalization to payload-specific cytotoxicity."},
-      "sources":[{"source_id":"Q1388-LABEL","title":"ELAHERE- mirvetuximab soravtansine injection, solution","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00c424b5-6ccd-48ab-9e88-1986451120e2","setid":"00c424b5-6ccd-48ab-9e88-1986451120e2","source_section_date":"2025-07-14","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"inference","C":"direct from 12.1","D":"inference","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Both are plausible ADC architectures, but FR-alpha dependence and the labeled DM4 payload uniquely identify mirvetuximab soravtansine.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1388,
+      "drug": "mirvetuximab soravtansine-gynx",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Reproductive & Endocrine Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Histology & Cell Biology"
+        ],
+        "official_outline_path": [
+          "Reproductive & Endocrine Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "FR-alpha-positive ovarian-cancer cells bind mirvetuximab soravtansine, internalize the antibody-drug conjugate, and then develop disorganized microtubules, mitotic arrest, and apoptosis. Cells lacking FR-alpha show much less internalization.",
+        "lead_in": "Which sequence best explains the cytotoxic effect?",
+        "options": {
+          "A": "HER2 binding followed by release of a topoisomerase-I inhibitor",
+          "B": "CD30 binding followed by release of an auristatin",
+          "C": "FR-alpha binding and internalization followed by proteolytic release of the microtubule inhibitor DM4",
+          "D": "Trop-2 binding followed by extracellular release of an alkylating agent",
+          "E": "VEGF-A binding followed by inhibition of endothelial proliferation"
+        },
+        "intended_key": "C",
+        "tested_construct": "FR-alpha-targeted ADC internalization and DM4 microtubule disruption",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires integrating antibody target, internalization, linker cleavage, and payload mechanism."
+      },
+      "explanation": {
+        "key_explanation": "Mirvetuximab soravtansine is an FR-alpha-directed ADC. After FR-alpha binding and internalization, proteolytic cleavage releases DM4, a microtubule inhibitor that causes cell-cycle arrest and apoptosis.",
+        "distractor_explanations": {
+          "A": "This describes a different ADC target/payload pairing and does not match FR-alpha dependence.",
+          "B": "CD30/auristatin is another ADC architecture, not mirvetuximab soravtansine.",
+          "C": "Correct. FR-alpha binding enables internalization and intracellular release of DM4, which disrupts microtubules.",
+          "D": "Trop-2 is a different ADC target, and the stem specifically demonstrates FR-alpha-dependent uptake.",
+          "E": "VEGF neutralization is antiangiogenic and does not explain intracellular microtubule disruption in tumor cells."
+        },
+        "educational_objective": "Trace an antibody-drug conjugate from target recognition through internalization to payload-specific cytotoxicity."
+      },
+      "sources": [
+        {
+          "source_id": "Q1388-LABEL",
+          "title": "ELAHERE- mirvetuximab soravtansine injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00c424b5-6ccd-48ab-9e88-1986451120e2",
+          "setid": "00c424b5-6ccd-48ab-9e88-1986451120e2",
+          "source_section_date": "2025-07-14",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "808fb301eb65a5232f8886ccd631bc0ba416b2dc9193629f4aa92ddb0ee53c0b",
+          "cited_section_sha256": "21c055bf8799c293253c013c182d0dccc772d6dc81a13f93508434cf9e2abcf3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "21c055bf8799c293253c013c182d0dccc772d6dc81a13f93508434cf9e2abcf3"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "inference",
+        "C": "direct from 12.1",
+        "D": "inference",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Both are plausible ADC architectures, but FR-alpha dependence and the labeled DM4 payload uniquely identify mirvetuximab soravtansine.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1389,"drug":"pegvaliase-pqpz","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Multisystem Processes & Disorders","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Multisystem Processes & Disorders"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Plasma phenylalanine from a patient with phenylketonuria is incubated with pegvaliase-pqpz. Phenylalanine decreases while ammonia and trans-cinnamic acid increase. Phenylalanine hydroxylase activity remains deficient.","lead_in":"Which direct biochemical reaction accounts for the finding?","options":{"A":"Phenylalanine hydroxylation to tyrosine by replacement PAH","B":"Conversion of phenylalanine to phenylpyruvate by transamination","C":"Oxidation of phenylalanine to homogentisate","D":"Phenylalanine ammonia-lyase conversion to ammonia and trans-cinnamic acid","E":"Renal transport of phenylalanine into the urine"},"intended_key":"D","tested_construct":"Enzyme substitution by PEGylated phenylalanine ammonia lyase","difficulty":"moderate","difficulty_basis":"Author estimate; products identify a nonhuman replacement biochemical route rather than restoration of deficient PAH."},
-      "explanation":{"key_explanation":"Pegvaliase-pqpz is PEGylated phenylalanine ammonia lyase, which converts phenylalanine to ammonia and trans-cinnamic acid, substituting for deficient PAH activity without restoring PAH itself.","distractor_explanations":{"A":"PAH remains deficient and the observed products are not tyrosine.","B":"Transamination would generate phenylpyruvate, not the measured ammonia/trans-cinnamic-acid pair.","C":"Homogentisate belongs downstream in tyrosine degradation, not this direct phenylalanine reaction.","D":"Correct. PAL converts phenylalanine to ammonia and trans-cinnamic acid.","E":"The experiment is biochemical and contains no renal clearance mechanism."},"educational_objective":"Recognize metabolic enzyme substitution from the appearance of an alternative product pair despite persistence of the inherited enzyme deficiency."},
-      "sources":[{"source_id":"Q1389-LABEL","title":"PALYNZIQ- pegvaliase-pqpz injection, solution","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6dba844a-db02-44f8-8593-ce497ed9406c","setid":"6dba844a-db02-44f8-8593-ce497ed9406c","source_section_date":"2026-02-28","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"stem/source inference","B":"biochemical inference","C":"biochemical inference","D":"direct from 12.1","E":"stem inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Restored PAH could lower phenylalanine, but PAH remains deficient and the observed products specifically identify PAL chemistry.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1389,
+      "drug": "pegvaliase-pqpz",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Plasma phenylalanine from a patient with phenylketonuria is incubated with pegvaliase-pqpz. Phenylalanine decreases while ammonia and trans-cinnamic acid increase. Phenylalanine hydroxylase activity remains deficient.",
+        "lead_in": "Which direct biochemical reaction accounts for the finding?",
+        "options": {
+          "A": "Phenylalanine hydroxylation to tyrosine by replacement PAH",
+          "B": "Conversion of phenylalanine to phenylpyruvate by transamination",
+          "C": "Oxidation of phenylalanine to homogentisate",
+          "D": "Phenylalanine ammonia-lyase conversion to ammonia and trans-cinnamic acid",
+          "E": "Renal transport of phenylalanine into the urine"
+        },
+        "intended_key": "D",
+        "tested_construct": "Enzyme substitution by PEGylated phenylalanine ammonia lyase",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; products identify a nonhuman replacement biochemical route rather than restoration of deficient PAH."
+      },
+      "explanation": {
+        "key_explanation": "Pegvaliase-pqpz is PEGylated phenylalanine ammonia lyase, which converts phenylalanine to ammonia and trans-cinnamic acid, substituting for deficient PAH activity without restoring PAH itself.",
+        "distractor_explanations": {
+          "A": "PAH remains deficient and the observed products are not tyrosine.",
+          "B": "Transamination would generate phenylpyruvate, not the measured ammonia/trans-cinnamic-acid pair.",
+          "C": "Homogentisate belongs downstream in tyrosine degradation, not this direct phenylalanine reaction.",
+          "D": "Correct. PAL converts phenylalanine to ammonia and trans-cinnamic acid.",
+          "E": "The experiment is biochemical and contains no renal clearance mechanism."
+        },
+        "educational_objective": "Recognize metabolic enzyme substitution from the appearance of an alternative product pair despite persistence of the inherited enzyme deficiency."
+      },
+      "sources": [
+        {
+          "source_id": "Q1389-LABEL",
+          "title": "PALYNZIQ- pegvaliase-pqpz injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6dba844a-db02-44f8-8593-ce497ed9406c",
+          "setid": "6dba844a-db02-44f8-8593-ce497ed9406c",
+          "source_section_date": "2026-02-28",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "884924701f14d1186b54b2f662bf5bb1450f65a3da2c0dd814e9b1f86405c143",
+          "cited_section_sha256": "e755a2435b547f854ca78c63b2b16c8e373184325b4dd59892bcc5f12a67dceb",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "e755a2435b547f854ca78c63b2b16c8e373184325b4dd59892bcc5f12a67dceb"
+        }
+      ],
+      "evidence_map": {
+        "A": "stem/source inference",
+        "B": "biochemical inference",
+        "C": "biochemical inference",
+        "D": "direct from 12.1",
+        "E": "stem inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Restored PAH could lower phenylalanine, but PAH remains deficient and the observed products specifically identify PAL chemistry.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1390,"drug":"fosdenopterin","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Multisystem Processes & Disorders","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry","Genetics"],"official_outline_path":["Multisystem Processes & Disorders"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Cells from an infant with MOCS1-related molybdenum cofactor deficiency are supplied with fosdenopterin. MOCS1 protein remains defective, but molybdopterin and functional molybdenum cofactor become detectable and sulfite-oxidase function improves.","lead_in":"Which missing intermediate is being supplied by this therapy?","options":{"A":"Tetrahydrobiopterin","B":"Pyridoxal phosphate","C":"Flavin adenine dinucleotide","D":"S-adenosylmethionine","E":"Cyclic pyranopterin monophosphate"},"intended_key":"E","tested_construct":"cPMP substrate replacement in MoCD Type A","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires tracing a cofactor-biosynthesis pathway from a genetic block to downstream enzyme restoration."},
-      "explanation":{"key_explanation":"MOCS1 defects impair synthesis of cyclic pyranopterin monophosphate (cPMP). Fosdenopterin supplies exogenous cPMP, which is converted to molybdopterin and then molybdenum cofactor, restoring activity of molybdenum-dependent enzymes such as sulfite oxidase.","distractor_explanations":{"A":"BH4 is a cofactor for aromatic-amino-acid hydroxylases and is unrelated to MOCS1-dependent cPMP synthesis.","B":"Pyridoxal phosphate is vitamin B6-derived and does not feed the molybdenum-cofactor pathway.","C":"FAD is a flavin cofactor and does not become molybdopterin.","D":"SAM is a methyl donor and is not the missing MOCS1-dependent intermediate.","E":"Correct. Fosdenopterin is cPMP substrate replacement."},"educational_objective":"Understand substrate replacement downstream of a blocked biosynthetic step in a cofactor-deficiency disorder."},
-      "sources":[{"source_id":"Q1390-LABEL","title":"NULIBRY- fosdenopterin hydrobromide injection, powder, lyophilized, for solution","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=736aeea3-f206-454d-95d0-fd30964e8aab","setid":"736aeea3-f206-454d-95d0-fd30964e8aab","source_section_date":"2026-05-26","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"biochemical inference","B":"biochemical inference","C":"biochemical inference","D":"biochemical inference","E":"direct from 12.1"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Both are pterin-related biochemical concepts, but the MOCS1 block and subsequent molybdopterin formation uniquely identify cPMP.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1390,
+      "drug": "fosdenopterin",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cells from an infant with MOCS1-related molybdenum cofactor deficiency are supplied with fosdenopterin. MOCS1 protein remains defective, but molybdopterin and functional molybdenum cofactor become detectable and sulfite-oxidase function improves.",
+        "lead_in": "Which missing intermediate is being supplied by this therapy?",
+        "options": {
+          "A": "Tetrahydrobiopterin",
+          "B": "Pyridoxal phosphate",
+          "C": "Flavin adenine dinucleotide",
+          "D": "S-adenosylmethionine",
+          "E": "Cyclic pyranopterin monophosphate"
+        },
+        "intended_key": "E",
+        "tested_construct": "cPMP substrate replacement in MoCD Type A",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires tracing a cofactor-biosynthesis pathway from a genetic block to downstream enzyme restoration."
+      },
+      "explanation": {
+        "key_explanation": "MOCS1 defects impair synthesis of cyclic pyranopterin monophosphate (cPMP). Fosdenopterin supplies exogenous cPMP, which is converted to molybdopterin and then molybdenum cofactor, restoring activity of molybdenum-dependent enzymes such as sulfite oxidase.",
+        "distractor_explanations": {
+          "A": "BH4 is a cofactor for aromatic-amino-acid hydroxylases and is unrelated to MOCS1-dependent cPMP synthesis.",
+          "B": "Pyridoxal phosphate is vitamin B6-derived and does not feed the molybdenum-cofactor pathway.",
+          "C": "FAD is a flavin cofactor and does not become molybdopterin.",
+          "D": "SAM is a methyl donor and is not the missing MOCS1-dependent intermediate.",
+          "E": "Correct. Fosdenopterin is cPMP substrate replacement."
+        },
+        "educational_objective": "Understand substrate replacement downstream of a blocked biosynthetic step in a cofactor-deficiency disorder."
+      },
+      "sources": [
+        {
+          "source_id": "Q1390-LABEL",
+          "title": "NULIBRY- fosdenopterin hydrobromide injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=736aeea3-f206-454d-95d0-fd30964e8aab",
+          "setid": "736aeea3-f206-454d-95d0-fd30964e8aab",
+          "source_section_date": "2026-05-26",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "03af42c162b854a51ff309c43b3fef5a39f9d1dfdedc4a44578f9f307691178e",
+          "cited_section_sha256": "79bbd4bba00dc73c00f63cd69a0c3da81395e576577c23bdc1b5e30008a09dff",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "79bbd4bba00dc73c00f63cd69a0c3da81395e576577c23bdc1b5e30008a09dff"
+        }
+      ],
+      "evidence_map": {
+        "A": "biochemical inference",
+        "B": "biochemical inference",
+        "C": "biochemical inference",
+        "D": "biochemical inference",
+        "E": "direct from 12.1"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Both are pterin-related biochemical concepts, but the MOCS1 block and subsequent molybdopterin formation uniquely identify cPMP.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1391,"drug":"mitapivat","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Blood & Lymphoreticular/Immune Systems","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Blood & Lymphoreticular/Immune Systems"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Red blood cells with pyruvate-kinase deficiency are exposed to mitapivat. Enzyme activity and intracellular ATP increase without an increase in PK-R protein abundance. Structural studies show drug binding away from the catalytic substrate-binding site on the tetrameric enzyme.","lead_in":"Which direct action best explains the result?","options":{"A":"Allosteric activation of the pyruvate-kinase tetramer","B":"Replacement of mutant PK-R with recombinant enzyme","C":"Inhibition of 2,3-bisphosphoglycerate mutase","D":"Activation of phosphofructokinase-1 by increasing fructose-2,6-bisphosphate","E":"Inhibition of lactate dehydrogenase"},"intended_key":"A","tested_construct":"Allosteric pyruvate-kinase activation","difficulty":"moderate","difficulty_basis":"Author estimate; requires distinguishing increased enzyme activity from increased protein abundance or upstream glycolytic effects."},
-      "explanation":{"key_explanation":"Mitapivat allosterically binds the pyruvate-kinase tetramer and increases pyruvate-kinase activity. It does not replace the enzyme or require increased PK-R abundance.","distractor_explanations":{"A":"Correct. Allosteric binding explains greater catalytic activity at unchanged protein abundance.","B":"Protein abundance is unchanged and mitapivat is a small-molecule activator, not enzyme replacement.","C":"2,3-BPG can change with mitapivat treatment, but its mutase is not the direct labeled target.","D":"PFK-1 activation is upstream glycolytic regulation and does not explain direct binding to pyruvate kinase.","E":"LDH inhibition does not match the structural binding result or labeled mechanism."},"educational_objective":"Recognize allosteric enzyme activation from increased catalytic function without increased enzyme quantity."},
-      "sources":[{"source_id":"Q1391-LABEL","title":"PYRUKYND- mitapivat tablet, film coated","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4ccee896-e313-4c6c-9674-b4746ada0a90","setid":"4ccee896-e313-4c6c-9674-b4746ada0a90","source_section_date":"2025-12-30","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"direct from 12.1","B":"stem inference","C":"inference","D":"inference","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"C","resolution":"Mitapivat changes 2,3-DPG pharmacodynamically, but the direct structural target is pyruvate kinase itself.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1391,
+      "drug": "mitapivat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Red blood cells with pyruvate-kinase deficiency are exposed to mitapivat. Enzyme activity and intracellular ATP increase without an increase in PK-R protein abundance. Structural studies show drug binding away from the catalytic substrate-binding site on the tetrameric enzyme.",
+        "lead_in": "Which direct action best explains the result?",
+        "options": {
+          "A": "Allosteric activation of the pyruvate-kinase tetramer",
+          "B": "Replacement of mutant PK-R with recombinant enzyme",
+          "C": "Inhibition of 2,3-bisphosphoglycerate mutase",
+          "D": "Activation of phosphofructokinase-1 by increasing fructose-2,6-bisphosphate",
+          "E": "Inhibition of lactate dehydrogenase"
+        },
+        "intended_key": "A",
+        "tested_construct": "Allosteric pyruvate-kinase activation",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; requires distinguishing increased enzyme activity from increased protein abundance or upstream glycolytic effects."
+      },
+      "explanation": {
+        "key_explanation": "Mitapivat allosterically binds the pyruvate-kinase tetramer and increases pyruvate-kinase activity. It does not replace the enzyme or require increased PK-R abundance.",
+        "distractor_explanations": {
+          "A": "Correct. Allosteric binding explains greater catalytic activity at unchanged protein abundance.",
+          "B": "Protein abundance is unchanged and mitapivat is a small-molecule activator, not enzyme replacement.",
+          "C": "2,3-BPG can change with mitapivat treatment, but its mutase is not the direct labeled target.",
+          "D": "PFK-1 activation is upstream glycolytic regulation and does not explain direct binding to pyruvate kinase.",
+          "E": "LDH inhibition does not match the structural binding result or labeled mechanism."
+        },
+        "educational_objective": "Recognize allosteric enzyme activation from increased catalytic function without increased enzyme quantity."
+      },
+      "sources": [
+        {
+          "source_id": "Q1391-LABEL",
+          "title": "PYRUKYND- mitapivat tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4ccee896-e313-4c6c-9674-b4746ada0a90",
+          "setid": "4ccee896-e313-4c6c-9674-b4746ada0a90",
+          "source_section_date": "2025-12-30",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "1e2b7970026f5186e93c87a83085bb5c383775b45ce13646208e0820369300e2",
+          "cited_section_sha256": "e0f0a69a6fe0c05184946de19a05b79dfff86a91bf67e3f10a12debf0a55922d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "e0f0a69a6fe0c05184946de19a05b79dfff86a91bf67e3f10a12debf0a55922d"
+        }
+      ],
+      "evidence_map": {
+        "A": "direct from 12.1",
+        "B": "stem inference",
+        "C": "inference",
+        "D": "inference",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Mitapivat changes 2,3-DPG pharmacodynamically, but the direct structural target is pyruvate kinase itself.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1392,"drug":"exagamglogene autotemcel","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Blood & Lymphoreticular/Immune Systems","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Genetics","Histology & Cell Biology"],"official_outline_path":["Blood & Lymphoreticular/Immune Systems"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Autologous CD34-positive hematopoietic stem cells are edited ex vivo before reinfusion. The edit disrupts a GATA1-binding site in an erythroid-specific enhancer, after which erythroid progeny show reduced BCL11A and increased gamma-globin expression. The beta-globin coding sequence itself is not repaired.","lead_in":"Which molecular intervention was performed?","options":{"A":"Insertion of a normal beta-globin cDNA under a constitutive promoter","B":"CRISPR/Cas9 editing of the erythroid BCL11A enhancer","C":"Antisense degradation of BCL11A mRNA in circulating erythrocytes","D":"Knockout of the alpha-globin structural genes","E":"Replacement of erythropoietin receptor signaling"},"intended_key":"B","tested_construct":"CRISPR editing of the erythroid BCL11A enhancer to increase HbF","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires distinguishing enhancer editing from beta-globin gene replacement and transcript-level suppression."},
-      "explanation":{"key_explanation":"CASGEVY uses CRISPR/Cas9 to edit a GATA1-binding site in the erythroid-specific enhancer of BCL11A. Reduced erythroid BCL11A increases gamma-globin and fetal hemoglobin without repairing the beta-globin coding sequence.","distractor_explanations":{"A":"This would be gene addition, not the enhancer edit described in the stem.","B":"Correct. The GATA1-site edit in the erythroid BCL11A enhancer reduces BCL11A and increases gamma-globin/HbF.","C":"The intervention is ex vivo DNA editing of HSCs, not antisense treatment of mature erythrocytes.","D":"Alpha-globin knockout is not the documented CASGEVY edit.","E":"Erythropoietin signaling does not explain reduced BCL11A after a defined enhancer edit."},"educational_objective":"Differentiate regulatory-enhancer genome editing from structural-gene replacement in fetal-hemoglobin induction."},
-      "sources":[{"source_id":"Q1392-LABEL","title":"CASGEVY- exagamglogene autotemcel injection, suspension","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bd2ea021-ee99-4844-96c6-9b7f24a12767","setid":"bd2ea021-ee99-4844-96c6-9b7f24a12767","source_section_date":null,"date_basis":"Current DailyMed label and 12.1 mechanism text checked 2026-09-08; no unsafely inferred PI revision/effective date is asserted in this author layer","retrieved_at":"2026-09-08","section_locator":"11 Description; 12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"stem/source inference","B":"direct from Description and 12.1","C":"inference","D":"inference","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Gene addition could increase beta-like globin production, but the stem explicitly identifies a GATA1-site enhancer edit and states that beta-globin coding sequence is not repaired.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS — current page checked; uncertain revision date omitted rather than guessed","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1392,
+      "drug": "exagamglogene autotemcel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Genetics",
+          "Histology & Cell Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Autologous CD34-positive hematopoietic stem cells are edited ex vivo before reinfusion. The edit disrupts a GATA1-binding site in an erythroid-specific enhancer, after which erythroid progeny show reduced BCL11A and increased gamma-globin expression. The beta-globin coding sequence itself is not repaired.",
+        "lead_in": "Which molecular intervention was performed?",
+        "options": {
+          "A": "Insertion of a normal beta-globin cDNA under a constitutive promoter",
+          "B": "CRISPR/Cas9 editing of the erythroid BCL11A enhancer",
+          "C": "Antisense degradation of BCL11A mRNA in circulating erythrocytes",
+          "D": "Knockout of the alpha-globin structural genes",
+          "E": "Replacement of erythropoietin receptor signaling"
+        },
+        "intended_key": "B",
+        "tested_construct": "CRISPR editing of the erythroid BCL11A enhancer to increase HbF",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires distinguishing enhancer editing from beta-globin gene replacement and transcript-level suppression."
+      },
+      "explanation": {
+        "key_explanation": "CASGEVY uses CRISPR/Cas9 to edit a GATA1-binding site in the erythroid-specific enhancer of BCL11A. Reduced erythroid BCL11A increases gamma-globin and fetal hemoglobin without repairing the beta-globin coding sequence.",
+        "distractor_explanations": {
+          "A": "This would be gene addition, not the enhancer edit described in the stem.",
+          "B": "Correct. The GATA1-site edit in the erythroid BCL11A enhancer reduces BCL11A and increases gamma-globin/HbF.",
+          "C": "The intervention is ex vivo DNA editing of HSCs, not antisense treatment of mature erythrocytes.",
+          "D": "Alpha-globin knockout is not the documented CASGEVY edit.",
+          "E": "Erythropoietin signaling does not explain reduced BCL11A after a defined enhancer edit."
+        },
+        "educational_objective": "Differentiate regulatory-enhancer genome editing from structural-gene replacement in fetal-hemoglobin induction."
+      },
+      "sources": [
+        {
+          "source_id": "Q1392-LABEL",
+          "title": "CASGEVY- exagamglogene autotemcel injection, suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bd2ea021-ee99-4844-96c6-9b7f24a12767",
+          "setid": "bd2ea021-ee99-4844-96c6-9b7f24a12767",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed label and 12.1 mechanism text checked 2026-09-08; no unsafely inferred PI revision/effective date is asserted in this author layer",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "11 Description; 12.1 Mechanism of Action",
+          "source_page_sha256": "e0e03bad97713cc9f2ad9218696269af70132340b8c1b6948670473a1cc2ac5b",
+          "cited_section_sha256": "3013e3216ede845e220110588438067931a5e829e01e92b779ad1034a0c13cca",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "3013e3216ede845e220110588438067931a5e829e01e92b779ad1034a0c13cca"
+        }
+      ],
+      "evidence_map": {
+        "A": "stem/source inference",
+        "B": "direct from Description and 12.1",
+        "C": "inference",
+        "D": "inference",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Gene addition could increase beta-like globin production, but the stem explicitly identifies a GATA1-site enhancer edit and states that beta-globin coding sequence is not repaired.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current page checked; uncertain revision date omitted rather than guessed",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1393,"drug":"maralixibat","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Gastrointestinal System","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Physiology"],"official_outline_path":["Gastrointestinal System"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"An ileal epithelial preparation is exposed to maralixibat. Sodium-dependent uptake of conjugated bile acids from the luminal surface decreases, whereas hepatocyte bile-acid synthesis is not directly inhibited in the preparation.","lead_in":"Which transporter is directly inhibited?","options":{"A":"NTCP on hepatocytes","B":"BSEP on the canalicular membrane","C":"Ileal bile acid transporter at the terminal ileal brush border","D":"Organic anion transporter OATP1B1","E":"CFTR in intestinal crypts"},"intended_key":"C","tested_construct":"Ileal bile acid transporter inhibition","difficulty":"moderate","difficulty_basis":"Author estimate; uses anatomical localization and direction of transport."},
-      "explanation":{"key_explanation":"Maralixibat is a reversible inhibitor of the ileal bile acid transporter (IBAT), decreasing reabsorption of bile acids from the terminal ileum.","distractor_explanations":{"A":"NTCP mediates hepatic uptake of bile acids from portal blood, not luminal terminal-ileal reabsorption.","B":"BSEP exports bile acids from hepatocytes into bile canaliculi.","C":"Correct. IBAT mediates terminal-ileal bile-acid reabsorption and is directly inhibited by maralixibat.","D":"OATP1B1 is a hepatic uptake transporter and does not match the ileal brush-border assay.","E":"CFTR transports chloride/bicarbonate and is not the bile-acid transporter identified here."},"educational_objective":"Localize an enterohepatic-circulation drug target using epithelial location and transport direction."},
-      "sources":[{"source_id":"Q1393-LABEL","title":"LIVMARLI- maralixibat oral solution/tablets","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=64000394-1ef6-4e76-8ba8-11f25ba1b167","setid":"64000394-1ef6-4e76-8ba8-11f25ba1b167","source_section_date":"2025-04-10","date_basis":"Current DailyMed SPL effective date/version 11 displayed on current page; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"physiology inference","B":"physiology inference","C":"direct from 12.1","D":"physiology inference","E":"physiology inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"NTCP also participates in enterohepatic circulation, but it is hepatic and basolateral; the preparation localizes the effect to terminal-ileal luminal uptake.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1393,
+      "drug": "maralixibat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An ileal epithelial preparation is exposed to maralixibat. Sodium-dependent uptake of conjugated bile acids from the luminal surface decreases, whereas hepatocyte bile-acid synthesis is not directly inhibited in the preparation.",
+        "lead_in": "Which transporter is directly inhibited?",
+        "options": {
+          "A": "NTCP on hepatocytes",
+          "B": "BSEP on the canalicular membrane",
+          "C": "Ileal bile acid transporter at the terminal ileal brush border",
+          "D": "Organic anion transporter OATP1B1",
+          "E": "CFTR in intestinal crypts"
+        },
+        "intended_key": "C",
+        "tested_construct": "Ileal bile acid transporter inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; uses anatomical localization and direction of transport."
+      },
+      "explanation": {
+        "key_explanation": "Maralixibat is a reversible inhibitor of the ileal bile acid transporter (IBAT), decreasing reabsorption of bile acids from the terminal ileum.",
+        "distractor_explanations": {
+          "A": "NTCP mediates hepatic uptake of bile acids from portal blood, not luminal terminal-ileal reabsorption.",
+          "B": "BSEP exports bile acids from hepatocytes into bile canaliculi.",
+          "C": "Correct. IBAT mediates terminal-ileal bile-acid reabsorption and is directly inhibited by maralixibat.",
+          "D": "OATP1B1 is a hepatic uptake transporter and does not match the ileal brush-border assay.",
+          "E": "CFTR transports chloride/bicarbonate and is not the bile-acid transporter identified here."
+        },
+        "educational_objective": "Localize an enterohepatic-circulation drug target using epithelial location and transport direction."
+      },
+      "sources": [
+        {
+          "source_id": "Q1393-LABEL",
+          "title": "LIVMARLI- maralixibat oral solution/tablets",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=64000394-1ef6-4e76-8ba8-11f25ba1b167",
+          "setid": "64000394-1ef6-4e76-8ba8-11f25ba1b167",
+          "source_section_date": "2025-04-10",
+          "date_basis": "Current DailyMed SPL effective date/version 11 displayed on current page; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7e89bf619d86f5682e280032b0892627d6f355ee61846296b0637e689248d089",
+          "cited_section_sha256": "d4652baf1f9fdddf75b6297cc2a67c8d729dae14e3874acadc0dd9558378d7f9",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "d4652baf1f9fdddf75b6297cc2a67c8d729dae14e3874acadc0dd9558378d7f9"
+        }
+      ],
+      "evidence_map": {
+        "A": "physiology inference",
+        "B": "physiology inference",
+        "C": "direct from 12.1",
+        "D": "physiology inference",
+        "E": "physiology inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "NTCP also participates in enterohepatic circulation, but it is hepatic and basolateral; the preparation localizes the effect to terminal-ileal luminal uptake.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1394,"drug":"seladelpar","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Gastrointestinal System","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Gastrointestinal System"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"A nuclear-receptor reporter assay is performed with seladelpar. The drug activates one PPAR subtype. Investigators explicitly avoid claiming that this single pathway fully explains the clinical therapeutic effect in primary biliary cholangitis.","lead_in":"Which receptor is directly activated?","options":{"A":"PPAR-alpha","B":"PPAR-gamma","C":"Farnesoid X receptor","D":"PPAR-delta","E":"Pregnane X receptor"},"intended_key":"D","tested_construct":"Direct PPAR-delta agonism with evidence-scope discipline","difficulty":"moderate","difficulty_basis":"Author estimate; tests receptor subtype recognition while respecting uncertainty in the complete therapeutic mechanism."},
-      "explanation":{"key_explanation":"Seladelpar is a PPAR-delta agonist. Current labeling notes that the precise therapeutic mechanism in PBC is not well understood, although PPAR-delta activity may reduce bile-acid synthesis through an FGF21/CYP7A1 pathway.","distractor_explanations":{"A":"PPAR-alpha agonism is a different nuclear-receptor mechanism.","B":"PPAR-gamma is not the labeled seladelpar receptor subtype.","C":"FXR is an important bile-acid nuclear receptor but is not the direct seladelpar target.","D":"Correct. Seladelpar directly agonizes PPAR-delta.","E":"PXR regulates xenobiotic metabolism and is not the documented target."},"educational_objective":"Identify a directly demonstrated nuclear-receptor target without overstating a partially understood clinical mechanism."},
-      "sources":[{"source_id":"Q1394-LABEL","title":"LIVDELZI- seladelpar lysine capsule","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89f79d98-135c-40b2-a585-6996c04e599c","setid":"89f79d98-135c-40b2-a585-6996c04e599c","source_section_date":"2026-01-31","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"inference","C":"inference","D":"direct from 12.1","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"C","resolution":"FXR is highly relevant to bile-acid biology, but current labeling directly identifies PPAR-delta as seladelpar's receptor target.","status":"PASS"},"hidden_assumptions":"PASS — full therapeutic mechanism explicitly not asserted","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1394,
+      "drug": "seladelpar",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A nuclear-receptor reporter assay is performed with seladelpar. The drug activates one PPAR subtype. Investigators explicitly avoid claiming that this single pathway fully explains the clinical therapeutic effect in primary biliary cholangitis.",
+        "lead_in": "Which receptor is directly activated?",
+        "options": {
+          "A": "PPAR-alpha",
+          "B": "PPAR-gamma",
+          "C": "Farnesoid X receptor",
+          "D": "PPAR-delta",
+          "E": "Pregnane X receptor"
+        },
+        "intended_key": "D",
+        "tested_construct": "Direct PPAR-delta agonism with evidence-scope discipline",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; tests receptor subtype recognition while respecting uncertainty in the complete therapeutic mechanism."
+      },
+      "explanation": {
+        "key_explanation": "Seladelpar is a PPAR-delta agonist. Current labeling notes that the precise therapeutic mechanism in PBC is not well understood, although PPAR-delta activity may reduce bile-acid synthesis through an FGF21/CYP7A1 pathway.",
+        "distractor_explanations": {
+          "A": "PPAR-alpha agonism is a different nuclear-receptor mechanism.",
+          "B": "PPAR-gamma is not the labeled seladelpar receptor subtype.",
+          "C": "FXR is an important bile-acid nuclear receptor but is not the direct seladelpar target.",
+          "D": "Correct. Seladelpar directly agonizes PPAR-delta.",
+          "E": "PXR regulates xenobiotic metabolism and is not the documented target."
+        },
+        "educational_objective": "Identify a directly demonstrated nuclear-receptor target without overstating a partially understood clinical mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1394-LABEL",
+          "title": "LIVDELZI- seladelpar lysine capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89f79d98-135c-40b2-a585-6996c04e599c",
+          "setid": "89f79d98-135c-40b2-a585-6996c04e599c",
+          "source_section_date": "2026-01-31",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "8c48a861ff140cf15b2aa8a62675bebfd306e8e467843c603d0ac028398dcce3",
+          "cited_section_sha256": "878a11772464adb4d03a8cfc6138a13d80c26a86097dc15572cada30a6df3aba",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "878a11772464adb4d03a8cfc6138a13d80c26a86097dc15572cada30a6df3aba"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "inference",
+        "C": "inference",
+        "D": "direct from 12.1",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "FXR is highly relevant to bile-acid biology, but current labeling directly identifies PPAR-delta as seladelpar's receptor target.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS — full therapeutic mechanism explicitly not asserted",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1395,"drug":"givinostat","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Musculoskeletal, Skin & Subcutaneous Tissue","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Biochemistry"],"official_outline_path":["Musculoskeletal, Skin & Subcutaneous Tissue"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"A biochemical assay demonstrates that givinostat inhibits removal of acetyl groups from histone substrates. The experiment is used only to identify the documented enzyme class; it does not assume that this single biochemical action fully explains clinical benefit in Duchenne muscular dystrophy.","lead_in":"Which enzyme class is directly inhibited?","options":{"A":"Histone acetyltransferases","B":"DNA methyltransferases","C":"Histone lysine methyltransferases","D":"Bromodomain proteins","E":"Histone deacetylases"},"intended_key":"E","tested_construct":"HDAC inhibition without overstating DMD therapeutic mechanism","difficulty":"easy-moderate","difficulty_basis":"Author estimate; direct enzyme-class recognition with explicit evidence-scope control."},
-      "explanation":{"key_explanation":"Givinostat is a histone deacetylase inhibitor. The precise mechanism by which it produces its therapeutic effect in DMD remains unknown.","distractor_explanations":{"A":"Histone acetyltransferases add acetyl groups; the assay demonstrates inhibition of acetyl-group removal.","B":"DNA methyltransferases modify DNA methylation rather than histone deacetylation.","C":"Histone methyltransferases modify methyl marks, not acetyl-group removal.","D":"Bromodomain proteins recognize acetylated lysines rather than catalyze deacetylation.","E":"Correct. Histone deacetylases catalyze removal of histone acetyl groups and are inhibited by givinostat."},"educational_objective":"Identify HDAC inhibition from a biochemical acetylation assay while distinguishing a documented molecular action from a fully established therapeutic mechanism."},
-      "sources":[{"source_id":"Q1395-LABEL","title":"DUVYZAT- givinostat suspension","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a28a3db-7880-4ac2-a2f2-2b4e362aafb6","setid":"1a28a3db-7880-4ac2-a2f2-2b4e362aafb6","source_section_date":"2024-11-21","date_basis":"Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"biochemical inference","B":"biochemical inference","C":"biochemical inference","D":"biochemical inference","E":"direct from 12.1"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"D","resolution":"Bromodomain proteins interact with acetylated histones but do not catalyze the deacetylation reaction directly measured in the assay.","status":"PASS"},"hidden_assumptions":"PASS — complete DMD therapeutic mechanism not asserted","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1395,
+      "drug": "givinostat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A biochemical assay demonstrates that givinostat inhibits removal of acetyl groups from histone substrates. The experiment is used only to identify the documented enzyme class; it does not assume that this single biochemical action fully explains clinical benefit in Duchenne muscular dystrophy.",
+        "lead_in": "Which enzyme class is directly inhibited?",
+        "options": {
+          "A": "Histone acetyltransferases",
+          "B": "DNA methyltransferases",
+          "C": "Histone lysine methyltransferases",
+          "D": "Bromodomain proteins",
+          "E": "Histone deacetylases"
+        },
+        "intended_key": "E",
+        "tested_construct": "HDAC inhibition without overstating DMD therapeutic mechanism",
+        "difficulty": "easy-moderate",
+        "difficulty_basis": "Author estimate; direct enzyme-class recognition with explicit evidence-scope control."
+      },
+      "explanation": {
+        "key_explanation": "Givinostat is a histone deacetylase inhibitor. The precise mechanism by which it produces its therapeutic effect in DMD remains unknown.",
+        "distractor_explanations": {
+          "A": "Histone acetyltransferases add acetyl groups; the assay demonstrates inhibition of acetyl-group removal.",
+          "B": "DNA methyltransferases modify DNA methylation rather than histone deacetylation.",
+          "C": "Histone methyltransferases modify methyl marks, not acetyl-group removal.",
+          "D": "Bromodomain proteins recognize acetylated lysines rather than catalyze deacetylation.",
+          "E": "Correct. Histone deacetylases catalyze removal of histone acetyl groups and are inhibited by givinostat."
+        },
+        "educational_objective": "Identify HDAC inhibition from a biochemical acetylation assay while distinguishing a documented molecular action from a fully established therapeutic mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1395-LABEL",
+          "title": "DUVYZAT- givinostat suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a28a3db-7880-4ac2-a2f2-2b4e362aafb6",
+          "setid": "1a28a3db-7880-4ac2-a2f2-2b4e362aafb6",
+          "source_section_date": "2024-11-21",
+          "date_basis": "Date encoded on current DailyMed 12.1 section; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "31567e25a4d321c417df1f93281c5b5f11db391da377798ec5d14994024ecdf2",
+          "cited_section_sha256": "dd38be82e5f64e0a08cbc12884cd8bad1087015dfd5faea81797dfcf22f3d044",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "dd38be82e5f64e0a08cbc12884cd8bad1087015dfd5faea81797dfcf22f3d044"
+        }
+      ],
+      "evidence_map": {
+        "A": "biochemical inference",
+        "B": "biochemical inference",
+        "C": "biochemical inference",
+        "D": "biochemical inference",
+        "E": "direct from 12.1"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Bromodomain proteins interact with acetylated histones but do not catalyze the deacetylation reaction directly measured in the assay.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS — complete DMD therapeutic mechanism not asserted",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1396,"drug":"nirmatrelvir/ritonavir","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Multisystem Processes & Disorders","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Microbiology"],"official_outline_path":["Multisystem Processes & Disorders"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"In a cell-free SARS-CoV-2 system, nirmatrelvir prevents cleavage of viral polyproteins pp1a and pp1ab. Adding ritonavir does not increase inhibition of the purified viral enzyme itself, but in hepatocyte-containing pharmacokinetic experiments ritonavir increases nirmatrelvir exposure.","lead_in":"Which paired actions explain the two components of PAXLOVID?","options":{"A":"Nirmatrelvir inhibits SARS-CoV-2 Mpro/3CLpro; ritonavir inhibits CYP3A-mediated nirmatrelvir metabolism","B":"Nirmatrelvir inhibits viral RNA-dependent RNA polymerase; ritonavir inhibits P-glycoprotein only","C":"Nirmatrelvir blocks viral entry through ACE2; ritonavir inhibits viral neuraminidase","D":"Nirmatrelvir inhibits integrase; ritonavir directly inhibits SARS-CoV-2 Mpro","E":"Both components independently inhibit SARS-CoV-2 Mpro at the same active site"},"intended_key":"A","tested_construct":"Viral main-protease inhibition plus pharmacokinetic boosting","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires separating antiviral target engagement from CYP-mediated pharmacokinetic enhancement."},
-      "explanation":{"key_explanation":"Nirmatrelvir directly inhibits the SARS-CoV-2 main protease Mpro/3CLpro, preventing processing of pp1a and pp1ab. Ritonavir is not active against SARS-CoV-2 Mpro; it inhibits CYP3A-mediated metabolism of nirmatrelvir and thereby raises nirmatrelvir exposure.","distractor_explanations":{"A":"Correct. The stem separately demonstrates direct viral protease inhibition and pharmacokinetic boosting by CYP3A inhibition.","B":"Nirmatrelvir is not the polymerase inhibitor in this combination, and ritonavir's defining role here is CYP3A inhibition.","C":"Neither ACE2 entry blockade nor neuraminidase inhibition describes PAXLOVID.","D":"Integrase is an HIV target, and ritonavir does not directly inhibit SARS-CoV-2 Mpro.","E":"The current label explicitly states that ritonavir is not active against SARS-CoV-2 Mpro."},"educational_objective":"Distinguish the antiviral target of an active drug from the metabolic-enzyme target of its pharmacokinetic enhancer."},
-      "sources":[{"source_id":"Q1396-LABEL","title":"PAXLOVID- nirmatrelvir and ritonavir kit","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8a99d6d6-fd9e-45bb-b1bf-48c7f761232a","setid":"8a99d6d6-fd9e-45bb-b1bf-48c7f761232a","source_section_date":"2026-02-11","date_basis":"Current DailyMed clinical-pharmacology/microbiology content checked 2026-09-08; source date recorded from current clinical-pharmacology versioning rather than inferred PI Revised metadata","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action; 12.4 Microbiology — Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"direct from 12.1 and 12.4","B":"inference","C":"inference","D":"inference/direct contradiction","E":"direct contradiction by 12.1"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"E","resolution":"Ritonavir is an HIV protease inhibitor but the current PAXLOVID label explicitly states it is not active against SARS-CoV-2 Mpro; its role is CYP3A inhibition.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS — no potency value or clinical-response percentage is used","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1396,
+      "drug": "nirmatrelvir/ritonavir",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "In a cell-free SARS-CoV-2 system, nirmatrelvir prevents cleavage of viral polyproteins pp1a and pp1ab. Adding ritonavir does not increase inhibition of the purified viral enzyme itself, but in hepatocyte-containing pharmacokinetic experiments ritonavir increases nirmatrelvir exposure.",
+        "lead_in": "Which paired actions explain the two components of PAXLOVID?",
+        "options": {
+          "A": "Nirmatrelvir inhibits SARS-CoV-2 Mpro/3CLpro; ritonavir inhibits CYP3A-mediated nirmatrelvir metabolism",
+          "B": "Nirmatrelvir inhibits viral RNA-dependent RNA polymerase; ritonavir inhibits P-glycoprotein only",
+          "C": "Nirmatrelvir blocks viral entry through ACE2; ritonavir inhibits viral neuraminidase",
+          "D": "Nirmatrelvir inhibits integrase; ritonavir directly inhibits SARS-CoV-2 Mpro",
+          "E": "Both components independently inhibit SARS-CoV-2 Mpro at the same active site"
+        },
+        "intended_key": "A",
+        "tested_construct": "Viral main-protease inhibition plus pharmacokinetic boosting",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires separating antiviral target engagement from CYP-mediated pharmacokinetic enhancement."
+      },
+      "explanation": {
+        "key_explanation": "Nirmatrelvir directly inhibits the SARS-CoV-2 main protease Mpro/3CLpro, preventing processing of pp1a and pp1ab. Ritonavir is not active against SARS-CoV-2 Mpro; it inhibits CYP3A-mediated metabolism of nirmatrelvir and thereby raises nirmatrelvir exposure.",
+        "distractor_explanations": {
+          "A": "Correct. The stem separately demonstrates direct viral protease inhibition and pharmacokinetic boosting by CYP3A inhibition.",
+          "B": "Nirmatrelvir is not the polymerase inhibitor in this combination, and ritonavir's defining role here is CYP3A inhibition.",
+          "C": "Neither ACE2 entry blockade nor neuraminidase inhibition describes PAXLOVID.",
+          "D": "Integrase is an HIV target, and ritonavir does not directly inhibit SARS-CoV-2 Mpro.",
+          "E": "The current label explicitly states that ritonavir is not active against SARS-CoV-2 Mpro."
+        },
+        "educational_objective": "Distinguish the antiviral target of an active drug from the metabolic-enzyme target of its pharmacokinetic enhancer."
+      },
+      "sources": [
+        {
+          "source_id": "Q1396-LABEL",
+          "title": "PAXLOVID- nirmatrelvir and ritonavir kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8a99d6d6-fd9e-45bb-b1bf-48c7f761232a",
+          "setid": "8a99d6d6-fd9e-45bb-b1bf-48c7f761232a",
+          "source_section_date": "2026-02-11",
+          "date_basis": "Current DailyMed clinical-pharmacology/microbiology content checked 2026-09-08; source date recorded from current clinical-pharmacology versioning rather than inferred PI Revised metadata",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action; 12.4 Microbiology — Mechanism of Action",
+          "source_page_sha256": "af7eb9596187773962aa1af492f1063d9bca06d7be17fff3d46f4c84274d7051",
+          "cited_section_sha256": "7c9272cb86818babaf2c87f82cc270cc4c49a09b6d186361548782016d788848",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "7c9272cb86818babaf2c87f82cc270cc4c49a09b6d186361548782016d788848"
+        }
+      ],
+      "evidence_map": {
+        "A": "direct from 12.1 and 12.4",
+        "B": "inference",
+        "C": "inference",
+        "D": "inference/direct contradiction",
+        "E": "direct contradiction by 12.1"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "Ritonavir is an HIV protease inhibitor but the current PAXLOVID label explicitly states it is not active against SARS-CoV-2 Mpro; its role is CYP3A inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no potency value or clinical-response percentage is used",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1397,"drug":"gepotidacin","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Multisystem Processes & Disorders","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Microbiology"],"official_outline_path":["Multisystem Processes & Disorders"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"A susceptible bacterial isolate is exposed to gepotidacin. DNA replication stops. Target-enzyme assays show inhibition of both DNA gyrase and topoisomerase IV, while ribosomal translation remains intact.","lead_in":"Which enzyme class is directly inhibited?","options":{"A":"RNA polymerase","B":"Bacterial type II topoisomerases","C":"Dihydrofolate reductase","D":"Peptidyl transferase","E":"Transpeptidase penicillin-binding proteins"},"intended_key":"B","tested_construct":"Bacterial DNA gyrase/topoisomerase-IV inhibition","difficulty":"moderate","difficulty_basis":"Author estimate; requires classifying two named bacterial enzymes under a common target class."},
-      "explanation":{"key_explanation":"Gepotidacin inhibits bacterial type II topoisomerases, including DNA gyrase and topoisomerase IV, thereby inhibiting DNA replication.","distractor_explanations":{"A":"RNA polymerase inhibition blocks transcription rather than the two named topoisomerases.","B":"Correct. DNA gyrase and topoisomerase IV are bacterial type II topoisomerases directly inhibited by gepotidacin.","C":"Dihydrofolate-reductase inhibition affects folate metabolism, not DNA-supercoiling enzymes.","D":"Peptidyl-transferase inhibition would impair translation, which remains intact.","E":"PBP inhibition blocks cell-wall cross-linking and does not match the target-enzyme assay."},"educational_objective":"Classify DNA gyrase and topoisomerase IV as bacterial type II topoisomerase targets of an antibacterial drug."},
-      "sources":[{"source_id":"Q1397-LABEL","title":"BLUJEPA- gepotidacin tablet, film coated","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80b57cfe-7819-4d95-a57d-014af42f118d","setid":"80b57cfe-7819-4d95-a57d-014af42f118d","source_section_date":"2026-02-10","date_basis":"Current DailyMed SPL/12.4 content date; current page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.4 Microbiology — Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"direct from 12.4","C":"inference","D":"stem inference","E":"inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"E","resolution":"PBP inhibition is another bactericidal mechanism, but the stem directly identifies DNA gyrase and topoisomerase IV as inhibited enzymes.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS — no MIC, breakpoint, or resistance frequency is used","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1397,
+      "drug": "gepotidacin",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A susceptible bacterial isolate is exposed to gepotidacin. DNA replication stops. Target-enzyme assays show inhibition of both DNA gyrase and topoisomerase IV, while ribosomal translation remains intact.",
+        "lead_in": "Which enzyme class is directly inhibited?",
+        "options": {
+          "A": "RNA polymerase",
+          "B": "Bacterial type II topoisomerases",
+          "C": "Dihydrofolate reductase",
+          "D": "Peptidyl transferase",
+          "E": "Transpeptidase penicillin-binding proteins"
+        },
+        "intended_key": "B",
+        "tested_construct": "Bacterial DNA gyrase/topoisomerase-IV inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; requires classifying two named bacterial enzymes under a common target class."
+      },
+      "explanation": {
+        "key_explanation": "Gepotidacin inhibits bacterial type II topoisomerases, including DNA gyrase and topoisomerase IV, thereby inhibiting DNA replication.",
+        "distractor_explanations": {
+          "A": "RNA polymerase inhibition blocks transcription rather than the two named topoisomerases.",
+          "B": "Correct. DNA gyrase and topoisomerase IV are bacterial type II topoisomerases directly inhibited by gepotidacin.",
+          "C": "Dihydrofolate-reductase inhibition affects folate metabolism, not DNA-supercoiling enzymes.",
+          "D": "Peptidyl-transferase inhibition would impair translation, which remains intact.",
+          "E": "PBP inhibition blocks cell-wall cross-linking and does not match the target-enzyme assay."
+        },
+        "educational_objective": "Classify DNA gyrase and topoisomerase IV as bacterial type II topoisomerase targets of an antibacterial drug."
+      },
+      "sources": [
+        {
+          "source_id": "Q1397-LABEL",
+          "title": "BLUJEPA- gepotidacin tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80b57cfe-7819-4d95-a57d-014af42f118d",
+          "setid": "80b57cfe-7819-4d95-a57d-014af42f118d",
+          "source_section_date": "2026-02-10",
+          "date_basis": "Current DailyMed SPL/12.4 content date; current page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.4 Microbiology — Mechanism of Action",
+          "source_page_sha256": "034c3ff88df31ee270f42b13b307cade2375828447c026e2a81c440690c985ae",
+          "cited_section_sha256": "180570c57b532d51d2a20d426a30d30e97cf826ae4dec6801fee06a3c8e65703",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "180570c57b532d51d2a20d426a30d30e97cf826ae4dec6801fee06a3c8e65703"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "direct from 12.4",
+        "C": "inference",
+        "D": "stem inference",
+        "E": "inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "PBP inhibition is another bactericidal mechanism, but the stem directly identifies DNA gyrase and topoisomerase IV as inhibited enzymes.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no MIC, breakpoint, or resistance frequency is used",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1398,"drug":"sulbactam/durlobactam","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Multisystem Processes & Disorders","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Microbiology"],"official_outline_path":["Multisystem Processes & Disorders"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"An Acinetobacter baumannii-calcoaceticus complex isolate produces a serine beta-lactamase that rapidly degrades sulbactam. Sulbactam alone has poor activity, durlobactam alone has no measurable antibacterial activity, but the combination restores killing and inhibits bacterial cell-wall synthesis.","lead_in":"Which paired actions best explain the combination?","options":{"A":"Sulbactam inhibits DNA gyrase; durlobactam blocks efflux pumps","B":"Sulbactam inhibits ribosomal protein synthesis; durlobactam blocks porins","C":"Sulbactam inhibits PBP1/PBP3; durlobactam inhibits certain serine beta-lactamases that would degrade sulbactam","D":"Sulbactam inhibits folate synthesis; durlobactam inhibits dihydrofolate reductase","E":"Both agents independently inhibit PBP2 with equal antibacterial activity"},"intended_key":"C","tested_construct":"Active beta-lactam PBP inhibition protected by beta-lactamase inhibition","difficulty":"moderate-hard","difficulty_basis":"Author estimate; requires assigning distinct mechanistic roles to the antibacterial component and the protector component."},
-      "explanation":{"key_explanation":"Sulbactam has direct bactericidal activity against ABC through PBP1/PBP3 inhibition. Durlobactam is a non-beta-lactam beta-lactamase inhibitor that protects sulbactam from degradation by certain serine beta-lactamases; durlobactam alone lacks antibacterial activity against ABC isolates.","distractor_explanations":{"A":"Neither DNA gyrase nor efflux-pump inhibition is the labeled paired mechanism.","B":"The combination does not work through ribosomal inhibition or porin blockade.","C":"Correct. Sulbactam inhibits PBP1/PBP3, while durlobactam preserves sulbactam by inhibiting relevant serine beta-lactamases.","D":"Folate metabolism is unrelated to the labeled combination mechanism.","E":"Durlobactam alone lacks antibacterial activity against ABC isolates and is not an equal PBP-directed partner."},"educational_objective":"Distinguish the bactericidal target of a beta-lactam component from the protective role of a paired beta-lactamase inhibitor."},
-      "sources":[{"source_id":"Q1398-LABEL","title":"XACDURO- sulbactam and durlobactam kit","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c0167aec-a89d-4e96-afe5-2ccf3e89fe72","setid":"c0167aec-a89d-4e96-afe5-2ccf3e89fe72","source_section_date":"2023-05-31","date_basis":"Date encoded on cited 12.1/12.4 mechanism content; current SetID page checked 2026-09-08 and no unrelated later version date is relabeled as the mechanism-section date","retrieved_at":"2026-09-08","section_locator":"12.4 Microbiology — Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"inference","C":"direct from 12.4","D":"inference","E":"directly contradicted by 12.4"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"E","resolution":"The label explicitly states durlobactam alone lacks antibacterial activity against ABC isolates; its role is beta-lactamase inhibition rather than equal direct PBP killing.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS — no MIC or susceptibility percentage is invented","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS with explicit section-date basis","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1398,
+      "drug": "sulbactam/durlobactam",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An Acinetobacter baumannii-calcoaceticus complex isolate produces a serine beta-lactamase that rapidly degrades sulbactam. Sulbactam alone has poor activity, durlobactam alone has no measurable antibacterial activity, but the combination restores killing and inhibits bacterial cell-wall synthesis.",
+        "lead_in": "Which paired actions best explain the combination?",
+        "options": {
+          "A": "Sulbactam inhibits DNA gyrase; durlobactam blocks efflux pumps",
+          "B": "Sulbactam inhibits ribosomal protein synthesis; durlobactam blocks porins",
+          "C": "Sulbactam inhibits PBP1/PBP3; durlobactam inhibits certain serine beta-lactamases that would degrade sulbactam",
+          "D": "Sulbactam inhibits folate synthesis; durlobactam inhibits dihydrofolate reductase",
+          "E": "Both agents independently inhibit PBP2 with equal antibacterial activity"
+        },
+        "intended_key": "C",
+        "tested_construct": "Active beta-lactam PBP inhibition protected by beta-lactamase inhibition",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; requires assigning distinct mechanistic roles to the antibacterial component and the protector component."
+      },
+      "explanation": {
+        "key_explanation": "Sulbactam has direct bactericidal activity against ABC through PBP1/PBP3 inhibition. Durlobactam is a non-beta-lactam beta-lactamase inhibitor that protects sulbactam from degradation by certain serine beta-lactamases; durlobactam alone lacks antibacterial activity against ABC isolates.",
+        "distractor_explanations": {
+          "A": "Neither DNA gyrase nor efflux-pump inhibition is the labeled paired mechanism.",
+          "B": "The combination does not work through ribosomal inhibition or porin blockade.",
+          "C": "Correct. Sulbactam inhibits PBP1/PBP3, while durlobactam preserves sulbactam by inhibiting relevant serine beta-lactamases.",
+          "D": "Folate metabolism is unrelated to the labeled combination mechanism.",
+          "E": "Durlobactam alone lacks antibacterial activity against ABC isolates and is not an equal PBP-directed partner."
+        },
+        "educational_objective": "Distinguish the bactericidal target of a beta-lactam component from the protective role of a paired beta-lactamase inhibitor."
+      },
+      "sources": [
+        {
+          "source_id": "Q1398-LABEL",
+          "title": "XACDURO- sulbactam and durlobactam kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c0167aec-a89d-4e96-afe5-2ccf3e89fe72",
+          "setid": "c0167aec-a89d-4e96-afe5-2ccf3e89fe72",
+          "source_section_date": "2023-05-31",
+          "date_basis": "Date encoded on cited 12.1/12.4 mechanism content; current SetID page checked 2026-09-08 and no unrelated later version date is relabeled as the mechanism-section date",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.4 Microbiology — Mechanism of Action",
+          "source_page_sha256": "73e77cabb103f06e837fcce5fc020c5b72429604c028dfc4b4fd23a5d687e7cf",
+          "cited_section_sha256": "6719b31cf6e2b6fc479b699be5edc9ee5be7a53d097f11dd06187ea8500a9496",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "6719b31cf6e2b6fc479b699be5edc9ee5be7a53d097f11dd06187ea8500a9496"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "inference",
+        "C": "direct from 12.4",
+        "D": "inference",
+        "E": "directly contradicted by 12.4"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "The label explicitly states durlobactam alone lacks antibacterial activity against ABC isolates; its role is beta-lactamase inhibition rather than equal direct PBP killing.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no MIC or susceptibility percentage is invented",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS with explicit section-date basis",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1399,"drug":"atidarsagene autotemcel","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Behavioral Health & Nervous Systems/Special Senses","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Genetics","Histology & Cell Biology"],"official_outline_path":["Behavioral Health & Nervous Systems/Special Senses"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Autologous CD34-positive hematopoietic stem cells from a child with metachromatic leukodystrophy are transduced ex vivo with a lentiviral vector and reinfused. Their hematopoietic progeny later produce functional arylsulfatase A, and sulfatide accumulation decreases. The patient's native mutant ARSA alleles are not repaired.","lead_in":"Which genetic intervention best explains the restored enzyme activity?","options":{"A":"Base editing of both endogenous ARSA alleles","B":"CRISPR disruption of an ARSA transcriptional repressor","C":"Antisense-mediated exon skipping of ARSA pre-mRNA","D":"Lentiviral insertion of functional ARSA cDNA into autologous hematopoietic stem cells","E":"Mitochondrial replacement of the ARSA gene"},"intended_key":"D","tested_construct":"Autologous lentiviral ARSA gene addition","difficulty":"moderate-hard","difficulty_basis":"Author estimate; distinguishes gene addition from correction of the endogenous pathogenic alleles."},
-      "explanation":{"key_explanation":"LENMELDY uses a lentiviral vector to insert one or more functional copies of human ARSA cDNA into autologous CD34-positive HSCs. Engrafted progeny produce functional ARSA that breaks down or prevents harmful sulfatide accumulation.","distractor_explanations":{"A":"The native mutant alleles are stipulated to remain unrepaired, excluding endogenous base editing.","B":"The product supplies functional ARSA cDNA rather than editing a transcriptional repressor.","C":"The intervention occurs at the DNA/gene-addition level in HSCs, not by transient splice modulation.","D":"Correct. Lentiviral ARSA cDNA gene addition into autologous HSCs produces enzyme-expressing progeny.","E":"ARSA is a nuclear gene; mitochondrial replacement is not the mechanism."},"educational_objective":"Differentiate lentiviral gene addition in autologous stem cells from direct correction of the endogenous pathogenic gene."},
-      "sources":[{"source_id":"Q1399-LABEL","title":"LENMELDY- atidarsagene autotemcel suspension","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b3e307a7-561b-43b6-a784-9cb1dcfc5196","setid":"b3e307a7-561b-43b6-a784-9cb1dcfc5196","source_section_date":"2026-06-17","date_basis":"Current DailyMed label/mechanism version checked 2026-09-08; date reflects current label activity recorded for this source instance","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"stem inference","B":"inference","C":"inference","D":"direct from 12.1","E":"genetic inference"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"A","resolution":"Direct repair could restore ARSA, but the stem explicitly states native mutant alleles remain unrepaired and the label specifies lentiviral cDNA insertion.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1399,
+      "drug": "atidarsagene autotemcel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Genetics",
+          "Histology & Cell Biology"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Autologous CD34-positive hematopoietic stem cells from a child with metachromatic leukodystrophy are transduced ex vivo with a lentiviral vector and reinfused. Their hematopoietic progeny later produce functional arylsulfatase A, and sulfatide accumulation decreases. The patient's native mutant ARSA alleles are not repaired.",
+        "lead_in": "Which genetic intervention best explains the restored enzyme activity?",
+        "options": {
+          "A": "Base editing of both endogenous ARSA alleles",
+          "B": "CRISPR disruption of an ARSA transcriptional repressor",
+          "C": "Antisense-mediated exon skipping of ARSA pre-mRNA",
+          "D": "Lentiviral insertion of functional ARSA cDNA into autologous hematopoietic stem cells",
+          "E": "Mitochondrial replacement of the ARSA gene"
+        },
+        "intended_key": "D",
+        "tested_construct": "Autologous lentiviral ARSA gene addition",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate; distinguishes gene addition from correction of the endogenous pathogenic alleles."
+      },
+      "explanation": {
+        "key_explanation": "LENMELDY uses a lentiviral vector to insert one or more functional copies of human ARSA cDNA into autologous CD34-positive HSCs. Engrafted progeny produce functional ARSA that breaks down or prevents harmful sulfatide accumulation.",
+        "distractor_explanations": {
+          "A": "The native mutant alleles are stipulated to remain unrepaired, excluding endogenous base editing.",
+          "B": "The product supplies functional ARSA cDNA rather than editing a transcriptional repressor.",
+          "C": "The intervention occurs at the DNA/gene-addition level in HSCs, not by transient splice modulation.",
+          "D": "Correct. Lentiviral ARSA cDNA gene addition into autologous HSCs produces enzyme-expressing progeny.",
+          "E": "ARSA is a nuclear gene; mitochondrial replacement is not the mechanism."
+        },
+        "educational_objective": "Differentiate lentiviral gene addition in autologous stem cells from direct correction of the endogenous pathogenic gene."
+      },
+      "sources": [
+        {
+          "source_id": "Q1399-LABEL",
+          "title": "LENMELDY- atidarsagene autotemcel suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b3e307a7-561b-43b6-a784-9cb1dcfc5196",
+          "setid": "b3e307a7-561b-43b6-a784-9cb1dcfc5196",
+          "source_section_date": "2026-06-17",
+          "date_basis": "Current DailyMed label/mechanism version checked 2026-09-08; date reflects current label activity recorded for this source instance",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "9bbe2e0243515df7caf068d9294917332ca15d2660584d9d6873ae95b0934e86",
+          "cited_section_sha256": "72f46b2f0df569ac9b908baedc729defb8e6984dcd7697f5e86e0f2034d6a23a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "72f46b2f0df569ac9b908baedc729defb8e6984dcd7697f5e86e0f2034d6a23a"
+        }
+      ],
+      "evidence_map": {
+        "A": "stem inference",
+        "B": "inference",
+        "C": "inference",
+        "D": "direct from 12.1",
+        "E": "genetic inference"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Direct repair could restore ARSA, but the stem explicitly states native mutant alleles remain unrepaired and the label specifies lentiviral cDNA insertion.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
-      "num":1400,"drug":"suzetrigine","country_scope":"United States","status":"AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint":{"primary_system":"Behavioral Health & Nervous Systems/Special Senses","primary_competency":"Medical Knowledge: Applying Foundational Science Concepts","disciplines":["Pharmacology","Physiology"],"official_outline_path":["Behavioral Health & Nervous Systems/Special Senses"],"specification_source_id":"USMLE-SPEC","ncjmm":false},
-      "item":{"vignette":"Human dorsal-root-ganglion neurons are exposed to suzetrigine. Action-potential propagation associated with nociceptive signaling decreases. Comparative electrophysiology shows substantially greater inhibition of one peripheral voltage-gated sodium-channel subtype than of the other Nav1.1 through Nav1.9 family members.","lead_in":"Which channel is the primary selective target?","options":{"A":"Nav1.1","B":"Nav1.5","C":"Nav1.6","D":"Nav1.7","E":"Nav1.8"},"intended_key":"E","tested_construct":"Selective peripheral Nav1.8 sodium-channel inhibition","difficulty":"moderate","difficulty_basis":"Author estimate; requires identifying the selectively targeted nociceptive sodium-channel subtype."},
-      "explanation":{"key_explanation":"Suzetrigine is a selective blocker of the Nav1.8 voltage-gated sodium channel. Nav1.8 is expressed in peripheral sensory neurons, including dorsal-root-ganglion neurons, where it contributes to pain-signal action potentials.","distractor_explanations":{"A":"Nav1.1 is a neuronal sodium-channel subtype but is not the selective JOURNAVX target.","B":"Nav1.5 is strongly associated with cardiac sodium current and is not the labeled primary target.","C":"Nav1.6 is widely involved in neuronal excitability but is not the selective target identified in the current label.","D":"Nav1.7 is important in nociception, making it a plausible distractor, but the labeled target of suzetrigine is Nav1.8.","E":"Correct. Suzetrigine selectively blocks Nav1.8 in peripheral sensory neurons."},"educational_objective":"Identify Nav1.8 as a peripheral nociceptive sodium-channel target distinct from other clinically important Nav subtypes."},
-      "sources":[{"source_id":"Q1400-LABEL","title":"JOURNAVX- suzetrigine tablet, film coated","agency":"Manufacturer prescribing information hosted by NLM DailyMed","url":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0976da4-1d20-4517-945c-b60ed2f41c12","setid":"f0976da4-1d20-4517-945c-b60ed2f41c12","source_section_date":"2026-01-26","date_basis":"Date encoded on current DailyMed 12.1 mechanism section; current canonical SetID page checked 2026-09-08","retrieved_at":"2026-09-08","section_locator":"12.1 Mechanism of Action","source_page_sha256":null,"cited_section_sha256":null,"hash_status":"PENDING_DETERMINISTIC_REFETCH_AND_HASH"}],
-      "evidence_map":{"A":"inference","B":"inference","C":"inference","D":"strongest distractor; direct exclusion by labeled selectivity","E":"direct from 12.1"},
-      "author_qa":{"key_correctness":"PASS","all_options_review":"PASS","single_best_answer":"PASS","second_answer_attack":{"option":"D","resolution":"Nav1.7 is highly relevant to pain biology, but the current JOURNAVX label specifically identifies selective Nav1.8 inhibition.","status":"PASS"},"hidden_assumptions":"PASS","numerical_claims":"PASS — no potency ratio from the label is required in the item","fabricated_distractors":"PASS","source_identity_setid_url_locator":"PASS","currentness":"PASS","blueprint":"PASS","ncjmm":"NOT_APPLICABLE_TO_USMLE","difficulty":"Author estimate only","rationale":"PASS A-E","educational_objective":"PASS","adversarial_second_pass":"PASS","technical_hash_gate":"PENDING","unresolved_content_defects":[]}
+      "num": 1400,
+      "drug": "suzetrigine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Behavioral Health & Nervous Systems/Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Human dorsal-root-ganglion neurons are exposed to suzetrigine. Action-potential propagation associated with nociceptive signaling decreases. Comparative electrophysiology shows substantially greater inhibition of one peripheral voltage-gated sodium-channel subtype than of the other Nav1.1 through Nav1.9 family members.",
+        "lead_in": "Which channel is the primary selective target?",
+        "options": {
+          "A": "Nav1.1",
+          "B": "Nav1.5",
+          "C": "Nav1.6",
+          "D": "Nav1.7",
+          "E": "Nav1.8"
+        },
+        "intended_key": "E",
+        "tested_construct": "Selective peripheral Nav1.8 sodium-channel inhibition",
+        "difficulty": "moderate",
+        "difficulty_basis": "Author estimate; requires identifying the selectively targeted nociceptive sodium-channel subtype."
+      },
+      "explanation": {
+        "key_explanation": "Suzetrigine is a selective blocker of the Nav1.8 voltage-gated sodium channel. Nav1.8 is expressed in peripheral sensory neurons, including dorsal-root-ganglion neurons, where it contributes to pain-signal action potentials.",
+        "distractor_explanations": {
+          "A": "Nav1.1 is a neuronal sodium-channel subtype but is not the selective JOURNAVX target.",
+          "B": "Nav1.5 is strongly associated with cardiac sodium current and is not the labeled primary target.",
+          "C": "Nav1.6 is widely involved in neuronal excitability but is not the selective target identified in the current label.",
+          "D": "Nav1.7 is important in nociception, making it a plausible distractor, but the labeled target of suzetrigine is Nav1.8.",
+          "E": "Correct. Suzetrigine selectively blocks Nav1.8 in peripheral sensory neurons."
+        },
+        "educational_objective": "Identify Nav1.8 as a peripheral nociceptive sodium-channel target distinct from other clinically important Nav subtypes."
+      },
+      "sources": [
+        {
+          "source_id": "Q1400-LABEL",
+          "title": "JOURNAVX- suzetrigine tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0976da4-1d20-4517-945c-b60ed2f41c12",
+          "setid": "f0976da4-1d20-4517-945c-b60ed2f41c12",
+          "source_section_date": "2026-01-26",
+          "date_basis": "Date encoded on current DailyMed 12.1 mechanism section; current canonical SetID page checked 2026-09-08",
+          "retrieved_at": "2026-09-08",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "87ad1d58d128ba30cffd1b3fbaf0457f993d67bac9d82dacb404b404fb2524f1",
+          "cited_section_sha256": "b278d8ee51c2df80eecffcbdf65b3ef35e17b27a5e4fd721ab7ab9c14e7cf63c",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_AND_NORMALIZED_DECLARED_LOCATOR_2026-09-10",
+          "mechanism_section_sha256": "b278d8ee51c2df80eecffcbdf65b3ef35e17b27a5e4fd721ab7ab9c14e7cf63c"
+        }
+      ],
+      "evidence_map": {
+        "A": "inference",
+        "B": "inference",
+        "C": "inference",
+        "D": "strongest distractor; direct exclusion by labeled selectivity",
+        "E": "direct from 12.1"
+      },
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Nav1.7 is highly relevant to pain biology, but the current JOURNAVX label specifically identifies selective Nav1.8 inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no potency ratio from the label is required in the item",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch, source-page hash, and normalized declared-locator section hash completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     }
   ]
 }
