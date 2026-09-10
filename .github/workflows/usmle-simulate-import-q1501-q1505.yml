@@ -1,0 +1,44 @@
+name: USMLE Detached Import Simulation Q1501-Q1505
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-simulate-import-q1501-q1505.yml'
+permissions:
+  contents: write
+jobs:
+  detached-simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Run detached simulation
+        run: |
+          set -euo pipefail
+          BEFORE=$(git hash-object usmle/data/usmle-step1.db)
+          test "$BEFORE" = "3ed79b65e3422fa8d9649ba7870185fbf0a07e9c"
+          python -m py_compile usmle/simulate_import_q1501_q1505.py
+          python usmle/simulate_import_q1501_q1505.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$BEFORE"
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1501_Q1505_DETACHED_IMPORT_SIMULATION.json'))
+          assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert r['incoming_count']==5 and r['pre_production_count']==1500 and r['simulated_post_count']==1505
+          assert r['post_simulation_contiguous_q0001_q1505'] is True
+          assert r['sqlite_integrity']=='ok' and r['payload_review_consistency']=='PASS'
+          assert r['production_db_modified'] is False and r['production_transactional_import_ready'] is True
+          assert r['failures']==[]
+          print('Q1501_Q1505_DETACHED_SIMULATION_GATE=PASS')
+          PY
+      - name: Commit simulation report only
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3ed79b65e3422fa8d9649ba7870185fbf0a07e9c"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1501_Q1505_DETACHED_IMPORT_SIMULATION.json
+          git commit -m 'usmle: pass detached import simulation Q1501-Q1505'
+          git push
