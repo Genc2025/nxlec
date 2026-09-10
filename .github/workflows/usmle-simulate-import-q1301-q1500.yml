@@ -17,13 +17,13 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Run detached Q1301-Q1500 import simulation
+      - name: Run detached Q1301-Q1500 import simulation R2
         run: |
           set -euo pipefail
           BEFORE=$(git hash-object usmle/data/usmle-step1.db)
           test "$BEFORE" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
-          python -m py_compile usmle/simulate_import_q1301_q1500.py
-          python usmle/simulate_import_q1301_q1500.py
+          python -m py_compile usmle/simulate_import_q1301_q1500.py usmle/simulate_import_q1301_q1500_r2.py
+          python usmle/simulate_import_q1301_q1500_r2.py
           AFTER=$(git hash-object usmle/data/usmle-step1.db)
           test "$AFTER" = "$BEFORE"
           python - <<'PY'
@@ -36,7 +36,7 @@ jobs:
           assert r['sqlite_integrity']=='ok' and r['payload_review_consistency']=='PASS'
           assert r['cross_incoming_duplicate_gate']=='PASS' and r['canonical_duplicate_gate']=='PASS'
           assert r['production_db_modified'] is False and r['production_transactional_import_ready'] is True
-          print('Q1301_Q1500_DETACHED_SIMULATION_GATE=PASS')
+          print('Q1301_Q1500_DETACHED_SIMULATION_R2_GATE=PASS')
           PY
       - name: Commit simulation report only
         run: |
@@ -46,6 +46,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add usmle/audit/Q1301_Q1500_DETACHED_IMPORT_SIMULATION.json
           git diff --cached --quiet && { echo 'simulation report missing'; exit 1; } || true
-          git commit -m 'usmle: pass detached import simulation Q1301-Q1500'
+          git commit -m 'usmle: pass detached import simulation Q1301-Q1500 R2'
           git push
-# rerun after evidence-list optional-entry parser fix
