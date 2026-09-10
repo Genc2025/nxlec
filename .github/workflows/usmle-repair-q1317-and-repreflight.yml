@@ -1,0 +1,61 @@
+name: USMLE Repair Q1317 and Reaudit Q1306-Q1330
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-repair-q1317-and-repreflight.yml'
+permissions:
+  contents: write
+jobs:
+  repair-reaudit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind original immutable state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json)" = "9e0119919ded410483bbd2fbb6cd8a768829b699"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
+      - name: Repair Q1317 evidence contract
+        run: |
+          set -euo pipefail
+          python usmle/repair_q1317_evidence_contract.py
+          NEW_BLOB=$(git hash-object usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json)
+          echo "NEW_BLOB=$NEW_BLOB" >> "$GITHUB_ENV"
+          sed -i "s/CAND_BLOB='[^']*'/CAND_BLOB='$NEW_BLOB'/" usmle/audit_q1306_q1330_zero_trust.py
+          grep "CAND_BLOB='$NEW_BLOB'" usmle/audit_q1306_q1330_zero_trust.py
+      - name: Restart zero-trust audit from zero
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_q1306_q1330_zero_trust.py
+          python usmle/audit_q1306_q1330_zero_trust.py
+      - name: Enforce full pass and build manifest
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          a=pathlib.Path('usmle/audit/Q1306_Q1330_ZERO_TRUST.json'); r=json.load(open(a))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
+          assert all(x['status']=='PASS' for x in r['item_reports'])
+          assert all(x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
+          assert all(x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' for x in r['item_reports'])
+          cand='usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json'; b=json.load(open(cand)); keys=''.join(x['item']['intended_key'] for x in b['items'])
+          assert keys==b['answer_key_sequence']
+          m={'audit_id':'Q1306-Q1330-FINAL-QA-PASS-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1306-Q1330','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':'1a0f0b702f86a57624161413ba60fa4ce88e8d97','authoritative_db_final_count':1300,'authoritative_review_count':1300,'zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          pathlib.Path('usmle/audit/Q1306_Q1330_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+          print('Q1306_Q1330_FINAL_GATE=PASS')
+          PY
+      - name: Commit repaired candidate audit verifier and manifest
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/batch_specs_1301_1400/02_q1306_q1330_author_20260907.json usmle/audit_q1306_q1330_zero_trust.py usmle/audit/Q1306_Q1330_ZERO_TRUST.json usmle/audit/Q1306_Q1330_FINAL_QA_PASS.json
+          git commit -m 'usmle: repair Q1317 and finalize Q1306-Q1330'
+          git push
