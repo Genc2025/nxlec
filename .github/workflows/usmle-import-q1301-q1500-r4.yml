@@ -1,0 +1,64 @@
+name: USMLE Production Import Q1301-Q1500 R4
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-import-q1301-q1500-r4.yml'
+permissions:
+  contents: write
+jobs:
+  transactional-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind trusted pre-import state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
+          test "$(git hash-object usmle/step2_import_q1301_q1500_r4.py)" = "599e7fb39f4ffb49bce631612d5951517473f8fe"
+          test "$(git hash-object usmle/audit/Q1301_Q1500_DETACHED_IMPORT_SIMULATION.json)" = "8345601b959231227f227bf1d2b6ba4471edd5da"
+          test "$(git hash-object usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json)" = "0e317344f0ddb87c8bf1a736a022fb5c4155a008"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/audit/Q1301_Q1500_DETACHED_IMPORT_SIMULATION.json'))
+          assert s['status']=='DETACHED_IMPORT_SIMULATION_PASS' and s['production_transactional_import_ready'] is True and s['simulated_post_count']==1500 and s['aggregate_collision_pair_count']==0
+          PY
+      - name: Execute transactional importer
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/step2_import_q1301_q1500_r4.py
+          python usmle/step2_import_q1301_q1500_r4.py
+      - name: Independent post-import verification
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,re,sqlite3,subprocess
+          p='usmle/data/usmle-step1.db'
+          c=sqlite3.connect('file:'+p+'?mode=ro',uri=True)
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          items=c.execute("select candidate_id from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          reviews=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          c.close()
+          nums=[]
+          for (cid,) in items:
+              m=re.search(r'DIRECT-(\d{4})',cid); assert m; nums.append(int(m.group(1)))
+          assert len(items)==1500 and reviews==1500 and set(nums)==set(range(1,1501))
+          st=json.load(open('usmle/state/step2_final_q0001_q1500.json'))
+          au=json.load(open('usmle/audit/STEP2_FINAL_10_10_Q0001_Q1500.json'))
+          post=subprocess.check_output(['git','hash-object',p],text=True).strip()
+          assert post!=st['pre_db_blob'] and post==st['post_db_blob']==au['post_db_blob']
+          assert st['item_count']==1500 and st['step2_final_review_count']==1500 and st['contiguous_q0001_q1500'] is True
+          assert au['status']=='FINAL_10_10_PASS' and au['transactional_import']=='PASS' and au['independent_post_commit_verification']=='PASS' and au['unresolved_defects']==[]
+          print('Q1301_Q1500_PRODUCTION_POSTVERIFY=PASS',post)
+          PY
+      - name: Persist production DB and state
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db usmle/state/step2_final_q0001_q1500.json usmle/audit/STEP2_FINAL_10_10_Q0001_Q1500.json
+          git diff --cached --quiet && { echo 'production import produced no changes'; exit 1; } || true
+          git commit -m 'usmle: transactionally import Q1301-Q1500 to production'
+          git push
