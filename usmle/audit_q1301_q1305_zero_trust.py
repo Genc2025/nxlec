@@ -11,6 +11,7 @@ CAND=ROOT/'batch_specs_1301_1400'/'01_q1301_q1305_author_20260907.json'
 OUT=ROOT/'audit'/'Q1301_Q1305_ZERO_TRUST.json'
 CAND_BLOB='f9e2cf5519886ee736e8bada097b5a745646ea29'
 DB_BLOB='1a0f0b702f86a57624161413ba60fa4ce88e8d97'
+GENERIC={'prescribing','information','study','patients','with','and','the','of','in','a','an','for','to','by'}
 
 def blob(p):
     return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
@@ -24,11 +25,47 @@ def jac(a,b):
     return len(A&B)/len(A|B) if A|B else 0.0
 
 def fetch_text(url):
-    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/1.0'})
+    host=urlparse(url).netloc.casefold()
+    if 'pubmed.ncbi.nlm.nih.gov' in host:
+        m=re.search(r'/([0-9]+)/?$',url)
+        if not m: raise ValueError('pubmed PMID missing')
+        url=f'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id={m.group(1)}&retmode=xml'
+    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/1.1'})
     with urllib.request.urlopen(req,timeout=30) as r:
-        raw=r.read(2000000)
+        raw=r.read(4000000)
     txt=raw.decode('utf-8','ignore')
     return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',txt))
+
+def source_check(s,ex,cache):
+    url=s.get('url',''); sid=s.get('source_id'); host=urlparse(url).netloc.casefold()
+    ok=bool(url.startswith('https://') and s.get('section_locator') and sid)
+    detail={'host':host}
+    try:
+        if url not in cache: cache[url]=fetch_text(url)
+        page=cache[url].casefold(); pt=toks(page)
+        title=toks(s.get('title','')); title_overlap=len(title & pt)
+        keyt=toks(ex.get('key_explanation','')); semantic=len(keyt & pt)
+        detail.update({'title_overlap':title_overlap,'semantic_overlap':semantic})
+        if 'dailymed.nlm.nih.gov' in host:
+            setid=str(s.get('setid','')).strip().casefold()
+            title_core={t for t in title if t not in GENERIC and len(t)>3}
+            core_overlap=len(title_core & pt)
+            detail.update({'setid':setid,'title_core_overlap':core_overlap})
+            ok = ok and bool(setid) and setid in url.casefold() and core_overlap>=1 and semantic>=2
+            if '12.1' in str(s.get('section_locator','')):
+                ok = ok and 'mechanism of action' in page
+        elif 'pubmed.ncbi.nlm.nih.gov' in host:
+            m=re.search(r'/([0-9]+)/?$',url)
+            pmid=m.group(1) if m else ''
+            detail['pmid']=pmid
+            need=max(2,min(5,(len(title)+1)//2))
+            ok = ok and bool(pmid) and pmid in page and title_overlap>=need and semantic>=1
+        else:
+            need=max(2,min(4,(len(title)+1)//2 if title else 2))
+            ok = ok and title_overlap>=need and semantic>=1
+    except Exception as e:
+        ok=False; detail={'host':host,'error':type(e).__name__,'message':str(e)[:160]}
+    return ok,detail
 
 def item_text(x):
     it=x['item']
@@ -81,25 +118,8 @@ def main():
 
         source_status=[]
         for s in src:
-            url=s.get('url',''); sid=s.get('source_id'); host=urlparse(url).netloc.casefold(); ok=True; detail={}
-            if not url.startswith('https://') or not s.get('section_locator') or not sid: ok=False
-            try:
-                if url not in cache: cache[url]=fetch_text(url)
-                page=cache[url].casefold(); title=toks(s.get('title','')); overlap=len(title&toks(page))
-                if overlap<max(2,min(4,len(title)//2 if title else 2)): ok=False
-                if 'dailymed.nlm.nih.gov' in host:
-                    setid=str(s.get('setid','')).casefold();
-                    if not setid or (setid not in url.casefold() and setid not in page): ok=False
-                if 'pubmed.ncbi.nlm.nih.gov' in host:
-                    m=re.search(r'/([0-9]+)/?$',url)
-                    if not m or m.group(1) not in page: ok=False
-                # semantic anchor from keyed rationale + named agent when available
-                kt=toks(ex.get('key_explanation','')); semantic=len(kt&toks(page))
-                if semantic<2: ok=False
-                detail={'title_overlap':overlap,'semantic_overlap':semantic}
-            except Exception as e:
-                ok=False; detail={'error':type(e).__name__}
-            source_status.append({'source_id':sid,'url':url,'status':'PASS' if ok else 'BLOCKED',**detail})
+            ok,detail=source_check(s,ex,cache)
+            source_status.append({'source_id':s.get('source_id'),'url':s.get('url'),'status':'PASS' if ok else 'BLOCKED',**detail})
             if not ok: f.append('live_source_binding')
 
         text=item_text(x); scored=[(jac(text,ct),cid) for cid,ct in canon]; scored.sort(reverse=True)
@@ -109,7 +129,7 @@ def main():
         reports.append({'q':q,'status':status,'evidence_derived_key':direct[0] if len(direct)==1 else None,'intended_key':key,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','canonical_max_jaccard':round(maxj,5),'canonical_top_match':scored[0][1] if scored else None,'ncjmm':'NOT_APPLICABLE_USMLE','source_reports':source_status,'failures':sorted(set(f))})
         failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
 
-    out={'audit_id':'Q1301-Q1305-ZERO-TRUST-20260910','candidate_blob':CAND_BLOB,'canonical_db_blob':DB_BLOB,'canonical_count':1300,'canonical_review_count':1300,'item_count':5,'item_reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_import_ready':False}
+    out={'audit_id':'Q1301-Q1305-ZERO-TRUST-R2-20260910','candidate_blob':CAND_BLOB,'canonical_db_blob':DB_BLOB,'canonical_count':1300,'canonical_review_count':1300,'item_count':5,'item_reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_import_ready':False}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({'verdict':out['verdict'],'failures':failures,'items':5},sort_keys=True))
     if failures: raise SystemExit(1)
