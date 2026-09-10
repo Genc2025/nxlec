@@ -32,20 +32,19 @@ jobs:
           assert s['contiguous_q0001_q1505'] is True and s['sqlite_integrity']=='ok'
           assert s['post_db_blob']=='921a18dae711f516de4d90d8935c850bc611eff3'
           PY
-      - name: Author deterministic Q1506-Q1510 V2 collision repair
+      - name: Author deterministic Q1506-Q1510 V3 collision repair
         run: |
           set -euo pipefail
-          python -m py_compile usmle/author_q1506_q1510.py usmle/author_q1506_q1510_v2.py
-          python usmle/author_q1506_q1510_v2.py
+          python -m py_compile usmle/author_q1506_q1510.py usmle/author_q1506_q1510_v2.py usmle/author_q1506_q1510_v3.py
+          python usmle/author_q1506_q1510_v3.py
           python - <<'PY'
           import json,os
-          b=json.load(open(os.environ['CAND_PATH']))
+          b=json.load(open(os.environ['CAND_PATH'])); d={x['num']:x for x in b['items']}
           assert [x['num'] for x in b['items']]==list(range(1506,1511))
           assert b['canonical_count_before']==b['canonical_count_after']==1505
           assert b['canonical_db_blob']==os.environ['DB_BLOB']
           assert b['answer_key_sequence']=='ABCDE'
-          assert {x['num']:x['drug'] for x in b['items']}[1508]=='donidalorsen'
-          assert {x['num']:x['drug'] for x in b['items']}[1509]=='gepotidacin'
+          assert d[1508]['drug']=='nirogacestat' and d[1509]['drug']=='gepotidacin'
           assert 'ncjmm' not in open(os.environ['CAND_PATH']).read().casefold()
           PY
       - name: Technical freeze from live declared sources
@@ -68,7 +67,7 @@ jobs:
           assert r['canonical_count']==r['canonical_review_count']==1505 and r['canonical_db_blob']==os.environ['DB_BLOB']
           assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' and x['evidence_derived_key']==x['intended_key'] and x['canonical_max_jaccard']<0.45 for x in r['item_reports'])
           keys=''.join(x['item']['intended_key'] for x in b['items']); assert keys=='ABCDE'; cand=os.environ['CAND_PATH']
-          m={'audit_id':'Q1506-Q1510-FINAL-QA-PASS-V2-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1506-Q1510','item_count':5,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1505,'authoritative_review_count':1505,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','canonical_collision_repair':'V2_Q1508_Q1509','zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          m={'audit_id':'Q1506-Q1510-FINAL-QA-PASS-V3-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1506-Q1510','item_count':5,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1505,'authoritative_review_count':1505,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','canonical_collision_repair':'V3_Q1508_NIROGACESTAT','zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
           pathlib.Path('usmle/audit/Q1506_Q1510_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
           PY
       - name: Re-read final gate and production immutability
@@ -78,12 +77,12 @@ jobs:
           python - <<'PY'
           import json
           m=json.load(open('usmle/audit/Q1506_Q1510_FINAL_QA_PASS.json'))
-          assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[] and m['suggested_changes']==[] and m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[] and m['suggested_changes']==[] and m['production_import_ready'] is True and m['production_db_modified'] is False and m['canonical_collision_repair']=='V3_Q1508_NIROGACESTAT'
           PY
       - name: Persist candidate audit and manifest
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$CAND_PATH" usmle/audit/Q1506_Q1510_ZERO_TRUST.json usmle/audit/Q1506_Q1510_FINAL_QA_PASS.json
-          git commit -m 'usmle: finalize Q1506-Q1510 V2 against Q1505 production'
+          git commit -m 'usmle: finalize Q1506-Q1510 V3 against Q1505 production'
           git push
