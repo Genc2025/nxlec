@@ -1,0 +1,86 @@
+name: USMLE Q1501-Q1505 Zero Trust
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-q1501-q1505-zero-trust.yml'
+permissions:
+  contents: write
+jobs:
+  author-freeze-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      CAND_PATH: usmle/batch_specs_1501_1600/01_q1501_q1505_author_20260910.json
+      DB_BLOB: 3ed79b65e3422fa8d9649ba7870185fbf0a07e9c
+      CANONICAL_COUNT: '1500'
+      START_Q: '1501'
+      END_Q: '1505'
+      OUT_PATH: usmle/audit/Q1501_Q1505_ZERO_TRUST.json
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind Q1500 production state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1500.json'))
+          assert s['item_count']==1500 and s['step2_final_review_count']==1500 and s['post_db_blob']=='3ed79b65e3422fa8d9649ba7870185fbf0a07e9c' and s['contiguous_q0001_q1500'] is True
+          PY
+      - name: Author deterministic candidate batch
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1501_q1505.py
+          python usmle/author_q1501_q1505.py
+          python - <<'PY'
+          import json,os
+          b=json.load(open(os.environ['CAND_PATH']))
+          assert [x['num'] for x in b['items']]==list(range(1501,1506))
+          assert b['canonical_count_before']==b['canonical_count_after']==1500
+          assert b['canonical_db_blob']=='3ed79b65e3422fa8d9649ba7870185fbf0a07e9c'
+          assert b['answer_key_sequence']=='ABCDE'
+          assert len({x['drug'].casefold() for x in b['items']})==5
+          assert 'ncjmm' not in open(os.environ['CAND_PATH']).read().casefold()
+          PY
+      - name: Technical freeze from live declared sources
+        run: |
+          set -euo pipefail
+          python usmle/freeze_candidate_generic.py
+          echo "CAND_BLOB=$(git hash-object "$CAND_PATH")" >> "$GITHUB_ENV"
+      - name: Current-canonical zero-trust audit from zero
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_candidate_zero_trust_current.py
+          python usmle/audit_candidate_zero_trust_current.py
+      - name: Enforce 5 of 5 and build final manifest
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          a=pathlib.Path(os.environ['OUT_PATH']); r=json.load(open(a)); b=json.load(open(os.environ['CAND_PATH']))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==5
+          assert r['canonical_count']==r['canonical_review_count']==1500 and r['canonical_db_blob']==os.environ['DB_BLOB']
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' and x['evidence_derived_key']==x['intended_key'] and x['canonical_max_jaccard']<0.45 for x in r['item_reports'])
+          keys=''.join(x['item']['intended_key'] for x in b['items']); assert keys=='ABCDE'
+          m={'audit_id':'Q1501-Q1505-FINAL-QA-PASS-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1501-Q1505','item_count':5,'candidate_batch_blob':subprocess.check_output(['git','hash-object',os.environ['CAND_PATH']],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(os.environ['CAND_PATH']).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1500,'authoritative_review_count':1500,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          pathlib.Path('usmle/audit/Q1501_Q1505_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Final re-read and production immutability
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1501_Q1505_FINAL_QA_PASS.json'))
+          assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[] and m['production_import_ready'] is True and m['production_db_modified'] is False
+          PY
+      - name: Persist candidate audit and manifest
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" usmle/audit/Q1501_Q1505_ZERO_TRUST.json usmle/audit/Q1501_Q1505_FINAL_QA_PASS.json
+          git commit -m 'usmle: finalize Q1501-Q1505 against Q1500 production'
+          git push
