@@ -1,0 +1,31 @@
+name: USMLE Cross Collision Inventory Q1301-Q1500
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-scan-cross-collisions-q1301-q1500.yml'
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scan all 200 incoming items
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
+          python -m py_compile usmle/scan_q1301_q1500_cross_collisions.py
+          python usmle/scan_q1301_q1500_cross_collisions.py
+      - name: Commit inventory
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json
+          git commit -m 'usmle: inventory Q1301-Q1500 cross collisions'
+          git push
