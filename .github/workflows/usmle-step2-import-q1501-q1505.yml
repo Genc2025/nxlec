@@ -1,0 +1,70 @@
+name: USMLE Step2 Import Q1501-Q1505
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-step2-import-q1501-q1505.yml'
+permissions:
+  contents: write
+jobs:
+  import-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind immutable pre-import state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3ed79b65e3422fa8d9649ba7870185fbf0a07e9c"
+          test "$(git hash-object usmle/batch_specs_1501_1600/01_q1501_q1505_author_20260910.json)" = "934773fbd826484dea8c9917c4c763a2891871d9"
+          test "$(git hash-object usmle/audit/Q1501_Q1505_FINAL_QA_PASS.json)" = "c7c105fdfbafcf274bd55f0e7df0718057d6584c"
+          test "$(git hash-object usmle/audit/Q1501_Q1505_DETACHED_IMPORT_SIMULATION.json)" = "52495430b9c57315cbfcc8887b0e5654ef67d843"
+          python - <<'PY'
+          import json
+          s=json.load(open('usmle/state/step2_final_q0001_q1500.json'))
+          assert s['item_count']==s['step2_final_review_count']==1500
+          assert s['contiguous_q0001_q1500'] is True and s['sqlite_integrity']=='ok'
+          assert s['post_db_blob']=='3ed79b65e3422fa8d9649ba7870185fbf0a07e9c'
+          m=json.load(open('usmle/audit/Q1501_Q1505_FINAL_QA_PASS.json'))
+          assert m['status']=='FINAL_QA_PASS' and m['production_import_ready'] is True and m['unresolved_defects']==[]
+          r=json.load(open('usmle/audit/Q1501_Q1505_DETACHED_IMPORT_SIMULATION.json'))
+          assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS' and r['production_transactional_import_ready'] is True and r['failures']==[]
+          PY
+      - name: Execute transactional import on validated copy then promote
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/step2_import_q1501_q1505.py
+          python usmle/step2_import_q1501_q1505.py
+      - name: Independent post-import verification
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,re,sqlite3
+          p='usmle/data/usmle-step1.db'; c=sqlite3.connect(p)
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          items=c.execute("select candidate_id,payload_json,payload_sha256,audit_sha256 from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          revs=c.execute("select candidate_id,review_json,review_sha256,final_status from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(items)==len(revs)==1505
+          nums=[]
+          for cid,*_ in items:
+            m=re.search(r'DIRECT-(\d{4})',cid); assert m; nums.append(int(m.group(1)))
+          assert set(nums)==set(range(1,1506))
+          assert c.execute('select item_count from step2_finalization where id=1').fetchone()[0]==1505
+          c.close()
+          v=json.load(open('usmle/audit/Q1501_Q1505_PRODUCTION_IMPORT_VERIFY.json'))
+          s=json.load(open('usmle/state/step2_final_q0001_q1505.json'))
+          assert v['status']=='PRODUCTION_IMPORT_PASS' and v['item_count']==v['review_count']==1505 and v['contiguous_q0001_q1505'] is True and v['failures']==[]
+          assert s['item_count']==s['step2_final_review_count']==1505 and s['contiguous_q0001_q1505'] is True and s['production_import_status']=='PASS'
+          assert s['post_db_blob']==v['post_db_blob']
+          print('Q1501_Q1505_POST_IMPORT_VERIFY=PASS',s['post_db_blob'])
+          PY
+      - name: Persist production DB state and verification atomically
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db usmle/audit/Q1501_Q1505_PRODUCTION_IMPORT_VERIFY.json usmle/state/step2_final_q0001_q1505.json
+          git commit -m 'usmle: import Q1501-Q1505 into production'
+          git push
