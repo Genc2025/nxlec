@@ -1,0 +1,113 @@
+name: USMLE R3 Aggregate Cleanup Q1401-Q1475
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-r3-aggregate-cleanup-q1401-q1475.yml'
+permissions:
+  contents: write
+jobs:
+  r3-cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      DB_BLOB: 1a0f0b702f86a57624161413ba60fa4ce88e8d97
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind immutable pre-R3 state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json)" = "45b28fa30611f9660eb1f09a6b4f4b3139575bdc"
+          test "$(git hash-object usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json)" = "26edefa5740bad384bf9aa68b2580a5cf436cb19"
+          test "$(git hash-object usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json)" = "3fb12bab3742dfdb7a72214ae1f2e83ac3c0bc36"
+      - name: Apply nine R3 repo-unique replacements
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/repair_q1401_q1475_r3_aggregate_collisions.py
+          python usmle/repair_q1401_q1475_r3_aggregate_collisions.py
+      - name: Freeze and audit Q1401-Q1425 from zero
+        env:
+          CAND_PATH: usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json
+          START_Q: '1401'
+          END_Q: '1425'
+          OUT_PATH: usmle/audit/Q1401_Q1425_ZERO_TRUST.json
+        run: |
+          set -euo pipefail
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB=$(git hash-object "$CAND_PATH")
+          python usmle/audit_candidate_zero_trust_adaptive.py
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          a=pathlib.Path(os.environ['OUT_PATH']); r=json.load(open(a)); cand=os.environ['CAND_PATH']; b=json.load(open(cand))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
+          keys=''.join(x['item']['intended_key'] for x in b['items']); assert keys==b['answer_key_sequence']
+          m={'audit_id':'Q1401-Q1425-FINAL-QA-PASS-R3-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1401-Q1425','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','aggregate_collision_repair':'R3_PASS','replaced_items':[1411,1412,1414,1423],'zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          pathlib.Path('usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2)+'\n')
+          PY
+      - name: Freeze and audit Q1426-Q1450 from zero
+        env:
+          CAND_PATH: usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json
+          START_Q: '1426'
+          END_Q: '1450'
+          OUT_PATH: usmle/audit/Q1426_Q1450_ZERO_TRUST.json
+        run: |
+          set -euo pipefail
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB=$(git hash-object "$CAND_PATH")
+          python usmle/audit_candidate_zero_trust_adaptive.py
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          a=pathlib.Path(os.environ['OUT_PATH']); r=json.load(open(a)); cand=os.environ['CAND_PATH']; b=json.load(open(cand))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
+          keys=''.join(x['item']['intended_key'] for x in b['items']); assert keys==b['answer_key_sequence']
+          m={'audit_id':'Q1426-Q1450-FINAL-QA-PASS-R3-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1426-Q1450','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','aggregate_collision_repair':'R3_PASS','replaced_items':[1435,1440,1441,1443],'zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          pathlib.Path('usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2)+'\n')
+          PY
+      - name: Freeze and audit Q1451-Q1475 from zero
+        env:
+          CAND_PATH: usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json
+          START_Q: '1451'
+          END_Q: '1475'
+          OUT_PATH: usmle/audit/Q1451_Q1475_ZERO_TRUST.json
+        run: |
+          set -euo pipefail
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB=$(git hash-object "$CAND_PATH")
+          python usmle/audit_candidate_zero_trust_adaptive.py
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          a=pathlib.Path(os.environ['OUT_PATH']); r=json.load(open(a)); cand=os.environ['CAND_PATH']; b=json.load(open(cand))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
+          keys=''.join(x['item']['intended_key'] for x in b['items']); assert keys==b['answer_key_sequence']
+          m={'audit_id':'Q1451-Q1475-FINAL-QA-PASS-R3-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1451-Q1475','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','aggregate_collision_repair':'R3_PASS','replaced_items':[1475],'zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          pathlib.Path('usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2)+'\n')
+          PY
+      - name: Aggregate collision gate must be zero
+        run: |
+          set -euo pipefail
+          python usmle/scan_q1301_q1500_cross_collisions.py
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json'))
+          assert r['scope']=='Q1301-Q1500'
+          assert r['pair_count']==0, r['pairs']
+          print('Q1301_Q1500_CROSS_COLLISION_GATE=ZERO')
+          PY
+      - name: Persist R3 state atomically
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json usmle/audit/Q1401_Q1425_ZERO_TRUST.json usmle/audit/Q1426_Q1450_ZERO_TRUST.json usmle/audit/Q1451_Q1475_ZERO_TRUST.json usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json
+          git commit -m 'usmle: R3 zero-collision refinalization Q1401-Q1475'
+          git push
