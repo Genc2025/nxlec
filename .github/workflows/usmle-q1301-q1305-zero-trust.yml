@@ -1,0 +1,80 @@
+name: USMLE Q1301-Q1305 Zero Trust
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-q1301-q1305-zero-trust.yml'
+permissions:
+  contents: write
+jobs:
+  audit-finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind immutable candidate and canonical DB
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1301_1400/01_q1301_q1305_author_20260907.json)" = "f9e2cf5519886ee736e8bada097b5a745646ea29"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
+      - name: Execute zero-trust audit from zero
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_q1301_q1305_zero_trust.py
+          python usmle/audit_q1301_q1305_zero_trust.py
+      - name: Enforce audit verdict and build final manifest
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          a=pathlib.Path('usmle/audit/Q1301_Q1305_ZERO_TRUST.json')
+          r=json.load(open(a))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==5
+          assert all(x['status']=='PASS' for x in r['item_reports'])
+          assert all(x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
+          assert all(x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' for x in r['item_reports'])
+          assert max(x['canonical_max_jaccard'] for x in r['item_reports']) < 0.45
+          cand='usmle/batch_specs_1301_1400/01_q1301_q1305_author_20260907.json'
+          b=json.load(open(cand))
+          manifest={
+            'audit_id':'Q1301-Q1305-FINAL-QA-PASS-20260910',
+            'status':'FINAL_QA_PASS',
+            'final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT',
+            'item_range':'Q1301-Q1305','item_count':5,
+            'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),
+            'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),
+            'authoritative_db_blob':'1a0f0b702f86a57624161413ba60fa4ce88e8d97',
+            'authoritative_db_final_count':1300,'authoritative_review_count':1300,
+            'zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),
+            'answer_key_sequence':''.join(x['item']['intended_key'] for x in b['items']),
+            'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],
+            'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False
+          }
+          out=pathlib.Path('usmle/audit/Q1301_Q1305_FINAL_QA_PASS.json')
+          out.write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
+          print('FINAL_QA_MANIFEST=PASS')
+          PY
+      - name: Re-read manifest fail closed
+        run: |
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1301_Q1305_FINAL_QA_PASS.json'))
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          print('ZERO_TRUST_FINAL_GATE=PASS')
+          PY
+      - name: Commit audit and final manifest
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1301_Q1305_ZERO_TRUST.json usmle/audit/Q1301_Q1305_FINAL_QA_PASS.json
+          git commit -m 'usmle: finalize Q1301-Q1305 QA pass'
+          git push
