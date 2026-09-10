@@ -40,7 +40,7 @@ jobs:
           b=json.load(open(os.environ['CAND_PATH']))
           assert b['technical_integrity']['source_hashes_complete'] is True
           assert 'ncjmm' not in open(os.environ['CAND_PATH']).read().casefold()
-          assert all(s.get('source_page_sha256') and s.get('mechanism_section_sha256') for x in b['items'] for s in x['sources'])
+          assert all(s.get('source_page_sha256') and s.get('cited_section_sha256') for x in b['items'] for s in x['sources'])
           print('TECHNICAL_FREEZE=PASS')
           PY
       - name: Zero-trust audit from zero
@@ -71,4 +71,4 @@ jobs:
           git add "$CAND_PATH" usmle/audit/Q1356_Q1380_ZERO_TRUST.json usmle/audit/Q1356_Q1380_FINAL_QA_PASS.json
           git commit -m 'usmle: freeze and finalize Q1356-Q1380'
           git push
-# rerun after substantive 12.1 section parser fix
+# rerun with locator-bound cited-section hashes
