@@ -1222,209 +1222,125 @@
     },
     {
       "num": 1434,
-      "drug": "daridorexant",
+      "drug": "zolbetuximab-clzb",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_system": "Gastrointestinal System",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Physiology"
+          "Immunology"
         ],
         "official_outline_path": [
-          "Behavioral Health & Nervous Systems/Special Senses"
+          "Gastrointestinal System"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Hypothalamic neurons are exposed to orexin A and orexin B in the presence of daridorexant. Signaling through both known orexin receptor subtypes is suppressed without enhancement of GABA-A receptor currents.",
-        "lead_in": "Which direct action best explains the finding?",
+        "vignette": "CLDN18.2-positive gastric-cancer cells are exposed to zolbetuximab-clzb in the presence of immune effector cells and complement. Tumor-cell lysis increases through both antibody-dependent and complement-dependent pathways.",
+        "lead_in": "Which direct target best explains this cytotoxicity?",
         "options": {
-          "A": "Selective antagonism of OX1R only",
-          "B": "Selective antagonism of OX2R only",
-          "C": "Positive allosteric modulation of GABA-A receptors",
-          "D": "Antagonism of both OX1R and OX2R",
-          "E": "Agonism of melatonin MT1 and MT2 receptors"
+          "A": "HER2",
+          "B": "PD-1",
+          "C": "VEGF-A",
+          "D": "Claudin 18.2",
+          "E": "EGFR"
         },
         "intended_key": "D",
-        "tested_construct": "Dual orexin-receptor antagonism",
-        "difficulty": "easy-moderate",
-        "difficulty_basis": "Requires receptor-pair recognition and distinction from other hypnotic mechanisms."
+        "tested_construct": "CLDN18.2-directed cytolytic antibody with ADCC and CDC",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Daridorexant binds to and inhibits both orexin receptors OX1R and OX2R, suppressing wake-promoting orexin signaling.",
+        "key_explanation": "Zolbetuximab-clzb is a CLDN18.2-directed cytolytic antibody that depletes CLDN18.2-positive cells through antibody-dependent cellular cytotoxicity and complement-dependent cytotoxicity.",
         "distractor_explanations": {
-          "A": "Blocking OX1R alone would not account for loss of OX2R signaling.",
-          "B": "Blocking OX2R alone would not account for loss of OX1R signaling.",
-          "C": "The stem explicitly shows no GABA-A potentiation.",
-          "D": "Correct. Both receptor subtypes are directly antagonized.",
-          "E": "Melatonin receptors are not the documented target."
+          "A": "HER2-directed antibodies use a different tumor antigen.",
+          "B": "PD-1 blockade alters T-cell checkpoints rather than directly targeting the tumor-cell junctional antigen described.",
+          "C": "VEGF-A neutralization is antiangiogenic and does not explain CLDN18.2-dependent lysis.",
+          "D": "Correct. Zolbetuximab-clzb targets CLDN18.2 and mediates ADCC and CDC.",
+          "E": "EGFR targeting does not match the antigen-dependent cytolysis in the stem."
         },
-        "educational_objective": "Differentiate dual orexin antagonism from GABAergic and melatonergic sleep pharmacology."
+        "educational_objective": "Recognize a tumor-antigen-directed antibody mechanism from CLDN18.2-dependent ADCC and CDC."
       },
       "sources": [
         {
           "source_id": "Q1434-LABEL",
-          "title": "QUVIVIQ- daridorexant tablet",
+          "title": "VYLOY- zolbetuximab injection, powder, for suspension",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a2d1503-b816-40c9-9fac-7e03c5a3bcef",
-          "setid": "3a2d1503-b816-40c9-9fac-7e03c5a3bcef",
-          "source_section_date": "2024-09-30",
-          "date_basis": "Date encoded on current DailyMed 12.1 section; page checked 2026-09-08",
-          "retrieved_at": "2026-09-08",
-          "section_locator": "12.1 Mechanism of Action; 12.2 Pharmacodynamics",
-          "source_page_sha256": "67e652ddfb78a9c2bdc1c0c9d87ad1b3f062f991884f37ce6fe3e2f3cf85a808",
-          "cited_section_sha256": "9302eea0e8f93ae4320179919073f020e0af2a6b9a51fe63168e8cb8907df3a0",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e7695a21-abb6-47ac-93f8-0ece5a9c4409",
+          "setid": "e7695a21-abb6-47ac-93f8-0ece5a9c4409",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ffaef63ae82628c1cee1cb2178e4571034dee2c08e0460b2ac530d00454d0fff",
+          "cited_section_sha256": "eff38842dc63321c1a9339e3949a8229731602f5a0d6070144b82df91ef96419",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
-          "cited_locator_component_count": 2,
-          "mechanism_section_sha256": "9302eea0e8f93ae4320179919073f020e0af2a6b9a51fe63168e8cb8907df3a0"
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "eff38842dc63321c1a9339e3949a8229731602f5a0d6070144b82df91ef96419"
         }
       ],
-      "author_qa": {
-        "key_correctness": "PASS",
-        "all_options_review": "PASS",
-        "single_best_answer": "PASS",
-        "second_answer_attack": {
-          "option": "B",
-          "resolution": "OX2R is strongly linked to wakefulness, but the direct assay shows suppression of both receptor subtypes and labeling confirms dual antagonism.",
-          "status": "PASS"
-        },
-        "hidden_assumptions": "PASS",
-        "numerical_claims": "PASS",
-        "fabricated_distractors": "PASS",
-        "source_identity_setid_url_locator": "PASS",
-        "currentness": "PASS",
-        "blueprint": "PASS",
-        "difficulty": "Author estimate only",
-        "rationale": "PASS A-E",
-        "educational_objective": "PASS",
-        "adversarial_second_pass": "PASS",
-        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
-        "unresolved_content_defects": []
-      },
       "evidence_map": [
         {
           "claim_id": "Q1434-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Blocking OX1R alone would not account for loss of OX2R signaling.",
+          "claim": "HER2-directed antibodies use a different tumor antigen.",
           "source_ids": [
             "Q1434-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action; 12.2 Pharmacodynamics",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1434-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Blocking OX2R alone would not account for loss of OX1R signaling.",
+          "claim": "PD-1 blockade alters T-cell checkpoints rather than directly targeting the tumor-cell junctional antigen described.",
           "source_ids": [
             "Q1434-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action; 12.2 Pharmacodynamics",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1434-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "The stem explicitly shows no GABA-A potentiation.",
+          "claim": "VEGF-A neutralization is antiangiogenic and does not explain CLDN18.2-dependent lysis.",
           "source_ids": [
             "Q1434-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action; 12.2 Pharmacodynamics",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1434-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Correct. Both receptor subtypes are directly antagonized.",
+          "claim": "Correct. Zolbetuximab-clzb targets CLDN18.2 and mediates ADCC and CDC.",
           "source_ids": [
             "Q1434-LABEL"
           ],
           "direct_or_inference": "direct",
-          "source_locator": "12.1 Mechanism of Action; 12.2 Pharmacodynamics",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1434-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Melatonin receptors are not the documented target.",
+          "claim": "EGFR targeting does not match the antigen-dependent cytolysis in the stem.",
           "source_ids": [
             "Q1434-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action; 12.2 Pharmacodynamics",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        }
-      ]
-    },
-    {
-      "num": 1435,
-      "drug": "sulbactam/durlobactam",
-      "country_scope": "United States",
-      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
-      "blueprint": {
-        "primary_system": "Multisystem Processes & Disorders",
-        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
-        "disciplines": [
-          "Pharmacology",
-          "Microbiology"
-        ],
-        "official_outline_path": [
-          "Multisystem Processes & Disorders"
-        ],
-        "specification_source_id": "USMLE-SPEC"
-      },
-      "item": {
-        "vignette": "An Acinetobacter baumannii-calcoaceticus complex isolate expresses multiple serine beta-lactamases. Sulbactam alone is hydrolyzed rapidly, but addition of durlobactam preserves sulbactam exposure and bacterial cell-wall synthesis fails. Durlobactam alone has no antibacterial activity in the isolate.",
-        "lead_in": "Which paired mechanism best explains the combination?",
-        "options": {
-          "A": "Sulbactam inhibits DNA gyrase; durlobactam blocks efflux pumps",
-          "B": "Sulbactam inhibits the 30S ribosome; durlobactam inhibits aminoglycoside-modifying enzymes",
-          "C": "Sulbactam disrupts the outer membrane; durlobactam chelates iron",
-          "D": "Sulbactam inhibits PBP2 only; durlobactam inhibits class B metallo-beta-lactamases",
-          "E": "Sulbactam inhibits Acinetobacter PBP1/PBP3; durlobactam protects it from selected class A/C/D serine beta-lactamases"
-        },
-        "intended_key": "E",
-        "tested_construct": "Active beta-lactam target plus protective beta-lactamase inhibitor in XACDURO",
-        "difficulty": "hard",
-        "difficulty_basis": "Requires assigning distinct antibacterial and protective roles to two co-packaged components."
-      },
-      "explanation": {
-        "key_explanation": "Sulbactam has intrinsic antibacterial activity against susceptible Acinetobacter through PBP1 and PBP3 inhibition. Durlobactam is a non-beta-lactam beta-lactamase inhibitor that protects sulbactam from selected serine beta-lactamases and has no independent antibacterial activity against these isolates.",
-        "distractor_explanations": {
-          "A": "Neither gyrase inhibition nor efflux blockade is the labeled pair.",
-          "B": "These are protein-synthesis/resistance mechanisms unrelated to XACDURO.",
-          "C": "Iron chelation and nonspecific membrane disruption are not the direct actions.",
-          "D": "The PBP target is not limited to PBP2, and durlobactam does not inhibit class B metallo-beta-lactamases.",
-          "E": "Correct. Sulbactam supplies PBP-mediated killing and durlobactam protects it from serine beta-lactamase degradation."
-        },
-        "educational_objective": "Separate the bactericidal target from the resistance-protection component in a beta-lactam/beta-lactamase-inhibitor combination."
-      },
-      "sources": [
-        {
-          "source_id": "Q1435-LABEL",
-          "title": "XACDURO- sulbactam and durlobactam kit",
-          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c0167aec-a89d-4e96-afe5-2ccf3e89fe72",
-          "setid": "c0167aec-a89d-4e96-afe5-2ccf3e89fe72",
-          "source_section_date": "2023-05-31",
-          "date_basis": "Date encoded on 12.4 mechanism section; current SPL effective date 2025-11-26 checked 2026-09-08",
-          "retrieved_at": "2026-09-08",
-          "section_locator": "12.4 Microbiology — Mechanism of Action",
-          "source_page_sha256": "73e77cabb103f06e837fcce5fc020c5b72429604c028dfc4b4fd23a5d687e7cf",
-          "cited_section_sha256": "6719b31cf6e2b6fc479b699be5edc9ee5be7a53d097f11dd06187ea8500a9496",
-          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
-          "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "6719b31cf6e2b6fc479b699be5edc9ee5be7a53d097f11dd06187ea8500a9496"
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         }
       ],
       "author_qa": {
@@ -1432,15 +1348,15 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "D",
-          "resolution": "D is intentionally close but wrong on both the PBP profile and durlobactam's lack of class B metallo-beta-lactamase inhibition.",
+          "option": "A",
+          "resolution": "Several monoclonal antibodies can trigger immune-mediated tumor killing, but the stipulated CLDN18.2 dependence uniquely selects zolbetuximab.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
-        "numerical_claims": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
         "fabricated_distractors": "PASS",
         "source_identity_setid_url_locator": "PASS",
-        "currentness": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
         "blueprint": "PASS",
         "difficulty": "Author estimate only",
         "rationale": "PASS A-E",
@@ -1448,69 +1364,153 @@
         "adversarial_second_pass": "PASS",
         "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
         "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1435,
+      "drug": "ensifentrine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
       },
+      "item": {
+        "vignette": "Airway smooth-muscle cells are exposed to ensifentrine. Intracellular cyclic nucleotide concentrations rise while assays show inhibition of two phosphodiesterase families rather than beta-adrenergic receptor activation.",
+        "lead_in": "Which enzyme pair is directly inhibited?",
+        "options": {
+          "A": "PDE1 and PDE2",
+          "B": "PDE4 and PDE5",
+          "C": "PDE5 and PDE6",
+          "D": "PDE2 and PDE7",
+          "E": "PDE3 and PDE4"
+        },
+        "intended_key": "E",
+        "tested_construct": "Dual PDE3/PDE4 inhibition",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Ensifentrine inhibits PDE3 and PDE4. PDE3 hydrolyzes cAMP and can hydrolyze cGMP, whereas PDE4 hydrolyzes cAMP; inhibition increases intracellular cyclic nucleotide signaling.",
+        "distractor_explanations": {
+          "A": "These are not the phosphodiesterase families identified for ensifentrine.",
+          "B": "PDE5 is not part of the documented target pair.",
+          "C": "PDE5/PDE6 inhibition is a different pharmacologic profile.",
+          "D": "PDE2/PDE7 inhibition does not match the labeled mechanism.",
+          "E": "Correct. Ensifentrine directly inhibits PDE3 and PDE4."
+        },
+        "educational_objective": "Differentiate dual PDE3/PDE4 inhibition from other phosphodiesterase target profiles."
+      },
+      "sources": [
+        {
+          "source_id": "Q1435-LABEL",
+          "title": "OHTUVAYRE- ensifentrine suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "setid": "e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ee61185afd3c0b5ed3b9f8e220f7e858f9eb89ba245364ce001b5936eac1b163",
+          "cited_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e"
+        }
+      ],
       "evidence_map": [
         {
           "claim_id": "Q1435-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Neither gyrase inhibition nor efflux blockade is the labeled pair.",
+          "claim": "These are not the phosphodiesterase families identified for ensifentrine.",
           "source_ids": [
             "Q1435-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology — Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1435-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "These are protein-synthesis/resistance mechanisms unrelated to XACDURO.",
+          "claim": "PDE5 is not part of the documented target pair.",
           "source_ids": [
             "Q1435-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology — Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1435-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Iron chelation and nonspecific membrane disruption are not the direct actions.",
+          "claim": "PDE5/PDE6 inhibition is a different pharmacologic profile.",
           "source_ids": [
             "Q1435-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology — Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1435-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "The PBP target is not limited to PBP2, and durlobactam does not inhibit class B metallo-beta-lactamases.",
+          "claim": "PDE2/PDE7 inhibition does not match the labeled mechanism.",
           "source_ids": [
             "Q1435-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology — Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1435-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Correct. Sulbactam supplies PBP-mediated killing and durlobactam protects it from serine beta-lactamase degradation.",
+          "claim": "Correct. Ensifentrine directly inhibits PDE3 and PDE4.",
           "source_ids": [
             "Q1435-LABEL"
           ],
           "direct_or_inference": "direct",
-          "source_locator": "12.4 Microbiology — Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         }
-      ]
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "PDE4 inhibition alone is familiar in pulmonary pharmacology, but the named agent directly inhibits both PDE3 and PDE4.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
     },
     {
       "num": 1436,
@@ -2100,63 +2100,125 @@
     },
     {
       "num": 1440,
-      "drug": "sparsentan",
+      "drug": "donanemab-azbt",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Physiology"
+          "Immunology"
         ],
         "official_outline_path": [
-          "Respiratory & Renal/Urinary Systems"
+          "Behavioral Health & Nervous Systems/Special Senses"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Glomerular vascular cells are stimulated separately with endothelin-1 and angiotensin II. Sparsentan suppresses signaling through one endothelin receptor subtype and one angiotensin receptor subtype, while ETB and AT2 signaling remain comparatively spared.",
-        "lead_in": "Which receptor pair is directly antagonized?",
+        "vignette": "A monoclonal antibody binds an insoluble, N-terminally truncated pyroglutamate-containing form of amyloid beta in brain tissue. Serial amyloid PET demonstrates a reduction in plaque burden.",
+        "lead_in": "Which target is directly recognized by this antibody?",
         "options": {
-          "A": "ETB and AT2",
-          "B": "ETA and AT2",
-          "C": "ETB and AT1",
-          "D": "ETA and mineralocorticoid receptor",
-          "E": "ETA and AT1"
+          "A": "Soluble monomeric tau",
+          "B": "Alpha-synuclein fibrils",
+          "C": "BACE1 catalytic site",
+          "D": "Soluble amyloid-beta monomers lacking pyroglutamate modification",
+          "E": "Insoluble N-truncated pyroglutamate amyloid beta"
         },
         "intended_key": "E",
-        "tested_construct": "Dual ETA/AT1 receptor antagonism",
-        "difficulty": "moderate",
-        "difficulty_basis": "Requires pairing two vasoactive receptor systems while respecting subtype selectivity."
+        "tested_construct": "Antibody targeting insoluble N-truncated pyroglutamate amyloid beta",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Sparsentan is a single molecule with high-affinity antagonism of ETA and angiotensin II type 1 receptors, with much lower affinity for ETB and AT2.",
+        "key_explanation": "Donanemab-azbt is a humanized IgG1 monoclonal antibody directed against insoluble N-truncated pyroglutamate amyloid beta and reduces amyloid-beta plaques.",
         "distractor_explanations": {
-          "A": "Both receptor subtypes are comparatively spared.",
-          "B": "AT2 is not the angiotensin receptor target.",
-          "C": "ETB is not the endothelin receptor target.",
-          "D": "Sparsentan does not directly antagonize the mineralocorticoid receptor.",
-          "E": "Correct. ETA plus AT1 is the documented dual target pair."
+          "A": "Tau is a different protein target.",
+          "B": "Alpha-synuclein is not the documented antigen.",
+          "C": "BACE1 inhibition would reduce amyloid generation enzymatically rather than bind existing plaque antigen.",
+          "D": "The labeled antibody target is the insoluble N-truncated pyroglutamate form rather than generic soluble monomer.",
+          "E": "Correct. Donanemab recognizes insoluble N-truncated pyroglutamate amyloid beta."
         },
-        "educational_objective": "Identify dual receptor antagonism across endothelin and renin-angiotensin systems from subtype-selective assays."
+        "educational_objective": "Distinguish direct recognition of a plaque-associated amyloid-beta species from inhibition of amyloid production."
       },
       "sources": [
         {
           "source_id": "Q1440-LABEL",
-          "title": "FILSPARI- sparsentan tablet",
+          "title": "KISUNLA- donanemab-azbt injection, solution",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7354af1-f304-f4d9-e053-2995a90ab219",
-          "setid": "d7354af1-f304-f4d9-e053-2995a90ab219",
-          "source_section_date": "2026-04-10",
-          "date_basis": "Date encoded on current DailyMed 12.1 section; page checked 2026-09-08",
-          "retrieved_at": "2026-09-08",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=190352d4-ef62-4679-b4fa-e846e2766afa",
+          "setid": "190352d4-ef62-4679-b4fa-e846e2766afa",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "03c4af98794196490438ea31ef44de19adf3a76270b451ba81d82775a437501b",
-          "cited_section_sha256": "27865f4c738f603bc531ec947eae466dbb9c983115017735f98ba07dbce2c46b",
+          "source_page_sha256": "7c400e05d7c1a4a033c0cd4cf1a3d119f06047352fa432064a418d1a1442813a",
+          "cited_section_sha256": "abc96604c88ee88f49b919eb5f83fda92eb0264b82239797f695c2097d1041d4",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "27865f4c738f603bc531ec947eae466dbb9c983115017735f98ba07dbce2c46b"
+          "mechanism_section_sha256": "abc96604c88ee88f49b919eb5f83fda92eb0264b82239797f695c2097d1041d4"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1440-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Tau is a different protein target.",
+          "source_ids": [
+            "Q1440-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1440-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Alpha-synuclein is not the documented antigen.",
+          "source_ids": [
+            "Q1440-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1440-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "BACE1 inhibition would reduce amyloid generation enzymatically rather than bind existing plaque antigen.",
+          "source_ids": [
+            "Q1440-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1440-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The labeled antibody target is the insoluble N-truncated pyroglutamate form rather than generic soluble monomer.",
+          "source_ids": [
+            "Q1440-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1440-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Donanemab recognizes insoluble N-truncated pyroglutamate amyloid beta.",
+          "source_ids": [
+            "Q1440-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         }
       ],
       "author_qa": {
@@ -2165,14 +2227,14 @@
         "single_best_answer": "PASS",
         "second_answer_attack": {
           "option": "C",
-          "resolution": "AT1 is correct but ETB is not; the current label explicitly states ETA/AT1 dual antagonism with strong subtype selectivity.",
+          "resolution": "Both BACE1 inhibition and anti-amyloid antibodies can reduce amyloid pathology, but direct binding to an insoluble pyroglutamate antigen identifies donanemab.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
-        "numerical_claims": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
         "fabricated_distractors": "PASS",
         "source_identity_setid_url_locator": "PASS",
-        "currentness": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
         "blueprint": "PASS",
         "difficulty": "Author estimate only",
         "rationale": "PASS A-E",
@@ -2180,69 +2242,7 @@
         "adversarial_second_pass": "PASS",
         "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
         "unresolved_content_defects": []
-      },
-      "evidence_map": [
-        {
-          "claim_id": "Q1440-A",
-          "option": "A",
-          "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Both receptor subtypes are comparatively spared.",
-          "source_ids": [
-            "Q1440-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1440-B",
-          "option": "B",
-          "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "AT2 is not the angiotensin receptor target.",
-          "source_ids": [
-            "Q1440-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1440-C",
-          "option": "C",
-          "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "ETB is not the endothelin receptor target.",
-          "source_ids": [
-            "Q1440-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1440-D",
-          "option": "D",
-          "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Sparsentan does not directly antagonize the mineralocorticoid receptor.",
-          "source_ids": [
-            "Q1440-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1440-E",
-          "option": "E",
-          "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Correct. ETA plus AT1 is the documented dual target pair.",
-          "source_ids": [
-            "Q1440-LABEL"
-          ],
-          "direct_or_inference": "direct",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        }
-      ]
+      }
     },
     {
       "num": 1441,
@@ -2540,64 +2540,125 @@
     },
     {
       "num": 1443,
-      "drug": "revumenib",
+      "drug": "atogepant",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Biochemistry",
-          "Genetics"
+          "Physiology"
         ],
         "official_outline_path": [
-          "Blood & Lymphoreticular/Immune Systems"
+          "Behavioral Health & Nervous Systems/Special Senses"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Leukemia cells expressing a KMT2A fusion are exposed to revumenib. Chromatin occupancy by the fusion-associated transcriptional complex decreases, differentiation-marker expression rises, and the KMT2A fusion protein itself remains present.",
-        "lead_in": "Which protein-protein interaction is directly inhibited?",
+        "vignette": "Trigeminal sensory neurons are exposed to atogepant. A fixed concentration of CGRP produces less receptor-mediated signaling, while serotonin and adrenergic receptor assays are unchanged.",
+        "lead_in": "Which direct action best explains the result?",
         "options": {
-          "A": "BCL-2 with BH3-only proteins",
-          "B": "BRD4 with acetylated histones",
-          "C": "Menin with KMT2A/KMT2A-fusion proteins",
-          "D": "MDM2 with p53",
-          "E": "CDK9 with cyclin T1"
+          "A": "Agonism of serotonin 5-HT1B/1D receptors",
+          "B": "Inhibition of cyclooxygenase-2",
+          "C": "Antagonism of the CGRP receptor",
+          "D": "Blockade of voltage-gated sodium channels",
+          "E": "Antagonism of beta-adrenergic receptors"
         },
         "intended_key": "C",
-        "tested_construct": "Menin-KMT2A interaction inhibition",
+        "tested_construct": "CGRP receptor antagonism",
         "difficulty": "moderate-hard",
-        "difficulty_basis": "Requires recognizing a transcriptional-complex dependency rather than degradation of the fusion protein."
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Revumenib inhibits menin and blocks the interaction of menin with wild-type KMT2A and KMT2A fusion proteins, altering leukemogenic transcription and promoting differentiation in susceptible models.",
+        "key_explanation": "Atogepant is a calcitonin gene-related peptide receptor antagonist; blocking the CGRP receptor reduces CGRP-mediated signaling.",
         "distractor_explanations": {
-          "A": "BCL-2 inhibition is an apoptotic mechanism unrelated to the persistent KMT2A fusion protein.",
-          "B": "BRD4 is a chromatin reader but is not the documented revumenib target.",
-          "C": "Correct. Loss of menin-KMT2A complex function without loss of KMT2A protein identifies this interaction.",
-          "D": "MDM2-p53 is a distinct protein-protein interaction target.",
-          "E": "P-TEFb/CDK9 is not the direct revumenib target."
+          "A": "Triptan-like 5-HT1B/1D agonism is a different antimigraine mechanism.",
+          "B": "COX-2 inhibition does not directly block CGRP receptor signaling.",
+          "C": "Correct. Atogepant directly antagonizes the CGRP receptor.",
+          "D": "Sodium-channel blockade would affect excitability broadly rather than selectively block fixed-ligand CGRP signaling.",
+          "E": "Beta-adrenergic antagonism does not match the receptor-specific assay."
         },
-        "educational_objective": "Recognize pharmacologic disruption of an oncogenic protein-protein interaction from altered transcription without target-protein degradation."
+        "educational_objective": "Identify CGRP-receptor antagonism from selective blockade of CGRP signaling."
       },
       "sources": [
         {
           "source_id": "Q1443-LABEL",
-          "title": "REVUFORJ- revumenib tablet",
+          "title": "QULIPTA- atogepant tablet",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
-          "setid": "6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
-          "source_section_date": "2025-10-31",
-          "date_basis": "Date encoded on current DailyMed 12.1 section; page checked 2026-09-08",
-          "retrieved_at": "2026-09-08",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8c8ab8f4-32bd-497a-befa-70c8a51d8d52",
+          "setid": "8c8ab8f4-32bd-497a-befa-70c8a51d8d52",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "7c2776b2e778d61fef3a1d9ec444f61f6d5c636f4277f406e7f66cb3b2f97406",
-          "cited_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408",
+          "source_page_sha256": "6fedcb662cc4b5c5b4e64f096bf70b467a9dca25fa069a932e8ad9fb3372ff85",
+          "cited_section_sha256": "6aca5422475e916300d20e555a77a3975ef1d1aa16d3005fd030e9a334fd2a9b",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408"
+          "mechanism_section_sha256": "6aca5422475e916300d20e555a77a3975ef1d1aa16d3005fd030e9a334fd2a9b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1443-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Triptan-like 5-HT1B/1D agonism is a different antimigraine mechanism.",
+          "source_ids": [
+            "Q1443-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1443-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "COX-2 inhibition does not directly block CGRP receptor signaling.",
+          "source_ids": [
+            "Q1443-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1443-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Atogepant directly antagonizes the CGRP receptor.",
+          "source_ids": [
+            "Q1443-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1443-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Sodium-channel blockade would affect excitability broadly rather than selectively block fixed-ligand CGRP signaling.",
+          "source_ids": [
+            "Q1443-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1443-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Beta-adrenergic antagonism does not match the receptor-specific assay.",
+          "source_ids": [
+            "Q1443-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         }
       ],
       "author_qa": {
@@ -2605,15 +2666,15 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "B",
-          "resolution": "Both can alter chromatin transcription, but current labeling explicitly identifies menin-KMT2A binding and the stem preserves the fusion protein itself.",
+          "option": "A",
+          "resolution": "Serotonergic agonists are also used in migraine, but the fixed-CGRP receptor assay specifically localizes the effect to CGRP receptor antagonism.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
-        "numerical_claims": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
         "fabricated_distractors": "PASS",
         "source_identity_setid_url_locator": "PASS",
-        "currentness": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
         "blueprint": "PASS",
         "difficulty": "Author estimate only",
         "rationale": "PASS A-E",
@@ -2621,69 +2682,7 @@
         "adversarial_second_pass": "PASS",
         "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
         "unresolved_content_defects": []
-      },
-      "evidence_map": [
-        {
-          "claim_id": "Q1443-A",
-          "option": "A",
-          "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "BCL-2 inhibition is an apoptotic mechanism unrelated to the persistent KMT2A fusion protein.",
-          "source_ids": [
-            "Q1443-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1443-B",
-          "option": "B",
-          "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "BRD4 is a chromatin reader but is not the documented revumenib target.",
-          "source_ids": [
-            "Q1443-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1443-C",
-          "option": "C",
-          "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Correct. Loss of menin-KMT2A complex function without loss of KMT2A protein identifies this interaction.",
-          "source_ids": [
-            "Q1443-LABEL"
-          ],
-          "direct_or_inference": "direct",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1443-D",
-          "option": "D",
-          "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "MDM2-p53 is a distinct protein-protein interaction target.",
-          "source_ids": [
-            "Q1443-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        },
-        {
-          "claim_id": "Q1443-E",
-          "option": "E",
-          "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "P-TEFb/CDK9 is not the direct revumenib target.",
-          "source_ids": [
-            "Q1443-LABEL"
-          ],
-          "direct_or_inference": "inference",
-          "source_locator": "12.1 Mechanism of Action",
-          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source(s); distractor rejection uses that mechanism together with the explicitly stipulated vignette/experimental conditions."
-        }
-      ]
+      }
     },
     {
       "num": 1444,
@@ -3719,7 +3718,8 @@
       "Normalize exact discipline value 'Cell Biology' to 'Histology & Cell Biology' where present.",
       "Materialize evidence_map as five A-E entries bound exactly to distractor_explanations.",
       "Classify keyed rationale as direct and distractor rationales as inference.",
-      "Q1450 keyed rationale/evidence claim expanded to explicitly bind gepirone and 3-hydroxy metabolite to 5-HT1A agonism; intended key and medical construct unchanged."
+      "Q1450 keyed rationale/evidence claim expanded to explicitly bind gepirone and 3-hydroxy metabolite to 5-HT1A agonism; intended key and medical construct unchanged.",
+      "2026-09-10 cross-workstream repair: Q1434, Q1435, Q1440, Q1443 replaced with unique mechanisms after aggregate collision inventory."
     ],
     "medical_content_changed": false,
     "intended_keys_changed": false,
