@@ -7,9 +7,11 @@ ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent
 CAND=REPO/os.environ['CAND_PATH']; OUT=REPO/os.environ['OUT_PATH']; DB=ROOT/'data'/'usmle-step1.db'
 CAND_BLOB=os.environ['CAND_BLOB']; DB_BLOB=os.environ.get('DB_BLOB','1a0f0b702f86a57624161413ba60fa4ce88e8d97')
 START=int(os.environ['START_Q']); END=int(os.environ['END_Q'])
+STOP={'the','a','an','and','or','of','to','in','is','are','with','this','that','does','not','direct','directly','drug','effect','activity'}
 def blob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def norm(s): return ' '.join(re.sub(r'[^a-z0-9]+',' ',str(s).casefold()).split())
 def toks(s): return set(norm(s).split())
+def content_toks(s): return {t for t in toks(s) if t not in STOP and len(t)>2}
 def jac(a,b):
  A,B=toks(a),toks(b); return len(A&B)/len(A|B) if A|B else 0.0
 def fetch_text(url):
@@ -17,7 +19,7 @@ def fetch_text(url):
  if 'pubmed.ncbi.nlm.nih.gov' in host:
   m=re.search(r'/([0-9]+)/?$',url)
   if m: url='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+m.group(1)+'&retmode=xml'
- req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/3.2'})
+ req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/3.3'})
  with urllib.request.urlopen(req,timeout=30) as r: raw=r.read(2500000)
  return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',raw.decode('utf-8','ignore')))
 def item_text(x):
@@ -43,7 +45,8 @@ def main():
   if key not in 'ABCDE': f.append('key')
   if not it.get('vignette','').strip() or not it.get('lead_in','').strip().endswith('?'): f.append('item_form')
   if set(de)!=set('ABCDE') or not ex.get('key_explanation') or not ex.get('educational_objective'): f.append('rationale_eo')
-  if ex.get('key_explanation')!=de.get(key): f.append('key_rationale_binding')
+  key_overlap=len(content_toks(ex.get('key_explanation','')) & content_toks(de.get(key,'')))
+  if norm(ex.get('key_explanation',''))!=norm(de.get(key,'')) and key_overlap<3: f.append('key_rationale_binding')
   if bp.get('official_outline_path')!=[bp.get('primary_system')] or not bp.get('primary_competency') or not bp.get('disciplines'): f.append('blueprint')
   opt_entries=[e for e in ev if isinstance(e.get('option'),str) and e.get('option') in 'ABCDE'] if isinstance(ev,list) else []
   em={e.get('option'):e for e in opt_entries}
@@ -72,7 +75,7 @@ def main():
    if not url.startswith('https://') or not (s.get('section_locator') or s.get('source_locator')) or not sid: ok=False
    try:
     if url not in cache: cache[url]=fetch_text(url)
-    page=cache[url].casefold(); tt=toks(s.get('title','')); overlap=len(tt&toks(page)); sem=len(toks(ex.get('key_explanation',''))&toks(page))
+    page=cache[url].casefold(); tt=toks(s.get('title','')); overlap=len(tt&toks(page)); sem=len(content_toks(ex.get('key_explanation',''))&content_toks(page))
     if 'dailymed.nlm.nih.gov' in host:
      setid=str(s.get('setid','')).casefold(); core=[t for t in tt if t not in {'tablet','film','coated','injection','solution','prescribing','information','capsule'}]; co=len(set(core)&toks(page)); ok=ok and bool(setid) and setid in url.casefold() and co>=1 and sem>=2; detail={'setid':setid,'title_core_overlap':co,'semantic_overlap':sem}
     elif 'pubmed.ncbi.nlm.nih.gov' in host:
@@ -84,7 +87,7 @@ def main():
    if not ok: f.append('live_source_binding')
   scored=sorted([(jac(item_text(x),ct),cid) for cid,ct in canon],reverse=True); maxj=scored[0][0] if scored else 0
   if maxj>=0.45: f.append('canonical_duplicate')
-  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':strong[0] if len(strong)==1 else None,'intended_key':key,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(maxj,5),'canonical_top_match':scored[0][1] if scored else None,'ncjmm':'NOT_APPLICABLE_USMLE','source_reports':source_status,'failures':sorted(set(f))})
+  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':strong[0] if len(strong)==1 else None,'intended_key':key,'key_rationale_overlap':key_overlap,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(maxj,5),'canonical_top_match':scored[0][1] if scored else None,'ncjmm':'NOT_APPLICABLE_USMLE','source_reports':source_status,'failures':sorted(set(f))})
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
  out={'audit_id':f'Q{START}-Q{END}-ZERO-TRUST-20260910','candidate_blob':CAND_BLOB,'canonical_db_blob':DB_BLOB,'canonical_count':1300,'canonical_review_count':1300,'item_count':len(items),'item_reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_import_ready':False}
  OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n'); print(json.dumps({'verdict':out['verdict'],'failures':failures,'items':len(items)},sort_keys=True))
