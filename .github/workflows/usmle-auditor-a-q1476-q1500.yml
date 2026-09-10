@@ -1,0 +1,48 @@
+name: USMLE Auditor A Q1476-Q1500
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-auditor-a-q1476-q1500.yml'
+permissions:
+  contents: read
+jobs:
+  auditor-a:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind immutable candidate and canonical state
+        run: |
+          test "$(git hash-object usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json)" = "1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
+      - name: Execute independent read-only Auditor A
+        run: |
+          python -m py_compile usmle/audit_q1476_q1500_a.py
+          python usmle/audit_q1476_q1500_a.py
+      - name: Enforce Auditor A verdict
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('usmle/audit/Q1476_Q1500_AUDITOR_A.json'))
+          assert r['verdict']=='AUDITOR_A_PASS' and r['failures']==[]
+          assert r['candidate_blob']=='1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1'
+          assert r['canonical_db_blob']=='1a0f0b702f86a57624161413ba60fa4ce88e8d97'
+          assert r['canonical_count']==r['canonical_review_count']==1300
+          assert len(r['item_reports'])==25
+          for x in r['item_reports']:
+              assert x['status']=='PASS' and x['key_correctness']=='PASS'
+              assert x['evidence_contract']=='PASS' and x['ncjmm']=='NOT_APPLICABLE_USMLE'
+          assert r['production_db_modified'] is False and r['production_import_ready'] is False
+          print('AUDITOR_A_ZERO_TRUST=PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1476-q1500-auditor-a
+          path: usmle/audit/Q1476_Q1500_AUDITOR_A.json
+          if-no-files-found: error
