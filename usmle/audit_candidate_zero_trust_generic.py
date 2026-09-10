@@ -17,7 +17,7 @@ def fetch_text(url):
  if 'pubmed.ncbi.nlm.nih.gov' in host:
   m=re.search(r'/([0-9]+)/?$',url)
   if m: url='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+m.group(1)+'&retmode=xml'
- req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/3.1'})
+ req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/3.2'})
  with urllib.request.urlopen(req,timeout=30) as r: raw=r.read(2500000)
  return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',raw.decode('utf-8','ignore')))
 def item_text(x):
@@ -45,13 +45,13 @@ def main():
   if set(de)!=set('ABCDE') or not ex.get('key_explanation') or not ex.get('educational_objective'): f.append('rationale_eo')
   if ex.get('key_explanation')!=de.get(key): f.append('key_rationale_binding')
   if bp.get('official_outline_path')!=[bp.get('primary_system')] or not bp.get('primary_competency') or not bp.get('disciplines'): f.append('blueprint')
-  opt_entries=[e for e in ev if e.get('option') in 'ABCDE'] if isinstance(ev,list) else []
+  opt_entries=[e for e in ev if isinstance(e.get('option'),str) and e.get('option') in 'ABCDE'] if isinstance(ev,list) else []
   em={e.get('option'):e for e in opt_entries}
   if set(em)!=set('ABCDE') or len(opt_entries)!=5: f.append('evidence_shape')
   strong=[L for L,e in em.items() if e.get('direct_or_inference') in {'direct','mixed'}]
   if strong!=[key]: f.append('evidence_derived_key')
   if any(em.get(L,{}).get('direct_or_inference')!='inference' for L in 'ABCDE' if L!=key): f.append('distractor_evidence_class')
-  extra=[e for e in ev if e.get('option') not in 'ABCDE'] if isinstance(ev,list) else []
+  extra=[e for e in ev if not (isinstance(e.get('option'),str) and e.get('option') in 'ABCDE')] if isinstance(ev,list) else []
   for e in extra:
    loc=e.get('claim_locator','')
    if loc and loc not in {'item.vignette','explanation.educational_objective'}: f.append('extra_evidence_binding')
