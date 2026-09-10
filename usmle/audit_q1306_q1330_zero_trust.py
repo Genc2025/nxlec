@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent
 DB=ROOT/'data'/'usmle-step1.db'
 CAND=ROOT/'batch_specs_1301_1400'/'02_q1306_q1330_author_20260907.json'
 OUT=ROOT/'audit'/'Q1306_Q1330_ZERO_TRUST.json'
-CAND_BLOB='9e0119919ded410483bbd2fbb6cd8a768829b699'
+CAND_BLOB='83027abd26070c3b6ca58c87786cfc1bfb8b11cc'
 DB_BLOB='1a0f0b702f86a57624161413ba60fa4ce88e8d97'
 def blob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def norm(s): return ' '.join(re.sub(r'[^a-z0-9]+',' ',str(s).casefold()).split())
