@@ -1,0 +1,27 @@
+name: USMLE Diagnose Q1501-Q1505 Canonical
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-diagnose-q1501-q1505.yml'
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Run diagnostic against Q1500 production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "3ed79b65e3422fa8d9649ba7870185fbf0a07e9c"
+          python usmle/diagnose_q1501_q1505_canonical.py
+      - name: Persist diagnostic only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1501_Q1505_CANONICAL_DIAGNOSTIC.json
+          git commit -m 'usmle: diagnose Q1501-Q1505 canonical matches'
+          git push
