@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import json
+import author_q1501_q1505_v2 as base
+import repair_q1401_q1475_cross_collisions_r3 as h
+
+def main():
+    base.main()
+    b=json.loads(base.a.OUT.read_text()); xs={x['num']:x for x in b['items']}
+    xs[1501]=h.make(1501,'nerandomilast','Respiratory & Renal/Urinary Systems',['Pharmacology','Biochemistry'],
+      'Fibroblasts from a patient with pulmonary fibrosis are exposed to nerandomilast. Intracellular cAMP rises and expression of profibrotic growth factors and inflammatory cytokines decreases. Enzyme profiling shows substantially greater inhibition of PDE4B than of PDE4A, PDE4C, or PDE4D.',
+      'Which direct action best explains this pattern?',
+      {'A':'Preferential inhibition of phosphodiesterase 4B','B':'Activation of soluble guanylate cyclase','C':'Inhibition of phosphodiesterase 5','D':'Antagonism of transforming growth factor beta receptors','E':'Direct inhibition of collagen cross-linking enzymes'},'A','Preferential PDE4B inhibition with elevation of intracellular cAMP',
+      'Nerandomilast inhibits PDE4 with at least nine-fold preferential inhibition of PDE4B over PDE4A, PDE4C, and PDE4D in vitro. PDE4 inhibition reduces cAMP hydrolysis, increasing intracellular cAMP and contributing to antifibrotic and immunomodulatory effects.',
+      {'A':'Correct. Preferential PDE4B inhibition explains reduced cAMP degradation and the measured increase in intracellular cAMP.','B':'Soluble guanylate cyclase raises cGMP rather than cAMP.','C':'PDE5 primarily hydrolyzes cGMP and does not match the PDE4B-selective enzyme profile.','D':'TGF-beta receptor antagonism could affect fibrosis but would not explain direct PDE4B inhibition or cAMP elevation.','E':'Collagen cross-linking occurs downstream and does not explain the cyclic-nucleotide findings.'},
+      'Differentiate PDE4B-preferential inhibition from cGMP-directed and downstream antifibrotic mechanisms by using the measured second messenger and enzyme profile.','JASCAYD- nerandomilast tablet, film coated','fa1b14c6-957f-d326-5099-911bfe33e391','12.1 Mechanism of Action','D','TGF-beta signaling is a plausible antifibrotic target, but the direct PDE4B enzyme result and rise in cAMP uniquely localize the mechanism to PDE4B-preferential inhibition.')
+    xs[1502]=h.make(1502,'obecabtagene autoleucel','Blood & Lymphoreticular/Immune Systems',['Pharmacology','Immunology'],
+      'Autologous T cells are genetically modified to express a chimeric antigen receptor. When cocultured with CD19-positive leukemia cells, the modified T cells activate CD3-zeta signaling, proliferate, and kill the target cells. A 4-1BB domain enhances persistence after activation.',
+      'Which therapeutic design best explains these findings?',
+      {'A':'Bispecific antibody linking CD3 to BCMA','B':'CD19-directed CAR T cells containing CD3-zeta and 4-1BB signaling domains','C':'Unmodified donor natural killer cells targeting CD19 through native Fc receptors','D':'CD19-directed antibody-drug conjugate carrying a microtubule toxin','E':'Small-molecule inhibition of B-cell receptor kinase signaling'},'B','CD19-directed autologous CAR-T signaling through CD3-zeta with 4-1BB costimulation',
+      'Obecabtagene autoleucel is a CD19-directed genetically modified autologous T-cell therapy. Binding of its anti-CD19 CAR to CD19 activates signaling through the CD3-zeta domain, while the 4-1BB costimulatory domain enhances proliferation and persistence.',
+      {'A':'A bispecific antibody recruits endogenous T cells but does not genetically install a CAR containing CD3-zeta and 4-1BB domains.','B':'Correct. The CD19-binding CAR, CD3-zeta signaling, and 4-1BB costimulation define obecabtagene autoleucel.','C':'Native NK-cell Fc signaling does not require genetically introduced CAR domains.','D':'An antibody-drug conjugate kills through an attached payload rather than engineered T-cell signaling and expansion.','E':'A small molecule would not produce antigen-specific CAR engagement or 4-1BB-dependent persistence.'},
+      'Recognize a CD19-directed CAR-T product from antigen-specific engagement coupled to CD3-zeta activation and 4-1BB costimulation.','AUCATZYL- obecabtagene autoleucel kit','4fef6986-b988-45e4-8c20-b14f0ef1f538','12.1 Mechanism of Action','A','A CD3-engaging bispecific antibody can also produce T-cell-mediated killing, but genetically modified autologous cells with intrinsic CD3-zeta and 4-1BB domains specifically identify CAR-T therapy.')
+    xs[1503]=h.make(1503,'elafibranor','Gastrointestinal System',['Pharmacology','Biochemistry'],
+      'Hepatocytes are exposed to elafibranor and its active metabolite GFT1007. Reporter assays show activation of several peroxisome proliferator-activated receptor isoforms. Bile-acid synthesis decreases, accompanied by signaling compatible with FGF21-dependent downregulation of cholesterol 7-alpha-hydroxylase.',
+      'Which direct receptor action best accounts for these findings?',
+      {'A':'Antagonism of the farnesoid X receptor','B':'Selective agonism of the glucocorticoid receptor','C':'Agonism of PPAR-alpha, PPAR-gamma, and PPAR-delta','D':'Inhibition of the apical sodium-dependent bile acid transporter','E':'Neutralization of fibroblast growth factor 19'},'C','PPAR-alpha, PPAR-gamma, and PPAR-delta agonism',
+      'Elafibranor and its active metabolite GFT1007 are PPAR agonists that activate PPAR-alpha, PPAR-gamma, and PPAR-delta in vitro. PPAR-alpha and PPAR-delta activation can reduce bile-acid synthesis, including through FGF21-dependent downregulation of CYP7A1.',
+      {'A':'FXR antagonism is not the documented direct receptor action.','B':'Glucocorticoid-receptor agonism does not match the PPAR reporter profile.','C':'Correct. Elafibranor and GFT1007 activate PPAR-alpha, PPAR-gamma, and PPAR-delta.','D':'Blocking intestinal bile-acid transport is a luminal transporter mechanism, not hepatocyte PPAR activation.','E':'FGF19 neutralization does not explain direct activation of multiple PPAR isoforms.'},
+      'Use receptor-reporter data and bile-acid synthetic signaling to distinguish PPAR agonism from bile-acid transport and other nuclear-receptor mechanisms.','IQIRVO- elafibranor tablet, film coated','d78aa14f-6ec1-4b1d-a4ae-e48658137a25','12.1 Mechanism of Action','A','Other nuclear receptors can regulate bile-acid synthesis, but the simultaneous direct activation of PPAR-alpha, PPAR-gamma, and PPAR-delta uniquely identifies elafibranor pharmacology.')
+    xs[1505]=h.make(1505,'delgocitinib','Musculoskeletal, Skin & Subcutaneous Tissue',['Pharmacology','Immunology'],
+      'Keratinocytes are exposed to delgocitinib before stimulation with several cytokines. STAT activation and cytokine-responsive gene expression decrease across pathways that signal through JAK1, JAK2, JAK3, and TYK2 rather than through a single Janus kinase.',
+      'Which direct action best explains this broad signaling pattern?',
+      {'A':'Selective allosteric inhibition of TYK2 alone','B':'Selective irreversible inhibition of JAK3','C':'Neutralization of extracellular interleukin-4 and interleukin-13','D':'Proteasomal degradation of STAT proteins','E':'Inhibition of JAK1, JAK2, JAK3, and TYK2'},'E','Broad JAK1/JAK2/JAK3/TYK2 inhibition',
+      'Delgocitinib is a Janus kinase inhibitor that inhibits JAK1, JAK2, JAK3, and TYK2. Blocking these kinases reduces cytokine-receptor recruitment and activation of STAT proteins and downstream cytokine-responsive gene expression.',
+      {'A':'TYK2-only inhibition would not explain suppression of pathways dependent on JAK1, JAK2, and JAK3.','B':'JAK3-only inhibition is too narrow for the observed kinase profile.','C':'Neutralizing two extracellular cytokines would not suppress multiple unrelated JAK-dependent pathways in the assay.','D':'STAT degradation is not the documented direct mechanism.','E':'Correct. Delgocitinib inhibits all four listed JAK-family kinases.'},
+      'Differentiate broad JAK-family inhibition from isoform-selective inhibition and extracellular cytokine neutralization.','ANZUPGO- delgocitinib cream','a59bf36e-6f04-4b47-b385-8040c95f040c','12.1 Mechanism of Action','A','TYK2-selective inhibition can suppress some cytokine pathways, but concurrent effects across JAK1-, JAK2-, JAK3-, and TYK2-dependent signaling require the broader delgocitinib profile.')
+    b['items']=[xs[n] for n in range(1501,1506)]
+    b['scope']='Five original USMLE Step 1 mechanism-focused items after canonical-collision replacement. Author QA does not substitute for zero-trust evidence-derived auditing.'
+    b['technical_integrity']['source_hashes_complete']=False
+    base.a.OUT.write_text(json.dumps(b,indent=2,ensure_ascii=False)+'\n')
+    assert ''.join(x['item']['intended_key'] for x in b['items'])=='ABCDE'
+    assert 'ncjmm' not in base.a.OUT.read_text().casefold()
+    print(json.dumps({'status':'AUTHOR_BATCH_V3','replaced':[1501,1502,1503,1505],'keys':'ABCDE'}))
+if __name__=='__main__': main()
