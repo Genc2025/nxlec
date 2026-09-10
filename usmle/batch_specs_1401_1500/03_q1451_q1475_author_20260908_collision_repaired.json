@@ -3654,65 +3654,63 @@
     },
     {
       "num": 1475,
-      "drug": "zolbetuximab-clzb",
+      "drug": "donidalorsen",
       "country_scope": "United States",
-      "status": "AUTHOR_QA_PASS_PENDING_DETERMINISTIC_PREFLIGHT_AND_INDEPENDENT_AUDIT",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Gastrointestinal System",
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Immunology"
+          "Biochemistry"
         ],
         "official_outline_path": [
-          "Gastrointestinal System"
+          "Blood & Lymphoreticular/Immune Systems"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Gastric-cancer cells expressing a tight-junction protein are incubated with zolbetuximab-clzb and then with immune effector cells and complement. Antibody-dependent cellular cytotoxicity and complement-dependent cytotoxicity selectively increase in the antigen-positive cells.",
-        "lead_in": "Which cell-surface antigen is directly targeted?",
+        "vignette": "Hepatocytes take up a GalNAc-conjugated antisense oligonucleotide. Prekallikrein mRNA decreases, prekallikrein protein falls, and downstream bradykinin generation is reduced without editing the PKK gene.",
+        "lead_in": "Which direct molecular process best explains these changes?",
         "options": {
-          "A": "HER2",
-          "B": "PD-L1",
-          "C": "EGFR",
-          "D": "Trop-2",
-          "E": "Claudin 18.2"
+          "A": "CRISPR-mediated disruption of the prekallikrein gene",
+          "B": "Monoclonal-antibody neutralization of circulating kallikrein",
+          "C": "Small-molecule inhibition of bradykinin B2 receptors",
+          "D": "siRNA-mediated RISC cleavage of factor XII mRNA",
+          "E": "RNase H1-mediated degradation of prekallikrein mRNA after antisense binding"
         },
         "intended_key": "E",
-        "tested_construct": "CLDN18.2-directed ADCC and CDC",
-        "difficulty": "moderate",
-        "difficulty_basis": "Author estimate based on mechanistic application and distractor discrimination; no empirical item statistics are claimed."
+        "tested_construct": "GalNAc antisense oligonucleotide induction of RNase-H1 degradation of PKK mRNA",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Zolbetuximab-clzb is a CLDN18.2-directed cytolytic antibody that depletes CLDN18.2-positive cells through ADCC and CDC.",
+        "key_explanation": "Donidalorsen is a GalNAc-conjugated antisense oligonucleotide that binds prekallikrein (PKK) mRNA and causes RNase H1-mediated degradation, lowering PKK protein and downstream bradykinin generation.",
         "distractor_explanations": {
-          "A": "HER2 is a gastric-cancer target for other antibodies, but it is not the antigen bound by zolbetuximab.",
-          "B": "PD-L1 blockade alters immune checkpoint signaling rather than directly producing the documented CLDN18.2-selective cytolysis.",
-          "C": "EGFR is not the direct target identified in the current label.",
-          "D": "Trop-2 is targeted by several antibody-drug conjugates but is not the zolbetuximab antigen.",
-          "E": "Zolbetuximab-clzb is a CLDN18.2-directed cytolytic antibody that depletes CLDN18.2-positive cells through ADCC and CDC."
+          "A": "The genomic sequence remains unchanged, excluding genome editing.",
+          "B": "Protein neutralization would not selectively reduce PKK mRNA.",
+          "C": "B2-receptor blockade acts downstream of bradykinin production.",
+          "D": "The labeled nucleic-acid mechanism targets PKK mRNA via antisense/RNase H1, not factor XII via RISC.",
+          "E": "Correct. Antisense binding recruits RNase H1 to degrade PKK mRNA."
         },
-        "educational_objective": "Identify CLDN18.2 as a gastric-cancer surface antigen targeted by an antibody that recruits cellular and complement cytotoxicity."
+        "educational_objective": "Distinguish RNase-H1 antisense oligonucleotide pharmacology from gene editing, protein neutralization, receptor blockade, and siRNA-RISC mechanisms."
       },
       "sources": [
         {
           "source_id": "Q1475-LABEL",
-          "title": "VYLOY- zolbetuximab injection, powder, for suspension",
+          "title": "DAWNZERA- donidalorsen injection, solution",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e7695a21-abb6-47ac-93f8-0ece5a9c4409",
-          "setid": "e7695a21-abb6-47ac-93f8-0ece5a9c4409",
-          "source_section_date": "2024-10-18",
-          "date_basis": "Current DailyMed page checked 2026-09-08; current clinical-pharmacology container shows 2025-06-12 and the mechanism subsection itself is dated 2024-10-18.",
-          "retrieved_at": "2026-09-08",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3ff501e0-f75f-07da-e063-6294a90a0cb7",
+          "setid": "3ff501e0-f75f-07da-e063-6294a90a0cb7",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "verification": "Current label identity, SetID, cited locator, and mechanism claim checked before author-QA.",
-          "rights_note": "Original educational item; prescribing-information facts paraphrased.",
-          "source_page_sha256": "ffaef63ae82628c1cee1cb2178e4571034dee2c08e0460b2ac530d00454d0fff",
-          "cited_section_sha256": "eff38842dc63321c1a9339e3949a8229731602f5a0d6070144b82df91ef96419",
+          "source_page_sha256": "3d4ee8bcba0d549a268573c1b62518ef4c9a6fd94de60861c37e57e3d008232f",
+          "cited_section_sha256": "43a078ba49bc736959a10544fe814380f612e941b8e89221590de6d3437c27a3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "eff38842dc63321c1a9339e3949a8229731602f5a0d6070144b82df91ef96419",
-          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10"
+          "mechanism_section_sha256": "43a078ba49bc736959a10544fe814380f612e941b8e89221590de6d3437c27a3"
         }
       ],
       "evidence_map": [
@@ -3720,84 +3718,83 @@
           "claim_id": "Q1475-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "HER2 is a gastric-cancer target for other antibodies, but it is not the antigen bound by zolbetuximab.",
+          "claim": "The genomic sequence remains unchanged, excluding genome editing.",
           "source_ids": [
             "Q1475-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1475-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "PD-L1 blockade alters immune checkpoint signaling rather than directly producing the documented CLDN18.2-selective cytolysis.",
+          "claim": "Protein neutralization would not selectively reduce PKK mRNA.",
           "source_ids": [
             "Q1475-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1475-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "EGFR is not the direct target identified in the current label.",
+          "claim": "B2-receptor blockade acts downstream of bradykinin production.",
           "source_ids": [
             "Q1475-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1475-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Trop-2 is targeted by several antibody-drug conjugates but is not the zolbetuximab antigen.",
+          "claim": "The labeled nucleic-acid mechanism targets PKK mRNA via antisense/RNase H1, not factor XII via RISC.",
           "source_ids": [
             "Q1475-LABEL"
           ],
           "direct_or_inference": "inference",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1475-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Zolbetuximab-clzb is a CLDN18.2-directed cytolytic antibody that depletes CLDN18.2-positive cells through ADCC and CDC.",
+          "claim": "Correct. Antisense binding recruits RNase H1 to degrade PKK mRNA.",
           "source_ids": [
             "Q1475-LABEL"
           ],
           "direct_or_inference": "direct",
           "source_locator": "12.1 Mechanism of Action",
-          "scope": "Direct labeled mechanism/target claim for the key; distractor status is an item-specific inference from the documented mechanism and stipulated experimental conditions."
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         }
       ],
       "author_qa": {
-        "status": "AUTHOR_QA_PASS",
-        "independent_audit": false,
         "key_correctness": "PASS",
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "A",
-          "resolution": "HER2 is a common gastric-cancer antigen, but the immune-effector mechanism and current VYLOY label specifically identify CLDN18.2.",
+          "option": "D",
+          "resolution": "Both siRNA and antisense therapies reduce specific mRNAs, but donidalorsen uses antisense binding with RNase H1 against PKK mRNA rather than RISC against factor XII.",
           "status": "PASS"
         },
-        "hidden_assumptions": "PASS — experimental findings are stipulated teaching conditions; no treatment superiority, universal response, cure, or unsupported clinical efficacy claim is inferred.",
-        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic is used.",
-        "fabricated_distractors": "PASS — distractors are established biological/pharmacologic mechanisms and are not presented as invented clinical facts.",
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
         "source_identity_setid_url_locator": "PASS",
-        "currentness": "PASS — current source instance checked 2026-09-08; SPL effective/update dates are not mislabeled as PI Revised dates.",
-        "blueprint": "PASS against current Step 1 system/competency/discipline vocabulary.",
-        "difficulty": "Author estimate only; not psychometrically calibrated.",
-        "rationale": "PASS — keyed explanation plus A-E rationales present.",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
         "educational_objective": "PASS",
         "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
         "unresolved_content_defects": []
       }
     }
@@ -3821,5 +3818,11 @@
     "changes": [
       "2026-09-10 aggregate repair: Q1454, Q1471, Q1472, Q1473 replaced with unique constructs after Q1301-Q1500 collision inventory."
     ]
+  },
+  "collision_repair_r3": {
+    "reverified_2026_09_10": true
+  },
+  "collision_repair_r4": {
+    "reverified_2026_09_10": true
   }
 }

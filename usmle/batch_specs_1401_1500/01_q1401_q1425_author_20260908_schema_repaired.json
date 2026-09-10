@@ -52,63 +52,63 @@
   "items": [
     {
       "num": 1401,
-      "drug": "elacestrant",
+      "drug": "deuruxolitinib",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Reproductive & Endocrine Systems",
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Biochemistry"
+          "Immunology"
         ],
         "official_outline_path": [
-          "Reproductive & Endocrine Systems"
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "ER-positive breast-cancer cells are exposed to elacestrant. Estradiol-dependent proliferation falls and ER-alpha protein abundance decreases. Aromatase activity and estrogen synthesis are unchanged.",
-        "lead_in": "Which direct action best explains these findings?",
+        "vignette": "Cultured immune cells are exposed to deuruxolitinib. Cytokine-induced STAT phosphorylation decreases after signaling through receptors that use JAK1/JAK2/TYK2, while a JAK3-selective reporter is less affected.",
+        "lead_in": "Which direct action best explains this pattern?",
         "options": {
-          "A": "Antagonism of estrogen receptor-alpha with receptor degradation",
-          "B": "Inhibition of aromatase",
-          "C": "Agonism of progesterone receptors",
-          "D": "Inhibition of HER2 tyrosine kinase",
-          "E": "Selective estrogen receptor-alpha agonism"
+          "A": "Inhibition of JAK1, JAK2, and TYK2 with lower potency at JAK3",
+          "B": "Selective irreversible inhibition of JAK3",
+          "C": "Allosteric inhibition of TYK2 only",
+          "D": "Neutralization of extracellular interleukin-6",
+          "E": "Direct degradation of STAT3"
         },
         "intended_key": "A",
-        "tested_construct": "ER-alpha antagonism with receptor degradation",
+        "tested_construct": "JAK1/JAK2/TYK2 inhibition with lower potency at JAK3",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Elacestrant is an estrogen-receptor antagonist that binds ER-alpha; in ER-positive breast-cancer cells it inhibits estradiol-mediated proliferation and promotes ER degradation.",
+        "key_explanation": "Deuruxolitinib is a Janus kinase inhibitor with greater in-vitro inhibitory potency for JAK1, JAK2, and TYK2 than for JAK3, reducing downstream STAT signaling.",
         "distractor_explanations": {
-          "A": "Correct. ER-alpha antagonism with receptor degradation explains reduced estrogen signaling despite unchanged estrogen synthesis.",
-          "B": "Aromatase inhibition would reduce estrogen synthesis, which is unchanged in the experiment.",
-          "C": "Progesterone-receptor agonism does not explain ER-alpha loss.",
-          "D": "HER2 kinase inhibition is a different target and does not account for ER-alpha degradation.",
-          "E": "ER-alpha agonism would have the wrong signaling direction."
+          "A": "Correct. The relative kinase profile matches deuruxolitinib.",
+          "B": "Selective JAK3 inhibition has the wrong kinase preference.",
+          "C": "TYK2-only allostery would not explain JAK1/JAK2 pathway inhibition.",
+          "D": "Extracellular IL-6 neutralization would not directly inhibit multiple purified JAK-dependent pathways.",
+          "E": "The documented mechanism is kinase inhibition, not direct STAT degradation."
         },
-        "educational_objective": "Distinguish direct ER-alpha antagonism/degradation from inhibition of estrogen synthesis."
+        "educational_objective": "Use relative JAK-family inhibition to distinguish deuruxolitinib from JAK3-selective and TYK2-selective mechanisms."
       },
       "sources": [
         {
           "source_id": "Q1401-LABEL",
-          "title": "ORSERDU- elacestrant tablet, film coated",
+          "title": "LEQSELVI- deuruxolitinib tablet, film coated",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa66ae5c-2bd2-4444-8178-b55651e054ef",
-          "setid": "aa66ae5c-2bd2-4444-8178-b55651e054ef",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a603f231-d09e-4bad-ad5e-b55f865da095",
+          "setid": "a603f231-d09e-4bad-ad5e-b55f865da095",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "186f62580043ac94672cbbb4e4c4ae63fe30758d7070140b8e829aad1a5af4dd",
-          "cited_section_sha256": "4f0fb16e55b12300dd41f0c2d0e5ce8d407030c4499fd96c79dd9ca6d18112cb",
+          "source_page_sha256": "e56972695d3d6311134eb81a54b19c341b801988f2b944113144abe225d6b0b7",
+          "cited_section_sha256": "ec8acf93fec24ead2be338039000a01164b214c1f380756d9f0b6cac18d60a6e",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "4f0fb16e55b12300dd41f0c2d0e5ce8d407030c4499fd96c79dd9ca6d18112cb"
+          "mechanism_section_sha256": "ec8acf93fec24ead2be338039000a01164b214c1f380756d9f0b6cac18d60a6e"
         }
       ],
       "evidence_map": [
@@ -116,7 +116,7 @@
           "claim_id": "Q1401-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Correct. ER-alpha antagonism with receptor degradation explains reduced estrogen signaling despite unchanged estrogen synthesis.",
+          "claim": "Correct. The relative kinase profile matches deuruxolitinib.",
           "source_ids": [
             "Q1401-LABEL"
           ],
@@ -128,7 +128,7 @@
           "claim_id": "Q1401-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Aromatase inhibition would reduce estrogen synthesis, which is unchanged in the experiment.",
+          "claim": "Selective JAK3 inhibition has the wrong kinase preference.",
           "source_ids": [
             "Q1401-LABEL"
           ],
@@ -140,7 +140,7 @@
           "claim_id": "Q1401-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Progesterone-receptor agonism does not explain ER-alpha loss.",
+          "claim": "TYK2-only allostery would not explain JAK1/JAK2 pathway inhibition.",
           "source_ids": [
             "Q1401-LABEL"
           ],
@@ -152,7 +152,7 @@
           "claim_id": "Q1401-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "HER2 kinase inhibition is a different target and does not account for ER-alpha degradation.",
+          "claim": "Extracellular IL-6 neutralization would not directly inhibit multiple purified JAK-dependent pathways.",
           "source_ids": [
             "Q1401-LABEL"
           ],
@@ -164,7 +164,7 @@
           "claim_id": "Q1401-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "ER-alpha agonism would have the wrong signaling direction.",
+          "claim": "The documented mechanism is kinase inhibition, not direct STAT degradation.",
           "source_ids": [
             "Q1401-LABEL"
           ],
@@ -178,8 +178,8 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "B",
-          "resolution": "Both strategies can reduce estrogen-driven growth, but aromatase inhibition lowers estrogen synthesis whereas the stem preserves synthesis and shows loss of ER-alpha protein.",
+          "option": "C",
+          "resolution": "TYK2 inhibition is plausible because TYK2 is affected, but the simultaneous JAK1 and JAK2 effects make a TYK2-only mechanism insufficient.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -198,63 +198,63 @@
     },
     {
       "num": 1402,
-      "drug": "mavorixafor",
+      "drug": "revakinagene taroretcel-lwey",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Immunology"
+          "Histology & Cell Biology"
         ],
         "official_outline_path": [
-          "Blood & Lymphoreticular/Immune Systems"
+          "Behavioral Health & Nervous Systems/Special Senses"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Leukocytes carrying a gain-of-function CXCR4 variant are exposed to mavorixafor. Their response to CXCL12 decreases and cells are released from a bone-marrow-like compartment into the surrounding medium.",
-        "lead_in": "Which direct action best explains this result?",
+        "vignette": "An intravitreal encapsulated-cell implant contains allogeneic retinal pigment epithelial cells engineered to express recombinant human ciliary neurotrophic factor. After implantation, rhCNTF is detected locally while the host retinal genome is unchanged.",
+        "lead_in": "Which direct property of the implant best explains the local biologic effect?",
         "options": {
-          "A": "Agonism of CXCR4",
-          "B": "Antagonism of CXCR4 that blocks CXCL12 signaling",
-          "C": "Neutralization of granulocyte colony-stimulating factor",
-          "D": "Inhibition of C5a receptor signaling",
-          "E": "Activation of integrin alpha-4 beta-1"
+          "A": "Permanent editing of host photoreceptor DNA",
+          "B": "Secretion of recombinant human ciliary neurotrophic factor by encapsulated engineered cells",
+          "C": "Neutralization of vascular endothelial growth factor",
+          "D": "Replacement of retinal pigment epithelium by unrestricted donor-cell engraftment",
+          "E": "Inhibition of complement C5"
         },
         "intended_key": "B",
-        "tested_construct": "CXCR4 antagonism and leukocyte mobilization",
+        "tested_construct": "Encapsulated engineered-cell secretion of recombinant human CNTF",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Mavorixafor antagonizes CXCR4 and blocks binding/signaling by CXCL12, reducing pathologic retention of leukocytes and promoting their mobilization from bone marrow.",
+        "key_explanation": "Revakinagene taroretcel-lwey is an encapsulated allogeneic cell-based gene therapy whose engineered retinal pigment epithelial cells secrete recombinant human ciliary neurotrophic factor (rhCNTF).",
         "distractor_explanations": {
-          "A": "CXCR4 agonism would reinforce rather than block CXCL12 signaling.",
-          "B": "Correct. CXCR4 antagonism blocks the CXCL12 retention signal and permits leukocyte mobilization.",
-          "C": "G-CSF neutralization is not the documented direct target.",
-          "D": "C5aR blockade affects complement-mediated chemotaxis, not the stipulated CXCL12-CXCR4 axis.",
-          "E": "Alpha-4 beta-1 activation would not explain loss of CXCL12 responsiveness."
+          "A": "The implant does not require editing the recipient retinal genome.",
+          "B": "Correct. Encapsulated engineered cells locally secrete rhCNTF.",
+          "C": "Anti-VEGF neutralization is a different retinal pharmacologic strategy.",
+          "D": "The defining mechanism is secretion from encapsulated cells rather than unrestricted donor-cell tissue replacement.",
+          "E": "Complement C5 blockade does not explain rhCNTF detection from the implant."
         },
-        "educational_objective": "Link CXCR4 antagonism to release of leukocytes from abnormal CXCL12-dependent marrow retention."
+        "educational_objective": "Distinguish an encapsulated engineered-cell protein-delivery strategy from host genome editing, anti-VEGF therapy, and cell replacement."
       },
       "sources": [
         {
           "source_id": "Q1402-LABEL",
-          "title": "XOLREMDI- mavorixafor capsule, gelatin coated",
+          "title": "ENCELTO- revakinagene taroretcel-lwey implant",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7f3a5ee3-ca73-4876-85a0-ed1e108a2237",
-          "setid": "7f3a5ee3-ca73-4876-85a0-ed1e108a2237",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1ae9482a-b478-4e21-9166-b5fd52d3ef9c",
+          "setid": "1ae9482a-b478-4e21-9166-b5fd52d3ef9c",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "bfc89c7c96b22806bb56fb9ddf0efce3c1f2191c5c8b85c61acab1b764a5fda1",
-          "cited_section_sha256": "6c462bfac1b521540172d6ba4bc7a601f7a88ff99ce7bbc357508ef362d6281a",
+          "source_page_sha256": "67a60560c404187f5b711596e51eb8320fb9894907bdf575f655fc89dba529b8",
+          "cited_section_sha256": "036168f04583c15da775853144c69bcc1b4b76ddf11de905f2d79575c9e03b8b",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "6c462bfac1b521540172d6ba4bc7a601f7a88ff99ce7bbc357508ef362d6281a"
+          "mechanism_section_sha256": "036168f04583c15da775853144c69bcc1b4b76ddf11de905f2d79575c9e03b8b"
         }
       ],
       "evidence_map": [
@@ -262,7 +262,7 @@
           "claim_id": "Q1402-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "CXCR4 agonism would reinforce rather than block CXCL12 signaling.",
+          "claim": "The implant does not require editing the recipient retinal genome.",
           "source_ids": [
             "Q1402-LABEL"
           ],
@@ -274,7 +274,7 @@
           "claim_id": "Q1402-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Correct. CXCR4 antagonism blocks the CXCL12 retention signal and permits leukocyte mobilization.",
+          "claim": "Correct. Encapsulated engineered cells locally secrete rhCNTF.",
           "source_ids": [
             "Q1402-LABEL"
           ],
@@ -286,7 +286,7 @@
           "claim_id": "Q1402-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "G-CSF neutralization is not the documented direct target.",
+          "claim": "Anti-VEGF neutralization is a different retinal pharmacologic strategy.",
           "source_ids": [
             "Q1402-LABEL"
           ],
@@ -298,7 +298,7 @@
           "claim_id": "Q1402-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "C5aR blockade affects complement-mediated chemotaxis, not the stipulated CXCL12-CXCR4 axis.",
+          "claim": "The defining mechanism is secretion from encapsulated cells rather than unrestricted donor-cell tissue replacement.",
           "source_ids": [
             "Q1402-LABEL"
           ],
@@ -310,7 +310,7 @@
           "claim_id": "Q1402-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Alpha-4 beta-1 activation would not explain loss of CXCL12 responsiveness.",
+          "claim": "Complement C5 blockade does not explain rhCNTF detection from the implant.",
           "source_ids": [
             "Q1402-LABEL"
           ],
@@ -324,8 +324,8 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "A",
-          "resolution": "The gain-of-function disease mechanism makes CXCR4 agonism superficially plausible as a pathway clue, but the observed loss of CXCL12 response requires receptor antagonism.",
+          "option": "D",
+          "resolution": "Donor-cell replacement is superficially plausible because the product contains allogeneic retinal pigment epithelial cells, but the cells are encapsulated and the labeled pharmacologic output is rhCNTF secretion.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -1512,7 +1512,7 @@
     },
     {
       "num": 1411,
-      "drug": "pirtobrutinib",
+      "drug": "linvoseltamab-gcpt",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
@@ -1520,7 +1520,7 @@
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Biochemistry"
+          "Immunology"
         ],
         "official_outline_path": [
           "Blood & Lymphoreticular/Immune Systems"
@@ -1528,47 +1528,47 @@
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "B cells expressing either wild-type BTK or a BTK C481S variant are exposed to pirtobrutinib. BTK kinase activity and downstream B-cell receptor signaling fall in both cell populations.",
-        "lead_in": "Which direct action best explains these findings?",
+        "vignette": "Multiple-myeloma cells expressing BCMA are cocultured with T cells. Linvoseltamab-gcpt causes T-cell activation, cytokine release, and myeloma-cell lysis only when both cell populations are present.",
+        "lead_in": "Which direct binding pattern best explains these findings?",
         "options": {
-          "A": "Noncovalent inhibition of BTK, including C481-mutant BTK",
-          "B": "Irreversible covalent inhibition requiring BTK C481",
-          "C": "Inhibition of PI3K-delta",
-          "D": "Antagonism of CD20",
-          "E": "Inhibition of BCL-2"
+          "A": "Simultaneous binding to CD3 on T cells and BCMA on myeloma cells",
+          "B": "Binding to CD20 on B cells and FcRn on endothelium",
+          "C": "Neutralization of soluble BCMA without T-cell engagement",
+          "D": "Binding to PD-1 and PD-L1 simultaneously",
+          "E": "Direct inhibition of proteasomes within myeloma cells"
         },
         "intended_key": "A",
-        "tested_construct": "Noncovalent BTK inhibition independent of C481 covalent binding",
+        "tested_construct": "Bispecific CD3-by-BCMA T-cell engagement",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Pirtobrutinib is a noncovalent BTK inhibitor that binds wild-type BTK and BTK harboring C481 mutations, thereby inhibiting BTK kinase activity and downstream B-cell signaling.",
+        "key_explanation": "Linvoseltamab-gcpt is a bispecific T-cell-engaging antibody that binds CD3 on T cells and BCMA on multiple-myeloma cells, activating T cells and causing tumor-cell lysis.",
         "distractor_explanations": {
-          "A": "Correct. Noncovalent BTK binding explains inhibition despite the C481 mutation.",
-          "B": "A mechanism requiring covalent C481 binding would be impaired by the stipulated C481S substitution.",
-          "C": "PI3K-delta is downstream/parallel B-cell signaling but is not the documented direct target.",
-          "D": "CD20 antagonism is an antibody-mediated surface-cell target mechanism, not kinase inhibition.",
-          "E": "BCL-2 inhibition primarily alters apoptosis rather than directly inhibiting BTK kinase activity."
+          "A": "Correct. Dual CD3 and BCMA binding physically redirects T-cell cytotoxicity toward BCMA-expressing cells.",
+          "B": "CD20/FcRn binding does not match the labeled targets.",
+          "C": "Soluble-ligand neutralization alone would not explain T-cell-dependent killing.",
+          "D": "Checkpoint-pair binding is a different immunotherapy mechanism.",
+          "E": "Proteasome inhibition acts intracellularly and does not require T-cell coculture."
         },
-        "educational_objective": "Use a BTK C481 mutation to distinguish noncovalent BTK inhibition from covalent C481-dependent inhibition."
+        "educational_objective": "Recognize bispecific T-cell engagement from simultaneous CD3 and tumor-antigen binding with T-cell-dependent cytotoxicity."
       },
       "sources": [
         {
           "source_id": "Q1411-LABEL",
-          "title": "JAYPIRCA- pirtobrutinib tablet, film coated",
+          "title": "LYNOZYFIC- linvoseltamab-gcpt injection, solution, concentrate",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bd551845-0878-49a4-860f-839b83f6b801",
-          "setid": "bd551845-0878-49a4-860f-839b83f6b801",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e9fd0739-1b3f-4b8b-824a-1f0a902384d3",
+          "setid": "e9fd0739-1b3f-4b8b-824a-1f0a902384d3",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "fdfe93dc25a2aa6cfd4989d91b3f587dc3e25a763d16f2cf44c0c443d96fdea7",
-          "cited_section_sha256": "3870392795303b3413c4f888274bfb101e5abb5c34601afb6fd0c49c8af1745d",
+          "source_page_sha256": "18b7c1f03594b6ed676087b56a92bc6d14d34b918cfa6dd0d477dc2c014a099f",
+          "cited_section_sha256": "5e2e03241a5d09b989fe6c0e3fe0774e724bb9cac50b1cbf206a34e4dc22f8c3",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "3870392795303b3413c4f888274bfb101e5abb5c34601afb6fd0c49c8af1745d"
+          "mechanism_section_sha256": "5e2e03241a5d09b989fe6c0e3fe0774e724bb9cac50b1cbf206a34e4dc22f8c3"
         }
       ],
       "evidence_map": [
@@ -1576,7 +1576,7 @@
           "claim_id": "Q1411-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Correct. Noncovalent BTK binding explains inhibition despite the C481 mutation.",
+          "claim": "Correct. Dual CD3 and BCMA binding physically redirects T-cell cytotoxicity toward BCMA-expressing cells.",
           "source_ids": [
             "Q1411-LABEL"
           ],
@@ -1588,7 +1588,7 @@
           "claim_id": "Q1411-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "A mechanism requiring covalent C481 binding would be impaired by the stipulated C481S substitution.",
+          "claim": "CD20/FcRn binding does not match the labeled targets.",
           "source_ids": [
             "Q1411-LABEL"
           ],
@@ -1600,7 +1600,7 @@
           "claim_id": "Q1411-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "PI3K-delta is downstream/parallel B-cell signaling but is not the documented direct target.",
+          "claim": "Soluble-ligand neutralization alone would not explain T-cell-dependent killing.",
           "source_ids": [
             "Q1411-LABEL"
           ],
@@ -1612,7 +1612,7 @@
           "claim_id": "Q1411-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "CD20 antagonism is an antibody-mediated surface-cell target mechanism, not kinase inhibition.",
+          "claim": "Checkpoint-pair binding is a different immunotherapy mechanism.",
           "source_ids": [
             "Q1411-LABEL"
           ],
@@ -1624,7 +1624,7 @@
           "claim_id": "Q1411-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "BCL-2 inhibition primarily alters apoptosis rather than directly inhibiting BTK kinase activity.",
+          "claim": "Proteasome inhibition acts intracellularly and does not require T-cell coculture.",
           "source_ids": [
             "Q1411-LABEL"
           ],
@@ -1638,8 +1638,8 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "B",
-          "resolution": "A covalent BTK inhibitor is the strongest alternative, but the C481S result specifically favors a noncovalent BTK inhibitor that does not require that residue for irreversible binding.",
+          "option": "C",
+          "resolution": "BCMA targeting alone is plausible, but the dependence on T cells and CD3 engagement uniquely identifies a BCMA-by-CD3 bispecific mechanism.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -1950,7 +1950,7 @@
     },
     {
       "num": 1414,
-      "drug": "lenacapavir",
+      "drug": "avutometinib/defactinib",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
@@ -1958,7 +1958,7 @@
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Microbiology"
+          "Biochemistry"
         ],
         "official_outline_path": [
           "Multisystem Processes & Disorders"
@@ -1966,47 +1966,47 @@
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "HIV-1 capsid hexamers are exposed to lenacapavir. Binding occurs at an interface between capsid protein subunits; infected cells subsequently show defects in nuclear import, virion assembly, and capsid-core formation.",
-        "lead_in": "Which direct target best explains these multistage effects?",
+        "vignette": "KRAS-mutant tumor cells are exposed to a two-drug regimen. One component promotes inactive RAF-MEK complexes and prevents RAF-mediated MEK1/2 phosphorylation; the other reduces focal adhesion kinase autophosphorylation.",
+        "lead_in": "Which paired direct actions best explain the findings?",
         "options": {
-          "A": "HIV-1 reverse transcriptase active site",
-          "B": "CCR5 coreceptor",
-          "C": "HIV-1 integrase strand-transfer site",
-          "D": "Interface between HIV-1 capsid p24 subunits",
-          "E": "HIV-1 protease catalytic site"
+          "A": "BRAF V600E inhibition plus PI3K-alpha inhibition",
+          "B": "ERK1/2 inhibition plus SRC inhibition",
+          "C": "KRAS G12C inhibition plus mTOR inhibition",
+          "D": "MEK1-pathway inhibition by avutometinib plus FAK/Pyk2 inhibition by defactinib",
+          "E": "HER2 inhibition plus MET inhibition"
         },
         "intended_key": "D",
-        "tested_construct": "Direct binding to HIV-1 capsid subunit interfaces",
+        "tested_construct": "Combined RAF-MEK pathway modulation and FAK/Pyk2 inhibition",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Lenacapavir is a multistage selective inhibitor of HIV-1 capsid function that directly binds the interface between p24 capsid subunits in hexamers, disrupting several capsid-dependent lifecycle steps.",
+        "key_explanation": "Avutometinib is a MEK1 inhibitor that induces inactive RAF/MEK complexes and prevents RAF phosphorylation of MEK1/2; defactinib inhibits FAK and Pyk2.",
         "distractor_explanations": {
-          "A": "Reverse-transcriptase inhibition does not explain direct capsid-hexamer binding.",
-          "B": "CCR5 antagonism blocks entry and would not account for the capsid binding assay.",
-          "C": "Integrase inhibition blocks proviral integration rather than multiple capsid-dependent steps.",
-          "D": "Correct. Lenacapavir directly binds the p24 capsid-subunit interface.",
-          "E": "Protease inhibition impairs polyprotein processing but is not the directly measured capsid target."
+          "A": "Neither paired target matches the documented components.",
+          "B": "Downstream ERK and SRC inhibition are not the labeled direct pair.",
+          "C": "The regimen is not a KRAS-G12C/mTOR inhibitor combination.",
+          "D": "Correct. Avutometinib modulates RAF-MEK signaling while defactinib inhibits FAK/Pyk2.",
+          "E": "HER2/MET inhibition is unrelated to the specified biochemical assays."
         },
-        "educational_objective": "Recognize HIV capsid inhibition as a multistage antiviral mechanism distinct from reverse transcriptase, integrase, entry, and protease inhibition."
+        "educational_objective": "Distinguish combined RAF-MEK pathway modulation plus FAK-family inhibition from other kinase-pair strategies."
       },
       "sources": [
         {
           "source_id": "Q1414-LABEL",
-          "title": "SUNLENCA- lenacapavir tablet and injection",
+          "title": "AVMAPKI FAKZYNJA CO-PACK- avutometinib potassium and defactinib hydrochloride kit",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e5652804-29c4-40d7-aeb2-0142ed2a7b5b",
-          "setid": "e5652804-29c4-40d7-aeb2-0142ed2a7b5b",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=65889527-1406-45df-8a85-e2690dcf427d",
+          "setid": "65889527-1406-45df-8a85-e2690dcf427d",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
-          "section_locator": "12.4 Microbiology; Mechanism of Action",
-          "source_page_sha256": "07c26b4eef92c00fbb0fbccec72628a3212e32d1e519220fa4e1b82409f15683",
-          "cited_section_sha256": "25c6fa11689916d875c2da4cda5b9dee5c2772dfb76db268f2262e454a13cd69",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "4902c79bd4a4a09e3e08556ce4be6a3b7ab26ac6d11d8dd063fb9785d2f0d6bc",
+          "cited_section_sha256": "267a5762ecd4bb2c0a8fa2d2c1754f07146f282141fd3b28e9d7c7223f20bfd3",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
-          "cited_locator_component_count": 2,
-          "mechanism_section_sha256": "25c6fa11689916d875c2da4cda5b9dee5c2772dfb76db268f2262e454a13cd69"
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "267a5762ecd4bb2c0a8fa2d2c1754f07146f282141fd3b28e9d7c7223f20bfd3"
         }
       ],
       "evidence_map": [
@@ -2014,60 +2014,60 @@
           "claim_id": "Q1414-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Reverse-transcriptase inhibition does not explain direct capsid-hexamer binding.",
+          "claim": "Neither paired target matches the documented components.",
           "source_ids": [
             "Q1414-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_locator": "12.1 Mechanism of Action",
           "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1414-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "CCR5 antagonism blocks entry and would not account for the capsid binding assay.",
+          "claim": "Downstream ERK and SRC inhibition are not the labeled direct pair.",
           "source_ids": [
             "Q1414-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_locator": "12.1 Mechanism of Action",
           "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1414-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Integrase inhibition blocks proviral integration rather than multiple capsid-dependent steps.",
+          "claim": "The regimen is not a KRAS-G12C/mTOR inhibitor combination.",
           "source_ids": [
             "Q1414-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_locator": "12.1 Mechanism of Action",
           "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1414-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Correct. Lenacapavir directly binds the p24 capsid-subunit interface.",
+          "claim": "Correct. Avutometinib modulates RAF-MEK signaling while defactinib inhibits FAK/Pyk2.",
           "source_ids": [
             "Q1414-LABEL"
           ],
           "direct_or_inference": "direct",
-          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_locator": "12.1 Mechanism of Action",
           "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         },
         {
           "claim_id": "Q1414-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Protease inhibition impairs polyprotein processing but is not the directly measured capsid target.",
+          "claim": "HER2/MET inhibition is unrelated to the specified biochemical assays.",
           "source_ids": [
             "Q1414-LABEL"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_locator": "12.1 Mechanism of Action",
           "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
         }
       ],
@@ -2076,8 +2076,8 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "C",
-          "resolution": "Both capsid and integrase mechanisms can impair nuclear events, but direct saturable binding to capsid hexamers and additional assembly/core defects identify capsid inhibition.",
+          "option": "B",
+          "resolution": "ERK phosphorylation can fall downstream of MEK inhibition, but the direct observations of inactive RAF-MEK complexes and FAK autophosphorylation identify the specific two-component regimen.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -3265,63 +3265,63 @@
     },
     {
       "num": 1423,
-      "drug": "fezolinetant",
+      "drug": "cosibelimab-ipdl",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Reproductive & Endocrine Systems",
+        "primary_system": "Multisystem Processes & Disorders",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Physiology"
+          "Immunology"
         ],
         "official_outline_path": [
-          "Reproductive & Endocrine Systems"
+          "Multisystem Processes & Disorders"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "A hypothalamic thermoregulatory preparation containing KNDy neurons is exposed to fezolinetant. Neurokinin-B-driven signaling decreases without suppression of estrogen synthesis or activation of opioid receptors.",
-        "lead_in": "Which receptor is directly antagonized?",
+        "vignette": "Tumor cells expressing PD-L1 are cocultured with activated T cells and Fc-receptor-bearing effector cells. Cosibelimab-ipdl restores T-cell activity and also produces antibody-dependent cellular cytotoxicity in vitro.",
+        "lead_in": "Which direct target best accounts for both effects?",
         "options": {
-          "A": "Estrogen receptor-alpha",
-          "B": "Neurokinin-1 receptor",
-          "C": "Neurokinin-3 receptor",
-          "D": "Mu-opioid receptor",
-          "E": "GnRH receptor"
+          "A": "PD-1 on T cells",
+          "B": "CTLA-4 on T cells",
+          "C": "PD-L1 on tumor and immune cells",
+          "D": "B7.1 only",
+          "E": "CD20 on B cells"
         },
         "intended_key": "C",
-        "tested_construct": "Neurokinin-3 receptor antagonism on KNDy neurons",
+        "tested_construct": "PD-L1 blockade of PD-1/B7.1 interactions with ADCC capability",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Fezolinetant is a neurokinin-3 receptor antagonist that blocks neurokinin B signaling on KNDy neurons in the thermoregulatory center.",
+        "key_explanation": "Cosibelimab-ipdl binds PD-L1, blocks PD-L1 interactions with PD-1 and B7.1 to release inhibitory antitumor signaling, and has also demonstrated ADCC in vitro.",
         "distractor_explanations": {
-          "A": "The mechanism is not estrogen-receptor blockade and estrogen synthesis is not directly suppressed.",
-          "B": "Fezolinetant has much greater affinity for NK3 than NK1 and is documented as an NK3 antagonist.",
-          "C": "Correct. Blocking NK3 prevents neurokinin-B signaling in thermoregulatory KNDy neurons.",
-          "D": "Mu-opioid signaling is not the documented direct target.",
-          "E": "GnRH-receptor antagonism would act at a different neuroendocrine target."
+          "A": "PD-1 blockade can restore T-cell activity but does not match direct PD-L1 binding and the labeled ADCC property.",
+          "B": "CTLA-4 is a different checkpoint target.",
+          "C": "Correct. PD-L1 binding explains checkpoint release and the antibody-mediated effector-cell result.",
+          "D": "B7.1 is one interacting receptor, not the antibody target itself.",
+          "E": "CD20 targeting would not match the PD-L1-dependent assay."
         },
-        "educational_objective": "Connect neurokinin-B signaling in hypothalamic KNDy neurons with NK3-receptor antagonism."
+        "educational_objective": "Distinguish PD-L1-directed checkpoint blockade with Fc-effector activity from PD-1- and CTLA-4-directed mechanisms."
       },
       "sources": [
         {
           "source_id": "Q1423-LABEL",
-          "title": "VEOZAH- fezolinetant tablet, film coated",
+          "title": "UNLOXCYT- cosibelimab-ipdl injection",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cae9f798-24f9-4580-a4fc-e6c710cbda3c",
-          "setid": "cae9f798-24f9-4580-a4fc-e6c710cbda3c",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=06bdadd5-d2db-406f-a3f8-de47f48a52e3",
+          "setid": "06bdadd5-d2db-406f-a3f8-de47f48a52e3",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "693a27822addbce8efdd5c353171b1ded546a89be5affa7ac30ba7f78e13574c",
-          "cited_section_sha256": "9c281e3b120d20c7c0d73722ed280a0f845c8a304f2b8174e537b734f5f20be3",
+          "source_page_sha256": "311ef276ed75e36d9bc46a85b4a57a176af291a9277dff951e8478822327fcbc",
+          "cited_section_sha256": "21e96e7e7c30ab05f217cdcfedadd572f8daac2c19a823c55fc3045d3fb87c75",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "9c281e3b120d20c7c0d73722ed280a0f845c8a304f2b8174e537b734f5f20be3"
+          "mechanism_section_sha256": "21e96e7e7c30ab05f217cdcfedadd572f8daac2c19a823c55fc3045d3fb87c75"
         }
       ],
       "evidence_map": [
@@ -3329,7 +3329,7 @@
           "claim_id": "Q1423-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "The mechanism is not estrogen-receptor blockade and estrogen synthesis is not directly suppressed.",
+          "claim": "PD-1 blockade can restore T-cell activity but does not match direct PD-L1 binding and the labeled ADCC property.",
           "source_ids": [
             "Q1423-LABEL"
           ],
@@ -3341,7 +3341,7 @@
           "claim_id": "Q1423-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Fezolinetant has much greater affinity for NK3 than NK1 and is documented as an NK3 antagonist.",
+          "claim": "CTLA-4 is a different checkpoint target.",
           "source_ids": [
             "Q1423-LABEL"
           ],
@@ -3353,7 +3353,7 @@
           "claim_id": "Q1423-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Correct. Blocking NK3 prevents neurokinin-B signaling in thermoregulatory KNDy neurons.",
+          "claim": "Correct. PD-L1 binding explains checkpoint release and the antibody-mediated effector-cell result.",
           "source_ids": [
             "Q1423-LABEL"
           ],
@@ -3365,7 +3365,7 @@
           "claim_id": "Q1423-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Mu-opioid signaling is not the documented direct target.",
+          "claim": "B7.1 is one interacting receptor, not the antibody target itself.",
           "source_ids": [
             "Q1423-LABEL"
           ],
@@ -3377,7 +3377,7 @@
           "claim_id": "Q1423-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "GnRH-receptor antagonism would act at a different neuroendocrine target.",
+          "claim": "CD20 targeting would not match the PD-L1-dependent assay.",
           "source_ids": [
             "Q1423-LABEL"
           ],
@@ -3392,7 +3392,7 @@
         "single_best_answer": "PASS",
         "second_answer_attack": {
           "option": "A",
-          "resolution": "Menopausal thermoregulation makes estrogen pathways plausible, but the drug acts directly on NK3 receptors rather than by blocking estrogen receptors or synthesis.",
+          "resolution": "PD-1 blockade is the strongest checkpoint alternative, but direct PD-L1 occupancy and in-vitro ADCC select cosibelimab-ipdl.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -3716,5 +3716,11 @@
     "source_hashes_computed": false,
     "technical_freeze_complete": false,
     "independent_audit_complete": false
+  },
+  "collision_repair_r3": {
+    "reverified_2026_09_10": true
+  },
+  "collision_repair_r4": {
+    "reverified_2026_09_10": true
   }
 }

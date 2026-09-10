@@ -1368,7 +1368,7 @@
     },
     {
       "num": 1435,
-      "drug": "ensifentrine",
+      "drug": "taletrectinib",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
@@ -1384,47 +1384,47 @@
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Airway smooth-muscle cells are exposed to ensifentrine. Intracellular cyclic nucleotide concentrations rise while assays show inhibition of two phosphodiesterase families rather than beta-adrenergic receptor activation.",
-        "lead_in": "Which enzyme pair is directly inhibited?",
+        "vignette": "A non-small-cell lung cancer cell line contains a ROS1 fusion with a resistance-associated kinase-domain mutation. Taletrectinib suppresses ROS1-driven proliferation; a parallel assay also shows activity against TRKA, TRKB, and TRKC.",
+        "lead_in": "Which direct target profile best explains these findings?",
         "options": {
-          "A": "PDE1 and PDE2",
-          "B": "PDE4 and PDE5",
-          "C": "PDE5 and PDE6",
-          "D": "PDE2 and PDE7",
-          "E": "PDE3 and PDE4"
+          "A": "Selective EGFR exon-20 inhibition",
+          "B": "ALK inhibition without ROS1 activity",
+          "C": "MET inhibition only",
+          "D": "KRAS G12C inhibition",
+          "E": "ROS1 kinase inhibition, including resistance mutations, with additional TRK inhibition"
         },
         "intended_key": "E",
-        "tested_construct": "Dual PDE3/PDE4 inhibition",
+        "tested_construct": "ROS1 kinase inhibition including resistant variants with TRK activity",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Ensifentrine inhibits PDE3 and PDE4. PDE3 hydrolyzes cAMP and can hydrolyze cGMP, whereas PDE4 hydrolyzes cAMP; inhibition increases intracellular cyclic nucleotide signaling.",
+        "key_explanation": "Taletrectinib inhibits ROS1 tyrosine kinase, including ROS1 resistance mutations, and also shows inhibitory activity against TRKA, TRKB, and TRKC.",
         "distractor_explanations": {
-          "A": "These are not the phosphodiesterase families identified for ensifentrine.",
-          "B": "PDE5 is not part of the documented target pair.",
-          "C": "PDE5/PDE6 inhibition is a different pharmacologic profile.",
-          "D": "PDE2/PDE7 inhibition does not match the labeled mechanism.",
-          "E": "Correct. Ensifentrine directly inhibits PDE3 and PDE4."
+          "A": "EGFR inhibition does not match the ROS1-fusion assay.",
+          "B": "The drug directly inhibits ROS1 rather than lacking ROS1 activity.",
+          "C": "MET-only inhibition would not explain ROS1-driven suppression.",
+          "D": "KRAS G12C is a different oncogenic target.",
+          "E": "Correct. The documented profile includes ROS1, resistant ROS1 variants, and TRK kinases."
         },
-        "educational_objective": "Differentiate dual PDE3/PDE4 inhibition from other phosphodiesterase target profiles."
+        "educational_objective": "Differentiate a ROS1 inhibitor active against resistance variants from EGFR, ALK-only, MET, and KRAS-targeted strategies."
       },
       "sources": [
         {
           "source_id": "Q1435-LABEL",
-          "title": "OHTUVAYRE- ensifentrine suspension",
+          "title": "IBTROZI- taletrectinib capsule",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
-          "setid": "e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=51ac8e52-3269-4102-8dc8-dba22d82128c",
+          "setid": "51ac8e52-3269-4102-8dc8-dba22d82128c",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "ee61185afd3c0b5ed3b9f8e220f7e858f9eb89ba245364ce001b5936eac1b163",
-          "cited_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e",
+          "source_page_sha256": "9797d42426fa41010d02d49396acca4e28937c3bf2d61cc27766555e9f48330c",
+          "cited_section_sha256": "7dce1ce9ce423646d82ef3a08426d35818128486fbb561730aefe5e260be6ef9",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e"
+          "mechanism_section_sha256": "7dce1ce9ce423646d82ef3a08426d35818128486fbb561730aefe5e260be6ef9"
         }
       ],
       "evidence_map": [
@@ -1432,7 +1432,7 @@
           "claim_id": "Q1435-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "These are not the phosphodiesterase families identified for ensifentrine.",
+          "claim": "EGFR inhibition does not match the ROS1-fusion assay.",
           "source_ids": [
             "Q1435-LABEL"
           ],
@@ -1444,7 +1444,7 @@
           "claim_id": "Q1435-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "PDE5 is not part of the documented target pair.",
+          "claim": "The drug directly inhibits ROS1 rather than lacking ROS1 activity.",
           "source_ids": [
             "Q1435-LABEL"
           ],
@@ -1456,7 +1456,7 @@
           "claim_id": "Q1435-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "PDE5/PDE6 inhibition is a different pharmacologic profile.",
+          "claim": "MET-only inhibition would not explain ROS1-driven suppression.",
           "source_ids": [
             "Q1435-LABEL"
           ],
@@ -1468,7 +1468,7 @@
           "claim_id": "Q1435-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "PDE2/PDE7 inhibition does not match the labeled mechanism.",
+          "claim": "KRAS G12C is a different oncogenic target.",
           "source_ids": [
             "Q1435-LABEL"
           ],
@@ -1480,7 +1480,7 @@
           "claim_id": "Q1435-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Correct. Ensifentrine directly inhibits PDE3 and PDE4.",
+          "claim": "Correct. The documented profile includes ROS1, resistant ROS1 variants, and TRK kinases.",
           "source_ids": [
             "Q1435-LABEL"
           ],
@@ -1495,7 +1495,7 @@
         "single_best_answer": "PASS",
         "second_answer_attack": {
           "option": "B",
-          "resolution": "PDE4 inhibition alone is familiar in pulmonary pharmacology, but the named agent directly inhibits both PDE3 and PDE4.",
+          "resolution": "ALK-directed agents can overlap clinically with ROS1-positive NSCLC, but the stipulated resistant ROS1 inhibition and TRK activity select taletrectinib.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -2100,63 +2100,63 @@
     },
     {
       "num": 1440,
-      "drug": "donanemab-azbt",
+      "drug": "vimseltinib",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_system": "Multisystem Processes & Disorders",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Immunology"
+          "Biochemistry"
         ],
         "official_outline_path": [
-          "Behavioral Health & Nervous Systems/Special Senses"
+          "Multisystem Processes & Disorders"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "A monoclonal antibody binds an insoluble, N-terminally truncated pyroglutamate-containing form of amyloid beta in brain tissue. Serial amyloid PET demonstrates a reduction in plaque burden.",
-        "lead_in": "Which target is directly recognized by this antibody?",
+        "vignette": "Cells expressing colony-stimulating factor 1 receptor are stimulated with CSF1. Vimseltinib decreases receptor autophosphorylation, downstream signaling, and proliferation while unrelated receptor tyrosine kinase activity is preserved.",
+        "lead_in": "Which direct target best explains these findings?",
         "options": {
-          "A": "Soluble monomeric tau",
-          "B": "Alpha-synuclein fibrils",
-          "C": "BACE1 catalytic site",
-          "D": "Soluble amyloid-beta monomers lacking pyroglutamate modification",
-          "E": "Insoluble N-truncated pyroglutamate amyloid beta"
+          "A": "KIT",
+          "B": "VEGFR2",
+          "C": "PDGFR-beta",
+          "D": "FLT3",
+          "E": "CSF1 receptor"
         },
         "intended_key": "E",
-        "tested_construct": "Antibody targeting insoluble N-truncated pyroglutamate amyloid beta",
+        "tested_construct": "CSF1R kinase inhibition",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Donanemab-azbt is a humanized IgG1 monoclonal antibody directed against insoluble N-truncated pyroglutamate amyloid beta and reduces amyloid-beta plaques.",
+        "key_explanation": "Vimseltinib is a kinase inhibitor of colony-stimulating factor 1 receptor (CSF1R) and inhibits CSF1R autophosphorylation, ligand-induced signaling, and proliferation of CSF1R-expressing cells.",
         "distractor_explanations": {
-          "A": "Tau is a different protein target.",
-          "B": "Alpha-synuclein is not the documented antigen.",
-          "C": "BACE1 inhibition would reduce amyloid generation enzymatically rather than bind existing plaque antigen.",
-          "D": "The labeled antibody target is the insoluble N-truncated pyroglutamate form rather than generic soluble monomer.",
-          "E": "Correct. Donanemab recognizes insoluble N-truncated pyroglutamate amyloid beta."
+          "A": "KIT is a different receptor tyrosine kinase.",
+          "B": "VEGFR2 inhibition would affect angiogenic signaling rather than the specified CSF1 response.",
+          "C": "PDGFR-beta is not the receptor in the ligand-specific assay.",
+          "D": "FLT3 inhibition does not explain CSF1-triggered receptor autophosphorylation.",
+          "E": "Correct. Vimseltinib directly inhibits CSF1R."
         },
-        "educational_objective": "Distinguish direct recognition of a plaque-associated amyloid-beta species from inhibition of amyloid production."
+        "educational_objective": "Identify CSF1R inhibition from ligand-specific receptor autophosphorylation and proliferative signaling."
       },
       "sources": [
         {
           "source_id": "Q1440-LABEL",
-          "title": "KISUNLA- donanemab-azbt injection, solution",
+          "title": "ROMVIMZA- vimseltinib capsule",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=190352d4-ef62-4679-b4fa-e846e2766afa",
-          "setid": "190352d4-ef62-4679-b4fa-e846e2766afa",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f73c7a62-9601-4df0-810f-100f515d79ea",
+          "setid": "f73c7a62-9601-4df0-810f-100f515d79ea",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "7c400e05d7c1a4a033c0cd4cf1a3d119f06047352fa432064a418d1a1442813a",
-          "cited_section_sha256": "abc96604c88ee88f49b919eb5f83fda92eb0264b82239797f695c2097d1041d4",
+          "source_page_sha256": "5ec8b9455900bb18f4640d2d29ffbaca14314bd9d55e412a9d8ecbfb8ca3b57c",
+          "cited_section_sha256": "737ad167005239c449cbccffc567e7de21cf9f717a179e970f36edbeea57c174",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "abc96604c88ee88f49b919eb5f83fda92eb0264b82239797f695c2097d1041d4"
+          "mechanism_section_sha256": "737ad167005239c449cbccffc567e7de21cf9f717a179e970f36edbeea57c174"
         }
       ],
       "evidence_map": [
@@ -2164,7 +2164,7 @@
           "claim_id": "Q1440-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Tau is a different protein target.",
+          "claim": "KIT is a different receptor tyrosine kinase.",
           "source_ids": [
             "Q1440-LABEL"
           ],
@@ -2176,7 +2176,7 @@
           "claim_id": "Q1440-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Alpha-synuclein is not the documented antigen.",
+          "claim": "VEGFR2 inhibition would affect angiogenic signaling rather than the specified CSF1 response.",
           "source_ids": [
             "Q1440-LABEL"
           ],
@@ -2188,7 +2188,7 @@
           "claim_id": "Q1440-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "BACE1 inhibition would reduce amyloid generation enzymatically rather than bind existing plaque antigen.",
+          "claim": "PDGFR-beta is not the receptor in the ligand-specific assay.",
           "source_ids": [
             "Q1440-LABEL"
           ],
@@ -2200,7 +2200,7 @@
           "claim_id": "Q1440-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "The labeled antibody target is the insoluble N-truncated pyroglutamate form rather than generic soluble monomer.",
+          "claim": "FLT3 inhibition does not explain CSF1-triggered receptor autophosphorylation.",
           "source_ids": [
             "Q1440-LABEL"
           ],
@@ -2212,7 +2212,7 @@
           "claim_id": "Q1440-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Correct. Donanemab recognizes insoluble N-truncated pyroglutamate amyloid beta.",
+          "claim": "Correct. Vimseltinib directly inhibits CSF1R.",
           "source_ids": [
             "Q1440-LABEL"
           ],
@@ -2227,7 +2227,7 @@
         "single_best_answer": "PASS",
         "second_answer_attack": {
           "option": "C",
-          "resolution": "Both BACE1 inhibition and anti-amyloid antibodies can reduce amyloid pathology, but direct binding to an insoluble pyroglutamate antigen identifies donanemab.",
+          "resolution": "Other receptor tyrosine kinases are plausible oncology targets, but the CSF1-specific autophosphorylation assay uniquely localizes the target to CSF1R.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -2540,63 +2540,63 @@
     },
     {
       "num": 1443,
-      "drug": "atogepant",
+      "drug": "telisotuzumab vedotin-tllv",
       "country_scope": "United States",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Behavioral Health & Nervous Systems/Special Senses",
+        "primary_system": "Multisystem Processes & Disorders",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Pharmacology",
-          "Physiology"
+          "Histology & Cell Biology"
         ],
         "official_outline_path": [
-          "Behavioral Health & Nervous Systems/Special Senses"
+          "Multisystem Processes & Disorders"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "Trigeminal sensory neurons are exposed to atogepant. A fixed concentration of CGRP produces less receptor-mediated signaling, while serotonin and adrenergic receptor assays are unchanged.",
-        "lead_in": "Which direct action best explains the result?",
+        "vignette": "c-Met-positive tumor cells are exposed to telisotuzumab vedotin-tllv. The conjugate is internalized, a protease-cleavable linker releases MMAE, microtubules are disrupted, and cells arrest in the cell cycle before apoptosis.",
+        "lead_in": "Which mechanism best explains this sequence?",
         "options": {
-          "A": "Agonism of serotonin 5-HT1B/1D receptors",
-          "B": "Inhibition of cyclooxygenase-2",
-          "C": "Antagonism of the CGRP receptor",
-          "D": "Blockade of voltage-gated sodium channels",
-          "E": "Antagonism of beta-adrenergic receptors"
+          "A": "HER2-directed antibody carrying a topoisomerase inhibitor",
+          "B": "EGFR antibody that blocks ligand binding without a payload",
+          "C": "c-Met-directed antibody-drug conjugate delivering MMAE",
+          "D": "Free systemic vinca alkaloid independent of tumor antigen",
+          "E": "c-Met kinase inhibition by an ATP-competitive small molecule"
         },
         "intended_key": "C",
-        "tested_construct": "CGRP receptor antagonism",
+        "tested_construct": "c-Met-directed ADC internalization with intracellular MMAE release",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
       },
       "explanation": {
-        "key_explanation": "Atogepant is a calcitonin gene-related peptide receptor antagonist; blocking the CGRP receptor reduces CGRP-mediated signaling.",
+        "key_explanation": "Telisotuzumab vedotin-tllv is a c-Met-directed antibody-drug conjugate. After binding c-Met-expressing cells it is internalized, MMAE is released after intracellular linker cleavage, and MMAE disrupts microtubules, causing cell-cycle arrest and apoptosis.",
         "distractor_explanations": {
-          "A": "Triptan-like 5-HT1B/1D agonism is a different antimigraine mechanism.",
-          "B": "COX-2 inhibition does not directly block CGRP receptor signaling.",
-          "C": "Correct. Atogepant directly antagonizes the CGRP receptor.",
-          "D": "Sodium-channel blockade would affect excitability broadly rather than selectively block fixed-ligand CGRP signaling.",
-          "E": "Beta-adrenergic antagonism does not match the receptor-specific assay."
+          "A": "The target and payload are different.",
+          "B": "A naked receptor-blocking antibody would not explain intracellular MMAE release.",
+          "C": "Correct. c-Met targeting, internalization, and MMAE-mediated microtubule disruption define this ADC.",
+          "D": "Free microtubule toxin would not require c-Met-dependent internalization.",
+          "E": "Small-molecule kinase inhibition does not account for an antibody-linked MMAE payload."
         },
-        "educational_objective": "Identify CGRP-receptor antagonism from selective blockade of CGRP signaling."
+        "educational_objective": "Recognize an antibody-drug conjugate by antigen-specific internalization and intracellular release of a defined cytotoxic payload."
       },
       "sources": [
         {
           "source_id": "Q1443-LABEL",
-          "title": "QULIPTA- atogepant tablet",
+          "title": "EMRELIS- telisotuzumab vedotin-tllv for injection",
           "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
-          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8c8ab8f4-32bd-497a-befa-70c8a51d8d52",
-          "setid": "8c8ab8f4-32bd-497a-befa-70c8a51d8d52",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bc04f980-3957-4e35-ab81-8ec2ffe87215",
+          "setid": "bc04f980-3957-4e35-ab81-8ec2ffe87215",
           "source_section_date": null,
           "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
           "retrieved_at": "2026-09-10",
           "section_locator": "12.1 Mechanism of Action",
-          "source_page_sha256": "6fedcb662cc4b5c5b4e64f096bf70b467a9dca25fa069a932e8ad9fb3372ff85",
-          "cited_section_sha256": "6aca5422475e916300d20e555a77a3975ef1d1aa16d3005fd030e9a334fd2a9b",
+          "source_page_sha256": "ba2da793f21e3db73bbda653de52af4f9284bc7803bd398743c29a3582f94bc1",
+          "cited_section_sha256": "9af6737ed49a7e20890773618a4517cc996b672f3c6ae1d36c467aadfee5adb7",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
           "cited_locator_component_count": 1,
-          "mechanism_section_sha256": "6aca5422475e916300d20e555a77a3975ef1d1aa16d3005fd030e9a334fd2a9b"
+          "mechanism_section_sha256": "9af6737ed49a7e20890773618a4517cc996b672f3c6ae1d36c467aadfee5adb7"
         }
       ],
       "evidence_map": [
@@ -2604,7 +2604,7 @@
           "claim_id": "Q1443-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "Triptan-like 5-HT1B/1D agonism is a different antimigraine mechanism.",
+          "claim": "The target and payload are different.",
           "source_ids": [
             "Q1443-LABEL"
           ],
@@ -2616,7 +2616,7 @@
           "claim_id": "Q1443-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "COX-2 inhibition does not directly block CGRP receptor signaling.",
+          "claim": "A naked receptor-blocking antibody would not explain intracellular MMAE release.",
           "source_ids": [
             "Q1443-LABEL"
           ],
@@ -2628,7 +2628,7 @@
           "claim_id": "Q1443-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Correct. Atogepant directly antagonizes the CGRP receptor.",
+          "claim": "Correct. c-Met targeting, internalization, and MMAE-mediated microtubule disruption define this ADC.",
           "source_ids": [
             "Q1443-LABEL"
           ],
@@ -2640,7 +2640,7 @@
           "claim_id": "Q1443-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "Sodium-channel blockade would affect excitability broadly rather than selectively block fixed-ligand CGRP signaling.",
+          "claim": "Free microtubule toxin would not require c-Met-dependent internalization.",
           "source_ids": [
             "Q1443-LABEL"
           ],
@@ -2652,7 +2652,7 @@
           "claim_id": "Q1443-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Beta-adrenergic antagonism does not match the receptor-specific assay.",
+          "claim": "Small-molecule kinase inhibition does not account for an antibody-linked MMAE payload.",
           "source_ids": [
             "Q1443-LABEL"
           ],
@@ -2666,8 +2666,8 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "A",
-          "resolution": "Serotonergic agonists are also used in migraine, but the fixed-CGRP receptor assay specifically localizes the effect to CGRP receptor antagonism.",
+          "option": "E",
+          "resolution": "c-Met kinase inhibition shares the receptor target, but only the ADC mechanism explains antibody internalization and MMAE-mediated microtubule disruption.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -3726,5 +3726,11 @@
     "source_hashes_computed": false,
     "technical_freeze_complete": false,
     "independent_audit_complete": false
+  },
+  "collision_repair_r3": {
+    "reverified_2026_09_10": true
+  },
+  "collision_repair_r4": {
+    "reverified_2026_09_10": true
   }
 }
