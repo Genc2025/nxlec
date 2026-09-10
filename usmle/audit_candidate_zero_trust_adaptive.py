@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent
 CAND=REPO/os.environ['CAND_PATH']; OUT=REPO/os.environ['OUT_PATH']; DB=ROOT/'data'/'usmle-step1.db'
 CAND_BLOB=os.environ['CAND_BLOB']; DB_BLOB=os.environ.get('DB_BLOB','1a0f0b702f86a57624161413ba60fa4ce88e8d97'); START=int(os.environ['START_Q']); END=int(os.environ['END_Q'])
-STOP={'the','a','an','and','or','of','to','in','is','are','with','this','that','does','not','direct','directly','drug','effect','activity','correct'}
+STOP={'the','a','an','and','or','of','to','in','is','are','with','this','that','does','not','direct','directly','drug','effect','activity','correct','label','identifies'}
 def blob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def norm(s): return ' '.join(re.sub(r'[^a-z0-9]+',' ',str(s).casefold()).split())
 def toks(s): return set(norm(s).split())
@@ -18,7 +18,7 @@ def fetch_text(url):
  if 'pubmed.ncbi.nlm.nih.gov' in host:
   m=re.search(r'/([0-9]+)/?$',url)
   if m: url='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+m.group(1)+'&retmode=xml'
- req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/4.0'})
+ req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/4.1'})
  with urllib.request.urlopen(req,timeout=30) as r: raw=r.read(2500000)
  return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',raw.decode('utf-8','ignore')))
 def item_text(x):
@@ -26,7 +26,11 @@ def item_text(x):
 def evidence_key(ev,key,f):
  if isinstance(ev,dict):
   if set(ev)!=set('ABCDE'): f.append('evidence_shape'); return None
-  strong=[L for L,v in ev.items() if norm(v).startswith('direct')]
+  def supports(v):
+   n=norm(v)
+   if 'contradict' in n: return False
+   return n.startswith('direct from') or n.startswith('directly supported') or n=='direct'
+  strong=[L for L,v in ev.items() if supports(v)]
   if strong!=[key]: f.append('evidence_derived_key')
   return strong[0] if len(strong)==1 else None
  if isinstance(ev,list):
@@ -56,11 +60,10 @@ def main():
   if key not in 'ABCDE': f.append('key')
   if not it.get('vignette','').strip() or not it.get('lead_in','').strip().endswith('?'): f.append('item_form')
   if set(de)!=set('ABCDE') or not ex.get('key_explanation') or not ex.get('educational_objective'): f.append('rationale_eo')
-  kro=len(ctoks(ex.get('key_explanation',''))&ctoks(de.get(key,'')))
+  binding_text=(de.get(key,'')+' '+opts.get(key,'')); kro=len(ctoks(ex.get('key_explanation',''))&ctoks(binding_text))
   if norm(ex.get('key_explanation',''))!=norm(de.get(key,'')) and kro<2: f.append('key_rationale_binding')
   if bp.get('official_outline_path')!=[bp.get('primary_system')] or not bp.get('primary_competency') or not bp.get('disciplines'): f.append('blueprint')
   derived=evidence_key(ev,key,f)
-  # list evidence must bind claims to declared sources; dict schema is a compact classification and relies on live source + rationale gates.
   if isinstance(ev,list):
    ids={s.get('source_id') for s in src}
    for e in ev:
@@ -82,7 +85,7 @@ def main():
      m=re.search(r'/([0-9]+)/?$',url); ok=ok and bool(m) and m.group(1) in page and ov>=2 and sem>=2; detail={'pmid':m.group(1) if m else None,'title_overlap':ov,'semantic_overlap':sem}
     else: ok=ok and ov>=1 and sem>=1; detail={'title_overlap':ov,'semantic_overlap':sem}
    except Exception as e: ok=False; detail={'error':type(e).__name__}
-   sr.append({'source_id':sid,'status':'PASS' if ok else 'BLOCKED',**detail});
+   sr.append({'source_id':sid,'status':'PASS' if ok else 'BLOCKED',**detail})
    if not ok: f.append('live_source_binding')
   scored=sorted([(jac(item_text(x),t),cid) for cid,t in canon],reverse=True); mj=scored[0][0] if scored else 0
   if mj>=0.45: f.append('canonical_duplicate')
