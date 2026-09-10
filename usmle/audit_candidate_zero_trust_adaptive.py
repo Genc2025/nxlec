@@ -18,11 +18,17 @@ def fetch_text(url):
  if 'pubmed.ncbi.nlm.nih.gov' in host:
   m=re.search(r'/([0-9]+)/?$',url)
   if m: url='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+m.group(1)+'&retmode=xml'
- req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/4.1'})
+ req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-QA/4.2'})
  with urllib.request.urlopen(req,timeout=30) as r: raw=r.read(2500000)
  return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',raw.decode('utf-8','ignore')))
 def item_text(x):
  it=x['item']; return ' '.join([it.get('vignette',''),it.get('lead_in',''),*it.get('options',{}).values(),it.get('tested_construct','')])
+def keyed_evidence_text(ev,key):
+ if isinstance(ev,list):
+  return ' '.join(str(e.get('claim','')) for e in ev if e.get('option')==key)
+ if isinstance(ev,dict):
+  return str(ev.get(key,''))
+ return ''
 def evidence_key(ev,key,f):
  if isinstance(ev,dict):
   if set(ev)!=set('ABCDE'): f.append('evidence_shape'); return None
@@ -60,7 +66,8 @@ def main():
   if key not in 'ABCDE': f.append('key')
   if not it.get('vignette','').strip() or not it.get('lead_in','').strip().endswith('?'): f.append('item_form')
   if set(de)!=set('ABCDE') or not ex.get('key_explanation') or not ex.get('educational_objective'): f.append('rationale_eo')
-  binding_text=(de.get(key,'')+' '+opts.get(key,'')); kro=len(ctoks(ex.get('key_explanation',''))&ctoks(binding_text))
+  binding_text=' '.join([de.get(key,''),opts.get(key,''),it.get('tested_construct',''),keyed_evidence_text(ev,key)])
+  kro=len(ctoks(ex.get('key_explanation',''))&ctoks(binding_text))
   if norm(ex.get('key_explanation',''))!=norm(de.get(key,'')) and kro<2: f.append('key_rationale_binding')
   if bp.get('official_outline_path')!=[bp.get('primary_system')] or not bp.get('primary_competency') or not bp.get('disciplines'): f.append('blueprint')
   derived=evidence_key(ev,key,f)
