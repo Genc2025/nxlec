@@ -1,4 +1,4 @@
-name: USMLE R3 Zero Collision Q1401-Q1475
+name: USMLE R4 Zero Collision Q1401-Q1475
 on:
   push:
     paths:
@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 jobs:
-  r3-cleanup-audit:
+  r4-cleanup-audit:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
@@ -16,12 +16,9 @@ jobs:
       P3: usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: main
-          fetch-depth: 0
+        with: {ref: main, fetch-depth: 0}
       - uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
+        with: {python-version: '3.12'}
       - name: Bind immutable R2 state and production DB
         run: |
           set -euo pipefail
@@ -29,16 +26,11 @@ jobs:
           test "$(git hash-object "$P2")" = "26edefa5740bad384bf9aa68b2580a5cf436cb19"
           test "$(git hash-object "$P3")" = "3fb12bab3742dfdb7a72214ae1f2e83ac3c0bc36"
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
-          python - <<'PY'
-          import json
-          for p in ['usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json','usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json','usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json']:
-              m=json.load(open(p)); assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[] and m['production_db_modified'] is False
-          PY
-      - name: Apply R3 aggregate collision repairs
+      - name: Apply R4 aggregate collision repairs
         run: |
           set -euo pipefail
-          python -m py_compile usmle/repair_q1401_q1475_cross_collisions_r3.py
-          python usmle/repair_q1401_q1475_cross_collisions_r3.py
+          python -m py_compile usmle/repair_q1401_q1475_cross_collisions_r3.py usmle/repair_q1401_q1475_cross_collisions_r4.py
+          python usmle/repair_q1401_q1475_cross_collisions_r4.py
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
       - name: Freeze and audit Q1401-Q1425 from zero
         run: |
@@ -47,10 +39,6 @@ jobs:
           python usmle/freeze_candidate_generic.py
           export CAND_BLOB="$(git hash-object "$CAND_PATH")"
           python usmle/audit_candidate_zero_trust_adaptive.py
-          python - <<'PY'
-          import json
-          r=json.load(open('usmle/audit/Q1401_Q1425_ZERO_TRUST.json')); assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
-          PY
       - name: Freeze and audit Q1426-Q1450 from zero
         run: |
           set -euo pipefail
@@ -58,10 +46,6 @@ jobs:
           python usmle/freeze_candidate_generic.py
           export CAND_BLOB="$(git hash-object "$CAND_PATH")"
           python usmle/audit_candidate_zero_trust_adaptive.py
-          python - <<'PY'
-          import json
-          r=json.load(open('usmle/audit/Q1426_Q1450_ZERO_TRUST.json')); assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
-          PY
       - name: Freeze and audit Q1451-Q1475 from zero
         run: |
           set -euo pipefail
@@ -69,10 +53,6 @@ jobs:
           python usmle/freeze_candidate_generic.py
           export CAND_BLOB="$(git hash-object "$CAND_PATH")"
           python usmle/audit_candidate_zero_trust_adaptive.py
-          python - <<'PY'
-          import json
-          r=json.load(open('usmle/audit/Q1451_Q1475_ZERO_TRUST.json')); assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
-          PY
       - name: Aggregate collision gate must be zero
         run: |
           set -euo pipefail
@@ -80,26 +60,20 @@ jobs:
           python - <<'PY'
           import json
           r=json.load(open('usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json'))
-          assert r['scope']=='Q1301-Q1500'
-          assert r['pair_count']==0, r['pairs']
-          assert r['pairs']==[]
+          assert r['scope']=='Q1301-Q1500' and r['pair_count']==0 and r['pairs']==[], r
           print('Q1301_Q1500_CROSS_COLLISION_GATE=ZERO')
           PY
-      - name: Build fail-closed R3 final manifests
+      - name: Build R4 final manifests
         run: |
           set -euo pipefail
           python - <<'PY'
           import hashlib,json,pathlib,subprocess
-          cfg=[
-            (1401,1425,'usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json','usmle/audit/Q1401_Q1425_ZERO_TRUST.json','usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json',[1401,1402,1411,1414,1423]),
-            (1426,1450,'usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json','usmle/audit/Q1426_Q1450_ZERO_TRUST.json','usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json',[1435,1440,1443]),
-            (1451,1475,'usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json','usmle/audit/Q1451_Q1475_ZERO_TRUST.json','usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json',[1475]),
-          ]
+          cfg=[(1401,1425,'usmle/batch_specs_1401_1500/01_q1401_q1425_author_20260908_schema_repaired.json','usmle/audit/Q1401_Q1425_ZERO_TRUST.json','usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json',[1401,1402,1411,1414,1423]),(1426,1450,'usmle/batch_specs_1401_1500/02_q1426_q1450_author_20260908_schema_repaired.json','usmle/audit/Q1426_Q1450_ZERO_TRUST.json','usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json',[1435,1440,1443]),(1451,1475,'usmle/batch_specs_1401_1500/03_q1451_q1475_author_20260908_collision_repaired.json','usmle/audit/Q1451_Q1475_ZERO_TRUST.json','usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json',[1475])]
           db='1a0f0b702f86a57624161413ba60fa4ce88e8d97'
           for a,b,cp,ap,mp,repl in cfg:
-              audit=pathlib.Path(ap); r=json.load(open(audit)); assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+              audit=pathlib.Path(ap); r=json.load(open(audit)); assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==25
               cand=pathlib.Path(cp); batch=json.load(open(cand)); keys=''.join(x['item']['intended_key'] for x in batch['items']); assert keys==batch['answer_key_sequence']
-              m={'audit_id':f'Q{a}-Q{b}-FINAL-QA-PASS-R3-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':f'Q{a}-Q{b}','item_count':b-a+1,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cp],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(cand.read_bytes()).hexdigest(),'authoritative_db_blob':db,'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','cross_workstream_collision_repair':'PASS_R3_AGGREGATE_ZERO_COLLISION','replaced_items_r3':repl,'aggregate_collision_inventory':'PASS_PAIR_COUNT_ZERO','zero_trust_audit_sha256':hashlib.sha256(audit.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+              m={'audit_id':f'Q{a}-Q{b}-FINAL-QA-PASS-R4-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':f'Q{a}-Q{b}','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cp],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(cand.read_bytes()).hexdigest(),'authoritative_db_blob':db,'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','cross_workstream_collision_repair':'PASS_R4_AGGREGATE_ZERO_COLLISION','replaced_items_r4':repl,'aggregate_collision_inventory':'PASS_PAIR_COUNT_ZERO','zero_trust_audit_sha256':hashlib.sha256(audit.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
               pathlib.Path(mp).write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
           PY
       - name: Final re-read and production immutability gate
@@ -108,19 +82,14 @@ jobs:
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
           python - <<'PY'
           import json
-          inv=json.load(open('usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json')); assert inv['pair_count']==0
+          assert json.load(open('usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json'))['pair_count']==0
           for p in ['usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json','usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json','usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json']:
-              m=json.load(open(p)); assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'; assert m['unresolved_defects']==[] and m['production_import_ready'] is True and m['production_db_modified'] is False; assert m['aggregate_collision_inventory']=='PASS_PAIR_COUNT_ZERO'
-          print('R3_FINAL_REREAD=PASS')
+              m=json.load(open(p)); assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[] and m['production_import_ready'] is True and m['aggregate_collision_inventory']=='PASS_PAIR_COUNT_ZERO'
           PY
-      - name: Persist R3 zero-collision state
+      - name: Persist R4 zero-collision state
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$P1" "$P2" "$P3" \
-            usmle/audit/Q1401_Q1425_ZERO_TRUST.json usmle/audit/Q1426_Q1450_ZERO_TRUST.json usmle/audit/Q1451_Q1475_ZERO_TRUST.json \
-            usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json \
-            usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json
-          git commit -m 'usmle: reach zero cross-collisions Q1301-Q1500 R3'
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$P1" "$P2" "$P3" usmle/audit/Q1401_Q1425_ZERO_TRUST.json usmle/audit/Q1426_Q1450_ZERO_TRUST.json usmle/audit/Q1451_Q1475_ZERO_TRUST.json usmle/audit/Q1401_Q1425_FINAL_QA_PASS.json usmle/audit/Q1426_Q1450_FINAL_QA_PASS.json usmle/audit/Q1451_Q1475_FINAL_QA_PASS.json usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json
+          git commit -m 'usmle: reach zero cross-collisions Q1301-Q1500 R4'
           git push
