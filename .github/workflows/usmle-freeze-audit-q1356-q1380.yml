@@ -8,7 +8,7 @@ permissions:
 jobs:
   freeze-audit-finalize:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     env:
       CAND_PATH: usmle/batch_specs_1301_1400/04_q1356_q1380_author_20260908.json
       DB_BLOB: 1a0f0b702f86a57624161413ba60fa4ce88e8d97
@@ -23,16 +23,21 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Bind original candidate and production DB
+      - name: Bind previously finalized candidate and production DB
         run: |
           set -euo pipefail
-          test "$(git hash-object "$CAND_PATH")" = "7568789cd2e7535d3aaac808edd89f2979b0c4e1"
+          test "$(git hash-object "$CAND_PATH")" = "accb9457f43b9eaa55c23624e2415f906c01e0cf"
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
-      - name: Technical freeze from live authoritative sources
+      - name: Replace Q1372 cross-workstream collision
         run: |
           set -euo pipefail
-          python -m py_compile usmle/freeze_q1356_q1380.py
-          python usmle/freeze_q1356_q1380.py
+          python -m py_compile usmle/repair_q1372_tasimelteon_collision.py
+          python usmle/repair_q1372_tasimelteon_collision.py
+      - name: Technical freeze all declared locator components
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/freeze_candidate_generic.py
+          python usmle/freeze_candidate_generic.py
           NEW_BLOB=$(git hash-object "$CAND_PATH")
           echo "CAND_BLOB=$NEW_BLOB" >> "$GITHUB_ENV"
           python - <<'PY'
@@ -40,15 +45,16 @@ jobs:
           b=json.load(open(os.environ['CAND_PATH']))
           assert b['technical_integrity']['source_hashes_complete'] is True
           assert 'ncjmm' not in open(os.environ['CAND_PATH']).read().casefold()
-          assert all(s.get('source_page_sha256') and s.get('cited_section_sha256') for x in b['items'] for s in x['sources'])
+          assert all(s.get('source_page_sha256') and s.get('cited_section_sha256') and s.get('cited_locator_component_count',0)>=1 for x in b['items'] for s in x['sources'])
+          assert next(x for x in b['items'] if x['num']==1372)['drug']=='tasimelteon'
           print('TECHNICAL_FREEZE=PASS')
           PY
-      - name: Zero-trust audit from zero
+      - name: Zero-trust adaptive audit from zero
         run: |
           set -euo pipefail
-          python -m py_compile usmle/audit_candidate_zero_trust_generic.py
-          python usmle/audit_candidate_zero_trust_generic.py
-      - name: Enforce audit and build final manifest
+          python -m py_compile usmle/audit_candidate_zero_trust_adaptive.py
+          python usmle/audit_candidate_zero_trust_adaptive.py
+      - name: Enforce audit and build replacement final manifest
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -59,17 +65,15 @@ jobs:
           assert all(x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
           cand=os.environ['CAND_PATH']; b=json.load(open(cand)); keys=''.join(x['item']['intended_key'] for x in b['items'])
           assert keys==b['answer_key_sequence']
-          m={'audit_id':'Q1356-Q1380-FINAL-QA-PASS-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1356-Q1380','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS','zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          m={'audit_id':'Q1356-Q1380-FINAL-QA-PASS-R2-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1356-Q1380','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS_ALL_DECLARED_LOCATOR_COMPONENTS','q1372_cross_workstream_collision_repair':'PASS_TASIMELTEON_REPLACEMENT','zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
           pathlib.Path('usmle/audit/Q1356_Q1380_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
-          print('Q1356_Q1380_FINAL_GATE=PASS')
+          print('Q1356_Q1380_R2_FINAL_GATE=PASS')
           PY
-      - name: Commit frozen candidate audit and manifest
+      - name: Commit repaired frozen candidate audit and manifest
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$CAND_PATH" usmle/audit/Q1356_Q1380_ZERO_TRUST.json usmle/audit/Q1356_Q1380_FINAL_QA_PASS.json
-          git commit -m 'usmle: freeze and finalize Q1356-Q1380'
+          git commit -m 'usmle: replace Q1372 collision and refinalize Q1356-Q1380'
           git push
-# rerun with locator-bound cited-section hashes
-# rerun with semantic key-rationale binding
