@@ -1,0 +1,41 @@
+name: USMLE Detached Import Simulation Q1511-Q1515
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-simulate-import-q1511-q1515.yml'
+permissions:
+  contents: write
+jobs:
+  detached-simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1511'
+      END_Q: '1515'
+      PRE_COUNT: '1510'
+      DB_BLOB: 8f86dcaa1d51213f48b8337e98ab9cf79b86fa1e
+      CAND_PATH: usmle/batch_specs_1501_1600/03_q1511_q1515_author_20260910.json
+      CAND_BLOB: 7f8f6c028da0b36cd909a21b52efe61b387f83ed
+      MAN_PATH: usmle/audit/Q1511_Q1515_FINAL_QA_PASS.json
+      MAN_BLOB: 3773a6da5d38531ba2c5ffe4162b681b64c54576
+      SIM_OUT: usmle/audit/Q1511_Q1515_DETACHED_IMPORT_SIMULATION.json
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Run detached next-five simulation
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python usmle/simulate_import_next5.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          r=json.load(open(os.environ['SIM_OUT']))
+          assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS' and r['simulated_post_count']==1515 and r['post_simulation_contiguous_q0001_q1515'] is True and r['production_transactional_import_ready'] is True and r['failures']==[]
+          PY
+      - name: Commit simulation report only
+        run: |
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$SIM_OUT" && git commit -m 'usmle: pass detached import simulation Q1511-Q1515' && git push
