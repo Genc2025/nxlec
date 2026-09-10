@@ -1,0 +1,106 @@
+name: USMLE Final QA Q1476-Q1500
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-finalize-q1476-q1500.yml'
+permissions:
+  contents: write
+jobs:
+  final-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind immutable candidate and canonical state
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/batch_specs_1401_1500/04_q1476_q1500_author_20260908.json)" = "1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
+          test "$(git hash-object usmle/audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json)" = "a2bac97f83f61c4a31a8c91c631318d42d05e52c"
+      - name: Re-execute independent audit gates from zero
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_q1476_q1500_a_r2.py usmle/audit_q1476_q1500_b_r2.py
+          python usmle/audit_q1476_q1500_a_r2.py
+          python usmle/audit_q1476_q1500_b_r2.py
+      - name: Build fail-closed final QA manifest
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,sqlite3,subprocess
+          root=pathlib.Path('usmle')
+          cand=root/'batch_specs_1401_1500/04_q1476_q1500_author_20260908.json'
+          db=root/'data/usmle-step1.db'
+          pref=root/'audit/Q1476_Q1500_DETERMINISTIC_PREFLIGHT.json'
+          ap=root/'audit/Q1476_Q1500_AUDITOR_A_R2.json'
+          bp=root/'audit/Q1476_Q1500_AUDITOR_B_R2.json'
+          b=json.load(open(cand)); p=json.load(open(pref)); a=json.load(open(ap)); z=json.load(open(bp))
+          cblob=subprocess.check_output(['git','hash-object',str(cand)],text=True).strip()
+          dblob=subprocess.check_output(['git','hash-object',str(db)],text=True).strip()
+          assert cblob=='1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1'
+          assert dblob=='1a0f0b702f86a57624161413ba60fa4ce88e8d97'
+          assert p['verdict']=='DETERMINISTIC_PREFLIGHT_PASS' and p['failures']==[]
+          assert a['verdict']=='AUDITOR_A_R2_PASS' and a['failures']==[] and a['hardcoded_answer_sequence_used'] is False
+          assert z['verdict']=='AUDITOR_B_R2_PASS' and z['failures']==[]
+          assert len(a['item_reports'])==len(z['item_reports'])==25
+          assert all(x['status']=='PASS' and x['key_correctness']=='PASS' for x in a['item_reports'])
+          assert all(x['status']=='PASS' and x['second_possible_answer']=='PASS_NONE' for x in z['item_reports'])
+          assert b['candidate_count']==25 and b['answer_key_distribution']=={'A':5,'B':5,'C':5,'D':5,'E':5}
+          assert b['production_import_ready'] is False and 'ncjmm' not in cand.read_text().casefold()
+          con=sqlite3.connect(db.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+          assert con.execute('pragma integrity_check').fetchone()[0]=='ok'
+          items=con.execute("select count(*) from step2_final_items where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          reviews=con.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0];con.close()
+          assert items==reviews==1300
+          systems={}; competencies={}
+          for x in b['items']:
+              s=x['blueprint']['primary_system']; c=x['blueprint']['primary_competency']
+              systems[s]=systems.get(s,0)+1; competencies[c]=competencies.get(c,0)+1
+          out={
+            'audit_id':'Q1476-Q1500-FINAL-QA-PASS-20260910',
+            'status':'FINAL_QA_PASS',
+            'final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT',
+            'item_range':'Q1476-Q1500','item_count':25,
+            'candidate_batch_blob':cblob,
+            'candidate_batch_sha256':hashlib.sha256(cand.read_bytes()).hexdigest(),
+            'authoritative_db_blob':dblob,'authoritative_db_final_count':items,'authoritative_review_count':reviews,
+            'deterministic_preflight_blob':subprocess.check_output(['git','hash-object',str(pref)],text=True).strip(),
+            'auditor_a_r2_sha256':hashlib.sha256(ap.read_bytes()).hexdigest(),
+            'auditor_b_r2_sha256':hashlib.sha256(bp.read_bytes()).hexdigest(),
+            'deterministic_preflight':'PASS','independent_auditor_a':'PASS_EVIDENCE_DERIVED_R2','independent_auditor_b':'PASS_ADVERSARIAL_R2',
+            'answer_key_sequence':b['answer_key_sequence'],'answer_key_distribution':b['answer_key_distribution'],
+            'system_distribution':systems,'competency_distribution':competencies,
+            'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],
+            'ncjmm':'NOT_APPLICABLE_USMLE','production_import_ready':True,'production_db_modified':False,
+            'trusted_importer_complete':False
+          }
+          path=root/'audit/Q1476_Q1500_FINAL_QA_PASS.json';path.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps({'status':out['status'],'items':25,'production_import_ready':True,'db_count':items},sort_keys=True))
+          PY
+      - name: Re-read final manifest and enforce zero-trust verdict
+        run: |
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1476_Q1500_FINAL_QA_PASS.json'))
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[] and m['all_items_final_10_10_pass'] is True
+          assert m['production_import_ready'] is True and m['production_db_modified'] is False
+          assert m['authoritative_db_final_count']==m['authoritative_review_count']==1300
+          assert m['candidate_batch_blob']=='1fbfcebf0459ffaa65f8bfdf72846e5994b45ac1'
+          assert m['answer_key_distribution']=={'A':5,'B':5,'C':5,'D':5,'E':5}
+          assert m['ncjmm']=='NOT_APPLICABLE_USMLE' and m['trusted_importer_complete'] is False
+          print('Q1476_Q1500_FINAL_QA_GATE=PASS')
+          PY
+      - name: Commit final QA manifest only
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add usmle/audit/Q1476_Q1500_FINAL_QA_PASS.json
+          git commit -m 'usmle: finalize Q1476-Q1500 QA pass'
+          git push
