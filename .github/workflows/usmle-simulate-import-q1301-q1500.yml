@@ -1,4 +1,4 @@
-name: USMLE Detached Import Simulation Q1301-Q1500
+name: USMLE Detached Import Simulation Q1301-Q1500 R4
 on:
   push:
     paths:
@@ -11,40 +11,37 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: main
-          fetch-depth: 0
+        with: {ref: main, fetch-depth: 0}
       - uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-      - name: Run detached Q1301-Q1500 import simulation R2
+        with: {python-version: '3.12'}
+      - name: Run detached Q1301-Q1500 import simulation R4
         run: |
           set -euo pipefail
           BEFORE=$(git hash-object usmle/data/usmle-step1.db)
           test "$BEFORE" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
-          python -m py_compile usmle/simulate_import_q1301_q1500.py usmle/simulate_import_q1301_q1500_r2.py
-          python usmle/simulate_import_q1301_q1500_r2.py
-          AFTER=$(git hash-object usmle/data/usmle-step1.db)
-          test "$AFTER" = "$BEFORE"
+          test "$(git hash-object usmle/audit/Q1301_Q1500_CROSS_COLLISION_INVENTORY.json)" = "0e317344f0ddb87c8bf1a736a022fb5c4155a008"
+          python -m py_compile usmle/simulate_import_q1301_q1500.py usmle/simulate_import_q1301_q1500_r4.py
+          python usmle/simulate_import_q1301_q1500_r4.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$BEFORE"
           python - <<'PY'
           import json
-          p='usmle/audit/Q1301_Q1500_DETACHED_IMPORT_SIMULATION.json'
-          r=json.load(open(p))
+          r=json.load(open('usmle/audit/Q1301_Q1500_DETACHED_IMPORT_SIMULATION.json'))
           assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert r['simulation_revision']=='R4_CURRENT_PERSISTED_STATE'
+          assert r['aggregate_collision_pair_count']==0
           assert r['incoming_count']==200 and r['simulated_post_count']==1500
           assert r['incoming_contiguous'] is True and r['post_simulation_contiguous_q0001_q1500'] is True
           assert r['sqlite_integrity']=='ok' and r['payload_review_consistency']=='PASS'
           assert r['cross_incoming_duplicate_gate']=='PASS' and r['canonical_duplicate_gate']=='PASS'
           assert r['production_db_modified'] is False and r['production_transactional_import_ready'] is True
-          print('Q1301_Q1500_DETACHED_SIMULATION_R2_GATE=PASS')
+          print('Q1301_Q1500_DETACHED_SIMULATION_R4_GATE=PASS')
           PY
       - name: Commit simulation report only
         run: |
           set -euo pipefail
           test "$(git hash-object usmle/data/usmle-step1.db)" = "1a0f0b702f86a57624161413ba60fa4ce88e8d97"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add usmle/audit/Q1301_Q1500_DETACHED_IMPORT_SIMULATION.json
           git diff --cached --quiet && { echo 'simulation report missing'; exit 1; } || true
-          git commit -m 'usmle: pass detached import simulation Q1301-Q1500 R2'
+          git commit -m 'usmle: pass detached import simulation Q1301-Q1500 R4'
           git push
