@@ -1,0 +1,758 @@
+{
+  "batch_id": "Q1511-Q1515-20260910",
+  "created_at": "2026-09-10",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1510,
+  "canonical_count_after": 1510,
+  "canonical_db_blob": "8f86dcaa1d51213f48b8337e98ab9cf79b86fa1e",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1511,
+      "drug": "concizumab-mtci",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Plasma from a patient with hemophilia is exposed to concizumab-mtci. Free tissue factor pathway inhibitor decreases, factor Xa generation during coagulation initiation rises, and thrombin generation improves without replacing factor VIII or IX.",
+        "lead_in": "Which direct action best explains these findings?",
+        "options": {
+          "A": "Antagonism of tissue factor pathway inhibitor",
+          "B": "Direct replacement of factor VIII",
+          "C": "Activation of antithrombin",
+          "D": "Direct inhibition of factor Xa",
+          "E": "Neutralization of tissue factor"
+        },
+        "intended_key": "A",
+        "tested_construct": "TFPI antagonism enhancing factor Xa and thrombin generation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Concizumab-mtci is a monoclonal antibody antagonist of endogenous tissue factor pathway inhibitor (TFPI). TFPI inhibition enhances factor Xa production during coagulation initiation, improving thrombin generation and clot formation.",
+        "distractor_explanations": {
+          "A": "Correct. TFPI antagonism releases the brake on tissue-factor-initiated factor Xa generation.",
+          "B": "The experiment explicitly shows benefit without factor VIII replacement.",
+          "C": "Antithrombin activation would suppress coagulation rather than increase thrombin generation.",
+          "D": "Direct factor Xa inhibition would oppose the observed increase in factor Xa activity.",
+          "E": "Neutralizing tissue factor would reduce initiation of coagulation."
+        },
+        "educational_objective": "Recognize TFPI antagonism as a rebalancing strategy that increases factor Xa and thrombin generation without replacing deficient clotting factors."
+      },
+      "sources": [
+        {
+          "source_id": "Q1511-LABEL",
+          "title": "ALHEMO- concizumab injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=156f6404-1f6f-417f-bcf8-f07a27a82cc1",
+          "setid": "156f6404-1f6f-417f-bcf8-f07a27a82cc1",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "255517ceb37ac68b9bc77ebd2af4aa4ca512f4dd92825bf95e4a6f3997616052",
+          "cited_section_sha256": "881b69a5ea9c0f5d3ade595f41cab6d3105fbdf3dbc8f77d21969fdff1141480",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "881b69a5ea9c0f5d3ade595f41cab6d3105fbdf3dbc8f77d21969fdff1141480"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1511-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. TFPI antagonism releases the brake on tissue-factor-initiated factor Xa generation.",
+          "source_ids": [
+            "Q1511-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1511-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The experiment explicitly shows benefit without factor VIII replacement.",
+          "source_ids": [
+            "Q1511-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1511-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Antithrombin activation would suppress coagulation rather than increase thrombin generation.",
+          "source_ids": [
+            "Q1511-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1511-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Direct factor Xa inhibition would oppose the observed increase in factor Xa activity.",
+          "source_ids": [
+            "Q1511-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1511-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Neutralizing tissue factor would reduce initiation of coagulation.",
+          "source_ids": [
+            "Q1511-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Direct factor Xa inhibition acts at the same node but in the opposite direction; the observed increase in factor Xa generation identifies removal of TFPI restraint.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1512,
+      "drug": "zenocutuzumab-zbco",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "NRG1-fusion-positive tumor cells are exposed to zenocutuzumab-zbco. NRG1 binding to HER3 and HER2:HER3 dimerization decrease, PI3K-AKT-mTOR signaling falls, and antibody-dependent cellular cytotoxicity is observed.",
+        "lead_in": "Which direct interaction best explains this profile?",
+        "options": {
+          "A": "Covalent inhibition of the intracellular HER2 kinase domain",
+          "B": "Bispecific binding to extracellular HER2 and HER3",
+          "C": "Neutralization of circulating NRG1 without receptor binding",
+          "D": "PD-1 blockade on T cells",
+          "E": "Selective EGFR degradation"
+        },
+        "intended_key": "B",
+        "tested_construct": "Bispecific extracellular HER2/HER3 binding that blocks NRG1-driven heterodimer signaling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zenocutuzumab-zbco is a bispecific antibody that binds extracellular HER2 and HER3, inhibits HER2:HER3 dimerization, prevents NRG1 binding to HER3, suppresses downstream PI3K-AKT-mTOR signaling, and can mediate ADCC.",
+        "distractor_explanations": {
+          "A": "An intracellular kinase inhibitor would not explain simultaneous extracellular HER2/HER3 binding or ADCC.",
+          "B": "Correct. Bispecific HER2/HER3 binding explains blockade of NRG1-driven dimerization and immune-effector activity.",
+          "C": "The antibody directly binds HER2 and HER3 rather than only soluble NRG1.",
+          "D": "PD-1 blockade does not directly prevent HER2:HER3 dimerization.",
+          "E": "EGFR degradation is a different receptor mechanism."
+        },
+        "educational_objective": "Differentiate a bispecific HER2/HER3 antibody from kinase inhibition and ligand-only neutralization."
+      },
+      "sources": [
+        {
+          "source_id": "Q1512-LABEL",
+          "title": "BIZENGRI- zenocutuzumab injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2a33e782-fc75-4dba-b77c-a44536ac13a5",
+          "setid": "2a33e782-fc75-4dba-b77c-a44536ac13a5",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "1ddcda2fcfa09a02523fd6580d3e6e9786a6934fff12ee8a110dabdac9cbe047",
+          "cited_section_sha256": "349a0461e8f0e612bb8a66e24eb08d20d4136829789988a6b79ef394a16681ee",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "349a0461e8f0e612bb8a66e24eb08d20d4136829789988a6b79ef394a16681ee"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1512-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "An intracellular kinase inhibitor would not explain simultaneous extracellular HER2/HER3 binding or ADCC.",
+          "source_ids": [
+            "Q1512-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1512-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Bispecific HER2/HER3 binding explains blockade of NRG1-driven dimerization and immune-effector activity.",
+          "source_ids": [
+            "Q1512-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1512-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The antibody directly binds HER2 and HER3 rather than only soluble NRG1.",
+          "source_ids": [
+            "Q1512-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1512-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PD-1 blockade does not directly prevent HER2:HER3 dimerization.",
+          "source_ids": [
+            "Q1512-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1512-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "EGFR degradation is a different receptor mechanism.",
+          "source_ids": [
+            "Q1512-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "HER2 kinase inhibition can suppress downstream signaling, but it cannot explain extracellular dual-receptor binding, prevention of NRG1-HER3 binding, and ADCC.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1513,
+      "drug": "afamitresgene autoleucel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Autologous T cells are genetically modified to express an affinity-enhanced T-cell receptor. The engineered cells kill synovial-sarcoma cells only when a MAGE-A4 peptide is presented by HLA-A*02; CD19 expression is irrelevant.",
+        "lead_in": "Which direct recognition event best explains tumor-cell killing?",
+        "options": {
+          "A": "A CAR binding native MAGE-A4 on the tumor-cell surface without HLA restriction",
+          "B": "An anti-CD19 CAR engaging B-lineage cells",
+          "C": "An engineered TCR recognizing an HLA-A*02-restricted MAGE-A4 peptide",
+          "D": "A bispecific antibody linking CD3 to DLL3",
+          "E": "A TCR recognizing any intracellular tumor antigen independent of HLA"
+        },
+        "intended_key": "C",
+        "tested_construct": "Affinity-enhanced TCR recognition of HLA-A*02-restricted MAGE-A4 peptide",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Afamitresgene autoleucel consists of autologous CD4- and CD8-positive T cells engineered to express an affinity-enhanced TCR specific for MAGE-A4. The TCR recognizes an HLA-A*02-restricted MAGE-A4 peptide, triggering T-cell activation and killing of MAGE-A4/HLA-A*02-expressing cells.",
+        "distractor_explanations": {
+          "A": "TCRs recognize peptide-HLA complexes rather than intact intracellular MAGE-A4 as a native surface antigen.",
+          "B": "CD19 is not the antigen in this therapy.",
+          "C": "Correct. The engineered TCR recognizes a MAGE-A4 peptide specifically in an HLA-A*02 complex.",
+          "D": "DLL3×CD3 engagement describes a bispecific T-cell engager rather than an engineered antigen-specific TCR.",
+          "E": "TCR antigen recognition is HLA restricted."
+        },
+        "educational_objective": "Distinguish HLA-restricted engineered TCR therapy from CAR-T and bispecific T-cell-engager mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1513-LABEL",
+          "title": "TECELRA- afamitresgene autoleucel suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab24631f-3364-46e1-8074-7244863bcbab",
+          "setid": "ab24631f-3364-46e1-8074-7244863bcbab",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "445386e344ce638c8e9be9ccb244d70db346c8290335fa751a5d3fc327e3449c",
+          "cited_section_sha256": "5d1c497cfb755850a901a876c4d5b15cbb3bc62b21677a56e4347eb2d0f36597",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "5d1c497cfb755850a901a876c4d5b15cbb3bc62b21677a56e4347eb2d0f36597"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1513-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "TCRs recognize peptide-HLA complexes rather than intact intracellular MAGE-A4 as a native surface antigen.",
+          "source_ids": [
+            "Q1513-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1513-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "CD19 is not the antigen in this therapy.",
+          "source_ids": [
+            "Q1513-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1513-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. The engineered TCR recognizes a MAGE-A4 peptide specifically in an HLA-A*02 complex.",
+          "source_ids": [
+            "Q1513-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1513-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "DLL3×CD3 engagement describes a bispecific T-cell engager rather than an engineered antigen-specific TCR.",
+          "source_ids": [
+            "Q1513-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1513-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "TCR antigen recognition is HLA restricted.",
+          "source_ids": [
+            "Q1513-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Both CARs and engineered TCRs redirect T cells, but the requirement for an intracellular antigen-derived peptide presented by HLA-A*02 identifies TCR-based recognition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1514,
+      "drug": "tarlatamab-dlle",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A recombinant bispecific protein is added to small-cell lung-cancer cells and autologous T cells. It simultaneously binds a tumor-associated surface antigen and CD3, causing T-cell activation, inflammatory cytokine release, and tumor-cell lysis.",
+        "lead_in": "Which molecular bridge is formed by this drug?",
+        "options": {
+          "A": "HER2 on tumor cells to HER3 on the same tumor cell",
+          "B": "PD-L1 on tumor cells to PD-1 on T cells",
+          "C": "CD19 on tumor cells to an engineered CAR",
+          "D": "DLL3 on tumor cells to CD3 on T cells",
+          "E": "BCMA on plasma cells to FcRn"
+        },
+        "intended_key": "D",
+        "tested_construct": "Bispecific DLL3-directed CD3 T-cell engagement",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Tarlatamab-dlle is a bispecific T-cell engager that binds DLL3 on cells, including tumor cells, and CD3 on T cells. This bridge activates T cells, induces cytokine release, and lyses DLL3-expressing cells.",
+        "distractor_explanations": {
+          "A": "HER2/HER3 dual binding does not recruit T cells through CD3.",
+          "B": "Checkpoint receptor binding is not the direct bridge formed by tarlatamab.",
+          "C": "CAR recognition requires genetically modified T cells rather than a soluble DLL3×CD3 engager.",
+          "D": "Correct. Tarlatamab bridges DLL3-expressing tumor cells to CD3-positive T cells.",
+          "E": "BCMA/FcRn is unrelated to the labeled target pair."
+        },
+        "educational_objective": "Recognize a DLL3×CD3 bispecific T-cell engager from direct physical recruitment and activation of T cells against DLL3-positive tumor cells."
+      },
+      "sources": [
+        {
+          "source_id": "Q1514-LABEL",
+          "title": "IMDELLTRA- tarlatamab-dlle injection, powder, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782",
+          "setid": "1e7b6163-5d83-42ea-82c9-cf7620cdc782",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b5550d21ef6492b83f61007a5a95709d70cf5870188bc341362ec94960e9a15c",
+          "cited_section_sha256": "e0ac29fbec1e44e54a5aadb841b6c268d6ad3b899bbf7e5a5573fd95a69e8fb5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "e0ac29fbec1e44e54a5aadb841b6c268d6ad3b899bbf7e5a5573fd95a69e8fb5"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1514-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "HER2/HER3 dual binding does not recruit T cells through CD3.",
+          "source_ids": [
+            "Q1514-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1514-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Checkpoint receptor binding is not the direct bridge formed by tarlatamab.",
+          "source_ids": [
+            "Q1514-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1514-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "CAR recognition requires genetically modified T cells rather than a soluble DLL3×CD3 engager.",
+          "source_ids": [
+            "Q1514-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1514-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Tarlatamab bridges DLL3-expressing tumor cells to CD3-positive T cells.",
+          "source_ids": [
+            "Q1514-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1514-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "BCMA/FcRn is unrelated to the labeled target pair.",
+          "source_ids": [
+            "Q1514-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "CAR-T therapy also redirects T cells to tumors, but the stem uses an unmodified autologous T-cell population plus a soluble bispecific bridge.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1515,
+      "drug": "vanzacaftor/tezacaftor/deutivacaftor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cells expressing F508del-CFTR are treated with a three-drug combination. More mature CFTR reaches the plasma membrane, and the channels that reach the surface show a higher open probability.",
+        "lead_in": "Which combined direct actions best explain these findings?",
+        "options": {
+          "A": "Three independent blockers of epithelial sodium channels",
+          "B": "Two CFTR potentiators plus a chloride-channel pore blocker",
+          "C": "One CFTR corrector plus two inhibitors of CFTR degradation",
+          "D": "Activation of CFTR transcription plus inhibition of ENaC",
+          "E": "Two CFTR correctors that improve processing/trafficking plus a CFTR potentiator that increases channel gating"
+        },
+        "intended_key": "E",
+        "tested_construct": "Dual CFTR correction plus potentiation of channel gating",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Vanzacaftor and tezacaftor bind different CFTR sites and facilitate processing and trafficking of selected mutant CFTR proteins to the cell surface. Deutivacaftor potentiates CFTR channel open probability at the cell surface.",
+        "distractor_explanations": {
+          "A": "ENaC blockade does not explain increased mature CFTR at the membrane or increased CFTR gating.",
+          "B": "The combination uses two correctors and one potentiator, not two potentiators and a pore blocker.",
+          "C": "The third component increases gating rather than merely blocking degradation.",
+          "D": "The label describes direct protein correction and potentiation, not transcriptional activation.",
+          "E": "Correct. Two correctors increase surface CFTR quantity and a potentiator increases function by raising open probability."
+        },
+        "educational_objective": "Distinguish CFTR correctors that improve protein processing/trafficking from a potentiator that increases channel gating."
+      },
+      "sources": [
+        {
+          "source_id": "Q1515-LABEL",
+          "title": "ALYFTREK- vanzacaftor, tezacaftor, and deutivacaftor tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7e635909-c6fd-4f0d-ae77-cdff03653a20",
+          "setid": "7e635909-c6fd-4f0d-ae77-cdff03653a20",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-10; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7d8a1551196aac537f272161baa67460616b50b2ff51e41ea41c935e2dd8bfd9",
+          "cited_section_sha256": "8894644036609eac00d1691b9bbc8069343a852026c70c3472ed8d5ae60820b3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "8894644036609eac00d1691b9bbc8069343a852026c70c3472ed8d5ae60820b3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1515-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "ENaC blockade does not explain increased mature CFTR at the membrane or increased CFTR gating.",
+          "source_ids": [
+            "Q1515-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1515-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The combination uses two correctors and one potentiator, not two potentiators and a pore blocker.",
+          "source_ids": [
+            "Q1515-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1515-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The third component increases gating rather than merely blocking degradation.",
+          "source_ids": [
+            "Q1515-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1515-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The label describes direct protein correction and potentiation, not transcriptional activation.",
+          "source_ids": [
+            "Q1515-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1515-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Two correctors increase surface CFTR quantity and a potentiator increases function by raising open probability.",
+          "source_ids": [
+            "Q1515-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "A degradation-based explanation could increase protein abundance, but the label specifically describes trafficking correction at two sites plus a separate gating potentiator.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
