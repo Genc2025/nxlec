@@ -1,0 +1,758 @@
+{
+  "batch_id": "Q1501-Q1505-20260910",
+  "created_at": "2026-09-10",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1500,
+  "canonical_count_after": 1500,
+  "canonical_db_blob": "3ed79b65e3422fa8d9649ba7870185fbf0a07e9c",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "scope": "Five original USMLE Step 1 mechanism-focused items after canonical-collision replacement. Author QA does not substitute for zero-trust evidence-derived auditing.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component",
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false
+  },
+  "items": [
+    {
+      "num": 1501,
+      "drug": "nerandomilast",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Fibroblasts from a patient with pulmonary fibrosis are exposed to nerandomilast. Intracellular cAMP rises and expression of profibrotic growth factors and inflammatory cytokines decreases. Enzyme profiling shows substantially greater inhibition of PDE4B than of PDE4A, PDE4C, or PDE4D.",
+        "lead_in": "Which direct action best explains this pattern?",
+        "options": {
+          "A": "Preferential inhibition of phosphodiesterase 4B",
+          "B": "Activation of soluble guanylate cyclase",
+          "C": "Inhibition of phosphodiesterase 5",
+          "D": "Antagonism of transforming growth factor beta receptors",
+          "E": "Direct inhibition of collagen cross-linking enzymes"
+        },
+        "intended_key": "A",
+        "tested_construct": "Preferential PDE4B inhibition with elevation of intracellular cAMP",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Nerandomilast inhibits PDE4 with at least nine-fold preferential inhibition of PDE4B over PDE4A, PDE4C, and PDE4D in vitro. PDE4 inhibition reduces cAMP hydrolysis, increasing intracellular cAMP and contributing to antifibrotic and immunomodulatory effects.",
+        "distractor_explanations": {
+          "A": "Correct. Preferential PDE4B inhibition explains reduced cAMP degradation and the measured increase in intracellular cAMP.",
+          "B": "Soluble guanylate cyclase raises cGMP rather than cAMP.",
+          "C": "PDE5 primarily hydrolyzes cGMP and does not match the PDE4B-selective enzyme profile.",
+          "D": "TGF-beta receptor antagonism could affect fibrosis but would not explain direct PDE4B inhibition or cAMP elevation.",
+          "E": "Collagen cross-linking occurs downstream and does not explain the cyclic-nucleotide findings."
+        },
+        "educational_objective": "Differentiate PDE4B-preferential inhibition from cGMP-directed and downstream antifibrotic mechanisms by using the measured second messenger and enzyme profile."
+      },
+      "sources": [
+        {
+          "source_id": "Q1501-LABEL",
+          "title": "JASCAYD- nerandomilast tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fa1b14c6-957f-d326-5099-911bfe33e391",
+          "setid": "fa1b14c6-957f-d326-5099-911bfe33e391",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "2469388f2654fcccef9fb569e70b38cc41078e8bc1c07ada89f0ecd2cb97546c",
+          "cited_section_sha256": "cd6b7da96e38281cfdbde79d8f2458efc3e0df7c318164922c76b9dc9ce6bcf3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "cd6b7da96e38281cfdbde79d8f2458efc3e0df7c318164922c76b9dc9ce6bcf3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1501-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Preferential PDE4B inhibition explains reduced cAMP degradation and the measured increase in intracellular cAMP.",
+          "source_ids": [
+            "Q1501-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1501-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Soluble guanylate cyclase raises cGMP rather than cAMP.",
+          "source_ids": [
+            "Q1501-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1501-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PDE5 primarily hydrolyzes cGMP and does not match the PDE4B-selective enzyme profile.",
+          "source_ids": [
+            "Q1501-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1501-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "TGF-beta receptor antagonism could affect fibrosis but would not explain direct PDE4B inhibition or cAMP elevation.",
+          "source_ids": [
+            "Q1501-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1501-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Collagen cross-linking occurs downstream and does not explain the cyclic-nucleotide findings.",
+          "source_ids": [
+            "Q1501-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "TGF-beta signaling is a plausible antifibrotic target, but the direct PDE4B enzyme result and rise in cAMP uniquely localize the mechanism to PDE4B-preferential inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1502,
+      "drug": "obecabtagene autoleucel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Autologous T cells are genetically modified to express a chimeric antigen receptor. When cocultured with CD19-positive leukemia cells, the modified T cells activate CD3-zeta signaling, proliferate, and kill the target cells. A 4-1BB domain enhances persistence after activation.",
+        "lead_in": "Which therapeutic design best explains these findings?",
+        "options": {
+          "A": "Bispecific antibody linking CD3 to BCMA",
+          "B": "CD19-directed CAR T cells containing CD3-zeta and 4-1BB signaling domains",
+          "C": "Unmodified donor natural killer cells targeting CD19 through native Fc receptors",
+          "D": "CD19-directed antibody-drug conjugate carrying a microtubule toxin",
+          "E": "Small-molecule inhibition of B-cell receptor kinase signaling"
+        },
+        "intended_key": "B",
+        "tested_construct": "CD19-directed autologous CAR-T signaling through CD3-zeta with 4-1BB costimulation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Obecabtagene autoleucel is a CD19-directed genetically modified autologous T-cell therapy. Binding of its anti-CD19 CAR to CD19 activates signaling through the CD3-zeta domain, while the 4-1BB costimulatory domain enhances proliferation and persistence.",
+        "distractor_explanations": {
+          "A": "A bispecific antibody recruits endogenous T cells but does not genetically install a CAR containing CD3-zeta and 4-1BB domains.",
+          "B": "Correct. The CD19-binding CAR, CD3-zeta signaling, and 4-1BB costimulation define obecabtagene autoleucel.",
+          "C": "Native NK-cell Fc signaling does not require genetically introduced CAR domains.",
+          "D": "An antibody-drug conjugate kills through an attached payload rather than engineered T-cell signaling and expansion.",
+          "E": "A small molecule would not produce antigen-specific CAR engagement or 4-1BB-dependent persistence."
+        },
+        "educational_objective": "Recognize a CD19-directed CAR-T product from antigen-specific engagement coupled to CD3-zeta activation and 4-1BB costimulation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1502-LABEL",
+          "title": "AUCATZYL- obecabtagene autoleucel kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4fef6986-b988-45e4-8c20-b14f0ef1f538",
+          "setid": "4fef6986-b988-45e4-8c20-b14f0ef1f538",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "97e9df711c02b316b4dc4d8bd225d9adf04daa0a83d640676669f7c669ee7484",
+          "cited_section_sha256": "e1d57da8aabecfa6fae7b8edc25713870ca5bdb2c418b6c3c691c21d85a1af56",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "e1d57da8aabecfa6fae7b8edc25713870ca5bdb2c418b6c3c691c21d85a1af56"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1502-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "A bispecific antibody recruits endogenous T cells but does not genetically install a CAR containing CD3-zeta and 4-1BB domains.",
+          "source_ids": [
+            "Q1502-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1502-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. The CD19-binding CAR, CD3-zeta signaling, and 4-1BB costimulation define obecabtagene autoleucel.",
+          "source_ids": [
+            "Q1502-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1502-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Native NK-cell Fc signaling does not require genetically introduced CAR domains.",
+          "source_ids": [
+            "Q1502-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1502-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "An antibody-drug conjugate kills through an attached payload rather than engineered T-cell signaling and expansion.",
+          "source_ids": [
+            "Q1502-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1502-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "A small molecule would not produce antigen-specific CAR engagement or 4-1BB-dependent persistence.",
+          "source_ids": [
+            "Q1502-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "A CD3-engaging bispecific antibody can also produce T-cell-mediated killing, but genetically modified autologous cells with intrinsic CD3-zeta and 4-1BB domains specifically identify CAR-T therapy.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1503,
+      "drug": "elafibranor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Hepatocytes are exposed to elafibranor and its active metabolite GFT1007. Reporter assays show activation of several peroxisome proliferator-activated receptor isoforms. Bile-acid synthesis decreases, accompanied by signaling compatible with FGF21-dependent downregulation of cholesterol 7-alpha-hydroxylase.",
+        "lead_in": "Which direct receptor action best accounts for these findings?",
+        "options": {
+          "A": "Antagonism of the farnesoid X receptor",
+          "B": "Selective agonism of the glucocorticoid receptor",
+          "C": "Agonism of PPAR-alpha, PPAR-gamma, and PPAR-delta",
+          "D": "Inhibition of the apical sodium-dependent bile acid transporter",
+          "E": "Neutralization of fibroblast growth factor 19"
+        },
+        "intended_key": "C",
+        "tested_construct": "PPAR-alpha, PPAR-gamma, and PPAR-delta agonism",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Elafibranor and its active metabolite GFT1007 are PPAR agonists that activate PPAR-alpha, PPAR-gamma, and PPAR-delta in vitro. PPAR-alpha and PPAR-delta activation can reduce bile-acid synthesis, including through FGF21-dependent downregulation of CYP7A1.",
+        "distractor_explanations": {
+          "A": "FXR antagonism is not the documented direct receptor action.",
+          "B": "Glucocorticoid-receptor agonism does not match the PPAR reporter profile.",
+          "C": "Correct. Elafibranor and GFT1007 activate PPAR-alpha, PPAR-gamma, and PPAR-delta.",
+          "D": "Blocking intestinal bile-acid transport is a luminal transporter mechanism, not hepatocyte PPAR activation.",
+          "E": "FGF19 neutralization does not explain direct activation of multiple PPAR isoforms."
+        },
+        "educational_objective": "Use receptor-reporter data and bile-acid synthetic signaling to distinguish PPAR agonism from bile-acid transport and other nuclear-receptor mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1503-LABEL",
+          "title": "IQIRVO- elafibranor tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d78aa14f-6ec1-4b1d-a4ae-e48658137a25",
+          "setid": "d78aa14f-6ec1-4b1d-a4ae-e48658137a25",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b5a5716bc14086c7f7fb9ced45b0a17d87b2b1224064c31ee83ef6c08a0f990e",
+          "cited_section_sha256": "d5b2cd17576f6d2b8a67b03294291934f5fd84f948cac582313166351f0bc674",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "d5b2cd17576f6d2b8a67b03294291934f5fd84f948cac582313166351f0bc674"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1503-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "FXR antagonism is not the documented direct receptor action.",
+          "source_ids": [
+            "Q1503-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1503-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Glucocorticoid-receptor agonism does not match the PPAR reporter profile.",
+          "source_ids": [
+            "Q1503-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1503-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Elafibranor and GFT1007 activate PPAR-alpha, PPAR-gamma, and PPAR-delta.",
+          "source_ids": [
+            "Q1503-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1503-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Blocking intestinal bile-acid transport is a luminal transporter mechanism, not hepatocyte PPAR activation.",
+          "source_ids": [
+            "Q1503-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1503-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "FGF19 neutralization does not explain direct activation of multiple PPAR isoforms.",
+          "source_ids": [
+            "Q1503-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Other nuclear receptors can regulate bile-acid synthesis, but the simultaneous direct activation of PPAR-alpha, PPAR-gamma, and PPAR-delta uniquely identifies elafibranor pharmacology.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1504,
+      "drug": "ensartinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory & Renal/Urinary Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Respiratory & Renal/Urinary Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An ALK-fusion-positive non-small-cell lung cancer line is exposed to ensartinib. Phosphorylation of ALK, AKT, ERK, and S6 decreases and proliferation slows. A parallel kinase panel also demonstrates activity against MET and ROS1.",
+        "lead_in": "Which direct action best explains the primary signaling change?",
+        "options": {
+          "A": "Selective EGFR inhibition",
+          "B": "KRAS G12C covalent inhibition",
+          "C": "MEK1/2 inhibition only",
+          "D": "ALK kinase inhibition with additional activity against MET and ROS1",
+          "E": "HER2-directed antibody-drug conjugate internalization"
+        },
+        "intended_key": "D",
+        "tested_construct": "ALK kinase inhibition with MET and ROS1 activity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Ensartinib is an ALK kinase inhibitor that also inhibits kinases including MET and ROS1. It suppresses ALK phosphorylation and downstream AKT, ERK, and S6 signaling in ALK-altered cells.",
+        "distractor_explanations": {
+          "A": "EGFR inhibition does not match direct ALK phosphorylation loss.",
+          "B": "KRAS G12C inhibition is a different oncogenic target.",
+          "C": "MEK-only inhibition could reduce ERK signaling but would not directly reduce ALK phosphorylation or explain MET/ROS1 activity.",
+          "D": "Correct. The observed kinase and downstream signaling profile matches ensartinib.",
+          "E": "An antibody-drug conjugate does not explain direct kinase-panel inhibition."
+        },
+        "educational_objective": "Use receptor phosphorylation and downstream pathway changes to identify ALK kinase inhibition rather than downstream-only or unrelated oncogenic targets."
+      },
+      "sources": [
+        {
+          "source_id": "Q1504-LABEL",
+          "title": "ENSACOVE- ensartinib capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e1b2f79-678a-472a-b924-66909c8a4b2e",
+          "setid": "1e1b2f79-678a-472a-b924-66909c8a4b2e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "8b4c2087e991c4a3c1832abbd4947283f2cbefc7c559da47fff65426a4f615f0",
+          "cited_section_sha256": "7d79545f02661e7b6614b2410c87cd0987ae45eee28789ac9f868ab9319f0d56",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "7d79545f02661e7b6614b2410c87cd0987ae45eee28789ac9f868ab9319f0d56"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1504-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "EGFR inhibition does not match direct ALK phosphorylation loss.",
+          "source_ids": [
+            "Q1504-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1504-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "KRAS G12C inhibition is a different oncogenic target.",
+          "source_ids": [
+            "Q1504-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1504-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "MEK-only inhibition could reduce ERK signaling but would not directly reduce ALK phosphorylation or explain MET/ROS1 activity.",
+          "source_ids": [
+            "Q1504-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1504-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. The observed kinase and downstream signaling profile matches ensartinib.",
+          "source_ids": [
+            "Q1504-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1504-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "An antibody-drug conjugate does not explain direct kinase-panel inhibition.",
+          "source_ids": [
+            "Q1504-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "MEK inhibition would lower ERK signaling, but preservation of the upstream assay showing direct ALK inhibition and additional MET/ROS1 activity excludes a MEK-only mechanism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1505,
+      "drug": "delgocitinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Keratinocytes are exposed to delgocitinib before stimulation with several cytokines. STAT activation and cytokine-responsive gene expression decrease across pathways that signal through JAK1, JAK2, JAK3, and TYK2 rather than through a single Janus kinase.",
+        "lead_in": "Which direct action best explains this broad signaling pattern?",
+        "options": {
+          "A": "Selective allosteric inhibition of TYK2 alone",
+          "B": "Selective irreversible inhibition of JAK3",
+          "C": "Neutralization of extracellular interleukin-4 and interleukin-13",
+          "D": "Proteasomal degradation of STAT proteins",
+          "E": "Inhibition of JAK1, JAK2, JAK3, and TYK2"
+        },
+        "intended_key": "E",
+        "tested_construct": "Broad JAK1/JAK2/JAK3/TYK2 inhibition",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Author estimate based on mechanistic discrimination; no empirical calibration claimed."
+      },
+      "explanation": {
+        "key_explanation": "Delgocitinib is a Janus kinase inhibitor that inhibits JAK1, JAK2, JAK3, and TYK2. Blocking these kinases reduces cytokine-receptor recruitment and activation of STAT proteins and downstream cytokine-responsive gene expression.",
+        "distractor_explanations": {
+          "A": "TYK2-only inhibition would not explain suppression of pathways dependent on JAK1, JAK2, and JAK3.",
+          "B": "JAK3-only inhibition is too narrow for the observed kinase profile.",
+          "C": "Neutralizing two extracellular cytokines would not suppress multiple unrelated JAK-dependent pathways in the assay.",
+          "D": "STAT degradation is not the documented direct mechanism.",
+          "E": "Correct. Delgocitinib inhibits all four listed JAK-family kinases."
+        },
+        "educational_objective": "Differentiate broad JAK-family inhibition from isoform-selective inhibition and extracellular cytokine neutralization."
+      },
+      "sources": [
+        {
+          "source_id": "Q1505-LABEL",
+          "title": "ANZUPGO- delgocitinib cream",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a59bf36e-6f04-4b47-b385-8040c95f040c",
+          "setid": "a59bf36e-6f04-4b47-b385-8040c95f040c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page and cited mechanism section reverified 2026-09-10; no revision date inferred.",
+          "retrieved_at": "2026-09-10",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "9cc221e5792040c711e5d4591d1e98202cf1ade030609bd819d1d68bbc5d4dfb",
+          "cited_section_sha256": "a34418263734d9cdc676a9f56504f813bc13ac80e6ca960bc10904876808863b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "a34418263734d9cdc676a9f56504f813bc13ac80e6ca960bc10904876808863b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1505-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "TYK2-only inhibition would not explain suppression of pathways dependent on JAK1, JAK2, and JAK3.",
+          "source_ids": [
+            "Q1505-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1505-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "JAK3-only inhibition is too narrow for the observed kinase profile.",
+          "source_ids": [
+            "Q1505-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1505-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Neutralizing two extracellular cytokines would not suppress multiple unrelated JAK-dependent pathways in the assay.",
+          "source_ids": [
+            "Q1505-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1505-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "STAT degradation is not the documented direct mechanism.",
+          "source_ids": [
+            "Q1505-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        },
+        {
+          "claim_id": "Q1505-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Delgocitinib inhibits all four listed JAK-family kinases.",
+          "source_ids": [
+            "Q1505-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed target/mechanism is directly supported by the cited source; distractor rejection uses that mechanism plus stipulated experimental conditions."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "TYK2-selective inhibition can suppress some cytokine pathways, but concurrent effects across JAK1-, JAK2-, JAK3-, and TYK2-dependent signaling require the broader delgocitinib profile.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no invented dose, cutoff, response percentage, trial result, or empirical item statistic.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-10; no unsupported revision date asserted.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
