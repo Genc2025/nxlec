@@ -1,0 +1,73 @@
+name: USMLE Freeze Audit Q1356-Q1380
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-freeze-audit-q1356-q1380.yml'
+permissions:
+  contents: write
+jobs:
+  freeze-audit-finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      CAND_PATH: usmle/batch_specs_1301_1400/04_q1356_q1380_author_20260908.json
+      DB_BLOB: 1a0f0b702f86a57624161413ba60fa4ce88e8d97
+      START_Q: '1356'
+      END_Q: '1380'
+      OUT_PATH: usmle/audit/Q1356_Q1380_ZERO_TRUST.json
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Bind original candidate and production DB
+        run: |
+          set -euo pipefail
+          test "$(git hash-object "$CAND_PATH")" = "7568789cd2e7535d3aaac808edd89f2979b0c4e1"
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+      - name: Technical freeze from live authoritative sources
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/freeze_q1356_q1380.py
+          python usmle/freeze_q1356_q1380.py
+          NEW_BLOB=$(git hash-object "$CAND_PATH")
+          echo "CAND_BLOB=$NEW_BLOB" >> "$GITHUB_ENV"
+          python - <<'PY'
+          import json,os
+          b=json.load(open(os.environ['CAND_PATH']))
+          assert b['technical_integrity']['source_hashes_complete'] is True
+          assert 'ncjmm' not in open(os.environ['CAND_PATH']).read().casefold()
+          assert all(s.get('source_page_sha256') and s.get('mechanism_section_sha256') for x in b['items'] for s in x['sources'])
+          print('TECHNICAL_FREEZE=PASS')
+          PY
+      - name: Zero-trust audit from zero
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_candidate_zero_trust_generic.py
+          python usmle/audit_candidate_zero_trust_generic.py
+      - name: Enforce audit and build final manifest
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          a=pathlib.Path(os.environ['OUT_PATH']); r=json.load(open(a)); n=25
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['item_count']==n
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' for x in r['item_reports'])
+          assert all(x['evidence_derived_key']==x['intended_key'] for x in r['item_reports'])
+          cand=os.environ['CAND_PATH']; b=json.load(open(cand)); keys=''.join(x['item']['intended_key'] for x in b['items'])
+          assert keys==b['answer_key_sequence']
+          m={'audit_id':'Q1356-Q1380-FINAL-QA-PASS-20260910','status':'FINAL_QA_PASS','final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT','item_range':'Q1356-Q1380','item_count':25,'candidate_batch_blob':subprocess.check_output(['git','hash-object',cand],text=True).strip(),'candidate_batch_sha256':hashlib.sha256(pathlib.Path(cand).read_bytes()).hexdigest(),'authoritative_db_blob':os.environ['DB_BLOB'],'authoritative_db_final_count':1300,'authoritative_review_count':1300,'technical_freeze':'PASS','zero_trust_audit_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'answer_key_sequence':keys,'all_items_final_10_10_pass':True,'unresolved_defects':[],'suggested_changes':[],'production_import_ready':True,'production_db_modified':False,'trusted_importer_complete':False}
+          pathlib.Path('usmle/audit/Q1356_Q1380_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+          print('Q1356_Q1380_FINAL_GATE=PASS')
+          PY
+      - name: Commit frozen candidate audit and manifest
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" usmle/audit/Q1356_Q1380_ZERO_TRUST.json usmle/audit/Q1356_Q1380_FINAL_QA_PASS.json
+          git commit -m 'usmle: freeze and finalize Q1356-Q1380'
+          git push
