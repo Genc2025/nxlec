@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import copy,hashlib,json,re,shutil,sqlite3,subprocess,tempfile
-from collections import Counter
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent
@@ -40,9 +39,14 @@ def validate_doc(n,d):
  ids={s.get('source_id') for s in src}
  if not src or None in ids or any(not s.get('url','').startswith('https://') or not (s.get('section_locator') or s.get('source_locator')) for s in src): raise SystemExit(f'Q{n}: source metadata')
  if isinstance(em,list):
-  mm={x.get('option'):x for x in em if x.get('option') in 'ABCDE'}
-  if set(mm)!=set('ABCDE') or mm[i['intended_key']].get('direct_or_inference') not in {'direct','mixed'}: raise SystemExit(f'Q{n}: evidence map')
-  if any(not set(x.get('source_ids',[])).issubset(ids) for x in mm.values()): raise SystemExit(f'Q{n}: evidence source binding')
+  option_entries=[x for x in em if isinstance(x.get('option'),str) and x.get('option') in 'ABCDE']
+  mm={x['option']:x for x in option_entries}
+  if len(option_entries)!=5 or set(mm)!=set('ABCDE') or mm[i['intended_key']].get('direct_or_inference') not in {'direct','mixed'}: raise SystemExit(f'Q{n}: evidence map')
+  if any(not set(x.get('source_ids',[])).issubset(ids) for x in option_entries): raise SystemExit(f'Q{n}: evidence source binding')
+  for x in em:
+   if x in option_entries: continue
+   if x.get('source_ids') is not None and not set(x.get('source_ids',[])).issubset(ids): raise SystemExit(f'Q{n}: extra evidence source binding')
+   if x.get('claim_locator') and x.get('claim_locator') not in {'item.vignette','explanation.educational_objective'}: raise SystemExit(f'Q{n}: extra evidence locator')
  elif isinstance(em,dict):
   if set(em)!=set('ABCDE'): raise SystemExit(f'Q{n}: compact evidence map')
  else: raise SystemExit(f'Q{n}: evidence map absent')
@@ -63,14 +67,12 @@ def main():
   for n,d in docs.items(): validate_doc(n,d)
   all_docs.update(docs)
  if set(all_docs)!=set(range(1301,1501)) or len(all_docs)!=200: raise SystemExit('incoming contiguity/count')
- # Cross-workstream duplicate rescan, plus canonical comparison.
  con=sqlite3.connect(DB.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
  if con.execute('pragma integrity_check').fetchone()[0]!='ok': raise SystemExit('production DB integrity')
  old=con.execute("select candidate_id,payload_json,payload_sha256,audit_sha256 from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
  oldr=con.execute("select candidate_id,review_json,review_sha256,final_status from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchall(); con.close()
  if len(old)!=1300 or len(oldr)!=1300: raise SystemExit('production counts')
- oldnums={qnum(x[0]) for x in old};
- if oldnums!=set(range(1,1301)): raise SystemExit('production contiguity')
+ if {qnum(x[0]) for x in old}!=set(range(1,1301)): raise SystemExit('production contiguity')
  base=[]
  for cid,pj,ps,ash in old:
   p=json.loads(pj)
@@ -88,7 +90,6 @@ def main():
    if j>max_cross: max_cross=j; top_cross=(n,pn)
    if j>=0.80 or (tc and ptc and tc==ptc): raise SystemExit(f'Q{n}: incoming duplicate Q{pn}')
   incoming.append((n,g,tc))
- # Detached transactional simulation on a copy only.
  with tempfile.TemporaryDirectory() as td:
   sim=Path(td)/'usmle-step1-sim.db'; shutil.copy2(DB,sim); c=sqlite3.connect(sim)
   if c.execute('pragma integrity_check').fetchone()[0]!='ok': raise SystemExit('sim pre integrity')
