@@ -31,6 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python -m py_compile usmle/simulate_import_next5.py
           python usmle/simulate_import_next5.py
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
           python - <<'PY'
