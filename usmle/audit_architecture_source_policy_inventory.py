@@ -27,20 +27,40 @@ def main():
             try: original_sets[t]={x[0] for x in c.execute(f'select candidate_id from "{t}"').fetchall()}
             except: original_sets[t]=set()
     matches={t:len(step_ids&s) for t,s in original_sets.items()}
-    hosts={}; patterns={'medlineplus_ency_adam':0,'pubmed_index_only':0,'pmc_journal_content_review_required':0,'statpearls_bookshelf':0,'geneReviews_bookshelf_review_required':0,'commercial_or_nonfederal':0,'official_federal_or_exam_host':0,'sources_total':0}
+    hosts={}
+    patterns={
+      'sources_total':0,
+      'official_federal_or_exam_host':0,
+      'medlineplus_ency_adam':0,
+      'pubmed_index_only':0,
+      'pmc_journal_content_review_required':0,
+      'statpearls_bookshelf':0,
+      'geneReviews_bookshelf_review_required':0,
+      'commercial_or_nonfederal':0
+    }
     outside={}
     for cid,pj in step:
         p=json.loads(pj)
         for s in p.get('sources',[]) if isinstance(p.get('sources'),list) else []:
-            if not isinstance(s,dict):continue
+            if not isinstance(s,dict): continue
             patterns['sources_total']+=1
             u=str(s.get('url','')); h=host(u); hosts[h]=hosts.get(h,0)+1
             title=str(s.get('title','')).casefold()
-            if '/ency/' in u.casefold() and h in {'medlineplus.gov','www.medlineplus.gov'}: patterns['medlineplus_ency_adam']+=1
-            if h=='pubmed.ncbi.nlm.nih.gov': patterns['pubmed_index_only']+=1
-            if 'statpearls' in title or ('ncbi.nlm.nih.gov/books/nbk' in u.casefold() and 'statpearls' in title): patterns['statpearls_bookshelf']+=1
-            if h and h not in ALLOW:
-                patterns['outside_allowlist']+=1; outside[h]=outside.get(h,0)+1
+            if '/ency/' in u.casefold() and h in {'medlineplus.gov','www.medlineplus.gov'}:
+                patterns['medlineplus_ency_adam']+=1
+            if h=='pubmed.ncbi.nlm.nih.gov':
+                patterns['pubmed_index_only']+=1
+            if h=='pmc.ncbi.nlm.nih.gov':
+                patterns['pmc_journal_content_review_required']+=1
+            if 'statpearls' in title:
+                patterns['statpearls_bookshelf']+=1
+            if 'genereviews' in title:
+                patterns['geneReviews_bookshelf_review_required']+=1
+            if official_host(h):
+                patterns['official_federal_or_exam_host']+=1
+            elif h:
+                patterns['commercial_or_nonfederal']+=1
+                outside[h]=outside.get(h,0)+1
     # Blind audit verdict distribution where tables exist.
     blind_verdicts={}; audit_verdicts={}
     if 'blind_audits' in tables:
