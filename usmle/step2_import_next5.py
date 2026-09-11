@@ -4,7 +4,7 @@ import copy,hashlib,json,os,re,shutil,sqlite3,subprocess,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent; DB=ROOT/'data'/'usmle-step1.db'
 START=int(os.environ['START_Q']); END=int(os.environ['END_Q']); PRE=int(os.environ['PRE_COUNT']); POST=END
-DB_BLOB=os.environ['DB_BLOB']; CAND=REPO/os.environ['CAND_PATH']; CAND_BLOB=os.environ['CAND_BLOB']; MAN=REPO/os.environ['MAN_PATH']; MAN_BLOB=os.environ['MAN_BLOB']; SIM=REPO/os.environ['SIM_PATH']; SIM_BLOB=os.environ['SIM_BLOB']; VERIFY=REPO/os.environ['VERIFY_OUT']; STATE=REPO/os.environ['STATE_OUT']
+DB_BLOB=os.environ['DB_BLOB']; CAND=REPO/os.environ['CAND_PATH']; CAND_BLOB=os.environ['CAND_BLOB']; MAN=REPO/os.environ['MAN_PATH']; MAN_BLOB=os.environ['MAN_BLOB']; SIM=REPO/os.environ['SIM_PATH']; SIM_BLOB=os.environ['SIM_BLOB']; VERIFY=REPO/os.environ['VERIFY_OUT']; STATE=REPO/os.environ['STATE_OUT']\nAUDIT_DATE=os.environ.get('AUDIT_DATE','20260910'); CANDIDATE_STAMP=os.environ.get('CANDIDATE_STAMP','20260910T211500Z'); FINALIZED_AT=os.environ.get('FINALIZED_AT',FINALIZED_AT)
 def gitblob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
 def hobj(o): return hashlib.sha256(canon(o).encode()).hexdigest()
@@ -33,17 +33,17 @@ def main():
   try:
    c.execute('BEGIN IMMEDIATE')
    for n in range(START,END+1):
-    d=copy.deepcopy(docs[n]); cid=f'S1-DIRECT-{n:04d}-20260910T211500Z'; d['candidate_id']=cid
+    d=copy.deepcopy(docs[n]); cid=f'S1-DIRECT-{n:04d}-{CANDIDATE_STAMP}'; d['candidate_id']=cid
     d['step2_final_audit']={'final_10_10_gate':'FINAL_10_10_PASS','production_import_scope':f'Q{START}-Q{END}','authoritative_pre_db_blob':DB_BLOB,'authoritative_pre_count':PRE,'final_qa_manifest_blob':MAN_BLOB,'detached_simulation_blob':SIM_BLOB}
     review={'candidate_id':cid,'verdict':'FINAL_10_10_PASS','defects':[],'suggested_changes':[],'audit_scope':f'Q{START}-Q{END} production transactional import'}; rh=hobj(review); review['review_sha256']=rh; d['step2_final_audit']['review_sha256']=rh; ph=hobj(d)
-    c.execute('insert into step2_final_items(candidate_id,payload_json,payload_sha256,audit_sha256,final_status,finalized_at) values(?,?,?,?,?,?)',(cid,canon(d),ph,rh,'FINAL_10_10_PASS','2026-09-10T21:15:00Z'))
-    c.execute('insert into step2_final_reviews(candidate_id,review_json,review_sha256,final_status,finalized_at) values(?,?,?,?,?)',(cid,canon(review),rh,'FINAL_10_10_PASS','2026-09-10T21:15:00Z'))
+    c.execute('insert into step2_final_items(candidate_id,payload_json,payload_sha256,audit_sha256,final_status,finalized_at) values(?,?,?,?,?,?)',(cid,canon(d),ph,rh,'FINAL_10_10_PASS',FINALIZED_AT))
+    c.execute('insert into step2_final_reviews(candidate_id,review_json,review_sha256,final_status,finalized_at) values(?,?,?,?,?)',(cid,canon(review),rh,'FINAL_10_10_PASS',FINALIZED_AT))
    c.execute('update step2_finalization set item_count=? where id=1',(POST,)); c.commit()
   except Exception:
    c.rollback(); c.close(); raise
   c.close(); verify(work,POST,POST); shutil.copy2(work,DB)
  post_blob=gitblob(DB); verify(DB,POST,POST)
- v={'audit_id':f'Q{START}-Q{END}-PRODUCTION-IMPORT-VERIFY-20260910','status':'PRODUCTION_IMPORT_PASS','imported_range':f'Q{START}-Q{END}','imported_count':5,'pre_db_blob':DB_BLOB,'post_db_blob':post_blob,'candidate_blob':CAND_BLOB,'final_qa_manifest_blob':MAN_BLOB,'detached_simulation_blob':SIM_BLOB,'item_count':POST,'review_count':POST,f'contiguous_q0001_q{POST}':True,'sqlite_integrity':'ok','payload_review_consistency':'PASS',f'q{START}_q{END}_present_exactly_once':True,'production_import_status':'PASS','failures':[]}
- st={'audit_id':f'STEP2-FINAL-Q0001-Q{POST}-20260910','item_count':POST,'step2_final_review_count':POST,f'contiguous_q0001_q{POST}':True,f'q{START}_q{END}_present_exactly_once':True,'sqlite_integrity':'ok','pre_db_blob':DB_BLOB,'post_db_blob':post_blob,'imported_range':f'Q{START}-Q{END}','imported_count':5,'detached_simulation_blob':SIM_BLOB,'final_qa_manifest_blob':MAN_BLOB,'production_import_status':'PASS','verified_at':'2026-09-10T21:15:00Z'}
+ v={'audit_id':f'Q{START}-Q{END}-PRODUCTION-IMPORT-VERIFY-{AUDIT_DATE}','status':'PRODUCTION_IMPORT_PASS','imported_range':f'Q{START}-Q{END}','imported_count':5,'pre_db_blob':DB_BLOB,'post_db_blob':post_blob,'candidate_blob':CAND_BLOB,'final_qa_manifest_blob':MAN_BLOB,'detached_simulation_blob':SIM_BLOB,'item_count':POST,'review_count':POST,f'contiguous_q0001_q{POST}':True,'sqlite_integrity':'ok','payload_review_consistency':'PASS',f'q{START}_q{END}_present_exactly_once':True,'production_import_status':'PASS','failures':[]}
+ st={'audit_id':f'STEP2-FINAL-Q0001-Q{POST}-{AUDIT_DATE}','item_count':POST,'step2_final_review_count':POST,f'contiguous_q0001_q{POST}':True,f'q{START}_q{END}_present_exactly_once':True,'sqlite_integrity':'ok','pre_db_blob':DB_BLOB,'post_db_blob':post_blob,'imported_range':f'Q{START}-Q{END}','imported_count':5,'detached_simulation_blob':SIM_BLOB,'final_qa_manifest_blob':MAN_BLOB,'production_import_status':'PASS','verified_at':FINALIZED_AT}
  VERIFY.parent.mkdir(exist_ok=True); VERIFY.write_text(json.dumps(v,indent=2,ensure_ascii=False)+'\n'); STATE.parent.mkdir(exist_ok=True); STATE.write_text(json.dumps(st,indent=2,ensure_ascii=False)+'\n'); print(json.dumps(v,sort_keys=True))
 if __name__=='__main__': main()
