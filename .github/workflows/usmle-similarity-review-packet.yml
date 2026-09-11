@@ -1,0 +1,31 @@
+name: USMLE Similarity Review Packet
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-similarity-review-packet.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DB_BLOB: a3f28fcfd0a89161ed003e60d0d797c5fa103f1a
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Export review packet
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/export_similarity_review_packet.py
+          python usmle/export_similarity_review_packet.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+      - name: Persist packet
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/FULL_CANONICAL_Q0001_Q1535_SIMILARITY_REVIEW_PACKET.json
+          git commit -m 'usmle: export full canonical similarity review packet'
+          git push
