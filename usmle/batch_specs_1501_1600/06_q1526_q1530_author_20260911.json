@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1526-Q1530-20260911",
+  "created_at": "2026-09-11",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1525,
+  "canonical_count_after": 1525,
+  "canonical_db_blob": "487f4756e6771b6472b96abb7a18402484334abd",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1526,
+      "drug": "xanomeline/trospium chloride",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Behavioral Health",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Behavioral Health"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with schizophrenia receives a fixed-dose combination containing a centrally active muscarinic agonist and a quaternary ammonium antimuscarinic agent. The first component is intended to engage central muscarinic signaling, whereas the second predominantly antagonizes muscarinic receptors in peripheral tissues.",
+        "lead_in": "Which pair of direct pharmacologic actions best describes this combination?",
+        "options": {
+          "A": "Central M1/M4 muscarinic agonism plus predominantly peripheral muscarinic antagonism",
+          "B": "Central D2 receptor antagonism plus peripheral beta-1 receptor blockade",
+          "C": "Central NMDA receptor agonism plus peripheral nicotinic receptor antagonism",
+          "D": "Central 5-HT2A agonism plus peripheral alpha-1 receptor blockade",
+          "E": "Central M2 antagonism plus peripheral M1 agonism"
+        },
+        "intended_key": "A",
+        "tested_construct": "Central muscarinic M1/M4 agonism from xanomeline paired with predominantly peripheral muscarinic antagonism from trospium",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "COBENFY combines xanomeline, whose efficacy is thought to involve agonist activity at central M1 and M4 muscarinic acetylcholine receptors, with trospium chloride, a muscarinic antagonist acting primarily in peripheral tissues.",
+        "distractor_explanations": {
+          "A": "Correct. Xanomeline provides central muscarinic agonist activity with higher agonist activity at M1/M4, while trospium predominantly antagonizes peripheral muscarinic receptors.",
+          "B": "D2 antagonism is a conventional antipsychotic mechanism but is not the direct target pair of this combination.",
+          "C": "Neither NMDA agonism nor nicotinic antagonism is the labeled pharmacologic mechanism.",
+          "D": "The combination is not based on 5-HT2A agonism or alpha-1 blockade.",
+          "E": "The directions and receptor distribution are reversed relative to the documented actions of xanomeline and trospium."
+        },
+        "educational_objective": "Recognize the complementary central muscarinic agonist and predominantly peripheral antimuscarinic actions of xanomeline/trospium."
+      },
+      "sources": [
+        {
+          "source_id": "Q1526-LABEL",
+          "title": "COBENFY- xanomeline and trospium chloride capsule, coated pellets COBENFY- xanomeline and trospium chloride kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8f0e73bf-6025-44f6-ab64-0983322de0df",
+          "setid": "8f0e73bf-6025-44f6-ab64-0983322de0df",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "5be9b2782ca16620c5db410318ef8036ab0eab929a7e5f8a3e287438d8957c4f",
+          "cited_section_sha256": "7c7f304576d3004d31723d833921948cfa7f82c40e2519a03a1118a29e16a5c1",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "7c7f304576d3004d31723d833921948cfa7f82c40e2519a03a1118a29e16a5c1"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1526-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Xanomeline provides central muscarinic agonist activity with higher agonist activity at M1/M4, while trospium predominantly antagonizes peripheral muscarinic receptors.",
+          "source_ids": [
+            "Q1526-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1526-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "D2 antagonism is a conventional antipsychotic mechanism but is not the direct target pair of this combination.",
+          "source_ids": [
+            "Q1526-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1526-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Neither NMDA agonism nor nicotinic antagonism is the labeled pharmacologic mechanism.",
+          "source_ids": [
+            "Q1526-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1526-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The combination is not based on 5-HT2A agonism or alpha-1 blockade.",
+          "source_ids": [
+            "Q1526-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1526-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "The directions and receptor distribution are reversed relative to the documented actions of xanomeline and trospium.",
+          "source_ids": [
+            "Q1526-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "D2 antagonism is a familiar schizophrenia mechanism, but the fixed-dose drug pair is defined by muscarinic pharmacology rather than dopamine-receptor blockade.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1527,
+      "drug": "zanidatamab-hrii",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "HER2-overexpressing tumor cells are exposed to zanidatamab-hrii. The antibody simultaneously engages two nonoverlapping extracellular regions on the same receptor, promotes receptor clustering and internalization, and can trigger complement-dependent and antibody-dependent cellular cytotoxicity.",
+        "lead_in": "Which direct binding pattern best explains these findings?",
+        "options": {
+          "A": "Binding to HER2 extracellular domain 4 only",
+          "B": "Bispecific binding to HER2 extracellular domains 2 and 4",
+          "C": "Binding to HER3 and EGFR simultaneously",
+          "D": "Binding to PD-L1 and HER2 simultaneously",
+          "E": "Binding to soluble VEGF-A and membrane HER2"
+        },
+        "intended_key": "B",
+        "tested_construct": "Dual-epitope HER2 binding at extracellular domains 2 and 4",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zanidatamab-hrii is a bispecific HER2-directed antibody that binds extracellular domains 2 and 4 on HER2. Binding promotes receptor clustering/internalization and can induce CDC, ADCC, and ADCP.",
+        "distractor_explanations": {
+          "A": "Single-domain HER2 binding does not match the documented dual-epitope ECD2/ECD4 interaction.",
+          "B": "Correct. Zanidatamab-hrii binds HER2 at both ECD2 and ECD4, accounting for receptor clustering and downstream immune effector mechanisms.",
+          "C": "HER3/EGFR dual binding describes a different receptor-targeting strategy.",
+          "D": "PD-L1 is not one of the direct binding targets of zanidatamab-hrii.",
+          "E": "VEGF-A neutralization is an antiangiogenic mechanism and is not part of this antibody’s labeled target profile."
+        },
+        "educational_objective": "Identify zanidatamab-hrii as a dual-epitope HER2 antibody binding ECD2 and ECD4 rather than a conventional single-epitope HER2 antibody."
+      },
+      "sources": [
+        {
+          "source_id": "Q1527-LABEL",
+          "title": "ZIIHERA- zanidatamab-hrii injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae5d9425-fae5-4541-a158-150998343348",
+          "setid": "ae5d9425-fae5-4541-a158-150998343348",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b7644804a87daaad871fabc5992d22d4022fedb9cff1bf9bd5172180ce934a22",
+          "cited_section_sha256": "b804c37db3af757dc9bda11f66f67e510789ffe41206a340fab526793907f1b4",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "b804c37db3af757dc9bda11f66f67e510789ffe41206a340fab526793907f1b4"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1527-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Single-domain HER2 binding does not match the documented dual-epitope ECD2/ECD4 interaction.",
+          "source_ids": [
+            "Q1527-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1527-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Zanidatamab-hrii binds HER2 at both ECD2 and ECD4, accounting for receptor clustering and downstream immune effector mechanisms.",
+          "source_ids": [
+            "Q1527-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1527-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "HER3/EGFR dual binding describes a different receptor-targeting strategy.",
+          "source_ids": [
+            "Q1527-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1527-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PD-L1 is not one of the direct binding targets of zanidatamab-hrii.",
+          "source_ids": [
+            "Q1527-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1527-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "VEGF-A neutralization is an antiangiogenic mechanism and is not part of this antibody’s labeled target profile.",
+          "source_ids": [
+            "Q1527-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "HER2 ECD4-only binding is plausible because other HER2 antibodies bind that region, but simultaneous ECD2 and ECD4 engagement is the distinguishing zanidatamab feature.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1528,
+      "drug": "revakinagene taroretcel-lwey",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An intravitreal implant contains encapsulated allogeneic retinal pigment epithelial cells engineered to provide a sustained trophic signal within the eye. After implantation, the device releases a recombinant human neurotrophic protein that is thought to act initially on Müller glia and promote photoreceptor survival.",
+        "lead_in": "Which product-derived factor is directly secreted by this implant?",
+        "options": {
+          "A": "Vascular endothelial growth factor A",
+          "B": "Brain-derived neurotrophic factor",
+          "C": "Recombinant human ciliary neurotrophic factor",
+          "D": "Pigment epithelium-derived factor",
+          "E": "Nerve growth factor"
+        },
+        "intended_key": "C",
+        "tested_construct": "Sustained secretion of recombinant human ciliary neurotrophic factor by encapsulated retinal pigment epithelial cells",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "ENCELTO contains encapsulated allogeneic retinal pigment epithelial cells that secrete recombinant human ciliary neurotrophic factor (rhCNTF). Exogenous CNTF is thought to initially target Müller glia and trigger signaling that may promote photoreceptor survival.",
+        "distractor_explanations": {
+          "A": "VEGF-A promotes angiogenic signaling and is not the recombinant trophic factor secreted by this implant.",
+          "B": "BDNF is a neurotrophin but is not the product-derived factor specified in the ENCELTO mechanism.",
+          "C": "Correct. The implanted encapsulated cells secrete recombinant human ciliary neurotrophic factor.",
+          "D": "Pigment epithelium-derived factor is produced by retinal tissues but is not the engineered secreted product in ENCELTO.",
+          "E": "Nerve growth factor is a distinct neurotrophin and is not the factor released by this implant."
+        },
+        "educational_objective": "Recognize ENCELTO as an encapsulated cell-based therapy that provides sustained intraocular rhCNTF secretion rather than receptor blockade or gene editing of host retinal cells."
+      },
+      "sources": [
+        {
+          "source_id": "Q1528-LABEL",
+          "title": "ENCELTO- revakinagene taroretcel-lwey implant",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1ae9482a-b478-4e21-9166-b5fd52d3ef9c",
+          "setid": "1ae9482a-b478-4e21-9166-b5fd52d3ef9c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "67a60560c404187f5b711596e51eb8320fb9894907bdf575f655fc89dba529b8",
+          "cited_section_sha256": "036168f04583c15da775853144c69bcc1b4b76ddf11de905f2d79575c9e03b8b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "036168f04583c15da775853144c69bcc1b4b76ddf11de905f2d79575c9e03b8b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1528-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "VEGF-A promotes angiogenic signaling and is not the recombinant trophic factor secreted by this implant.",
+          "source_ids": [
+            "Q1528-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1528-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "BDNF is a neurotrophin but is not the product-derived factor specified in the ENCELTO mechanism.",
+          "source_ids": [
+            "Q1528-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1528-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. The implanted encapsulated cells secrete recombinant human ciliary neurotrophic factor.",
+          "source_ids": [
+            "Q1528-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1528-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Pigment epithelium-derived factor is produced by retinal tissues but is not the engineered secreted product in ENCELTO.",
+          "source_ids": [
+            "Q1528-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1528-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Nerve growth factor is a distinct neurotrophin and is not the factor released by this implant.",
+          "source_ids": [
+            "Q1528-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Retinal pigment epithelial cells can produce multiple trophic proteins, but the engineered product is specifically designed to secrete recombinant human CNTF.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1529,
+      "drug": "repotrectinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A kinase inhibitor suppresses proliferation of cultured tumor cells driven by a ROS1 fusion and also inhibits cells driven by NTRK1, NTRK2, or NTRK3 fusions. The drug retains activity against several solvent-front resistance substitutions in these kinases.",
+        "lead_in": "Which direct target profile best explains this activity?",
+        "options": {
+          "A": "EGFR and HER2 inhibition",
+          "B": "ALK and MET inhibition only",
+          "C": "BRAF and MEK1/2 inhibition",
+          "D": "ROS1 and TRKA/TRKB/TRKC inhibition",
+          "E": "RET and VEGFR2 inhibition"
+        },
+        "intended_key": "D",
+        "tested_construct": "Inhibition of ROS1 and tropomyosin receptor kinases A, B, and C",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Repotrectinib directly inhibits ROS1 and the tropomyosin receptor tyrosine kinases TRKA, TRKB, and TRKC, including activity in models harboring multiple fusion and resistance variants.",
+        "distractor_explanations": {
+          "A": "EGFR/HER2 inhibition would not explain activity across ROS1- and NTRK-fusion-driven models.",
+          "B": "ALK/MET inhibition is a distinct kinase-target profile and omits the directly demonstrated TRK activity.",
+          "C": "BRAF/MEK inhibition acts in the MAPK pathway downstream and does not match the fusion-specific kinase profile.",
+          "D": "Correct. Repotrectinib directly targets ROS1 and TRKA/B/C, fitting both ROS1- and NTRK-fusion models.",
+          "E": "RET/VEGFR2 inhibition describes a different multikinase profile."
+        },
+        "educational_objective": "Recognize repotrectinib as a ROS1 and pan-TRK inhibitor and distinguish it from other kinase-inhibitor target profiles."
+      },
+      "sources": [
+        {
+          "source_id": "Q1529-LABEL",
+          "title": "AUGTYRO- repotrectinib capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fb526827-40ba-4462-94cf-179ae3b0cb8a",
+          "setid": "fb526827-40ba-4462-94cf-179ae3b0cb8a",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "0502a278633fd15be9b23f92473303f94c258a9a3f737ae8e390a28d04b8e7eb",
+          "cited_section_sha256": "dfdc936d30d28e827b865b5c8ae338ba5a097238678d858d4ae8b680904217cb",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "dfdc936d30d28e827b865b5c8ae338ba5a097238678d858d4ae8b680904217cb"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1529-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "EGFR/HER2 inhibition would not explain activity across ROS1- and NTRK-fusion-driven models.",
+          "source_ids": [
+            "Q1529-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1529-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "ALK/MET inhibition is a distinct kinase-target profile and omits the directly demonstrated TRK activity.",
+          "source_ids": [
+            "Q1529-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1529-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "BRAF/MEK inhibition acts in the MAPK pathway downstream and does not match the fusion-specific kinase profile.",
+          "source_ids": [
+            "Q1529-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1529-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Repotrectinib directly targets ROS1 and TRKA/B/C, fitting both ROS1- and NTRK-fusion models.",
+          "source_ids": [
+            "Q1529-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1529-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "RET/VEGFR2 inhibition describes a different multikinase profile.",
+          "source_ids": [
+            "Q1529-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "ALK/MET inhibition can be relevant in lung cancer, but simultaneous activity in ROS1- and NTRK-driven systems directly identifies the ROS1/pan-TRK profile.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1530,
+      "drug": "mirdametinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cells from an NF1-associated plexiform neurofibroma show constitutive RAS-pathway signaling. After exposure to mirdametinib, phosphorylation of ERK decreases even though RAS activation itself is not directly inhibited.",
+        "lead_in": "Which direct molecular action best explains this finding?",
+        "options": {
+          "A": "Inhibition of RAF dimerization",
+          "B": "Inhibition of ERK1/2 catalytic activity",
+          "C": "Inhibition of mutant RAS-GTP loading",
+          "D": "Inhibition of PI3K alpha",
+          "E": "Inhibition of MEK1 and MEK2"
+        },
+        "intended_key": "E",
+        "tested_construct": "MEK1/2 inhibition causing reduced downstream ERK phosphorylation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Mirdametinib inhibits MEK1 and MEK2, upstream regulators of ERK. In vitro it inhibits MEK1/2 kinase activity and reduces downstream ERK phosphorylation.",
+        "distractor_explanations": {
+          "A": "RAF lies upstream of MEK, but mirdametinib is not labeled as a RAF-dimer inhibitor.",
+          "B": "ERK phosphorylation falls because the upstream MEK kinases are inhibited; ERK itself is not the direct labeled target.",
+          "C": "NF1 loss increases RAS signaling, but mirdametinib does not directly block RAS nucleotide loading.",
+          "D": "PI3K-alpha inhibition targets a parallel signaling axis and does not directly explain selective suppression of MEK-dependent ERK phosphorylation.",
+          "E": "Correct. Direct MEK1/2 inhibition decreases phosphorylation of downstream ERK."
+        },
+        "educational_objective": "Localize mirdametinib within the RAS-RAF-MEK-ERK pathway as a direct MEK1/2 inhibitor."
+      },
+      "sources": [
+        {
+          "source_id": "Q1530-LABEL",
+          "title": "GOMEKLI- mirdametinib capsule GOMEKLI- mirdametinib tablet, for suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c41bf90-5fa7-4935-a95c-e047ea6bbf8e",
+          "setid": "4c41bf90-5fa7-4935-a95c-e047ea6bbf8e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "6a45d793275a504c9128ae0968999975d7858dc41da014ce3dcfe6b322810a15",
+          "cited_section_sha256": "ab7a01567d3a5aed4798ceb60a02b51355961b53133ed5c2820ee595b01f7593",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "ab7a01567d3a5aed4798ceb60a02b51355961b53133ed5c2820ee595b01f7593"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1530-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "RAF lies upstream of MEK, but mirdametinib is not labeled as a RAF-dimer inhibitor.",
+          "source_ids": [
+            "Q1530-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1530-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "ERK phosphorylation falls because the upstream MEK kinases are inhibited; ERK itself is not the direct labeled target.",
+          "source_ids": [
+            "Q1530-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1530-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "NF1 loss increases RAS signaling, but mirdametinib does not directly block RAS nucleotide loading.",
+          "source_ids": [
+            "Q1530-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1530-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PI3K-alpha inhibition targets a parallel signaling axis and does not directly explain selective suppression of MEK-dependent ERK phosphorylation.",
+          "source_ids": [
+            "Q1530-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1530-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Direct MEK1/2 inhibition decreases phosphorylation of downstream ERK.",
+          "source_ids": [
+            "Q1530-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Direct ERK inhibition can also reduce ERK-pathway output, but the labeled target of mirdametinib is MEK1/2, which is upstream of ERK phosphorylation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
