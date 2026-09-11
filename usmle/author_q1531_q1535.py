@@ -57,18 +57,18 @@ def main():
         'Malignant hematopoietic progenitor cells from a patient with myelodysplastic syndrome are exposed to imetelstat. Telomerase activity falls, telomeres shorten over time, and proliferation of the abnormal progenitor population decreases.',
         'Which direct molecular interaction best explains these findings?',
         {
-            'A':'Binding the template region of the RNA component of human telomerase',
-            'B':'Inhibition of DNA polymerase alpha',
+            'A':'Inhibition of DNA polymerase alpha',
+            'B':'Binding the template region of the RNA component of human telomerase',
             'C':'Degradation of TERT messenger RNA by RNA interference',
             'D':'Blockade of ribonucleotide reductase',
             'E':'Inhibition of topoisomerase II'
         },
-        'A',
+        'B',
         'Binding to the template region of human telomerase RNA and inhibition of telomerase activity',
         'Imetelstat is an oligonucleotide telomerase inhibitor that binds the template region of the RNA component of human telomerase (hTR), inhibits telomerase enzymatic activity, and prevents telomere binding.',
         {
-            'A':'Correct. Imetelstat binds the template region of hTR and directly inhibits telomerase activity.',
-            'B':'DNA polymerase-alpha inhibition impairs DNA replication but is not the direct mechanism of imetelstat.',
+            'A':'DNA polymerase-alpha inhibition impairs DNA replication but is not the direct mechanism of imetelstat.',
+            'B':'Correct. Imetelstat binds the template region of hTR and directly inhibits telomerase activity.',
             'C':'Imetelstat is an oligonucleotide, but it does not act by RNA-interference-mediated degradation of TERT mRNA.',
             'D':'Ribonucleotide reductase inhibition lowers deoxyribonucleotide availability and does not specifically inhibit telomerase.',
             'E':'Topoisomerase II inhibition produces DNA strand-break effects rather than direct blockade of the telomerase RNA template.'
