@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1521-Q1525-20260911",
+  "created_at": "2026-09-11",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1520,
+  "canonical_count_after": 1520,
+  "canonical_db_blob": "9c5d4b80cffe94bd408076f4c6956c62db51d7a6",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1521,
+      "drug": "donanemab-azbt",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Pathology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A monoclonal antibody is added to brain tissue from a patient with early symptomatic Alzheimer disease. The antibody binds an insoluble amyloid species enriched within established plaques, and serial amyloid PET studies after treatment show a marked reduction in plaque burden. It does not inhibit beta- or gamma-secretase activity.",
+        "lead_in": "Which molecular species is the direct target of this antibody?",
+        "options": {
+          "A": "Insoluble N-truncated pyroglutamate amyloid beta",
+          "B": "Soluble monomeric amyloid beta exclusively",
+          "C": "Hyperphosphorylated tau in neurofibrillary tangles",
+          "D": "Beta-site amyloid precursor protein cleaving enzyme 1",
+          "E": "Presenilin-containing gamma-secretase complex"
+        },
+        "intended_key": "A",
+        "tested_construct": "Binding of insoluble N-truncated pyroglutamate amyloid beta within plaques",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Donanemab-azbt is a humanized IgG1 monoclonal antibody directed against insoluble N-truncated pyroglutamate amyloid beta and reduces amyloid beta plaques.",
+        "distractor_explanations": {
+          "A": "Correct. Donanemab-azbt directly recognizes insoluble N-truncated pyroglutamate amyloid beta enriched in established plaques.",
+          "B": "The labeled target is an insoluble N-truncated pyroglutamate amyloid species rather than soluble monomeric amyloid beta exclusively.",
+          "C": "Tau-directed therapies target a different Alzheimer disease proteinopathy; donanemab is directed against amyloid beta.",
+          "D": "BACE1 inhibition would reduce amyloid-beta production upstream rather than bind an existing insoluble plaque-associated amyloid species.",
+          "E": "Gamma-secretase inhibition alters amyloid precursor protein processing and is not the direct mechanism of this monoclonal antibody."
+        },
+        "educational_objective": "Differentiate plaque-directed anti-amyloid antibodies from therapies that alter amyloid production or target tau."
+      },
+      "sources": [
+        {
+          "source_id": "Q1521-LABEL",
+          "title": "KISUNLA- donanemab-azbt injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=190352d4-ef62-4679-b4fa-e846e2766afa",
+          "setid": "190352d4-ef62-4679-b4fa-e846e2766afa",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7c400e05d7c1a4a033c0cd4cf1a3d119f06047352fa432064a418d1a1442813a",
+          "cited_section_sha256": "abc96604c88ee88f49b919eb5f83fda92eb0264b82239797f695c2097d1041d4",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "abc96604c88ee88f49b919eb5f83fda92eb0264b82239797f695c2097d1041d4"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1521-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Donanemab-azbt directly recognizes insoluble N-truncated pyroglutamate amyloid beta enriched in established plaques.",
+          "source_ids": [
+            "Q1521-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1521-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The labeled target is an insoluble N-truncated pyroglutamate amyloid species rather than soluble monomeric amyloid beta exclusively.",
+          "source_ids": [
+            "Q1521-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1521-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Tau-directed therapies target a different Alzheimer disease proteinopathy; donanemab is directed against amyloid beta.",
+          "source_ids": [
+            "Q1521-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1521-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "BACE1 inhibition would reduce amyloid-beta production upstream rather than bind an existing insoluble plaque-associated amyloid species.",
+          "source_ids": [
+            "Q1521-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1521-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Gamma-secretase inhibition alters amyloid precursor protein processing and is not the direct mechanism of this monoclonal antibody.",
+          "source_ids": [
+            "Q1521-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Other anti-amyloid antibodies may recognize soluble aggregated species, but the stipulated insoluble plaque-associated N-truncated pyroglutamate epitope identifies the labeled donanemab target.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1522,
+      "drug": "suzetrigine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A peripheral sensory neuron is exposed to suzetrigine during a patch-clamp experiment. Repetitive action-potential firing triggered by a painful stimulus decreases, but sodium currents mediated by most other voltage-gated sodium-channel subtypes are relatively preserved. The affected channel is highly expressed in dorsal root ganglion neurons.",
+        "lead_in": "Which direct pharmacologic action best explains these findings?",
+        "options": {
+          "A": "Blockade of voltage-gated calcium channel alpha-2-delta subunits",
+          "B": "Selective blockade of the NaV1.8 voltage-gated sodium channel",
+          "C": "Agonism of mu-opioid receptors",
+          "D": "Blockade of NMDA receptors",
+          "E": "Inhibition of cyclooxygenase-2"
+        },
+        "intended_key": "B",
+        "tested_construct": "Selective NaV1.8 blockade in peripheral sensory neurons",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Suzetrigine selectively blocks the NaV1.8 voltage-gated sodium channel relative to other known voltage-gated sodium channels. NaV1.8 is expressed in peripheral sensory neurons, including dorsal root ganglion neurons, where it contributes to action-potential transmission of pain signals.",
+        "distractor_explanations": {
+          "A": "Alpha-2-delta ligands modulate voltage-gated calcium channels rather than selectively suppress NaV1.8 sodium current.",
+          "B": "Correct. Suzetrigine selectively inhibits NaV1.8 in peripheral sensory neurons and thereby reduces propagation of pain signals.",
+          "C": "Mu-opioid receptor agonism decreases nociceptive transmission through G-protein signaling but does not selectively block a peripheral sodium-channel subtype.",
+          "D": "NMDA-receptor blockade targets glutamatergic signaling rather than NaV1.8-dependent action-potential conduction.",
+          "E": "COX-2 inhibition reduces prostaglandin synthesis and peripheral sensitization but does not directly block voltage-gated sodium current."
+        },
+        "educational_objective": "Recognize selective NaV1.8 blockade as a nonopioid analgesic mechanism that reduces pain-signal transmission in peripheral sensory neurons."
+      },
+      "sources": [
+        {
+          "source_id": "Q1522-LABEL",
+          "title": "JOURNAVX- suzetrigine tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0976da4-1d20-4517-945c-b60ed2f41c12",
+          "setid": "f0976da4-1d20-4517-945c-b60ed2f41c12",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "87ad1d58d128ba30cffd1b3fbaf0457f993d67bac9d82dacb404b404fb2524f1",
+          "cited_section_sha256": "d09bf6a138ec4908fd4d9672dd6beaec67153077272a618fa095977aeae22eed",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "d09bf6a138ec4908fd4d9672dd6beaec67153077272a618fa095977aeae22eed"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1522-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Alpha-2-delta ligands modulate voltage-gated calcium channels rather than selectively suppress NaV1.8 sodium current.",
+          "source_ids": [
+            "Q1522-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1522-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Suzetrigine selectively inhibits NaV1.8 in peripheral sensory neurons and thereby reduces propagation of pain signals.",
+          "source_ids": [
+            "Q1522-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1522-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Mu-opioid receptor agonism decreases nociceptive transmission through G-protein signaling but does not selectively block a peripheral sodium-channel subtype.",
+          "source_ids": [
+            "Q1522-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1522-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "NMDA-receptor blockade targets glutamatergic signaling rather than NaV1.8-dependent action-potential conduction.",
+          "source_ids": [
+            "Q1522-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1522-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "COX-2 inhibition reduces prostaglandin synthesis and peripheral sensitization but does not directly block voltage-gated sodium current.",
+          "source_ids": [
+            "Q1522-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Alpha-2-delta ligands are also nonopioid agents that reduce neuronal excitability, but the patch-clamp finding of selective suppression of a dorsal-root-ganglion sodium-channel current identifies NaV1.8 blockade.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1523,
+      "drug": "ensifentrine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Airway cells are exposed to ensifentrine. Intracellular cyclic AMP increases, cyclic GMP can also increase, and downstream signaling changes occur without direct stimulation of a beta-2 adrenergic receptor. The drug inhibits one phosphodiesterase that hydrolyzes cAMP and cGMP and another that hydrolyzes cAMP only.",
+        "lead_in": "Which pair of enzymes is directly inhibited?",
+        "options": {
+          "A": "PDE1 and PDE2",
+          "B": "PDE2 and PDE5",
+          "C": "PDE3 and PDE4",
+          "D": "PDE4 and PDE5",
+          "E": "PDE5 and PDE6"
+        },
+        "intended_key": "C",
+        "tested_construct": "Dual inhibition of PDE3 and PDE4",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Ensifentrine is a small-molecule inhibitor of PDE3 and PDE4. PDE3 hydrolyzes cAMP and can hydrolyze cGMP, whereas PDE4 hydrolyzes cAMP; inhibition increases intracellular cyclic nucleotide levels.",
+        "distractor_explanations": {
+          "A": "PDE1 and PDE2 are not the labeled enzyme targets of ensifentrine.",
+          "B": "PDE5 principally hydrolyzes cGMP and is not part of the labeled ensifentrine target pair.",
+          "C": "Correct. Ensifentrine directly inhibits PDE3 and PDE4, increasing intracellular cyclic nucleotide signaling.",
+          "D": "PDE4 is a target, but PDE5 is not; the second labeled target is PDE3.",
+          "E": "PDE5/PDE6 inhibition is characteristic of other phosphodiesterase inhibitor profiles and does not fit ensifentrine."
+        },
+        "educational_objective": "Recognize ensifentrine as a dual PDE3/PDE4 inhibitor and connect phosphodiesterase substrate specificity with intracellular cyclic-nucleotide accumulation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1523-LABEL",
+          "title": "OHTUVAYRE- ensifentrine suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "setid": "e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ee61185afd3c0b5ed3b9f8e220f7e858f9eb89ba245364ce001b5936eac1b163",
+          "cited_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1523-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PDE1 and PDE2 are not the labeled enzyme targets of ensifentrine.",
+          "source_ids": [
+            "Q1523-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1523-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PDE5 principally hydrolyzes cGMP and is not part of the labeled ensifentrine target pair.",
+          "source_ids": [
+            "Q1523-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1523-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Ensifentrine directly inhibits PDE3 and PDE4, increasing intracellular cyclic nucleotide signaling.",
+          "source_ids": [
+            "Q1523-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1523-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PDE4 is a target, but PDE5 is not; the second labeled target is PDE3.",
+          "source_ids": [
+            "Q1523-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1523-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "PDE5/PDE6 inhibition is characteristic of other phosphodiesterase inhibitor profiles and does not fit ensifentrine.",
+          "source_ids": [
+            "Q1523-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "PDE4 inhibition can account for increased cAMP, but the simultaneous involvement of an enzyme capable of hydrolyzing both cAMP and cGMP identifies PDE3 as the second target rather than PDE5.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1524,
+      "drug": "zolbetuximab-clzb",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A gastric adenocarcinoma cell line expresses high levels of a tight-junction protein normally restricted to differentiated gastric mucosa. Exposure to zolbetuximab-clzb results in antibody-dependent cellular cytotoxicity and complement-dependent cytotoxicity against the tumor cells.",
+        "lead_in": "Which tumor-associated antigen is directly bound by this antibody?",
+        "options": {
+          "A": "HER2",
+          "B": "PD-L1",
+          "C": "VEGF-A",
+          "D": "Claudin 18.2",
+          "E": "EGFR"
+        },
+        "intended_key": "D",
+        "tested_construct": "CLDN18.2-directed cytolytic antibody activity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zolbetuximab-clzb is a claudin 18.2-directed cytolytic antibody. Binding to CLDN18.2-positive cells promotes antibody-dependent cellular cytotoxicity and complement-dependent cytotoxicity.",
+        "distractor_explanations": {
+          "A": "HER2-directed antibodies act on a receptor tyrosine kinase and do not define the CLDN18.2-directed cytotoxic mechanism described.",
+          "B": "PD-L1 blockade modifies immune checkpoint signaling rather than directly producing the labeled CLDN18.2-directed ADCC/CDC mechanism.",
+          "C": "VEGF-A neutralization is antiangiogenic and does not target a gastric epithelial tight-junction antigen.",
+          "D": "Correct. Zolbetuximab-clzb directly binds claudin 18.2 and can deplete antigen-positive cells through ADCC and CDC.",
+          "E": "EGFR is a receptor tyrosine kinase target of other antibodies and is not the direct antigen bound by zolbetuximab-clzb."
+        },
+        "educational_objective": "Associate zolbetuximab-clzb with CLDN18.2 and distinguish antigen-directed ADCC/CDC from growth-factor and checkpoint-targeted therapies."
+      },
+      "sources": [
+        {
+          "source_id": "Q1524-LABEL",
+          "title": "VYLOY- zolbetuximab injection, powder, for suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e7695a21-abb6-47ac-93f8-0ece5a9c4409",
+          "setid": "e7695a21-abb6-47ac-93f8-0ece5a9c4409",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ffaef63ae82628c1cee1cb2178e4571034dee2c08e0460b2ac530d00454d0fff",
+          "cited_section_sha256": "eff38842dc63321c1a9339e3949a8229731602f5a0d6070144b82df91ef96419",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "eff38842dc63321c1a9339e3949a8229731602f5a0d6070144b82df91ef96419"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1524-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "HER2-directed antibodies act on a receptor tyrosine kinase and do not define the CLDN18.2-directed cytotoxic mechanism described.",
+          "source_ids": [
+            "Q1524-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1524-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PD-L1 blockade modifies immune checkpoint signaling rather than directly producing the labeled CLDN18.2-directed ADCC/CDC mechanism.",
+          "source_ids": [
+            "Q1524-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1524-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "VEGF-A neutralization is antiangiogenic and does not target a gastric epithelial tight-junction antigen.",
+          "source_ids": [
+            "Q1524-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1524-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Zolbetuximab-clzb directly binds claudin 18.2 and can deplete antigen-positive cells through ADCC and CDC.",
+          "source_ids": [
+            "Q1524-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1524-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "EGFR is a receptor tyrosine kinase target of other antibodies and is not the direct antigen bound by zolbetuximab-clzb.",
+          "source_ids": [
+            "Q1524-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "HER2 is a clinically relevant gastric-cancer target, but the tight-junction antigen plus ADCC/CDC profile in the vignette identifies CLDN18.2 rather than HER2.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1525,
+      "drug": "mavorixafor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with WHIM syndrome has a gain-of-function mutation causing excessive responsiveness of a chemokine receptor to CXCL12 and retention of mature leukocytes in the bone marrow. After treatment with mavorixafor, circulating neutrophil and lymphocyte counts increase.",
+        "lead_in": "Which direct action best explains the change in leukocyte distribution?",
+        "options": {
+          "A": "Agonism of granulocyte colony-stimulating factor receptor",
+          "B": "Neutralization of CXCL8",
+          "C": "Inhibition of complement factor B",
+          "D": "Antagonism of CCR5",
+          "E": "Antagonism of CXCR4 that blocks CXCL12 binding"
+        },
+        "intended_key": "E",
+        "tested_construct": "CXCR4 antagonism that blocks CXCL12-dependent marrow retention",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Mavorixafor is an orally bioavailable CXCR4 antagonist that blocks binding of CXCL12/SDF-1α. In WHIM syndrome, excessive CXCR4 signaling promotes leukocyte retention in bone marrow; antagonism increases leukocyte mobilization into peripheral blood.",
+        "distractor_explanations": {
+          "A": "G-CSF receptor stimulation can increase neutrophil production and mobilization, but it does not directly correct CXCL12-hypersensitive CXCR4 signaling.",
+          "B": "CXCL8 is a neutrophil chemokine but is not the ligand-receptor axis responsible for WHIM-associated marrow retention.",
+          "C": "Factor B inhibition acts in the alternative complement pathway and does not explain leukocyte trafficking from marrow.",
+          "D": "CCR5 antagonism alters a different chemokine-receptor pathway and does not block CXCL12-mediated CXCR4 signaling.",
+          "E": "Correct. CXCR4 antagonism blocks CXCL12 binding and reduces abnormal marrow retention, increasing circulating mature leukocytes."
+        },
+        "educational_objective": "Connect WHIM syndrome to gain-of-function CXCR4 signaling and recognize CXCR4 antagonism as a mechanism for releasing retained leukocytes from bone marrow."
+      },
+      "sources": [
+        {
+          "source_id": "Q1525-LABEL",
+          "title": "XOLREMDI- mavorixafor capsule, gelatin coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7f3a5ee3-ca73-4876-85a0-ed1e108a2237",
+          "setid": "7f3a5ee3-ca73-4876-85a0-ed1e108a2237",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "bfc89c7c96b22806bb56fb9ddf0efce3c1f2191c5c8b85c61acab1b764a5fda1",
+          "cited_section_sha256": "6c462bfac1b521540172d6ba4bc7a601f7a88ff99ce7bbc357508ef362d6281a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "6c462bfac1b521540172d6ba4bc7a601f7a88ff99ce7bbc357508ef362d6281a"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1525-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "G-CSF receptor stimulation can increase neutrophil production and mobilization, but it does not directly correct CXCL12-hypersensitive CXCR4 signaling.",
+          "source_ids": [
+            "Q1525-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1525-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "CXCL8 is a neutrophil chemokine but is not the ligand-receptor axis responsible for WHIM-associated marrow retention.",
+          "source_ids": [
+            "Q1525-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1525-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Factor B inhibition acts in the alternative complement pathway and does not explain leukocyte trafficking from marrow.",
+          "source_ids": [
+            "Q1525-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1525-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CCR5 antagonism alters a different chemokine-receptor pathway and does not block CXCL12-mediated CXCR4 signaling.",
+          "source_ids": [
+            "Q1525-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1525-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. CXCR4 antagonism blocks CXCL12 binding and reduces abnormal marrow retention, increasing circulating mature leukocytes.",
+          "source_ids": [
+            "Q1525-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "G-CSF can also raise circulating neutrophils, but the vignette specifies the pathogenic CXCL12-CXCR4 retention axis and mavorixafor directly antagonizes CXCR4.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
