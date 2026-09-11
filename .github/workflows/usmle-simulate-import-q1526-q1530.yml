@@ -1,0 +1,55 @@
+name: USMLE Detached Import Simulation Q1526-Q1530
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-simulate-import-q1526-q1530.yml'
+permissions:
+  contents: write
+jobs:
+  detached-simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1526'
+      END_Q: '1530'
+      PRE_COUNT: '1525'
+      DB_BLOB: 487f4756e6771b6472b96abb7a18402484334abd
+      CAND_PATH: usmle/batch_specs_1501_1600/06_q1526_q1530_author_20260911.json
+      CAND_BLOB: 12c07908811b29f3c8fdad8eb7eaf62a3cef4643
+      MAN_PATH: usmle/audit/Q1526_Q1530_FINAL_QA_PASS.json
+      MAN_BLOB: 1c117edea005fab54796ec1e93b5dfd0ae62ed4c
+      SIM_OUT: usmle/audit/Q1526_Q1530_DETACHED_IMPORT_SIMULATION.json
+      AUDIT_DATE: '20260911'
+      CANDIDATE_STAMP: '20260911T035700Z'
+      FINALIZED_AT: '2026-09-11T03:57:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Run detached next-five simulation
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python -m py_compile usmle/simulate_import_next5.py
+          python usmle/simulate_import_next5.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          r=json.load(open(os.environ['SIM_OUT']))
+          assert r['audit_id']=='Q1526-Q1530-DETACHED-IMPORT-SIMULATION-20260911'
+          assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert r['simulated_post_count']==1530
+          assert r['post_simulation_contiguous_q0001_q1530'] is True
+          assert r['production_transactional_import_ready'] is True
+          assert r['production_db_modified'] is False
+          assert r['failures']==[]
+          PY
+      - name: Commit simulation report only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$SIM_OUT"
+          git commit -m 'usmle: pass detached import simulation Q1526-Q1530'
+          git push
