@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1531-Q1535-20260911",
+  "created_at": "2026-09-11",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1530,
+  "canonical_count_after": 1530,
+  "canonical_db_blob": "441f9bbad64e87c9da9fa5647c042f417941b8af",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1531,
+      "drug": "tovorafenib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A pediatric low-grade glioma cell line carrying a BRAF fusion is exposed to tovorafenib. MAPK-pathway output falls. In separate kinase assays, the same drug inhibits mutant BRAF V600E as well as wild-type BRAF and CRAF.",
+        "lead_in": "Which direct target profile best explains these findings?",
+        "options": {
+          "A": "Type II inhibition of RAF kinases including mutant BRAF, wild-type BRAF, and CRAF",
+          "B": "Selective inhibition of MEK1 and MEK2 only",
+          "C": "Selective inhibition of PI3K alpha with mutant p110alpha degradation",
+          "D": "Inhibition of ROS1 and TRKA/TRKB/TRKC",
+          "E": "Inhibition of CSF1R signaling"
+        },
+        "intended_key": "A",
+        "tested_construct": "Type II inhibition of RAF kinases including mutant BRAF, wild-type BRAF, and CRAF",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Tovorafenib is a Type II RAF kinase inhibitor of mutant BRAF V600E, wild-type BRAF, and wild-type CRAF, and it has antitumor activity in models harboring BRAF mutations or a BRAF fusion.",
+        "distractor_explanations": {
+          "A": "Correct. This target profile directly matches tovorafenib and explains suppression of MAPK signaling in BRAF-driven tumor cells.",
+          "B": "MEK1/2 inhibition acts one level downstream of RAF and does not match the documented direct kinase targets.",
+          "C": "PI3K-alpha inhibition affects a different signaling axis and is not the direct action of tovorafenib.",
+          "D": "ROS1/pan-TRK inhibition describes a different fusion-targeted kinase profile.",
+          "E": "CSF1R inhibition targets macrophage-lineage signaling rather than RAF-driven MAPK activation."
+        },
+        "educational_objective": "Recognize tovorafenib as a Type II RAF inhibitor targeting mutant BRAF, wild-type BRAF, and CRAF."
+      },
+      "sources": [
+        {
+          "source_id": "Q1531-LABEL",
+          "title": "OJEMDA- tovorafenib kit OJEMDA- tovorafenib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ea3a9631-3a66-6a7c-e053-2995a90ae2ad",
+          "setid": "ea3a9631-3a66-6a7c-e053-2995a90ae2ad",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "d8c8096604ee33976cfc752ca1aadad3b83c48ca063cb562f06a07ecff4fefe1",
+          "cited_section_sha256": "7827cc658cfd955a79bb39548e6199e70f2befdf64bbdade5b2bae00a59064c9",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "7827cc658cfd955a79bb39548e6199e70f2befdf64bbdade5b2bae00a59064c9"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1531-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. This target profile directly matches tovorafenib and explains suppression of MAPK signaling in BRAF-driven tumor cells.",
+          "source_ids": [
+            "Q1531-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1531-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "MEK1/2 inhibition acts one level downstream of RAF and does not match the documented direct kinase targets.",
+          "source_ids": [
+            "Q1531-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1531-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PI3K-alpha inhibition affects a different signaling axis and is not the direct action of tovorafenib.",
+          "source_ids": [
+            "Q1531-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1531-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ROS1/pan-TRK inhibition describes a different fusion-targeted kinase profile.",
+          "source_ids": [
+            "Q1531-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1531-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "CSF1R inhibition targets macrophage-lineage signaling rather than RAF-driven MAPK activation.",
+          "source_ids": [
+            "Q1531-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "MEK inhibition can also lower MAPK-pathway output, but the kinase-assay profile in the vignette specifically identifies direct RAF inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1532,
+      "drug": "dordaviprone",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "H3 K27M-mutant diffuse midline glioma cells are exposed to dordaviprone. Mitochondrial stress signaling increases, apoptosis is induced, and histone H3 K27 trimethylation partially recovers. A separate receptor assay shows reduced dopamine D2 signaling.",
+        "lead_in": "Which pair of direct pharmacologic actions best explains this profile?",
+        "options": {
+          "A": "Inhibition of mitochondrial ClpP plus dopamine D2 agonism",
+          "B": "Activation of mitochondrial ClpP plus dopamine D2 receptor inhibition",
+          "C": "Inhibition of HIF-2alpha plus dopamine D2 receptor inhibition",
+          "D": "Menin-KMT2A interaction blockade plus dopamine D2 agonism",
+          "E": "Dual inhibition of mutant IDH1 and IDH2"
+        },
+        "intended_key": "B",
+        "tested_construct": "Activation of mitochondrial caseinolytic protease P with dopamine D2 receptor inhibition",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Dordaviprone is a protease activator of mitochondrial caseinolytic protease P (ClpP) and also inhibits the dopamine D2 receptor. In H3 K27M-mutant diffuse glioma models it activates an integrated stress response, alters mitochondrial metabolism, induces apoptosis, and can restore H3 K27 trimethylation.",
+        "distractor_explanations": {
+          "A": "The ClpP direction is reversed; dordaviprone activates rather than inhibits ClpP, and it inhibits rather than agonizes D2 receptors.",
+          "B": "Correct. Dordaviprone directly activates mitochondrial ClpP and inhibits dopamine D2 receptors.",
+          "C": "HIF-2alpha inhibition is a distinct oxygen-sensing pathway mechanism and is not the direct target profile of dordaviprone.",
+          "D": "Menin-KMT2A blockade is used in susceptible leukemias and does not explain the mitochondrial stress phenotype in H3 K27M glioma.",
+          "E": "Mutant IDH inhibition lowers 2-hydroxyglutarate and is mechanistically distinct from ClpP activation."
+        },
+        "educational_objective": "Recognize dordaviprone as a mitochondrial ClpP activator with dopamine D2 receptor inhibitory activity in H3 K27M-mutant diffuse midline glioma."
+      },
+      "sources": [
+        {
+          "source_id": "Q1532-LABEL",
+          "title": "MODEYSO- dordaviprone capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ad45b43e-fdef-47ad-9c34-055b41bdc576",
+          "setid": "ad45b43e-fdef-47ad-9c34-055b41bdc576",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b2142fba13639a828ce3fab5b3930a4c46739381ca111b18a43d6c6b94781c04",
+          "cited_section_sha256": "68df929d240d741b7e2d05982b023dbf21db630a924ab2f5a4eb50b0a95fb88b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "68df929d240d741b7e2d05982b023dbf21db630a924ab2f5a4eb50b0a95fb88b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1532-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The ClpP direction is reversed; dordaviprone activates rather than inhibits ClpP, and it inhibits rather than agonizes D2 receptors.",
+          "source_ids": [
+            "Q1532-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1532-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Dordaviprone directly activates mitochondrial ClpP and inhibits dopamine D2 receptors.",
+          "source_ids": [
+            "Q1532-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1532-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "HIF-2alpha inhibition is a distinct oxygen-sensing pathway mechanism and is not the direct target profile of dordaviprone.",
+          "source_ids": [
+            "Q1532-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1532-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Menin-KMT2A blockade is used in susceptible leukemias and does not explain the mitochondrial stress phenotype in H3 K27M glioma.",
+          "source_ids": [
+            "Q1532-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1532-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Mutant IDH inhibition lowers 2-hydroxyglutarate and is mechanistically distinct from ClpP activation.",
+          "source_ids": [
+            "Q1532-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "ClpP inhibition superficially fits a mitochondrial target, but the documented direction is activation, and the paired D2 effect is inhibition rather than agonism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1533,
+      "drug": "nipocalimab-aahu",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with generalized myasthenia gravis has pathogenic circulating IgG autoantibodies. After treatment with nipocalimab-aahu, total serum IgG and anti-acetylcholine receptor antibody concentrations fall without direct depletion of B lymphocytes.",
+        "lead_in": "Which direct pharmacologic action best explains this effect?",
+        "options": {
+          "A": "Blockade of terminal complement component C5",
+          "B": "Depletion of CD20-positive B cells",
+          "C": "Binding to the neonatal Fc receptor, reducing IgG recycling",
+          "D": "Inhibition of IL-6 receptor signaling",
+          "E": "Neutralization of BAFF"
+        },
+        "intended_key": "C",
+        "tested_construct": "Binding to neonatal Fc receptor and reducing circulating IgG",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Nipocalimab-aahu is a human IgG1 monoclonal antibody that binds the neonatal Fc receptor (FcRn), resulting in a reduction of circulating IgG levels, including pathogenic IgG autoantibodies.",
+        "distractor_explanations": {
+          "A": "C5 blockade inhibits complement-mediated injury but does not directly accelerate IgG clearance.",
+          "B": "CD20 depletion reduces B-cell populations and antibody production over time but is not the direct mechanism of nipocalimab.",
+          "C": "Correct. FcRn binding interferes with IgG salvage/recycling and lowers circulating IgG, including pathogenic autoantibodies.",
+          "D": "IL-6 receptor blockade alters inflammatory signaling but does not directly reduce IgG through FcRn.",
+          "E": "BAFF neutralization affects B-cell survival and maturation rather than directly blocking IgG recycling."
+        },
+        "educational_objective": "Recognize FcRn blockade as a mechanism for lowering pathogenic circulating IgG without directly depleting B cells."
+      },
+      "sources": [
+        {
+          "source_id": "Q1533-LABEL",
+          "title": "IMAAVY- nipocalimab-aahu injection, solution, concentrate",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8886274c-f2b2-48af-85c1-2f90bfe304b8",
+          "setid": "8886274c-f2b2-48af-85c1-2f90bfe304b8",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "15387c063239b316a45be74260a01f47a233ce9dfca9b33890ceff734cf5b2d0",
+          "cited_section_sha256": "326dcb9444857e6feacfae7f4144d809716568c27e50ebe0b79204fd3117d0c5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "326dcb9444857e6feacfae7f4144d809716568c27e50ebe0b79204fd3117d0c5"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1533-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "C5 blockade inhibits complement-mediated injury but does not directly accelerate IgG clearance.",
+          "source_ids": [
+            "Q1533-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1533-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "CD20 depletion reduces B-cell populations and antibody production over time but is not the direct mechanism of nipocalimab.",
+          "source_ids": [
+            "Q1533-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1533-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. FcRn binding interferes with IgG salvage/recycling and lowers circulating IgG, including pathogenic autoantibodies.",
+          "source_ids": [
+            "Q1533-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1533-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "IL-6 receptor blockade alters inflammatory signaling but does not directly reduce IgG through FcRn.",
+          "source_ids": [
+            "Q1533-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1533-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "BAFF neutralization affects B-cell survival and maturation rather than directly blocking IgG recycling.",
+          "source_ids": [
+            "Q1533-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "B-cell depletion can eventually lower autoantibody production, but the prompt specifies an acute reduction in circulating IgG without direct B-cell depletion, favoring FcRn blockade.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1534,
+      "drug": "fitusiran",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Hepatocytes are exposed to a double-stranded oligonucleotide therapy used to rebalance hemostasis in hemophilia. Antithrombin protein synthesis falls after the intracellular concentration of antithrombin messenger RNA decreases.",
+        "lead_in": "Which molecular mechanism directly produces this effect?",
+        "options": {
+          "A": "CRISPR-mediated deletion of the SERPINC1 gene",
+          "B": "Antisense blockade of factor VIII translation",
+          "C": "Neutralization of tissue factor pathway inhibitor",
+          "D": "RNA interference causing degradation of antithrombin mRNA",
+          "E": "Activation of thrombopoietin receptors"
+        },
+        "intended_key": "D",
+        "tested_construct": "RNA interference causing degradation of antithrombin messenger RNA",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Fitusiran is a double-stranded small interfering RNA that causes degradation of antithrombin mRNA through RNA interference, thereby reducing plasma antithrombin levels.",
+        "distractor_explanations": {
+          "A": "Fitusiran does not edit or delete the SERPINC1 gene; its effect occurs post-transcriptionally.",
+          "B": "The therapy targets antithrombin mRNA rather than factor VIII translation.",
+          "C": "TFPI neutralization is a different rebalancing strategy that acts at the protein level.",
+          "D": "Correct. Fitusiran uses RNA interference to degrade antithrombin mRNA and reduce antithrombin protein.",
+          "E": "Thrombopoietin-receptor activation increases platelet production and does not target antithrombin expression."
+        },
+        "educational_objective": "Differentiate siRNA-mediated antithrombin suppression by fitusiran from protein-neutralizing and gene-editing hemostatic strategies."
+      },
+      "sources": [
+        {
+          "source_id": "Q1534-LABEL",
+          "title": "QFITLIA- fitusiran injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6dd2f8ac-6f90-4cbf-b197-97d74964135c",
+          "setid": "6dd2f8ac-6f90-4cbf-b197-97d74964135c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "a36652e451237a4a7530f01c75797308f9dc49c57068ed800e0cb60dc6d48cc3",
+          "cited_section_sha256": "ec8a63cfec0050e3b74832c70e051f5693493eeef1ebc282eafdab101555ae64",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "ec8a63cfec0050e3b74832c70e051f5693493eeef1ebc282eafdab101555ae64"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1534-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Fitusiran does not edit or delete the SERPINC1 gene; its effect occurs post-transcriptionally.",
+          "source_ids": [
+            "Q1534-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1534-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The therapy targets antithrombin mRNA rather than factor VIII translation.",
+          "source_ids": [
+            "Q1534-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1534-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "TFPI neutralization is a different rebalancing strategy that acts at the protein level.",
+          "source_ids": [
+            "Q1534-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1534-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Fitusiran uses RNA interference to degrade antithrombin mRNA and reduce antithrombin protein.",
+          "source_ids": [
+            "Q1534-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1534-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Thrombopoietin-receptor activation increases platelet production and does not target antithrombin expression.",
+          "source_ids": [
+            "Q1534-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "TFPI neutralization can also rebalance coagulation in hemophilia, but fitusiran specifically reduces antithrombin through siRNA-mediated mRNA degradation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1535,
+      "drug": "prademagene zamikeracel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Cell Biology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Autologous keratinocyte-containing sheets are prepared from a patient with recessive dystrophic epidermolysis bullosa. The cells are transduced ex vivo with a replication-incompetent retroviral vector carrying a full-length gene, then applied topically to chronic wounds. Treated tissue begins producing collagen VII and anchoring fibrils.",
+        "lead_in": "Which gene is introduced into the patient-derived cells?",
+        "options": {
+          "A": "KRT14",
+          "B": "LAMA3",
+          "C": "COL17A1",
+          "D": "ITGB4",
+          "E": "COL7A1"
+        },
+        "intended_key": "E",
+        "tested_construct": "Ex vivo retroviral delivery of COL7A1 to restore collagen VII production",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "ZEVASKYN consists of autologous cells transduced ex vivo with a replication-incompetent retroviral vector containing full-length COL7A1, enabling production of functional collagen VII and restoration of anchoring fibrils.",
+        "distractor_explanations": {
+          "A": "KRT14 mutations cause a different inherited epidermolysis bullosa phenotype and do not encode collagen VII.",
+          "B": "LAMA3 encodes a laminin subunit involved in junctional epidermolysis bullosa, not collagen VII.",
+          "C": "COL17A1 encodes type XVII collagen rather than type VII collagen.",
+          "D": "ITGB4 encodes integrin beta-4 and is associated with a different basement-membrane adhesion defect.",
+          "E": "Correct. COL7A1 encodes collagen VII, the protein deficient in recessive dystrophic epidermolysis bullosa and restored by this ex vivo gene-modified cell product."
+        },
+        "educational_objective": "Connect recessive dystrophic epidermolysis bullosa to COL7A1 deficiency and recognize ex vivo COL7A1 gene transfer as the mechanism of prademagene zamikeracel."
+      },
+      "sources": [
+        {
+          "source_id": "Q1535-LABEL",
+          "title": "ZEVASKYN- prademagene zamikeracel cellular sheet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f8782480-8782-4748-9764-b9ed60979d47",
+          "setid": "f8782480-8782-4748-9764-b9ed60979d47",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "9f574410c02f1777ffc708198c17a69b9ef7dad1b5d774e80b9084ab9143bd1b",
+          "cited_section_sha256": "0a7ff20fb478ed848ea6b6996ad0898455e567664c3aabed50f5f6a68357548b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "0a7ff20fb478ed848ea6b6996ad0898455e567664c3aabed50f5f6a68357548b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1535-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "KRT14 mutations cause a different inherited epidermolysis bullosa phenotype and do not encode collagen VII.",
+          "source_ids": [
+            "Q1535-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1535-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "LAMA3 encodes a laminin subunit involved in junctional epidermolysis bullosa, not collagen VII.",
+          "source_ids": [
+            "Q1535-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1535-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "COL17A1 encodes type XVII collagen rather than type VII collagen.",
+          "source_ids": [
+            "Q1535-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1535-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ITGB4 encodes integrin beta-4 and is associated with a different basement-membrane adhesion defect.",
+          "source_ids": [
+            "Q1535-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1535-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. COL7A1 encodes collagen VII, the protein deficient in recessive dystrophic epidermolysis bullosa and restored by this ex vivo gene-modified cell product.",
+          "source_ids": [
+            "Q1535-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Other epidermolysis bullosa genes encode different structural proteins, but collagen VII and anchoring fibril restoration specifically require COL7A1.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
