@@ -82,33 +82,33 @@ def main():
 
     items.append(make(
         1528,
-        'vorasidenib',
-        'Nervous System & Special Senses',
-        ['Pharmacology','Biochemistry'],
-        'Glioma cells carrying an IDH1 R132 mutation are exposed to vorasidenib. Intracellular 2-hydroxyglutarate falls and markers of cellular differentiation partially recover. The same drug can inhibit susceptible mutant IDH2 proteins.',
-        'Which direct molecular action best explains these findings?',
+        'elamipretide',
+        'Musculoskeletal, Skin & Subcutaneous Tissue',
+        ['Pharmacology','Cell Biology'],
+        'Skeletal muscle cells from a patient with a mitochondrial membrane disorder are exposed to elamipretide. The compound rapidly localizes to the inner mitochondrial membrane, where mitochondrial morphology and function improve without changing mitochondrial DNA sequence.',
+        'Which direct molecular interaction best explains this effect?',
         {
-            'A':'Inhibition of mutant BRAF kinase',
-            'B':'Inhibition of histone deacetylases',
-            'C':'Inhibition of IDH1 and IDH2 enzymes',
-            'D':'Inhibition of DNA methyltransferase 1',
-            'E':'Inhibition of mTOR complex 1'
+            'A':'Inhibition of mitochondrial complex I',
+            'B':'Activation of PGC-1alpha transcription',
+            'C':'Binding to mitochondrial cardiolipin',
+            'D':'Inhibition of mitochondrial fission protein DRP1',
+            'E':'Replacement of mitochondrial DNA'
         },
         'C',
-        'Dual IDH1/IDH2 inhibition that lowers 2-hydroxyglutarate production',
-        'Vorasidenib is a small-molecule inhibitor of IDH1 and IDH2. In models expressing susceptible mutant IDH1 or IDH2 proteins, it decreases production of the oncometabolite 2-hydroxyglutarate and can partially restore cellular differentiation.',
+        'Binding to cardiolipin in the inner mitochondrial membrane',
+        'Elamipretide is a mitochondrial cardiolipin binder that localizes to the inner mitochondrial membrane and improves mitochondrial morphology and function.',
         {
-            'A':'BRAF inhibition targets MAPK signaling and does not directly lower the IDH-derived oncometabolite 2-hydroxyglutarate.',
-            'B':'Histone deacetylase inhibition alters chromatin acetylation but is not the direct target of vorasidenib.',
-            'C':'Correct. Vorasidenib directly inhibits IDH1 and IDH2, reducing 2-hydroxyglutarate production in susceptible mutant glioma cells.',
-            'D':'DNA methyltransferase inhibition can alter differentiation state but does not directly inhibit mutant IDH enzymes.',
-            'E':'mTORC1 inhibition suppresses growth signaling but does not explain selective reduction of 2-hydroxyglutarate.'
+            'A':'Complex I inhibition would impair rather than improve oxidative phosphorylation and does not match the labeled target.',
+            'B':'PGC-1alpha activation can promote mitochondrial biogenesis but is not the direct documented molecular interaction of elamipretide.',
+            'C':'Correct. Elamipretide directly binds mitochondrial cardiolipin and localizes to the inner mitochondrial membrane.',
+            'D':'DRP1 inhibition can alter mitochondrial morphology but is not the direct labeled target of elamipretide.',
+            'E':'The drug does not replace or edit mitochondrial DNA.'
         },
-        'Connect mutant IDH1/IDH2 activity with 2-hydroxyglutarate production and recognize dual IDH1/IDH2 inhibition as the direct mechanism of vorasidenib.',
-        'VORANIGO- vorasidenib tablet, film coated',
-        '31405fee-55b7-4857-987e-2724ee76be84',
+        'Recognize cardiolipin binding at the inner mitochondrial membrane as the direct pharmacologic action of elamipretide.',
+        'FORZINITY- elamipretide hydrochloride injection',
+        '146bf34c-76f2-48db-ac07-fb29cce2cd75',
         'D',
-        'Epigenetic therapies can partially restore differentiation downstream of mutant IDH, but the direct fall in 2-hydroxyglutarate identifies inhibition of IDH1/IDH2 itself.'
+        'Manipulating mitochondrial fission can also change mitochondrial morphology, but direct localization to the inner membrane through cardiolipin binding uniquely identifies elamipretide.'
     ))
 
     items.append(make(
