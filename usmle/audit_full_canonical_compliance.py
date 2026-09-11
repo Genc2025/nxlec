@@ -103,7 +103,7 @@ def criteria_defects(p):
         if not is_sha256(s.get('cited_section_sha256')): d.append(f'source_{i+1}_missing_cited_hash')
 
     if isinstance(ev,list):
-        em=[e for e in ev if isinstance(e,dict) and e.get('option') in 'ABCDE']
+        em=[e for e in ev if isinstance(e,dict) and isinstance(e.get('option'),str) and e.get('option') in 'ABCDE']
         if len(em)!=5 or {e.get('option') for e in em}!=set('ABCDE'):
             d.append('evidence_map_shape')
         else:
