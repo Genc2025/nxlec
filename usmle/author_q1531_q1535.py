@@ -51,33 +51,33 @@ def main():
 
     items.append(make(
         1532,
-        'inavolisib',
-        'Endocrine System',
-        ['Pharmacology','Cell Biology'],
-        'PIK3CA-mutated breast cancer cells are exposed to inavolisib. Phosphorylation of AKT decreases, proliferation slows, and the abundance of mutant p110alpha protein falls. The effect is much stronger against PI3Kalpha than against other class I PI3K isoforms.',
-        'Which direct pharmacologic action best explains these findings?',
+        'imetelstat',
+        'Blood & Lymphoreticular/Immune Systems',
+        ['Pharmacology','Molecular Biology'],
+        'Malignant hematopoietic progenitor cells from a patient with myelodysplastic syndrome are exposed to imetelstat. Telomerase activity falls, telomeres shorten over time, and proliferation of the abnormal progenitor population decreases.',
+        'Which direct molecular interaction best explains these findings?',
         {
-            'A':'Inhibition of CDK4 and CDK6',
-            'B':'Predominant PI3Kalpha inhibition with degradation of mutant p110alpha',
-            'C':'Selective estrogen receptor degradation',
-            'D':'HER2 extracellular-domain blockade',
-            'E':'mTORC1 inhibition'
+            'A':'Binding the template region of the RNA component of human telomerase',
+            'B':'Inhibition of DNA polymerase alpha',
+            'C':'Degradation of TERT messenger RNA by RNA interference',
+            'D':'Blockade of ribonucleotide reductase',
+            'E':'Inhibition of topoisomerase II'
         },
-        'B',
-        'Predominant PI3Kalpha inhibition with degradation of mutant p110alpha',
-        'Inavolisib is a PI3K inhibitor with activity predominantly against PI3Kalpha. In vitro it induces degradation of mutated p110alpha encoded by PIK3CA, reduces downstream AKT phosphorylation, inhibits proliferation, and induces apoptosis.',
-        {
-            'A':'CDK4/6 inhibitors reduce cell-cycle progression but do not directly cause mutant p110alpha degradation.',
-            'B':'Correct. The combination of PI3Kalpha-selective inhibition, mutant p110alpha degradation, and reduced AKT phosphorylation is characteristic of inavolisib.',
-            'C':'Selective estrogen receptor degradation acts through hormone-receptor signaling rather than directly targeting PI3Kalpha.',
-            'D':'HER2 blockade targets a receptor tyrosine kinase and does not directly degrade mutant p110alpha.',
-            'E':'mTORC1 inhibition acts downstream of PI3K/AKT and would not directly account for selective loss of mutant p110alpha protein.'
-        },
-        'Link PIK3CA-mutated tumor biology to PI3Kalpha inhibition and mutant p110alpha degradation by inavolisib.',
-        'ITOVEBI- inavolisib tablet, film coated',
-        '5de59f5b-e5db-410f-b692-658686ef4107',
         'A',
-        'mTORC1 inhibition can reduce downstream growth signaling, but the direct loss of mutant p110alpha together with PI3Kalpha-selective activity identifies inavolisib.'
+        'Binding to the template region of human telomerase RNA and inhibition of telomerase activity',
+        'Imetelstat is an oligonucleotide telomerase inhibitor that binds the template region of the RNA component of human telomerase (hTR), inhibits telomerase enzymatic activity, and prevents telomere binding.',
+        {
+            'A':'Correct. Imetelstat binds the template region of hTR and directly inhibits telomerase activity.',
+            'B':'DNA polymerase-alpha inhibition impairs DNA replication but is not the direct mechanism of imetelstat.',
+            'C':'Imetelstat is an oligonucleotide, but it does not act by RNA-interference-mediated degradation of TERT mRNA.',
+            'D':'Ribonucleotide reductase inhibition lowers deoxyribonucleotide availability and does not specifically inhibit telomerase.',
+            'E':'Topoisomerase II inhibition produces DNA strand-break effects rather than direct blockade of the telomerase RNA template.'
+        },
+        'Recognize imetelstat as an oligonucleotide that directly binds the template region of human telomerase RNA and inhibits telomerase.',
+        'RYTELO- imetelstat sodium injection, powder, lyophilized, for solution',
+        'b0fab7ca-e578-43c5-9df6-bdaff4182257',
+        'C',
+        'RNA-interference therapies can also be oligonucleotide-based, but imetelstat directly binds the telomerase RNA template rather than degrading TERT messenger RNA.'
     ))
 
     items.append(make(
