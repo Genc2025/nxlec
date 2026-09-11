@@ -82,33 +82,33 @@ def main():
 
     items.append(make(
         1528,
-        'cosibelimab-ipdl',
-        'Musculoskeletal, Skin & Subcutaneous Tissue',
-        ['Pharmacology','Immunology'],
-        'Tumor cells expressing PD-L1 are incubated with cosibelimab-ipdl. Interaction of tumor PD-L1 with both PD-1 and B7.1 on immune cells decreases, cytotoxic T-cell activity increases, and antibody-dependent cellular cytotoxicity is observed in vitro.',
-        'Which direct action best explains this profile?',
+        'vorasidenib',
+        'Nervous System & Special Senses',
+        ['Pharmacology','Biochemistry'],
+        'Glioma cells carrying an IDH1 R132 mutation are exposed to vorasidenib. Intracellular 2-hydroxyglutarate falls and markers of cellular differentiation partially recover. The same drug can inhibit susceptible mutant IDH2 proteins.',
+        'Which direct molecular action best explains these findings?',
         {
-            'A':'Binding PD-1 and preventing PD-L1/PD-L2 ligation',
-            'B':'Binding CTLA-4 and preventing B7 costimulatory interactions',
-            'C':'Binding PD-L1 and blocking its interactions with PD-1 and B7.1',
-            'D':'Depleting CD20-positive B lymphocytes',
-            'E':'Neutralizing soluble IL-6'
+            'A':'Inhibition of mutant BRAF kinase',
+            'B':'Inhibition of histone deacetylases',
+            'C':'Inhibition of IDH1 and IDH2 enzymes',
+            'D':'Inhibition of DNA methyltransferase 1',
+            'E':'Inhibition of mTOR complex 1'
         },
         'C',
-        'PD-L1 blockade of both PD-1 and B7.1 interactions with retained Fc-mediated ADCC capacity',
-        'Cosibelimab-ipdl binds PD-L1 and blocks interactions between PD-L1 and its receptors PD-1 and B7.1, releasing inhibitory effects on antitumor immunity. It has also demonstrated ADCC in vitro.',
+        'Dual IDH1/IDH2 inhibition that lowers 2-hydroxyglutarate production',
+        'Vorasidenib is a small-molecule inhibitor of IDH1 and IDH2. In models expressing susceptible mutant IDH1 or IDH2 proteins, it decreases production of the oncometabolite 2-hydroxyglutarate and can partially restore cellular differentiation.',
         {
-            'A':'PD-1-directed antibodies bind the receptor on immune cells; cosibelimab-ipdl instead directly binds the ligand PD-L1.',
-            'B':'CTLA-4 blockade acts at a different checkpoint pathway involving B7 ligands.',
-            'C':'Correct. Direct PD-L1 binding blocks both PD-1 and B7.1 interactions and fits the observed restoration of cytotoxic T-cell activity.',
-            'D':'CD20 depletion is a B-cell-directed mechanism unrelated to PD-L1 checkpoint blockade.',
-            'E':'IL-6 neutralization is anti-inflammatory but does not directly restore PD-L1-inhibited T-cell signaling.'
+            'A':'BRAF inhibition targets MAPK signaling and does not directly lower the IDH-derived oncometabolite 2-hydroxyglutarate.',
+            'B':'Histone deacetylase inhibition alters chromatin acetylation but is not the direct target of vorasidenib.',
+            'C':'Correct. Vorasidenib directly inhibits IDH1 and IDH2, reducing 2-hydroxyglutarate production in susceptible mutant glioma cells.',
+            'D':'DNA methyltransferase inhibition can alter differentiation state but does not directly inhibit mutant IDH enzymes.',
+            'E':'mTORC1 inhibition suppresses growth signaling but does not explain selective reduction of 2-hydroxyglutarate.'
         },
-        'Distinguish PD-L1-directed checkpoint blockade from PD-1- and CTLA-4-directed strategies by identifying the ligand and receptor interactions directly interrupted.',
-        'UNLOXCYT- cosibelimab injection, solution',
-        '06bdadd5-d2db-406f-a3f8-de47f48a52e3',
-        'A',
-        'PD-1 blockade can produce a similar functional release of T-cell inhibition, but direct binding to PD-L1 plus blockade of both PD-1 and B7.1 interactions identifies cosibelimab-ipdl.'
+        'Connect mutant IDH1/IDH2 activity with 2-hydroxyglutarate production and recognize dual IDH1/IDH2 inhibition as the direct mechanism of vorasidenib.',
+        'VORANIGO- vorasidenib tablet, film coated',
+        '31405fee-55b7-4857-987e-2724ee76be84',
+        'D',
+        'Epigenetic therapies can partially restore differentiation downstream of mutant IDH, but the direct fall in 2-hydroxyglutarate identifies inhibition of IDH1/IDH2 itself.'
     ))
 
     items.append(make(
