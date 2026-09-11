@@ -1,0 +1,71 @@
+name: USMLE Step2 Import Q1511-Q1515
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-step2-import-q1511-q1515.yml'
+permissions:
+  contents: write
+jobs:
+  import-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1511'
+      END_Q: '1515'
+      PRE_COUNT: '1510'
+      DB_BLOB: 8f86dcaa1d51213f48b8337e98ab9cf79b86fa1e
+      CAND_PATH: usmle/batch_specs_1501_1600/03_q1511_q1515_author_20260910.json
+      CAND_BLOB: 7f8f6c028da0b36cd909a21b52efe61b387f83ed
+      MAN_PATH: usmle/audit/Q1511_Q1515_FINAL_QA_PASS.json
+      MAN_BLOB: 3773a6da5d38531ba2c5ffe4162b681b64c54576
+      SIM_PATH: usmle/audit/Q1511_Q1515_DETACHED_IMPORT_SIMULATION.json
+      SIM_BLOB: d89a8d3a9eab5b619f5ba29961b74246d4bf6c15
+      VERIFY_OUT: usmle/audit/Q1511_Q1515_PRODUCTION_IMPORT_VERIFY.json
+      STATE_OUT: usmle/state/step2_final_q0001_q1515.json
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind immutable pre-import evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$MAN_PATH")" = "$MAN_BLOB"
+          test "$(git hash-object "$SIM_PATH")" = "$SIM_BLOB"
+          python - <<'PY'
+          import json,os
+          st=json.load(open('usmle/state/step2_final_q0001_q1510.json'))
+          assert st['item_count']==st['step2_final_review_count']==1510 and st['contiguous_q0001_q1510'] is True and st['sqlite_integrity']=='ok' and st['post_db_blob']==os.environ['DB_BLOB']
+          m=json.load(open(os.environ['MAN_PATH'])); assert m['status']=='FINAL_QA_PASS' and m['production_import_ready'] is True and m['unresolved_defects']==[]
+          s=json.load(open(os.environ['SIM_PATH'])); assert s['status']=='DETACHED_IMPORT_SIMULATION_PASS' and s['production_transactional_import_ready'] is True and s['failures']==[]
+          PY
+      - name: Execute transactional next-five import
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/step2_import_next5.py
+          python usmle/step2_import_next5.py
+      - name: Independent post-import verification
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re,sqlite3
+          c=sqlite3.connect('usmle/data/usmle-step1.db'); assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          ids=[r[0] for r in c.execute("select candidate_id from step2_final_items where final_status='FINAL_10_10_PASS'")]; rc=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]; fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]; c.close()
+          nums=[]
+          for cid in ids:
+            m=re.search(r'DIRECT-(\d{4})',cid); assert m; nums.append(int(m.group(1)))
+          assert len(ids)==rc==fin==1515 and set(nums)==set(range(1,1516))
+          v=json.load(open(os.environ['VERIFY_OUT'])); st=json.load(open(os.environ['STATE_OUT']))
+          assert v['status']=='PRODUCTION_IMPORT_PASS' and v['item_count']==v['review_count']==1515 and v['contiguous_q0001_q1515'] is True and v['failures']==[]
+          assert st['item_count']==st['step2_final_review_count']==1515 and st['contiguous_q0001_q1515'] is True and st['production_import_status']=='PASS' and st['post_db_blob']==v['post_db_blob']
+          print('Q1511_Q1515_POST_IMPORT_VERIFY=PASS',st['post_db_blob'])
+          PY
+      - name: Persist DB state and verification atomically
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db "$VERIFY_OUT" "$STATE_OUT"
+          git commit -m 'usmle: import Q1511-Q1515 into production'
+          git push
