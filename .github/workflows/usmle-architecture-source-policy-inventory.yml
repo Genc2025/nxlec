@@ -1,0 +1,33 @@
+name: USMLE Architecture Source Policy Inventory
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-architecture-source-policy-inventory.yml'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      DB_BLOB: a3f28fcfd0a89161ed003e60d0d797c5fa103f1a
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Inventory
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/audit_architecture_source_policy_inventory.py
+          B="$(git hash-object usmle/data/usmle-step1.db)"
+          python usmle/audit_architecture_source_policy_inventory.py
+          test "$B" = "$(git hash-object usmle/data/usmle-step1.db)"
+      - name: Persist report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/FULL_CANONICAL_ARCHITECTURE_AND_SOURCE_POLICY_INVENTORY.json
+          git commit -m 'usmle: inventory canonical architecture and source policy'
+          git pull --rebase origin main
+          git push
