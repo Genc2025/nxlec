@@ -9,7 +9,9 @@ ALLOW_ROOTS={'usmle.org','nbme.org','fsmb.org','nih.gov','nlm.nih.gov','medlinep
 def gitblob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def host(url):
     m=re.match(r'https?://([^/]+)',str(url).casefold()); return m.group(1).split(':')[0] if m else ''
-def official_host(h):\n    return any(h==r or h.endswith('.'+r) for r in ALLOW_ROOTS)\ndef safe_count(c,t):
+def official_host(h):
+    return any(h==r or h.endswith('.'+r) for r in ALLOW_ROOTS)
+def safe_count(c,t):
     try:return c.execute(f'select count(*) from "{t}"').fetchone()[0]
     except:return None
 def main():
