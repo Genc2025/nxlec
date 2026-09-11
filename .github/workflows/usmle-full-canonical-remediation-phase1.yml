@@ -1,0 +1,43 @@
+name: USMLE Full Canonical Remediation Phase1
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-full-canonical-remediation-phase1.yml'
+permissions:
+  contents: write
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      EXPECTED_COUNT: '1535'
+      DB_BLOB: a3f28fcfd0a89161ed003e60d0d797c5fa103f1a
+      AUDIT_DATE: '2026-09-11'
+      MAX_WORKERS: '16'
+      REMEDIATION_OUT: usmle/audit/FULL_CANONICAL_Q0001_Q1535_REMEDIATION_PHASE1.json
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind production and compile remediation
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python -m py_compile usmle/remediate_full_canonical_phase1.py
+      - name: Run detached remediation candidate
+        run: |
+          set -euo pipefail
+          BEFORE="$(git hash-object usmle/data/usmle-step1.db)"
+          python usmle/remediate_full_canonical_phase1.py
+          AFTER="$(git hash-object usmle/data/usmle-step1.db)"
+          test "$BEFORE" = "$AFTER"
+          test "$AFTER" = "$DB_BLOB"
+      - name: Persist remediation report only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$REMEDIATION_OUT"
+          git commit -m 'usmle: report full canonical phase1 remediation'
+          git push
