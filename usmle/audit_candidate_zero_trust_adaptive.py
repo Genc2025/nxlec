@@ -99,6 +99,9 @@ def main():
   reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':derived,'intended_key':key,'key_rationale_overlap':kro,'source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(mj,5),'canonical_top_match':scored[0][1] if scored else None,'source_reports':sr,'failures':sorted(set(f))})
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
  out={'audit_id':f'Q{START}-Q{END}-ZERO-TRUST-ADAPTIVE-20260910','candidate_blob':CAND_BLOB,'canonical_db_blob':DB_BLOB,'canonical_count':1300,'canonical_review_count':1300,'item_count':len(items),'item_reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_import_ready':False}
- OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n'); print(json.dumps({'verdict':out['verdict'],'failures':failures,'items':len(items)},sort_keys=True))
+ OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
+ if failures:
+  print(json.dumps({'failed_reports':[r for r in reports if r.get('status')=='BLOCKED']},sort_keys=True))
+ print(json.dumps({'verdict':out['verdict'],'failures':failures,'items':len(items)},sort_keys=True))
  if failures: raise SystemExit(1)
 if __name__=='__main__': main()
