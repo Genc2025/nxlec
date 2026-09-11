@@ -5,6 +5,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 base=ROOT/'audit_candidate_zero_trust_adaptive.py'
 s=base.read_text()
+AUDIT_DATE=os.environ.get('AUDIT_DATE','20260910')
+s=s.replace('ZERO-TRUST-ADAPTIVE-20260910',f'ZERO-TRUST-ADAPTIVE-{AUDIT_DATE}')
 s=s.replace("STOP={'the'", "CANON_COUNT=int(os.environ.get('CANONICAL_COUNT','1500'))\nSTOP={'the'",1)
 s=s.replace("b.get('canonical_count_before')==b.get('canonical_count_after')==1300", "b.get('canonical_count_before')==b.get('canonical_count_after')==CANON_COUNT")
 s=s.replace("assert len(rows)==rc==1300", "assert len(rows)==rc==CANON_COUNT")
