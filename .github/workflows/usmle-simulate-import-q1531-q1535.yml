@@ -1,0 +1,58 @@
+name: USMLE Detached Import Simulation Q1531-Q1535
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-simulate-import-q1531-q1535.yml'
+permissions:
+  contents: write
+jobs:
+  detached-simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1531'
+      END_Q: '1535'
+      PRE_COUNT: '1530'
+      DB_BLOB: 441f9bbad64e87c9da9fa5647c042f417941b8af
+      CAND_PATH: usmle/batch_specs_1501_1600/07_q1531_q1535_author_20260911.json
+      CAND_BLOB: 880b6e7a8ff55389f2cd2dc4f084dd7526e38674
+      MAN_PATH: usmle/audit/Q1531_Q1535_FINAL_QA_PASS.json
+      MAN_BLOB: 192137ee493f669a1d6c8281cd620cb414e8fcf4
+      SIM_OUT: usmle/audit/Q1531_Q1535_DETACHED_IMPORT_SIMULATION.json
+      AUDIT_DATE: '20260911'
+      CANDIDATE_STAMP: '20260911T044400Z'
+      FINALIZED_AT: '2026-09-11T04:44:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Run detached next-five simulation
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$MAN_PATH")" = "$MAN_BLOB"
+          python -m py_compile usmle/simulate_import_next5.py
+          python usmle/simulate_import_next5.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          r=json.load(open(os.environ['SIM_OUT']))
+          assert r['audit_id']=='Q1531-Q1535-DETACHED-IMPORT-SIMULATION-20260911'
+          assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert r['pre_production_count']==1530 and r['simulated_post_count']==1535
+          assert r['post_simulation_contiguous_q0001_q1535'] is True
+          assert r['all_final_qa_gates_bound'] is True
+          assert r['production_transactional_import_ready'] is True
+          assert r['production_db_modified'] is False
+          assert r['failures']==[]
+          PY
+      - name: Commit simulation report only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$SIM_OUT"
+          git commit -m 'usmle: pass detached import simulation Q1531-Q1535'
+          git push
