@@ -1,0 +1,25 @@
+name: USMLE Q21 Q323 Construct Review
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-q21-q323-construct-review.yml'
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env: {DB_BLOB: a3f28fcfd0a89161ed003e60d0d797c5fa103f1a}
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - run: python usmle/export_q21_q323_construct_review.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q0021_Q0323_CONSTRUCT_REVIEW.json
+          git commit -m 'usmle: inspect repeated Q21 Q323 construct'
+          git pull --rebase origin main
+          git push
