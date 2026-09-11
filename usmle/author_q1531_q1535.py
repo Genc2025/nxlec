@@ -51,33 +51,33 @@ def main():
 
     items.append(make(
         1532,
-        'imetelstat',
-        'Blood & Lymphoreticular/Immune Systems',
-        ['Pharmacology','Molecular Biology'],
-        'Malignant hematopoietic progenitor cells from a patient with myelodysplastic syndrome are exposed to imetelstat. Telomerase activity falls, telomeres shorten over time, and proliferation of the abnormal progenitor population decreases.',
-        'Which direct molecular interaction best explains these findings?',
+        'dordaviprone',
+        'Nervous System & Special Senses',
+        ['Pharmacology','Cell Biology'],
+        'H3 K27M-mutant diffuse midline glioma cells are exposed to dordaviprone. Mitochondrial stress signaling increases, apoptosis is induced, and histone H3 K27 trimethylation partially recovers. A separate receptor assay shows reduced dopamine D2 signaling.',
+        'Which pair of direct pharmacologic actions best explains this profile?',
         {
-            'A':'Inhibition of DNA polymerase alpha',
-            'B':'Binding the template region of the RNA component of human telomerase',
-            'C':'Degradation of TERT messenger RNA by RNA interference',
-            'D':'Blockade of ribonucleotide reductase',
-            'E':'Inhibition of topoisomerase II'
+            'A':'Inhibition of mitochondrial ClpP plus dopamine D2 agonism',
+            'B':'Activation of mitochondrial ClpP plus dopamine D2 receptor inhibition',
+            'C':'Inhibition of HIF-2alpha plus dopamine D2 receptor inhibition',
+            'D':'Menin-KMT2A interaction blockade plus dopamine D2 agonism',
+            'E':'Dual inhibition of mutant IDH1 and IDH2'
         },
         'B',
-        'Binding to the template region of human telomerase RNA and inhibition of telomerase activity',
-        'Imetelstat is an oligonucleotide telomerase inhibitor that binds the template region of the RNA component of human telomerase (hTR), inhibits telomerase enzymatic activity, and prevents telomere binding.',
+        'Activation of mitochondrial caseinolytic protease P with dopamine D2 receptor inhibition',
+        'Dordaviprone is a protease activator of mitochondrial caseinolytic protease P (ClpP) and also inhibits the dopamine D2 receptor. In H3 K27M-mutant diffuse glioma models it activates an integrated stress response, alters mitochondrial metabolism, induces apoptosis, and can restore H3 K27 trimethylation.',
         {
-            'A':'DNA polymerase-alpha inhibition impairs DNA replication but is not the direct mechanism of imetelstat.',
-            'B':'Correct. Imetelstat binds the template region of hTR and directly inhibits telomerase activity.',
-            'C':'Imetelstat is an oligonucleotide, but it does not act by RNA-interference-mediated degradation of TERT mRNA.',
-            'D':'Ribonucleotide reductase inhibition lowers deoxyribonucleotide availability and does not specifically inhibit telomerase.',
-            'E':'Topoisomerase II inhibition produces DNA strand-break effects rather than direct blockade of the telomerase RNA template.'
+            'A':'The ClpP direction is reversed; dordaviprone activates rather than inhibits ClpP, and it inhibits rather than agonizes D2 receptors.',
+            'B':'Correct. Dordaviprone directly activates mitochondrial ClpP and inhibits dopamine D2 receptors.',
+            'C':'HIF-2alpha inhibition is a distinct oxygen-sensing pathway mechanism and is not the direct target profile of dordaviprone.',
+            'D':'Menin-KMT2A blockade is used in susceptible leukemias and does not explain the mitochondrial stress phenotype in H3 K27M glioma.',
+            'E':'Mutant IDH inhibition lowers 2-hydroxyglutarate and is mechanistically distinct from ClpP activation.'
         },
-        'Recognize imetelstat as an oligonucleotide that directly binds the template region of human telomerase RNA and inhibits telomerase.',
-        'RYTELO- imetelstat sodium injection, powder, lyophilized, for solution',
-        'b0fab7ca-e578-43c5-9df6-bdaff4182257',
-        'C',
-        'RNA-interference therapies can also be oligonucleotide-based, but imetelstat directly binds the telomerase RNA template rather than degrading TERT messenger RNA.'
+        'Recognize dordaviprone as a mitochondrial ClpP activator with dopamine D2 receptor inhibitory activity in H3 K27M-mutant diffuse midline glioma.',
+        'MODEYSO- dordaviprone capsule',
+        'ad45b43e-fdef-47ad-9c34-055b41bdc576',
+        'A',
+        'ClpP inhibition superficially fits a mitochondrial target, but the documented direction is activation, and the paired D2 effect is inhibition rather than agonism.'
     ))
 
     items.append(make(
