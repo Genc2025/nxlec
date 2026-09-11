@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1516-Q1520-20260911",
+  "created_at": "2026-09-11",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1515,
+  "canonical_count_after": 1515,
+  "canonical_db_blob": "d1d532f97f9cb43b6b376916a0d41cada277e911",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1516,
+      "drug": "acoramidis",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Purified transthyretin tetramers are incubated with acoramidis. The drug occupies thyroxine-binding sites, and dissociation of the tetramer into monomers decreases. Formation of downstream amyloidogenic species is reduced.",
+        "lead_in": "Which direct pharmacologic action best explains these findings?",
+        "options": {
+          "A": "Kinetic stabilization of the transthyretin tetramer",
+          "B": "Proteolytic degradation of preformed transthyretin amyloid fibrils",
+          "C": "Inhibition of hepatic transthyretin gene transcription",
+          "D": "Agonism of nuclear thyroid hormone receptors",
+          "E": "RNA interference targeting transthyretin messenger RNA"
+        },
+        "intended_key": "A",
+        "tested_construct": "TTR tetramer stabilization that slows rate-limiting dissociation into monomers",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Acoramidis is a selective transthyretin stabilizer. It binds TTR at thyroxine-binding sites and slows dissociation of the tetramer into monomers, the rate-limiting step in amyloidogenesis.",
+        "distractor_explanations": {
+          "A": "Correct. Binding and stabilization of the TTR tetramer directly reduce its dissociation into amyloidogenic monomers.",
+          "B": "The labeled mechanism is prevention of tetramer dissociation, not enzymatic clearance of existing amyloid fibrils.",
+          "C": "Acoramidis does not act by suppressing TTR transcription.",
+          "D": "Occupancy of TTR thyroxine-binding sites is not thyroid-hormone-receptor agonism.",
+          "E": "RNA interference lowers TTR synthesis through mRNA silencing, a distinct mechanism from tetramer stabilization."
+        },
+        "educational_objective": "Recognize pharmacologic stabilization of the transthyretin tetramer as a strategy that reduces amyloidogenesis by slowing the rate-limiting dissociation step."
+      },
+      "sources": [
+        {
+          "source_id": "Q1516-LABEL",
+          "title": "ATTRUBY- acoramidis hydrochloride tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=913552ef-875d-4cb7-bf05-a7d20a394c38",
+          "setid": "913552ef-875d-4cb7-bf05-a7d20a394c38",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "708217485760eb39bb2f452bac8921c6514936c4d2c1ddaf2742b295c6c18236",
+          "cited_section_sha256": "40a73f7aac56dd77103cebcd82137d65249058985c764e2e8512036758172f28",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "40a73f7aac56dd77103cebcd82137d65249058985c764e2e8512036758172f28"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1516-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Binding and stabilization of the TTR tetramer directly reduce its dissociation into amyloidogenic monomers.",
+          "source_ids": [
+            "Q1516-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1516-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The labeled mechanism is prevention of tetramer dissociation, not enzymatic clearance of existing amyloid fibrils.",
+          "source_ids": [
+            "Q1516-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1516-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Acoramidis does not act by suppressing TTR transcription.",
+          "source_ids": [
+            "Q1516-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1516-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Occupancy of TTR thyroxine-binding sites is not thyroid-hormone-receptor agonism.",
+          "source_ids": [
+            "Q1516-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1516-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "RNA interference lowers TTR synthesis through mRNA silencing, a distinct mechanism from tetramer stabilization.",
+          "source_ids": [
+            "Q1516-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "TTR-targeted RNA interference can also reduce amyloid precursor availability, but the experiment directly demonstrates preserved tetrameric TTR through thyroxine-site binding rather than reduced TTR synthesis.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1517,
+      "drug": "iptacopan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Serum is exposed to iptacopan before activation of the alternative complement pathway. Cleavage of C3 and generation of downstream complement effectors decrease, while the drug is shown to bind a component required for the alternative-pathway C3 convertase.",
+        "lead_in": "Which direct molecular target best explains this effect?",
+        "options": {
+          "A": "Complement component C5",
+          "B": "Complement factor B",
+          "C": "Complement factor D",
+          "D": "Complement component C1s",
+          "E": "Complement component C3"
+        },
+        "intended_key": "B",
+        "tested_construct": "Factor B inhibition in the alternative complement pathway",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Iptacopan binds complement Factor B, regulating cleavage of C3, generation of downstream effectors, and amplification of the terminal complement pathway.",
+        "distractor_explanations": {
+          "A": "C5 inhibition acts downstream and does not directly explain the stated binding to a component of the alternative-pathway C3 convertase.",
+          "B": "Correct. Factor B is the labeled direct target of iptacopan and is required for alternative-pathway C3 convertase activity.",
+          "C": "Factor D cleaves factor B but is not the direct labeled target of iptacopan.",
+          "D": "C1s is part of the classical complement pathway rather than the alternative-pathway C3 convertase.",
+          "E": "The drug regulates C3 cleavage indirectly through Factor B rather than by binding C3 itself."
+        },
+        "educational_objective": "Identify Factor B as the direct target of iptacopan and distinguish alternative-pathway inhibition from downstream terminal-complement blockade."
+      },
+      "sources": [
+        {
+          "source_id": "Q1517-LABEL",
+          "title": "FABHALTA- iptacopan capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a76b5845-6e21-4d3b-ad07-cd8df1b60bee",
+          "setid": "a76b5845-6e21-4d3b-ad07-cd8df1b60bee",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "e024297fffbb12f446e4256c9d4f7170b255ab071715987f450a3e4663000c02",
+          "cited_section_sha256": "78ab9e8e27a50d5453b12629f525136f478fe86d4f16b12ffcfbb2642ed58165",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "78ab9e8e27a50d5453b12629f525136f478fe86d4f16b12ffcfbb2642ed58165"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1517-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "C5 inhibition acts downstream and does not directly explain the stated binding to a component of the alternative-pathway C3 convertase.",
+          "source_ids": [
+            "Q1517-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1517-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Factor B is the labeled direct target of iptacopan and is required for alternative-pathway C3 convertase activity.",
+          "source_ids": [
+            "Q1517-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1517-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Factor D cleaves factor B but is not the direct labeled target of iptacopan.",
+          "source_ids": [
+            "Q1517-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1517-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "C1s is part of the classical complement pathway rather than the alternative-pathway C3 convertase.",
+          "source_ids": [
+            "Q1517-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1517-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "The drug regulates C3 cleavage indirectly through Factor B rather than by binding C3 itself.",
+          "source_ids": [
+            "Q1517-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Factor D inhibition is mechanistically adjacent because Factor D activates Factor B, but iptacopan is directly bound to Factor B in the labeled mechanism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1518,
+      "drug": "revumenib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Leukemia cells harboring a KMT2A fusion are treated with revumenib. Expression of genes involved in the leukemogenic transcriptional program changes, differentiation markers increase, and proliferation falls without direct DNA damage.",
+        "lead_in": "Which direct interaction is inhibited by this drug?",
+        "options": {
+          "A": "BCL2 binding to proapoptotic BH3-only proteins",
+          "B": "FLT3 autophosphorylation",
+          "C": "Binding of menin to KMT2A and KMT2A fusion proteins",
+          "D": "Mutant IDH2 production of 2-hydroxyglutarate",
+          "E": "DNA topoisomerase II religation"
+        },
+        "intended_key": "C",
+        "tested_construct": "Menin inhibition that disrupts menin-KMT2A/KMT2A-fusion interactions",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Revumenib is a menin inhibitor that blocks the interaction of wild-type KMT2A and KMT2A fusion proteins with menin, thereby disrupting a leukemogenic transcriptional program.",
+        "distractor_explanations": {
+          "A": "BCL2 inhibition promotes apoptosis through the intrinsic mitochondrial pathway but does not directly disrupt the menin-KMT2A transcriptional complex.",
+          "B": "FLT3 kinase inhibition targets signaling from activated FLT3, a different AML mechanism.",
+          "C": "Correct. Revumenib directly inhibits menin and blocks its interaction with KMT2A and KMT2A fusion proteins.",
+          "D": "IDH2 inhibition lowers 2-hydroxyglutarate production and is mechanistically distinct from menin inhibition.",
+          "E": "Topoisomerase II inhibition causes DNA strand damage rather than selective disruption of a leukemogenic protein-protein interaction."
+        },
+        "educational_objective": "Recognize menin-KMT2A interaction blockade as the direct mechanism of revumenib in susceptible acute leukemias."
+      },
+      "sources": [
+        {
+          "source_id": "Q1518-LABEL",
+          "title": "REVUFORJ- revumenib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
+          "setid": "6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7c2776b2e778d61fef3a1d9ec444f61f6d5c636f4277f406e7f66cb3b2f97406",
+          "cited_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1518-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "BCL2 inhibition promotes apoptosis through the intrinsic mitochondrial pathway but does not directly disrupt the menin-KMT2A transcriptional complex.",
+          "source_ids": [
+            "Q1518-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1518-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "FLT3 kinase inhibition targets signaling from activated FLT3, a different AML mechanism.",
+          "source_ids": [
+            "Q1518-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1518-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Revumenib directly inhibits menin and blocks its interaction with KMT2A and KMT2A fusion proteins.",
+          "source_ids": [
+            "Q1518-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1518-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "IDH2 inhibition lowers 2-hydroxyglutarate production and is mechanistically distinct from menin inhibition.",
+          "source_ids": [
+            "Q1518-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1518-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Topoisomerase II inhibition causes DNA strand damage rather than selective disruption of a leukemogenic protein-protein interaction.",
+          "source_ids": [
+            "Q1518-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "FLT3 inhibition is a common targeted AML strategy, but the KMT2A-fusion context plus differentiation-associated transcriptional changes specifically support menin-KMT2A disruption.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1519,
+      "drug": "nemolizumab-ilto",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Human skin cells are exposed to IL-31, producing a pruritus-associated inflammatory response. Addition of nemolizumab-ilto suppresses IL-31-induced cytokine and chemokine release without neutralizing circulating IgE.",
+        "lead_in": "Which direct receptor interaction best explains this effect?",
+        "options": {
+          "A": "Blockade of the IL-4 receptor alpha chain",
+          "B": "Neutralization of soluble IL-13",
+          "C": "Inhibition of JAK1 catalytic activity",
+          "D": "Selective binding to IL-31 receptor alpha",
+          "E": "Binding to the Fc region of IgE"
+        },
+        "intended_key": "D",
+        "tested_construct": "Selective IL-31 receptor alpha blockade",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Nemolizumab-ilto is a humanized monoclonal antibody that inhibits IL-31 signaling by selectively binding IL-31 receptor alpha, thereby suppressing IL-31-induced inflammatory responses.",
+        "distractor_explanations": {
+          "A": "IL-4 receptor alpha blockade inhibits IL-4/IL-13 signaling but does not directly block the IL-31 receptor.",
+          "B": "IL-13 neutralization targets a different cytokine pathway.",
+          "C": "JAK1 inhibition is an intracellular kinase mechanism rather than selective antibody binding to IL-31 receptor alpha.",
+          "D": "Correct. Nemolizumab-ilto selectively binds IL-31 receptor alpha and inhibits IL-31 signaling.",
+          "E": "IgE binding is the mechanism of anti-IgE therapy and is explicitly excluded by the experiment."
+        },
+        "educational_objective": "Identify IL-31 receptor alpha as the direct target of nemolizumab-ilto and distinguish this mechanism from other antipruritic cytokine and IgE pathways."
+      },
+      "sources": [
+        {
+          "source_id": "Q1519-LABEL",
+          "title": "NEMLUVIO- nemolizumab-ilto injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e9229ef1-ac60-4c24-afb6-009d3c781687",
+          "setid": "e9229ef1-ac60-4c24-afb6-009d3c781687",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "77707505c2e3855cac1545217c1b9e0ac7152e5df133804de84bbfab0e13c291",
+          "cited_section_sha256": "e94ef3e533d31c79880ee3bf900887905820be9518db1cce95b2c4a109d0f454",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "e94ef3e533d31c79880ee3bf900887905820be9518db1cce95b2c4a109d0f454"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1519-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "IL-4 receptor alpha blockade inhibits IL-4/IL-13 signaling but does not directly block the IL-31 receptor.",
+          "source_ids": [
+            "Q1519-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1519-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "IL-13 neutralization targets a different cytokine pathway.",
+          "source_ids": [
+            "Q1519-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1519-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "JAK1 inhibition is an intracellular kinase mechanism rather than selective antibody binding to IL-31 receptor alpha.",
+          "source_ids": [
+            "Q1519-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1519-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Nemolizumab-ilto selectively binds IL-31 receptor alpha and inhibits IL-31 signaling.",
+          "source_ids": [
+            "Q1519-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1519-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "IgE binding is the mechanism of anti-IgE therapy and is explicitly excluded by the experiment.",
+          "source_ids": [
+            "Q1519-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "JAK1 inhibition can reduce downstream signaling from multiple cytokine receptors, but nemolizumab-ilto is an extracellular monoclonal antibody with selective IL-31 receptor-alpha binding.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1520,
+      "drug": "ensartinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A non-small cell lung cancer cell line contains an ALK fusion but no activating EGFR, MET, or ROS1 alteration. After ensartinib exposure, phosphorylation of ALK decreases, followed by reduced phosphorylation of AKT, ERK, and S6 and reduced cellular proliferation.",
+        "lead_in": "Which direct pharmacologic action best explains this pattern?",
+        "options": {
+          "A": "Irreversible inhibition of mutant EGFR",
+          "B": "Selective inhibition of MET without ALK inhibition",
+          "C": "Direct inhibition of KRAS-GTP loading",
+          "D": "Selective inhibition of ROS1 without ALK inhibition",
+          "E": "Inhibition of anaplastic lymphoma kinase activity"
+        },
+        "intended_key": "E",
+        "tested_construct": "ALK kinase inhibition with reduced downstream AKT/ERK/S6 signaling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Ensartinib is a kinase inhibitor of anaplastic lymphoma kinase. In ALK-driven cells it inhibits ALK phosphorylation and downstream AKT, ERK, and S6 signaling, reducing proliferation.",
+        "distractor_explanations": {
+          "A": "The cell line lacks an activating EGFR alteration, and the observed direct fall in ALK phosphorylation points away from EGFR inhibition.",
+          "B": "Although ensartinib can inhibit MET in vitro, the labeled principal target and the stipulated driver in this experiment are ALK.",
+          "C": "KRAS-GTP loading is not the documented direct target of ensartinib.",
+          "D": "Although ensartinib can inhibit ROS1 in vitro, the cell line lacks a ROS1 driver and directly shows suppression of phosphorylated ALK.",
+          "E": "Correct. ALK kinase inhibition directly explains the fall in ALK phosphorylation and downstream AKT, ERK, and S6 signaling."
+        },
+        "educational_objective": "Link ALK kinase inhibition to decreased ALK phosphorylation and suppression of downstream proliferative signaling in ALK-fusion-positive lung cancer."
+      },
+      "sources": [
+        {
+          "source_id": "Q1520-LABEL",
+          "title": "ENSACOVE- ensartinib capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e1b2f79-678a-472a-b924-66909c8a4b2e",
+          "setid": "1e1b2f79-678a-472a-b924-66909c8a4b2e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-11; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-11",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "8b4c2087e991c4a3c1832abbd4947283f2cbefc7c559da47fff65426a4f615f0",
+          "cited_section_sha256": "7d79545f02661e7b6614b2410c87cd0987ae45eee28789ac9f868ab9319f0d56",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "7d79545f02661e7b6614b2410c87cd0987ae45eee28789ac9f868ab9319f0d56"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1520-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The cell line lacks an activating EGFR alteration, and the observed direct fall in ALK phosphorylation points away from EGFR inhibition.",
+          "source_ids": [
+            "Q1520-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1520-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Although ensartinib can inhibit MET in vitro, the labeled principal target and the stipulated driver in this experiment are ALK.",
+          "source_ids": [
+            "Q1520-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1520-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "KRAS-GTP loading is not the documented direct target of ensartinib.",
+          "source_ids": [
+            "Q1520-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1520-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Although ensartinib can inhibit ROS1 in vitro, the cell line lacks a ROS1 driver and directly shows suppression of phosphorylated ALK.",
+          "source_ids": [
+            "Q1520-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1520-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. ALK kinase inhibition directly explains the fall in ALK phosphorylation and downstream AKT, ERK, and S6 signaling.",
+          "source_ids": [
+            "Q1520-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "ROS1 is an in-vitro ensartinib target, but the absence of a ROS1 alteration and direct suppression of ALK phosphorylation in an ALK-fusion cell line make ALK inhibition the single best answer.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-11.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-10.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
