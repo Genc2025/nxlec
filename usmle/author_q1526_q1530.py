@@ -82,33 +82,33 @@ def main():
 
     items.append(make(
         1528,
-        'elamipretide',
-        'Musculoskeletal, Skin & Subcutaneous Tissue',
+        'revakinagene taroretcel-lwey',
+        'Nervous System & Special Senses',
         ['Pharmacology','Cell Biology'],
-        'Skeletal muscle cells from a patient with a mitochondrial membrane disorder are exposed to elamipretide. The compound rapidly localizes to the inner mitochondrial membrane, where mitochondrial morphology and function improve without changing mitochondrial DNA sequence.',
-        'Which direct molecular interaction best explains this effect?',
+        'An intravitreal implant contains encapsulated allogeneic retinal pigment epithelial cells engineered to provide a sustained trophic signal within the eye. After implantation, the device releases a recombinant human neurotrophic protein that is thought to act initially on Müller glia and promote photoreceptor survival.',
+        'Which product-derived factor is directly secreted by this implant?',
         {
-            'A':'Inhibition of mitochondrial complex I',
-            'B':'Activation of PGC-1alpha transcription',
-            'C':'Binding to mitochondrial cardiolipin',
-            'D':'Inhibition of mitochondrial fission protein DRP1',
-            'E':'Replacement of mitochondrial DNA'
+            'A':'Vascular endothelial growth factor A',
+            'B':'Brain-derived neurotrophic factor',
+            'C':'Recombinant human ciliary neurotrophic factor',
+            'D':'Pigment epithelium-derived factor',
+            'E':'Nerve growth factor'
         },
         'C',
-        'Binding to cardiolipin in the inner mitochondrial membrane',
-        'Elamipretide is a mitochondrial cardiolipin binder that localizes to the inner mitochondrial membrane and improves mitochondrial morphology and function.',
+        'Sustained secretion of recombinant human ciliary neurotrophic factor by encapsulated retinal pigment epithelial cells',
+        'ENCELTO contains encapsulated allogeneic retinal pigment epithelial cells that secrete recombinant human ciliary neurotrophic factor (rhCNTF). Exogenous CNTF is thought to initially target Müller glia and trigger signaling that may promote photoreceptor survival.',
         {
-            'A':'Complex I inhibition would impair rather than improve oxidative phosphorylation and does not match the labeled target.',
-            'B':'PGC-1alpha activation can promote mitochondrial biogenesis but is not the direct documented molecular interaction of elamipretide.',
-            'C':'Correct. Elamipretide directly binds mitochondrial cardiolipin and localizes to the inner mitochondrial membrane.',
-            'D':'DRP1 inhibition can alter mitochondrial morphology but is not the direct labeled target of elamipretide.',
-            'E':'The drug does not replace or edit mitochondrial DNA.'
+            'A':'VEGF-A promotes angiogenic signaling and is not the recombinant trophic factor secreted by this implant.',
+            'B':'BDNF is a neurotrophin but is not the product-derived factor specified in the ENCELTO mechanism.',
+            'C':'Correct. The implanted encapsulated cells secrete recombinant human ciliary neurotrophic factor.',
+            'D':'Pigment epithelium-derived factor is produced by retinal tissues but is not the engineered secreted product in ENCELTO.',
+            'E':'Nerve growth factor is a distinct neurotrophin and is not the factor released by this implant.'
         },
-        'Recognize cardiolipin binding at the inner mitochondrial membrane as the direct pharmacologic action of elamipretide.',
-        'FORZINITY- elamipretide hydrochloride injection',
-        '146bf34c-76f2-48db-ac07-fb29cce2cd75',
+        'Recognize ENCELTO as an encapsulated cell-based therapy that provides sustained intraocular rhCNTF secretion rather than receptor blockade or gene editing of host retinal cells.',
+        'ENCELTO- revakinagene taroretcel-lwey implant',
+        '1ae9482a-b478-4e21-9166-b5fd52d3ef9c',
         'D',
-        'Manipulating mitochondrial fission can also change mitochondrial morphology, but direct localization to the inner membrane through cardiolipin binding uniquely identifies elamipretide.'
+        'Retinal pigment epithelial cells can produce multiple trophic proteins, but the engineered product is specifically designed to secrete recombinant human CNTF.'
     ))
 
     items.append(make(
