@@ -4,7 +4,8 @@ import copy,hashlib,json,os,re,shutil,sqlite3,subprocess,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent; DB=ROOT/'data'/'usmle-step1.db'
 START=int(os.environ['START_Q']); END=int(os.environ['END_Q']); PRE=int(os.environ['PRE_COUNT']); POST=END
-DB_BLOB=os.environ['DB_BLOB']; CAND=REPO/os.environ['CAND_PATH']; CAND_BLOB=os.environ['CAND_BLOB']; MAN=REPO/os.environ['MAN_PATH']; MAN_BLOB=os.environ['MAN_BLOB']; OUT=REPO/os.environ['SIM_OUT']\nAUDIT_DATE=os.environ.get('AUDIT_DATE','20260910'); CANDIDATE_STAMP=os.environ.get('CANDIDATE_STAMP','20260910T210000Z'); FINALIZED_AT=os.environ.get('FINALIZED_AT',FINALIZED_AT)
+DB_BLOB=os.environ['DB_BLOB']; CAND=REPO/os.environ['CAND_PATH']; CAND_BLOB=os.environ['CAND_BLOB']; MAN=REPO/os.environ['MAN_PATH']; MAN_BLOB=os.environ['MAN_BLOB']; OUT=REPO/os.environ['SIM_OUT']
+AUDIT_DATE=os.environ.get('AUDIT_DATE','20260910'); CANDIDATE_STAMP=os.environ.get('CANDIDATE_STAMP','20260910T210000Z'); FINALIZED_AT=os.environ.get('FINALIZED_AT','2026-09-10T21:00:00Z')
 def gitblob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
 def hobj(o): return hashlib.sha256(canon(o).encode()).hexdigest()
