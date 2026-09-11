@@ -1,0 +1,107 @@
+name: USMLE Step2 Import Q1531-Q1535
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-step2-import-q1531-q1535.yml'
+permissions:
+  contents: write
+jobs:
+  import-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1531'
+      END_Q: '1535'
+      PRE_COUNT: '1530'
+      DB_BLOB: 441f9bbad64e87c9da9fa5647c042f417941b8af
+      CAND_PATH: usmle/batch_specs_1501_1600/07_q1531_q1535_author_20260911.json
+      CAND_BLOB: 880b6e7a8ff55389f2cd2dc4f084dd7526e38674
+      MAN_PATH: usmle/audit/Q1531_Q1535_FINAL_QA_PASS.json
+      MAN_BLOB: 192137ee493f669a1d6c8281cd620cb414e8fcf4
+      SIM_PATH: usmle/audit/Q1531_Q1535_DETACHED_IMPORT_SIMULATION.json
+      SIM_BLOB: e977772ed3f382ccfb83bff50eda7cbd081d7141
+      VERIFY_OUT: usmle/audit/Q1531_Q1535_PRODUCTION_IMPORT_VERIFY.json
+      STATE_OUT: usmle/state/step2_final_q0001_q1535.json
+      AUDIT_DATE: '20260911'
+      CANDIDATE_STAMP: '20260911T044500Z'
+      FINALIZED_AT: '2026-09-11T04:45:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind immutable pre-import evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$MAN_PATH")" = "$MAN_BLOB"
+          test "$(git hash-object "$SIM_PATH")" = "$SIM_BLOB"
+          python - <<'PY'
+          import json,os
+          st=json.load(open('usmle/state/step2_final_q0001_q1530.json'))
+          assert st['item_count']==st['step2_final_review_count']==1530
+          assert st['contiguous_q0001_q1530'] is True and st['sqlite_integrity']=='ok'
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          m=json.load(open(os.environ['MAN_PATH']))
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['production_import_ready'] is True
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          assert m['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert m['authoritative_db_blob']==os.environ['DB_BLOB']
+          assert m['authoritative_db_final_count']==1530 and m['authoritative_review_count']==1530
+          s=json.load(open(os.environ['SIM_PATH']))
+          assert s['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert s['production_transactional_import_ready'] is True
+          assert s['production_db_modified'] is False
+          assert s['failures']==[]
+          assert s['simulated_post_count']==1535
+          assert s['post_simulation_contiguous_q0001_q1535'] is True
+          PY
+      - name: Execute transactional next-five import
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/step2_import_next5.py
+          python usmle/step2_import_next5.py
+      - name: Independent post-import verification
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re,sqlite3
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id,payload_json,payload_sha256,audit_sha256,finalized_at from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rc=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          nums=[]
+          for cid,*_ in rows:
+            m=re.search(r'DIRECT-(\d{4})',cid); assert m; nums.append(int(m.group(1)))
+          assert len(rows)==rc==fin==1535
+          assert set(nums)==set(range(1,1536))
+          incoming=[r for r in rows if 1531 <= int(re.search(r'DIRECT-(\d{4})',r[0]).group(1)) <= 1535]
+          assert len(incoming)==5
+          assert all('20260911T044500Z' in r[0] for r in incoming)
+          assert all(r[4]=='2026-09-11T04:45:00Z' for r in incoming)
+          v=json.load(open(os.environ['VERIFY_OUT']))
+          st=json.load(open(os.environ['STATE_OUT']))
+          assert v['status']=='PRODUCTION_IMPORT_PASS'
+          assert v['item_count']==v['review_count']==1535
+          assert v['contiguous_q0001_q1535'] is True and v['failures']==[]
+          assert st['audit_id']=='STEP2-FINAL-Q0001-Q1535-20260911'
+          assert st['item_count']==st['step2_final_review_count']==1535
+          assert st['contiguous_q0001_q1535'] is True
+          assert st['production_import_status']=='PASS'
+          assert st['verified_at']=='2026-09-11T04:45:00Z'
+          assert st['post_db_blob']==v['post_db_blob']
+          print('Q1531_Q1535_POST_IMPORT_VERIFY=PASS',st['post_db_blob'])
+          PY
+      - name: Persist DB state and verification atomically
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db "$VERIFY_OUT" "$STATE_OUT"
+          git commit -m 'usmle: import Q1531-Q1535 into production'
+          git push
