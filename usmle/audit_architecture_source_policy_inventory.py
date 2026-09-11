@@ -5,11 +5,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent; REPO=ROOT.parent; DB=ROOT/'data'/'usmle-step1.db'
 OUT=REPO/'usmle/audit/FULL_CANONICAL_ARCHITECTURE_AND_SOURCE_POLICY_INVENTORY.json'
 DB_BLOB=os.environ['DB_BLOB']
-ALLOW={'usmle.org','www.usmle.org','nbme.org','www.nbme.org','fsmb.org','www.fsmb.org','nih.gov','www.nih.gov','ncbi.nlm.nih.gov','www.ncbi.nlm.nih.gov','nlm.nih.gov','www.nlm.nih.gov','medlineplus.gov','www.medlineplus.gov','cdc.gov','www.cdc.gov','fda.gov','www.fda.gov','accessdata.fda.gov','dailymed.nlm.nih.gov','hhs.gov','www.hhs.gov','ahrq.gov','www.ahrq.gov','cms.gov','www.cms.gov','hrsa.gov','www.hrsa.gov','osha.gov','www.osha.gov','epa.gov','www.epa.gov','va.gov','www.va.gov','federalregister.gov','www.federalregister.gov','ecfr.gov','www.ecfr.gov','congress.gov','www.congress.gov','nia.nih.gov','www.nia.nih.gov','ninds.nih.gov','www.ninds.nih.gov','nichd.nih.gov','www.nichd.nih.gov','nhlbi.nih.gov','www.nhlbi.nih.gov','niams.nih.gov','www.niams.nih.gov','nei.nih.gov','www.nei.nih.gov','ods.od.nih.gov','rarediseases.info.nih.gov'}
+ALLOW_ROOTS={'usmle.org','nbme.org','fsmb.org','nih.gov','nlm.nih.gov','medlineplus.gov','cdc.gov','fda.gov','hhs.gov','ahrq.gov','cms.gov','hrsa.gov','osha.gov','epa.gov','va.gov','federalregister.gov','ecfr.gov','congress.gov','cancer.gov','samhsa.gov','nist.gov'}
 def gitblob(p): return subprocess.check_output(['git','-C',str(REPO),'hash-object',str(p.relative_to(REPO))],text=True).strip()
 def host(url):
     m=re.match(r'https?://([^/]+)',str(url).casefold()); return m.group(1).split(':')[0] if m else ''
-def safe_count(c,t):
+def official_host(h):\n    return any(h==r or h.endswith('.'+r) for r in ALLOW_ROOTS)\ndef safe_count(c,t):
     try:return c.execute(f'select count(*) from "{t}"').fetchone()[0]
     except:return None
 def main():
@@ -20,12 +20,12 @@ def main():
     step=c.execute("select candidate_id,payload_json from step2_final_items order by candidate_id").fetchall()
     step_ids={x[0] for x in step}
     original_sets={}
-    for t in ('candidates','blind_audits','audits','decisions','items','executions'):
+    for t in ('candidates','blind_audits','audits','decisions','items','executions','direct_reviews'):
         if t in tables:
             try: original_sets[t]={x[0] for x in c.execute(f'select candidate_id from "{t}"').fetchall()}
             except: original_sets[t]=set()
     matches={t:len(step_ids&s) for t,s in original_sets.items()}
-    hosts={}; patterns={'medlineplus_ency_adam':0,'pubmed_index_only':0,'statpearls_bookshelf':0,'outside_allowlist':0,'sources_total':0}
+    hosts={}; patterns={'medlineplus_ency_adam':0,'pubmed_index_only':0,'pmc_journal_content_review_required':0,'statpearls_bookshelf':0,'geneReviews_bookshelf_review_required':0,'commercial_or_nonfederal':0,'official_federal_or_exam_host':0,'sources_total':0}
     outside={}
     for cid,pj in step:
         p=json.loads(pj)
@@ -57,7 +57,7 @@ def main():
     out={'audit_id':'FULL-CANONICAL-ARCHITECTURE-SOURCE-POLICY-INVENTORY-20260911','db_blob':DB_BLOB,'production_db_modified':False,
          'tables':tables,'table_counts':counts,'step2_final_candidate_count':len(step_ids),'step2_ids_matching_original_pipeline_tables':matches,
          'blind_audit_verdict_distribution':blind_verdicts,'audit_verdict_distribution':audit_verdicts,
-         'source_inventory':{'host_counts':dict(sorted(hosts.items(),key=lambda kv:(-kv[1],kv[0]))),'policy_flags':patterns,'outside_allowlist_hosts':dict(sorted(outside.items(),key=lambda kv:-kv[1]))}}
+         'source_inventory':{'host_counts':dict(sorted(hosts.items(),key=lambda kv:(-kv[1],kv[0]))),'policy_flags':patterns,'commercial_or_nonfederal_hosts':dict(sorted(outside.items(),key=lambda kv:-kv[1]))}}
     OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({'counts':counts,'matches':matches,'blind':blind_verdicts,'audit':audit_verdicts,'policy_flags':patterns},sort_keys=True))
 if __name__=='__main__':main()
