@@ -1,0 +1,51 @@
+name: USMLE Confirmed Duplicate Replacements Zero Trust
+on:
+  push:
+    paths:
+      - '.github/workflows/usmle-confirmed-duplicate-replacements-zero-trust.yml'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      DB_BLOB: a3f28fcfd0a89161ed003e60d0d797c5fa103f1a
+      CAND_PATH: usmle/remediation/duplicate_replacements_q1535_20260911.json
+      OUT_PATH: usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_ZERO_TRUST.json
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind author and production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python -m py_compile usmle/author_duplicate_replacements_q1535.py usmle/audit_duplicate_replacements_q1535.py
+          python usmle/author_duplicate_replacements_q1535.py
+      - name: Live freeze and zero trust
+        run: |
+          set -euo pipefail
+          B="$(git hash-object usmle/data/usmle-step1.db)"
+          python usmle/audit_duplicate_replacements_q1535.py
+          test "$B" = "$(git hash-object usmle/data/usmle-step1.db)"
+      - name: Build final replacement manifest
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          c=pathlib.Path('usmle/remediation/duplicate_replacements_q1535_20260911.json')
+          a=pathlib.Path('usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_ZERO_TRUST.json')
+          r=json.load(open(a)); assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[] and r['target_count']==14
+          assert all(x['status']=='PASS' and x['canonical_max_jaccard']<0.45 and x['replacement_max_jaccard']<0.45 for x in r['reports'])
+          m={'audit_id':'CONFIRMED-DUPLICATE-REPLACEMENTS-FINAL-QA-20260911','status':'FINAL_QA_PASS','target_count':14,'targets':r['targets'],'production_pre_db_blob':r['production_db_blob'],'candidate_blob':subprocess.check_output(['git','hash-object',str(c)],text=True).strip(),'candidate_sha256':hashlib.sha256(c.read_bytes()).hexdigest(),'zero_trust_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'unresolved_defects':[],'suggested_changes':[],'ncjmm':'NOT_APPLICABLE_USMLE','production_replacement_ready':True,'production_db_modified':False}
+          pathlib.Path('usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2)+'\n')
+          PY
+      - name: Persist candidate and evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/remediation/duplicate_replacements_q1535_20260911.json usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_ZERO_TRUST.json usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_FINAL_QA_PASS.json
+          git commit -m 'usmle: finalize 14 confirmed duplicate replacements'
+          git pull --rebase origin main
+          git push
