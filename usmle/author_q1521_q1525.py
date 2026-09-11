@@ -50,33 +50,33 @@ def main():
 
     items.append(make(
         1522,
-        'crinecerfont',
-        'Endocrine System',
+        'suzetrigine',
+        'Nervous System & Special Senses',
         ['Pharmacology','Physiology'],
-        'Pituitary corticotroph cells are exposed to corticotropin-releasing factor (CRF). Addition of crinecerfont suppresses CRF-stimulated ACTH secretion without blocking CRF type 2 receptors. In a patient with classic congenital adrenal hyperplasia, this effect subsequently reduces ACTH-driven adrenal androgen production.',
+        'A peripheral sensory neuron is exposed to suzetrigine during a patch-clamp experiment. Repetitive action-potential firing triggered by a painful stimulus decreases, but sodium currents mediated by most other voltage-gated sodium-channel subtypes are relatively preserved. The affected channel is highly expressed in dorsal root ganglion neurons.',
         'Which direct pharmacologic action best explains these findings?',
         {
-            'A':'Agonism of the glucocorticoid receptor',
-            'B':'Selective antagonism of the CRF type 1 receptor',
-            'C':'Inhibition of 21-hydroxylase',
-            'D':'Antagonism of the ACTH melanocortin-2 receptor',
-            'E':'Inhibition of adrenal CYP17A1'
+            'A':'Blockade of voltage-gated calcium channel alpha-2-delta subunits',
+            'B':'Selective blockade of the NaV1.8 voltage-gated sodium channel',
+            'C':'Agonism of mu-opioid receptors',
+            'D':'Blockade of NMDA receptors',
+            'E':'Inhibition of cyclooxygenase-2'
         },
         'B',
-        'Selective CRF1 receptor antagonism in the pituitary',
-        'Crinecerfont is a selective corticotropin-releasing factor type 1 receptor antagonist. By blocking CRF binding to pituitary CRF1 receptors, it inhibits ACTH secretion and thereby reduces ACTH-mediated adrenal androgen production.',
+        'Selective NaV1.8 blockade in peripheral sensory neurons',
+        'Suzetrigine selectively blocks the NaV1.8 voltage-gated sodium channel relative to other known voltage-gated sodium channels. NaV1.8 is expressed in peripheral sensory neurons, including dorsal root ganglion neurons, where it contributes to action-potential transmission of pain signals.',
         {
-            'A':'Glucocorticoid-receptor agonism can suppress ACTH through feedback, but crinecerfont directly blocks pituitary CRF1 receptors.',
-            'B':'Correct. Selective CRF1 antagonism explains reduced CRF-stimulated ACTH secretion while sparing CRF2 receptors.',
-            'C':'21-hydroxylase inhibition would worsen the steroidogenic defect in classic 21-hydroxylase-deficient congenital adrenal hyperplasia.',
-            'D':'Blocking the adrenal ACTH receptor would act downstream at the adrenal cortex rather than directly prevent CRF signaling in pituitary corticotrophs.',
-            'E':'CYP17A1 inhibition directly reduces androgen synthesis in the adrenal/gonadal steroidogenic pathway but does not explain selective blockade of pituitary CRF signaling.'
+            'A':'Alpha-2-delta ligands modulate voltage-gated calcium channels rather than selectively suppress NaV1.8 sodium current.',
+            'B':'Correct. Suzetrigine selectively inhibits NaV1.8 in peripheral sensory neurons and thereby reduces propagation of pain signals.',
+            'C':'Mu-opioid receptor agonism decreases nociceptive transmission through G-protein signaling but does not selectively block a peripheral sodium-channel subtype.',
+            'D':'NMDA-receptor blockade targets glutamatergic signaling rather than NaV1.8-dependent action-potential conduction.',
+            'E':'COX-2 inhibition reduces prostaglandin synthesis and peripheral sensitization but does not directly block voltage-gated sodium current.'
         },
-        'Localize crinecerfont action to selective CRF1 receptor blockade in the pituitary, upstream of ACTH-mediated adrenal androgen production.',
-        'CRENESSITY- crinecerfont capsule CRENESSITY- crinecerfont solution',
-        'fd3a6fbd-9137-428a-ba46-df6606f07d28',
+        'Recognize selective NaV1.8 blockade as a nonopioid analgesic mechanism that reduces pain-signal transmission in peripheral sensory neurons.',
+        'JOURNAVX- suzetrigine tablet, film coated',
+        'f0976da4-1d20-4517-945c-b60ed2f41c12',
         'A',
-        'Glucocorticoids also suppress ACTH, but the experiment demonstrates direct loss of CRF-stimulated pituitary signaling with preserved CRF2 function, which specifically supports CRF1 antagonism.'
+        'Alpha-2-delta ligands are also nonopioid agents that reduce neuronal excitability, but the patch-clamp finding of selective suppression of a dorsal-root-ganglion sodium-channel current identifies NaV1.8 blockade.'
     ))
 
     items.append(make(
