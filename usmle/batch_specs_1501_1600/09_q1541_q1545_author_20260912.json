@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1541-Q1545-20260912",
+  "created_at": "2026-09-12",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1540,
+  "canonical_count_after": 1540,
+  "canonical_db_blob": "6e55027ca4232f0d0c0df99c33702c5f1d6df117",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-12: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1541,
+      "drug": "sebetralstat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Plasma from a patient with hereditary angioedema is incubated with sebetralstat. Kallikrein activity decreases rapidly, and generation of the vasoactive mediator responsible for increased vascular permeability is reduced.",
+        "lead_in": "Which substrate-to-product reaction is most directly inhibited?",
+        "options": {
+          "A": "High-molecular-weight kininogen to bradykinin",
+          "B": "Angiotensin I to angiotensin II",
+          "C": "Plasminogen to plasmin",
+          "D": "Fibrinogen to fibrin",
+          "E": "Complement C3 to C3a and C3b"
+        },
+        "intended_key": "A",
+        "tested_construct": "Inhibition of plasma-kallikrein cleavage of high-molecular-weight kininogen to bradykinin",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Sebetralstat is a competitive, reversible inhibitor of plasma kallikrein. Plasma kallikrein cleaves high-molecular-weight kininogen and releases bradykinin; inhibition of this reaction reduces bradykinin generation and vascular permeability during hereditary angioedema attacks.",
+        "distractor_explanations": {
+          "A": "Correct. Plasma kallikrein cleaves high-molecular-weight kininogen to release bradykinin, and sebetralstat inhibits this reaction.",
+          "B": "Angiotensin-converting enzyme catalyzes conversion of angiotensin I to angiotensin II and is not the target of sebetralstat.",
+          "C": "Plasminogen activation belongs to the fibrinolytic system rather than the kallikrein-kinin reaction targeted here.",
+          "D": "Thrombin converts fibrinogen to fibrin and is not directly inhibited by sebetralstat.",
+          "E": "Complement C3 cleavage is mediated by complement convertases, not plasma kallikrein in this therapeutic mechanism."
+        },
+        "educational_objective": "Connect plasma kallikrein inhibition with reduced cleavage of high-molecular-weight kininogen and reduced bradykinin formation in hereditary angioedema."
+      },
+      "sources": [
+        {
+          "source_id": "Q1541-LABEL",
+          "title": "EKTERLY- sebetralstat tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1d145e2f-8e7e-2e90-e063-6294a90a4449",
+          "setid": "1d145e2f-8e7e-2e90-e063-6294a90a4449",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "f0565e9e1e8ceb3032b84a363bc9c24d3d7b32a99be3453a82ed9054433765ac",
+          "cited_section_sha256": "fdc59fbea853de5ce9ae0777a586f526e94705c635142529034ecb7658f014e6",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "fdc59fbea853de5ce9ae0777a586f526e94705c635142529034ecb7658f014e6"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1541-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Plasma kallikrein cleaves high-molecular-weight kininogen to release bradykinin, and sebetralstat inhibits this reaction.",
+          "source_ids": [
+            "Q1541-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1541-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Angiotensin-converting enzyme catalyzes conversion of angiotensin I to angiotensin II and is not the target of sebetralstat.",
+          "source_ids": [
+            "Q1541-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1541-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Plasminogen activation belongs to the fibrinolytic system rather than the kallikrein-kinin reaction targeted here.",
+          "source_ids": [
+            "Q1541-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1541-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Thrombin converts fibrinogen to fibrin and is not directly inhibited by sebetralstat.",
+          "source_ids": [
+            "Q1541-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1541-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Complement C3 cleavage is mediated by complement convertases, not plasma kallikrein in this therapeutic mechanism.",
+          "source_ids": [
+            "Q1541-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Plasminogen-to-plasmin conversion is another serine-protease pathway, but the hereditary-angioedema phenotype and bradykinin reduction specifically identify the kallikrein-kinin reaction.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1542,
+      "drug": "nerandomilast",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Fibroblast-lineage cells from fibrotic lung tissue are exposed to nerandomilast. Expression of profibrotic growth factors decreases after preferential inhibition of a phosphodiesterase isoenzyme that normally hydrolyzes a cyclic nucleotide.",
+        "lead_in": "Which intracellular change most directly follows this enzyme inhibition?",
+        "options": {
+          "A": "Decreased cyclic AMP",
+          "B": "Increased cyclic AMP",
+          "C": "Decreased cyclic GMP",
+          "D": "Increased inositol trisphosphate",
+          "E": "Increased diacylglycerol"
+        },
+        "intended_key": "B",
+        "tested_construct": "Elevation of intracellular cyclic AMP after preferential PDE4B inhibition",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Nerandomilast preferentially inhibits phosphodiesterase 4B. PDE4 hydrolyzes and inactivates cyclic AMP; therefore PDE4B inhibition elevates intracellular cyclic AMP and contributes to reduced profibrotic and inflammatory signaling.",
+        "distractor_explanations": {
+          "A": "PDE4 inhibition prevents cyclic AMP hydrolysis, so cyclic AMP rises rather than falls.",
+          "B": "Correct. Preferential PDE4B inhibition decreases cyclic AMP degradation and raises intracellular cyclic AMP.",
+          "C": "PDE4 acts on cyclic AMP rather than cyclic GMP.",
+          "D": "IP3 is generated by phospholipase C signaling and is not the immediate product of PDE4B inhibition.",
+          "E": "DAG is also generated by phospholipase C and is not the second-messenger change caused directly by PDE4B inhibition."
+        },
+        "educational_objective": "Recognize that PDE4B inhibition decreases cyclic AMP hydrolysis and therefore increases intracellular cyclic AMP."
+      },
+      "sources": [
+        {
+          "source_id": "Q1542-LABEL",
+          "title": "JASCAYD- nerandomilast tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fa1b14c6-957f-d326-5099-911bfe33e391",
+          "setid": "fa1b14c6-957f-d326-5099-911bfe33e391",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "2469388f2654fcccef9fb569e70b38cc41078e8bc1c07ada89f0ecd2cb97546c",
+          "cited_section_sha256": "cd6b7da96e38281cfdbde79d8f2458efc3e0df7c318164922c76b9dc9ce6bcf3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "cd6b7da96e38281cfdbde79d8f2458efc3e0df7c318164922c76b9dc9ce6bcf3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1542-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PDE4 inhibition prevents cyclic AMP hydrolysis, so cyclic AMP rises rather than falls.",
+          "source_ids": [
+            "Q1542-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1542-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Preferential PDE4B inhibition decreases cyclic AMP degradation and raises intracellular cyclic AMP.",
+          "source_ids": [
+            "Q1542-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1542-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PDE4 acts on cyclic AMP rather than cyclic GMP.",
+          "source_ids": [
+            "Q1542-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1542-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "IP3 is generated by phospholipase C signaling and is not the immediate product of PDE4B inhibition.",
+          "source_ids": [
+            "Q1542-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1542-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "DAG is also generated by phospholipase C and is not the second-messenger change caused directly by PDE4B inhibition.",
+          "source_ids": [
+            "Q1542-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "A change in cyclic GMP is plausible for other phosphodiesterase inhibitors, but PDE4 selectively hydrolyzes cyclic AMP, making increased cyclic AMP the direct consequence.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1543,
+      "drug": "mavorixafor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Neutrophils from a patient with WHIM syndrome carry a gain-of-function CXCR4 variant and show excessive retention in bone marrow. After mavorixafor treatment, mature neutrophils and lymphocytes increase in peripheral blood.",
+        "lead_in": "Which receptor-ligand interaction is directly blocked to produce this mobilization?",
+        "options": {
+          "A": "CCR5 binding to CCL5",
+          "B": "CXCR2 binding to CXCL8",
+          "C": "CXCR4 binding to CXCL12",
+          "D": "CCR7 binding to CCL19",
+          "E": "S1P1 binding to sphingosine-1-phosphate"
+        },
+        "intended_key": "C",
+        "tested_construct": "Blockade of CXCR4 binding to CXCL12, reducing marrow retention of leukocytes",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Mavorixafor is a CXCR4 antagonist that blocks binding of CXCL12, also called stromal-derived factor-1. CXCR4-CXCL12 signaling promotes leukocyte homing and retention in bone marrow; antagonism mobilizes mature neutrophils and lymphocytes into the circulation.",
+        "distractor_explanations": {
+          "A": "CCR5-CCL5 signaling participates in leukocyte trafficking but is not the interaction directly blocked by mavorixafor.",
+          "B": "CXCR2-CXCL8 signaling promotes neutrophil chemotaxis and is not the WHIM-associated receptor-ligand pair.",
+          "C": "Correct. Mavorixafor blocks CXCR4-CXCL12 signaling and thereby releases leukocytes from marrow retention.",
+          "D": "CCR7-CCL19 is important for lymphoid-organ trafficking rather than the CXCR4-mediated myelokathexis mechanism.",
+          "E": "S1P1 regulates lymphocyte egress from lymphoid tissue but is not the direct target of mavorixafor."
+        },
+        "educational_objective": "Link WHIM syndrome myelokathexis to excessive CXCR4-CXCL12 signaling and explain leukocyte mobilization by CXCR4 antagonism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1543-LABEL",
+          "title": "XOLREMDI- mavorixafor capsule, gelatin coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7f3a5ee3-ca73-4876-85a0-ed1e108a2237",
+          "setid": "7f3a5ee3-ca73-4876-85a0-ed1e108a2237",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "bfc89c7c96b22806bb56fb9ddf0efce3c1f2191c5c8b85c61acab1b764a5fda1",
+          "cited_section_sha256": "6c462bfac1b521540172d6ba4bc7a601f7a88ff99ce7bbc357508ef362d6281a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "6c462bfac1b521540172d6ba4bc7a601f7a88ff99ce7bbc357508ef362d6281a"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1543-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "CCR5-CCL5 signaling participates in leukocyte trafficking but is not the interaction directly blocked by mavorixafor.",
+          "source_ids": [
+            "Q1543-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1543-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "CXCR2-CXCL8 signaling promotes neutrophil chemotaxis and is not the WHIM-associated receptor-ligand pair.",
+          "source_ids": [
+            "Q1543-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1543-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Mavorixafor blocks CXCR4-CXCL12 signaling and thereby releases leukocytes from marrow retention.",
+          "source_ids": [
+            "Q1543-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1543-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CCR7-CCL19 is important for lymphoid-organ trafficking rather than the CXCR4-mediated myelokathexis mechanism.",
+          "source_ids": [
+            "Q1543-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1543-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "S1P1 regulates lymphocyte egress from lymphoid tissue but is not the direct target of mavorixafor.",
+          "source_ids": [
+            "Q1543-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "S1P1 signaling can also regulate leukocyte egress, but the gain-of-function CXCR4 mutation and marrow retention specifically identify CXCR4-CXCL12 blockade.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1544,
+      "drug": "aprocitentan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Vascular smooth-muscle cells are exposed to endothelin-1 in the presence of aprocitentan. Endothelin-dependent vasoconstrictive and proliferative signaling is suppressed. Receptor-binding studies show that the drug is not selective for only one endothelin receptor subtype.",
+        "lead_in": "Which receptor profile is directly antagonized?",
+        "options": {
+          "A": "Angiotensin II AT1 and AT2 receptors",
+          "B": "Alpha-1 and alpha-2 adrenergic receptors",
+          "C": "Vasopressin V1a and V2 receptors",
+          "D": "Endothelin ETA and ETB receptors",
+          "E": "Mineralocorticoid and glucocorticoid receptors"
+        },
+        "intended_key": "D",
+        "tested_construct": "Dual antagonism of endothelin ETA and ETB receptors",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Aprocitentan is an endothelin receptor antagonist that inhibits endothelin-1 binding to both ETA and ETB receptors. Endothelin signaling contributes to vasoconstriction, vascular remodeling, fibrosis, inflammation, and aldosterone synthesis in hypertension.",
+        "distractor_explanations": {
+          "A": "AT1 and AT2 are angiotensin II receptors and are not the direct targets of aprocitentan.",
+          "B": "Adrenergic receptor antagonism would affect catecholamine signaling rather than endothelin-1 responses.",
+          "C": "Vasopressin receptors mediate vascular and renal water-balance effects but are not the aprocitentan targets.",
+          "D": "Correct. Aprocitentan antagonizes both ETA and ETB endothelin receptors.",
+          "E": "Steroid-hormone receptors are intracellular nuclear receptors and do not explain direct blockade of endothelin-1 signaling."
+        },
+        "educational_objective": "Differentiate dual endothelin ETA/ETB receptor antagonism by aprocitentan from other antihypertensive receptor mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1544-LABEL",
+          "title": "TRYVIO- aprocitentan tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dfe7a2ee-612c-4aba-834a-d68e6b59a0a6",
+          "setid": "dfe7a2ee-612c-4aba-834a-d68e6b59a0a6",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "42f9049d817bc2fd7c766a2ae15f59bdaf0cec742c956686e52a92a3a3a374e9",
+          "cited_section_sha256": "fbd5562e8e9d67e1e7b27a40a54ce155396dee11c42a5d83aa852d836672f2f2",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "fbd5562e8e9d67e1e7b27a40a54ce155396dee11c42a5d83aa852d836672f2f2"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1544-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "AT1 and AT2 are angiotensin II receptors and are not the direct targets of aprocitentan.",
+          "source_ids": [
+            "Q1544-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1544-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Adrenergic receptor antagonism would affect catecholamine signaling rather than endothelin-1 responses.",
+          "source_ids": [
+            "Q1544-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1544-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Vasopressin receptors mediate vascular and renal water-balance effects but are not the aprocitentan targets.",
+          "source_ids": [
+            "Q1544-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1544-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Aprocitentan antagonizes both ETA and ETB endothelin receptors.",
+          "source_ids": [
+            "Q1544-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1544-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Steroid-hormone receptors are intracellular nuclear receptors and do not explain direct blockade of endothelin-1 signaling.",
+          "source_ids": [
+            "Q1544-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Angiotensin-receptor blockade is a common antihypertensive mechanism, but the direct endothelin-1 challenge and dual-receptor binding profile identify ETA/ETB antagonism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1545,
+      "drug": "clesrovimab-cfor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Respiratory syncytial virus is incubated with a long-acting human IgG1 monoclonal antibody before exposure to airway epithelial cells. Viral entry is reduced even though viral genome replication enzymes are not inhibited. The antibody binds a conserved epitope present on both pre-fusion and post-fusion forms of the viral fusion protein.",
+        "lead_in": "Which direct action best explains the antiviral effect?",
+        "options": {
+          "A": "Inhibition of the RSV RNA-dependent RNA polymerase",
+          "B": "Inhibition of viral protease cleavage of polyproteins",
+          "C": "Blockade of the RSV G-protein attachment receptor interaction",
+          "D": "Depletion of infected cells through CD20 binding",
+          "E": "Binding antigenic site IV on RSV F protein to prevent viral-cell membrane fusion"
+        },
+        "intended_key": "E",
+        "tested_construct": "Neutralizing binding to conserved antigenic site IV on RSV F protein, preventing membrane fusion and entry",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Clesrovimab-cfor is a neutralizing monoclonal antibody that targets the extracellular RSV fusion protein. It binds a conserved epitope on antigenic site IV of the F protein and prevents fusion of viral and cellular membranes, thereby blocking viral entry.",
+        "distractor_explanations": {
+          "A": "Polymerase inhibition acts after viral entry and is not the mechanism of this monoclonal antibody.",
+          "B": "RSV does not rely on the described protease-targeting mechanism, and the antibody acts extracellularly before entry.",
+          "C": "The documented direct target is the RSV F protein rather than blockade of a G-protein attachment interaction.",
+          "D": "CD20 is a B-cell surface protein and has no role in direct RSV neutralization.",
+          "E": "Correct. Clesrovimab-cfor binds conserved antigenic site IV on RSV F protein and prevents viral-cell membrane fusion and entry."
+        },
+        "educational_objective": "Recognize neutralization of RSV by antibody binding to antigenic site IV of the F protein and blockade of membrane fusion."
+      },
+      "sources": [
+        {
+          "source_id": "Q1545-LABEL",
+          "title": "ENFLONSIA- clesrovimab-cfor injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c9004a92-40e8-4cdb-b22d-d07929f8fc3b",
+          "setid": "c9004a92-40e8-4cdb-b22d-d07929f8fc3b",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_page_sha256": "d32061ccb63979fc5ad35e93e998142e5707e040dc35198c299d366ba51b43d0",
+          "cited_section_sha256": "4381604e773bb5c3a09108c6b35e3d355511aa09ed2b1d8e7b48fdae0d338d0e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 2,
+          "mechanism_section_sha256": "4381604e773bb5c3a09108c6b35e3d355511aa09ed2b1d8e7b48fdae0d338d0e"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1545-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Polymerase inhibition acts after viral entry and is not the mechanism of this monoclonal antibody.",
+          "source_ids": [
+            "Q1545-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1545-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "RSV does not rely on the described protease-targeting mechanism, and the antibody acts extracellularly before entry.",
+          "source_ids": [
+            "Q1545-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1545-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The documented direct target is the RSV F protein rather than blockade of a G-protein attachment interaction.",
+          "source_ids": [
+            "Q1545-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1545-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CD20 is a B-cell surface protein and has no role in direct RSV neutralization.",
+          "source_ids": [
+            "Q1545-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1545-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Clesrovimab-cfor binds conserved antigenic site IV on RSV F protein and prevents viral-cell membrane fusion and entry.",
+          "source_ids": [
+            "Q1545-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "An attachment-blocking antibody could also act before entry, but the conserved site-IV epitope on the RSV F protein specifically identifies fusion blockade by clesrovimab-cfor.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
