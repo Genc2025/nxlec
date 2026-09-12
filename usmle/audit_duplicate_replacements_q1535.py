@@ -142,5 +142,8 @@ def main():
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
  out={'audit_id':'CONFIRMED-DUPLICATE-REPLACEMENTS-ZERO-TRUST-20260911','candidate_blob':cand_blob,'production_db_blob':DB_BLOB,'target_count':len(TARGETS),'targets':TARGETS,'reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_replacement_ready':not failures}
  OUT.parent.mkdir(parents=True,exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
- if failures:\n  print(json.dumps({'failed_reports':[r for r in reports if r.get('status')=='BLOCKED']},sort_keys=True))\n print(json.dumps({'verdict':out['verdict'],'candidate_blob':cand_blob,'failures':failures,'max_jaccard':max((r['canonical_max_jaccard'] for r in reports),default=0)},sort_keys=True))\n if failures: raise SystemExit(1)
+ if failures:
+  print(json.dumps({'failed_reports':[r for r in reports if r.get('status')=='BLOCKED']},sort_keys=True))
+ print(json.dumps({'verdict':out['verdict'],'candidate_blob':cand_blob,'failures':failures,'max_jaccard':max((r['canonical_max_jaccard'] for r in reports),default=0)},sort_keys=True))
+ if failures: raise SystemExit(1)
 if __name__=='__main__': main()
