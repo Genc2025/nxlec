@@ -96,12 +96,12 @@ jobs:
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
           python - <<'PY'
           import json
-          m=json.load(open('usmle/audit/Q1536_Q1540_FINAL_QA_PASS.json'))
+          m=json.load(open('usmle/audit/Q1541_Q1545_FINAL_QA_PASS.json'))
           assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[] and m['production_import_ready'] is True and m['production_db_modified'] is False
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$CAND_PATH" "$OUT_PATH" usmle/audit/Q1536_Q1540_FINAL_QA_PASS.json
+          git add "$CAND_PATH" "$OUT_PATH" usmle/audit/Q1541_Q1545_FINAL_QA_PASS.json
           git commit -m 'usmle: finalize Q1541-Q1545 against Q1540 production'
           git pull --rebase origin main
           git push
