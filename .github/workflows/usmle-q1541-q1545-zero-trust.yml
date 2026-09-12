@@ -39,12 +39,12 @@ jobs:
         run: |
           set -euo pipefail
           python -m py_compile usmle/author_q1541_q1545.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py
-          python usmle/author_q1536_q1540.py
+          python usmle/author_q1541_q1545.py
           python - <<'PY'
           import json,os
           b=json.load(open(os.environ['CAND_PATH']))
           assert [x['num'] for x in b['items']]==list(range(1541,1546))
-          assert b['canonical_count_before']==b['canonical_count_after']==1535
+          assert b['canonical_count_before']==b['canonical_count_after']==1540
           assert b['canonical_db_blob']==os.environ['DB_BLOB'] and b['answer_key_sequence']=='ABCDE'
           assert len({x['drug'].casefold() for x in b['items']})==5
           assert 'ncjmm' not in open(os.environ['CAND_PATH']).read().casefold()
