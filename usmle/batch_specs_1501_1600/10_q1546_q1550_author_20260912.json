@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1546-Q1550-20260912",
+  "created_at": "2026-09-12",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1545,
+  "canonical_count_after": 1545,
+  "canonical_db_blob": "673f63f6945dde4268efe347d7ad3e9b1977c3b5",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-12: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1546,
+      "drug": "suzetrigine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Neurophysiology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A dorsal-root-ganglion neuron is exposed to suzetrigine. Propagation of nociceptive action potentials decreases, while voltage-gated sodium currents in cardiac and central neurons are relatively preserved.",
+        "lead_in": "Which ion-channel subtype is most directly inhibited?",
+        "options": {
+          "A": "NaV1.8",
+          "B": "NaV1.5",
+          "C": "NaV1.2",
+          "D": "CaV2.2",
+          "E": "HCN4"
+        },
+        "intended_key": "A",
+        "tested_construct": "Selective blockade of the NaV1.8 voltage-gated sodium channel in peripheral sensory neurons",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Suzetrigine selectively blocks NaV1.8 voltage-gated sodium channels. NaV1.8 is expressed in peripheral sensory neurons, including dorsal root ganglion neurons, where it contributes to propagation of pain-related action potentials.",
+        "distractor_explanations": {
+          "A": "Correct. Suzetrigine selectively inhibits NaV1.8 channels in peripheral sensory neurons.",
+          "B": "NaV1.5 is the predominant cardiac sodium-channel isoform and is not the selective target of suzetrigine.",
+          "C": "NaV1.2 is primarily a central neuronal sodium-channel isoform and is not the labeled selective target.",
+          "D": "CaV2.2 is a voltage-gated calcium channel involved in neurotransmitter release, not the direct target of suzetrigine.",
+          "E": "HCN4 contributes to cardiac pacemaker current and does not explain the selective peripheral analgesic mechanism."
+        },
+        "educational_objective": "Distinguish selective peripheral NaV1.8 blockade from cardiac, central-neuronal, calcium-channel, and pacemaker-channel mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1546-LABEL",
+          "title": "JOURNAVX- suzetrigine tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0976da4-1d20-4517-945c-b60ed2f41c12",
+          "setid": "f0976da4-1d20-4517-945c-b60ed2f41c12",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "87ad1d58d128ba30cffd1b3fbaf0457f993d67bac9d82dacb404b404fb2524f1",
+          "cited_section_sha256": "d09bf6a138ec4908fd4d9672dd6beaec67153077272a618fa095977aeae22eed",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "d09bf6a138ec4908fd4d9672dd6beaec67153077272a618fa095977aeae22eed"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1546-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Suzetrigine selectively inhibits NaV1.8 channels in peripheral sensory neurons.",
+          "source_ids": [
+            "Q1546-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1546-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "NaV1.5 is the predominant cardiac sodium-channel isoform and is not the selective target of suzetrigine.",
+          "source_ids": [
+            "Q1546-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1546-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "NaV1.2 is primarily a central neuronal sodium-channel isoform and is not the labeled selective target.",
+          "source_ids": [
+            "Q1546-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1546-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CaV2.2 is a voltage-gated calcium channel involved in neurotransmitter release, not the direct target of suzetrigine.",
+          "source_ids": [
+            "Q1546-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1546-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "HCN4 contributes to cardiac pacemaker current and does not explain the selective peripheral analgesic mechanism.",
+          "source_ids": [
+            "Q1546-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "NaV1.5 is a sodium channel and therefore superficially plausible, but the dorsal-root-ganglion localization and relative preservation of cardiac sodium current identify NaV1.8.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1547,
+      "drug": "acoramidis",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with transthyretin amyloid cardiomyopathy receives acoramidis. In vitro studies show increased kinetic stability of circulating transthyretin without decreasing hepatic synthesis of the protein.",
+        "lead_in": "Which molecular event is most directly slowed by this drug?",
+        "options": {
+          "A": "Proteasomal degradation of transthyretin monomers",
+          "B": "Dissociation of the transthyretin tetramer into monomers",
+          "C": "Translation of transthyretin mRNA",
+          "D": "Endocytosis of transthyretin by hepatocytes",
+          "E": "Cleavage of transthyretin by lysosomal proteases"
+        },
+        "intended_key": "B",
+        "tested_construct": "Slowing dissociation of the transthyretin tetramer, the rate-limiting step in amyloidogenesis",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Acoramidis is a selective transthyretin stabilizer. It binds transthyretin at thyroxine-binding sites and slows dissociation of the native tetramer into monomers, which is the rate-limiting step in transthyretin amyloid formation.",
+        "distractor_explanations": {
+          "A": "Acoramidis stabilizes the native tetramer rather than accelerating proteasomal degradation of monomers.",
+          "B": "Correct. By binding TTR at thyroxine-binding sites, acoramidis slows tetramer dissociation into amyloidogenic monomers.",
+          "C": "The drug does not reduce hepatic TTR synthesis or directly inhibit translation.",
+          "D": "Hepatocyte endocytosis is not the molecular step targeted by acoramidis.",
+          "E": "Lysosomal proteolysis is not the rate-limiting amyloidogenic step stabilized by this drug."
+        },
+        "educational_objective": "Recognize transthyretin tetramer dissociation as the rate-limiting amyloidogenic step targeted by TTR stabilizers."
+      },
+      "sources": [
+        {
+          "source_id": "Q1547-LABEL",
+          "title": "ATTRUBY- acoramidis hydrochloride tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=913552ef-875d-4cb7-bf05-a7d20a394c38",
+          "setid": "913552ef-875d-4cb7-bf05-a7d20a394c38",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "708217485760eb39bb2f452bac8921c6514936c4d2c1ddaf2742b295c6c18236",
+          "cited_section_sha256": "40a73f7aac56dd77103cebcd82137d65249058985c764e2e8512036758172f28",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "40a73f7aac56dd77103cebcd82137d65249058985c764e2e8512036758172f28"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1547-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Acoramidis stabilizes the native tetramer rather than accelerating proteasomal degradation of monomers.",
+          "source_ids": [
+            "Q1547-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1547-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. By binding TTR at thyroxine-binding sites, acoramidis slows tetramer dissociation into amyloidogenic monomers.",
+          "source_ids": [
+            "Q1547-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1547-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The drug does not reduce hepatic TTR synthesis or directly inhibit translation.",
+          "source_ids": [
+            "Q1547-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1547-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Hepatocyte endocytosis is not the molecular step targeted by acoramidis.",
+          "source_ids": [
+            "Q1547-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1547-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Lysosomal proteolysis is not the rate-limiting amyloidogenic step stabilized by this drug.",
+          "source_ids": [
+            "Q1547-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Inhibition of TTR synthesis is a valid therapeutic strategy for transthyretin amyloidosis, but the vignette explicitly shows preserved synthesis and kinetic stabilization of circulating tetramer.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1548,
+      "drug": "revumenib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Leukemia cells harboring a KMT2A rearrangement are exposed to revumenib. Expression of leukemogenic transcriptional programs falls and markers of cellular differentiation increase.",
+        "lead_in": "Which protein-protein interaction is directly disrupted?",
+        "options": {
+          "A": "BCL2 with BAX",
+          "B": "FLT3 with its ligand",
+          "C": "Menin with KMT2A/KMT2A-fusion proteins",
+          "D": "PML with RAR-alpha",
+          "E": "JAK2 with STAT5"
+        },
+        "intended_key": "C",
+        "tested_construct": "Disruption of the menin-KMT2A interaction that sustains a leukemogenic transcriptional program",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Revumenib is a menin inhibitor. It blocks interaction of menin with wild-type KMT2A and KMT2A fusion proteins, thereby altering transcriptional programs that maintain susceptible acute leukemias and promoting differentiation.",
+        "distractor_explanations": {
+          "A": "BCL2-BAX interactions regulate mitochondrial apoptosis but are not the direct target of revumenib.",
+          "B": "FLT3 signaling can drive acute leukemia, but revumenib does not act by blocking FLT3-ligand binding.",
+          "C": "Correct. Revumenib directly inhibits the menin-KMT2A/KMT2A-fusion interaction.",
+          "D": "PML-RAR-alpha is the characteristic fusion of acute promyelocytic leukemia and is not the target described here.",
+          "E": "JAK2-STAT5 signaling is a distinct kinase pathway and is not the direct molecular interaction blocked by revumenib."
+        },
+        "educational_objective": "Link menin inhibition to disruption of KMT2A-dependent leukemogenic transcription and restoration of differentiation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1548-LABEL",
+          "title": "REVUFORJ- revumenib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
+          "setid": "6eb3cdbc-0e74-477d-82d6-3bb172d3f63f",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7c2776b2e778d61fef3a1d9ec444f61f6d5c636f4277f406e7f66cb3b2f97406",
+          "cited_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "c45636c8743c263f972cc5f4ebab7cc5dd776de2ea5ba0841e773b203bbf6408"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1548-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "BCL2-BAX interactions regulate mitochondrial apoptosis but are not the direct target of revumenib.",
+          "source_ids": [
+            "Q1548-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1548-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "FLT3 signaling can drive acute leukemia, but revumenib does not act by blocking FLT3-ligand binding.",
+          "source_ids": [
+            "Q1548-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1548-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Revumenib directly inhibits the menin-KMT2A/KMT2A-fusion interaction.",
+          "source_ids": [
+            "Q1548-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1548-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PML-RAR-alpha is the characteristic fusion of acute promyelocytic leukemia and is not the target described here.",
+          "source_ids": [
+            "Q1548-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1548-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "JAK2-STAT5 signaling is a distinct kinase pathway and is not the direct molecular interaction blocked by revumenib.",
+          "source_ids": [
+            "Q1548-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "BCL2 inhibition can also trigger antileukemic effects, but the KMT2A rearrangement and differentiation response specifically identify menin-KMT2A disruption.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1549,
+      "drug": "delgocitinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Keratinocytes from chronic hand eczema are exposed to delgocitinib. Cytokine receptor signaling that normally recruits STAT proteins is broadly reduced across pathways that use JAK1, JAK2, JAK3, and TYK2.",
+        "lead_in": "Which downstream event is most directly reduced by this drug?",
+        "options": {
+          "A": "RAS-mediated activation of RAF",
+          "B": "PLC-gamma-mediated generation of IP3",
+          "C": "NF-kappaB release after I-kappaB degradation",
+          "D": "Phosphorylation and nuclear translocation of STAT proteins",
+          "E": "SMAD2/3 nuclear translocation after TGF-beta receptor activation"
+        },
+        "intended_key": "D",
+        "tested_construct": "Reduced JAK-dependent STAT activation and nuclear translocation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Delgocitinib inhibits JAK1, JAK2, JAK3, and TYK2. JAK activation normally promotes phosphorylation of STAT proteins, followed by STAT dimerization and nuclear localization to regulate cytokine-responsive gene expression.",
+        "distractor_explanations": {
+          "A": "RAS-RAF signaling is primarily linked to receptor tyrosine kinases rather than direct JAK inhibition.",
+          "B": "PLC-gamma/IP3 signaling is a separate receptor-proximal pathway and is not the principal downstream event of JAK blockade.",
+          "C": "NF-kappaB activation is not the direct canonical downstream consequence of JAK1/2/3/TYK2 activity.",
+          "D": "Correct. Broad JAK inhibition reduces STAT phosphorylation and subsequent nuclear translocation.",
+          "E": "SMAD2/3 signaling is downstream of TGF-beta receptors rather than JAK-family kinases."
+        },
+        "educational_objective": "Connect pan-JAK inhibition with impaired STAT phosphorylation and nuclear translocation downstream of cytokine receptors."
+      },
+      "sources": [
+        {
+          "source_id": "Q1549-LABEL",
+          "title": "ANZUPGO- delgocitinib cream",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a59bf36e-6f04-4b47-b385-8040c95f040c",
+          "setid": "a59bf36e-6f04-4b47-b385-8040c95f040c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "9cc221e5792040c711e5d4591d1e98202cf1ade030609bd819d1d68bbc5d4dfb",
+          "cited_section_sha256": "a34418263734d9cdc676a9f56504f813bc13ac80e6ca960bc10904876808863b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "a34418263734d9cdc676a9f56504f813bc13ac80e6ca960bc10904876808863b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1549-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "RAS-RAF signaling is primarily linked to receptor tyrosine kinases rather than direct JAK inhibition.",
+          "source_ids": [
+            "Q1549-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1549-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PLC-gamma/IP3 signaling is a separate receptor-proximal pathway and is not the principal downstream event of JAK blockade.",
+          "source_ids": [
+            "Q1549-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1549-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "NF-kappaB activation is not the direct canonical downstream consequence of JAK1/2/3/TYK2 activity.",
+          "source_ids": [
+            "Q1549-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1549-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Broad JAK inhibition reduces STAT phosphorylation and subsequent nuclear translocation.",
+          "source_ids": [
+            "Q1549-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1549-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "SMAD2/3 signaling is downstream of TGF-beta receptors rather than JAK-family kinases.",
+          "source_ids": [
+            "Q1549-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "SMAD nuclear translocation is another cytokine-related transcriptional mechanism, but TGF-beta receptors signal through receptor serine/threonine kinases, not the JAK-STAT pathway specified in the stem.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1550,
+      "drug": "zanidatamab-hrii",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "HER2-overexpressing tumor cells are treated with zanidatamab-hrii. The antibody simultaneously occupies two extracellular regions on HER2, surface HER2 density falls, and immune-effector-mediated tumor-cell killing increases.",
+        "lead_in": "Which direct action best explains the initial receptor-level effect?",
+        "options": {
+          "A": "Covalent inhibition of the intracellular HER2 kinase domain",
+          "B": "Blockade of HER3 ligand binding without HER2 engagement",
+          "C": "Degradation of HER2 mRNA by RNA interference",
+          "D": "Binding of HER2 to a soluble decoy receptor",
+          "E": "Bispecific binding to two extracellular HER2 sites followed by receptor internalization"
+        },
+        "intended_key": "E",
+        "tested_construct": "Dual-site extracellular HER2 binding that promotes receptor internalization and reduced surface HER2",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zanidatamab-hrii is a bispecific HER2-directed antibody that binds two extracellular sites on HER2. This binding promotes internalization and reduces HER2 on the tumor-cell surface; the antibody also mediates immune-effector mechanisms including CDC, ADCC, and ADCP.",
+        "distractor_explanations": {
+          "A": "An intracellular covalent kinase inhibitor is a small-molecule mechanism and does not explain dual extracellular antibody binding.",
+          "B": "Zanidatamab-hrii directly binds HER2 rather than acting only at HER3.",
+          "C": "The drug is an antibody and does not reduce HER2 expression through RNA interference.",
+          "D": "A soluble decoy-receptor mechanism is not the documented action of zanidatamab-hrii.",
+          "E": "Correct. Zanidatamab-hrii binds two extracellular HER2 sites, causing receptor internalization and decreased surface HER2."
+        },
+        "educational_objective": "Differentiate dual-epitope HER2 antibody binding with receptor internalization from intracellular kinase inhibition, HER3 blockade, RNA interference, and decoy-receptor mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1550-LABEL",
+          "title": "ZIIHERA- zanidatamab-hrii injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae5d9425-fae5-4541-a158-150998343348",
+          "setid": "ae5d9425-fae5-4541-a158-150998343348",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b7644804a87daaad871fabc5992d22d4022fedb9cff1bf9bd5172180ce934a22",
+          "cited_section_sha256": "b804c37db3af757dc9bda11f66f67e510789ffe41206a340fab526793907f1b4",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "b804c37db3af757dc9bda11f66f67e510789ffe41206a340fab526793907f1b4"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1550-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "An intracellular covalent kinase inhibitor is a small-molecule mechanism and does not explain dual extracellular antibody binding.",
+          "source_ids": [
+            "Q1550-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1550-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Zanidatamab-hrii directly binds HER2 rather than acting only at HER3.",
+          "source_ids": [
+            "Q1550-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1550-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The drug is an antibody and does not reduce HER2 expression through RNA interference.",
+          "source_ids": [
+            "Q1550-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1550-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "A soluble decoy-receptor mechanism is not the documented action of zanidatamab-hrii.",
+          "source_ids": [
+            "Q1550-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1550-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Zanidatamab-hrii binds two extracellular HER2 sites, causing receptor internalization and decreased surface HER2.",
+          "source_ids": [
+            "Q1550-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "A HER2 kinase inhibitor also reduces HER2 signaling, but an antibody occupying two extracellular HER2 sites with reduced surface receptor density identifies zanidatamab-hrii-mediated internalization.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
