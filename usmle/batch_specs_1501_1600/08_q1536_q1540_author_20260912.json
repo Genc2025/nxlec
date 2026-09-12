@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1536-Q1540-20260912",
+  "created_at": "2026-09-12",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1535,
+  "canonical_count_after": 1535,
+  "canonical_db_blob": "a3f28fcfd0a89161ed003e60d0d797c5fa103f1a",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-12: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1536,
+      "drug": "vimseltinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Synovial tumor cells and macrophage-lineage cells from a tenosynovial giant cell tumor are exposed to vimseltinib. CSF1-induced receptor autophosphorylation and downstream signaling decrease, and proliferation of cells expressing the receptor is reduced.",
+        "lead_in": "Which receptor is directly inhibited by this drug?",
+        "options": {
+          "A": "Colony-stimulating factor 1 receptor",
+          "B": "Platelet-derived growth factor receptor beta",
+          "C": "KIT receptor tyrosine kinase",
+          "D": "Vascular endothelial growth factor receptor 2",
+          "E": "Fibroblast growth factor receptor 3"
+        },
+        "intended_key": "A",
+        "tested_construct": "Direct inhibition of colony-stimulating factor 1 receptor kinase activity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Vimseltinib is a kinase inhibitor that inhibits colony-stimulating factor 1 receptor (CSF1R), reducing CSF1-induced CSF1R autophosphorylation, downstream signaling, and proliferation of CSF1R-expressing cells.",
+        "distractor_explanations": {
+          "A": "Correct. CSF1R inhibition directly matches the ligand-dependent autophosphorylation and proliferation findings.",
+          "B": "PDGFR-beta is a receptor tyrosine kinase but is not the documented direct target of vimseltinib.",
+          "C": "KIT inhibition is characteristic of other kinase inhibitors and does not explain the CSF1-specific receptor assay.",
+          "D": "VEGFR2 regulates angiogenic signaling rather than the CSF1-dependent pathway described.",
+          "E": "FGFR3 signaling is unrelated to the selective CSF1-induced receptor autophosphorylation in this experiment."
+        },
+        "educational_objective": "Identify CSF1R as the direct kinase target of vimseltinib and connect receptor inhibition with reduced CSF1-driven signaling."
+      },
+      "sources": [
+        {
+          "source_id": "Q1536-LABEL",
+          "title": "ROMVIMZA- vimseltinib capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f73c7a62-9601-4df0-810f-100f515d79ea",
+          "setid": "f73c7a62-9601-4df0-810f-100f515d79ea",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "5ec8b9455900bb18f4640d2d29ffbaca14314bd9d55e412a9d8ecbfb8ca3b57c",
+          "cited_section_sha256": "737ad167005239c449cbccffc567e7de21cf9f717a179e970f36edbeea57c174",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "737ad167005239c449cbccffc567e7de21cf9f717a179e970f36edbeea57c174"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1536-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. CSF1R inhibition directly matches the ligand-dependent autophosphorylation and proliferation findings.",
+          "source_ids": [
+            "Q1536-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1536-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PDGFR-beta is a receptor tyrosine kinase but is not the documented direct target of vimseltinib.",
+          "source_ids": [
+            "Q1536-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1536-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "KIT inhibition is characteristic of other kinase inhibitors and does not explain the CSF1-specific receptor assay.",
+          "source_ids": [
+            "Q1536-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1536-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "VEGFR2 regulates angiogenic signaling rather than the CSF1-dependent pathway described.",
+          "source_ids": [
+            "Q1536-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1536-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "FGFR3 signaling is unrelated to the selective CSF1-induced receptor autophosphorylation in this experiment.",
+          "source_ids": [
+            "Q1536-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "PDGFR-beta is a plausible receptor-tyrosine-kinase alternative, but the CSF1-dependent autophosphorylation assay specifically identifies CSF1R.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1537,
+      "drug": "mirdametinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cells from an NF1-associated plexiform neurofibroma have excessive RAS-pathway signaling. After exposure to mirdametinib, phosphorylation of ERK falls despite unchanged abundance of the upstream RAS protein.",
+        "lead_in": "Which pair of kinases is directly inhibited?",
+        "options": {
+          "A": "RAF1 and BRAF",
+          "B": "MEK1 and MEK2",
+          "C": "ERK1 and ERK2",
+          "D": "PI3K and AKT",
+          "E": "JAK1 and JAK2"
+        },
+        "intended_key": "B",
+        "tested_construct": "Direct inhibition of MEK1 and MEK2 with reduced downstream ERK phosphorylation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Mirdametinib inhibits mitogen-activated protein kinase kinases 1 and 2 (MEK1/2), which are upstream regulators of ERK. In vitro, it inhibits MEK1/2 kinase activity and downstream ERK phosphorylation.",
+        "distractor_explanations": {
+          "A": "RAF proteins lie upstream of MEK, but mirdametinib is not a direct RAF inhibitor.",
+          "B": "Correct. Direct MEK1/2 inhibition reduces downstream ERK phosphorylation in the RAS-RAF-MEK-ERK pathway.",
+          "C": "ERK phosphorylation falls downstream, but ERK1/2 are not the documented direct kinase targets.",
+          "D": "PI3K-AKT is a parallel signaling branch and does not directly explain selective suppression of ERK phosphorylation by this drug.",
+          "E": "JAK-STAT signaling is a distinct cytokine-signaling pathway."
+        },
+        "educational_objective": "Localize mirdametinib action to MEK1/2 within the RAS-RAF-MEK-ERK signaling cascade."
+      },
+      "sources": [
+        {
+          "source_id": "Q1537-LABEL",
+          "title": "GOMEKLI- mirdametinib capsule GOMEKLI- mirdametinib tablet, for suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c41bf90-5fa7-4935-a95c-e047ea6bbf8e",
+          "setid": "4c41bf90-5fa7-4935-a95c-e047ea6bbf8e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "6a45d793275a504c9128ae0968999975d7858dc41da014ce3dcfe6b322810a15",
+          "cited_section_sha256": "ab7a01567d3a5aed4798ceb60a02b51355961b53133ed5c2820ee595b01f7593",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "ab7a01567d3a5aed4798ceb60a02b51355961b53133ed5c2820ee595b01f7593"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1537-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "RAF proteins lie upstream of MEK, but mirdametinib is not a direct RAF inhibitor.",
+          "source_ids": [
+            "Q1537-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1537-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Direct MEK1/2 inhibition reduces downstream ERK phosphorylation in the RAS-RAF-MEK-ERK pathway.",
+          "source_ids": [
+            "Q1537-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1537-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "ERK phosphorylation falls downstream, but ERK1/2 are not the documented direct kinase targets.",
+          "source_ids": [
+            "Q1537-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1537-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PI3K-AKT is a parallel signaling branch and does not directly explain selective suppression of ERK phosphorylation by this drug.",
+          "source_ids": [
+            "Q1537-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1537-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "JAK-STAT signaling is a distinct cytokine-signaling pathway.",
+          "source_ids": [
+            "Q1537-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "ERK1/2 are the immediate downstream kinases whose phosphorylation decreases, but mirdametinib directly inhibits MEK1/2 rather than ERK.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1538,
+      "drug": "gepotidacin",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A susceptible Escherichia coli isolate is exposed to gepotidacin. DNA replication stops after inhibition of enzymes required for control of DNA topology and chromosome separation. Beta-lactam target proteins remain unaffected.",
+        "lead_in": "Which bacterial enzymes are directly inhibited?",
+        "options": {
+          "A": "DNA-dependent RNA polymerase and primase",
+          "B": "Dihydrofolate reductase and dihydropteroate synthase",
+          "C": "DNA gyrase and topoisomerase IV",
+          "D": "Penicillin-binding proteins 1 and 3",
+          "E": "The 30S and 50S ribosomal subunits"
+        },
+        "intended_key": "C",
+        "tested_construct": "Inhibition of bacterial type II topoisomerases DNA gyrase and topoisomerase IV",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Gepotidacin inhibits bacterial type II topoisomerases, including DNA gyrase and topoisomerase IV, thereby inhibiting DNA replication.",
+        "distractor_explanations": {
+          "A": "RNA polymerase inhibition blocks transcription, whereas gepotidacin targets bacterial type II topoisomerases.",
+          "B": "Sequential folate-pathway blockade is the mechanism of trimethoprim-sulfamethoxazole, not gepotidacin.",
+          "C": "Correct. Gepotidacin inhibits DNA gyrase and topoisomerase IV, preventing bacterial DNA replication.",
+          "D": "Penicillin-binding proteins are beta-lactam targets and are explicitly unaffected in the vignette.",
+          "E": "Ribosomal inhibition impairs translation rather than DNA topology and chromosome separation."
+        },
+        "educational_objective": "Recognize DNA gyrase and topoisomerase IV as the bacterial type II topoisomerase targets of gepotidacin."
+      },
+      "sources": [
+        {
+          "source_id": "Q1538-LABEL",
+          "title": "BLUJEPA- gepotidacin tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80b57cfe-7819-4d95-a57d-014af42f118d",
+          "setid": "80b57cfe-7819-4d95-a57d-014af42f118d",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.4 Microbiology; Mechanism of Action",
+          "source_page_sha256": "034c3ff88df31ee270f42b13b307cade2375828447c026e2a81c440690c985ae",
+          "cited_section_sha256": "b1f231fcb9d6c4e4242fe9572ad78c1d8209e5d3d5fa4b37d2548dd902565355",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 2,
+          "mechanism_section_sha256": "b1f231fcb9d6c4e4242fe9572ad78c1d8209e5d3d5fa4b37d2548dd902565355"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1538-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "RNA polymerase inhibition blocks transcription, whereas gepotidacin targets bacterial type II topoisomerases.",
+          "source_ids": [
+            "Q1538-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1538-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Sequential folate-pathway blockade is the mechanism of trimethoprim-sulfamethoxazole, not gepotidacin.",
+          "source_ids": [
+            "Q1538-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1538-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Gepotidacin inhibits DNA gyrase and topoisomerase IV, preventing bacterial DNA replication.",
+          "source_ids": [
+            "Q1538-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1538-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Penicillin-binding proteins are beta-lactam targets and are explicitly unaffected in the vignette.",
+          "source_ids": [
+            "Q1538-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1538-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Ribosomal inhibition impairs translation rather than DNA topology and chromosome separation.",
+          "source_ids": [
+            "Q1538-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology; Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Penicillin-binding proteins are common antibacterial targets, but the described interruption of DNA topology and replication identifies type II topoisomerase inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1539,
+      "drug": "zongertinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Non-small cell lung cancer cells harboring an activating HER2 tyrosine-kinase-domain mutation are exposed to zongertinib. HER2 phosphorylation decreases, followed by reduced ERK phosphorylation and reduced cellular proliferation.",
+        "lead_in": "Which protein is the direct kinase target of this drug?",
+        "options": {
+          "A": "EGFR",
+          "B": "ALK",
+          "C": "MET",
+          "D": "HER2",
+          "E": "KRAS G12C"
+        },
+        "intended_key": "D",
+        "tested_construct": "Direct inhibition of HER2 kinase activity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zongertinib is a kinase inhibitor of human epidermal growth factor receptor 2 (HER2). It inhibits HER2 phosphorylation, downstream HER2 signaling including ERK phosphorylation, and proliferation of cells with activating HER2 kinase-domain mutations.",
+        "distractor_explanations": {
+          "A": "EGFR is a related receptor tyrosine kinase but is not the direct target identified for zongertinib.",
+          "B": "ALK inhibition is used for ALK-rearranged tumors and does not explain selective suppression of mutant HER2 phosphorylation.",
+          "C": "MET is another oncogenic receptor tyrosine kinase but is not the zongertinib target.",
+          "D": "Correct. Zongertinib directly inhibits HER2 kinase activity, reducing HER2 and downstream ERK phosphorylation.",
+          "E": "KRAS G12C inhibition acts downstream of receptor tyrosine kinases and would not directly reduce HER2 phosphorylation."
+        },
+        "educational_objective": "Identify HER2 as the direct kinase target of zongertinib in HER2-mutant non-small cell lung cancer."
+      },
+      "sources": [
+        {
+          "source_id": "Q1539-LABEL",
+          "title": "HERNEXEOS- zongertinib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d3fabf12-354e-4e5c-b5de-20fdb579b783",
+          "setid": "d3fabf12-354e-4e5c-b5de-20fdb579b783",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "2c2f8ed4b656eb789dc73fc38764c7f6632d21dae54bf3260df8a0cae3335b23",
+          "cited_section_sha256": "913a3c93ee7f9f22f430d1eaedd10d3117a6242cd62c9685496b7cd01d0cc697",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "913a3c93ee7f9f22f430d1eaedd10d3117a6242cd62c9685496b7cd01d0cc697"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1539-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "EGFR is a related receptor tyrosine kinase but is not the direct target identified for zongertinib.",
+          "source_ids": [
+            "Q1539-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1539-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "ALK inhibition is used for ALK-rearranged tumors and does not explain selective suppression of mutant HER2 phosphorylation.",
+          "source_ids": [
+            "Q1539-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1539-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "MET is another oncogenic receptor tyrosine kinase but is not the zongertinib target.",
+          "source_ids": [
+            "Q1539-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1539-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Zongertinib directly inhibits HER2 kinase activity, reducing HER2 and downstream ERK phosphorylation.",
+          "source_ids": [
+            "Q1539-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1539-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "KRAS G12C inhibition acts downstream of receptor tyrosine kinases and would not directly reduce HER2 phosphorylation.",
+          "source_ids": [
+            "Q1539-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "EGFR is the closest receptor-family alternative, but the activating HER2 mutation and direct loss of HER2 phosphorylation identify HER2 as the target.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1540,
+      "drug": "zenocutuzumab-zbco",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "NRG1 fusion-positive tumor cells depend on ligand-driven HER3 signaling through HER2-HER3 heterodimers. A bispecific IgG1 antibody reduces PI3K-AKT-mTOR signaling and tumor-cell proliferation without inhibiting an intracellular kinase domain.",
+        "lead_in": "Which direct extracellular action best explains this effect?",
+        "options": {
+          "A": "Binding EGFR and blocking EGF-induced homodimerization",
+          "B": "Binding MET and preventing HGF-dependent activation",
+          "C": "Binding PD-L1 and preventing PD-1 engagement",
+          "D": "Binding HER2 alone and inducing receptor internalization",
+          "E": "Binding both HER2 and HER3, inhibiting HER2-HER3 dimerization and preventing NRG1 binding to HER3"
+        },
+        "intended_key": "E",
+        "tested_construct": "Bispecific extracellular binding to HER2 and HER3 that blocks NRG1-driven HER2-HER3 signaling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zenocutuzumab-zbco is a bispecific antibody that binds extracellular domains of HER2 and HER3, inhibits HER2-HER3 dimerization, and prevents NRG1 binding to HER3, reducing downstream PI3K-AKT-mTOR signaling.",
+        "distractor_explanations": {
+          "A": "EGFR blockade does not directly interrupt the NRG1-HER3/HER2 signaling unit described.",
+          "B": "MET-HGF signaling is a distinct receptor-ligand pathway.",
+          "C": "PD-L1 blockade alters immune-checkpoint signaling rather than tumor-cell HER2-HER3 dimerization.",
+          "D": "Binding HER2 alone omits the defining bispecific HER2/HER3 interaction and prevention of NRG1 binding to HER3.",
+          "E": "Correct. Dual extracellular binding to HER2 and HER3 blocks receptor dimerization and NRG1-HER3 engagement."
+        },
+        "educational_objective": "Connect NRG1 fusion signaling with HER2-HER3 heterodimerization and recognize dual HER2/HER3 extracellular blockade by zenocutuzumab."
+      },
+      "sources": [
+        {
+          "source_id": "Q1540-LABEL",
+          "title": "BIZENGRI- zenocutuzumab injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=203daea4-fc87-40a4-a92f-ba2351b16de1",
+          "setid": "203daea4-fc87-40a4-a92f-ba2351b16de1",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "cc7dcb01f42026520d33db401f4f29c06785ee892bfeb9b63b7e6687b691d3a4",
+          "cited_section_sha256": "baca105d1422d64fce826cc2fd88fe106f6fa6f4cf40b1177e91486c8a0893b9",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "baca105d1422d64fce826cc2fd88fe106f6fa6f4cf40b1177e91486c8a0893b9"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1540-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "EGFR blockade does not directly interrupt the NRG1-HER3/HER2 signaling unit described.",
+          "source_ids": [
+            "Q1540-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1540-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "MET-HGF signaling is a distinct receptor-ligand pathway.",
+          "source_ids": [
+            "Q1540-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1540-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PD-L1 blockade alters immune-checkpoint signaling rather than tumor-cell HER2-HER3 dimerization.",
+          "source_ids": [
+            "Q1540-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1540-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Binding HER2 alone omits the defining bispecific HER2/HER3 interaction and prevention of NRG1 binding to HER3.",
+          "source_ids": [
+            "Q1540-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1540-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Dual extracellular binding to HER2 and HER3 blocks receptor dimerization and NRG1-HER3 engagement.",
+          "source_ids": [
+            "Q1540-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "HER2-only blockade is plausible because HER2 participates in the heterodimer, but zenocutuzumab is bispecific and directly binds both HER2 and HER3 while preventing NRG1 binding to HER3.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
