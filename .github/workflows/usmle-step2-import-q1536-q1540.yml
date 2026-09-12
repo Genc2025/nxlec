@@ -103,5 +103,6 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add usmle/data/usmle-step1.db "$VERIFY_OUT" "$STATE_OUT"
-          git commit -m 'usmle: import Q1536-Q1540 into production'\n          git pull --rebase origin main
+          git commit -m 'usmle: import Q1536-Q1540 into production'
+          git pull --rebase origin main
           git push
