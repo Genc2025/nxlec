@@ -1,0 +1,756 @@
+{
+  "batch_id": "Q1561-Q1565-20260912",
+  "created_at": "2026-09-12",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1560,
+  "canonical_count_after": 1560,
+  "canonical_db_blob": "4c66c4f671a46eb3b0d29cbf8f8e6d15db85b83f",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-12: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1561,
+      "drug": "lenacapavir",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "HIV-1-infected cells are exposed to lenacapavir. Reverse transcription still produces viral DNA, but nuclear entry of the viral replication complex is impaired; in producer cells, virion assembly and capsid-core formation are also disrupted.",
+        "lead_in": "Which viral structure is directly bound by this drug?",
+        "options": {
+          "A": "Capsid protein",
+          "B": "Reverse transcriptase",
+          "C": "Integrase",
+          "D": "gp120 envelope glycoprotein",
+          "E": "Protease"
+        },
+        "intended_key": "A",
+        "tested_construct": "Direct binding to HIV-1 capsid protein at the interface between capsid subunits",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Lenacapavir is a multistage HIV-1 capsid inhibitor. It binds the capsid protein and disrupts capsid-dependent processes including nuclear uptake of viral DNA, virion assembly and release, and proper capsid-core formation.",
+        "distractor_explanations": {
+          "A": "Correct. Lenacapavir directly binds HIV-1 capsid protein and interferes with multiple capsid-dependent stages of replication.",
+          "B": "Reverse transcriptase inhibition would prevent formation of viral DNA, which remains intact in the vignette.",
+          "C": "Integrase inhibitors block insertion of viral DNA into host DNA but do not directly explain defects in capsid-mediated nuclear entry and virion core assembly.",
+          "D": "gp120-targeting agents interfere with attachment or entry rather than intracellular capsid-dependent processes.",
+          "E": "Protease inhibition impairs viral polyprotein processing rather than directly targeting the capsid interface described here."
+        },
+        "educational_objective": "Recognize HIV-1 capsid as a direct antiviral target that affects multiple replication stages distinct from reverse transcriptase, integrase, entry, and protease mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1561-LABEL",
+          "title": "SUNLENCA- lenacapavir sodium tablet, film coated; SUNLENCA- lenacapavir sodium kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e5652804-29c4-40d7-aeb2-0142ed2a7b5b",
+          "setid": "e5652804-29c4-40d7-aeb2-0142ed2a7b5b",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "615e8da927147ed11562d16982cead132d5d1e2cbcbfb0fd4daabf2aad76cf77",
+          "cited_section_sha256": "68a967c072528ade4f9dd8e02b95de1d97cd4b3c9c97a86ab3362373c6aaf07f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "68a967c072528ade4f9dd8e02b95de1d97cd4b3c9c97a86ab3362373c6aaf07f"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1561-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Lenacapavir directly binds HIV-1 capsid protein and interferes with multiple capsid-dependent stages of replication.",
+          "source_ids": [
+            "Q1561-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1561-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Reverse transcriptase inhibition would prevent formation of viral DNA, which remains intact in the vignette.",
+          "source_ids": [
+            "Q1561-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1561-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Integrase inhibitors block insertion of viral DNA into host DNA but do not directly explain defects in capsid-mediated nuclear entry and virion core assembly.",
+          "source_ids": [
+            "Q1561-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1561-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "gp120-targeting agents interfere with attachment or entry rather than intracellular capsid-dependent processes.",
+          "source_ids": [
+            "Q1561-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1561-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Protease inhibition impairs viral polyprotein processing rather than directly targeting the capsid interface described here.",
+          "source_ids": [
+            "Q1561-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Integrase inhibition is plausible because it also acts after reverse transcription, but the combined nuclear-entry and capsid-core defects specifically identify capsid inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1562,
+      "drug": "baloxavir marboxil",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Influenza A virus infects respiratory epithelial cells. After exposure to baloxavir, viral RNA polymerase can no longer efficiently generate capped viral mRNA even though host RNA polymerase II continues to synthesize capped host transcripts.",
+        "lead_in": "Which viral process is most directly inhibited?",
+        "options": {
+          "A": "Neuraminidase-mediated virion release",
+          "B": "Cap-dependent endonuclease cleavage of host pre-mRNA",
+          "C": "M2 proton-channel-mediated uncoating",
+          "D": "Fusion of the viral envelope with the endosomal membrane",
+          "E": "Viral RNA-dependent RNA polymerase elongation after primer formation"
+        },
+        "intended_key": "B",
+        "tested_construct": "Inhibition of the influenza PA cap-dependent endonuclease required for cap-snatching",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Baloxavir inhibits the cap-dependent endonuclease activity of the polymerase acidic protein of influenza virus. This prevents cleavage of capped host pre-mRNAs used as primers for viral mRNA synthesis, thereby blocking viral transcription.",
+        "distractor_explanations": {
+          "A": "Neuraminidase inhibitors block release of progeny virions rather than cap-snatching during viral transcription.",
+          "B": "Correct. Baloxavir inhibits the PA cap-dependent endonuclease that cleaves capped host pre-mRNAs for use as viral transcription primers.",
+          "C": "M2 inhibition affects uncoating of influenza A virus and is mechanistically distinct from the transcription defect described.",
+          "D": "Endosomal fusion depends on hemagglutinin conformational changes rather than the PA endonuclease.",
+          "E": "Baloxavir does not primarily inhibit polymerase elongation; it prevents generation of the capped primer required to initiate viral mRNA synthesis."
+        },
+        "educational_objective": "Differentiate influenza cap-snatching inhibition by baloxavir from neuraminidase, M2, fusion, and polymerase-elongation mechanisms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1562-LABEL",
+          "title": "XOFLUZA- baloxavir marboxil tablet, film coated; XOFLUZA- baloxavir marboxil for oral suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e49e1a61-1b7c-4be5-ac84-af6240b511e7",
+          "setid": "e49e1a61-1b7c-4be5-ac84-af6240b511e7",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.4 Microbiology",
+          "source_page_sha256": "ff95820497840311ace5bed89c8e37049c3811a50062474597f1a77e2336fbbb",
+          "cited_section_sha256": "2f78eb56f5358706cac403286b1cf74dd8d1bc6e99de7567a5e19be35fb53fb5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1562-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Neuraminidase inhibitors block release of progeny virions rather than cap-snatching during viral transcription.",
+          "source_ids": [
+            "Q1562-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1562-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Baloxavir inhibits the PA cap-dependent endonuclease that cleaves capped host pre-mRNAs for use as viral transcription primers.",
+          "source_ids": [
+            "Q1562-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1562-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "M2 inhibition affects uncoating of influenza A virus and is mechanistically distinct from the transcription defect described.",
+          "source_ids": [
+            "Q1562-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1562-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Endosomal fusion depends on hemagglutinin conformational changes rather than the PA endonuclease.",
+          "source_ids": [
+            "Q1562-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1562-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Baloxavir does not primarily inhibit polymerase elongation; it prevents generation of the capped primer required to initiate viral mRNA synthesis.",
+          "source_ids": [
+            "Q1562-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "A polymerase-directed mechanism is plausible, but baloxavir specifically blocks the PA cap-dependent endonuclease step that supplies capped primers rather than RNA-chain elongation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1563,
+      "drug": "fezolinetant",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Reproductive System & Breast",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Reproductive System & Breast"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A postmenopausal patient with frequent vasomotor symptoms receives fezolinetant. Hypothalamic thermoregulatory instability improves without estrogen-receptor agonism.",
+        "lead_in": "Which receptor is directly antagonized?",
+        "options": {
+          "A": "Neurokinin-1 receptor",
+          "B": "Neurokinin-2 receptor",
+          "C": "Neurokinin-3 receptor",
+          "D": "Estrogen receptor-alpha",
+          "E": "Gonadotropin-releasing hormone receptor"
+        },
+        "intended_key": "C",
+        "tested_construct": "Antagonism of neurokinin-3 receptors involved in hypothalamic thermoregulation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Fezolinetant is a neurokinin-3 receptor antagonist. Blocking neurokinin B signaling at NK3 receptors in hypothalamic thermoregulatory pathways reduces menopausal vasomotor symptoms without acting as estrogen replacement.",
+        "distractor_explanations": {
+          "A": "NK1 receptors primarily mediate substance P signaling and are not the direct target of fezolinetant.",
+          "B": "NK2 receptors preferentially bind neurokinin A and are not the target of this drug.",
+          "C": "Correct. Fezolinetant directly antagonizes neurokinin-3 receptors.",
+          "D": "Fezolinetant is nonhormonal and does not act as an ER-alpha antagonist or agonist.",
+          "E": "GnRH-receptor antagonism suppresses gonadotropin secretion but is not the mechanism of fezolinetant."
+        },
+        "educational_objective": "Recognize NK3-receptor antagonism as a nonhormonal mechanism for treatment of menopausal vasomotor symptoms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1563-LABEL",
+          "title": "VEOZAH- fezolinetant tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cae9f798-24f9-4580-a4fc-e6c710cbda3c",
+          "setid": "cae9f798-24f9-4580-a4fc-e6c710cbda3c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "693a27822addbce8efdd5c353171b1ded546a89be5affa7ac30ba7f78e13574c",
+          "cited_section_sha256": "9c281e3b120d20c7c0d73722ed280a0f845c8a304f2b8174e537b734f5f20be3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "9c281e3b120d20c7c0d73722ed280a0f845c8a304f2b8174e537b734f5f20be3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1563-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "NK1 receptors primarily mediate substance P signaling and are not the direct target of fezolinetant.",
+          "source_ids": [
+            "Q1563-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1563-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "NK2 receptors preferentially bind neurokinin A and are not the target of this drug.",
+          "source_ids": [
+            "Q1563-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1563-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Fezolinetant directly antagonizes neurokinin-3 receptors.",
+          "source_ids": [
+            "Q1563-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1563-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Fezolinetant is nonhormonal and does not act as an ER-alpha antagonist or agonist.",
+          "source_ids": [
+            "Q1563-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1563-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "GnRH-receptor antagonism suppresses gonadotropin secretion but is not the mechanism of fezolinetant.",
+          "source_ids": [
+            "Q1563-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "A GnRH-receptor mechanism could alter reproductive hormone signaling, but the direct thermoregulatory target of fezolinetant is the NK3 receptor.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1564,
+      "drug": "osilodrostat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Endocrine System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Endocrine System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adult with endogenous hypercortisolemia is treated with osilodrostat. Serum cortisol falls, and a steroid precursor immediately upstream of the inhibited enzymatic step accumulates.",
+        "lead_in": "Which substance is expected to increase most directly?",
+        "options": {
+          "A": "Aldosterone",
+          "B": "Cortisone",
+          "C": "17-hydroxypregnenolone",
+          "D": "11-deoxycortisol",
+          "E": "Dihydrotestosterone"
+        },
+        "intended_key": "D",
+        "tested_construct": "Accumulation of 11-deoxycortisol after inhibition of CYP11B1 (11-beta-hydroxylase)",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Osilodrostat inhibits 11-beta-hydroxylase (CYP11B1), the enzyme that catalyzes the final step of cortisol synthesis. Blocking conversion of 11-deoxycortisol to cortisol lowers cortisol and directly favors accumulation of 11-deoxycortisol.",
+        "distractor_explanations": {
+          "A": "Aldosterone synthesis involves CYP11B2 and is not the direct immediate substrate-product pair tested here.",
+          "B": "Cortisone is formed from cortisol by 11-beta-hydroxysteroid dehydrogenase type 2 rather than by CYP11B1.",
+          "C": "17-hydroxypregnenolone is several steps upstream of cortisol and is not the immediate CYP11B1 substrate.",
+          "D": "Correct. CYP11B1 converts 11-deoxycortisol to cortisol, so inhibition causes 11-deoxycortisol to rise.",
+          "E": "Dihydrotestosterone is generated from testosterone by 5-alpha-reductase and is outside the inhibited cortisol-synthesis step."
+        },
+        "educational_objective": "Link CYP11B1 inhibition to reduced cortisol synthesis and accumulation of its immediate precursor, 11-deoxycortisol."
+      },
+      "sources": [
+        {
+          "source_id": "Q1564-LABEL",
+          "title": "ISTURISA- osilodrostat tablet, coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f3a5ec24-63c3-4d83-b1c0-6c550fbe7ae2",
+          "setid": "f3a5ec24-63c3-4d83-b1c0-6c550fbe7ae2",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "be67a2431c17707737a39b2947a9755cbbb1d7aba99c4ea8c9916a154a15991d",
+          "cited_section_sha256": "3755d0e3e6a189a00d67335b1511179168faf68f3c48698bab1130dae46e6d71",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "3755d0e3e6a189a00d67335b1511179168faf68f3c48698bab1130dae46e6d71"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1564-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Aldosterone synthesis involves CYP11B2 and is not the direct immediate substrate-product pair tested here.",
+          "source_ids": [
+            "Q1564-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1564-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Cortisone is formed from cortisol by 11-beta-hydroxysteroid dehydrogenase type 2 rather than by CYP11B1.",
+          "source_ids": [
+            "Q1564-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1564-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "17-hydroxypregnenolone is several steps upstream of cortisol and is not the immediate CYP11B1 substrate.",
+          "source_ids": [
+            "Q1564-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1564-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. CYP11B1 converts 11-deoxycortisol to cortisol, so inhibition causes 11-deoxycortisol to rise.",
+          "source_ids": [
+            "Q1564-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1564-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Dihydrotestosterone is generated from testosterone by 5-alpha-reductase and is outside the inhibited cortisol-synthesis step.",
+          "source_ids": [
+            "Q1564-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Other adrenal steroids may change secondarily, but the immediate substrate of the inhibited CYP11B1 reaction is 11-deoxycortisol.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1565,
+      "drug": "vosoritide",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Growth-plate chondrocytes from a child with achondroplasia are exposed to vosoritide. Signaling downstream of overactive FGFR3 is attenuated and endochondral bone growth increases.",
+        "lead_in": "Which intracellular second messenger is most directly increased by the drug-receptor interaction?",
+        "options": {
+          "A": "Cyclic AMP",
+          "B": "Inositol trisphosphate",
+          "C": "Diacylglycerol",
+          "D": "Calcium released from the endoplasmic reticulum",
+          "E": "Cyclic GMP"
+        },
+        "intended_key": "E",
+        "tested_construct": "NPR-B activation with guanylyl cyclase activity and increased intracellular cGMP",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Vosoritide is an analog of C-type natriuretic peptide that binds natriuretic peptide receptor-B. NPR-B has guanylyl cyclase activity, increasing intracellular cyclic GMP and antagonizing downstream signaling from FGFR3 to promote endochondral bone growth.",
+        "distractor_explanations": {
+          "A": "cAMP is generated by adenylyl cyclase-coupled pathways, not by NPR-B.",
+          "B": "IP3 is generated through phospholipase C signaling rather than natriuretic peptide receptor guanylyl cyclase activity.",
+          "C": "DAG is also a phospholipase C product and is not the principal second messenger generated by NPR-B.",
+          "D": "ER calcium release is downstream of IP3 and does not represent the direct signal generated by NPR-B.",
+          "E": "Correct. NPR-B activation stimulates guanylyl cyclase and increases intracellular cGMP."
+        },
+        "educational_objective": "Connect CNP analog signaling through NPR-B with increased cGMP and antagonism of FGFR3-mediated growth inhibition in achondroplasia."
+      },
+      "sources": [
+        {
+          "source_id": "Q1565-LABEL",
+          "title": "VOXZOGO- vosoritide kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=228e8560-04a4-4bb1-a81f-29531a9e4d27",
+          "setid": "228e8560-04a4-4bb1-a81f-29531a9e4d27",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "afbeb4d86fbcc4479fa5acc10fb795025b7b82a1e60f50baee4cf865c0f7977b",
+          "cited_section_sha256": "530da08c30a5e047c2f9aa0e90ffd99c2665a0b27ba7b38855e157a0490e0a82",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "530da08c30a5e047c2f9aa0e90ffd99c2665a0b27ba7b38855e157a0490e0a82"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1565-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "cAMP is generated by adenylyl cyclase-coupled pathways, not by NPR-B.",
+          "source_ids": [
+            "Q1565-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1565-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "IP3 is generated through phospholipase C signaling rather than natriuretic peptide receptor guanylyl cyclase activity.",
+          "source_ids": [
+            "Q1565-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1565-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "DAG is also a phospholipase C product and is not the principal second messenger generated by NPR-B.",
+          "source_ids": [
+            "Q1565-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1565-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ER calcium release is downstream of IP3 and does not represent the direct signal generated by NPR-B.",
+          "source_ids": [
+            "Q1565-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1565-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. NPR-B activation stimulates guanylyl cyclase and increases intracellular cGMP.",
+          "source_ids": [
+            "Q1565-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "cAMP is a common cyclic-nucleotide second messenger, but NPR-B is a receptor guanylyl cyclase and therefore directly raises cGMP.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
