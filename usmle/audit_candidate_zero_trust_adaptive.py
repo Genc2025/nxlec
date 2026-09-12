@@ -96,7 +96,8 @@ def main():
    if not ok: f.append('live_source_binding')
   scored=sorted([(jac(item_text(x),t),cid) for cid,t in canon],reverse=True); mj=scored[0][0] if scored else 0
   if mj>=0.45: f.append('canonical_duplicate')
-  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':derived,'intended_key':key,'key_rationale_overlap':kro,'source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(mj,5),'canonical_top_match':scored[0][1] if scored else None,'source_reports':sr,'failures':sorted(set(f))})
+  top_canonical_text=next((t for cid,t in canon if scored and cid==scored[0][1]),'')
+  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','evidence_derived_key':derived,'intended_key':key,'key_rationale_overlap':kro,'source_live_binding':'PASS' if 'live_source_binding' not in f else 'BLOCKED','second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','blueprint':'PASS' if 'blueprint' not in f else 'BLOCKED','canonical_max_jaccard':round(mj,5),'canonical_top_match':scored[0][1] if scored else None,'canonical_top_text':top_canonical_text if mj>=0.45 else None,'source_reports':sr,'failures':sorted(set(f))})
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
  out={'audit_id':f'Q{START}-Q{END}-ZERO-TRUST-ADAPTIVE-20260910','candidate_blob':CAND_BLOB,'canonical_db_blob':DB_BLOB,'canonical_count':1300,'canonical_review_count':1300,'item_count':len(items),'item_reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_import_ready':False}
  OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
