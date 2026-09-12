@@ -32,45 +32,42 @@ def main():
     ))
 
     items.append(make(
-        1537,'mirdametinib','Musculoskeletal, Skin & Subcutaneous Tissue',['Pharmacology','Cell Biology'],
-        'Cells from an NF1-associated plexiform neurofibroma have excessive RAS-pathway signaling. After exposure to mirdametinib, phosphorylation of ERK falls despite unchanged abundance of the upstream RAS protein.',
-        'Which pair of kinases is directly inhibited?',
-        {'A':'RAF1 and BRAF','B':'MEK1 and MEK2','C':'ERK1 and ERK2','D':'PI3K and AKT','E':'JAK1 and JAK2'},
-        'B','Direct inhibition of MEK1 and MEK2 with reduced downstream ERK phosphorylation',
-        'Mirdametinib inhibits mitogen-activated protein kinase kinases 1 and 2 (MEK1/2), which are upstream regulators of ERK. In vitro, it inhibits MEK1/2 kinase activity and downstream ERK phosphorylation.',
-        {'A':'RAF proteins lie upstream of MEK, but mirdametinib is not a direct RAF inhibitor.','B':'Correct. Direct MEK1/2 inhibition reduces downstream ERK phosphorylation in the RAS-RAF-MEK-ERK pathway.','C':'ERK phosphorylation falls downstream, but ERK1/2 are not the documented direct kinase targets.','D':'PI3K-AKT is a parallel signaling branch and does not directly explain selective suppression of ERK phosphorylation by this drug.','E':'JAK-STAT signaling is a distinct cytokine-signaling pathway.'},
-        'Localize mirdametinib action to MEK1/2 within the RAS-RAF-MEK-ERK signaling cascade.',
-        'GOMEKLI- mirdametinib capsule GOMEKLI- mirdametinib tablet, for suspension','4c41bf90-5fa7-4935-a95c-e047ea6bbf8e','C',
-        'ERK1/2 are the immediate downstream kinases whose phosphorylation decreases, but mirdametinib directly inhibits MEK1/2 rather than ERK.'
+        1537,'enlicitide','Cardiovascular System',['Pharmacology','Biochemistry'],
+        'Cultured hepatocytes are exposed to extracellular PCSK9 in the presence of enlicitide. Cell-surface LDL receptor abundance and uptake of fluorescent LDL increase, while LDLR gene transcription is unchanged.',
+        'Which extracellular interaction is directly prevented by this drug?',
+        {'A':'Apolipoprotein B-100 binding to the LDL receptor','B':'PCSK9 binding to the LDL receptor','C':'HMG-CoA reductase binding to HMG-CoA','D':'NPC1L1 binding to intestinal cholesterol','E':'ACAT binding to intracellular cholesterol'},
+        'B','Prevention of PCSK9 binding to the LDL receptor, reducing receptor degradation',
+        'Enlicitide is a macrocyclic peptide that binds PCSK9. By inhibiting the interaction of PCSK9 with hepatocyte LDL receptors, it reduces LDL receptor degradation and increases the number of receptors available to clear LDL cholesterol.',
+        {'A':'Blocking apoB-100 binding would impair LDL uptake rather than increase it.','B':'Correct. Enlicitide binds PCSK9 and prevents PCSK9-LDL receptor binding, reducing receptor degradation and increasing surface LDL receptors.','C':'HMG-CoA reductase is an intracellular cholesterol-synthesis enzyme and is not directly targeted by enlicitide.','D':'NPC1L1 mediates intestinal cholesterol absorption and does not explain the hepatocyte-specific receptor findings.','E':'ACAT esterifies intracellular cholesterol and is not the extracellular target of enlicitide.'},
+        'Connect PCSK9-LDL receptor binding with hepatic LDL receptor degradation and explain how PCSK9 blockade increases receptor-mediated LDL clearance.',
+        'LIPFENDRA- enlicitide tablet, film coated','100ec543-fbd0-44fc-b740-db9cdff39145','A',
+        'ApoB-100 also interacts with the LDL receptor, but blocking that interaction would decrease rather than increase LDL uptake; the observed rise in surface LDL receptors identifies blockade of PCSK9-LDL receptor binding.'
     ))
 
     items.append(make(
-        1538,'gepotidacin','Multisystem Processes & Disorders',['Pharmacology','Microbiology'],
-        'A susceptible Escherichia coli isolate is exposed to gepotidacin. DNA replication stops after inhibition of enzymes required for control of DNA topology and chromosome separation. Beta-lactam target proteins remain unaffected.',
-        'Which bacterial enzymes are directly inhibited?',
-        {'A':'DNA-dependent RNA polymerase and primase','B':'Dihydrofolate reductase and dihydropteroate synthase','C':'DNA gyrase and topoisomerase IV','D':'Penicillin-binding proteins 1 and 3','E':'The 30S and 50S ribosomal subunits'},
-        'C','Inhibition of bacterial type II topoisomerases DNA gyrase and topoisomerase IV',
-        'Gepotidacin inhibits bacterial type II topoisomerases, including DNA gyrase and topoisomerase IV, thereby inhibiting DNA replication.',
-        {'A':'RNA polymerase inhibition blocks transcription, whereas gepotidacin targets bacterial type II topoisomerases.','B':'Sequential folate-pathway blockade is the mechanism of trimethoprim-sulfamethoxazole, not gepotidacin.','C':'Correct. Gepotidacin inhibits DNA gyrase and topoisomerase IV, preventing bacterial DNA replication.','D':'Penicillin-binding proteins are beta-lactam targets and are explicitly unaffected in the vignette.','E':'Ribosomal inhibition impairs translation rather than DNA topology and chromosome separation.'},
-        'Recognize DNA gyrase and topoisomerase IV as the bacterial type II topoisomerase targets of gepotidacin.',
-        'BLUJEPA- gepotidacin tablet, film coated','80b57cfe-7819-4d95-a57d-014af42f118d','D',
-        'Penicillin-binding proteins are common antibacterial targets, but the described interruption of DNA topology and replication identifies type II topoisomerase inhibition.'
+        1538,'iberdomide','Blood & Lymphoreticular/Immune Systems',['Pharmacology','Cell Biology'],
+        'Multiple myeloma cells are exposed to iberdomide. Aiolos and Ikaros protein concentrations fall rapidly even though their messenger RNA concentrations remain unchanged. The effect requires cereblon and is prevented by proteasome inhibition.',
+        'Which cellular process most directly accounts for the loss of these transcription factors?',
+        {'A':'Lysosomal degradation after macroautophagy','B':'RNase H1-mediated degradation of their messenger RNAs','C':'Cereblon-dependent ubiquitination followed by proteasomal degradation','D':'Global inhibition of ribosomal peptide elongation','E':'Promoter hypermethylation with transcriptional silencing'},
+        'C','Cereblon-dependent recruitment, ubiquitination, and proteasomal degradation of Aiolos and Ikaros',
+        'Iberdomide is a cereblon-modulating protein degrader. Binding to cereblon, the substrate-recognition component of an E3 ubiquitin ligase complex, promotes recruitment and ubiquitination of Aiolos and Ikaros, followed by their proteasomal degradation.',
+        {'A':'The defining pathway is ubiquitin-proteasome degradation rather than lysosomal macroautophagy.','B':'Unchanged messenger RNA argues against RNase H1-mediated transcript degradation.','C':'Correct. Iberdomide engages cereblon to promote ubiquitination and proteasomal degradation of Aiolos and Ikaros.','D':'Global translation inhibition would not explain cereblon dependence or selective proteasome-sensitive loss of these proteins.','E':'Transcriptional silencing would be expected to reduce messenger RNA and would not require the proteasome.'},
+        'Use cereblon dependence and proteasome sensitivity to recognize targeted E3-ligase-mediated degradation of Aiolos and Ikaros by iberdomide.',
+        'ZENBEXUS- iberdomide capsule','3663d9cb-3f66-48ae-bf0a-6958bc0888de','D',
+        'Global translation inhibition could lower protein abundance, but the unchanged messenger RNA, cereblon requirement, and reversal by proteasome inhibition specifically support targeted ubiquitin-proteasome degradation.'
     ))
-    items[-1]['sources'][0]['section_locator']='12.4 Microbiology; Mechanism of Action'
-    for e in items[-1]['evidence_map']:
-        e['source_locator']='12.4 Microbiology; Mechanism of Action'
 
     items.append(make(
-        1539,'zongertinib','Respiratory System',['Pharmacology','Cell Biology'],
-        'Non-small cell lung cancer cells harboring an activating HER2 tyrosine-kinase-domain mutation are exposed to zongertinib. HER2 phosphorylation decreases, followed by reduced ERK phosphorylation and reduced cellular proliferation.',
-        'Which protein is the direct kinase target of this drug?',
-        {'A':'EGFR','B':'ALK','C':'MET','D':'HER2','E':'KRAS G12C'},
-        'D','Direct inhibition of HER2 kinase activity',
-        'Zongertinib is a kinase inhibitor of human epidermal growth factor receptor 2 (HER2). It inhibits HER2 phosphorylation, downstream HER2 signaling including ERK phosphorylation, and proliferation of cells with activating HER2 kinase-domain mutations.',
-        {'A':'EGFR is a related receptor tyrosine kinase but is not the direct target identified for zongertinib.','B':'ALK inhibition is used for ALK-rearranged tumors and does not explain selective suppression of mutant HER2 phosphorylation.','C':'MET is another oncogenic receptor tyrosine kinase but is not the zongertinib target.','D':'Correct. Zongertinib directly inhibits HER2 kinase activity, reducing HER2 and downstream ERK phosphorylation.','E':'KRAS G12C inhibition acts downstream of receptor tyrosine kinases and would not directly reduce HER2 phosphorylation.'},
-        'Identify HER2 as the direct kinase target of zongertinib in HER2-mutant non-small cell lung cancer.',
-        'HERNEXEOS- zongertinib tablet, film coated','d3fabf12-354e-4e5c-b5de-20fdb579b783','A',
-        'EGFR is the closest receptor-family alternative, but the activating HER2 mutation and direct loss of HER2 phosphorylation identify HER2 as the target.'
+        1539,'atacicept-vymj','Renal & Urinary System',['Pharmacology','Immunology'],
+        'A patient with IgA nephropathy receives a soluble recombinant fusion protein containing the extracellular ligand-binding domain of TACI linked to an IgG Fc region. Serum immunoglobulins and galactose-deficient IgA1 decrease without direct depletion of CD20-positive B cells.',
+        'Which pair of soluble ligands is directly bound by this fusion protein?',
+        {'A':'Interleukin-6 and tumor necrosis factor','B':'Complement C3 and complement C5','C':'CD40 ligand and interleukin-21','D':'BAFF and APRIL','E':'IgA and the Fc alpha receptor'},
+        'D','Direct sequestration of the B-cell survival ligands BAFF and APRIL by a TACI-Fc fusion protein',
+        'Atacicept-vymj is a TACI-Fc fusion protein that binds the B-cell survival and differentiation ligands BAFF and APRIL, reducing signaling through these pathways and decreasing immunoglobulin production, including galactose-deficient IgA1.',
+        {'A':'IL-6 and TNF are inflammatory cytokines but are not the ligand pair bound by TACI.','B':'C3 and C5 are complement proteins and are not the direct ligands for this fusion protein.','C':'CD40 ligand and IL-21 support B-cell responses through other pathways but are not bound by TACI-Fc.','D':'Correct. The extracellular TACI domain binds BAFF and APRIL and thereby reduces their B-cell survival and differentiation signals.','E':'The drug does not directly bind IgA or the Fc alpha receptor; the fall in IgA is downstream of BAFF/APRIL blockade.'},
+        'Recognize BAFF and APRIL as TACI ligands and connect their sequestration with reduced pathogenic immunoglobulin production in IgA nephropathy.',
+        'TRUTAKNA- atacicept injection, solution','24aa29f6-ccff-45d3-89af-4d26e525cef8','C',
+        'CD40 ligand and IL-21 are important for B-cell activation and differentiation, but the stipulated TACI extracellular domain specifically identifies BAFF and APRIL as the bound ligands.'
     ))
 
     items.append(make(
