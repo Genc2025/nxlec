@@ -26,11 +26,28 @@ jobs:
           python usmle/author_duplicate_replacements_q1535.py
       - name: Live freeze and zero trust
         run: |
-          set -euo pipefail
+          set -uo pipefail
           B="$(git hash-object usmle/data/usmle-step1.db)"
+          set +e
           python usmle/audit_duplicate_replacements_q1535.py
+          RC=$?
+          set -e
           test "$B" = "$(git hash-object usmle/data/usmle-step1.db)"
+          echo "AUDIT_RC=$RC" >> "$GITHUB_ENV"
+      - name: Persist blocked diagnostics
+        if: env.AUDIT_RC != '0'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/remediation/duplicate_replacements_q1535_20260911.json usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_ZERO_TRUST.json
+          git commit -m 'usmle: persist blocked duplicate replacement diagnostics' || true
+          git pull --rebase origin main
+          git push
+      - name: Stop on blocked audit
+        if: env.AUDIT_RC != '0'
+        run: exit 1
       - name: Build final replacement manifest
+        if: env.AUDIT_RC == '0'
         run: |
           python - <<'PY'
           import hashlib,json,pathlib,subprocess
@@ -42,6 +59,7 @@ jobs:
           pathlib.Path('usmle/audit/CONFIRMED_DUPLICATE_REPLACEMENTS_Q1535_FINAL_QA_PASS.json').write_text(json.dumps(m,indent=2)+'\n')
           PY
       - name: Persist candidate and evidence
+        if: env.AUDIT_RC == '0'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -50,4 +68,4 @@ jobs:
           git pull --rebase origin main
           git push
 
-# rerun-after-audit-syntax-fix
+# persist-blocked-diagnostics
