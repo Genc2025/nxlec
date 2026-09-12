@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1551-Q1555-20260912",
+  "created_at": "2026-09-12",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1550,
+  "canonical_count_after": 1550,
+  "canonical_db_blob": "b909be98a4f3861c443f3b188c2597a290b0b17a",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-12: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1551,
+      "drug": "remibrutinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Human mast cells are activated by cross-linking surface-bound IgE. In the presence of remibrutinib, histamine release falls despite preserved IgE binding at the cell surface.",
+        "lead_in": "Which intracellular signaling protein is most directly inhibited?",
+        "options": {
+          "A": "Bruton's tyrosine kinase (BTK)",
+          "B": "Spleen tyrosine kinase (SYK)",
+          "C": "Janus kinase 2 (JAK2)",
+          "D": "Phosphoinositide 3-kinase delta only",
+          "E": "mTOR complex 1"
+        },
+        "intended_key": "A",
+        "tested_construct": "Inhibition of BTK downstream of FcεRI signaling in mast cells and basophils",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Remibrutinib is a small-molecule inhibitor of BTK. BTK participates in signaling downstream of FcεRI, Fcγ receptors, and the B-cell receptor; inhibiting BTK suppresses mast-cell and basophil degranulation and release of histamine and other inflammatory mediators.",
+        "distractor_explanations": {
+          "A": "Correct. Remibrutinib directly inhibits BTK, a signaling kinase downstream of FcεRI in mast cells and basophils.",
+          "B": "SYK also participates in Fc receptor signaling, but it is not the labeled direct target of remibrutinib.",
+          "C": "JAK2 mediates signaling downstream of several cytokine receptors rather than being the direct target in this FcεRI pathway.",
+          "D": "PI3K-delta can modulate immune-cell signaling, but the drug is labeled as a BTK inhibitor rather than a selective PI3K-delta inhibitor.",
+          "E": "mTORC1 is a downstream metabolic signaling complex and is not the direct target of remibrutinib."
+        },
+        "educational_objective": "Connect FcεRI-driven mast-cell degranulation with BTK signaling and recognize BTK inhibition as the direct action of remibrutinib."
+      },
+      "sources": [
+        {
+          "source_id": "Q1551-LABEL",
+          "title": "RHAPSIDO- remibrutinib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e5e89bff-6ced-4165-acc5-fb13136b3a3d",
+          "setid": "e5e89bff-6ced-4165-acc5-fb13136b3a3d",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "e6ca748ea350d62a38e4d5263ad7c5f697d44f9bcaf008fb1d7bb177f7a93bfc",
+          "cited_section_sha256": "14c8c854cce45393d98850b34d451c0e29cb2b48e4877bec6f1a2db5bcbb0ca9",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "14c8c854cce45393d98850b34d451c0e29cb2b48e4877bec6f1a2db5bcbb0ca9"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1551-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Remibrutinib directly inhibits BTK, a signaling kinase downstream of FcεRI in mast cells and basophils.",
+          "source_ids": [
+            "Q1551-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1551-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "SYK also participates in Fc receptor signaling, but it is not the labeled direct target of remibrutinib.",
+          "source_ids": [
+            "Q1551-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1551-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "JAK2 mediates signaling downstream of several cytokine receptors rather than being the direct target in this FcεRI pathway.",
+          "source_ids": [
+            "Q1551-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1551-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PI3K-delta can modulate immune-cell signaling, but the drug is labeled as a BTK inhibitor rather than a selective PI3K-delta inhibitor.",
+          "source_ids": [
+            "Q1551-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1551-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "mTORC1 is a downstream metabolic signaling complex and is not the direct target of remibrutinib.",
+          "source_ids": [
+            "Q1551-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "SYK is mechanistically plausible because it is also proximal in FcεRI signaling, but the drug-specific direct target established by the label is BTK.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1552,
+      "drug": "aficamten",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cardiac sarcomeres from a patient with obstructive hypertrophic cardiomyopathy are exposed to aficamten. Actin-activated ATPase activity of myosin falls, and generated contractile force decreases without blocking beta-adrenergic receptors.",
+        "lead_in": "Which direct action best explains these findings?",
+        "options": {
+          "A": "Activation of cardiac myosin ATPase",
+          "B": "Allosteric, reversible inhibition of cardiac myosin motor activity",
+          "C": "Irreversible inhibition of L-type calcium channels",
+          "D": "Antagonism of beta-1 adrenergic receptors",
+          "E": "Inhibition of troponin C calcium binding"
+        },
+        "intended_key": "B",
+        "tested_construct": "Allosteric reversible inhibition of cardiac myosin motor activity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Aficamten is an allosteric and reversible inhibitor of cardiac myosin motor activity. It reduces force generation by the cardiac sarcomere and thereby decreases hypercontractility and left ventricular outflow tract obstruction in hypertrophic cardiomyopathy.",
+        "distractor_explanations": {
+          "A": "Aficamten decreases rather than activates cardiac myosin motor activity.",
+          "B": "Correct. The drug allosterically and reversibly inhibits cardiac myosin motor activity, lowering sarcomeric force generation.",
+          "C": "The mechanism is not direct blockade of L-type calcium channels.",
+          "D": "Beta-1 antagonism can reduce contractility but does not account for the direct sarcomeric myosin effect in the experiment.",
+          "E": "Troponin C is not the direct molecular target of aficamten."
+        },
+        "educational_objective": "Differentiate direct cardiac myosin inhibition from receptor- and calcium-channel-mediated negative inotropy."
+      },
+      "sources": [
+        {
+          "source_id": "Q1552-LABEL",
+          "title": "MYQORZO- aficamten tablet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fd778507-1274-4d1a-a659-5431d55c543a",
+          "setid": "fd778507-1274-4d1a-a659-5431d55c543a",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "f24c5c648ea635e1f76eb62d51f66bcbe6b262484b670b1b1946fc4789988945",
+          "cited_section_sha256": "dfbb651c6d7abb5f28a68a8042f8cd97cd6ce366737ed492f85a8a9cb4073a9a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "dfbb651c6d7abb5f28a68a8042f8cd97cd6ce366737ed492f85a8a9cb4073a9a"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1552-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Aficamten decreases rather than activates cardiac myosin motor activity.",
+          "source_ids": [
+            "Q1552-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1552-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. The drug allosterically and reversibly inhibits cardiac myosin motor activity, lowering sarcomeric force generation.",
+          "source_ids": [
+            "Q1552-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1552-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The mechanism is not direct blockade of L-type calcium channels.",
+          "source_ids": [
+            "Q1552-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1552-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Beta-1 antagonism can reduce contractility but does not account for the direct sarcomeric myosin effect in the experiment.",
+          "source_ids": [
+            "Q1552-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1552-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Troponin C is not the direct molecular target of aficamten.",
+          "source_ids": [
+            "Q1552-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Beta-1 blockade also reduces contractility, but the cell-free sarcomere findings and direct reduction of myosin motor activity identify aficamten.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1553,
+      "drug": "linvoseltamab-gcpt",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "T lymphocytes are cocultured with multiple myeloma cells in the presence of linvoseltamab-gcpt. T-cell activation, cytokine release, and tumor-cell lysis increase even though the antibody has no intrinsic cytotoxic payload.",
+        "lead_in": "Which pair of surface molecules is simultaneously engaged?",
+        "options": {
+          "A": "CD19 on myeloma cells and CD28 on T cells",
+          "B": "CD38 on myeloma cells and CD16 on NK cells",
+          "C": "BCMA on myeloma cells and CD3 on T cells",
+          "D": "SLAMF7 on myeloma cells and PD-1 on T cells",
+          "E": "CD20 on myeloma cells and CD3 on T cells"
+        },
+        "intended_key": "C",
+        "tested_construct": "Bispecific engagement of BCMA on myeloma cells and CD3 on T cells",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Linvoseltamab-gcpt is a bispecific T-cell-engaging antibody that binds BCMA on multiple myeloma cells and CD3 on T cells. This physically redirects and activates T cells against BCMA-expressing cells, causing cytokine release and tumor-cell lysis.",
+        "distractor_explanations": {
+          "A": "CD19 is primarily a B-lineage marker and is not the tumor target used by linvoseltamab-gcpt.",
+          "B": "CD38-CD16 engagement describes an NK-cell-directed mechanism rather than this T-cell engager.",
+          "C": "Correct. Linvoseltamab-gcpt simultaneously binds BCMA and CD3 to redirect T cells toward myeloma cells.",
+          "D": "SLAMF7 and PD-1 are not the paired binding targets of this antibody.",
+          "E": "CD20 is not the tumor antigen targeted by linvoseltamab-gcpt."
+        },
+        "educational_objective": "Recognize the BCMA×CD3 bispecific mechanism that redirects T cells against multiple myeloma cells."
+      },
+      "sources": [
+        {
+          "source_id": "Q1553-LABEL",
+          "title": "LYNOZYFIC- linvoseltamab-gcpt injection, solution, concentrate",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e9fd0739-1b3f-4b8b-824a-1f0a902384d3",
+          "setid": "e9fd0739-1b3f-4b8b-824a-1f0a902384d3",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "18b7c1f03594b6ed676087b56a92bc6d14d34b918cfa6dd0d477dc2c014a099f",
+          "cited_section_sha256": "5e2e03241a5d09b989fe6c0e3fe0774e724bb9cac50b1cbf206a34e4dc22f8c3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "5e2e03241a5d09b989fe6c0e3fe0774e724bb9cac50b1cbf206a34e4dc22f8c3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1553-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "CD19 is primarily a B-lineage marker and is not the tumor target used by linvoseltamab-gcpt.",
+          "source_ids": [
+            "Q1553-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1553-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "CD38-CD16 engagement describes an NK-cell-directed mechanism rather than this T-cell engager.",
+          "source_ids": [
+            "Q1553-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1553-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Linvoseltamab-gcpt simultaneously binds BCMA and CD3 to redirect T cells toward myeloma cells.",
+          "source_ids": [
+            "Q1553-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1553-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "SLAMF7 and PD-1 are not the paired binding targets of this antibody.",
+          "source_ids": [
+            "Q1553-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1553-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "CD20 is not the tumor antigen targeted by linvoseltamab-gcpt.",
+          "source_ids": [
+            "Q1553-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "A CD20×CD3 bispecific antibody is a real T-cell-engaging strategy, but multiple myeloma and the drug identity specifically indicate BCMA×CD3.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1554,
+      "drug": "vanzacaftor/tezacaftor/deutivacaftor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Airway epithelial cells homozygous for F508del-CFTR are treated with vanzacaftor, tezacaftor, and deutivacaftor. More CFTR reaches the apical membrane, and the channels that arrive there spend a greater fraction of time in the open state.",
+        "lead_in": "Which component-action pairing best explains the increase in channel open probability?",
+        "options": {
+          "A": "Vanzacaftor — direct inhibition of epithelial sodium channels",
+          "B": "Tezacaftor — phosphorylation-independent activation of CFTR gating",
+          "C": "Vanzacaftor — ATP-sensitive potassium-channel opening",
+          "D": "Deutivacaftor — potentiation of CFTR gating at the cell surface",
+          "E": "Deutivacaftor — increased CFTR transcription in the nucleus"
+        },
+        "intended_key": "D",
+        "tested_construct": "Deutivacaftor potentiates the open probability of cell-surface CFTR while vanzacaftor and tezacaftor improve processing/trafficking",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "In the vanzacaftor/tezacaftor/deutivacaftor combination, vanzacaftor and tezacaftor bind different sites on CFTR and improve processing and trafficking of selected mutant CFTR proteins to the cell surface. Deutivacaftor is the potentiator that increases CFTR channel open probability at the cell surface.",
+        "distractor_explanations": {
+          "A": "Vanzacaftor acts as a CFTR corrector rather than a direct epithelial sodium-channel inhibitor.",
+          "B": "Tezacaftor improves CFTR processing and trafficking rather than serving as the gating potentiator in this combination.",
+          "C": "Vanzacaftor does not act through ATP-sensitive potassium channels.",
+          "D": "Correct. Deutivacaftor potentiates CFTR channel gating by increasing open probability at the cell surface.",
+          "E": "Deutivacaftor does not increase CFTR transcription; it acts on the channel protein already at the cell surface."
+        },
+        "educational_objective": "Distinguish CFTR correctors that improve trafficking from a CFTR potentiator that increases channel open probability."
+      },
+      "sources": [
+        {
+          "source_id": "Q1554-LABEL",
+          "title": "ALYFTREK- vanzacaftor, tezacaftor, and deutivacaftor tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7e635909-c6fd-4f0d-ae77-cdff03653a20",
+          "setid": "7e635909-c6fd-4f0d-ae77-cdff03653a20",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ab97bb652cb6ad887be3a67d1e2c9bfe7e9c1f3922413bf431d930b09e8bb08d",
+          "cited_section_sha256": "8894644036609eac00d1691b9bbc8069343a852026c70c3472ed8d5ae60820b3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "8894644036609eac00d1691b9bbc8069343a852026c70c3472ed8d5ae60820b3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1554-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Vanzacaftor acts as a CFTR corrector rather than a direct epithelial sodium-channel inhibitor.",
+          "source_ids": [
+            "Q1554-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1554-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Tezacaftor improves CFTR processing and trafficking rather than serving as the gating potentiator in this combination.",
+          "source_ids": [
+            "Q1554-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1554-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Vanzacaftor does not act through ATP-sensitive potassium channels.",
+          "source_ids": [
+            "Q1554-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1554-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Deutivacaftor potentiates CFTR channel gating by increasing open probability at the cell surface.",
+          "source_ids": [
+            "Q1554-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1554-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Deutivacaftor does not increase CFTR transcription; it acts on the channel protein already at the cell surface.",
+          "source_ids": [
+            "Q1554-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Tezacaftor is plausible because it improves CFTR function overall, but it does so by correcting processing/trafficking; deutivacaftor is the gating potentiator.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1555,
+      "drug": "paltusotine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Endocrine System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Endocrine System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Pituitary somatotroph cells are exposed to paltusotine. Growth hormone secretion decreases, and cyclic AMP accumulation is inhibited after activation of a specific somatostatin receptor subtype.",
+        "lead_in": "Which direct receptor action best explains this effect?",
+        "options": {
+          "A": "Antagonism of growth hormone-releasing hormone receptors",
+          "B": "Agonism of dopamine D2 receptors",
+          "C": "Agonism of somatostatin receptor 5",
+          "D": "Antagonism of somatostatin receptor 2",
+          "E": "Selective agonism of somatostatin receptor 2"
+        },
+        "intended_key": "E",
+        "tested_construct": "Selective SSTR2 agonism with suppression of cAMP, GH, and IGF-1 secretion",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Paltusotine is a highly selective agonist of somatostatin receptor 2. SSTR2 activation inhibits cyclic AMP accumulation and suppresses growth hormone secretion, leading to reduced IGF-1 production.",
+        "distractor_explanations": {
+          "A": "GHRH-receptor antagonism could reduce GH secretion but is not the direct action of paltusotine.",
+          "B": "D2 agonism can suppress prolactin and sometimes GH in selected tumors, but it is not the labeled target of paltusotine.",
+          "C": "Paltusotine is highly selective for SSTR2 rather than SSTR5.",
+          "D": "SSTR2 antagonism would oppose the receptor action responsible for GH suppression.",
+          "E": "Correct. Paltusotine selectively agonizes SSTR2, reducing cAMP signaling and GH secretion."
+        },
+        "educational_objective": "Link SSTR2 agonism to reduced cAMP signaling and suppression of GH/IGF-1 in acromegaly."
+      },
+      "sources": [
+        {
+          "source_id": "Q1555-LABEL",
+          "title": "PALSONIFY- paltusotine tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8a6d2ce0-a621-4ee7-983c-977cd948ff4d",
+          "setid": "8a6d2ce0-a621-4ee7-983c-977cd948ff4d",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3cfb19a3fecfabe79f93166e1b2ace00f5d7fc21e5e1c7a2605ae748798962c6",
+          "cited_section_sha256": "5d9dc0440be898795fc4d2939aa24e5c37a18a8a00c1fbcfb2ef285017c6d891",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "5d9dc0440be898795fc4d2939aa24e5c37a18a8a00c1fbcfb2ef285017c6d891"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1555-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "GHRH-receptor antagonism could reduce GH secretion but is not the direct action of paltusotine.",
+          "source_ids": [
+            "Q1555-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1555-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "D2 agonism can suppress prolactin and sometimes GH in selected tumors, but it is not the labeled target of paltusotine.",
+          "source_ids": [
+            "Q1555-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1555-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Paltusotine is highly selective for SSTR2 rather than SSTR5.",
+          "source_ids": [
+            "Q1555-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1555-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "SSTR2 antagonism would oppose the receptor action responsible for GH suppression.",
+          "source_ids": [
+            "Q1555-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1555-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Paltusotine selectively agonizes SSTR2, reducing cAMP signaling and GH secretion.",
+          "source_ids": [
+            "Q1555-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "An SSTR5 agonist is plausible because somatostatin analogs can act at multiple receptor subtypes, but paltusotine is specifically highly selective for SSTR2.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
