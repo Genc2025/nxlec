@@ -138,7 +138,8 @@ def main():
   other=sorted([(jac(item_text(x),item_text(y)),y['num']) for y in items if y['num']!=q],reverse=True)
   rmj=other[0][0] if other else 0
   if rmj>=0.45: f.append('replacement_batch_duplicate')
-  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','key':key,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'source_live_binding' not in f else 'BLOCKED','canonical_max_jaccard':round(mj,5),'canonical_top_match':scored[0][1] if scored else None,'replacement_max_jaccard':round(rmj,5),'replacement_top_q':other[0][1] if other else None,'source_reports':sr,'failures':sorted(set(f))})
+  top_canonical_text=next((t for cid,cq,t in canon if scored and cid==scored[0][1]),'')
+  reports.append({'q':q,'status':'PASS' if not f else 'BLOCKED','key':key,'second_answer_attack':'PASS' if 'second_answer_attack' not in f else 'BLOCKED','source_live_binding':'PASS' if 'source_live_binding' not in f else 'BLOCKED','canonical_max_jaccard':round(mj,5),'canonical_top_match':scored[0][1] if scored else None,'canonical_top_text':top_canonical_text if mj>=0.45 else None,'replacement_max_jaccard':round(rmj,5),'replacement_top_q':other[0][1] if other else None,'source_reports':sr,'failures':sorted(set(f))})
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
  out={'audit_id':'CONFIRMED-DUPLICATE-REPLACEMENTS-ZERO-TRUST-20260911','candidate_blob':cand_blob,'production_db_blob':DB_BLOB,'target_count':len(TARGETS),'targets':TARGETS,'reports':reports,'failures':failures,'verdict':'ZERO_TRUST_PASS' if not failures else 'BLOCKED','production_db_modified':False,'production_replacement_ready':not failures}
  OUT.parent.mkdir(parents=True,exist_ok=True); OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
