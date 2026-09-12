@@ -20,16 +20,16 @@ def make(*args, **kwargs):
 def main():
     items=[]
     items.append(make(
-      306,'fitusiran','Blood, Lymphoreticular and Immune Systems',['Pharmacology','Molecular Biology'],
-      'Hepatocytes are exposed to a GalNAc-conjugated double-stranded small interfering RNA used for hemophilia prophylaxis. Antithrombin messenger RNA and plasma antithrombin decrease, while the genomic SERPINC1 sequence remains unchanged.',
-      'Which molecular process most directly causes the decrease in antithrombin messenger RNA?',
-      {'A':'RNase H1-mediated degradation after binding of a single-stranded antisense oligonucleotide','B':'RISC-mediated degradation of antithrombin mRNA after small interfering RNA loading','C':'CRISPR-mediated disruption of the SERPINC1 gene','D':'Proteasomal degradation of circulating antithrombin protein','E':'Neutralization of tissue factor pathway inhibitor by a monoclonal antibody'},
-      'B','RNA-interference-mediated degradation of antithrombin mRNA by a double-stranded siRNA',
-      'Fitusiran is a double-stranded small interfering RNA that reduces antithrombin by causing degradation of antithrombin messenger RNA through RNA interference.',
-      {'A':'RNase H1-mediated RNA degradation is characteristic of antisense oligonucleotide mechanisms rather than a double-stranded siRNA.','B':'Correct. Fitusiran is a double-stranded siRNA that reduces antithrombin by RNA-interference-mediated degradation of antithrombin mRNA.','C':'The unchanged genomic sequence excludes gene editing.','D':'Protein degradation would not directly account for the observed fall in antithrombin messenger RNA.','E':'TFPI neutralization is a distinct rebalancing strategy and does not explain selective loss of antithrombin mRNA.'},
-      'Distinguish siRNA-mediated RNA interference targeting antithrombin mRNA from antisense, genome-editing, and protein-level hemostatic strategies.',
+      306,'fitusiran','Blood, Lymphoreticular and Immune Systems',['Pharmacology','Physiology'],
+      'A patient with hemophilia receives a liver-directed small interfering RNA therapy. Follow-up testing shows a selective decline in one endogenous anticoagulant, while factor VIII and factor IX concentrations are unchanged.',
+      'Which hepatic messenger RNA is directly targeted by this therapy?',
+      {'A':'Tissue factor pathway inhibitor mRNA','B':'Antithrombin mRNA','C':'Protein C mRNA','D':'Protein S mRNA','E':'Thrombomodulin mRNA'},
+      'B','Selective targeting of antithrombin messenger RNA by fitusiran',
+      'Fitusiran is an antithrombin-directed small interfering RNA that reduces plasma antithrombin by causing degradation of antithrombin messenger RNA through RNA interference.',
+      {'A':'TFPI is targeted by other hemostatic rebalancing strategies, not by fitusiran.','B':'Correct. Fitusiran directly targets antithrombin messenger RNA and thereby lowers plasma antithrombin.','C':'Protein C is an endogenous anticoagulant but is not the transcript targeted by fitusiran.','D':'Protein S serves as a cofactor in the protein C pathway and is not the fitusiran target.','E':'Thrombomodulin modulates thrombin-dependent protein C activation but is not targeted by fitusiran.'},
+      'Identify antithrombin messenger RNA as the direct molecular target of fitusiran in hemophilia prophylaxis.',
       'QFITLIA- fitusiran injection, solution','6dd2f8ac-6f90-4cbf-b197-97d74964135c','A',
-      'RNase H1-mediated degradation can also lower a hepatic target mRNA, but the double-stranded siRNA platform identifies RNA interference rather than an antisense oligonucleotide mechanism.'
+      'TFPI is a plausible alternative because TFPI inhibition is another rebalancing approach in hemophilia, but fitusiran specifically targets antithrombin messenger RNA.'
     ))
     items.append(make(
       317,'eladocagene exuparvovec-tneq','Behavioral Health, Nervous Systems and Special Senses',['Pharmacology','Genetics'],
