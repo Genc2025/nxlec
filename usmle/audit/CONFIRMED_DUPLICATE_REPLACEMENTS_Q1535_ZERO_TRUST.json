@@ -1,6 +1,6 @@
 {
   "audit_id": "CONFIRMED-DUPLICATE-REPLACEMENTS-ZERO-TRUST-20260911",
-  "candidate_blob": "e20cbe9d0d403cb720df9afafeecf0c3af367f09",
+  "candidate_blob": "f40028816167e7710609773f85b779d783c9dc09",
   "production_db_blob": "a3f28fcfd0a89161ed003e60d0d797c5fa103f1a",
   "target_count": 14,
   "targets": [
@@ -23,25 +23,25 @@
     {
       "q": 306,
       "status": "BLOCKED",
-      "key": "A",
+      "key": "B",
       "second_answer_attack": "PASS",
       "source_live_binding": "PASS",
-      "canonical_max_jaccard": 0.50667,
-      "canonical_top_match": "S1-DIRECT-1457-20260910T100000Z",
-      "canonical_top_text": "Plasma from a patient with hereditary angioedema is exposed to garadacimab-gxii. The conversion of prekallikrein to kallikrein and subsequent bradykinin generation decrease, although C1 inhibitor concentration is unchanged. Which direct molecular action produces this effect? Neutralization of bradykinin B2 receptors Binding the catalytic domain of activated factor XII and inhibiting factor XIIa activity Replacement of functional C1 inhibitor Direct irreversible inhibition of plasma kallikrein Activation of high-molecular-weight kininogen degradation Activated factor XII blockade upstream of kallikrein and bradykinin",
-      "replacement_max_jaccard": 0.20652,
-      "replacement_top_q": 1102,
+      "canonical_max_jaccard": 0.42169,
+      "canonical_top_match": "S1-DIRECT-1417-20260910T100000Z",
+      "canonical_top_text": null,
+      "replacement_max_jaccard": 0.61842,
+      "replacement_top_q": 1511,
       "source_reports": [
         {
           "source_id": "Q306-LABEL",
           "status": "PASS",
-          "setid": "07b0b671-db81-49f0-a402-0c0219db7fa2",
-          "semantic_overlap": 17,
+          "setid": "6dd2f8ac-6f90-4cbf-b197-97d74964135c",
+          "semantic_overlap": 11,
           "locator_components": 1
         }
       ],
       "failures": [
-        "canonical_duplicate"
+        "replacement_batch_duplicate"
       ]
     },
     {
@@ -185,8 +185,8 @@
       "canonical_max_jaccard": 0.3038,
       "canonical_top_match": "S1-DIRECT-1506-20260910T211500Z",
       "canonical_top_text": null,
-      "replacement_max_jaccard": 0.18478,
-      "replacement_top_q": 306,
+      "replacement_max_jaccard": 0.16129,
+      "replacement_top_q": 1102,
       "source_reports": [
         {
           "source_id": "Q965-LABEL",
@@ -251,8 +251,8 @@
       "canonical_max_jaccard": 0.32911,
       "canonical_top_match": "S1-DIRECT-1498-20260910T100000Z",
       "canonical_top_text": null,
-      "replacement_max_jaccard": 0.20652,
-      "replacement_top_q": 306,
+      "replacement_max_jaccard": 0.18681,
+      "replacement_top_q": 318,
       "source_reports": [
         {
           "source_id": "Q1102-LABEL",
@@ -310,15 +310,15 @@
     },
     {
       "q": 1511,
-      "status": "PASS",
+      "status": "BLOCKED",
       "key": "D",
       "second_answer_attack": "PASS",
       "source_live_binding": "PASS",
       "canonical_max_jaccard": 0.36471,
       "canonical_top_match": "S1-DIRECT-1475-20260910T100000Z",
       "canonical_top_text": null,
-      "replacement_max_jaccard": 0.28736,
-      "replacement_top_q": 318,
+      "replacement_max_jaccard": 0.61842,
+      "replacement_top_q": 306,
       "source_reports": [
         {
           "source_id": "Q1511-LABEL",
@@ -328,11 +328,14 @@
           "locator_components": 1
         }
       ],
-      "failures": []
+      "failures": [
+        "replacement_batch_duplicate"
+      ]
     }
   ],
   "failures": [
-    "Q306:canonical_duplicate"
+    "Q306:replacement_batch_duplicate",
+    "Q1511:replacement_batch_duplicate"
   ],
   "verdict": "BLOCKED",
   "production_db_modified": false,
