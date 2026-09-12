@@ -80,7 +80,7 @@ jobs:
             m=re.search(r'DIRECT-(\d{4})',cid); assert m; nums.append(int(m.group(1)))
           assert len(rows)==rc==fin==1540
           assert set(nums)==set(range(1,1541))
-          incoming=[r for r in rows if 1536 <= int(re.search(r'DIRECT-(\\d{4})',r[0]).group(1)) <= 1540]
+          incoming=[r for r in rows if 1536 <= int(re.search(r'DIRECT-(\d{4})',r[0]).group(1)) <= 1540]
           assert len(incoming)==5
           assert all('20260912T121100Z' in r[0] for r in incoming)
           assert all(r[4]=='2026-09-12T12:11:00Z' for r in incoming)
