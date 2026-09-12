@@ -20,16 +20,16 @@ def make(*args, **kwargs):
 def main():
     items=[]
     items.append(make(
-      306,'garadacimab-gxii','Blood, Lymphoreticular and Immune Systems',['Pharmacology','Physiology'],
-      'Plasma from a patient with hereditary angioedema is exposed to garadacimab-gxii. Activation of prekallikrein decreases and bradykinin generation falls, while C1-inhibitor concentration is unchanged.',
-      'Which direct pharmacologic action best explains these findings?',
-      {'A':'Binding the catalytic domain of activated factor XII and inhibiting its activity','B':'Replacing deficient C1 esterase inhibitor','C':'Blocking the bradykinin B2 receptor','D':'Directly inhibiting plasma kallikrein catalytic activity','E':'Activating tissue factor pathway inhibitor'},
-      'A','Activated factor XII catalytic-domain inhibition upstream of kallikrein and bradykinin generation',
-      'Garadacimab-gxii binds the catalytic domain of activated factor XII (FXIIa and beta-FXIIa) and inhibits its catalytic activity. This decreases prekallikrein activation and downstream bradykinin generation.',
-      {'A':'Correct. Direct FXIIa inhibition explains lower kallikrein-pathway activity without replacing C1 inhibitor.','B':'C1-inhibitor replacement would increase functional inhibitor rather than directly bind FXIIa.','C':'B2-receptor blockade acts downstream at bradykinin signaling and would not reduce bradykinin generation.','D':'Direct kallikrein inhibition acts one step downstream of FXIIa and is not the labeled target of garadacimab.','E':'TFPI regulates tissue-factor coagulation initiation and does not explain selective suppression of the kallikrein-kinin pathway.'},
-      'Recognize activated factor XII inhibition as an upstream strategy for suppressing kallikrein and bradykinin generation in hereditary angioedema.',
-      'ANDEMBRY- garadacimab injection, solution','07b0b671-db81-49f0-a402-0c0219db7fa2','D',
-      'Direct plasma kallikrein inhibition could also reduce bradykinin, but garadacimab specifically binds activated factor XII upstream of prekallikrein activation.'
+      306,'fitusiran','Blood, Lymphoreticular and Immune Systems',['Pharmacology','Molecular Biology'],
+      'Hepatocytes are exposed to a GalNAc-conjugated double-stranded small interfering RNA used for hemophilia prophylaxis. Antithrombin messenger RNA and plasma antithrombin decrease, while the genomic SERPINC1 sequence remains unchanged.',
+      'Which molecular process most directly causes the decrease in antithrombin messenger RNA?',
+      {'A':'RNase H1-mediated degradation after binding of a single-stranded antisense oligonucleotide','B':'RISC-mediated degradation of antithrombin mRNA after small interfering RNA loading','C':'CRISPR-mediated disruption of the SERPINC1 gene','D':'Proteasomal degradation of circulating antithrombin protein','E':'Neutralization of tissue factor pathway inhibitor by a monoclonal antibody'},
+      'B','RNA-interference-mediated degradation of antithrombin mRNA by a double-stranded siRNA',
+      'Fitusiran is a double-stranded small interfering RNA that reduces antithrombin by causing degradation of antithrombin messenger RNA through RNA interference.',
+      {'A':'RNase H1-mediated RNA degradation is characteristic of antisense oligonucleotide mechanisms rather than a double-stranded siRNA.','B':'Correct. Fitusiran is a double-stranded siRNA that reduces antithrombin by RNA-interference-mediated degradation of antithrombin mRNA.','C':'The unchanged genomic sequence excludes gene editing.','D':'Protein degradation would not directly account for the observed fall in antithrombin messenger RNA.','E':'TFPI neutralization is a distinct rebalancing strategy and does not explain selective loss of antithrombin mRNA.'},
+      'Distinguish siRNA-mediated RNA interference targeting antithrombin mRNA from antisense, genome-editing, and protein-level hemostatic strategies.',
+      'QFITLIA- fitusiran injection, solution','6dd2f8ac-6f90-4cbf-b197-97d74964135c','A',
+      'RNase H1-mediated degradation can also lower a hepatic target mRNA, but the double-stranded siRNA platform identifies RNA interference rather than an antisense oligonucleotide mechanism.'
     ))
     items.append(make(
       317,'eladocagene exuparvovec-tneq','Behavioral Health, Nervous Systems and Special Senses',['Pharmacology','Genetics'],
