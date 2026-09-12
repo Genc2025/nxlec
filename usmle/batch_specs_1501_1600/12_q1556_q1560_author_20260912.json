@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1556-Q1560-20260912",
+  "created_at": "2026-09-12",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1555,
+  "canonical_count_after": 1555,
+  "canonical_db_blob": "079d22bf170a3de66613ac5a895586744a3ddc7b",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-12: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1556,
+      "drug": "imetelstat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Malignant hematopoietic progenitor cells are exposed to imetelstat. Telomerase activity falls, progressive telomere shortening occurs, and proliferation decreases after repeated cell divisions.",
+        "lead_in": "Which molecular target is directly bound by this drug?",
+        "options": {
+          "A": "The template region of the RNA component of human telomerase",
+          "B": "The catalytic ATP-binding site of telomerase reverse transcriptase",
+          "C": "Telomeric DNA repeat sequences at chromosome ends",
+          "D": "The shelterin protein TRF2",
+          "E": "The promoter region of the TERT gene"
+        },
+        "intended_key": "A",
+        "tested_construct": "Oligonucleotide binding to the template region of telomerase RNA (hTR)",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Imetelstat is an oligonucleotide telomerase inhibitor that binds the template region of the RNA component of human telomerase (hTR). This inhibits telomerase enzymatic activity and prevents productive telomere binding, leading to telomere shortening in susceptible malignant progenitor cells.",
+        "distractor_explanations": {
+          "A": "Correct. Imetelstat directly binds the template region of the telomerase RNA component.",
+          "B": "The drug is not a small-molecule inhibitor of the catalytic ATP-binding site of hTERT.",
+          "C": "Imetelstat does not directly hybridize to chromosomal telomeric DNA repeats as its primary labeled mechanism.",
+          "D": "TRF2 is a shelterin protein and is not the direct target of imetelstat.",
+          "E": "The drug does not act by binding the TERT gene promoter or suppressing transcription directly."
+        },
+        "educational_objective": "Recognize telomerase RNA-template binding as the direct molecular action of imetelstat."
+      },
+      "sources": [
+        {
+          "source_id": "Q1556-LABEL",
+          "title": "RYTELO- imetelstat sodium injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b0fab7ca-e578-43c5-9df6-bdaff4182257",
+          "setid": "b0fab7ca-e578-43c5-9df6-bdaff4182257",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b3809ac48a6ce55de604bb45cfa0e6dea6fec72ac5166c17d5d7463b0ecc128e",
+          "cited_section_sha256": "0dd00d4becf097370258ed1cb88adbdc0d3eb6d28a0024fff11b4f856a0554bc",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "0dd00d4becf097370258ed1cb88adbdc0d3eb6d28a0024fff11b4f856a0554bc"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1556-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Imetelstat directly binds the template region of the telomerase RNA component.",
+          "source_ids": [
+            "Q1556-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1556-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The drug is not a small-molecule inhibitor of the catalytic ATP-binding site of hTERT.",
+          "source_ids": [
+            "Q1556-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1556-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Imetelstat does not directly hybridize to chromosomal telomeric DNA repeats as its primary labeled mechanism.",
+          "source_ids": [
+            "Q1556-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1556-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "TRF2 is a shelterin protein and is not the direct target of imetelstat.",
+          "source_ids": [
+            "Q1556-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1556-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "The drug does not act by binding the TERT gene promoter or suppressing transcription directly.",
+          "source_ids": [
+            "Q1556-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "A catalytic-site inhibitor of hTERT would also reduce telomerase activity, but imetelstat is specifically an oligonucleotide that binds the telomerase RNA template region.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1557,
+      "drug": "marstacimab-hncq",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Hematology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Plasma from a patient with hemophilia is incubated with marstacimab-hncq. Thrombin-generation assays show increased peak thrombin without replacement of factor VIII or factor IX.",
+        "lead_in": "Which regulatory interaction is most directly reduced?",
+        "options": {
+          "A": "Antithrombin inhibition of thrombin",
+          "B": "Tissue factor pathway inhibitor suppression of factor Xa/FVIIa-tissue-factor activity",
+          "C": "Activated protein C cleavage of factors Va and VIIIa",
+          "D": "Plasmin-mediated fibrin degradation",
+          "E": "Protein S cofactor activity for activated protein C"
+        },
+        "intended_key": "B",
+        "tested_construct": "Neutralization of TFPI Kunitz-2 activity, relieving inhibition of the extrinsic coagulation pathway",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Marstacimab-hncq is a monoclonal antibody directed against the Kunitz domain 2 of tissue factor pathway inhibitor (TFPI). Neutralizing TFPI reduces its inhibition of factor Xa and the FVIIa/tissue-factor complex, thereby increasing thrombin generation.",
+        "distractor_explanations": {
+          "A": "Antithrombin remains an important inhibitor of coagulation proteases but is not the direct target of marstacimab-hncq.",
+          "B": "Correct. TFPI normally restrains factor Xa and FVIIa/tissue-factor activity, and marstacimab neutralizes this inhibition.",
+          "C": "Activated protein C regulates factors Va and VIIIa but is not directly blocked by this antibody.",
+          "D": "Plasmin belongs to fibrinolysis rather than the extrinsic-pathway checkpoint targeted here.",
+          "E": "Protein S is a cofactor for activated protein C and is not the direct target of marstacimab-hncq."
+        },
+        "educational_objective": "Link TFPI antagonism with enhanced factor Xa/FVIIa-tissue-factor activity and increased thrombin generation in hemophilia."
+      },
+      "sources": [
+        {
+          "source_id": "Q1557-LABEL",
+          "title": "HYMPAVZI- marstacimab-hncq injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a2cc631e-13a6-40c2-acf9-065ccedfb90a",
+          "setid": "a2cc631e-13a6-40c2-acf9-065ccedfb90a",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3beff0ebb46e8a23d37ec9498ef706bf160e308bf3a1999cff4ce56f0033c9ec",
+          "cited_section_sha256": "20b5141c5b1ee7a9913110640a134738635b2c06eb75a5adf89f5c299dab151c",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "20b5141c5b1ee7a9913110640a134738635b2c06eb75a5adf89f5c299dab151c"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1557-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Antithrombin remains an important inhibitor of coagulation proteases but is not the direct target of marstacimab-hncq.",
+          "source_ids": [
+            "Q1557-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1557-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. TFPI normally restrains factor Xa and FVIIa/tissue-factor activity, and marstacimab neutralizes this inhibition.",
+          "source_ids": [
+            "Q1557-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1557-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Activated protein C regulates factors Va and VIIIa but is not directly blocked by this antibody.",
+          "source_ids": [
+            "Q1557-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1557-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Plasmin belongs to fibrinolysis rather than the extrinsic-pathway checkpoint targeted here.",
+          "source_ids": [
+            "Q1557-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1557-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Protein S is a cofactor for activated protein C and is not the direct target of marstacimab-hncq.",
+          "source_ids": [
+            "Q1557-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Activated protein C inhibition could also increase coagulation, but the drug-specific mechanism is neutralization of TFPI at its Kunitz-2 domain.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1558,
+      "drug": "vorasidenib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A glioma carries an IDH1 mutation. After treatment with vorasidenib, cellular differentiation partially recovers and the concentration of an oncometabolite falls markedly.",
+        "lead_in": "Which metabolite is most directly decreased?",
+        "options": {
+          "A": "Succinate",
+          "B": "Fumarate",
+          "C": "2-hydroxyglutarate",
+          "D": "Methylmalonate",
+          "E": "Homocysteine"
+        },
+        "intended_key": "C",
+        "tested_construct": "Reduction of 2-hydroxyglutarate produced by mutant IDH1/IDH2 enzymes",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Vorasidenib inhibits IDH1 and IDH2, including clinically relevant mutant variants. Mutant IDH enzymes produce the oncometabolite 2-hydroxyglutarate (2-HG); vorasidenib reduces 2-HG and can partially restore cellular differentiation.",
+        "distractor_explanations": {
+          "A": "Succinate accumulates in succinate dehydrogenase deficiency rather than being the characteristic mutant-IDH oncometabolite.",
+          "B": "Fumarate accumulates with fumarate hydratase deficiency and is not the principal metabolite reduced by vorasidenib.",
+          "C": "Correct. Mutant IDH1/2 produce 2-hydroxyglutarate, which decreases with vorasidenib.",
+          "D": "Methylmalonate accumulates in methylmalonyl-CoA mutase or vitamin B12-related disorders, not mutant IDH glioma.",
+          "E": "Homocysteine is linked to methionine/folate metabolism rather than mutant IDH activity."
+        },
+        "educational_objective": "Associate mutant IDH1/2 activity with production of 2-hydroxyglutarate and recognize reduction of this oncometabolite after IDH inhibition."
+      },
+      "sources": [
+        {
+          "source_id": "Q1558-LABEL",
+          "title": "VORANIGO- vorasidenib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=31405fee-55b7-4857-987e-2724ee76be84",
+          "setid": "31405fee-55b7-4857-987e-2724ee76be84",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "6fe6f7b66272e835aa6812a6ba790806aef00e4ef92cd7d7a7b773eae6b42286",
+          "cited_section_sha256": "45b1b239894ec99c0f8d045a64ab6f517d8148224ef4769a16d9007d279d6e2c",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "45b1b239894ec99c0f8d045a64ab6f517d8148224ef4769a16d9007d279d6e2c"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1558-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Succinate accumulates in succinate dehydrogenase deficiency rather than being the characteristic mutant-IDH oncometabolite.",
+          "source_ids": [
+            "Q1558-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1558-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Fumarate accumulates with fumarate hydratase deficiency and is not the principal metabolite reduced by vorasidenib.",
+          "source_ids": [
+            "Q1558-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1558-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Mutant IDH1/2 produce 2-hydroxyglutarate, which decreases with vorasidenib.",
+          "source_ids": [
+            "Q1558-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1558-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Methylmalonate accumulates in methylmalonyl-CoA mutase or vitamin B12-related disorders, not mutant IDH glioma.",
+          "source_ids": [
+            "Q1558-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1558-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Homocysteine is linked to methionine/folate metabolism rather than mutant IDH activity.",
+          "source_ids": [
+            "Q1558-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Succinate and fumarate are also oncometabolites in other metabolic tumor syndromes, but mutant IDH specifically drives 2-hydroxyglutarate production.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1559,
+      "drug": "elacestrant",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Reproductive System & Breast",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Reproductive System & Breast"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "ER-positive breast cancer cells with an ESR1 mutation are treated with elacestrant. Estrogen-dependent proliferation falls, and the abundance of estrogen receptor-alpha protein decreases even though ESR1 DNA remains intact.",
+        "lead_in": "Which cellular process most directly accounts for the decrease in receptor abundance?",
+        "options": {
+          "A": "Lysosomal degradation after receptor endocytosis",
+          "B": "Suppression of ESR1 transcription by DNA methylation",
+          "C": "RNA interference-mediated cleavage of ESR1 mRNA",
+          "D": "Proteasomal degradation of estrogen receptor-alpha",
+          "E": "Caspase-mediated cleavage of estrogen receptor-alpha during apoptosis"
+        },
+        "intended_key": "D",
+        "tested_construct": "ERα antagonism coupled to proteasomal degradation of ERα protein",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Elacestrant is an estrogen receptor antagonist that binds ERα. In ER-positive breast cancer cells it inhibits estrogen-mediated proliferation at concentrations that induce proteasome-mediated degradation of ERα protein.",
+        "distractor_explanations": {
+          "A": "The labeled mechanism describes proteasomal rather than lysosomal degradation of ERα.",
+          "B": "Elacestrant does not primarily lower receptor abundance through ESR1 promoter methylation.",
+          "C": "It is not an RNA-interference therapy and does not directly cleave ESR1 mRNA.",
+          "D": "Correct. Elacestrant induces proteasome-mediated degradation of ERα protein.",
+          "E": "The receptor loss is not explained as a secondary consequence of caspase-mediated apoptosis in the labeled mechanism."
+        },
+        "educational_objective": "Recognize proteasomal ERα degradation as part of the direct cellular action of elacestrant."
+      },
+      "sources": [
+        {
+          "source_id": "Q1559-LABEL",
+          "title": "ORSERDU- elacestrant tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa66ae5c-2bd2-4444-8178-b55651e054ef",
+          "setid": "aa66ae5c-2bd2-4444-8178-b55651e054ef",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "186f62580043ac94672cbbb4e4c4ae63fe30758d7070140b8e829aad1a5af4dd",
+          "cited_section_sha256": "4f0fb16e55b12300dd41f0c2d0e5ce8d407030c4499fd96c79dd9ca6d18112cb",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "4f0fb16e55b12300dd41f0c2d0e5ce8d407030c4499fd96c79dd9ca6d18112cb"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1559-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The labeled mechanism describes proteasomal rather than lysosomal degradation of ERα.",
+          "source_ids": [
+            "Q1559-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1559-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Elacestrant does not primarily lower receptor abundance through ESR1 promoter methylation.",
+          "source_ids": [
+            "Q1559-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1559-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "It is not an RNA-interference therapy and does not directly cleave ESR1 mRNA.",
+          "source_ids": [
+            "Q1559-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1559-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Elacestrant induces proteasome-mediated degradation of ERα protein.",
+          "source_ids": [
+            "Q1559-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1559-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "The receptor loss is not explained as a secondary consequence of caspase-mediated apoptosis in the labeled mechanism.",
+          "source_ids": [
+            "Q1559-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Lysosomal receptor turnover is a plausible degradation pathway, but the label specifically identifies proteasome-mediated ERα degradation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1560,
+      "drug": "crovalimab-akkz",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Erythrocytes from a patient with paroxysmal nocturnal hemoglobinuria are exposed to complement-active serum in the presence of crovalimab-akkz. Terminal complement-mediated intravascular hemolysis is suppressed.",
+        "lead_in": "Which complement event is most directly inhibited?",
+        "options": {
+          "A": "C1q binding to antibody Fc",
+          "B": "Cleavage of C3 into C3a and C3b",
+          "C": "Factor B activation in the alternative pathway",
+          "D": "Decay of C3 convertase by factor H",
+          "E": "Cleavage of C5 into C5a and C5b, preventing membrane attack complex formation"
+        },
+        "intended_key": "E",
+        "tested_construct": "High-affinity C5 binding that blocks C5 cleavage and membrane attack complex formation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Crovalimab-akkz is a monoclonal antibody that binds complement protein C5 with high affinity. This inhibits cleavage of C5 into C5a and C5b and prevents downstream formation of the membrane attack complex, reducing terminal complement-mediated hemolysis.",
+        "distractor_explanations": {
+          "A": "C1q initiates the classical pathway upstream and is not the direct target of crovalimab-akkz.",
+          "B": "C3 cleavage occurs upstream of C5 and is not the direct blocked step.",
+          "C": "Factor B participates in alternative-pathway C3 convertase formation but is not the direct target.",
+          "D": "Factor H accelerates decay of alternative-pathway C3 convertase; crovalimab does not act by increasing factor H activity.",
+          "E": "Correct. Crovalimab binds C5 and prevents its cleavage to C5a and C5b, thereby blocking membrane attack complex formation."
+        },
+        "educational_objective": "Link C5 inhibition with prevention of membrane attack complex formation and reduced intravascular hemolysis in PNH."
+      },
+      "sources": [
+        {
+          "source_id": "Q1560-LABEL",
+          "title": "PIASKY- crovalimab-akkz injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2597efc2-a97b-487c-b500-a67fd282a73b",
+          "setid": "2597efc2-a97b-487c-b500-a67fd282a73b",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-12; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-12",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "85a58bb729045d6299d23af687abfd660e45ef1af5dc713e3005c0ec821dd3c3",
+          "cited_section_sha256": "12d17f6be2af9c405507a3ab363eaf872d05f8d926717833dce632ebf9bf3070",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-12",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "12d17f6be2af9c405507a3ab363eaf872d05f8d926717833dce632ebf9bf3070"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1560-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "C1q initiates the classical pathway upstream and is not the direct target of crovalimab-akkz.",
+          "source_ids": [
+            "Q1560-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1560-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "C3 cleavage occurs upstream of C5 and is not the direct blocked step.",
+          "source_ids": [
+            "Q1560-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1560-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Factor B participates in alternative-pathway C3 convertase formation but is not the direct target.",
+          "source_ids": [
+            "Q1560-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1560-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Factor H accelerates decay of alternative-pathway C3 convertase; crovalimab does not act by increasing factor H activity.",
+          "source_ids": [
+            "Q1560-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1560-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Crovalimab binds C5 and prevents its cleavage to C5a and C5b, thereby blocking membrane attack complex formation.",
+          "source_ids": [
+            "Q1560-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "C3 cleavage is another major complement checkpoint, but the drug-specific target is C5 and the blocked terminal event is C5 cleavage with subsequent MAC formation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-12.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-12.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
