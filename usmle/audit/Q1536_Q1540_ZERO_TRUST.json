@@ -1,6 +1,6 @@
 {
   "audit_id": "Q1536-Q1540-ZERO-TRUST-ADAPTIVE-20260912",
-  "candidate_blob": "33ae0dc4dac3b3701d936a1a0a869f7e38ee134d",
+  "candidate_blob": "6d2d3b95aa32bd7cf183124f3d71c80aed6bccf2",
   "canonical_db_blob": "a3f28fcfd0a89161ed003e60d0d797c5fa103f1a",
   "canonical_count": 1535,
   "canonical_review_count": 1535,
@@ -31,78 +31,72 @@
     },
     {
       "q": 1537,
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence_derived_key": "B",
       "intended_key": "B",
-      "key_rationale_overlap": 4,
+      "key_rationale_overlap": 7,
       "source_live_binding": "PASS",
       "second_answer_attack": "PASS",
       "blueprint": "PASS",
-      "canonical_max_jaccard": 0.58621,
-      "canonical_top_match": "S1-DIRECT-1469-20260910T100000Z",
-      "canonical_top_text": "NF1-deficient tumor cells have constitutive RAS-pathway signaling. After mirdametinib exposure, phosphorylation of ERK falls even though RAS remains active and ERK protein abundance is unchanged. Which kinase pair is directly inhibited? RAF1 and BRAF ERK1 and ERK2 PI3K and AKT MEK1 and MEK2 JAK1 and JAK2 MEK1/2 inhibition reduces downstream ERK phosphorylation",
+      "canonical_max_jaccard": 0.27907,
+      "canonical_top_match": "S1-DIRECT-1476-20260910T100000Z",
+      "canonical_top_text": null,
       "source_reports": [
         {
           "source_id": "Q1537-LABEL",
           "status": "PASS",
-          "setid": "4c41bf90-5fa7-4935-a95c-e047ea6bbf8e",
-          "title_core_overlap": 4,
-          "semantic_overlap": 14
+          "setid": "100ec543-fbd0-44fc-b740-db9cdff39145",
+          "title_core_overlap": 2,
+          "semantic_overlap": 17
         }
       ],
-      "failures": [
-        "canonical_duplicate"
-      ]
+      "failures": []
     },
     {
       "q": 1538,
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence_derived_key": "C",
       "intended_key": "C",
       "key_rationale_overlap": 9,
       "source_live_binding": "PASS",
       "second_answer_attack": "PASS",
       "blueprint": "PASS",
-      "canonical_max_jaccard": 0.46377,
-      "canonical_top_match": "S1-DIRECT-1397-20260910T100000Z",
-      "canonical_top_text": "A susceptible bacterial isolate is exposed to gepotidacin. DNA replication stops. Target-enzyme assays show inhibition of both DNA gyrase and topoisomerase IV, while ribosomal translation remains intact. Which enzyme class is directly inhibited? RNA polymerase Bacterial type II topoisomerases Dihydrofolate reductase Peptidyl transferase Transpeptidase penicillin-binding proteins Bacterial DNA gyrase/topoisomerase-IV inhibition",
+      "canonical_max_jaccard": 0.26042,
+      "canonical_top_match": "S1-DIRECT-1383-20260910T100000Z",
+      "canonical_top_text": null,
       "source_reports": [
         {
           "source_id": "Q1538-LABEL",
           "status": "PASS",
-          "setid": "80b57cfe-7819-4d95-a57d-014af42f118d",
-          "title_core_overlap": 2,
-          "semantic_overlap": 12
-        }
-      ],
-      "failures": [
-        "canonical_duplicate"
-      ]
-    },
-    {
-      "q": 1539,
-      "status": "BLOCKED",
-      "evidence_derived_key": "D",
-      "intended_key": "D",
-      "key_rationale_overlap": 7,
-      "source_live_binding": "PASS",
-      "second_answer_attack": "PASS",
-      "blueprint": "PASS",
-      "canonical_max_jaccard": 0.61818,
-      "canonical_top_match": "S1-DIRECT-1474-20260910T100000Z",
-      "canonical_top_text": "Non-small cell lung cancer cells harboring an activating ERBB2 tyrosine-kinase-domain mutation are exposed to zongertinib. HER2 phosphorylation falls, followed by reduced ERK phosphorylation and reduced proliferation. Which protein is directly inhibited by the drug? EGFR ligand ERK1/2 PI3K-alpha HER2 kinase MET kinase Direct HER2 kinase inhibition in HER2-mutant NSCLC",
-      "source_reports": [
-        {
-          "source_id": "Q1539-LABEL",
-          "status": "PASS",
-          "setid": "d3fabf12-354e-4e5c-b5de-20fdb579b783",
+          "setid": "3663d9cb-3f66-48ae-bf0a-6958bc0888de",
           "title_core_overlap": 2,
           "semantic_overlap": 19
         }
       ],
-      "failures": [
-        "canonical_duplicate"
-      ]
+      "failures": []
+    },
+    {
+      "q": 1539,
+      "status": "PASS",
+      "evidence_derived_key": "D",
+      "intended_key": "D",
+      "key_rationale_overlap": 10,
+      "source_live_binding": "PASS",
+      "second_answer_attack": "PASS",
+      "blueprint": "PASS",
+      "canonical_max_jaccard": 0.4359,
+      "canonical_top_match": "S1-DIRECT-1482-20260910T100000Z",
+      "canonical_top_text": null,
+      "source_reports": [
+        {
+          "source_id": "Q1539-LABEL",
+          "status": "PASS",
+          "setid": "24aa29f6-ccff-45d3-89af-4d26e525cef8",
+          "title_core_overlap": 2,
+          "semantic_overlap": 20
+        }
+      ],
+      "failures": []
     },
     {
       "q": 1540,
@@ -128,12 +122,8 @@
       "failures": []
     }
   ],
-  "failures": [
-    "Q1537:canonical_duplicate",
-    "Q1538:canonical_duplicate",
-    "Q1539:canonical_duplicate"
-  ],
-  "verdict": "BLOCKED",
+  "failures": [],
+  "verdict": "ZERO_TRUST_PASS",
   "production_db_modified": false,
   "production_import_ready": false
 }
