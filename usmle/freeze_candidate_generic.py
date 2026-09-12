@@ -2,7 +2,7 @@
 from __future__ import annotations
 import hashlib,json,os,re,urllib.request
 from pathlib import Path
-P=Path(os.environ['CAND_PATH']); START=int(os.environ['START_Q']); END=int(os.environ['END_Q'])
+P=Path(os.environ['CAND_PATH']); START=int(os.environ['START_Q']); END=int(os.environ['END_Q']); FREEZE_DATE=os.environ.get('FREEZE_DATE','2026-09-10')
 def fetch(url):
  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 USMLE-Freeze/2.2'})
  with urllib.request.urlopen(req,timeout=30) as r: return r.read(4000000)
@@ -55,11 +55,11 @@ def main():
     raw=fetch(url); material,nparts=cited_material(clean(raw),loc); cache[ck]=(hashlib.sha256(raw).hexdigest(),hashlib.sha256(material.encode()).hexdigest(),nparts)
    psha,csha,nparts=cache[ck]; s['source_page_sha256']=psha; s['cited_section_sha256']=csha; s['cited_locator_component_count']=nparts
    if 'mechanism of action' in nloc(loc): s['mechanism_section_sha256']=csha
-   s['hash_status']='FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-10'
- ti=b.setdefault('technical_integrity',{}); ti['source_hashes_complete']=True; ti['required_before_freeze']='COMPLETE_2026-09-10: source_page_sha256 + cited_section_sha256 bind every declared locator component'; ti['independent_audit_complete']=False
+   s['hash_status']=f'FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_{FREEZE_DATE}'
+ ti=b.setdefault('technical_integrity',{}); ti['source_hashes_complete']=True; ti['required_before_freeze']=f'COMPLETE_{FREEZE_DATE}: source_page_sha256 + cited_section_sha256 bind every declared locator component'; ti['independent_audit_complete']=False
  for x in b['items']:
   aq=x.get('author_qa',{})
-  if 'technical_hash_gate' in aq: aq['technical_hash_gate']='PASS — live refetch and hashes for every declared locator component completed 2026-09-10.'
+  if 'technical_hash_gate' in aq: aq['technical_hash_gate']=f'PASS — live refetch and hashes for every declared locator component completed {FREEZE_DATE}.'
  P.write_text(json.dumps(b,indent=2,ensure_ascii=False)+'\n'); raw=P.read_text(); assert 'ncjmm' not in raw.casefold()
  assert all(s.get('source_page_sha256') and s.get('cited_section_sha256') and s.get('cited_locator_component_count',0)>=1 for x in b['items'] for s in x.get('sources',[]))
  print(json.dumps({'items':len(b['items']),'sources':sum(len(x.get('sources',[])) for x in b['items']),'technical_freeze':'PASS'},sort_keys=True))
