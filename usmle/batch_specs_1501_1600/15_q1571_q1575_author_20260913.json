@@ -1,0 +1,756 @@
+{
+  "batch_id": "Q1571-Q1575-20260913",
+  "created_at": "2026-09-13",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1570,
+  "canonical_count_after": 1570,
+  "canonical_db_blob": "c0f369b414a36f6db6d89e540db66e3bfad61912",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-13: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1571,
+      "drug": "donidalorsen",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with hereditary angioedema receives a GalNAc-conjugated antisense oligonucleotide. Hepatocyte synthesis of plasma prekallikrein falls, and bradykinin generation during contact-system activation is reduced.",
+        "lead_in": "Which molecular event most directly produces the decrease in prekallikrein?",
+        "options": {
+          "A": "RNase H1-mediated degradation of prekallikrein mRNA after antisense binding",
+          "B": "Irreversible inhibition of plasma kallikrein catalytic activity",
+          "C": "Neutralization of circulating bradykinin by a monoclonal antibody",
+          "D": "CRISPR-mediated disruption of the KLKB1 gene",
+          "E": "Competitive antagonism of the bradykinin B2 receptor"
+        },
+        "intended_key": "A",
+        "tested_construct": "Antisense binding to prekallikrein mRNA with RNase H1-mediated degradation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Donidalorsen is a GalNAc-conjugated antisense oligonucleotide directed against prekallikrein mRNA in hepatocytes. Hybridization to the target transcript promotes RNase H1-mediated degradation, reducing prekallikrein protein and downstream bradykinin generation.",
+        "distractor_explanations": {
+          "A": "Correct. Donidalorsen binds prekallikrein mRNA and promotes RNase H1-mediated transcript degradation.",
+          "B": "Direct catalytic kallikrein inhibition is a different strategy and does not explain reduced hepatic prekallikrein synthesis.",
+          "C": "The drug does not neutralize bradykinin protein directly.",
+          "D": "Donidalorsen does not edit the KLKB1 genomic sequence.",
+          "E": "B2-receptor antagonism blocks bradykinin signaling but does not lower prekallikrein synthesis."
+        },
+        "educational_objective": "Differentiate antisense-mediated reduction of prekallikrein synthesis from enzyme inhibition, bradykinin neutralization, receptor antagonism, and gene editing."
+      },
+      "sources": [
+        {
+          "source_id": "Q1571-LABEL",
+          "title": "DAWNZERA- donidalorsen injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3ff501e0-f75f-07da-e063-6294a90a0cb7",
+          "setid": "3ff501e0-f75f-07da-e063-6294a90a0cb7",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3d4ee8bcba0d549a268573c1b62518ef4c9a6fd94de60861c37e57e3d008232f",
+          "cited_section_sha256": "43a078ba49bc736959a10544fe814380f612e941b8e89221590de6d3437c27a3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "43a078ba49bc736959a10544fe814380f612e941b8e89221590de6d3437c27a3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1571-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Donidalorsen binds prekallikrein mRNA and promotes RNase H1-mediated transcript degradation.",
+          "source_ids": [
+            "Q1571-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1571-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Direct catalytic kallikrein inhibition is a different strategy and does not explain reduced hepatic prekallikrein synthesis.",
+          "source_ids": [
+            "Q1571-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1571-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The drug does not neutralize bradykinin protein directly.",
+          "source_ids": [
+            "Q1571-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1571-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Donidalorsen does not edit the KLKB1 genomic sequence.",
+          "source_ids": [
+            "Q1571-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1571-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "B2-receptor antagonism blocks bradykinin signaling but does not lower prekallikrein synthesis.",
+          "source_ids": [
+            "Q1571-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Direct plasma kallikrein inhibition also reduces bradykinin generation, but the stipulated GalNAc antisense platform and reduced hepatic protein synthesis identify mRNA degradation as the direct mechanism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1572,
+      "drug": "lifileucel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with metastatic melanoma has a tumor lesion resected. Immune cells from that tumor are expanded in culture, cryopreserved, and later infused back into the same patient after lymphodepletion.",
+        "lead_in": "Which cellular product is administered?",
+        "options": {
+          "A": "Allogeneic donor NK cells",
+          "B": "Expanded autologous tumor-derived T lymphocytes",
+          "C": "Peripheral-blood T cells engineered with a CD19 CAR",
+          "D": "Autologous hematopoietic stem cells with a tumor receptor",
+          "E": "Peptide-pulsed dendritic cells"
+        },
+        "intended_key": "B",
+        "tested_construct": "Ex vivo expansion and reinfusion of autologous tumor-derived T cells",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Lifileucel is a tumor-derived autologous T-cell immunotherapy manufactured from resected tumor tissue by expanding tumor-derived immune cells in culture for reinfusion into the same patient.",
+        "distractor_explanations": {
+          "A": "The product is autologous, not donor-derived.",
+          "B": "Correct. Lifileucel is composed primarily of expanded autologous tumor-derived T cells.",
+          "C": "It is not a CAR-engineered peripheral-blood T-cell product.",
+          "D": "It is not a hematopoietic stem-cell gene therapy.",
+          "E": "It is not a dendritic-cell vaccine."
+        },
+        "educational_objective": "Distinguish tumor-derived autologous T-cell expansion from other cellular immunotherapy platforms."
+      },
+      "sources": [
+        {
+          "source_id": "Q1572-LABEL",
+          "title": "AMTAGVI- lifileucel suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4121bd3f-2d6e-3bdd-e063-6294a90a3088",
+          "setid": "4121bd3f-2d6e-3bdd-e063-6294a90a3088",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "11 DESCRIPTION",
+          "source_page_sha256": "74264e37b1afd2bdb2cfc0019b026f357e2e9e534a84f9241d81ed4480d228ba",
+          "cited_section_sha256": "b46fa6d075eeddc3f8194d66cf9e9bb8a13bd2daf1a3834f17f3e2db9aacfe5d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1572-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The product is autologous, not donor-derived.",
+          "source_ids": [
+            "Q1572-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "11 DESCRIPTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1572-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Lifileucel is composed primarily of expanded autologous tumor-derived T cells.",
+          "source_ids": [
+            "Q1572-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "11 DESCRIPTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1572-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "It is not a CAR-engineered peripheral-blood T-cell product.",
+          "source_ids": [
+            "Q1572-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "11 DESCRIPTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1572-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "It is not a hematopoietic stem-cell gene therapy.",
+          "source_ids": [
+            "Q1572-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "11 DESCRIPTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1572-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "It is not a dendritic-cell vaccine.",
+          "source_ids": [
+            "Q1572-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "11 DESCRIPTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "CAR-T also uses autologous T cells, but lifileucel comes from resected tumor tissue and is not CAR engineered.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1573,
+      "drug": "afamitresgene autoleucel",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Autologous T cells from a patient with synovial sarcoma are genetically modified to express a receptor that recognizes MAGE-A4. Treatment requires both tumor MAGE-A4 expression and a compatible HLA-A*02 allele.",
+        "lead_in": "Why is the HLA restriction necessary for this therapy?",
+        "options": {
+          "A": "The engineered receptor recognizes soluble MAGE-A4 only after binding beta-2 microglobulin",
+          "B": "MAGE-A4 must be secreted and captured by B-cell surface immunoglobulin",
+          "C": "The engineered T-cell receptor recognizes a MAGE-A4 peptide only when presented by a compatible HLA class I molecule",
+          "D": "The therapy depends on Fc-mediated binding to HLA-A*02-positive tumor cells",
+          "E": "HLA-A*02 directly activates CD28 independently of antigen recognition"
+        },
+        "intended_key": "C",
+        "tested_construct": "TCR recognition of MAGE-A4 peptide presented by compatible HLA class I",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Afamitresgene autoleucel consists of autologous T cells genetically modified to express a MAGE-A4-specific T-cell receptor. TCR recognition is HLA restricted: the receptor binds a MAGE-A4-derived peptide presented by a compatible HLA-A*02 class I molecule, triggering T-cell activation and cytotoxicity.",
+        "distractor_explanations": {
+          "A": "T-cell receptors recognize peptide-MHC complexes rather than soluble antigen bound to beta-2 microglobulin alone.",
+          "B": "B-cell immunoglobulin is not involved in the engineered TCR recognition step.",
+          "C": "Correct. The engineered TCR recognizes MAGE-A4 peptide in the context of a compatible HLA-A*02 class I molecule.",
+          "D": "This is a TCR-engineered cellular therapy, not an Fc-mediated antibody mechanism.",
+          "E": "HLA-A*02 does not directly activate CD28 independently of antigen-specific TCR recognition."
+        },
+        "educational_objective": "Use peptide-MHC restriction to explain why a MAGE-A4-specific engineered TCR therapy requires a compatible HLA-A*02 allele."
+      },
+      "sources": [
+        {
+          "source_id": "Q1573-LABEL",
+          "title": "TECELRA- afamitresgene autoleucel injection, suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab24631f-3364-46e1-8074-7244863bcbab",
+          "setid": "ab24631f-3364-46e1-8074-7244863bcbab",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "445386e344ce638c8e9be9ccb244d70db346c8290335fa751a5d3fc327e3449c",
+          "cited_section_sha256": "5d1c497cfb755850a901a876c4d5b15cbb3bc62b21677a56e4347eb2d0f36597",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "5d1c497cfb755850a901a876c4d5b15cbb3bc62b21677a56e4347eb2d0f36597"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1573-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "T-cell receptors recognize peptide-MHC complexes rather than soluble antigen bound to beta-2 microglobulin alone.",
+          "source_ids": [
+            "Q1573-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1573-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "B-cell immunoglobulin is not involved in the engineered TCR recognition step.",
+          "source_ids": [
+            "Q1573-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1573-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. The engineered TCR recognizes MAGE-A4 peptide in the context of a compatible HLA-A*02 class I molecule.",
+          "source_ids": [
+            "Q1573-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1573-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "This is a TCR-engineered cellular therapy, not an Fc-mediated antibody mechanism.",
+          "source_ids": [
+            "Q1573-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1573-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "HLA-A*02 does not directly activate CD28 independently of antigen-specific TCR recognition.",
+          "source_ids": [
+            "Q1573-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "An Fc-dependent mechanism could also require a surface target, but TECELRA is a TCR-engineered therapy and therefore depends on peptide presentation by a compatible HLA molecule.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1574,
+      "drug": "telisotuzumab vedotin-tllv",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A c-Met-overexpressing lung cancer cell binds telisotuzumab vedotin-tllv and internalizes the antibody-drug conjugate. Lysosomal processing releases its cytotoxic small-molecule payload.",
+        "lead_in": "Which intracellular process is most directly disrupted by the released payload?",
+        "options": {
+          "A": "DNA topoisomerase I-mediated religation",
+          "B": "Proteasomal degradation of c-Met",
+          "C": "Ribosomal translocation during protein synthesis",
+          "D": "Microtubule polymerization",
+          "E": "PARP-mediated repair of single-strand DNA breaks"
+        },
+        "intended_key": "D",
+        "tested_construct": "MMAE-mediated disruption of the microtubule network after c-Met-directed internalization",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Telisotuzumab vedotin-tllv is a c-Met-directed antibody-drug conjugate linked to monomethyl auristatin E (MMAE). After c-Met binding and internalization, released MMAE disrupts the microtubule network, causing cell-cycle arrest and cell death.",
+        "distractor_explanations": {
+          "A": "Topoisomerase I inhibition is the payload mechanism of other antibody-drug conjugates, not telisotuzumab vedotin.",
+          "B": "The cytotoxic effect is not caused by proteasomal degradation of c-Met.",
+          "C": "Ribosomal translocation is not the direct target of MMAE.",
+          "D": "Correct. MMAE inhibits microtubule polymerization and disrupts the microtubule network.",
+          "E": "PARP inhibition is a distinct DNA-repair mechanism."
+        },
+        "educational_objective": "Connect vedotin/MMAE antibody-drug conjugates with intracellular microtubule disruption after target-mediated internalization."
+      },
+      "sources": [
+        {
+          "source_id": "Q1574-LABEL",
+          "title": "EMRELIS- telisotuzumab vedotin injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bc04f980-3957-4e35-ab81-8ec2ffe87215",
+          "setid": "bc04f980-3957-4e35-ab81-8ec2ffe87215",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ba2da793f21e3db73bbda653de52af4f9284bc7803bd398743c29a3582f94bc1",
+          "cited_section_sha256": "9af6737ed49a7e20890773618a4517cc996b672f3c6ae1d36c467aadfee5adb7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "9af6737ed49a7e20890773618a4517cc996b672f3c6ae1d36c467aadfee5adb7"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1574-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Topoisomerase I inhibition is the payload mechanism of other antibody-drug conjugates, not telisotuzumab vedotin.",
+          "source_ids": [
+            "Q1574-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1574-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The cytotoxic effect is not caused by proteasomal degradation of c-Met.",
+          "source_ids": [
+            "Q1574-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1574-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Ribosomal translocation is not the direct target of MMAE.",
+          "source_ids": [
+            "Q1574-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1574-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. MMAE inhibits microtubule polymerization and disrupts the microtubule network.",
+          "source_ids": [
+            "Q1574-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1574-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "PARP inhibition is a distinct DNA-repair mechanism.",
+          "source_ids": [
+            "Q1574-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Topoisomerase I payloads are used by several modern ADCs and can also cause cell death after internalization, but vedotin specifically denotes the MMAE microtubule-disrupting payload.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1575,
+      "drug": "elamipretide",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Skeletal muscle mitochondria from a patient with Barth syndrome have abnormal inner-membrane architecture due to disordered cardiolipin remodeling. Elamipretide improves mitochondrial function without replacing tafazzin.",
+        "lead_in": "Which mitochondrial component is directly bound by this drug?",
+        "options": {
+          "A": "Complex I NADH dehydrogenase",
+          "B": "Mitochondrial DNA polymerase gamma",
+          "C": "Adenine nucleotide translocase",
+          "D": "Cytochrome c oxidase",
+          "E": "Cardiolipin in the inner mitochondrial membrane"
+        },
+        "intended_key": "E",
+        "tested_construct": "Direct binding to mitochondrial cardiolipin",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Elamipretide is a mitochondrial cardiolipin binder. Cardiolipin is enriched in the inner mitochondrial membrane and contributes to membrane architecture and organization of respiratory-chain proteins; binding cardiolipin is the established direct pharmacologic action of elamipretide.",
+        "distractor_explanations": {
+          "A": "Complex I is not the direct binding target of elamipretide.",
+          "B": "The drug does not act by inhibiting or activating mitochondrial DNA polymerase gamma.",
+          "C": "Adenine nucleotide translocase participates in ADP/ATP exchange but is not the labeled direct target.",
+          "D": "Cytochrome c oxidase is a respiratory-chain enzyme and is not the direct binding target.",
+          "E": "Correct. Elamipretide directly binds cardiolipin in the inner mitochondrial membrane."
+        },
+        "educational_objective": "Recognize cardiolipin as an inner-mitochondrial-membrane target and distinguish direct membrane-lipid binding from respiratory-enzyme targets."
+      },
+      "sources": [
+        {
+          "source_id": "Q1575-LABEL",
+          "title": "FORZINITY- elamipretide hydrochloride injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=146bf34c-76f2-48db-ac07-fb29cce2cd75",
+          "setid": "146bf34c-76f2-48db-ac07-fb29cce2cd75",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "a8d36cd515e807ab43dbb4034a92ec61dcaf479750e7fc312b3bcb89d417b8f4",
+          "cited_section_sha256": "99a292c7270dfbd4a853027f81776d11ed526a3de69708701b27f80e6971f5ab",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "99a292c7270dfbd4a853027f81776d11ed526a3de69708701b27f80e6971f5ab"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1575-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Complex I is not the direct binding target of elamipretide.",
+          "source_ids": [
+            "Q1575-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1575-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The drug does not act by inhibiting or activating mitochondrial DNA polymerase gamma.",
+          "source_ids": [
+            "Q1575-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1575-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Adenine nucleotide translocase participates in ADP/ATP exchange but is not the labeled direct target.",
+          "source_ids": [
+            "Q1575-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1575-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Cytochrome c oxidase is a respiratory-chain enzyme and is not the direct binding target.",
+          "source_ids": [
+            "Q1575-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1575-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Elamipretide directly binds cardiolipin in the inner mitochondrial membrane.",
+          "source_ids": [
+            "Q1575-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Respiratory-chain enzymes are plausible downstream mediators of improved mitochondrial function, but the established direct molecular target of elamipretide is cardiolipin.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
