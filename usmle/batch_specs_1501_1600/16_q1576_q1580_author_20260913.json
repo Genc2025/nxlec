@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1576-Q1580-20260913",
+  "created_at": "2026-09-13",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1575,
+  "canonical_count_after": 1575,
+  "canonical_db_blob": "20a68f1500774333f082967440f383bcc5116c14",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-13: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1576,
+      "drug": "ensifentrine",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Airway smooth-muscle cells are exposed to ensifentrine. Intracellular cyclic nucleotide concentrations rise despite unchanged adenylyl cyclase and guanylyl cyclase activity.",
+        "lead_in": "Which direct enzymatic action best explains this finding?",
+        "options": {
+          "A": "Inhibition of phosphodiesterases 3 and 4",
+          "B": "Activation of soluble guanylyl cyclase",
+          "C": "Inhibition of phosphodiesterase 5 only",
+          "D": "Activation of adenylyl cyclase",
+          "E": "Inhibition of protein kinase A"
+        },
+        "intended_key": "A",
+        "tested_construct": "Dual inhibition of PDE3 and PDE4 with accumulation of intracellular cyclic nucleotides",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Ensifentrine directly inhibits PDE3 and PDE4. PDE3 hydrolyzes cAMP and can also hydrolyze cGMP, whereas PDE4 hydrolyzes cAMP; inhibition therefore increases intracellular cAMP and/or cGMP.",
+        "distractor_explanations": {
+          "A": "Correct. Ensifentrine inhibits PDE3 and PDE4.",
+          "B": "Guanylyl cyclase activation would increase cGMP synthesis rather than reduce cyclic-nucleotide breakdown.",
+          "C": "PDE5 selectively regulates cGMP and is not the direct target pair of ensifentrine.",
+          "D": "Adenylyl cyclase activation increases cAMP synthesis but is not ensifentrine pharmacology.",
+          "E": "Protein kinase A is downstream of cAMP and is not directly inhibited by ensifentrine."
+        },
+        "educational_objective": "Recognize dual PDE3/PDE4 inhibition as a mechanism that raises intracellular cyclic nucleotides in COPD therapy."
+      },
+      "sources": [
+        {
+          "source_id": "Q1576-LABEL",
+          "title": "OHTUVAYRE- ensifentrine inhalation suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "setid": "e6433c98-41a0-4f99-8f7f-d0e9db6e3f40",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ee61185afd3c0b5ed3b9f8e220f7e858f9eb89ba245364ce001b5936eac1b163",
+          "cited_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "57ccaf710d4ec306359e5fad81e9af127a8bb19d4e2db6c63da328dda833c68e"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1576-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Ensifentrine inhibits PDE3 and PDE4.",
+          "source_ids": [
+            "Q1576-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1576-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Guanylyl cyclase activation would increase cGMP synthesis rather than reduce cyclic-nucleotide breakdown.",
+          "source_ids": [
+            "Q1576-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1576-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PDE5 selectively regulates cGMP and is not the direct target pair of ensifentrine.",
+          "source_ids": [
+            "Q1576-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1576-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Adenylyl cyclase activation increases cAMP synthesis but is not ensifentrine pharmacology.",
+          "source_ids": [
+            "Q1576-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1576-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Protein kinase A is downstream of cAMP and is not directly inhibited by ensifentrine.",
+          "source_ids": [
+            "Q1576-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "PDE5 inhibition is another phosphodiesterase-based mechanism, but it selectively targets cGMP metabolism and does not explain the labeled PDE3/PDE4 target profile of ensifentrine.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1577,
+      "drug": "crinecerfont",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Endocrine System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Endocrine System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with classic 21-hydroxylase deficiency receives crinecerfont. Pituitary corticotropin-releasing factor signaling is reduced, and adrenal androgen excess improves without correcting the CYP21A2 defect.",
+        "lead_in": "Which hormone decreases most directly because of this drug?",
+        "options": {
+          "A": "Aldosterone",
+          "B": "Adrenocorticotropic hormone",
+          "C": "Cortisol",
+          "D": "Renin",
+          "E": "Angiotensin II"
+        },
+        "intended_key": "B",
+        "tested_construct": "CRF1 receptor antagonism in the pituitary with reduced ACTH secretion",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Crinecerfont selectively antagonizes CRF type 1 receptors in the pituitary. Blocking CRF1 signaling reduces ACTH secretion, thereby decreasing ACTH-driven adrenal androgen production in classic congenital adrenal hyperplasia.",
+        "distractor_explanations": {
+          "A": "Aldosterone is not the direct pituitary output controlled by CRF1.",
+          "B": "Correct. CRF1 antagonism reduces pituitary ACTH secretion.",
+          "C": "Cortisol synthesis remains limited by the underlying steroidogenic enzyme defect.",
+          "D": "Renin is regulated mainly by renal perfusion, sodium delivery, and sympathetic tone.",
+          "E": "Angiotensin II is generated through the renin-angiotensin system, not directly by pituitary CRF1 signaling."
+        },
+        "educational_objective": "Link pituitary CRF1 antagonism with reduced ACTH drive and reduced adrenal androgen production in classic congenital adrenal hyperplasia."
+      },
+      "sources": [
+        {
+          "source_id": "Q1577-LABEL",
+          "title": "CRENESSITY- crinecerfont capsule; CRENESSITY- crinecerfont solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fd3a6fbd-9137-428a-ba46-df6606f07d28",
+          "setid": "fd3a6fbd-9137-428a-ba46-df6606f07d28",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "2d7af98d5c1ef3579b4f58cdcda7e6bb4d841bd50cdd472652333151ed31f505",
+          "cited_section_sha256": "53a1fe080cf02e20dcb85bc73fe60d3dd37257d38b070a24edeb295d44aee45f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "53a1fe080cf02e20dcb85bc73fe60d3dd37257d38b070a24edeb295d44aee45f"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1577-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Aldosterone is not the direct pituitary output controlled by CRF1.",
+          "source_ids": [
+            "Q1577-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1577-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. CRF1 antagonism reduces pituitary ACTH secretion.",
+          "source_ids": [
+            "Q1577-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1577-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Cortisol synthesis remains limited by the underlying steroidogenic enzyme defect.",
+          "source_ids": [
+            "Q1577-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1577-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Renin is regulated mainly by renal perfusion, sodium delivery, and sympathetic tone.",
+          "source_ids": [
+            "Q1577-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1577-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Angiotensin II is generated through the renin-angiotensin system, not directly by pituitary CRF1 signaling.",
+          "source_ids": [
+            "Q1577-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Cortisol is central to the feedback loop, but crinecerfont does not repair cortisol synthesis; its direct endocrine effect is suppression of pituitary ACTH output.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1578,
+      "drug": "nirogacestat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Desmoid tumor cells are exposed to nirogacestat. Surface Notch receptors remain present, but generation of the transcriptionally active intracellular Notch fragment is reduced.",
+        "lead_in": "Which molecular step is most directly inhibited?",
+        "options": {
+          "A": "Binding of Notch ligand to the extracellular receptor",
+          "B": "ADAM-family cleavage of the Notch ectodomain",
+          "C": "Gamma-secretase-mediated proteolytic activation of Notch",
+          "D": "Ubiquitination of the Notch intracellular domain",
+          "E": "Proteasomal degradation of beta-catenin"
+        },
+        "intended_key": "C",
+        "tested_construct": "Gamma-secretase inhibition that blocks proteolytic activation of the Notch receptor",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Nirogacestat is a gamma-secretase inhibitor that blocks proteolytic activation of the Notch receptor. This prevents generation of the active Notch signaling fragment that would otherwise promote downstream transcription.",
+        "distractor_explanations": {
+          "A": "Ligand binding is upstream and is not the direct inhibited step.",
+          "B": "The direct labeled target is gamma secretase rather than the initial ectodomain cleavage step.",
+          "C": "Correct. Nirogacestat blocks gamma-secretase-dependent proteolytic activation of Notch.",
+          "D": "Ubiquitination is not the direct pharmacologic target.",
+          "E": "Beta-catenin degradation belongs to a different signaling pathway."
+        },
+        "educational_objective": "Recognize gamma-secretase-dependent proteolytic activation as a druggable step in Notch signaling."
+      },
+      "sources": [
+        {
+          "source_id": "Q1578-LABEL",
+          "title": "OGSIVEO- nirogacestat tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+          "setid": "f172e6ff-3190-41b0-b95a-58a7ef9e9e1e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3d8c612a501bc3583bf7ecdcc2a678fefc1b83edeaed684bef3268142d758768",
+          "cited_section_sha256": "40750935904b265752bd59f0b372e75232edcca425ebbc7af4c97183335737d5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "40750935904b265752bd59f0b372e75232edcca425ebbc7af4c97183335737d5"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1578-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Ligand binding is upstream and is not the direct inhibited step.",
+          "source_ids": [
+            "Q1578-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1578-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The direct labeled target is gamma secretase rather than the initial ectodomain cleavage step.",
+          "source_ids": [
+            "Q1578-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1578-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Nirogacestat blocks gamma-secretase-dependent proteolytic activation of Notch.",
+          "source_ids": [
+            "Q1578-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1578-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Ubiquitination is not the direct pharmacologic target.",
+          "source_ids": [
+            "Q1578-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1578-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Beta-catenin degradation belongs to a different signaling pathway.",
+          "source_ids": [
+            "Q1578-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "ADAM-mediated ectodomain cleavage is another proteolytic step in Notch processing, but nirogacestat specifically inhibits gamma secretase.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1579,
+      "drug": "zuranolone",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with postpartum depression receives a 14-day course of zuranolone. Shortly after dosing, central inhibitory neurotransmission is enhanced and psychomotor performance may be impaired.",
+        "lead_in": "Which receptor is directly positively modulated by this drug?",
+        "options": {
+          "A": "NMDA glutamate receptor",
+          "B": "GABA-B receptor",
+          "C": "5-HT1A receptor",
+          "D": "GABA-A receptor",
+          "E": "Dopamine D2 receptor"
+        },
+        "intended_key": "D",
+        "tested_construct": "Positive allosteric modulation of GABA-A receptors",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Zuranolone is a neuroactive steroid whose therapeutic action in postpartum depression is thought to be related to positive allosteric modulation of GABA-A receptors, thereby enhancing inhibitory GABAergic signaling.",
+        "distractor_explanations": {
+          "A": "NMDA receptors mediate excitatory glutamatergic transmission and are not the direct target.",
+          "B": "GABA-B receptors are metabotropic and are not the labeled receptor target of zuranolone.",
+          "C": "5-HT1A agonism is a serotonergic mechanism used by other agents.",
+          "D": "Correct. Zuranolone positively modulates GABA-A receptors.",
+          "E": "D2 antagonism is not the mechanism of zuranolone."
+        },
+        "educational_objective": "Recognize neuroactive-steroid positive allosteric modulation of GABA-A receptors as the direct pharmacologic action of zuranolone."
+      },
+      "sources": [
+        {
+          "source_id": "Q1579-LABEL",
+          "title": "ZURZUVAE- zuranolone capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f18e53b0-d0bb-422d-8de7-ab64b7292b29",
+          "setid": "f18e53b0-d0bb-422d-8de7-ab64b7292b29",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "47248ea1779ca865d53559c56919abf9970dbc07b6fb05225641d6f0c00bd8d4",
+          "cited_section_sha256": "23a2c35bef6f9a2761ed3f6fcbe10d3a8495a4da2e1fa88e0b87aaa903232178",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "23a2c35bef6f9a2761ed3f6fcbe10d3a8495a4da2e1fa88e0b87aaa903232178"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1579-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "NMDA receptors mediate excitatory glutamatergic transmission and are not the direct target.",
+          "source_ids": [
+            "Q1579-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1579-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "GABA-B receptors are metabotropic and are not the labeled receptor target of zuranolone.",
+          "source_ids": [
+            "Q1579-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1579-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "5-HT1A agonism is a serotonergic mechanism used by other agents.",
+          "source_ids": [
+            "Q1579-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1579-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Zuranolone positively modulates GABA-A receptors.",
+          "source_ids": [
+            "Q1579-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1579-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "D2 antagonism is not the mechanism of zuranolone.",
+          "source_ids": [
+            "Q1579-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "GABA-B receptor activation also enhances inhibition, but zuranolone specifically acts through positive allosteric modulation of GABA-A receptors.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1580,
+      "drug": "leniolisib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "B lymphocytes from a patient with activated PI3K-delta syndrome are exposed to leniolisib. Akt phosphorylation decreases and abnormal lymphocyte activation is reduced.",
+        "lead_in": "Which intracellular lipid second messenger decreases most directly?",
+        "options": {
+          "A": "Phosphatidylinositol 4,5-bisphosphate",
+          "B": "Diacylglycerol",
+          "C": "Inositol 1,4,5-trisphosphate",
+          "D": "Cyclic AMP",
+          "E": "Phosphatidylinositol 3,4,5-trisphosphate"
+        },
+        "intended_key": "E",
+        "tested_construct": "PI3K-delta inhibition with reduced PIP3 production and downstream Akt signaling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Leniolisib selectively inhibits PI3K-delta by blocking its active binding site. PI3K-delta normally generates phosphatidylinositol 3,4,5-trisphosphate (PIP3), which activates downstream Akt/mTOR signaling; inhibition therefore lowers PIP3 and pAkt activity.",
+        "distractor_explanations": {
+          "A": "PIP2 is the substrate used to generate PIP3 rather than the direct product that falls.",
+          "B": "DAG is produced by phospholipase C signaling, not directly by PI3K-delta.",
+          "C": "IP3 is also generated by phospholipase C and is not the direct lipid product of PI3K-delta.",
+          "D": "cAMP is regulated by adenylyl cyclase and phosphodiesterases, not directly by PI3K-delta.",
+          "E": "Correct. PI3K-delta inhibition reduces production of PIP3 and downstream Akt signaling."
+        },
+        "educational_objective": "Link PI3K-delta inhibition with reduced PIP3 generation and decreased Akt/mTOR pathway activity in activated PI3K-delta syndrome."
+      },
+      "sources": [
+        {
+          "source_id": "Q1580-LABEL",
+          "title": "JOENJA- leniolisib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eefbcef8-2130-4654-8f29-b58077e08212",
+          "setid": "eefbcef8-2130-4654-8f29-b58077e08212",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "8e44557441e57534831e42ad810dc1d34185956f86f6672f63efa4a3ece40b35",
+          "cited_section_sha256": "85c8e346e28beea75657ac74b3495426bac54571e6c25734957d42b686191ab7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "85c8e346e28beea75657ac74b3495426bac54571e6c25734957d42b686191ab7"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1580-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PIP2 is the substrate used to generate PIP3 rather than the direct product that falls.",
+          "source_ids": [
+            "Q1580-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1580-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "DAG is produced by phospholipase C signaling, not directly by PI3K-delta.",
+          "source_ids": [
+            "Q1580-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1580-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "IP3 is also generated by phospholipase C and is not the direct lipid product of PI3K-delta.",
+          "source_ids": [
+            "Q1580-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1580-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "cAMP is regulated by adenylyl cyclase and phosphodiesterases, not directly by PI3K-delta.",
+          "source_ids": [
+            "Q1580-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1580-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. PI3K-delta inhibition reduces production of PIP3 and downstream Akt signaling.",
+          "source_ids": [
+            "Q1580-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "cAMP is a common intracellular second messenger, but PI3K-delta directly regulates phosphoinositide conversion to PIP3 rather than adenylyl-cyclase signaling.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
