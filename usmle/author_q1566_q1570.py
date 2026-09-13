@@ -40,8 +40,8 @@ def main():
         'Inclisiran is a GalNAc-conjugated small interfering RNA that is taken up by hepatocytes and directs catalytic degradation of PCSK9 mRNA. Lower PCSK9 production increases LDL-receptor recycling and surface expression, which enhances LDL uptake from plasma.',
         {'A':'PCSK9 reduction increases rather than decreases hepatocyte-surface LDL receptors.','B':'Correct. Reduced PCSK9 allows more LDL receptors to recycle to the cell surface instead of being degraded.','C':'Inclisiran does not lower LDL cholesterol by increasing HMG-CoA reductase expression.','D':'More surface LDL receptors increase LDL uptake rather than reducing endocytosis.','E':'ApoB secretion is not the direct downstream effect of PCSK9 mRNA silencing.'},
         'Connect hepatocyte-targeted PCSK9 siRNA therapy with increased LDL-receptor recycling and increased plasma LDL clearance.',
-        'LEQVIO- inclisiran injection, solution','6fc0afca-4513-4c35-b594-6544aee29a44','B',
-        'Reduced cholesterol synthesis is a common lipid-lowering mechanism, but inclisiran acts through RNA interference against PCSK9 and therefore increases LDL-receptor recycling.'
+        'LEQVIO- inclisiran injection, solution','6fc0afca-4513-4c35-b594-6544aee29a44','C',
+        'Increased HMG-CoA reductase transcription would oppose LDL lowering and is not the mechanism of inclisiran; PCSK9 mRNA silencing instead increases LDL-receptor recycling.'
     ))
 
     items.append(make(
