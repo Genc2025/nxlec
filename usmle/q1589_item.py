@@ -1,11 +1,11 @@
 def build(make):
- return make(1589,'sotagliflozin','Cardiovascular System',['Pharmacology','Physiology'],
- 'A patient with heart failure starts sotagliflozin. Urinary glucose excretion increases, and intestinal absorption of glucose and sodium also decreases.',
- 'Which transporter pair is directly inhibited?',
- {'A':'SGLT1 and GLUT2','B':'SGLT2 and GLUT4','C':'NHE3 and SGLT1','D':'SGLT2 and SGLT1','E':'GLUT1 and GLUT2'},
- 'D','Dual inhibition of SGLT2 and SGLT1',
- 'Sotagliflozin inhibits both SGLT2 and SGLT1. SGLT2 inhibition reduces renal glucose and sodium reabsorption, whereas SGLT1 inhibition reduces intestinal glucose and sodium absorption.',
- {'A':'GLUT2 is a facilitated glucose transporter and is not the paired direct target.','B':'GLUT4 is insulin-responsive and is not directly inhibited by sotagliflozin.','C':'NHE3 inhibition is the mechanism of tenapanor, not sotagliflozin.','D':'Correct. Sotagliflozin directly inhibits both SGLT2 and SGLT1.','E':'GLUT1 and GLUT2 are not the direct pharmacologic targets.'},
- 'Differentiate dual SGLT1/SGLT2 blockade from selective renal glucose transport inhibition and other intestinal sodium-transport mechanisms.',
- 'INPEFA- sotagliflozin tablet','1a46614e-05f6-421a-b6f4-d6f8760d643a','C',
- 'NHE3 inhibition can also reduce intestinal sodium absorption, but sotagliflozin specifically combines SGLT2 and SGLT1 inhibition.')
+ return make(1589,'lonafarnib','Multisystem Processes & Disorders',['Pharmacology','Cell Biology'],
+ 'Fibroblasts from a child with Hutchinson-Gilford progeria syndrome accumulate abnormal progerin at the inner nuclear membrane. After treatment with lonafarnib, this membrane accumulation decreases.',
+ 'Which post-translational modification is most directly prevented?',
+ {'A':'Phosphorylation of serine residues','B':'Ubiquitination of lysine residues','C':'N-linked glycosylation','D':'Farnesylation of progerin','E':'Acetylation of histone lysines'},
+ 'D','Farnesyltransferase inhibition preventing progerin farnesylation and membrane accumulation',
+ 'Lonafarnib inhibits farnesyltransferase, preventing farnesylation of progerin and progerin-like proteins. This reduces their abnormal accumulation at the inner nuclear membrane.',
+ {'A':'Serine phosphorylation is not the post-translational modification targeted by lonafarnib.','B':'Ubiquitination regulates protein degradation but is not the direct mechanism.','C':'N-linked glycosylation occurs in the endoplasmic reticulum and is not the relevant progerin-processing step.','D':'Correct. Lonafarnib blocks farnesyltransferase and prevents progerin farnesylation.','E':'Histone acetylation affects chromatin structure but is not the direct target of lonafarnib.'},
+ 'Recognize protein farnesylation as the druggable processing step responsible for abnormal progerin accumulation in Hutchinson-Gilford progeria syndrome.',
+ 'ZOKINVY- lonafarnib capsule','97391d0c-943e-4c5a-8423-68e163aa7f50','B',
+ 'Ubiquitination could alter protein abundance, but lonafarnib specifically blocks farnesyltransferase-dependent processing of progerin.')
