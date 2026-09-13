@@ -1,6 +1,6 @@
 {
   "audit_id": "Q1566-Q1570-ZERO-TRUST-ADAPTIVE-20260913",
-  "candidate_blob": "52eb619e60a2ff9730ec71071a1cb1140e25efd1",
+  "candidate_blob": "587e8fc6e15e394d6efdbda90fb4bee1d9cb9eb8",
   "canonical_db_blob": "f988cd9d7f04439435cb71ef7289c6269900f020",
   "canonical_count": 1565,
   "canonical_review_count": 1565,
@@ -31,12 +31,12 @@
     },
     {
       "q": 1567,
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence_derived_key": "B",
       "intended_key": "B",
       "key_rationale_overlap": 7,
       "source_live_binding": "PASS",
-      "second_answer_attack": "BLOCKED",
+      "second_answer_attack": "PASS",
       "blueprint": "PASS",
       "canonical_max_jaccard": 0.25243,
       "canonical_top_match": "S1-DIRECT-0903-20260901T054500Z",
@@ -50,9 +50,7 @@
           "semantic_overlap": 23
         }
       ],
-      "failures": [
-        "second_answer_attack"
-      ]
+      "failures": []
     },
     {
       "q": 1568,
@@ -124,10 +122,8 @@
       "failures": []
     }
   ],
-  "failures": [
-    "Q1567:second_answer_attack"
-  ],
-  "verdict": "BLOCKED",
+  "failures": [],
+  "verdict": "ZERO_TRUST_PASS",
   "production_db_modified": false,
   "production_import_ready": false
 }
