@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1581-Q1585-20260913",
+  "created_at": "2026-09-13",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1580,
+  "canonical_count_after": 1580,
+  "canonical_db_blob": "4c966e4c644c37aaf3dea39bcea33ddbb713a63f",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-13: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1581,
+      "drug": "setmelanotide",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Endocrine System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Endocrine System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A child with severe early-onset obesity due to biallelic POMC deficiency receives setmelanotide. Hunger decreases and energy expenditure increases; skin pigmentation also becomes darker during therapy.",
+        "lead_in": "Which receptor most directly mediates the therapeutic effect on appetite and energy balance?",
+        "options": {
+          "A": "Melanocortin-4 receptor",
+          "B": "Melanocortin-1 receptor",
+          "C": "Melanocortin-3 receptor",
+          "D": "Leptin receptor",
+          "E": "Serotonin 2C receptor"
+        },
+        "intended_key": "A",
+        "tested_construct": "Agonism of central melanocortin-4 receptors regulating hunger, satiety, and energy expenditure",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Setmelanotide is an MC4 receptor agonist. Central MC4 signaling regulates hunger, satiety, and energy expenditure; restoring this pathway can reduce food intake and promote weight loss in disorders with insufficient MC4-pathway activation. Its lesser MC1 activity explains treatment-associated pigmentation.",
+        "distractor_explanations": {
+          "A": "Correct. MC4 receptor activation mediates the intended effects on satiety and energy balance.",
+          "B": "MC1 activation contributes to increased melanin production but is not the primary therapeutic target for obesity.",
+          "C": "Setmelanotide has less activity at MC3 receptors than at MC4 receptors.",
+          "D": "The drug does not directly replace leptin signaling.",
+          "E": "5-HT2C agonism can reduce appetite but is not the direct target of setmelanotide."
+        },
+        "educational_objective": "Differentiate therapeutic MC4-receptor agonism from off-target melanocortin effects and other central appetite pathways."
+      },
+      "sources": [
+        {
+          "source_id": "Q1581-LABEL",
+          "title": "IMCIVREE- setmelanotide solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=70c3ccf7-4df0-4c75-ba07-fede9970c8d9",
+          "setid": "70c3ccf7-4df0-4c75-ba07-fede9970c8d9",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "6557996bf48f2f3c9f52ae7527538b1563d3e40e21075cdcc4527c7f02af1212",
+          "cited_section_sha256": "bafe25e81c134e42ff09b5cba1d0c45717975b59c9a188c18652114f9cf7828a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "bafe25e81c134e42ff09b5cba1d0c45717975b59c9a188c18652114f9cf7828a"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1581-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. MC4 receptor activation mediates the intended effects on satiety and energy balance.",
+          "source_ids": [
+            "Q1581-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1581-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "MC1 activation contributes to increased melanin production but is not the primary therapeutic target for obesity.",
+          "source_ids": [
+            "Q1581-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1581-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Setmelanotide has less activity at MC3 receptors than at MC4 receptors.",
+          "source_ids": [
+            "Q1581-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1581-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The drug does not directly replace leptin signaling.",
+          "source_ids": [
+            "Q1581-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1581-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "5-HT2C agonism can reduce appetite but is not the direct target of setmelanotide.",
+          "source_ids": [
+            "Q1581-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "MC1 activation is plausible because pigmentation increases during therapy, but the therapeutic reduction in hunger and increase in energy expenditure are mediated primarily through MC4 receptors.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1582,
+      "drug": "tenapanor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An orally administered drug acts locally on the apical surface of intestinal epithelial cells. Fecal sodium and water increase, intestinal transit accelerates, and stool consistency softens without stimulation of chloride secretion.",
+        "lead_in": "Which transporter is directly inhibited?",
+        "options": {
+          "A": "Sodium-glucose cotransporter 1",
+          "B": "Sodium/hydrogen exchanger 3",
+          "C": "Na-K-2Cl cotransporter",
+          "D": "Cystic fibrosis transmembrane conductance regulator",
+          "E": "Basolateral Na+/K+-ATPase"
+        },
+        "intended_key": "B",
+        "tested_construct": "Local inhibition of apical intestinal NHE3 with reduced sodium absorption",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Tenapanor locally inhibits sodium/hydrogen exchanger 3 (NHE3) on the apical surface of enterocytes. Reduced intestinal sodium absorption increases luminal water content, accelerates transit, and softens stool.",
+        "distractor_explanations": {
+          "A": "SGLT1 mediates sodium-coupled glucose uptake and is not the direct target of tenapanor.",
+          "B": "Correct. Tenapanor directly inhibits apical NHE3 in the small intestine and colon.",
+          "C": "NKCC transporters are not the labeled intestinal target of tenapanor.",
+          "D": "CFTR activation would increase chloride secretion, which the vignette specifically excludes.",
+          "E": "Basolateral Na+/K+-ATPase maintains sodium gradients but is not directly inhibited by tenapanor."
+        },
+        "educational_objective": "Link intestinal NHE3 inhibition to reduced sodium absorption, increased luminal water, and accelerated transit."
+      },
+      "sources": [
+        {
+          "source_id": "Q1582-LABEL",
+          "title": "IBSRELA- tenapanor hydrochloride tablet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2102da5f-a1a0-4ac7-a1f6-38698cf7273a",
+          "setid": "2102da5f-a1a0-4ac7-a1f6-38698cf7273a",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "28ffb6eb588867a685d2b16f1c097945c917cee9bef2e22a1438b92f650fd5e8",
+          "cited_section_sha256": "fc7746ca4d3e46719a63ac652056cea63d6a95784542de6f8fa70101f229f0d6",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "fc7746ca4d3e46719a63ac652056cea63d6a95784542de6f8fa70101f229f0d6"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1582-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "SGLT1 mediates sodium-coupled glucose uptake and is not the direct target of tenapanor.",
+          "source_ids": [
+            "Q1582-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1582-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Tenapanor directly inhibits apical NHE3 in the small intestine and colon.",
+          "source_ids": [
+            "Q1582-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1582-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "NKCC transporters are not the labeled intestinal target of tenapanor.",
+          "source_ids": [
+            "Q1582-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1582-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CFTR activation would increase chloride secretion, which the vignette specifically excludes.",
+          "source_ids": [
+            "Q1582-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1582-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Basolateral Na+/K+-ATPase maintains sodium gradients but is not directly inhibited by tenapanor.",
+          "source_ids": [
+            "Q1582-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "CFTR-mediated chloride secretion can also increase luminal water, but tenapanor produces its effect by reducing apical sodium absorption through NHE3 inhibition.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1583,
+      "drug": "tapinarof",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A topical drug used for inflammatory skin disease enters keratinocytes and activates a ligand-dependent transcription factor involved in xenobiotic sensing and epidermal homeostasis. The exact downstream therapeutic mechanism remains incompletely defined.",
+        "lead_in": "Which receptor is directly activated?",
+        "options": {
+          "A": "Glucocorticoid receptor",
+          "B": "Peroxisome proliferator-activated receptor-gamma",
+          "C": "Aryl hydrocarbon receptor",
+          "D": "Vitamin D receptor",
+          "E": "Retinoic acid receptor"
+        },
+        "intended_key": "C",
+        "tested_construct": "Agonism of the aryl hydrocarbon receptor",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Tapinarof is an aryl hydrocarbon receptor (AhR) agonist. AhR is a ligand-activated transcription factor; the specific mechanisms by which AhR agonism produces the therapeutic effects of topical tapinarof are not fully established.",
+        "distractor_explanations": {
+          "A": "Topical corticosteroids act through the glucocorticoid receptor, but tapinarof is not a corticosteroid.",
+          "B": "PPAR-gamma agonism is not the labeled direct action of tapinarof.",
+          "C": "Correct. Tapinarof directly activates the aryl hydrocarbon receptor.",
+          "D": "Vitamin D receptor agonists are used in psoriasis but represent a different mechanism.",
+          "E": "Retinoic acid receptor activation is not the direct pharmacology of tapinarof."
+        },
+        "educational_objective": "Recognize AhR agonism as a distinct topical anti-inflammatory pharmacologic mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1583-LABEL",
+          "title": "VTAMA- tapinarof cream",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9309d20f-8cd4-4c96-93fa-7f730e83c7ab",
+          "setid": "9309d20f-8cd4-4c96-93fa-7f730e83c7ab",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3b9a71eb6ed975108b45fa61660c020620de043a8ff553f111cab2563465c4af",
+          "cited_section_sha256": "4e62a3072cc4b55e4e88c1406b6f397a687ecfb379f47beefbe016b1247713c3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "4e62a3072cc4b55e4e88c1406b6f397a687ecfb379f47beefbe016b1247713c3"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1583-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Topical corticosteroids act through the glucocorticoid receptor, but tapinarof is not a corticosteroid.",
+          "source_ids": [
+            "Q1583-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1583-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PPAR-gamma agonism is not the labeled direct action of tapinarof.",
+          "source_ids": [
+            "Q1583-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1583-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Tapinarof directly activates the aryl hydrocarbon receptor.",
+          "source_ids": [
+            "Q1583-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1583-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Vitamin D receptor agonists are used in psoriasis but represent a different mechanism.",
+          "source_ids": [
+            "Q1583-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1583-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Retinoic acid receptor activation is not the direct pharmacology of tapinarof.",
+          "source_ids": [
+            "Q1583-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Vitamin D receptor agonists are also used topically in psoriasis, but tapinarof specifically activates AhR and the label does not claim VDR agonism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1584,
+      "drug": "spesolimab-sbzo",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with generalized pustular psoriasis receives spesolimab-sbzo. Signaling triggered by IL-36 alpha, beta, and gamma falls, with reduced downstream inflammatory pathway activation.",
+        "lead_in": "Which receptor is directly bound by the drug?",
+        "options": {
+          "A": "Interleukin-17 receptor A",
+          "B": "Interleukin-23 receptor",
+          "C": "Interleukin-4 receptor alpha",
+          "D": "Interleukin-36 receptor",
+          "E": "Tumor necrosis factor receptor 1"
+        },
+        "intended_key": "D",
+        "tested_construct": "Monoclonal antibody binding to IL-36 receptor with blockade of IL-36 signaling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Spesolimab-sbzo is a humanized IgG1 monoclonal antibody that binds IL-36 receptor (IL36R). This prevents receptor activation by IL-36 alpha, beta, and gamma and reduces downstream pro-inflammatory signaling.",
+        "distractor_explanations": {
+          "A": "IL-17RA blockade is a different psoriasis-directed cytokine strategy.",
+          "B": "IL-23 pathway blockade is mechanistically distinct and does not explain inhibition of all three IL-36 ligands.",
+          "C": "IL-4R alpha blockade targets type 2 inflammation rather than IL-36 signaling.",
+          "D": "Correct. Spesolimab directly binds IL36R and prevents activation by IL-36 ligands.",
+          "E": "TNFR1 is not the direct target of spesolimab."
+        },
+        "educational_objective": "Differentiate IL-36 receptor blockade from other cytokine-targeted biologic mechanisms used in inflammatory skin disease."
+      },
+      "sources": [
+        {
+          "source_id": "Q1584-LABEL",
+          "title": "SPEVIGO- spesolimab-sbzo injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=41a481ee-3062-45d1-aed5-17e8b105634d",
+          "setid": "41a481ee-3062-45d1-aed5-17e8b105634d",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "c5a9e1b57f430da19a6203cfe639ebe020e5cd9dd346c87ca04f730cc5c38559",
+          "cited_section_sha256": "b71c30e70f384e74cddbc7422da638ac4d9a3526e009910c8c5307a3e4d60472",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "b71c30e70f384e74cddbc7422da638ac4d9a3526e009910c8c5307a3e4d60472"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1584-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "IL-17RA blockade is a different psoriasis-directed cytokine strategy.",
+          "source_ids": [
+            "Q1584-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1584-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "IL-23 pathway blockade is mechanistically distinct and does not explain inhibition of all three IL-36 ligands.",
+          "source_ids": [
+            "Q1584-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1584-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "IL-4R alpha blockade targets type 2 inflammation rather than IL-36 signaling.",
+          "source_ids": [
+            "Q1584-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1584-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Spesolimab directly binds IL36R and prevents activation by IL-36 ligands.",
+          "source_ids": [
+            "Q1584-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1584-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "TNFR1 is not the direct target of spesolimab.",
+          "source_ids": [
+            "Q1584-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "IL-17RA blockade is a plausible psoriasis mechanism, but the simultaneous loss of signaling from IL-36 alpha, beta, and gamma specifically identifies IL36R blockade.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1585,
+      "drug": "fosdenopterin",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An infant with molybdenum cofactor deficiency type A due to biallelic MOCS1 variants receives fosdenopterin. Urinary S-sulfocysteine falls after treatment.",
+        "lead_in": "Which enzyme activity is most directly restored by formation of molybdenum cofactor from the replacement substrate?",
+        "options": {
+          "A": "Phenylalanine hydroxylase",
+          "B": "Branched-chain alpha-ketoacid dehydrogenase",
+          "C": "Homogentisate dioxygenase",
+          "D": "Cystathionine beta-synthase",
+          "E": "Sulfite oxidase"
+        },
+        "intended_key": "E",
+        "tested_construct": "Restoration of molybdenum-cofactor-dependent sulfite oxidase activity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Fosdenopterin provides exogenous cyclic pyranopterin monophosphate (cPMP), which is converted to molybdopterin and then molybdenum cofactor. This cofactor is required for molybdenum-dependent enzymes including sulfite oxidase, whose activity reduces neurotoxic sulfite burden and S-sulfocysteine.",
+        "distractor_explanations": {
+          "A": "Phenylalanine hydroxylase requires tetrahydrobiopterin rather than molybdenum cofactor.",
+          "B": "Branched-chain alpha-ketoacid dehydrogenase requires thiamine pyrophosphate and other cofactors, not MoCo.",
+          "C": "Homogentisate dioxygenase is not a molybdenum-cofactor-dependent enzyme.",
+          "D": "Cystathionine beta-synthase requires pyridoxal phosphate rather than MoCo.",
+          "E": "Correct. Sulfite oxidase is MoCo dependent and its restoration explains the fall in toxic sulfite-derived metabolites."
+        },
+        "educational_objective": "Connect cPMP replacement in MOCS1 deficiency with restoration of molybdenum cofactor and sulfite oxidase function."
+      },
+      "sources": [
+        {
+          "source_id": "Q1585-LABEL",
+          "title": "NULIBRY- fosdenopterin hydrobromide injection, powder, lyophilized, for solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=736aeea3-f206-454d-95d0-fd30964e8aab",
+          "setid": "736aeea3-f206-454d-95d0-fd30964e8aab",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "03af42c162b854a51ff309c43b3fef5a39f9d1dfdedc4a44578f9f307691178e",
+          "cited_section_sha256": "da78f2a2acf5eaaaf211da452cb11bb4baa6657778fb54fbe0faf2e67a5d3324",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "da78f2a2acf5eaaaf211da452cb11bb4baa6657778fb54fbe0faf2e67a5d3324"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1585-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Phenylalanine hydroxylase requires tetrahydrobiopterin rather than molybdenum cofactor.",
+          "source_ids": [
+            "Q1585-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1585-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Branched-chain alpha-ketoacid dehydrogenase requires thiamine pyrophosphate and other cofactors, not MoCo.",
+          "source_ids": [
+            "Q1585-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1585-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Homogentisate dioxygenase is not a molybdenum-cofactor-dependent enzyme.",
+          "source_ids": [
+            "Q1585-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1585-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Cystathionine beta-synthase requires pyridoxal phosphate rather than MoCo.",
+          "source_ids": [
+            "Q1585-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1585-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Sulfite oxidase is MoCo dependent and its restoration explains the fall in toxic sulfite-derived metabolites.",
+          "source_ids": [
+            "Q1585-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Cystathionine beta-synthase participates in sulfur amino-acid metabolism, but the enzyme directly restored by MoCo formation and responsible for sulfite detoxification is sulfite oxidase.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
