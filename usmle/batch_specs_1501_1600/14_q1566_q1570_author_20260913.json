@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1566-Q1570-20260913",
+  "created_at": "2026-09-13",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1565,
+  "canonical_count_after": 1565,
+  "canonical_db_blob": "f988cd9d7f04439435cb71ef7289c6269900f020",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-13: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1566,
+      "drug": "taletrectinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Respiratory System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Respiratory System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with metastatic non-small cell lung cancer has a ROS1 fusion and later develops a ROS1 solvent-front resistance mutation. Tumor cells remain sensitive to taletrectinib, with decreased phosphorylation of downstream survival pathways.",
+        "lead_in": "Which molecular target is most directly inhibited?",
+        "options": {
+          "A": "ROS1 tyrosine kinase",
+          "B": "BRAF serine/threonine kinase",
+          "C": "MET receptor tyrosine kinase",
+          "D": "ALK tyrosine kinase",
+          "E": "KRAS GTPase"
+        },
+        "intended_key": "A",
+        "tested_construct": "Direct inhibition of ROS1 tyrosine kinase, including resistance-mutant ROS1",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Taletrectinib inhibits ROS1 tyrosine kinase, including clinically relevant resistance mutations. ROS1 fusion proteins can constitutively activate downstream proliferative signaling; ROS1 inhibition suppresses growth of ROS1-driven tumor cells.",
+        "distractor_explanations": {
+          "A": "Correct. Taletrectinib directly inhibits ROS1 tyrosine kinase, including resistance-mutant forms.",
+          "B": "BRAF is a downstream MAPK-pathway kinase and is not the direct target.",
+          "C": "MET is targeted by other agents but is not the labeled primary target of taletrectinib.",
+          "D": "ALK rearrangements can also drive NSCLC, but this tumor is ROS1-driven.",
+          "E": "KRAS is a small GTPase and is not directly inhibited by taletrectinib."
+        },
+        "educational_objective": "Identify ROS1 as the direct oncogenic target of taletrectinib in ROS1-positive NSCLC, including disease with resistance mutations."
+      },
+      "sources": [
+        {
+          "source_id": "Q1566-LABEL",
+          "title": "IBTROZI- taletrectinib capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=51ac8e52-3269-4102-8dc8-dba22d82128c",
+          "setid": "51ac8e52-3269-4102-8dc8-dba22d82128c",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "9797d42426fa41010d02d49396acca4e28937c3bf2d61cc27766555e9f48330c",
+          "cited_section_sha256": "7dce1ce9ce423646d82ef3a08426d35818128486fbb561730aefe5e260be6ef9",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "7dce1ce9ce423646d82ef3a08426d35818128486fbb561730aefe5e260be6ef9"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1566-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Taletrectinib directly inhibits ROS1 tyrosine kinase, including resistance-mutant forms.",
+          "source_ids": [
+            "Q1566-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1566-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "BRAF is a downstream MAPK-pathway kinase and is not the direct target.",
+          "source_ids": [
+            "Q1566-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1566-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "MET is targeted by other agents but is not the labeled primary target of taletrectinib.",
+          "source_ids": [
+            "Q1566-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1566-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ALK rearrangements can also drive NSCLC, but this tumor is ROS1-driven.",
+          "source_ids": [
+            "Q1566-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1566-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "KRAS is a small GTPase and is not directly inhibited by taletrectinib.",
+          "source_ids": [
+            "Q1566-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "ALK and ROS1 rearrangements can produce similar NSCLC phenotypes, but the documented fusion and resistance mutation identify ROS1 as the direct target.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1567,
+      "drug": "inclisiran",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A hepatocyte is exposed to inclisiran. After uptake through a liver-targeting carbohydrate conjugate, the drug enters the RNA interference pathway and lowers synthesis of a secreted protein that normally reduces LDL-receptor recycling.",
+        "lead_in": "Which cellular change most directly follows?",
+        "options": {
+          "A": "Decreased LDL-receptor density on hepatocyte surfaces",
+          "B": "Increased recycling of LDL receptors to the hepatocyte surface",
+          "C": "Increased HMG-CoA reductase transcription",
+          "D": "Reduced endocytosis of circulating LDL particles",
+          "E": "Increased secretion of apolipoprotein B"
+        },
+        "intended_key": "B",
+        "tested_construct": "Increased hepatocyte-surface LDL-receptor recycling after PCSK9 mRNA degradation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Inclisiran is a GalNAc-conjugated small interfering RNA that is taken up by hepatocytes and directs catalytic degradation of PCSK9 mRNA. Lower PCSK9 production increases LDL-receptor recycling and surface expression, which enhances LDL uptake from plasma.",
+        "distractor_explanations": {
+          "A": "PCSK9 reduction increases rather than decreases hepatocyte-surface LDL receptors.",
+          "B": "Correct. Reduced PCSK9 allows more LDL receptors to recycle to the cell surface instead of being degraded.",
+          "C": "Inclisiran does not lower LDL cholesterol by increasing HMG-CoA reductase expression.",
+          "D": "More surface LDL receptors increase LDL uptake rather than reducing endocytosis.",
+          "E": "ApoB secretion is not the direct downstream effect of PCSK9 mRNA silencing."
+        },
+        "educational_objective": "Connect hepatocyte-targeted PCSK9 siRNA therapy with increased LDL-receptor recycling and increased plasma LDL clearance."
+      },
+      "sources": [
+        {
+          "source_id": "Q1567-LABEL",
+          "title": "LEQVIO- inclisiran injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fc0afca-4513-4c35-b594-6544aee29a44",
+          "setid": "6fc0afca-4513-4c35-b594-6544aee29a44",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ed9bf9760d51c6d9de527ac173528bb1caade6e64829cb96a8f2b68d9b9dcffc",
+          "cited_section_sha256": "f772f23ed6e950987e26ac5c09609f2135067e5db540799546db3046070e7615",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "f772f23ed6e950987e26ac5c09609f2135067e5db540799546db3046070e7615"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1567-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PCSK9 reduction increases rather than decreases hepatocyte-surface LDL receptors.",
+          "source_ids": [
+            "Q1567-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1567-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Reduced PCSK9 allows more LDL receptors to recycle to the cell surface instead of being degraded.",
+          "source_ids": [
+            "Q1567-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1567-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Inclisiran does not lower LDL cholesterol by increasing HMG-CoA reductase expression.",
+          "source_ids": [
+            "Q1567-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1567-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "More surface LDL receptors increase LDL uptake rather than reducing endocytosis.",
+          "source_ids": [
+            "Q1567-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1567-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "ApoB secretion is not the direct downstream effect of PCSK9 mRNA silencing.",
+          "source_ids": [
+            "Q1567-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Reduced cholesterol synthesis is a common lipid-lowering mechanism, but inclisiran acts through RNA interference against PCSK9 and therefore increases LDL-receptor recycling.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1568,
+      "drug": "migalastat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with Fabry disease has an amenable GLA missense variant that produces alpha-galactosidase A with residual catalytic activity but poor folding and endoplasmic-reticulum retention. Migalastat increases lysosomal enzyme activity without supplying exogenous enzyme.",
+        "lead_in": "Which mechanism best explains this effect?",
+        "options": {
+          "A": "Permanent covalent activation of alpha-galactosidase A",
+          "B": "Increased transcription of the GLA gene",
+          "C": "Reversible active-site binding that stabilizes folding and permits lysosomal trafficking",
+          "D": "Inhibition of lysosomal proteases that degrade alpha-galactosidase A",
+          "E": "Insertion of a normal GLA cDNA into hematopoietic stem cells"
+        },
+        "intended_key": "C",
+        "tested_construct": "Pharmacological chaperoning of amenable mutant alpha-galactosidase A",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Migalastat reversibly binds the active site of certain amenable mutant alpha-galactosidase A proteins and stabilizes their folding in the endoplasmic reticulum. This allows trafficking to lysosomes, where the lower pH and high substrate concentrations favor dissociation of migalastat and restoration of enzyme activity.",
+        "distractor_explanations": {
+          "A": "Migalastat does not permanently activate or covalently modify the enzyme.",
+          "B": "The drug does not work primarily by increasing GLA transcription.",
+          "C": "Correct. Reversible active-site binding stabilizes amenable mutant enzyme and permits lysosomal trafficking.",
+          "D": "Lysosomal protease inhibition is not the labeled mechanism.",
+          "E": "Migalastat is a small-molecule pharmacological chaperone, not a gene therapy."
+        },
+        "educational_objective": "Recognize pharmacological chaperoning as stabilization of an amenable misfolded enzyme to restore intracellular trafficking and function."
+      },
+      "sources": [
+        {
+          "source_id": "Q1568-LABEL",
+          "title": "GALAFOLD- migalastat hydrochloride capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=66dbd928-0f1c-48b1-a832-54e4abd9f1db",
+          "setid": "66dbd928-0f1c-48b1-a832-54e4abd9f1db",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "1f8a818361e7aa89e7869362c377fc6e2bc9af1a5c7a98647af2106f442c4935",
+          "cited_section_sha256": "baf24a43dde923d05ca654800a7fa21d7c9c5395f450273d17cdd0dd678d184b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "baf24a43dde923d05ca654800a7fa21d7c9c5395f450273d17cdd0dd678d184b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1568-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Migalastat does not permanently activate or covalently modify the enzyme.",
+          "source_ids": [
+            "Q1568-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1568-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "The drug does not work primarily by increasing GLA transcription.",
+          "source_ids": [
+            "Q1568-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1568-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Reversible active-site binding stabilizes amenable mutant enzyme and permits lysosomal trafficking.",
+          "source_ids": [
+            "Q1568-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1568-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Lysosomal protease inhibition is not the labeled mechanism.",
+          "source_ids": [
+            "Q1568-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1568-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Migalastat is a small-molecule pharmacological chaperone, not a gene therapy.",
+          "source_ids": [
+            "Q1568-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "The apparent paradox is that migalastat binds the active site, but the binding is reversible and primarily stabilizes folding before the drug dissociates in the lysosome.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1569,
+      "drug": "avacopan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Neutrophils from a patient with ANCA-associated vasculitis are exposed to C5a in the presence of avacopan. C5a remains detectable in the medium, but upregulation of CD11b and chemotactic migration are markedly reduced.",
+        "lead_in": "Which step is most directly blocked?",
+        "options": {
+          "A": "Proteolytic cleavage of C5 into C5a and C5b",
+          "B": "Formation of C3 convertase",
+          "C": "Assembly of the membrane attack complex",
+          "D": "Binding of C5a to its neutrophil receptor",
+          "E": "Classical-pathway activation by C1q"
+        },
+        "intended_key": "D",
+        "tested_construct": "Antagonism of the C5a receptor on neutrophils",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Avacopan is a complement C5a receptor antagonist. It blocks interaction of the anaphylatoxin C5a with C5aR, thereby reducing C5a-mediated neutrophil activation and migration without directly preventing generation of C5a itself.",
+        "distractor_explanations": {
+          "A": "C5 cleavage can still occur because avacopan blocks the receptor rather than complement protein C5.",
+          "B": "C3-convertase formation is upstream and is not directly inhibited by avacopan.",
+          "C": "MAC formation is a downstream terminal-complement event and is not the direct receptor-level target.",
+          "D": "Correct. Avacopan directly antagonizes C5aR and blocks C5a-driven neutrophil activation.",
+          "E": "C1q-mediated classical-pathway initiation is not the direct target of avacopan."
+        },
+        "educational_objective": "Differentiate C5a-receptor antagonism from upstream complement blockade and direct C5 inhibition."
+      },
+      "sources": [
+        {
+          "source_id": "Q1569-LABEL",
+          "title": "TAVNEOS- avacopan capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c93cbc0b-29a3-46a5-9c85-41815ea5cf4a",
+          "setid": "c93cbc0b-29a3-46a5-9c85-41815ea5cf4a",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "9b7a2b223e3bd4cf2ed8b846423ffed1ba89853cd5b831d13b1ea01ffb587776",
+          "cited_section_sha256": "7bfba4fc25228f6d1852265e6d9fb97381ae5dd0c3de05ce9bddafe789bb4360",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "7bfba4fc25228f6d1852265e6d9fb97381ae5dd0c3de05ce9bddafe789bb4360"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1569-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "C5 cleavage can still occur because avacopan blocks the receptor rather than complement protein C5.",
+          "source_ids": [
+            "Q1569-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1569-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "C3-convertase formation is upstream and is not directly inhibited by avacopan.",
+          "source_ids": [
+            "Q1569-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1569-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "MAC formation is a downstream terminal-complement event and is not the direct receptor-level target.",
+          "source_ids": [
+            "Q1569-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1569-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Avacopan directly antagonizes C5aR and blocks C5a-driven neutrophil activation.",
+          "source_ids": [
+            "Q1569-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1569-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "C1q-mediated classical-pathway initiation is not the direct target of avacopan.",
+          "source_ids": [
+            "Q1569-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "A C5 inhibitor would reduce generation of C5a itself; persistence of C5a with loss of neutrophil response specifically indicates C5a-receptor antagonism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1570,
+      "drug": "belzutifan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Renal & Urinary System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Renal & Urinary System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Renal tumor cells lacking functional VHL protein accumulate HIF-2alpha and express genes that promote angiogenesis and tumor growth. Belzutifan reduces transcription of these genes without restoring VHL function.",
+        "lead_in": "Which molecular interaction is most directly disrupted?",
+        "options": {
+          "A": "HIF-1alpha binding to prolyl hydroxylase",
+          "B": "VHL binding to ubiquitin ligase components",
+          "C": "VEGF binding to VEGFR2",
+          "D": "HIF-2alpha binding to DNA at hypoxia-response elements",
+          "E": "HIF-2alpha binding to HIF-1beta"
+        },
+        "intended_key": "E",
+        "tested_construct": "Blockade of HIF-2alpha heterodimerization with HIF-1beta",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Belzutifan binds HIF-2alpha and blocks its interaction with HIF-1beta. In VHL-deficient cells, HIF-2alpha is stabilized and would otherwise form a transcriptionally active heterodimer that increases expression of genes involved in angiogenesis, proliferation, and tumor growth.",
+        "distractor_explanations": {
+          "A": "Prolyl hydroxylation regulates HIF stability upstream but is not the direct interaction blocked by belzutifan.",
+          "B": "Belzutifan does not restore VHL-E3-ligase function.",
+          "C": "VEGF signaling is downstream of HIF activity; belzutifan acts upstream at HIF-2alpha.",
+          "D": "The direct labeled mechanism is inhibition of HIF-2alpha/HIF-1beta complex formation rather than direct blockade of DNA binding.",
+          "E": "Correct. Belzutifan prevents HIF-2alpha from heterodimerizing with HIF-1beta and thereby reduces HIF-2alpha-dependent transcription."
+        },
+        "educational_objective": "Link VHL loss to HIF-2alpha stabilization and recognize HIF-2alpha/HIF-1beta heterodimerization as the direct target of belzutifan."
+      },
+      "sources": [
+        {
+          "source_id": "Q1570-LABEL",
+          "title": "WELIREG- belzutifan tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=13e15ee0-d679-4fa9-9430-e2e2170474da",
+          "setid": "13e15ee0-d679-4fa9-9430-e2e2170474da",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-13; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-13",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "5f4702e6d14db49947b24595f34745b3cf75be086b93f12fa07dc394d44a9db1",
+          "cited_section_sha256": "3869dc5ee5823562619d19e15943399e39942ec0bcc0948558f5fa90b7ca9c26",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-13",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "3869dc5ee5823562619d19e15943399e39942ec0bcc0948558f5fa90b7ca9c26"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1570-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Prolyl hydroxylation regulates HIF stability upstream but is not the direct interaction blocked by belzutifan.",
+          "source_ids": [
+            "Q1570-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1570-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Belzutifan does not restore VHL-E3-ligase function.",
+          "source_ids": [
+            "Q1570-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1570-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "VEGF signaling is downstream of HIF activity; belzutifan acts upstream at HIF-2alpha.",
+          "source_ids": [
+            "Q1570-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1570-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The direct labeled mechanism is inhibition of HIF-2alpha/HIF-1beta complex formation rather than direct blockade of DNA binding.",
+          "source_ids": [
+            "Q1570-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1570-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Belzutifan prevents HIF-2alpha from heterodimerizing with HIF-1beta and thereby reduces HIF-2alpha-dependent transcription.",
+          "source_ids": [
+            "Q1570-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "VEGF blockade could also reduce angiogenic signaling, but belzutifan acts one level upstream by preventing formation of the HIF-2alpha/HIF-1beta transcription complex.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-13.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-13.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}

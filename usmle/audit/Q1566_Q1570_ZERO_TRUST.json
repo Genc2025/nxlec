@@ -1,0 +1,133 @@
+{
+  "audit_id": "Q1566-Q1570-ZERO-TRUST-ADAPTIVE-20260913",
+  "candidate_blob": "52eb619e60a2ff9730ec71071a1cb1140e25efd1",
+  "canonical_db_blob": "f988cd9d7f04439435cb71ef7289c6269900f020",
+  "canonical_count": 1565,
+  "canonical_review_count": 1565,
+  "item_count": 5,
+  "item_reports": [
+    {
+      "q": 1566,
+      "status": "PASS",
+      "evidence_derived_key": "A",
+      "intended_key": "A",
+      "key_rationale_overlap": 8,
+      "source_live_binding": "PASS",
+      "second_answer_attack": "PASS",
+      "blueprint": "PASS",
+      "canonical_max_jaccard": 0.25882,
+      "canonical_top_match": "S1-DIRECT-1435-20260910T100000Z",
+      "canonical_top_text": null,
+      "source_reports": [
+        {
+          "source_id": "Q1566-LABEL",
+          "status": "PASS",
+          "setid": "51ac8e52-3269-4102-8dc8-dba22d82128c",
+          "title_core_overlap": 2,
+          "semantic_overlap": 19
+        }
+      ],
+      "failures": []
+    },
+    {
+      "q": 1567,
+      "status": "BLOCKED",
+      "evidence_derived_key": "B",
+      "intended_key": "B",
+      "key_rationale_overlap": 7,
+      "source_live_binding": "PASS",
+      "second_answer_attack": "BLOCKED",
+      "blueprint": "PASS",
+      "canonical_max_jaccard": 0.25243,
+      "canonical_top_match": "S1-DIRECT-0903-20260901T054500Z",
+      "canonical_top_text": null,
+      "source_reports": [
+        {
+          "source_id": "Q1567-LABEL",
+          "status": "PASS",
+          "setid": "6fc0afca-4513-4c35-b594-6544aee29a44",
+          "title_core_overlap": 2,
+          "semantic_overlap": 23
+        }
+      ],
+      "failures": [
+        "second_answer_attack"
+      ]
+    },
+    {
+      "q": 1568,
+      "status": "PASS",
+      "evidence_derived_key": "C",
+      "intended_key": "C",
+      "key_rationale_overlap": 10,
+      "source_live_binding": "PASS",
+      "second_answer_attack": "PASS",
+      "blueprint": "PASS",
+      "canonical_max_jaccard": 0.17391,
+      "canonical_top_match": "S1-DIRECT-1399-20260910T100000Z",
+      "canonical_top_text": null,
+      "source_reports": [
+        {
+          "source_id": "Q1568-LABEL",
+          "status": "PASS",
+          "setid": "66dbd928-0f1c-48b1-a832-54e4abd9f1db",
+          "title_core_overlap": 3,
+          "semantic_overlap": 23
+        }
+      ],
+      "failures": []
+    },
+    {
+      "q": 1569,
+      "status": "PASS",
+      "evidence_derived_key": "D",
+      "intended_key": "D",
+      "key_rationale_overlap": 7,
+      "source_live_binding": "PASS",
+      "second_answer_attack": "PASS",
+      "blueprint": "PASS",
+      "canonical_max_jaccard": 0.36782,
+      "canonical_top_match": "S1-DIRECT-1560-20260912T171900Z",
+      "canonical_top_text": null,
+      "source_reports": [
+        {
+          "source_id": "Q1569-LABEL",
+          "status": "PASS",
+          "setid": "c93cbc0b-29a3-46a5-9c85-41815ea5cf4a",
+          "title_core_overlap": 2,
+          "semantic_overlap": 15
+        }
+      ],
+      "failures": []
+    },
+    {
+      "q": 1570,
+      "status": "PASS",
+      "evidence_derived_key": "E",
+      "intended_key": "E",
+      "key_rationale_overlap": 4,
+      "source_live_binding": "PASS",
+      "second_answer_attack": "PASS",
+      "blueprint": "PASS",
+      "canonical_max_jaccard": 0.19512,
+      "canonical_top_match": "S1-DIRECT-1051-20260902T093500Z",
+      "canonical_top_text": null,
+      "source_reports": [
+        {
+          "source_id": "Q1570-LABEL",
+          "status": "PASS",
+          "setid": "13e15ee0-d679-4fa9-9430-e2e2170474da",
+          "title_core_overlap": 2,
+          "semantic_overlap": 17
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "failures": [
+    "Q1567:second_answer_attack"
+  ],
+  "verdict": "BLOCKED",
+  "production_db_modified": false,
+  "production_import_ready": false
+}
