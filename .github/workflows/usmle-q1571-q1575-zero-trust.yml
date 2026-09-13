@@ -39,7 +39,7 @@ jobs:
           python -m py_compile usmle/author_q1571_q1575.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py usmle/finalize_candidate_current.py
           python usmle/author_q1571_q1575.py
           python usmle/freeze_candidate_generic.py
-          export CAND_BLOB="$(git hash-object \"$CAND_PATH\")"
+          export CAND_BLOB=$(git hash-object "$CAND_PATH")
           python usmle/audit_candidate_zero_trust_current.py
           python usmle/finalize_candidate_current.py
           test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
