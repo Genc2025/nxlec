@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1586-Q1590-20260914",
+  "created_at": "2026-09-14",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1585,
+  "canonical_count_after": 1585,
+  "canonical_db_blob": "979e1ca7fed788c323501f38a5afa441cf54f476",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-14: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1586,
+      "drug": "vamorolone",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A boy with Duchenne muscular dystrophy receives vamorolone. In target cells, the drug alters expression of inflammatory genes without correcting the dystrophin mutation.",
+        "lead_in": "Which intracellular receptor is directly engaged?",
+        "options": {
+          "A": "Glucocorticoid receptor",
+          "B": "Mineralocorticoid receptor",
+          "C": "Androgen receptor",
+          "D": "Peroxisome proliferator-activated receptor-gamma",
+          "E": "Aryl hydrocarbon receptor"
+        },
+        "intended_key": "A",
+        "tested_construct": "Binding to the glucocorticoid receptor",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Vamorolone is a corticosteroid that acts through the glucocorticoid receptor to exert anti-inflammatory and immunosuppressive effects. The precise mechanism by which this improves Duchenne muscular dystrophy remains unknown.",
+        "distractor_explanations": {
+          "A": "Correct. Vamorolone acts through the glucocorticoid receptor.",
+          "B": "Mineralocorticoid-receptor signaling is not the labeled direct mechanism of vamorolone.",
+          "C": "Androgen-receptor activation is not the direct pharmacology of vamorolone.",
+          "D": "PPAR-gamma is a nuclear receptor targeted by thiazolidinediones, not vamorolone.",
+          "E": "AhR is activated by tapinarof and is not the direct target here."
+        },
+        "educational_objective": "Recognize glucocorticoid-receptor signaling as the direct pharmacologic action of vamorolone while separating it from the genetic defect in DMD."
+      },
+      "sources": [
+        {
+          "source_id": "Q1586-LABEL",
+          "title": "AGAMREE- vamorolone kit; AGAMREE- vamorolone suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fb376f09-cf9c-42b5-b4dd-02d5bcd73211",
+          "setid": "fb376f09-cf9c-42b5-b4dd-02d5bcd73211",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "19876cc2d2f1d7921ce3e316654f38ee7125131ffca60805c4eab050c62fa3ea",
+          "cited_section_sha256": "a25406cc3f84a359900104edb62991e6276c0e44324ed9c930417863832a4056",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "a25406cc3f84a359900104edb62991e6276c0e44324ed9c930417863832a4056"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1586-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Vamorolone acts through the glucocorticoid receptor.",
+          "source_ids": [
+            "Q1586-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1586-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Mineralocorticoid-receptor signaling is not the labeled direct mechanism of vamorolone.",
+          "source_ids": [
+            "Q1586-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1586-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Androgen-receptor activation is not the direct pharmacology of vamorolone.",
+          "source_ids": [
+            "Q1586-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1586-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "PPAR-gamma is a nuclear receptor targeted by thiazolidinediones, not vamorolone.",
+          "source_ids": [
+            "Q1586-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1586-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "AhR is activated by tapinarof and is not the direct target here.",
+          "source_ids": [
+            "Q1586-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Mineralocorticoid-receptor signaling is another corticosteroid-related pathway, but the current label identifies the glucocorticoid receptor as vamorolone's direct mechanism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1587,
+      "drug": "mitapivat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Red blood cells from an adult with pyruvate kinase deficiency have low ATP and shortened survival. After mitapivat treatment, ATP production increases and hemolysis improves.",
+        "lead_in": "Which molecular action most directly explains this response?",
+        "options": {
+          "A": "Inhibition of phosphofructokinase-1",
+          "B": "Allosteric activation of the pyruvate kinase tetramer",
+          "C": "Activation of glucose-6-phosphate dehydrogenase",
+          "D": "Inhibition of lactate dehydrogenase",
+          "E": "Activation of hexokinase"
+        },
+        "intended_key": "B",
+        "tested_construct": "Allosteric activation of red-cell pyruvate kinase",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Mitapivat allosterically binds the pyruvate kinase tetramer and increases pyruvate kinase activity. In pyruvate kinase deficiency, reduced PK-R activity lowers ATP production and shortens red-cell lifespan; activation of the residual enzyme improves RBC energetics.",
+        "distractor_explanations": {
+          "A": "PFK-1 inhibition would reduce glycolytic flux and ATP generation.",
+          "B": "Correct. Mitapivat allosterically activates the pyruvate kinase tetramer.",
+          "C": "G6PD supports NADPH generation rather than the direct ATP-producing step targeted by mitapivat.",
+          "D": "Lactate dehydrogenase is downstream of pyruvate kinase and is not the direct target.",
+          "E": "Hexokinase is an upstream glycolytic enzyme and is not directly activated by mitapivat."
+        },
+        "educational_objective": "Connect allosteric pyruvate-kinase activation with increased RBC ATP production and improved survival in pyruvate kinase deficiency."
+      },
+      "sources": [
+        {
+          "source_id": "Q1587-LABEL",
+          "title": "PYRUKYND- mitapivat tablet, film coated; PYRUKYND- mitapivat kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4ccee896-e313-4c6c-9674-b4746ada0a90",
+          "setid": "4ccee896-e313-4c6c-9674-b4746ada0a90",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "1e2b7970026f5186e93c87a83085bb5c383775b45ce13646208e0820369300e2",
+          "cited_section_sha256": "1c9381121547a2040ac2a0d2575d149b5f63b39e3bd50d181f5907fceb5f7800",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "1c9381121547a2040ac2a0d2575d149b5f63b39e3bd50d181f5907fceb5f7800"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1587-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PFK-1 inhibition would reduce glycolytic flux and ATP generation.",
+          "source_ids": [
+            "Q1587-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1587-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Mitapivat allosterically activates the pyruvate kinase tetramer.",
+          "source_ids": [
+            "Q1587-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1587-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "G6PD supports NADPH generation rather than the direct ATP-producing step targeted by mitapivat.",
+          "source_ids": [
+            "Q1587-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1587-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Lactate dehydrogenase is downstream of pyruvate kinase and is not the direct target.",
+          "source_ids": [
+            "Q1587-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1587-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Hexokinase is an upstream glycolytic enzyme and is not directly activated by mitapivat.",
+          "source_ids": [
+            "Q1587-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "G6PD activation could improve red-cell antioxidant capacity, but mitapivat specifically restores glycolytic ATP generation by activating pyruvate kinase.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1588,
+      "drug": "omaveloxolone",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Cells from a patient with Friedreich ataxia have impaired handling of oxidative stress. After treatment with omaveloxolone, transcription of cytoprotective stress-response genes increases.",
+        "lead_in": "Which signaling pathway is most directly activated?",
+        "options": {
+          "A": "NF-kappaB",
+          "B": "HIF-1alpha",
+          "C": "Nrf2",
+          "D": "JAK-STAT",
+          "E": "mTORC1"
+        },
+        "intended_key": "C",
+        "tested_construct": "Activation of the Nrf2 oxidative-stress response pathway",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Omaveloxolone has been shown to activate the Nrf2 pathway. Nrf2 regulates cellular responses to oxidative stress and induces transcription of antioxidant and cytoprotective genes.",
+        "distractor_explanations": {
+          "A": "NF-kappaB is a major inflammatory transcriptional pathway and is not the labeled pathway activated by omaveloxolone.",
+          "B": "HIF-1alpha primarily coordinates hypoxia responses.",
+          "C": "Correct. Omaveloxolone activates Nrf2 signaling.",
+          "D": "JAK-STAT signaling is not the direct pathway described for omaveloxolone.",
+          "E": "mTORC1 regulates growth and nutrient sensing rather than the labeled oxidative-stress mechanism."
+        },
+        "educational_objective": "Recognize Nrf2 activation as the pharmacologic pathway associated with omaveloxolone in Friedreich ataxia."
+      },
+      "sources": [
+        {
+          "source_id": "Q1588-LABEL",
+          "title": "SKYCLARYS- omaveloxolone capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2709e870-df3d-f30f-e063-6394a90aeda1",
+          "setid": "2709e870-df3d-f30f-e063-6394a90aeda1",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "3d255035c52c0171a97f93deef7fc9425f41a1988ee0e487a456040268cf0f5c",
+          "cited_section_sha256": "735f17671e996e25904c59eea4b13693473937ef45b50d022477c138ce0c5a9e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "735f17671e996e25904c59eea4b13693473937ef45b50d022477c138ce0c5a9e"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1588-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "NF-kappaB is a major inflammatory transcriptional pathway and is not the labeled pathway activated by omaveloxolone.",
+          "source_ids": [
+            "Q1588-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1588-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "HIF-1alpha primarily coordinates hypoxia responses.",
+          "source_ids": [
+            "Q1588-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1588-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Omaveloxolone activates Nrf2 signaling.",
+          "source_ids": [
+            "Q1588-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1588-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "JAK-STAT signaling is not the direct pathway described for omaveloxolone.",
+          "source_ids": [
+            "Q1588-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1588-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "mTORC1 regulates growth and nutrient sensing rather than the labeled oxidative-stress mechanism.",
+          "source_ids": [
+            "Q1588-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "NF-kappaB can also alter inflammatory gene transcription, but omaveloxolone is specifically associated with activation of the Nrf2 oxidative-stress response pathway.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1589,
+      "drug": "lonafarnib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Fibroblasts from a child with Hutchinson-Gilford progeria syndrome accumulate abnormal progerin at the inner nuclear membrane. After treatment with lonafarnib, this membrane accumulation decreases.",
+        "lead_in": "Which post-translational modification is most directly prevented?",
+        "options": {
+          "A": "Phosphorylation of serine residues",
+          "B": "Ubiquitination of lysine residues",
+          "C": "N-linked glycosylation",
+          "D": "Farnesylation of progerin",
+          "E": "Acetylation of histone lysines"
+        },
+        "intended_key": "D",
+        "tested_construct": "Farnesyltransferase inhibition preventing progerin farnesylation and membrane accumulation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Lonafarnib inhibits farnesyltransferase, preventing farnesylation of progerin and progerin-like proteins. This reduces their abnormal accumulation at the inner nuclear membrane.",
+        "distractor_explanations": {
+          "A": "Serine phosphorylation is not the post-translational modification targeted by lonafarnib.",
+          "B": "Ubiquitination regulates protein degradation but is not the direct mechanism.",
+          "C": "N-linked glycosylation occurs in the endoplasmic reticulum and is not the relevant progerin-processing step.",
+          "D": "Correct. Lonafarnib blocks farnesyltransferase and prevents progerin farnesylation.",
+          "E": "Histone acetylation affects chromatin structure but is not the direct target of lonafarnib."
+        },
+        "educational_objective": "Recognize protein farnesylation as the druggable processing step responsible for abnormal progerin accumulation in Hutchinson-Gilford progeria syndrome."
+      },
+      "sources": [
+        {
+          "source_id": "Q1589-LABEL",
+          "title": "ZOKINVY- lonafarnib capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97391d0c-943e-4c5a-8423-68e163aa7f50",
+          "setid": "97391d0c-943e-4c5a-8423-68e163aa7f50",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "4d43fc91c8a68378ff6c0a8084c74fb1e7c950292e90c34af55c245e7afa601d",
+          "cited_section_sha256": "1fe83c0b03241ec403518ef060b0609f610b247055f76b265a692c4dade67f0d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "1fe83c0b03241ec403518ef060b0609f610b247055f76b265a692c4dade67f0d"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1589-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Serine phosphorylation is not the post-translational modification targeted by lonafarnib.",
+          "source_ids": [
+            "Q1589-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1589-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Ubiquitination regulates protein degradation but is not the direct mechanism.",
+          "source_ids": [
+            "Q1589-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1589-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "N-linked glycosylation occurs in the endoplasmic reticulum and is not the relevant progerin-processing step.",
+          "source_ids": [
+            "Q1589-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1589-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Lonafarnib blocks farnesyltransferase and prevents progerin farnesylation.",
+          "source_ids": [
+            "Q1589-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1589-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Histone acetylation affects chromatin structure but is not the direct target of lonafarnib.",
+          "source_ids": [
+            "Q1589-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Ubiquitination could alter protein abundance, but lonafarnib specifically blocks farnesyltransferase-dependent processing of progerin.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1590,
+      "drug": "efgartigimod alfa-fcab",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adult with generalized myasthenia gravis receives efgartigimod alfa-fcab. Total serum IgG and pathogenic anti-acetylcholine-receptor antibody concentrations fall without directly inhibiting antibody synthesis by plasma cells.",
+        "lead_in": "Which receptor is directly blocked?",
+        "options": {
+          "A": "CD20",
+          "B": "BAFF receptor",
+          "C": "IL-6 receptor",
+          "D": "Fc-gamma receptor IIB",
+          "E": "Neonatal Fc receptor"
+        },
+        "intended_key": "E",
+        "tested_construct": "Binding to the neonatal Fc receptor (FcRn), reducing IgG recycling",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Efgartigimod alfa-fcab is an IgG1 antibody fragment that binds the neonatal Fc receptor (FcRn). FcRn normally rescues IgG from lysosomal degradation and returns it to the circulation; blocking this recycling pathway reduces circulating total and pathogenic IgG.",
+        "distractor_explanations": {
+          "A": "CD20 depletion reduces B-cell numbers but is not the direct mechanism of efgartigimod.",
+          "B": "BAFF-receptor blockade alters B-cell survival rather than IgG recycling.",
+          "C": "IL-6 receptor blockade affects inflammatory signaling but does not directly explain selective IgG lowering.",
+          "D": "Fc-gamma receptors mediate immune-effector signaling and are not the direct target.",
+          "E": "Correct. Efgartigimod binds FcRn and reduces recycling of IgG, lowering circulating IgG concentrations."
+        },
+        "educational_objective": "Connect FcRn blockade with accelerated IgG catabolism and reduced pathogenic autoantibody levels."
+      },
+      "sources": [
+        {
+          "source_id": "Q1590-LABEL",
+          "title": "VYVGART- efgartigimod alfa injection",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8aefc8e3-26d6-4ff6-aab9-a7542927e084",
+          "setid": "8aefc8e3-26d6-4ff6-aab9-a7542927e084",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "164d9e180ba6342f62c50058f8f1ccd9e29f4026053019073ec4631a055f0311",
+          "cited_section_sha256": "8780c90ca58887c12f2187d5bbf6e612810de86e965a0f67a6575a1dc578979d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "8780c90ca58887c12f2187d5bbf6e612810de86e965a0f67a6575a1dc578979d"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1590-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "CD20 depletion reduces B-cell numbers but is not the direct mechanism of efgartigimod.",
+          "source_ids": [
+            "Q1590-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1590-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "BAFF-receptor blockade alters B-cell survival rather than IgG recycling.",
+          "source_ids": [
+            "Q1590-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1590-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "IL-6 receptor blockade affects inflammatory signaling but does not directly explain selective IgG lowering.",
+          "source_ids": [
+            "Q1590-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1590-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Fc-gamma receptors mediate immune-effector signaling and are not the direct target.",
+          "source_ids": [
+            "Q1590-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1590-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Efgartigimod binds FcRn and reduces recycling of IgG, lowering circulating IgG concentrations.",
+          "source_ids": [
+            "Q1590-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "CD20-directed B-cell depletion can also lower autoantibody production over time, but efgartigimod lowers existing IgG by blocking FcRn-mediated recycling rather than eliminating B cells.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
