@@ -39,8 +39,8 @@ jobs:
           python - <<'PY'
           import json,os
           st=json.load(open('usmle/state/step2_final_q0001_q1575.json'))
-          assert st['item_count']==st['step2_final_review_count']==1580
-          assert st['contiguous_q0001_q1580'] is True and st['sqlite_integrity']=='ok'
+          assert st['item_count']==st['step2_final_review_count']==1575
+          assert st['contiguous_q0001_q1575'] is True and st['sqlite_integrity']=='ok'
           assert st['post_db_blob']==os.environ['DB_BLOB']
           m=json.load(open(os.environ['MAN_PATH']))
           assert m['status']=='FINAL_QA_PASS' and m['production_import_ready'] is True
