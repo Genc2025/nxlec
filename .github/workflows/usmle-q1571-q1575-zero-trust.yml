@@ -1,0 +1,59 @@
+name: USMLE Q1571-Q1575 Zero Trust
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1571-q1575-zero-trust.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      CAND_PATH: usmle/batch_specs_1501_1600/15_q1571_q1575_author_20260913.json
+      DB_BLOB: c0f369b414a36f6db6d89e540db66e3bfad61912
+      CANONICAL_COUNT: '1570'
+      START_Q: '1571'
+      END_Q: '1575'
+      OUT_PATH: usmle/audit/Q1571_Q1575_ZERO_TRUST.json
+      AUDIT_DATE: '20260913'
+      FREEZE_DATE: '2026-09-13'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind Q1570 production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          s=json.load(open('usmle/state/step2_final_q0001_q1570.json'))
+          assert s['item_count']==s['step2_final_review_count']==1570
+          assert s['contiguous_q0001_q1570'] is True and s['sqlite_integrity']=='ok'
+          assert s['post_db_blob']==os.environ['DB_BLOB']
+          PY
+      - name: Author freeze audit
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1571_q1575.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py usmle/finalize_candidate_current.py
+          python usmle/author_q1571_q1575.py
+          python usmle/freeze_candidate_generic.py
+          python usmle/audit_candidate_zero_trust_current.py
+          python usmle/finalize_candidate_current.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+      - name: Persist FINAL QA
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1571_Q1575_FINAL_QA_PASS.json'))
+          assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[]
+          assert m['production_import_ready'] is True and m['production_db_modified'] is False
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$OUT_PATH" usmle/audit/Q1571_Q1575_FINAL_QA_PASS.json
+          git commit -m 'usmle: finalize Q1571-Q1575 against Q1570 production'
+          git pull --rebase origin main
+          git push
