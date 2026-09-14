@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1591-Q1595-20260914",
+  "created_at": "2026-09-14",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1590,
+  "canonical_count_after": 1590,
+  "canonical_db_blob": "3eb4c730ffc00197b307de201c94adea58831f14",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-14: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1591,
+      "drug": "maralixibat",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A child with Alagille syndrome and severe cholestatic pruritus starts maralixibat. Fecal bile acid loss increases and serum bile acid concentrations fall.",
+        "lead_in": "Which transport process is directly inhibited?",
+        "options": {
+          "A": "Apical sodium-dependent bile acid reuptake in the terminal ileum",
+          "B": "Canalicular bile salt export from hepatocytes",
+          "C": "Basolateral uptake of bile acids into hepatocytes by NTCP",
+          "D": "Biliary phospholipid secretion by MDR3",
+          "E": "Canalicular bilirubin transport by MRP2"
+        },
+        "intended_key": "A",
+        "tested_construct": "Reversible inhibition of the ileal bile acid transporter, reducing enterohepatic bile acid reabsorption",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Maralixibat reversibly inhibits the ileal bile acid transporter (IBAT), decreasing reabsorption of bile acids from the terminal ileum and thereby reducing enterohepatic recirculation.",
+        "distractor_explanations": {
+          "A": "Correct. IBAT mediates apical bile acid reuptake in the terminal ileum.",
+          "B": "BSEP mediates canalicular bile salt export and is not inhibited by maralixibat.",
+          "C": "NTCP mediates hepatic sinusoidal bile acid uptake rather than ileal reabsorption.",
+          "D": "MDR3 transports phospholipids into bile and is not the direct target.",
+          "E": "MRP2 transports conjugated bilirubin and other organic anions, not the target of maralixibat."
+        },
+        "educational_objective": "Link IBAT inhibition in the terminal ileum with reduced enterohepatic bile acid recycling and lower circulating bile acids."
+      },
+      "sources": [
+        {
+          "source_id": "Q1591-LABEL",
+          "title": "LIVMARLI- maralixibat chloride solution; LIVMARLI- maralixibat chloride tablet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=64000394-1ef6-4e76-8ba8-11f25ba1b167",
+          "setid": "64000394-1ef6-4e76-8ba8-11f25ba1b167",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "7e89bf619d86f5682e280032b0892627d6f355ee61846296b0637e689248d089",
+          "cited_section_sha256": "414388ebf59b89d53d04bc40b454d5794c09ad8e6473fe5b96fda99c324ba215",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "414388ebf59b89d53d04bc40b454d5794c09ad8e6473fe5b96fda99c324ba215"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1591-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. IBAT mediates apical bile acid reuptake in the terminal ileum.",
+          "source_ids": [
+            "Q1591-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1591-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "BSEP mediates canalicular bile salt export and is not inhibited by maralixibat.",
+          "source_ids": [
+            "Q1591-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1591-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "NTCP mediates hepatic sinusoidal bile acid uptake rather than ileal reabsorption.",
+          "source_ids": [
+            "Q1591-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1591-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "MDR3 transports phospholipids into bile and is not the direct target.",
+          "source_ids": [
+            "Q1591-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1591-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "MRP2 transports conjugated bilirubin and other organic anions, not the target of maralixibat.",
+          "source_ids": [
+            "Q1591-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Several hepatobiliary transporters affect bile composition, but the increased fecal bile acid loss specifically identifies blockade of terminal-ileal bile acid reuptake.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1592,
+      "drug": "evinacumab-dgnb",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adolescent with homozygous familial hypercholesterolemia has minimal functional LDL receptors. After treatment with evinacumab-dgnb, LDL cholesterol decreases substantially despite the receptor defect.",
+        "lead_in": "Which circulating protein is directly neutralized?",
+        "options": {
+          "A": "PCSK9",
+          "B": "ANGPTL3",
+          "C": "Apolipoprotein B100",
+          "D": "CETP",
+          "E": "ANGPTL4"
+        },
+        "intended_key": "B",
+        "tested_construct": "Neutralization of ANGPTL3 with LDL-receptor-independent enhancement of lipoprotein processing",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Evinacumab-dgnb is a monoclonal antibody that binds and inhibits ANGPTL3. ANGPTL3 normally inhibits lipoprotein lipase and endothelial lipase; its blockade promotes lipoprotein processing and can lower LDL cholesterol independently of LDL-receptor function.",
+        "distractor_explanations": {
+          "A": "PCSK9 inhibition depends on preserved LDL-receptor recycling and is less effective when LDLR function is absent.",
+          "B": "Correct. Evinacumab directly binds ANGPTL3.",
+          "C": "Apolipoprotein B is not the direct antibody target.",
+          "D": "CETP inhibition alters cholesterol transfer between lipoproteins but is not the mechanism of evinacumab.",
+          "E": "ANGPTL4 also regulates lipoprotein lipase but is not the direct target of evinacumab."
+        },
+        "educational_objective": "Recognize ANGPTL3 inhibition as an LDL-receptor-independent lipid-lowering mechanism."
+      },
+      "sources": [
+        {
+          "source_id": "Q1592-LABEL",
+          "title": "EVKEEZA- evinacumab injection, solution, concentrate",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=73412138-6d8f-4ea6-bb72-a740190470ff",
+          "setid": "73412138-6d8f-4ea6-bb72-a740190470ff",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "f02ffa11903b459b248e3210830fe22b57a6945e47d7d6aba54d6c7fb65d115c",
+          "cited_section_sha256": "9bd0b130d714b61a119ad5edceb045b04f7377e05a147a83b46c1cb6f033c833",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "9bd0b130d714b61a119ad5edceb045b04f7377e05a147a83b46c1cb6f033c833"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1592-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PCSK9 inhibition depends on preserved LDL-receptor recycling and is less effective when LDLR function is absent.",
+          "source_ids": [
+            "Q1592-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1592-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Evinacumab directly binds ANGPTL3.",
+          "source_ids": [
+            "Q1592-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1592-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Apolipoprotein B is not the direct antibody target.",
+          "source_ids": [
+            "Q1592-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1592-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CETP inhibition alters cholesterol transfer between lipoproteins but is not the mechanism of evinacumab.",
+          "source_ids": [
+            "Q1592-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1592-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "ANGPTL4 also regulates lipoprotein lipase but is not the direct target of evinacumab.",
+          "source_ids": [
+            "Q1592-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "PCSK9 is a tempting lipid target, but the preserved efficacy despite minimal LDL-receptor function specifically points to ANGPTL3 blockade.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1593,
+      "drug": "valoctocogene roxaparvovec-rvox",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adult with severe hemophilia A receives a one-time AAV5-based gene therapy. Months later, liver-derived expression of a therapeutic coagulation protein is detectable and factor activity has increased.",
+        "lead_in": "Which transgene product is being expressed?",
+        "options": {
+          "A": "Factor IX",
+          "B": "Von Willebrand factor",
+          "C": "B-domain-deleted factor VIII",
+          "D": "Activated factor VII",
+          "E": "Factor XI"
+        },
+        "intended_key": "C",
+        "tested_construct": "Hepatic expression of a B-domain-deleted human factor VIII transgene",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Valoctocogene roxaparvovec-rvox is an AAV5-based gene therapy that delivers a transgene encoding the B-domain-deleted SQ form of human factor VIII. Transcription occurs in the liver and produces circulating factor VIII activity.",
+        "distractor_explanations": {
+          "A": "Factor IX replacement is used for hemophilia B, not hemophilia A.",
+          "B": "Von Willebrand factor stabilizes factor VIII but is not the transgene encoded by this therapy.",
+          "C": "Correct. The vector encodes a B-domain-deleted human factor VIII transgene.",
+          "D": "Activated factor VII is used as a bypassing agent rather than the encoded gene product.",
+          "E": "Factor XI is unrelated to the deficient protein in hemophilia A."
+        },
+        "educational_objective": "Connect AAV5 liver-directed gene transfer in hemophilia A with expression of a B-domain-deleted factor VIII transgene."
+      },
+      "sources": [
+        {
+          "source_id": "Q1593-LABEL",
+          "title": "ROCTAVIAN- valoctocogene roxaparvovec-rvox injection, suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0dcf7185-8e1c-456a-9d4e-7cc316400118",
+          "setid": "0dcf7185-8e1c-456a-9d4e-7cc316400118",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "e043b4ff58b6a0fe18ba2de2cfb2d7bb43267e0c023bb8670040b5c5ab071649",
+          "cited_section_sha256": "3f23623d05fac99f69c86498e736b2ac02a33f460de8ed68b20addadd768bc91",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "3f23623d05fac99f69c86498e736b2ac02a33f460de8ed68b20addadd768bc91"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1593-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Factor IX replacement is used for hemophilia B, not hemophilia A.",
+          "source_ids": [
+            "Q1593-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1593-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Von Willebrand factor stabilizes factor VIII but is not the transgene encoded by this therapy.",
+          "source_ids": [
+            "Q1593-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1593-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. The vector encodes a B-domain-deleted human factor VIII transgene.",
+          "source_ids": [
+            "Q1593-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1593-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Activated factor VII is used as a bypassing agent rather than the encoded gene product.",
+          "source_ids": [
+            "Q1593-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1593-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Factor XI is unrelated to the deficient protein in hemophilia A.",
+          "source_ids": [
+            "Q1593-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Von Willebrand factor is closely linked to factor VIII biology, but the therapeutic vector directly encodes factor VIII rather than its carrier protein.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1594,
+      "drug": "nadofaragene firadenovec-vncg",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Renal & Urinary System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Renal & Urinary System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with BCG-unresponsive non-muscle-invasive bladder cancer receives an intravesical non-replicating adenoviral vector. Several days later, interferon-alfa 2b protein is detectable in the urine.",
+        "lead_in": "Which event most directly explains this finding?",
+        "options": {
+          "A": "Selective lysis of urothelial cells by replicating adenovirus",
+          "B": "Systemic secretion of interferon by hepatocytes",
+          "C": "Activation of endogenous bladder interferon genes by CRISPR editing",
+          "D": "Transduction of urothelial cells with transient local expression of an interferon-alfa 2b transgene",
+          "E": "Release of interferon from intravesical BCG organisms"
+        },
+        "intended_key": "D",
+        "tested_construct": "Adenoviral transduction of bladder urothelium with transient local IFN-alfa 2b expression",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Nadofaragene firadenovec-vncg is a non-replicating adenoviral vector designed to deliver a human interferon-alfa 2b gene to bladder urothelial cells. Intravesical administration produces local cell transduction and transient expression of IFN-alfa 2b.",
+        "distractor_explanations": {
+          "A": "The vector is non-replicating and is not intended to kill cells through viral replication.",
+          "B": "Expression is localized to the bladder urothelium rather than driven by hepatic secretion.",
+          "C": "The therapy delivers a transgene and does not edit the endogenous interferon locus with CRISPR.",
+          "D": "Correct. Urothelial transduction produces transient local IFN-alfa 2b expression.",
+          "E": "BCG is not the source of the detected interferon protein after this gene therapy."
+        },
+        "educational_objective": "Differentiate local adenoviral transgene expression from replicating viral therapy, systemic cytokine delivery, and genome editing."
+      },
+      "sources": [
+        {
+          "source_id": "Q1594-LABEL",
+          "title": "ADSTILADRIN- nadofaragene firadenovec-vncg suspension",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5ca20ed4-da4f-463c-ac2a-ccd6ab3774fa",
+          "setid": "5ca20ed4-da4f-463c-ac2a-ccd6ab3774fa",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ef2dcae48d5ce6ebc67282a215ea41454bc30321d2d936759e66a77ccaaebabd",
+          "cited_section_sha256": "086d5084e1efc1b5279936806cca517a2b09859ac6f013cd18ea16e1966e2f09",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "086d5084e1efc1b5279936806cca517a2b09859ac6f013cd18ea16e1966e2f09"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1594-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The vector is non-replicating and is not intended to kill cells through viral replication.",
+          "source_ids": [
+            "Q1594-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1594-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Expression is localized to the bladder urothelium rather than driven by hepatic secretion.",
+          "source_ids": [
+            "Q1594-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1594-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The therapy delivers a transgene and does not edit the endogenous interferon locus with CRISPR.",
+          "source_ids": [
+            "Q1594-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1594-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Urothelial transduction produces transient local IFN-alfa 2b expression.",
+          "source_ids": [
+            "Q1594-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1594-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "BCG is not the source of the detected interferon protein after this gene therapy.",
+          "source_ids": [
+            "Q1594-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Oncolytic viral replication could also produce local antitumor effects, but this vector is explicitly non-replicating and works through transient interferon transgene expression.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1595,
+      "drug": "vonoprazan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with erosive esophagitis receives vonoprazan. Gastric acid secretion falls rapidly even though the drug does not require activation in an acidic canaliculus.",
+        "lead_in": "Which molecular action most directly accounts for this effect?",
+        "options": {
+          "A": "Irreversible covalent inhibition of the gastric H+/K+-ATPase after acid activation",
+          "B": "Competitive blockade of histamine H2 receptors",
+          "C": "Neutralization of luminal hydrogen ions",
+          "D": "Inhibition of carbonic anhydrase in parietal cells",
+          "E": "Reversible potassium-competitive inhibition of the gastric H+/K+-ATPase"
+        },
+        "intended_key": "E",
+        "tested_construct": "Reversible potassium-competitive inhibition of the gastric proton pump",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Vonoprazan suppresses gastric acid secretion by inhibiting the H+/K+-ATPase in a potassium-competitive manner. It binds active proton pumps noncovalently and reversibly and does not require acid activation.",
+        "distractor_explanations": {
+          "A": "Conventional proton-pump inhibitors require acid activation and form covalent bonds; vonoprazan does not.",
+          "B": "H2-receptor antagonists reduce histamine signaling upstream rather than directly inhibiting the proton pump.",
+          "C": "Antacids neutralize secreted acid but do not inhibit the parietal-cell proton pump.",
+          "D": "Carbonic anhydrase contributes to acid generation but is not the direct target.",
+          "E": "Correct. Vonoprazan is a reversible potassium-competitive inhibitor of the gastric H+/K+-ATPase."
+        },
+        "educational_objective": "Differentiate potassium-competitive acid blockade from covalent proton-pump inhibition, H2 blockade, and antacid therapy."
+      },
+      "sources": [
+        {
+          "source_id": "Q1595-LABEL",
+          "title": "VOQUEZNA- vonoprazan fumarate tablet",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0cc52ac5-77ec-4d66-a770-762a1a960914",
+          "setid": "0cc52ac5-77ec-4d66-a770-762a1a960914",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-14; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-14",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "026ba8f0cefcbbfd8e0b131049bd18f604b3b0e1bf5e7975ebf92bf8fbcc1554",
+          "cited_section_sha256": "c8b4eddc8e7e0ed8c03d96b86ce28bdf7ccae1dce23cddeeecd8b8fd83485700",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-14",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "c8b4eddc8e7e0ed8c03d96b86ce28bdf7ccae1dce23cddeeecd8b8fd83485700"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1595-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Conventional proton-pump inhibitors require acid activation and form covalent bonds; vonoprazan does not.",
+          "source_ids": [
+            "Q1595-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1595-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "H2-receptor antagonists reduce histamine signaling upstream rather than directly inhibiting the proton pump.",
+          "source_ids": [
+            "Q1595-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1595-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Antacids neutralize secreted acid but do not inhibit the parietal-cell proton pump.",
+          "source_ids": [
+            "Q1595-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1595-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Carbonic anhydrase contributes to acid generation but is not the direct target.",
+          "source_ids": [
+            "Q1595-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1595-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Vonoprazan is a reversible potassium-competitive inhibitor of the gastric H+/K+-ATPase.",
+          "source_ids": [
+            "Q1595-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Conventional proton-pump inhibitors target the same H+/K+-ATPase, but the key distinction is vonoprazan's reversible potassium-competitive binding without acid activation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-14.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-14.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
