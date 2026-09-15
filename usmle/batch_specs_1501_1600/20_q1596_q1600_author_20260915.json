@@ -1,0 +1,757 @@
+{
+  "batch_id": "Q1596-Q1600-20260915",
+  "created_at": "2026-09-15",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1595,
+  "canonical_count_after": 1595,
+  "canonical_db_blob": "a14db08555d69cf0f1eb62111acc347cf3dfb38d",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-15: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1596,
+      "drug": "deucravacitinib",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal, Skin & Subcutaneous Tissue",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal, Skin & Subcutaneous Tissue"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with plaque psoriasis receives a selective TYK2 inhibitor. In cell assays, receptor-mediated TYK2 activation falls even though the drug does not compete at the catalytic ATP-binding site.",
+        "lead_in": "Which molecular interaction most directly explains this selectivity?",
+        "options": {
+          "A": "Binding to the TYK2 regulatory domain and stabilizing an inhibitory regulatory-catalytic interaction",
+          "B": "Covalent binding to the JAK1 catalytic cysteine",
+          "C": "Competitive occupation of the shared ATP-binding pocket of all JAK kinases",
+          "D": "Degradation of TYK2 mRNA through RNA interference",
+          "E": "Blockade of STAT DNA-binding domains"
+        },
+        "intended_key": "A",
+        "tested_construct": "Allosteric inhibition by binding the TYK2 regulatory domain",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Deucravacitinib binds the regulatory domain of TYK2 and stabilizes an inhibitory interaction between its regulatory and catalytic domains. This produces allosteric inhibition of receptor-mediated TYK2 activation and downstream STAT signaling.",
+        "distractor_explanations": {
+          "A": "Correct. Deucravacitinib binds the TYK2 regulatory domain and allosterically suppresses catalytic activation.",
+          "B": "It does not act by covalently targeting JAK1.",
+          "C": "Its selectivity is not produced by competitive occupancy of the conserved catalytic ATP site.",
+          "D": "Deucravacitinib is not an RNA-interference therapy.",
+          "E": "STAT signaling decreases downstream, but STAT DNA-binding domains are not the direct drug target."
+        },
+        "educational_objective": "Distinguish regulatory-domain allosteric TYK2 inhibition from catalytic-site JAK inhibition and downstream STAT blockade."
+      },
+      "sources": [
+        {
+          "source_id": "Q1596-LABEL",
+          "title": "SOTYKTU- deucravacitinib tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ff4d7258-5068-4cdf-9692-8cae04c3198e",
+          "setid": "ff4d7258-5068-4cdf-9692-8cae04c3198e",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-15; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-15",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "f62773eec4ae197ca7dea8108f584a9596a955392140d24c5bc33c66391f8d82",
+          "cited_section_sha256": "bec871cdebb2179ef18188a6705d181decefd9af1dedbde6ebbbfb611d993f65",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-15",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "bec871cdebb2179ef18188a6705d181decefd9af1dedbde6ebbbfb611d993f65"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1596-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Deucravacitinib binds the TYK2 regulatory domain and allosterically suppresses catalytic activation.",
+          "source_ids": [
+            "Q1596-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1596-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "It does not act by covalently targeting JAK1.",
+          "source_ids": [
+            "Q1596-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1596-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Its selectivity is not produced by competitive occupancy of the conserved catalytic ATP site.",
+          "source_ids": [
+            "Q1596-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1596-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Deucravacitinib is not an RNA-interference therapy.",
+          "source_ids": [
+            "Q1596-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1596-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "STAT signaling decreases downstream, but STAT DNA-binding domains are not the direct drug target.",
+          "source_ids": [
+            "Q1596-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "JAK1 inhibition could also suppress cytokine signaling, but the defining selectivity of deucravacitinib is binding to the TYK2 regulatory domain rather than the catalytic ATP site.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-15.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-15.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1597,
+      "drug": "elafibranor",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with primary biliary cholangitis receives elafibranor. Activation of PPAR signaling increases FGF21-dependent suppression of a hepatic enzyme that catalyzes the rate-limiting step in conversion of cholesterol to bile acids.",
+        "lead_in": "Which enzyme is most directly downregulated in this pathway?",
+        "options": {
+          "A": "HMG-CoA reductase",
+          "B": "Cholesterol 7-alpha-hydroxylase (CYP7A1)",
+          "C": "Sterol 27-hydroxylase (CYP27A1)",
+          "D": "Acyl-CoA cholesterol acyltransferase",
+          "E": "Squalene epoxidase"
+        },
+        "intended_key": "B",
+        "tested_construct": "PPAR-linked FGF21-dependent downregulation of CYP7A1 and reduced bile acid synthesis",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Elafibranor and its active metabolite are PPAR agonists. A label-described pathway potentially relevant to therapeutic effect involves PPAR-delta signaling, FGF21, and downregulation of CYP7A1, the key enzyme in bile acid synthesis from cholesterol.",
+        "distractor_explanations": {
+          "A": "HMG-CoA reductase controls cholesterol synthesis rather than the key bile-acid synthetic step described here.",
+          "B": "Correct. CYP7A1 is the key enzyme in bile acid synthesis from cholesterol and is downregulated in the described pathway.",
+          "C": "CYP27A1 participates in an alternative bile acid pathway but is not the enzyme specified in this signaling sequence.",
+          "D": "ACAT esterifies cholesterol and is not the direct downstream enzyme described.",
+          "E": "Squalene epoxidase participates in cholesterol synthesis and is not the target of this pathway."
+        },
+        "educational_objective": "Link PPAR/FGF21 signaling with CYP7A1 downregulation and reduced hepatic bile acid synthesis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1597-LABEL",
+          "title": "IQIRVO- elafibranor tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d78aa14f-6ec1-4b1d-a4ae-e48658137a25",
+          "setid": "d78aa14f-6ec1-4b1d-a4ae-e48658137a25",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-15; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-15",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b5a5716bc14086c7f7fb9ced45b0a17d87b2b1224064c31ee83ef6c08a0f990e",
+          "cited_section_sha256": "d5b2cd17576f6d2b8a67b03294291934f5fd84f948cac582313166351f0bc674",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-15",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "d5b2cd17576f6d2b8a67b03294291934f5fd84f948cac582313166351f0bc674"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1597-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "HMG-CoA reductase controls cholesterol synthesis rather than the key bile-acid synthetic step described here.",
+          "source_ids": [
+            "Q1597-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1597-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. CYP7A1 is the key enzyme in bile acid synthesis from cholesterol and is downregulated in the described pathway.",
+          "source_ids": [
+            "Q1597-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1597-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "CYP27A1 participates in an alternative bile acid pathway but is not the enzyme specified in this signaling sequence.",
+          "source_ids": [
+            "Q1597-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1597-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ACAT esterifies cholesterol and is not the direct downstream enzyme described.",
+          "source_ids": [
+            "Q1597-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1597-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Squalene epoxidase participates in cholesterol synthesis and is not the target of this pathway.",
+          "source_ids": [
+            "Q1597-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "CYP27A1 also contributes to bile acid synthesis, but the label-described FGF21-dependent pathway specifically downregulates CYP7A1.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-15.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-15.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1598,
+      "drug": "sparsentan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Renal & Urinary System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Renal & Urinary System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with IgA nephropathy receives a single oral agent that reduces signaling from both endothelin-1 and angiotensin II while sparing endothelin type B and angiotensin II type 2 receptors.",
+        "lead_in": "Which receptor pair is directly antagonized?",
+        "options": {
+          "A": "ETB and AT2",
+          "B": "ETA and AT2",
+          "C": "ETA and AT1",
+          "D": "ETB and AT1",
+          "E": "ETA and beta-1 adrenergic receptor"
+        },
+        "intended_key": "C",
+        "tested_construct": "Dual antagonism of endothelin type A and angiotensin II type 1 receptors",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Sparsentan is a single molecule with high-affinity antagonism of the endothelin type A receptor (ETA) and angiotensin II type 1 receptor (AT1), with much greater selectivity over ETB and AT2 receptors.",
+        "distractor_explanations": {
+          "A": "Both listed receptors are relatively spared by sparsentan.",
+          "B": "AT2 is not the angiotensin receptor directly antagonized.",
+          "C": "Correct. The direct target pair is ETA and AT1.",
+          "D": "ETB is relatively spared; the endothelin target is ETA.",
+          "E": "Beta-1 adrenergic receptors are not direct sparsentan targets."
+        },
+        "educational_objective": "Recognize combined ETA and AT1 receptor antagonism as the defining dual mechanism of sparsentan."
+      },
+      "sources": [
+        {
+          "source_id": "Q1598-LABEL",
+          "title": "FILSPARI- sparsentan tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7354af1-f304-f4d9-e053-2995a90ab219",
+          "setid": "d7354af1-f304-f4d9-e053-2995a90ab219",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-15; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-15",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "03c4af98794196490438ea31ef44de19adf3a76270b451ba81d82775a437501b",
+          "cited_section_sha256": "27865f4c738f603bc531ec947eae466dbb9c983115017735f98ba07dbce2c46b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-15",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "27865f4c738f603bc531ec947eae466dbb9c983115017735f98ba07dbce2c46b"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1598-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Both listed receptors are relatively spared by sparsentan.",
+          "source_ids": [
+            "Q1598-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1598-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "AT2 is not the angiotensin receptor directly antagonized.",
+          "source_ids": [
+            "Q1598-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1598-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. The direct target pair is ETA and AT1.",
+          "source_ids": [
+            "Q1598-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1598-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ETB is relatively spared; the endothelin target is ETA.",
+          "source_ids": [
+            "Q1598-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1598-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Beta-1 adrenergic receptors are not direct sparsentan targets.",
+          "source_ids": [
+            "Q1598-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "ETA plus beta-1 blockade could also reduce cardiovascular signaling, but sparsentan specifically combines ETA with AT1 antagonism.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-15.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-15.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1599,
+      "drug": "danicopan",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with paroxysmal nocturnal hemoglobinuria has persistent C3-fragment opsonization of red cells despite terminal complement blockade. Danicopan is added and alternative-pathway amplification falls.",
+        "lead_in": "Which complement protein is directly inhibited?",
+        "options": {
+          "A": "C3",
+          "B": "Factor B",
+          "C": "Properdin",
+          "D": "Factor D",
+          "E": "C5"
+        },
+        "intended_key": "D",
+        "tested_construct": "Reversible inhibition of complement Factor D in the alternative pathway",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Danicopan binds reversibly to complement Factor D and selectively inhibits the alternative complement pathway. This prevents Factor D-dependent cleavage of Factor B into Ba and Bb, reducing formation of the C3bBb alternative-pathway C3 convertase and downstream C3-fragment opsonization.",
+        "distractor_explanations": {
+          "A": "C3 is a downstream substrate and is not the direct molecular target.",
+          "B": "Factor B cleavage is prevented downstream of Factor D inhibition, but Factor B is not directly bound by danicopan.",
+          "C": "Properdin stabilizes the alternative-pathway C3 convertase but is not directly inhibited.",
+          "D": "Correct. Danicopan directly binds and inhibits Factor D.",
+          "E": "C5 blockade controls the terminal pathway, whereas danicopan acts proximally in the alternative pathway."
+        },
+        "educational_objective": "Differentiate proximal Factor D inhibition from direct C3, Factor B, properdin, and C5 blockade in complement biology."
+      },
+      "sources": [
+        {
+          "source_id": "Q1599-LABEL",
+          "title": "VOYDEYA- danicopan tablet, film coated; VOYDEYA- danicopan kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab8d1cbd-a28b-4d49-82ab-5c7460719ac7",
+          "setid": "ab8d1cbd-a28b-4d49-82ab-5c7460719ac7",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-15; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-15",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "b305ec1994d333eca708ff075b073f63f76307b9d3dd094316a205602b6a4845",
+          "cited_section_sha256": "9fc00b17c7ce56659eea45b917aedefd5e6e04711bcef2bf0cdc10d25d31f19e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-15",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "9fc00b17c7ce56659eea45b917aedefd5e6e04711bcef2bf0cdc10d25d31f19e"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1599-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "C3 is a downstream substrate and is not the direct molecular target.",
+          "source_ids": [
+            "Q1599-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1599-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Factor B cleavage is prevented downstream of Factor D inhibition, but Factor B is not directly bound by danicopan.",
+          "source_ids": [
+            "Q1599-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1599-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Properdin stabilizes the alternative-pathway C3 convertase but is not directly inhibited.",
+          "source_ids": [
+            "Q1599-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1599-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Danicopan directly binds and inhibits Factor D.",
+          "source_ids": [
+            "Q1599-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1599-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "C5 blockade controls the terminal pathway, whereas danicopan acts proximally in the alternative pathway.",
+          "source_ids": [
+            "Q1599-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Factor B is a strong alternative-pathway distractor because its cleavage is prevented, but danicopan directly binds Factor D rather than Factor B.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-15.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-15.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1600,
+      "drug": "voclosporin",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Renal & Urinary System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Renal & Urinary System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with lupus nephritis receives voclosporin. T-cell cytokine production decreases after a calcium-dependent phosphatase pathway is suppressed.",
+        "lead_in": "Which transcription factor remains relatively phosphorylated and therefore less able to activate T-cell gene expression?",
+        "options": {
+          "A": "NF-kappaB",
+          "B": "STAT3",
+          "C": "AP-1",
+          "D": "CREB",
+          "E": "NFAT"
+        },
+        "intended_key": "E",
+        "tested_construct": "Calcineurin inhibition prevents NFAT dephosphorylation and activation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Voclosporin is a calcineurin-inhibitor immunosuppressant. Activated calcineurin normally dephosphorylates nuclear factor of activated T-cell cytoplasmic (NFATc), promoting its transcriptional activity; calcineurin inhibition therefore suppresses lymphocyte proliferation and T-cell cytokine production.",
+        "distractor_explanations": {
+          "A": "NF-kappaB is an inflammatory transcription factor but is not the direct calcineurin substrate described here.",
+          "B": "STAT3 is activated primarily by JAK-mediated phosphorylation rather than calcineurin-dependent dephosphorylation.",
+          "C": "AP-1 participates in T-cell activation but is not the phosphatase target in this mechanism.",
+          "D": "CREB is regulated through kinase signaling and is not the relevant calcineurin substrate.",
+          "E": "Correct. Calcineurin inhibition prevents NFAT dephosphorylation and activation."
+        },
+        "educational_objective": "Link calcineurin inhibition with reduced NFAT activation and decreased T-cell cytokine transcription."
+      },
+      "sources": [
+        {
+          "source_id": "Q1600-LABEL",
+          "title": "LUPKYNIS- voclosporin capsule",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9f489295-1156-52c7-5fd0-5c4c52f9b813",
+          "setid": "9f489295-1156-52c7-5fd0-5c4c52f9b813",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-15; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-15",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "a7f79c0d2f92f863902590b12078d96f57bb7ba65333ff0072690ef3799d0af8",
+          "cited_section_sha256": "c11d9cec992a0efaba281d31e55825573852f3d75db1f3acfc5ad3158ee48f90",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-15",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "c11d9cec992a0efaba281d31e55825573852f3d75db1f3acfc5ad3158ee48f90"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1600-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "NF-kappaB is an inflammatory transcription factor but is not the direct calcineurin substrate described here.",
+          "source_ids": [
+            "Q1600-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1600-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "STAT3 is activated primarily by JAK-mediated phosphorylation rather than calcineurin-dependent dephosphorylation.",
+          "source_ids": [
+            "Q1600-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1600-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "AP-1 participates in T-cell activation but is not the phosphatase target in this mechanism.",
+          "source_ids": [
+            "Q1600-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1600-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CREB is regulated through kinase signaling and is not the relevant calcineurin substrate.",
+          "source_ids": [
+            "Q1600-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1600-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Calcineurin inhibition prevents NFAT dephosphorylation and activation.",
+          "source_ids": [
+            "Q1600-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "NF-kappaB also controls inflammatory transcription, but voclosporin specifically suppresses the calcineurin-NFAT dephosphorylation pathway.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-15.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-15.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
