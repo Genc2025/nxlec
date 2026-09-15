@@ -1,0 +1,64 @@
+name: USMLE Q1601-Q1605 Zero Trust
+# initial-q1601-q1605
+
+
+
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1601-q1605-zero-trust.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      CAND_PATH: usmle/batch_specs_1601_1700/01_q1601_q1605_author_20260915.json
+      DB_BLOB: 0df54bf3943674d2eb0a604626a05bf01474fa08
+      CANONICAL_COUNT: '1600'
+      START_Q: '1601'
+      END_Q: '1605'
+      OUT_PATH: usmle/audit/Q1601_Q1605_ZERO_TRUST.json
+      AUDIT_DATE: '20260915'
+      FREEZE_DATE: '2026-09-15'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind Q1600 production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          s=json.load(open('usmle/state/step2_final_q0001_q1600.json'))
+          assert s['item_count']==s['step2_final_review_count']==1600
+          assert s['contiguous_q0001_q1600'] is True and s['sqlite_integrity']=='ok'
+          assert s['post_db_blob']==os.environ['DB_BLOB']
+          PY
+      - name: Author freeze audit
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1601_q1605.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py usmle/finalize_candidate_current.py
+          python usmle/author_q1601_q1605.py
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB=$(git hash-object "$CAND_PATH")
+          python usmle/audit_candidate_zero_trust_current.py
+          python usmle/finalize_candidate_current.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+      - name: Persist FINAL QA
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          m=json.load(open('usmle/audit/Q1601_Q1605_FINAL_QA_PASS.json'))
+          assert m['status']=='FINAL_QA_PASS' and m['unresolved_defects']==[]
+          assert m['production_import_ready'] is True and m['production_db_modified'] is False
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$OUT_PATH" usmle/audit/Q1601_Q1605_FINAL_QA_PASS.json
+          git commit -m 'usmle: finalize Q1601-Q1605 against Q1600 production'
+          git pull --rebase origin main
+          git push
