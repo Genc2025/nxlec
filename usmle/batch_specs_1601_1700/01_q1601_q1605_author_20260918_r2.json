@@ -1,0 +1,755 @@
+{
+  "batch_id": "Q1601-Q1605-20260918-R2",
+  "created_at": "2026-09-18",
+  "revision_reason": "Replace Q1601 after whole-bank audit detected a repeated tested construct with canonical Q1404; Q1602-Q1605 are re-frozen and re-audited unchanged in content.",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1600,
+  "canonical_count_after": 1600,
+  "canonical_db_blob": "0df54bf3943674d2eb0a604626a05bf01474fa08",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-18: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1601,
+      "drug": "",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 26-year-old man has had chronic diarrhea since infancy and bilateral cataracts since adolescence. He now has progressive gait instability and firm, painless nodules over both Achilles tendons. Plasma cholestanol is markedly elevated. A disorder of cholesterol-derived bile-acid metabolism is suspected.",
+        "lead_in": "Which molecular defect most directly explains this patient's disorder?",
+        "options": {
+          "A": "Loss of mitochondrial sterol 27-hydroxylase activity",
+          "B": "Loss of lysosomal acid lipase activity",
+          "C": "Loss of plasma lecithin-cholesterol acyltransferase activity",
+          "D": "Loss of intestinal and hepatic ABCG5/ABCG8 sterol efflux",
+          "E": "Loss of lysosomal acid sphingomyelinase activity"
+        },
+        "intended_key": "A",
+        "tested_construct": "CYP27A1 loss causing mitochondrial sterol 27-hydroxylase deficiency with reduced bile-acid synthesis and cholestanol accumulation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Cerebrotendinous xanthomatosis is caused by biallelic CYP27A1 loss. The resulting deficiency of mitochondrial sterol 27-hydroxylase reduces normal bile-acid synthesis and promotes excess cholestanol formation and tissue deposition, producing the characteristic combination of early diarrhea, juvenile cataracts, tendon xanthomas, and progressive neurologic disease.",
+        "distractor_explanations": {
+          "A": "Correct. Loss of CYP27A1-dependent mitochondrial sterol 27-hydroxylase activity causes cerebrotendinous xanthomatosis and the characteristic cholestanol accumulation.",
+          "B": "Lysosomal acid lipase deficiency causes lysosomal cholesteryl-ester and triglyceride accumulation, but it does not produce the classic cholestanol-associated cataract, tendon-xanthoma, and neurologic phenotype.",
+          "C": "LCAT deficiency impairs plasma cholesterol esterification and HDL maturation and can cause corneal opacity, hemolysis, and renal disease; it does not explain marked cholestanol elevation with tendon xanthomas and progressive neurologic disease.",
+          "D": "ABCG5/ABCG8 loss causes sitosterolemia by impairing intestinal and biliary efflux of plant sterols. Tendon xanthomas can occur, but the defining biochemical abnormality is phytosterol accumulation rather than cholestanol accumulation from defective bile-acid synthesis.",
+          "E": "Acid sphingomyelinase deficiency causes sphingomyelin storage with visceral and, in severe forms, neurologic disease; it does not explain this bile-acid/cholestanol phenotype."
+        },
+        "educational_objective": "Recognize cerebrotendinous xanthomatosis as CYP27A1-dependent mitochondrial sterol 27-hydroxylase deficiency that impairs bile-acid synthesis and causes cholestanol accumulation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1601-NCBI",
+          "title": "Cerebrotendinous Xanthomatosis - Endotext - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK395578/",
+          "source_section_date": "2026-04-12",
+          "date_basis": "NCBI Bookshelf source reports last update 2026-04-12; live page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "ABSTRACT; INTRODUCTION",
+          "source_page_sha256": "fd02d60d04dadd3f8f51535d66fa9003e3b95b8146aa8b47f1fbacecb1743aad",
+          "cited_section_sha256": "fb056a71310ec4239931aefae68e378af48f8cdf8694f0e8f5261ff271e3459f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1601-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Loss of CYP27A1-dependent mitochondrial sterol 27-hydroxylase activity causes cerebrotendinous xanthomatosis and the characteristic cholestanol accumulation.",
+          "source_ids": [
+            "Q1601-NCBI"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "ABSTRACT; INTRODUCTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1601-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Lysosomal acid lipase deficiency causes lysosomal cholesteryl-ester and triglyceride accumulation, but it does not produce the classic cholestanol-associated cataract, tendon-xanthoma, and neurologic phenotype.",
+          "source_ids": [
+            "Q1601-NCBI"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ABSTRACT; INTRODUCTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1601-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "LCAT deficiency impairs plasma cholesterol esterification and HDL maturation and can cause corneal opacity, hemolysis, and renal disease; it does not explain marked cholestanol elevation with tendon xanthomas and progressive neurologic disease.",
+          "source_ids": [
+            "Q1601-NCBI"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ABSTRACT; INTRODUCTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1601-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ABCG5/ABCG8 loss causes sitosterolemia by impairing intestinal and biliary efflux of plant sterols. Tendon xanthomas can occur, but the defining biochemical abnormality is phytosterol accumulation rather than cholestanol accumulation from defective bile-acid synthesis.",
+          "source_ids": [
+            "Q1601-NCBI"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ABSTRACT; INTRODUCTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1601-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Acid sphingomyelinase deficiency causes sphingomyelin storage with visceral and, in severe forms, neurologic disease; it does not explain this bile-acid/cholestanol phenotype.",
+          "source_ids": [
+            "Q1601-NCBI"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ABSTRACT; INTRODUCTION",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "ABCG5/ABCG8 deficiency can also produce tendon xanthomas, but it causes plant-sterol accumulation; the juvenile cataracts, progressive neurologic disease, and marked cholestanol elevation identify CYP27A1 deficiency.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS — NCBI/NLM title, canonical HTTPS URL, and exact section locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — source last updated 2026-04-12 and live page reverified 2026-09-18.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1602,
+      "drug": "fostemsavir",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Microbiology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adult with multidrug-resistant HIV-1 receives fostemsavir. The active moiety generated from this prodrug prevents viral attachment before membrane fusion.",
+        "lead_in": "Which viral protein is directly bound by the active drug?",
+        "options": {
+          "A": "gp41",
+          "B": "gp120",
+          "C": "HIV-1 integrase",
+          "D": "CCR5",
+          "E": "Reverse transcriptase"
+        },
+        "intended_key": "B",
+        "tested_construct": "Temsavir binding to HIV-1 gp120, preventing attachment to CD4",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Fostemsavir is a prodrug of temsavir. Temsavir binds directly to the gp120 subunit of the HIV-1 envelope glycoprotein and inhibits gp120 interaction with cellular CD4 receptors, preventing viral attachment.",
+        "distractor_explanations": {
+          "A": "gp41 mediates membrane fusion but is not the direct binding target of temsavir.",
+          "B": "Correct. Temsavir directly binds HIV-1 gp120 and blocks attachment to CD4.",
+          "C": "Integrase inhibitors act after reverse transcription and do not prevent initial viral attachment.",
+          "D": "CCR5 is a host coreceptor; fostemsavir binds viral gp120 rather than CCR5.",
+          "E": "Reverse transcriptase is not the direct target of fostemsavir."
+        },
+        "educational_objective": "Differentiate gp120 attachment inhibition from fusion inhibition, coreceptor blockade, integrase inhibition, and reverse-transcriptase inhibition."
+      },
+      "sources": [
+        {
+          "source_id": "Q1602-LABEL",
+          "title": "RUKOBIA- fostemsavir tromethamine tablet, film coated, extended release",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a21006b7-6d6f-4f06-81b4-17978756452b",
+          "setid": "a21006b7-6d6f-4f06-81b4-17978756452b",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-18; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "12.4 Microbiology",
+          "source_page_sha256": "69f68eb983fdbed21ae2eee888c4e0a5a151b4ac379a60bf6670a7da847fec2b",
+          "cited_section_sha256": "1fa5285fbd6ff291c2929c16b7db8d9a998ea66a484acacd75e00b18caa87e13",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1602-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "gp41 mediates membrane fusion but is not the direct binding target of temsavir.",
+          "source_ids": [
+            "Q1602-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1602-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Temsavir directly binds HIV-1 gp120 and blocks attachment to CD4.",
+          "source_ids": [
+            "Q1602-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1602-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Integrase inhibitors act after reverse transcription and do not prevent initial viral attachment.",
+          "source_ids": [
+            "Q1602-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1602-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "CCR5 is a host coreceptor; fostemsavir binds viral gp120 rather than CCR5.",
+          "source_ids": [
+            "Q1602-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1602-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Reverse transcriptase is not the direct target of fostemsavir.",
+          "source_ids": [
+            "Q1602-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.4 Microbiology",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "gp41 is another envelope target involved in entry, but temsavir specifically binds gp120 and prevents attachment to CD4.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-18.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1603,
+      "drug": "givosiran",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with acute hepatic porphyria receives a GalNAc-conjugated small interfering RNA. Hepatic production of aminolevulinic acid and porphobilinogen decreases.",
+        "lead_in": "Which hepatic transcript is directly degraded?",
+        "options": {
+          "A": "Porphobilinogen deaminase mRNA",
+          "B": "Ferrochelatase mRNA",
+          "C": "Aminolevulinate synthase 1 mRNA",
+          "D": "Uroporphyrinogen decarboxylase mRNA",
+          "E": "Aminolevulinate dehydratase mRNA"
+        },
+        "intended_key": "C",
+        "tested_construct": "RNA-interference-mediated degradation of hepatic ALAS1 mRNA",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Givosiran is a double-stranded siRNA that causes degradation of aminolevulinate synthase 1 (ALAS1) mRNA in hepatocytes. Lower ALAS1 expression reduces formation of the neurotoxic intermediates ALA and PBG.",
+        "distractor_explanations": {
+          "A": "Porphobilinogen deaminase deficiency causes acute intermittent porphyria but is not the direct transcript targeted by givosiran.",
+          "B": "Ferrochelatase acts late in heme synthesis and is not targeted by givosiran.",
+          "C": "Correct. Givosiran directly reduces ALAS1 mRNA through RNA interference.",
+          "D": "Uroporphyrinogen decarboxylase is not the target.",
+          "E": "ALAD catalyzes a downstream step and is not directly silenced."
+        },
+        "educational_objective": "Link givosiran RNA interference with selective hepatic ALAS1 mRNA degradation and reduced ALA/PBG production."
+      },
+      "sources": [
+        {
+          "source_id": "Q1603-LABEL",
+          "title": "GIVLAARI- givosiran sodium injection, solution",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=167e663c-11e1-497b-a3fc-951d65d58eaa",
+          "setid": "167e663c-11e1-497b-a3fc-951d65d58eaa",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-18; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "91da86e98e9968b57942a68d48302fe4b85ac6a0e9608dfec72e804805e29e55",
+          "cited_section_sha256": "2ba7bfbe6bcc3dd0ad9569e7880ee923de428b1cd362900717060c87a5d4dd9c",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "2ba7bfbe6bcc3dd0ad9569e7880ee923de428b1cd362900717060c87a5d4dd9c"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1603-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Porphobilinogen deaminase deficiency causes acute intermittent porphyria but is not the direct transcript targeted by givosiran.",
+          "source_ids": [
+            "Q1603-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1603-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Ferrochelatase acts late in heme synthesis and is not targeted by givosiran.",
+          "source_ids": [
+            "Q1603-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1603-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Givosiran directly reduces ALAS1 mRNA through RNA interference.",
+          "source_ids": [
+            "Q1603-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1603-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Uroporphyrinogen decarboxylase is not the target.",
+          "source_ids": [
+            "Q1603-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1603-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "ALAD catalyzes a downstream step and is not directly silenced.",
+          "source_ids": [
+            "Q1603-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Other heme-synthesis enzymes can be mutated in porphyrias, but givosiran targets ALAS1 mRNA regardless of the specific downstream enzymatic defect.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-18.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1604,
+      "drug": "daridorexant",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An adult with chronic insomnia takes daridorexant before bedtime. Wake-promoting neuropeptide signaling decreases without direct potentiation of GABA receptors.",
+        "lead_in": "Which receptor pair is directly antagonized?",
+        "options": {
+          "A": "GABA-A and GABA-B receptors",
+          "B": "Histamine H1 and H2 receptors",
+          "C": "Melatonin MT1 and MT2 receptors",
+          "D": "Orexin OX1 and OX2 receptors",
+          "E": "Serotonin 5-HT2A and 5-HT2C receptors"
+        },
+        "intended_key": "D",
+        "tested_construct": "Dual antagonism of orexin OX1R and OX2R",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Daridorexant binds to and inhibits orexin receptors OX1R and OX2R. Blocking signaling by wake-promoting orexin A and orexin B suppresses wake drive and promotes sleep.",
+        "distractor_explanations": {
+          "A": "Daridorexant does not enhance GABA receptor signaling.",
+          "B": "Histamine receptor blockade can cause sedation but is not the direct mechanism.",
+          "C": "Melatonin receptor agonism is a distinct insomnia strategy.",
+          "D": "Correct. Daridorexant antagonizes both OX1R and OX2R.",
+          "E": "Serotonin 5-HT2 receptor blockade is not the labeled mechanism."
+        },
+        "educational_objective": "Recognize dual orexin-receptor antagonism as a non-GABAergic pharmacologic approach to insomnia."
+      },
+      "sources": [
+        {
+          "source_id": "Q1604-LABEL",
+          "title": "QUVIVIQ- daridorexant tablet, film coated",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a2d1503-b816-40c9-9fac-7e03c5a3bcef",
+          "setid": "3a2d1503-b816-40c9-9fac-7e03c5a3bcef",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-18; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "67e652ddfb78a9c2bdc1c0c9d87ad1b3f062f991884f37ce6fe3e2f3cf85a808",
+          "cited_section_sha256": "61590ac0ca31adae7c41944aa13c351b65cabb590f8cee934eec7c353c2392e5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "61590ac0ca31adae7c41944aa13c351b65cabb590f8cee934eec7c353c2392e5"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1604-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Daridorexant does not enhance GABA receptor signaling.",
+          "source_ids": [
+            "Q1604-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1604-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Histamine receptor blockade can cause sedation but is not the direct mechanism.",
+          "source_ids": [
+            "Q1604-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1604-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Melatonin receptor agonism is a distinct insomnia strategy.",
+          "source_ids": [
+            "Q1604-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1604-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Daridorexant antagonizes both OX1R and OX2R.",
+          "source_ids": [
+            "Q1604-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1604-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Serotonin 5-HT2 receptor blockade is not the labeled mechanism.",
+          "source_ids": [
+            "Q1604-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "Melatonin receptor signaling also affects sleep timing, but daridorexant directly suppresses wake drive by antagonizing OX1R and OX2R.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-18.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1605,
+      "drug": "caplacizumab-yhdp",
+      "country_scope": "United States",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Pharmacology",
+          "Hematology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient with acquired thrombotic thrombocytopenic purpura receives caplacizumab-yhdp. Ristocetin cofactor activity falls and platelet consumption decreases rapidly.",
+        "lead_in": "Which molecular interaction is directly blocked?",
+        "options": {
+          "A": "Fibrinogen binding to platelet GPIIb/IIIa",
+          "B": "ADAMTS13 binding to von Willebrand factor",
+          "C": "Thrombin binding to protease-activated receptor 1",
+          "D": "Factor VIII binding to von Willebrand factor",
+          "E": "von Willebrand factor A1-domain interaction with platelets"
+        },
+        "intended_key": "E",
+        "tested_construct": "Blockade of the vWF A1-domain interaction with platelets",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among plausible pharmacologic targets; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Caplacizumab-yhdp targets the A1 domain of von Willebrand factor and inhibits the interaction between vWF and platelets, reducing vWF-mediated platelet adhesion and platelet consumption.",
+        "distractor_explanations": {
+          "A": "GPIIb/IIIa-fibrinogen binding mediates platelet aggregation but is not the direct target of caplacizumab.",
+          "B": "Caplacizumab does not replace or bind ADAMTS13.",
+          "C": "PAR1 signaling is not the direct mechanism.",
+          "D": "Factor VIII binding to vWF is not the targeted interaction.",
+          "E": "Correct. Caplacizumab targets the vWF A1 domain and blocks its interaction with platelets."
+        },
+        "educational_objective": "Connect vWF A1-domain blockade with reduced platelet adhesion and consumption in acquired TTP."
+      },
+      "sources": [
+        {
+          "source_id": "Q1605-LABEL",
+          "title": "CABLIVI- caplacizumab kit",
+          "agency": "Manufacturer prescribing information hosted by NLM DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2348f06e-8004-4040-832e-e9e86a39f905",
+          "setid": "2348f06e-8004-4040-832e-e9e86a39f905",
+          "source_section_date": null,
+          "date_basis": "Current DailyMed SetID page checked 2026-09-18; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "12.1 Mechanism of Action",
+          "source_page_sha256": "ef6ad98044eb8d61140426506fc1e1b420cf131a5d8a4baeea8b2a3795e9d854",
+          "cited_section_sha256": "4d8d4dec5f4d86ee4b03a28c499fb6a03587468135d69c6e75b0ff26b303c2d7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1,
+          "mechanism_section_sha256": "4d8d4dec5f4d86ee4b03a28c499fb6a03587468135d69c6e75b0ff26b303c2d7"
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1605-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "GPIIb/IIIa-fibrinogen binding mediates platelet aggregation but is not the direct target of caplacizumab.",
+          "source_ids": [
+            "Q1605-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1605-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Caplacizumab does not replace or bind ADAMTS13.",
+          "source_ids": [
+            "Q1605-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1605-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PAR1 signaling is not the direct mechanism.",
+          "source_ids": [
+            "Q1605-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1605-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Factor VIII binding to vWF is not the targeted interaction.",
+          "source_ids": [
+            "Q1605-LABEL"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        },
+        {
+          "claim_id": "Q1605-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Caplacizumab targets the vWF A1 domain and blocks its interaction with platelets.",
+          "source_ids": [
+            "Q1605-LABEL"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "12.1 Mechanism of Action",
+          "item_specific_application": "Keyed mechanism is directly source-bound; distractor rejection uses that mechanism plus stipulated experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "GPIIb/IIIa blockade also reduces platelet aggregation, but caplacizumab specifically inhibits the vWF A1-domain interaction responsible for platelet adhesion.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no empirical calibration or unsupported numerical claim used to identify the key.",
+        "fabricated_distractors": "PASS",
+        "source_identity_setid_url_locator": "PASS",
+        "currentness": "PASS — current DailyMed SetID page reverified 2026-09-18.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
