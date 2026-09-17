@@ -5,8 +5,12 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
 DB=ROOT/'data'/'usmle-step1.db'
-PROSPECTS=ROOT/'prospects'/'q1606_q1610_candidates_20260918.json'
-OUT=ROOT/'audit'/'Q1606_Q1610_PROSPECT_SCREEN.json'
+PROSPECTS=ROOT/os.environ.get('PROSPECTS_PATH','prospects/q1606_q1610_candidates_20260918.json')
+OUT=ROOT/os.environ.get('SCREEN_OUT','audit/Q1606_Q1610_PROSPECT_SCREEN.json')
+EXPECTED_COUNT=int(os.environ.get('EXPECTED_COUNT','1605'))
+START_Q=int(os.environ.get('START_Q','1606'))
+END_Q=int(os.environ.get('END_Q','1610'))
+AUDIT_DATE=os.environ.get('AUDIT_DATE','20260918')
 STOP={'the','a','an','and','or','of','to','in','is','are','was','were','with','this','that','which','what','best','most','direct','directly','patient','following','would','does','not','drug','effect','activity','correct','mechanism','action','findings','explains','recognize','differentiate','link'}
 
 def norm(s):
@@ -29,7 +33,7 @@ def main():
     rows=c.execute("select candidate_id,payload_json from step2_final_items order by candidate_id").fetchall()
     fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
     c.close()
-    assert len(rows)==fin==1605
+    assert len(rows)==fin==EXPECTED_COUNT
 
     canon=[]
     for cid,pj in rows:
@@ -66,9 +70,9 @@ def main():
         })
 
     out={
-        'audit_id':'Q1606-Q1610-PROSPECT-CONSTRUCT-SCREEN-20260918',
+        'audit_id':f'Q{START_Q}-Q{END_Q}-PROSPECT-CONSTRUCT-SCREEN-{AUDIT_DATE}',
         'canonical_count':fin,
-        'scope':'Q0001-Q1605',
+        'scope':f'Q0001-Q{EXPECTED_COUNT}',
         'method':'Exact normalized drug match plus token-set Jaccard on drug + tested_construct + educational_objective; threshold >=0.40 rejects, 0.30-0.39999 manual review.',
         'reports':reports
     }
