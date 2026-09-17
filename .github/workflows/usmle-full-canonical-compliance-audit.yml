@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      EXPECTED_COUNT: '1535'
-      DB_BLOB: a3f28fcfd0a89161ed003e60d0d797c5fa103f1a
-      AUDIT_OUT: usmle/audit/FULL_CANONICAL_Q0001_Q1535_COMPLIANCE.json
+      EXPECTED_COUNT: '1605'
+      DB_BLOB: e5b3a6ead0582b4c73f688954d1d4a4aa80ea7fc
+      AUDIT_OUT: usmle/audit/FULL_CANONICAL_Q0001_Q1605_COMPLIANCE.json
+      AUDIT_DATE: '20260918'
     steps:
       - uses: actions/checkout@v6
         with: {ref: main, fetch-depth: 0}
@@ -37,7 +38,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$AUDIT_OUT"
-          git commit -m 'usmle: audit full Q0001-Q1535 canonical compliance'
+          git commit -m 'usmle: audit full Q0001-Q1605 canonical compliance'
           git push
 
-# rerun-after-legacy-evidence-hardening
+# rerun-q1605-20260918
