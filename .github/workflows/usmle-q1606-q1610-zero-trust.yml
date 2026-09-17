@@ -38,9 +38,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m py_compile usmle/author_q1606_q1610.py usmle/q1606_item.py usmle/q1607_item.py usmle/q1608_item.py usmle/q1609_item.py usmle/q1610_item.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py usmle/finalize_candidate_current.py
-          cd usmle
-          python author_q1606_q1610.py
-          cd ..
+          python usmle/author_q1606_q1610.py
           python usmle/freeze_candidate_generic.py
           export CAND_BLOB="$(git hash-object "$CAND_PATH")"
           python usmle/audit_candidate_zero_trust_current.py
