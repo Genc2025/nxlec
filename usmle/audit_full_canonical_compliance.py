@@ -155,6 +155,7 @@ def main():
     exact_stem=collections.defaultdict(list)
     construct_groups=collections.defaultdict(list)
     token_sets=[]
+    construct_inventory=[]
 
     for row in items:
         cid,pj,ps,ash,status,finalized=row
@@ -186,8 +187,11 @@ def main():
         ft=norm(item_text(p)); st=norm(stem_text(p))
         if ft: exact_full[ft].append(cid)
         if st: exact_stem[st].append(cid)
-        construct=norm((p.get('item') or {}).get('tested_construct',''))
+        item_obj=p.get('item') if isinstance(p.get('item'),dict) else {}
+        ex_obj=p.get('explanation') if isinstance(p.get('explanation'),dict) else {}
+        construct=norm(item_obj.get('tested_construct',''))
         if construct: construct_groups[construct].append(cid)
+        construct_inventory.append({'q':q,'candidate_id':cid,'drug':p.get('drug'),'tested_construct':item_obj.get('tested_construct'),'educational_objective':ex_obj.get('educational_objective'),'primary_system':(p.get('blueprint') or {}).get('primary_system') if isinstance(p.get('blueprint'),dict) else None})
         token_sets.append((cid,q,toks(item_text(p))))
 
     exact_full_groups=[v for v in exact_full.values() if len(v)>1]
@@ -247,6 +251,7 @@ def main():
       'items_with_generation_criteria_defects':len(defect_items),
       'generation_defect_counts':dict(defect_counts.most_common()),
       'generation_defect_items':defect_items[:500],
+      'construct_inventory':construct_inventory,
       'duplicate_analysis':{
         'exact_full_item_duplicate_group_count':len(exact_full_groups),
         'exact_full_item_duplicate_groups':exact_full_groups[:100],
