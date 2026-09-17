@@ -1,0 +1,750 @@
+{
+  "batch_id": "Q1606-Q1610-20260918",
+  "created_at": "2026-09-18",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1605,
+  "canonical_count_after": 1605,
+  "canonical_db_blob": "b987a53b0c983dacaf78ffbdb5a47188fe192420",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective whole-bank screen against canonical Q0001-Q1605 plus manual semantic top-match review before authoring.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-18: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1606,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 7-year-old boy becomes lethargic and vomits after an overnight fast during a viral illness. Laboratory studies show hypoglycemia and metabolic acidosis. Plasma acylcarnitine analysis shows elevations spanning short-, medium-, and long-chain species, and urine contains multiple organic acids, including glutaric and ethylmalonic acids. Individual acyl-CoA dehydrogenase proteins are present.",
+        "lead_in": "Which defect best explains this broad metabolic pattern?",
+        "options": {
+          "A": "Impaired transfer of electrons from multiple acyl-CoA dehydrogenases through electron-transfer flavoprotein and ETF dehydrogenase to ubiquinone",
+          "B": "Failure to transport long-chain fatty acyl groups into the mitochondrial matrix through carnitine palmitoyltransferase I",
+          "C": "Isolated loss of medium-chain acyl-CoA dehydrogenase activity",
+          "D": "Failure of mitochondrial HMG-CoA lyase to generate acetoacetate",
+          "E": "Loss of pyruvate dehydrogenase activity"
+        },
+        "intended_key": "A",
+        "tested_construct": "Failure of the ETF-ETFDH electron-transfer pathway shared by multiple flavoprotein dehydrogenases",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Multiple acyl-CoA dehydrogenase deficiency results from defects in ETFA, ETFB, or ETFDH. Electron-transfer flavoprotein accepts electrons from several acyl-CoA dehydrogenases and transfers them to ETFDH, which transfers them to ubiquinone. A defect in this shared pathway therefore disrupts several fatty-acid and amino-acid oxidation reactions simultaneously, producing broad acylcarnitine and organic-acid abnormalities.",
+        "distractor_explanations": {
+          "A": "Correct. The ETF-ETFDH pathway is a common electron-transfer route for several acyl-CoA dehydrogenases, so its disruption produces abnormalities across multiple chain lengths and metabolic pathways.",
+          "B": "CPT I deficiency selectively impairs mitochondrial entry of long-chain fatty acids; it does not explain simultaneous dysfunction of multiple acyl-CoA dehydrogenases and the characteristic broad organic-acid pattern.",
+          "C": "MCAD deficiency affects a single chain-length range and cannot account for elevations spanning short-, medium-, and long-chain acylcarnitines.",
+          "D": "HMG-CoA lyase deficiency impairs ketone-body synthesis and leucine catabolism but does not create a common electron-transfer defect across multiple acyl-CoA dehydrogenases.",
+          "E": "Pyruvate dehydrogenase deficiency can cause lactic acidosis but does not explain the broad acylcarnitine and organic-acid abnormalities."
+        },
+        "educational_objective": "Explain why defects in ETFA, ETFB, or ETFDH cause multiple acyl-CoA dehydrogenase deficiency by interrupting electron transfer from several flavoprotein dehydrogenases to ubiquinone."
+      },
+      "sources": [
+        {
+          "source_id": "Q1606-GENEREVIEWS",
+          "title": "Multiple Acyl-CoA Dehydrogenase Deficiency - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK558236/",
+          "source_section_date": null,
+          "date_basis": "GeneReviews page is currently hosted in the 1993-2026 edition; live NCBI page reverified 2026-09-18 without inferring an unsupported revision date.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Diagnosis/testing; Molecular Pathogenesis",
+          "source_page_sha256": "f8148130ec49d72872e754e1822de0a5c64298562b440c4b9febb26940ae6140",
+          "cited_section_sha256": "011fa6e047a61f3305c04a561d219fbb17f657b63d0b709cab9be86802364d96",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1606-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. The ETF-ETFDH pathway is a common electron-transfer route for several acyl-CoA dehydrogenases, so its disruption produces abnormalities across multiple chain lengths and metabolic pathways.",
+          "source_ids": [
+            "Q1606-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Diagnosis/testing; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1606-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "CPT I deficiency selectively impairs mitochondrial entry of long-chain fatty acids; it does not explain simultaneous dysfunction of multiple acyl-CoA dehydrogenases and the characteristic broad organic-acid pattern.",
+          "source_ids": [
+            "Q1606-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Diagnosis/testing; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1606-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "MCAD deficiency affects a single chain-length range and cannot account for elevations spanning short-, medium-, and long-chain acylcarnitines.",
+          "source_ids": [
+            "Q1606-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Diagnosis/testing; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1606-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "HMG-CoA lyase deficiency impairs ketone-body synthesis and leucine catabolism but does not create a common electron-transfer defect across multiple acyl-CoA dehydrogenases.",
+          "source_ids": [
+            "Q1606-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Diagnosis/testing; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1606-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Pyruvate dehydrogenase deficiency can cause lactic acidosis but does not explain the broad acylcarnitine and organic-acid abnormalities.",
+          "source_ids": [
+            "Q1606-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Diagnosis/testing; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "MCAD deficiency can cause fasting intolerance and hypoketotic hypoglycemia, but it is a single-enzyme defect. Elevations across multiple acylcarnitine chain lengths plus multiple organic acids point to the shared ETF-ETFDH electron-transfer pathway.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update/publication dates are recorded without inference.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1607,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 9-year-old girl has progressive sensorineural hearing loss, gait ataxia, distal weakness, and bulbar dysfunction. Genetic testing identifies biallelic loss-of-function variants in SLC52A2. An abnormal acylcarnitine profile improves after high-dose riboflavin therapy.",
+        "lead_in": "Which intracellular consequence most directly links the transporter defect to impaired mitochondrial metabolism?",
+        "options": {
+          "A": "Reduced biotin availability for biotin-dependent carboxylases",
+          "B": "Reduced formation of FMN and FAD cofactors used in oxidation-reduction reactions",
+          "C": "Reduced synthesis of thiamine pyrophosphate for oxidative decarboxylation",
+          "D": "Reduced formation of tetrahydrofolate one-carbon carriers",
+          "E": "Reduced generation of adenosylcobalamin for methylmalonyl-CoA mutase"
+        },
+        "intended_key": "B",
+        "tested_construct": "Riboflavin transporter loss reduces intracellular riboflavin available for conversion to FMN and FAD",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC52A2 and SLC52A3 encode riboflavin transporters. Intracellular riboflavin is converted to flavin mononucleotide (FMN) and flavin adenine dinucleotide (FAD), coenzymes required for mitochondrial function and electron transfer in oxidation-reduction reactions. Loss of riboflavin uptake therefore produces functional flavoprotein deficiency that can generate metabolic abnormalities as well as the characteristic cranial and peripheral neuronopathy.",
+        "distractor_explanations": {
+          "A": "Biotin is the cofactor for carboxylases, but SLC52A2 does not encode a biotin transporter; riboflavin transporter deficiency primarily compromises flavin cofactor availability.",
+          "B": "Correct. Riboflavin is the precursor of FMN and FAD, so impaired cellular uptake reduces flavin cofactors required by mitochondrial redox enzymes.",
+          "C": "Thiamine pyrophosphate is derived from vitamin B1 rather than riboflavin and is not the direct biochemical consequence of SLC52A2 loss.",
+          "D": "Tetrahydrofolate is derived from folate and is not the principal cofactor pool affected by riboflavin-transporter loss.",
+          "E": "Adenosylcobalamin is derived from vitamin B12 and is not the direct product of riboflavin metabolism."
+        },
+        "educational_objective": "Connect SLC52A2/SLC52A3 riboflavin-transporter deficiency to reduced FMN/FAD availability and impaired mitochondrial oxidation-reduction reactions."
+      },
+      "sources": [
+        {
+          "source_id": "Q1607-GENEREVIEWS",
+          "title": "Riboflavin Transporter Deficiency - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK299312/",
+          "source_section_date": "2021-04-08",
+          "date_basis": "GeneReviews reports Last Update: 2021-04-08; live NCBI page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Clinical description; Molecular Pathogenesis",
+          "source_page_sha256": "c4e9bc0b31f2b5ba4887e70de3e5641e00fbb1c07ebb951b66001034416dafde",
+          "cited_section_sha256": "0fb62675254a2068a548ff116882a59c0b3df35fcbf7143c71da53e2ca67594d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1607-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Biotin is the cofactor for carboxylases, but SLC52A2 does not encode a biotin transporter; riboflavin transporter deficiency primarily compromises flavin cofactor availability.",
+          "source_ids": [
+            "Q1607-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Clinical description; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1607-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Riboflavin is the precursor of FMN and FAD, so impaired cellular uptake reduces flavin cofactors required by mitochondrial redox enzymes.",
+          "source_ids": [
+            "Q1607-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Clinical description; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1607-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Thiamine pyrophosphate is derived from vitamin B1 rather than riboflavin and is not the direct biochemical consequence of SLC52A2 loss.",
+          "source_ids": [
+            "Q1607-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Clinical description; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1607-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Tetrahydrofolate is derived from folate and is not the principal cofactor pool affected by riboflavin-transporter loss.",
+          "source_ids": [
+            "Q1607-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Clinical description; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1607-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Adenosylcobalamin is derived from vitamin B12 and is not the direct product of riboflavin metabolism.",
+          "source_ids": [
+            "Q1607-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Clinical description; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Biotin deficiency can also disturb intermediary metabolism, but the identified SLC52A2 defect specifically impairs riboflavin uptake; riboflavin is converted to FMN and FAD, not biotin.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update/publication dates are recorded without inference.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1608,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An infant has recurrent hypoglycemia, chronic vomiting and diarrhea, edema from protein-losing enteropathy, and hepatic dysfunction with coagulopathy. Neurodevelopment is age appropriate. Serum transferrin has an abnormal N-glycosylation pattern, and the clinical abnormalities improve substantially with oral mannose.",
+        "lead_in": "Deficiency of which biochemical reaction best explains this disorder?",
+        "options": {
+          "A": "Glucose-6-phosphate to fructose-6-phosphate",
+          "B": "Mannose-6-phosphate to mannose-1-phosphate",
+          "C": "Fructose-6-phosphate to mannose-6-phosphate",
+          "D": "Mannose-1-phosphate plus GTP to GDP-mannose",
+          "E": "Addition of the mannose-6-phosphate targeting signal to lysosomal hydrolases"
+        },
+        "intended_key": "C",
+        "tested_construct": "Mannose phosphate isomerase deficiency impairs interconversion of fructose-6-phosphate and mannose-6-phosphate",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "MPI-CDG is caused by deficiency of mannose phosphate isomerase, which interconverts fructose-6-phosphate and mannose-6-phosphate. Reduced endogenous mannose-6-phosphate limits mannose derivatives needed for glycosylation. Oral mannose can bypass the impaired isomerase step because hexokinase can phosphorylate mannose directly to mannose-6-phosphate.",
+        "distractor_explanations": {
+          "A": "Phosphoglucose isomerase interconverts glucose-6-phosphate and fructose-6-phosphate; that reaction is upstream and does not explain the mannose-responsive glycosylation disorder.",
+          "B": "PMM2 converts mannose-6-phosphate to mannose-1-phosphate. PMM2-CDG commonly has prominent neurologic manifestations and is not bypassed by oral mannose in the same way as MPI-CDG.",
+          "C": "Correct. Mannose phosphate isomerase interconverts fructose-6-phosphate and mannose-6-phosphate; mannose supplementation bypasses the deficient step by supplying substrate that can be phosphorylated directly.",
+          "D": "GDP-mannose synthesis occurs downstream of mannose-1-phosphate; the vignette specifically reflects a defect that oral mannose can bypass at the mannose-6-phosphate level.",
+          "E": "Failure to add mannose-6-phosphate targeting tags causes I-cell disease with lysosomal hydrolase missorting, a different use of mannose-6-phosphate from N-glycan precursor synthesis."
+        },
+        "educational_objective": "Differentiate MPI-CDG from PMM2-CDG by identifying the fructose-6-phosphate ↔ mannose-6-phosphate reaction and understanding why oral mannose can bypass MPI deficiency."
+      },
+      "sources": [
+        {
+          "source_id": "Q1608-GLYCO",
+          "title": "Congenital Disorders of Glycosylation - Essentials of Glycobiology - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK579928/",
+          "source_section_date": "2022",
+          "date_basis": "Essentials of Glycobiology 4th edition chapter published 2022; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "DEFECTS IN N-GLYCAN BIOSYNTHESIS",
+          "source_page_sha256": "fea6192df449cd8f33045e8b2da5c0e45bdac363364aed84c3591f3a536ddeff",
+          "cited_section_sha256": "7801caf2043a2b0424dd9cac9b42590de2fc182b5f0fc66031538b447ef8c0b7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1608-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Phosphoglucose isomerase interconverts glucose-6-phosphate and fructose-6-phosphate; that reaction is upstream and does not explain the mannose-responsive glycosylation disorder.",
+          "source_ids": [
+            "Q1608-GLYCO"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DEFECTS IN N-GLYCAN BIOSYNTHESIS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1608-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PMM2 converts mannose-6-phosphate to mannose-1-phosphate. PMM2-CDG commonly has prominent neurologic manifestations and is not bypassed by oral mannose in the same way as MPI-CDG.",
+          "source_ids": [
+            "Q1608-GLYCO"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DEFECTS IN N-GLYCAN BIOSYNTHESIS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1608-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Mannose phosphate isomerase interconverts fructose-6-phosphate and mannose-6-phosphate; mannose supplementation bypasses the deficient step by supplying substrate that can be phosphorylated directly.",
+          "source_ids": [
+            "Q1608-GLYCO"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "DEFECTS IN N-GLYCAN BIOSYNTHESIS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1608-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "GDP-mannose synthesis occurs downstream of mannose-1-phosphate; the vignette specifically reflects a defect that oral mannose can bypass at the mannose-6-phosphate level.",
+          "source_ids": [
+            "Q1608-GLYCO"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DEFECTS IN N-GLYCAN BIOSYNTHESIS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1608-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Failure to add mannose-6-phosphate targeting tags causes I-cell disease with lysosomal hydrolase missorting, a different use of mannose-6-phosphate from N-glycan precursor synthesis.",
+          "source_ids": [
+            "Q1608-GLYCO"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DEFECTS IN N-GLYCAN BIOSYNTHESIS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "PMM2 deficiency affects the adjacent mannose-6-phosphate-to-mannose-1-phosphate step and also causes a congenital disorder of glycosylation, but the gastrointestinal/hepatic phenotype with preserved neurodevelopment and response to oral mannose specifically supports MPI deficiency.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update/publication dates are recorded without inference.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1609,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 12-year-old boy has recurrent episodes of pancreatitis. Fasting plasma is grossly lipemic, with severe hypertriglyceridemia and persistent chylomicrons. Lipoprotein lipase protein is present and catalytically intact. In vitro, triglyceride hydrolysis by the patient's lipoproteins is restored when purified apolipoprotein C-II is added.",
+        "lead_in": "Which normal function is deficient in this patient?",
+        "options": {
+          "A": "Assembly of apoB-containing lipoproteins by microsomal triglyceride transfer protein",
+          "B": "Hepatic uptake of chylomicron remnants through apoE-dependent receptors",
+          "C": "Transport and anchoring of lipoprotein lipase on capillary endothelium by GPIHBP1",
+          "D": "Cofactor activation of lipoprotein lipase by apolipoprotein C-II",
+          "E": "Inhibition of lipoprotein lipase by apolipoprotein C-III"
+        },
+        "intended_key": "D",
+        "tested_construct": "Apolipoprotein C-II is an essential cofactor that activates lipoprotein lipase",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Apolipoprotein C-II is present on triglyceride-rich lipoproteins and HDL and acts as a key cofactor and activator of lipoprotein lipase. APOC2 deficiency therefore causes familial chylomicronemia despite the presence of structurally intact LPL; adding apoC-II restores LPL-mediated triglyceride hydrolysis.",
+        "distractor_explanations": {
+          "A": "MTP is required for assembly of apoB-containing lipoproteins; its deficiency decreases secretion of chylomicrons rather than causing persistent chylomicronemia with intact LPL.",
+          "B": "ApoE mediates remnant uptake after triglyceride hydrolysis; failure of remnant clearance does not explain restoration of lipolysis by apoC-II.",
+          "C": "GPIHBP1 is required to transport and anchor LPL at the capillary surface and can cause familial chylomicronemia, but the experiment shows that adding apoC-II restores activity when LPL itself is present and catalytically intact.",
+          "D": "Correct. ApoC-II is a required cofactor and activator of LPL, so its absence causes severe impairment of triglyceride hydrolysis.",
+          "E": "ApoC-III inhibits rather than activates LPL-mediated triglyceride clearance; loss of apoC-III would not produce this phenotype."
+        },
+        "educational_objective": "Distinguish APOC2 deficiency from LPL, GPIHBP1, and remnant-clearance disorders by recognizing apoC-II as a required activator of lipoprotein lipase."
+      },
+      "sources": [
+        {
+          "source_id": "Q1609-ENDOTEXT",
+          "title": "Genetics and Dyslipidemia - Endotext - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK395584/",
+          "source_section_date": "2023-04-17",
+          "date_basis": "Endotext reports Last Update: 2023-04-17; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Apolipoprotein C-II (APOC2) Mutations",
+          "source_page_sha256": "b07987b12220826ece8b48e5ab46778752d0f0ebca05c370648d72f3664681ca",
+          "cited_section_sha256": "c5c38cedc8a79251279dec72dcc16f3b487cd68428195c0077c810a6776fd9a5",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1609-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "MTP is required for assembly of apoB-containing lipoproteins; its deficiency decreases secretion of chylomicrons rather than causing persistent chylomicronemia with intact LPL.",
+          "source_ids": [
+            "Q1609-ENDOTEXT"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Apolipoprotein C-II (APOC2) Mutations",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1609-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "ApoE mediates remnant uptake after triglyceride hydrolysis; failure of remnant clearance does not explain restoration of lipolysis by apoC-II.",
+          "source_ids": [
+            "Q1609-ENDOTEXT"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Apolipoprotein C-II (APOC2) Mutations",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1609-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "GPIHBP1 is required to transport and anchor LPL at the capillary surface and can cause familial chylomicronemia, but the experiment shows that adding apoC-II restores activity when LPL itself is present and catalytically intact.",
+          "source_ids": [
+            "Q1609-ENDOTEXT"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Apolipoprotein C-II (APOC2) Mutations",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1609-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. ApoC-II is a required cofactor and activator of LPL, so its absence causes severe impairment of triglyceride hydrolysis.",
+          "source_ids": [
+            "Q1609-ENDOTEXT"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Apolipoprotein C-II (APOC2) Mutations",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1609-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "ApoC-III inhibits rather than activates LPL-mediated triglyceride clearance; loss of apoC-III would not produce this phenotype.",
+          "source_ids": [
+            "Q1609-ENDOTEXT"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Apolipoprotein C-II (APOC2) Mutations",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "GPIHBP1 deficiency can also cause familial chylomicronemia with reduced effective LPL activity at the endothelial surface, but direct restoration of lipolysis by purified apoC-II identifies loss of the LPL cofactor rather than its endothelial transporter.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update/publication dates are recorded without inference.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1610,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Hematology",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A patient's plasma forms a fibrin clot normally. During a fibrinolysis study, the clot lyses unusually rapidly after plasmin is added. In a chromogenic assay performed with excess plasmin, the patient's plasma inhibits far less plasmin than control plasma. Plasminogen and plasminogen activator inhibitor 1 concentrations are normal.",
+        "lead_in": "Loss of which physiologic action most directly explains these findings?",
+        "options": {
+          "A": "Covalent cross-linking of fibrin by activated factor XIII",
+          "B": "Inhibition of tissue plasminogen activator and urokinase by plasminogen activator inhibitor 1",
+          "C": "Neutralization of thrombin by antithrombin",
+          "D": "Platelet adhesion mediated by von Willebrand factor binding to GPIb",
+          "E": "Direct inhibition of plasmin by alpha-2-antiplasmin"
+        },
+        "intended_key": "E",
+        "tested_construct": "Alpha-2-antiplasmin restrains fibrinolysis by directly inhibiting plasmin",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Alpha-2-antiplasmin is a physiologic inhibitor of fibrinolysis. Its activity can be measured in a chromogenic assay performed in the presence of excess plasmin, in which the amount of plasmin inhibited is proportional to the amount of alpha-2-antiplasmin in plasma. Markedly reduced plasmin inhibition with normal plasminogen and PAI-1 therefore indicates loss of alpha-2-antiplasmin activity.",
+        "distractor_explanations": {
+          "A": "Factor XIII stabilizes fibrin by covalent cross-linking, but the defining experimental abnormality here is failure of plasma to inhibit added plasmin.",
+          "B": "PAI-1 acts upstream by inhibiting plasminogen activators. Its concentration is normal, and it does not directly account for reduced neutralization of exogenously added plasmin.",
+          "C": "Antithrombin inhibits thrombin and other coagulation proteases rather than serving as the principal inhibitor measured by an excess-plasmin alpha-2-antiplasmin assay.",
+          "D": "vWF-GPIb binding mediates platelet adhesion during primary hemostasis and does not explain defective inhibition of plasmin in plasma.",
+          "E": "Correct. Alpha-2-antiplasmin directly limits plasmin activity; in the chromogenic assay, reduced inhibition of excess plasmin reflects reduced alpha-2-antiplasmin activity."
+        },
+        "educational_objective": "Differentiate alpha-2-antiplasmin from PAI-1 and coagulation-factor mechanisms by recognizing alpha-2-antiplasmin as the plasma inhibitor assayed through neutralization of excess plasmin."
+      },
+      "sources": [
+        {
+          "source_id": "Q1610-STATPEARLS",
+          "title": "Laboratory Evaluation of Coagulopathies - StatPearls - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK606118/",
+          "source_section_date": "2024-07-27",
+          "date_basis": "NCBI Bookshelf reports Last Update: 2024-07-27; live page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Fibrinolysis investigation",
+          "source_page_sha256": "19b71860ea6c4f21a869753124d86419a72432dd40b8b81ccd5ae04c509d9eff",
+          "cited_section_sha256": "3b6d0ee2b165a617b6d713892c73ad71825683b31f7ba109977c051ecae620d1",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1610-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Factor XIII stabilizes fibrin by covalent cross-linking, but the defining experimental abnormality here is failure of plasma to inhibit added plasmin.",
+          "source_ids": [
+            "Q1610-STATPEARLS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Fibrinolysis investigation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1610-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PAI-1 acts upstream by inhibiting plasminogen activators. Its concentration is normal, and it does not directly account for reduced neutralization of exogenously added plasmin.",
+          "source_ids": [
+            "Q1610-STATPEARLS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Fibrinolysis investigation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1610-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Antithrombin inhibits thrombin and other coagulation proteases rather than serving as the principal inhibitor measured by an excess-plasmin alpha-2-antiplasmin assay.",
+          "source_ids": [
+            "Q1610-STATPEARLS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Fibrinolysis investigation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1610-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "vWF-GPIb binding mediates platelet adhesion during primary hemostasis and does not explain defective inhibition of plasmin in plasma.",
+          "source_ids": [
+            "Q1610-STATPEARLS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Fibrinolysis investigation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        },
+        {
+          "claim_id": "Q1610-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Alpha-2-antiplasmin directly limits plasmin activity; in the chromogenic assay, reduced inhibition of excess plasmin reflects reduced alpha-2-antiplasmin activity.",
+          "source_ids": [
+            "Q1610-STATPEARLS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Fibrinolysis investigation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical/experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "PAI-1 is a major fibrinolysis inhibitor and is therefore the strongest alternative, but it inhibits plasminogen activators upstream. The vignette instead directly measures deficient neutralization of already formed, exogenously added plasmin, which identifies alpha-2-antiplasmin.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update/publication dates are recorded without inference.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
