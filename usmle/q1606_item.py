@@ -24,9 +24,9 @@ def build(make_general):
   [{
    'source_id':'Q1606-GENEREVIEWS','title':'Multiple Acyl-CoA Dehydrogenase Deficiency - GeneReviews® - NCBI Bookshelf',
    'agency':'National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH',
-   'url':'https://www.ncbi.nlm.nih.gov/sites/books/NBK558236/','source_section_date':None,
+   'url':'https://www.ncbi.nlm.nih.gov/books/NBK558236/','source_section_date':None,
    'date_basis':'GeneReviews page is currently hosted in the 1993-2026 edition; live NCBI page reverified 2026-09-18 without inferring an unsupported revision date.',
-   'retrieved_at':'2026-09-18','section_locator':'Summary; Molecular Pathogenesis'
+   'retrieved_at':'2026-09-18','section_locator':'Diagnosis/testing; Molecular Pathogenesis'
   }],
   'C','MCAD deficiency can cause fasting intolerance and hypoketotic hypoglycemia, but it is a single-enzyme defect. Elevations across multiple acylcarnitine chain lengths plus multiple organic acids point to the shared ETF-ETFDH electron-transfer pathway.'
  )
