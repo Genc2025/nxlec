@@ -1,0 +1,75 @@
+name: USMLE Q1606-Q1610 Zero Trust
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1606-q1610-zero-trust.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CAND_PATH: usmle/batch_specs_1601_1700/02_q1606_q1610_author_20260918.json
+      DB_BLOB: b987a53b0c983dacaf78ffbdb5a47188fe192420
+      CANONICAL_COUNT: '1605'
+      START_Q: '1606'
+      END_Q: '1610'
+      OUT_PATH: usmle/audit/Q1606_Q1610_ZERO_TRUST.json
+      MAN_OUT: usmle/audit/Q1606_Q1610_FINAL_QA_PASS.json
+      AUDIT_DATE: '20260918'
+      FREEZE_DATE: '2026-09-18'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind repaired Q1605 production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          s=json.load(open('usmle/state/step2_final_q0001_q1605.json'))
+          assert s['item_count']==s['step2_final_review_count']==1605
+          assert s['contiguous_q0001_q1605'] is True and s['sqlite_integrity']=='ok'
+          assert s['post_db_blob']==os.environ['DB_BLOB']
+          PY
+      - name: Author freeze audit and final QA
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1606_q1610.py usmle/q1606_item.py usmle/q1607_item.py usmle/q1608_item.py usmle/q1609_item.py usmle/q1610_item.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py usmle/finalize_candidate_current.py
+          cd usmle
+          python author_q1606_q1610.py
+          cd ..
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB="$(git hash-object "$CAND_PATH")"
+          python usmle/audit_candidate_zero_trust_current.py
+          python usmle/finalize_candidate_current.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+      - name: Adversarial batch checks
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open(os.environ['OUT_PATH']))
+          m=json.load(open(os.environ['MAN_OUT']))
+          b=json.load(open(os.environ['CAND_PATH']))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' and x['canonical_max_jaccard']<0.45 for x in r['item_reports'])
+          assert [x['num'] for x in b['items']]==list(range(1606,1611))
+          assert ''.join(x['item']['intended_key'] for x in b['items'])=='ABCDE'
+          assert len({re.sub(r'\W+',' ',x['item']['tested_construct'].casefold()).strip() for x in b['items']})==5
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          assert 'ncjmm' not in json.dumps(b).casefold()
+          PY
+      - name: Persist FINAL QA
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$OUT_PATH" "$MAN_OUT"
+          git commit -m 'usmle: finalize Q1606-Q1610 against repaired Q1605 production'
+          git pull --rebase origin main
+          git push
+# initial-q1606-q1610-20260918
