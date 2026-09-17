@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import collections, hashlib, json, os, re, sqlite3, subprocess
+import collections, datetime, hashlib, json, os, re, sqlite3, subprocess
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parent
 DB=ROOT/'data'/'usmle-step1.db'
-OUT=REPO/os.environ.get('AUDIT_OUT','usmle/audit/FULL_CANONICAL_Q0001_Q1535_COMPLIANCE.json')
-EXPECTED=int(os.environ.get('EXPECTED_COUNT','1535'))
+EXPECTED_OVERRIDE=os.environ.get('EXPECTED_COUNT')
+AUDIT_DATE=os.environ.get('AUDIT_DATE') or datetime.date.today().strftime('%Y%m%d')
 DB_BLOB=os.environ.get('DB_BLOB','')
 
 STOP={'the','a','an','and','or','of','to','in','is','are','was','were','with','this','that','which','what','best','most','direct','directly','patient','following','would','does','not','drug','effect','activity','correct','mechanism','action','findings','explains'}
@@ -208,15 +208,18 @@ def main():
     medium=[x for x in near if 0.60<=x['jaccard']<0.75]
     gate=[x for x in near if 0.45<=x['jaccard']<0.60]
 
+    expected=int(EXPECTED_OVERRIDE) if EXPECTED_OVERRIDE else int(fin[0] if fin else len(items))
+    out_path=os.environ.get('AUDIT_OUT') or f'usmle/audit/FULL_CANONICAL_Q0001_Q{expected}_COMPLIANCE.json'
+    out_file=REPO/out_path
     nums=[q for q in qs if q is not None]
-    contig=(len(nums)==EXPECTED and len(set(nums))==EXPECTED and set(nums)==set(range(1,EXPECTED+1)))
-    counts_ok=(len(items)==len(reviews)==EXPECTED and fin and fin[0]==EXPECTED)
+    contig=(len(nums)==expected and len(set(nums))==expected and set(nums)==set(range(1,expected+1)))
+    counts_ok=(len(items)==len(reviews)==expected and fin and fin[0]==expected)
 
     # Zero-trust verdict: exact/high near duplicate or any stored-contract defect blocks.
     verdict='PASS' if not exact_full_groups and not exact_stem_groups and not high and not defect_items and not consistency and integrity=='ok' and contig and counts_ok else 'BLOCKED'
     out={
-      'audit_id':f'FULL-CANONICAL-Q0001-Q{EXPECTED}-COMPLIANCE-20260911',
-      'scope':f'Q0001-Q{EXPECTED}',
+      'audit_id':f'FULL-CANONICAL-Q0001-Q{expected}-COMPLIANCE-{AUDIT_DATE}',
+      'scope':f'Q0001-Q{expected}',
       'production_db_blob':gitblob(DB),
       'production_db_modified':False,
       'sqlite_integrity':integrity,
@@ -262,8 +265,8 @@ def main():
       'verdict':verdict,
       'verdict_note':'Read-only audit of stored canonical content and metadata. This verifies structural/evidence/source-metadata compliance and lexical duplicate risk; it does not independently re-adjudicate every medical claim against live external sources.'
     }
-    OUT.parent.mkdir(parents=True,exist_ok=True)
-    OUT.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
+    out_file.parent.mkdir(parents=True,exist_ok=True)
+    out_file.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({
       'verdict':verdict,
       'items':len(items),
