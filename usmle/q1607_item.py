@@ -26,7 +26,7 @@ def build(make_general):
    'agency':'National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH',
    'url':'https://www.ncbi.nlm.nih.gov/books/NBK299312/','source_section_date':'2021-04-08',
    'date_basis':'GeneReviews reports Last Update: 2021-04-08; live NCBI page reverified 2026-09-18.',
-   'retrieved_at':'2026-09-18','section_locator':'Summary; Molecular Pathogenesis'
+   'retrieved_at':'2026-09-18','section_locator':'Clinical description; Molecular Pathogenesis'
   }],
   'A','Biotin deficiency can also disturb intermediary metabolism, but the identified SLC52A2 defect specifically impairs riboflavin uptake; riboflavin is converted to FMN and FAD, not biotin.'
  )
