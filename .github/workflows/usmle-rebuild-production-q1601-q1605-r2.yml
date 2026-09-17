@@ -1,0 +1,128 @@
+name: USMLE Rebuild Production Q1601-Q1605 R2
+on:
+  push:
+    paths: ['.github/workflows/usmle-rebuild-production-q1601-q1605-r2.yml']
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CURRENT_Q1605_DB_BLOB: e5b3a6ead0582b4c73f688954d1d4a4aa80ea7fc
+      Q1600_SOURCE_COMMIT: e08806a98165200f3fdea93b83bea83d4f092e13
+      START_Q: '1601'
+      END_Q: '1605'
+      PRE_COUNT: '1600'
+      DB_BLOB: 0df54bf3943674d2eb0a604626a05bf01474fa08
+      CAND_PATH: usmle/batch_specs_1601_1700/01_q1601_q1605_author_20260918_r2.json
+      CAND_BLOB: 97b1ebff3777e8fb5401665bae6fad11e06748e3
+      MAN_PATH: usmle/audit/Q1601_Q1605_R2_FINAL_QA_PASS.json
+      MAN_BLOB: 0a95b9f52cc2760375bb3a72bd0382ccf521314b
+      SIM_OUT: usmle/audit/Q1601_Q1605_R2_DETACHED_IMPORT_SIMULATION.json
+      VERIFY_OUT: usmle/audit/Q1601_Q1605_R2_PRODUCTION_REBUILD_VERIFY.json
+      STATE_OUT: usmle/state/step2_final_q0001_q1605.json
+      FULL_AUDIT_OUT: usmle/audit/FULL_CANONICAL_Q0001_Q1605_COMPLIANCE_AFTER_Q1601_R2.json
+      AUDIT_DATE: '20260918'
+      CANDIDATE_STAMP: '20260917T221600Z'
+      FINALIZED_AT: '2026-09-17T22:16:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind current production and frozen R2 evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$CURRENT_Q1605_DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$MAN_PATH")" = "$MAN_BLOB"
+          python - <<'PY'
+          import json,os
+          m=json.load(open(os.environ['MAN_PATH']))
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          assert m['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert m['authoritative_db_blob']==os.environ['DB_BLOB']
+          assert m['authoritative_db_final_count']==1600
+          PY
+      - name: Restore authoritative Q1600 base
+        run: |
+          set -euo pipefail
+          git show "$Q1600_SOURCE_COMMIT:usmle/data/usmle-step1.db" > usmle/data/usmle-step1.db
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+      - name: Detached simulation R2
+        run: |
+          set -euo pipefail
+          python usmle/simulate_import_next5.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          export SIM_BLOB="$(git hash-object "$SIM_OUT")"
+          echo "SIM_BLOB=$SIM_BLOB" >> "$GITHUB_ENV"
+          python - <<'PY'
+          import json,os
+          s=json.load(open(os.environ['SIM_OUT']))
+          assert s['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert s['pre_production_count']==1600 and s['simulated_post_count']==1605
+          assert s['post_simulation_contiguous_q0001_q1605'] is True
+          assert s['production_transactional_import_ready'] is True
+          assert s['failures']==[]
+          PY
+      - name: Rebuild Q1601-Q1605 transactionally
+        run: |
+          set -euo pipefail
+          export SIM_PATH="$SIM_OUT"
+          python usmle/step2_import_next5.py
+          export POST_DB_BLOB="$(git hash-object usmle/data/usmle-step1.db)"
+          echo "POST_DB_BLOB=$POST_DB_BLOB" >> "$GITHUB_ENV"
+          python - <<'PY'
+          import json,os,re,sqlite3
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rc=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          assert len(rows)==rc==fin==1605
+          nums=[int(re.search(r'DIRECT-(\d{4})',cid).group(1)) for cid,_ in rows]
+          assert set(nums)==set(range(1,1606))
+          byq={int(re.search(r'DIRECT-(\d{4})',cid).group(1)):json.loads(pj) for cid,pj in rows}
+          c1404=byq[1404]['item']['tested_construct']
+          c1601=byq[1601]['item']['tested_construct']
+          assert c1404 != c1601
+          assert 'CYP27A1' in c1601
+          v=json.load(open(os.environ['VERIFY_OUT']))
+          assert v['status']=='PRODUCTION_IMPORT_PASS'
+          assert v['item_count']==v['review_count']==1605 and v['failures']==[]
+          st=json.load(open(os.environ['STATE_OUT']))
+          assert st['production_import_status']=='PASS'
+          assert st['post_db_blob']==os.environ['POST_DB_BLOB']
+          PY
+      - name: Whole-bank post-rebuild audit
+        run: |
+          set -euo pipefail
+          export EXPECTED_COUNT=1605
+          export DB_BLOB="$POST_DB_BLOB"
+          export AUDIT_OUT="$FULL_AUDIT_OUT"
+          python usmle/audit_full_canonical_compliance.py
+          python - <<'PY'
+          import json,os
+          r=json.load(open(os.environ['FULL_AUDIT_OUT']))
+          assert r['item_count']==r['review_count']==1605
+          assert r['sqlite_integrity']=='ok'
+          assert r['payload_review_consistency_failure_count']==0
+          assert r['duplicate_analysis']['exact_full_item_duplicate_group_count']==0
+          assert r['duplicate_analysis']['exact_stem_duplicate_group_count']==0
+          groups=r['duplicate_analysis']['repeated_tested_construct_groups']
+          assert not any(any('DIRECT-1601-' in cid for cid in g) for g in groups)
+          PY
+      - name: Persist repaired production
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db "$SIM_OUT" "$VERIFY_OUT" "$STATE_OUT" "$FULL_AUDIT_OUT"
+          git commit -m 'usmle: rebuild Q1601-Q1605 production with corrected Q1601'
+          git pull --rebase origin main
+          git push
+# initial-r2-production-rebuild-20260918
