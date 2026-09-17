@@ -1,0 +1,30 @@
+name: USMLE Q1606-Q1610 Prospect Construct Screen
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1606-q1610-prospect-screen.yml']
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Screen proposed constructs against canonical Q0001-Q1605
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "e5b3a6ead0582b4c73f688954d1d4a4aa80ea7fc"
+          python -m py_compile usmle/prospect_construct_screen.py
+          python usmle/prospect_construct_screen.py
+      - name: Persist screen
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1606_Q1610_PROSPECT_SCREEN.json
+          git commit -m 'usmle: screen Q1606-Q1610 prospect constructs against Q1605'
+          git pull --rebase origin main
+          git push
+# initial-20260918
