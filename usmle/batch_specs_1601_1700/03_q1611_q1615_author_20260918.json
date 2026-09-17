@@ -1,0 +1,772 @@
+{
+  "batch_id": "Q1611-Q1615-20260918",
+  "created_at": "2026-09-18",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1610,
+  "canonical_count_after": 1610,
+  "canonical_db_blob": "e584d35979c100666a83ed10db98a6af6b57f36d",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective whole-bank screen against canonical Q0001-Q1610 plus manual semantic review and same-batch construct separation before authoring.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-18: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1611,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Pathology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 2-day-old newborn develops refractory seizures, axial hypotonia, and apnea. Urine testing shows sulfite and S-sulfocysteine, serum uric acid is markedly decreased, and urinary xanthine and hypoxanthine are increased.",
+        "lead_in": "Which biochemical defect best explains the combination of sulfur-metabolite and purine abnormalities?",
+        "options": {
+          "A": "Loss of a shared molybdenum cofactor required by sulfite oxidase and xanthine oxidase",
+          "B": "Isolated deficiency of sulfite oxidase with intact molybdenum cofactor synthesis",
+          "C": "Isolated deficiency of xanthine oxidase with normal sulfite oxidation",
+          "D": "Deficiency of hypoxanthine-guanine phosphoribosyltransferase",
+          "E": "Deficiency of cystathionine beta-synthase"
+        },
+        "intended_key": "A",
+        "tested_construct": "Molybdenum cofactor deficiency simultaneously reduces activity of sulfite oxidase and xanthine oxidase",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Molybdenum cofactor is required by several human enzymes, including sulfite oxidase and xanthine oxidase. Loss of the cofactor therefore causes sulfite/S-sulfocysteine accumulation together with impaired conversion of purine breakdown products to uric acid, producing low uric acid and increased xanthine/hypoxanthine.",
+        "distractor_explanations": {
+          "A": "Correct. A shared molybdenum cofactor defect explains simultaneous sulfite oxidase and xanthine oxidase dysfunction.",
+          "B": "Isolated sulfite oxidase deficiency can reproduce the neurologic and sulfur-metabolite findings, but uric acid and xanthine/hypoxanthine are expected to remain normal because other molybdenum-cofactor enzymes are intact.",
+          "C": "Isolated xanthine oxidase deficiency explains low uric acid and xanthine accumulation but not sulfite or S-sulfocysteine accumulation.",
+          "D": "HGPRT deficiency disrupts purine salvage and causes hyperuricemia rather than the combined sulfite-oxidation and low-uric-acid pattern.",
+          "E": "Cystathionine beta-synthase deficiency causes homocystinuria and does not simultaneously impair xanthine oxidase."
+        },
+        "educational_objective": "Use the combined sulfur-metabolite and purine pattern to identify loss of a shared molybdenum cofactor rather than an isolated sulfite- or purine-pathway enzyme defect."
+      },
+      "sources": [
+        {
+          "source_id": "Q1611-GENEREVIEWS",
+          "title": "Molybdenum Cofactor Deficiency - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK575630/",
+          "source_section_date": "2023-02-02",
+          "date_basis": "GeneReviews reports Last Revision: 2023-02-02; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Differential Diagnosis; Molecular Pathogenesis",
+          "source_page_sha256": "f6cda520ec4458c9d7b2ccace11953cb2637f4c6302fe6459c11eb4d4a33393d",
+          "cited_section_sha256": "0532da2426e8cec717b0f08a333ce5d2734fd3f9e0e64bcdc110ad7d458a7eb6",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1611-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. A shared molybdenum cofactor defect explains simultaneous sulfite oxidase and xanthine oxidase dysfunction.",
+          "source_ids": [
+            "Q1611-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Differential Diagnosis; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1611-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Isolated sulfite oxidase deficiency can reproduce the neurologic and sulfur-metabolite findings, but uric acid and xanthine/hypoxanthine are expected to remain normal because other molybdenum-cofactor enzymes are intact.",
+          "source_ids": [
+            "Q1611-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Differential Diagnosis; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1611-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Isolated xanthine oxidase deficiency explains low uric acid and xanthine accumulation but not sulfite or S-sulfocysteine accumulation.",
+          "source_ids": [
+            "Q1611-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Differential Diagnosis; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1611-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "HGPRT deficiency disrupts purine salvage and causes hyperuricemia rather than the combined sulfite-oxidation and low-uric-acid pattern.",
+          "source_ids": [
+            "Q1611-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Differential Diagnosis; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1611-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Cystathionine beta-synthase deficiency causes homocystinuria and does not simultaneously impair xanthine oxidase.",
+          "source_ids": [
+            "Q1611-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Differential Diagnosis; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Isolated sulfite oxidase deficiency is the strongest alternative because it can closely reproduce the neonatal neurologic and sulfur-metabolite phenotype, but it leaves uric acid and xanthine/hypoxanthine normal; the purine abnormalities require loss of the shared molybdenum cofactor.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1612,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Immunology",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 9-year-old boy has severe eczema, food allergies, markedly elevated IgE, recurrent sinopulmonary infections, and extensive molluscum contagiosum and herpes simplex skin infections. Platelet count and platelet size are normal. In a three-dimensional collagen matrix, his activated T cells become abnormally elongated and fragment during migration.",
+        "lead_in": "Which cellular defect most directly explains the abnormal migration-survival phenotype?",
+        "options": {
+          "A": "Failure of STAT3-dependent T-helper 17 differentiation",
+          "B": "Failure of DOCK8-dependent CDC42/WASp actin-cytoskeleton organization in lymphocytes",
+          "C": "Loss of WASp causing defective actin polymerization with microthrombocytopenia",
+          "D": "Failure of phagocyte NADPH oxidase to generate superoxide",
+          "E": "Loss of Bruton tyrosine kinase signaling in B-cell precursors"
+        },
+        "intended_key": "B",
+        "tested_construct": "DOCK8-dependent coupling of CDC42/WASp signaling to lymphocyte actin-cytoskeleton integrity",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "DOCK8 functions upstream of CDC42 and WASp in T cells and is required for normal actin-cytoskeleton organization. DOCK8-deficient lymphocytes lose shape integrity during migration through confined three-dimensional tissues and may undergo cytothripsis, helping explain severe cutaneous viral susceptibility.",
+        "distractor_explanations": {
+          "A": "STAT3 deficiency can cause hyper-IgE syndrome, but it does not produce the characteristic DOCK8-dependent three-dimensional lymphocyte shape-integrity defect.",
+          "B": "Correct. DOCK8 links CDC42/WASp signaling to actin organization needed for lymphocyte structural integrity and survival during migration.",
+          "C": "WASp deficiency also disrupts actin biology, but classic Wiskott-Aldrich syndrome is associated with microthrombocytopenia; normal platelet size/count and the described migration-fragmentation phenotype favor DOCK8 deficiency.",
+          "D": "NADPH oxidase deficiency causes defective phagocyte oxidative killing rather than a T-cell actin-cytoskeleton migration defect.",
+          "E": "BTK deficiency impairs B-cell maturation and immunoglobulin production rather than causing this hyper-IgE, cutaneous-viral, T-cell cytoskeletal phenotype."
+        },
+        "educational_objective": "Connect DOCK8 loss to defective CDC42/WASp-dependent actin organization and impaired lymphocyte integrity during migration through confined tissues."
+      },
+      "sources": [
+        {
+          "source_id": "Q1612-PMC",
+          "title": "A DOCK8-WIP-WASp complex links T cell receptors to the actin cytoskeleton",
+          "agency": "PubMed Central, U.S. National Library of Medicine",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5096816/",
+          "source_section_date": null,
+          "date_basis": "PMC full-text article live reverified 2026-09-18; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Abstract; DOCK8 GEF activity is essential for the integrity of the subcortical actin cytoskeleton and TCR-driven actin polymerization",
+          "source_page_sha256": "218f5e27baf3a0f92f56749070e302a8c7dd63a51194c8d87ebb07c2159014ba",
+          "cited_section_sha256": "f93da9f849af100ec45d4084ac1c39bf903f78eed6caba89e8377ae0dd42fd03",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1612-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "STAT3 deficiency can cause hyper-IgE syndrome, but it does not produce the characteristic DOCK8-dependent three-dimensional lymphocyte shape-integrity defect.",
+          "source_ids": [
+            "Q1612-PMC"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Abstract; DOCK8 GEF activity is essential for the integrity of the subcortical actin cytoskeleton and TCR-driven actin polymerization",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1612-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. DOCK8 links CDC42/WASp signaling to actin organization needed for lymphocyte structural integrity and survival during migration.",
+          "source_ids": [
+            "Q1612-PMC"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Abstract; DOCK8 GEF activity is essential for the integrity of the subcortical actin cytoskeleton and TCR-driven actin polymerization",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1612-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "WASp deficiency also disrupts actin biology, but classic Wiskott-Aldrich syndrome is associated with microthrombocytopenia; normal platelet size/count and the described migration-fragmentation phenotype favor DOCK8 deficiency.",
+          "source_ids": [
+            "Q1612-PMC"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Abstract; DOCK8 GEF activity is essential for the integrity of the subcortical actin cytoskeleton and TCR-driven actin polymerization",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1612-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "NADPH oxidase deficiency causes defective phagocyte oxidative killing rather than a T-cell actin-cytoskeleton migration defect.",
+          "source_ids": [
+            "Q1612-PMC"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Abstract; DOCK8 GEF activity is essential for the integrity of the subcortical actin cytoskeleton and TCR-driven actin polymerization",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1612-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "BTK deficiency impairs B-cell maturation and immunoglobulin production rather than causing this hyper-IgE, cutaneous-viral, T-cell cytoskeletal phenotype.",
+          "source_ids": [
+            "Q1612-PMC"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Abstract; DOCK8 GEF activity is essential for the integrity of the subcortical actin cytoskeleton and TCR-driven actin polymerization",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "Wiskott-Aldrich syndrome is the strongest alternative because WASp participates in the same actin pathway and causes infection and eczema, but classic WAS adds microthrombocytopenia, whereas the stipulated DOCK8-like three-dimensional migration-fragmentation phenotype occurs with normal platelet size and count.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1613,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 4-year-old child has severe developmental delay, epilepsy, and dystonia. Proton magnetic resonance spectroscopy shows a markedly decreased cerebral creatine peak. Guanidinoacetate is elevated in plasma and urine, while creatine is low.",
+        "lead_in": "Which reaction is directly deficient in this disorder?",
+        "options": {
+          "A": "Transfer of an amidino group from arginine to glycine to form guanidinoacetate",
+          "B": "Sodium- and chloride-dependent uptake of creatine into brain and muscle",
+          "C": "S-adenosylmethionine-dependent methylation of guanidinoacetate to form creatine",
+          "D": "Phosphorylation of creatine to phosphocreatine by creatine kinase",
+          "E": "Hydrolysis of arginine to ornithine and urea by arginase"
+        },
+        "intended_key": "C",
+        "tested_construct": "GAMT-catalyzed methylation of guanidinoacetate to creatine",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Creatine synthesis has two major enzymatic steps. After AGAT/GATM forms guanidinoacetate, guanidinoacetate methyltransferase (GAMT) uses S-adenosylmethionine to methylate guanidinoacetate and generate creatine. GAMT deficiency therefore causes guanidinoacetate accumulation with cerebral creatine deficiency.",
+        "distractor_explanations": {
+          "A": "This is the upstream AGAT/GATM reaction; its deficiency lowers rather than raises guanidinoacetate.",
+          "B": "SLC6A8 transports already synthesized creatine; transporter deficiency does not directly block methylation of accumulated guanidinoacetate.",
+          "C": "Correct. GAMT catalyzes S-adenosylmethionine-dependent methylation of guanidinoacetate to creatine.",
+          "D": "Creatine kinase acts after creatine synthesis and does not explain guanidinoacetate accumulation.",
+          "E": "Arginase is part of the urea cycle and is not the blocked reaction in creatine synthesis."
+        },
+        "educational_objective": "Use elevated guanidinoacetate plus cerebral creatine deficiency to localize the block to the GAMT-catalyzed methylation step of creatine synthesis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1613-GENEREVIEWS",
+          "title": "Creatine Deficiency Disorders - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK3794/",
+          "source_section_date": "2025-08-07",
+          "date_basis": "GeneReviews reports Last Revision: 2025-08-07; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Biochemical findings; Molecular Pathogenesis",
+          "source_page_sha256": "0ba3d8894f5f21985c7126c095c7b6af6a98a0ff47cbae0f7be23571a7c17ec4",
+          "cited_section_sha256": "0c8f3e7fbb854b95e0b06a3f8069da2a9044bce2c28f38b45183ddf4a2736f25",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1613-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "This is the upstream AGAT/GATM reaction; its deficiency lowers rather than raises guanidinoacetate.",
+          "source_ids": [
+            "Q1613-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1613-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "SLC6A8 transports already synthesized creatine; transporter deficiency does not directly block methylation of accumulated guanidinoacetate.",
+          "source_ids": [
+            "Q1613-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1613-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. GAMT catalyzes S-adenosylmethionine-dependent methylation of guanidinoacetate to creatine.",
+          "source_ids": [
+            "Q1613-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1613-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Creatine kinase acts after creatine synthesis and does not explain guanidinoacetate accumulation.",
+          "source_ids": [
+            "Q1613-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1613-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Arginase is part of the urea cycle and is not the blocked reaction in creatine synthesis.",
+          "source_ids": [
+            "Q1613-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "AGAT/GATM deficiency is the strongest alternative because it is the other creatine-biosynthesis defect, but it reduces guanidinoacetate production; the elevated guanidinoacetate in this vignette specifically localizes the block to GAMT.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1614,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 7-year-old boy has severe speech delay, intellectual disability, and seizures. Brain proton magnetic resonance spectroscopy shows a markedly decreased creatine peak. His urinary creatine-to-creatinine ratio is elevated, and cultured fibroblasts show markedly reduced uptake of extracellular creatine despite intact creatine biosynthesis.",
+        "lead_in": "Which process is directly impaired?",
+        "options": {
+          "A": "Formation of guanidinoacetate from arginine and glycine by AGAT",
+          "B": "Methylation of guanidinoacetate to creatine by GAMT",
+          "C": "Transfer of a phosphate group from ATP to creatine by creatine kinase",
+          "D": "Sodium- and chloride-dependent cellular uptake of creatine by SLC6A8",
+          "E": "Transport of long-chain fatty acids into mitochondria by the carnitine shuttle"
+        },
+        "intended_key": "D",
+        "tested_construct": "SLC6A8-mediated sodium- and chloride-dependent creatine transport into brain and muscle",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC6A8 encodes the sodium- and chloride-dependent creatine transporter. Pathogenic variants cause creatine transporter deficiency, in which creatine synthesis can remain intact but cellular uptake into brain and muscle is impaired. Affected males commonly have an elevated urinary creatine-to-creatinine ratio and a reduced cerebral creatine peak.",
+        "distractor_explanations": {
+          "A": "AGAT deficiency is a creatine-synthesis defect and would decrease guanidinoacetate; it does not explain defective uptake of extracellular creatine.",
+          "B": "GAMT deficiency blocks creatine synthesis and raises guanidinoacetate; the vignette instead demonstrates intact synthesis with defective uptake.",
+          "C": "Creatine kinase deficiency would affect phosphocreatine buffering after uptake and would not directly cause loss of SLC6A8-mediated cellular creatine transport.",
+          "D": "Correct. SLC6A8 is the sodium- and chloride-dependent transporter responsible for cellular creatine uptake, particularly relevant to brain and muscle.",
+          "E": "The carnitine shuttle transports fatty acyl groups rather than creatine."
+        },
+        "educational_objective": "Distinguish SLC6A8 creatine transporter deficiency from AGAT and GAMT biosynthetic defects by recognizing impaired cellular creatine uptake despite intact synthesis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1614-GENEREVIEWS",
+          "title": "Creatine Deficiency Disorders - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK3794/",
+          "source_section_date": "2025-08-07",
+          "date_basis": "GeneReviews reports Last Revision: 2025-08-07; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Biochemical findings; Molecular Pathogenesis",
+          "source_page_sha256": "0ba3d8894f5f21985c7126c095c7b6af6a98a0ff47cbae0f7be23571a7c17ec4",
+          "cited_section_sha256": "0c8f3e7fbb854b95e0b06a3f8069da2a9044bce2c28f38b45183ddf4a2736f25",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1614-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "AGAT deficiency is a creatine-synthesis defect and would decrease guanidinoacetate; it does not explain defective uptake of extracellular creatine.",
+          "source_ids": [
+            "Q1614-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1614-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "GAMT deficiency blocks creatine synthesis and raises guanidinoacetate; the vignette instead demonstrates intact synthesis with defective uptake.",
+          "source_ids": [
+            "Q1614-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1614-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Creatine kinase deficiency would affect phosphocreatine buffering after uptake and would not directly cause loss of SLC6A8-mediated cellular creatine transport.",
+          "source_ids": [
+            "Q1614-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1614-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. SLC6A8 is the sodium- and chloride-dependent transporter responsible for cellular creatine uptake, particularly relevant to brain and muscle.",
+          "source_ids": [
+            "Q1614-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1614-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "The carnitine shuttle transports fatty acyl groups rather than creatine.",
+          "source_ids": [
+            "Q1614-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Biochemical findings; Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "GAMT deficiency can also cause a low cerebral creatine peak and neurologic disease, but it is a synthesis defect with guanidinoacetate accumulation; direct failure of extracellular creatine uptake with intact synthesis identifies SLC6A8 transporter deficiency.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1615,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neuroscience"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 5-year-old child has developmental delay, epilepsy, and autistic features. Urine and cerebrospinal fluid contain the normally undetectable succinylpurines succinylaminoimidazole carboxamide riboside (SAICAr) and succinyladenosine (S-Ado).",
+        "lead_in": "Which pair of reactions is directly impaired by the deficient enzyme?",
+        "options": {
+          "A": "Hypoxanthine to IMP and guanine to GMP through phosphoribosyl salvage",
+          "B": "IMP plus aspartate to adenylosuccinate and IMP to xanthosine monophosphate",
+          "C": "AICAR to formyl-AICAR and formyl-AICAR to IMP",
+          "D": "AMP to IMP and adenosine to inosine",
+          "E": "SAICAR to AICAR plus fumarate and adenylosuccinate to AMP plus fumarate"
+        },
+        "intended_key": "E",
+        "tested_construct": "Adenylosuccinate lyase catalysis of two nonsequential purine-biosynthesis reactions that each release fumarate",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Adenylosuccinate lyase (ADSL) catalyzes two nonsequential reactions in de novo purine synthesis: cleavage of SAICAR to AICAR plus fumarate and cleavage of adenylosuccinate to AMP plus fumarate. ADSL deficiency leads to accumulation of dephosphorylated derivatives of its substrates, including SAICAr and S-Ado.",
+        "distractor_explanations": {
+          "A": "HGPRT mediates purine salvage; failure produces a different metabolite pattern and does not explain SAICAr plus S-Ado accumulation.",
+          "B": "Adenylosuccinate synthetase forms adenylosuccinate, while IMP dehydrogenase directs IMP toward GMP synthesis; neither enzyme catalyzes both accumulating-substrate reactions.",
+          "C": "ATIC catalyzes later steps involving AICAR and IMP but does not cleave adenylosuccinate.",
+          "D": "AMP deaminase and adenosine deaminase act in nucleotide/nucleoside catabolism rather than the two ADSL reactions.",
+          "E": "Correct. ADSL cleaves SAICAR to AICAR and adenylosuccinate to AMP, releasing fumarate in both reactions."
+        },
+        "educational_objective": "Recognize adenylosuccinate lyase deficiency from succinylpurine accumulation and identify its two nonsequential fumarate-releasing reactions in de novo purine synthesis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1615-PUBMED-DISEASE",
+          "title": "Adenylosuccinate lyase deficiency",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25112391/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-18; no unsupported revision date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "defect of purine metabolism; two dephosphorylated substrates",
+          "source_page_sha256": "2f26f71ae3274e7609586231072cbb1d0a30deb23034c5db2cebac47a30b22cc",
+          "cited_section_sha256": "6a6dfe353ed03de0ddbae598afb258e248e74afcf736103f2b9c6f78171c49e7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        },
+        {
+          "source_id": "Q1615-PUBMED-REACTIONS",
+          "title": "Substrate and product complexes of Escherichia coli adenylosuccinate lyase provide new insights into the enzymatic mechanism",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17531264/",
+          "source_section_date": "2007-07-13",
+          "date_basis": "PubMed record lists publication in 2007 Jul; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "catalyzes the breakdown; adenylosuccinate",
+          "source_page_sha256": "5916d0176cf6321df6271e554b6f6eeebfbfda4787243d05affd7e1dd5ad54ca",
+          "cited_section_sha256": "6e0f6ac3a2c6f00e68c95d4b3e6ec9586db65ccb9591136d2f03dc3258c6154b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 2
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1615-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "HGPRT mediates purine salvage; failure produces a different metabolite pattern and does not explain SAICAr plus S-Ado accumulation.",
+          "source_ids": [
+            "Q1615-PUBMED-DISEASE",
+            "Q1615-PUBMED-REACTIONS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defect of purine metabolism; two dephosphorylated substrates; catalyzes the breakdown; adenylosuccinate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1615-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Adenylosuccinate synthetase forms adenylosuccinate, while IMP dehydrogenase directs IMP toward GMP synthesis; neither enzyme catalyzes both accumulating-substrate reactions.",
+          "source_ids": [
+            "Q1615-PUBMED-DISEASE",
+            "Q1615-PUBMED-REACTIONS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defect of purine metabolism; two dephosphorylated substrates; catalyzes the breakdown; adenylosuccinate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1615-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "ATIC catalyzes later steps involving AICAR and IMP but does not cleave adenylosuccinate.",
+          "source_ids": [
+            "Q1615-PUBMED-DISEASE",
+            "Q1615-PUBMED-REACTIONS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defect of purine metabolism; two dephosphorylated substrates; catalyzes the breakdown; adenylosuccinate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1615-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "AMP deaminase and adenosine deaminase act in nucleotide/nucleoside catabolism rather than the two ADSL reactions.",
+          "source_ids": [
+            "Q1615-PUBMED-DISEASE",
+            "Q1615-PUBMED-REACTIONS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defect of purine metabolism; two dephosphorylated substrates; catalyzes the breakdown; adenylosuccinate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1615-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. ADSL cleaves SAICAR to AICAR and adenylosuccinate to AMP, releasing fumarate in both reactions.",
+          "source_ids": [
+            "Q1615-PUBMED-DISEASE",
+            "Q1615-PUBMED-REACTIONS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "defect of purine metabolism; two dephosphorylated substrates; catalyzes the breakdown; adenylosuccinate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "ATIC-pathway dysfunction is the strongest pathway-level alternative because AICAR participates in nearby de novo purine synthesis, but simultaneous accumulation of derivatives of both SAICAR and adenylosuccinate identifies the dual-substrate enzyme ADSL, not ATIC.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
