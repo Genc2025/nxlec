@@ -27,14 +27,14 @@ def build(make_general):
     'agency':'National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH',
     'url':'https://www.ncbi.nlm.nih.gov/gene/5345','source_section_date':'2026-07-06',
     'date_basis':'NCBI Gene record updated 2026-07-06; live page reverified 2026-09-18.',
-    'retrieved_at':'2026-09-18','section_locator':'Summary'
+    'retrieved_at':'2026-09-18','section_locator':'major inhibitor of plasmin'
    },
    {
     'source_id':'Q1610-PMC','title':'Bleeding Disorders in Primary Fibrinolysis - PubMed Central',
     'agency':'PubMed Central, National Library of Medicine, NIH',
     'url':'https://pmc.ncbi.nlm.nih.gov/articles/PMC8268566/','source_section_date':'2021',
     'date_basis':'Peer-reviewed review published 2021; live PubMed Central article reverified 2026-09-18.',
-    'retrieved_at':'2026-09-18','section_locator':'antiplasmin deficiency'
+    'retrieved_at':'2026-09-18','section_locator':'antiplasmin deficiency is a rare'
    }
   ],
   'B','PAI-1 deficiency is also a primary hyperfibrinolytic disorder and can present with normal routine coagulation studies, but PAI-1 acts upstream on plasminogen activators. Persistent plasmin activity is most directly explained by loss of alpha-2-antiplasmin.'
