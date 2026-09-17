@@ -1,0 +1,81 @@
+name: USMLE Q1601-Q1605 Revision R2 Zero Trust
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1601-q1605-r2-zero-trust.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CURRENT_Q1605_DB_BLOB: e5b3a6ead0582b4c73f688954d1d4a4aa80ea7fc
+      Q1600_SOURCE_COMMIT: e08806a98165200f3fdea93b83bea83d4f092e13
+      DB_BLOB: 0df54bf3943674d2eb0a604626a05bf01474fa08
+      CANONICAL_COUNT: '1600'
+      START_Q: '1601'
+      END_Q: '1605'
+      CAND_PATH: usmle/batch_specs_1601_1700/01_q1601_q1605_author_20260918_r2.json
+      OUT_PATH: usmle/audit/Q1601_Q1605_R2_ZERO_TRUST.json
+      MAN_OUT: usmle/audit/Q1601_Q1605_R2_FINAL_QA_PASS.json
+      AUDIT_DATE: '20260918'
+      FREEZE_DATE: '2026-09-18'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind current production and restore authoritative Q1600 base
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$CURRENT_Q1605_DB_BLOB"
+          git show "$Q1600_SOURCE_COMMIT:usmle/data/usmle-step1.db" > usmle/data/usmle-step1.db
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os,sqlite3
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          n=c.execute("select count(*) from step2_final_items where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          r=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          assert n==r==fin==1600
+          st=json.load(open('usmle/state/step2_final_q0001_q1600.json'))
+          assert st['item_count']==st['step2_final_review_count']==1600
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          PY
+      - name: Author freeze audit and FINAL QA R2
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1601_q1605_r2.py usmle/q1601_item_r2.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py usmle/finalize_candidate_current.py
+          python usmle/author_q1601_q1605_r2.py
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB=$(git hash-object "$CAND_PATH")
+          python usmle/audit_candidate_zero_trust_current.py
+          python usmle/finalize_candidate_current.py
+          python - <<'PY'
+          import json,os
+          r=json.load(open(os.environ['OUT_PATH']))
+          m=json.load(open(os.environ['MAN_OUT']))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+          assert all(x['status']=='PASS' and x['canonical_max_jaccard']<0.45 for x in r['item_reports'])
+          q1=r['item_reports'][0]
+          assert q1['q']==1601 and q1['status']=='PASS'
+          assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          PY
+      - name: Restore unchanged current production before persisting evidence
+        run: |
+          set -euo pipefail
+          git checkout -- usmle/data/usmle-step1.db
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$CURRENT_Q1605_DB_BLOB"
+      - name: Persist revision evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$OUT_PATH" "$MAN_OUT"
+          git commit -m 'usmle: finalize corrected Q1601-Q1605 revision R2'
+          git pull --rebase origin main
+          git push
+# initial-r2-20260918
