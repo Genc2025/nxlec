@@ -1,8 +1,8 @@
 def build(make_general):
  return make_general(
-  1610,'','Blood & Lymphoreticular/Immune Systems',['Hematology','Physiology','Genetics'],
-  'A 20-year-old woman has recurrent delayed bleeding several hours after dental procedures and minor surgery. Platelet count, prothrombin time, activated partial thromboplastin time, platelet-function testing, and von Willebrand factor studies are normal. A clot forms normally ex vivo but undergoes abnormally rapid fibrinolysis, with persistent plasmin activity.',
-  'Loss of which physiologic action most directly explains this finding?',
+  1610,'','Blood & Lymphoreticular/Immune Systems',['Hematology','Physiology'],
+  'A patient\'s plasma forms a fibrin clot normally. During a fibrinolysis study, the clot lyses unusually rapidly after plasmin is added. In a chromogenic assay performed with excess plasmin, the patient\'s plasma inhibits far less plasmin than control plasma. Plasminogen and plasminogen activator inhibitor 1 concentrations are normal.',
+  'Loss of which physiologic action most directly explains these findings?',
   {
    'A':'Covalent cross-linking of fibrin by activated factor XIII',
    'B':'Inhibition of tissue plasminogen activator and urokinase by plasminogen activator inhibitor 1',
@@ -11,22 +11,26 @@ def build(make_general):
    'E':'Direct inhibition of plasmin by alpha-2-antiplasmin'
   },
   'E',
-  'SERPINF2-encoded alpha-2-antiplasmin directly inhibits plasmin and restrains fibrin degradation',
-  'Alpha-2-antiplasmin, encoded by SERPINF2, is a major physiologic inhibitor of plasmin. Severe deficiency permits ongoing plasmin-mediated fibrin degradation after a clot has formed, producing premature clot breakdown and a bleeding disorder that can escape routine coagulation screening.',
+  'Alpha-2-antiplasmin restrains fibrinolysis by directly inhibiting plasmin',
+  'Alpha-2-antiplasmin is a physiologic inhibitor of fibrinolysis. Its activity can be measured in a chromogenic assay performed in the presence of excess plasmin, in which the amount of plasmin inhibited is proportional to the amount of alpha-2-antiplasmin in plasma. Markedly reduced plasmin inhibition with normal plasminogen and PAI-1 therefore indicates loss of alpha-2-antiplasmin activity.',
   {
-   'A':'Factor XIII stabilizes fibrin by covalent cross-linking, and severe deficiency can also cause delayed bleeding with normal PT and aPTT; however, it does not directly neutralize the persistent plasmin activity specified in the vignette.',
-   'B':'PAI-1 suppresses fibrinolysis upstream by inhibiting plasminogen activators such as tPA and urokinase; it does not directly inhibit plasmin itself.',
-   'C':'Antithrombin inhibits thrombin and other coagulation proteases. Loss predisposes to thrombosis rather than isolated rapid fibrin breakdown from persistent plasmin.',
-   'D':'vWF-mediated platelet adhesion affects primary hemostasis, whereas this patient forms a clot normally and then lyses it too rapidly; vWF testing is also normal.',
-   'E':'Correct. Alpha-2-antiplasmin directly binds and inhibits plasmin, limiting fibrin degradation after clot formation.'
+   'A':'Factor XIII stabilizes fibrin by covalent cross-linking, but the defining experimental abnormality here is failure of plasma to inhibit added plasmin.',
+   'B':'PAI-1 acts upstream by inhibiting plasminogen activators. Its concentration is normal, and it does not directly account for reduced neutralization of exogenously added plasmin.',
+   'C':'Antithrombin inhibits thrombin and other coagulation proteases rather than serving as the principal inhibitor measured by an excess-plasmin alpha-2-antiplasmin assay.',
+   'D':'vWF-GPIb binding mediates platelet adhesion during primary hemostasis and does not explain defective inhibition of plasmin in plasma.',
+   'E':'Correct. Alpha-2-antiplasmin directly limits plasmin activity; in the chromogenic assay, reduced inhibition of excess plasmin reflects reduced alpha-2-antiplasmin activity.'
   },
-  'Differentiate alpha-2-antiplasmin deficiency from factor XIII and PAI-1 defects by identifying alpha-2-antiplasmin as the direct physiologic inhibitor of plasmin.',
+  'Differentiate alpha-2-antiplasmin from PAI-1 and coagulation-factor mechanisms by recognizing alpha-2-antiplasmin as the plasma inhibitor assayed through neutralization of excess plasmin.',
   [{
-   'source_id':'Q1610-PMC','title':'Bleeding Disorders in Primary Fibrinolysis - PubMed Central',
-   'agency':'PubMed Central, National Library of Medicine, NIH',
-   'url':'https://pmc.ncbi.nlm.nih.gov/articles/PMC8268566/','source_section_date':'2021',
-   'date_basis':'Peer-reviewed review published 2021; live PubMed Central article reverified 2026-09-18 and mechanism corroborated against the current NCBI SERPINF2 record updated 2026-07-06.',
-   'retrieved_at':'2026-09-18','section_locator':'antiplasmin deficiency is a rare'
+   'source_id':'Q1610-STATPEARLS',
+   'title':'Laboratory Evaluation of Coagulopathies - StatPearls - NCBI Bookshelf',
+   'agency':'National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH',
+   'url':'https://www.ncbi.nlm.nih.gov/books/NBK606118/',
+   'source_section_date':'2024-07-27',
+   'date_basis':'NCBI Bookshelf reports Last Update: 2024-07-27; live page reverified 2026-09-18.',
+   'retrieved_at':'2026-09-18',
+   'section_locator':'Fibrinolysis investigation'
   }],
-  'B','PAI-1 deficiency is also a primary hyperfibrinolytic disorder and can present with normal routine coagulation studies, but PAI-1 acts upstream on plasminogen activators. Persistent plasmin activity is most directly explained by loss of alpha-2-antiplasmin.'
+  'B',
+  'PAI-1 is a major fibrinolysis inhibitor and is therefore the strongest alternative, but it inhibits plasminogen activators upstream. The vignette instead directly measures deficient neutralization of already formed, exogenously added plasmin, which identifies alpha-2-antiplasmin.'
  )
