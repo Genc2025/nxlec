@@ -1,0 +1,63 @@
+name: USMLE Q1616-Q1620 Top Match Inspect
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1616-q1620-topmatch-inspect.yml']
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Extract top canonical matches
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,sqlite3
+          from pathlib import Path
+          cand=json.load(open('usmle/batch_specs_1601_1700/04_q1616_q1620_author_20260918.json'))
+          audit=json.load(open('usmle/audit/Q1616_Q1620_ZERO_TRUST.json'))
+          byq={x['num']:x for x in cand['items']}
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          out=[]
+          for r in audit['item_reports']:
+              cid=r['canonical_top_match']
+              row=c.execute('select payload_json from step2_final_items where candidate_id=?',(cid,)).fetchone()
+              assert row, cid
+              old=json.loads(row[0])
+              def slim(x):
+                  it=x['item']
+                  return {
+                    'num':x.get('num'),
+                    'candidate_id':x.get('candidate_id'),
+                    'vignette':it.get('vignette'),
+                    'lead_in':it.get('lead_in'),
+                    'options':it.get('options'),
+                    'intended_key':it.get('intended_key'),
+                    'tested_construct':it.get('tested_construct'),
+                    'educational_objective':x.get('explanation',{}).get('educational_objective')
+                  }
+              out.append({
+                'new_q':r['q'],
+                'jaccard':r['canonical_max_jaccard'],
+                'top_match_id':cid,
+                'new':slim(byq[r['q']]),
+                'existing':slim(old)
+              })
+          c.close()
+          p=Path('usmle/audit/Q1616_Q1620_TOP_MATCH_INSPECTION.json')
+          p.write_text(json.dumps({'status':'DIAGNOSTIC_FOR_ADVERSARIAL_SEMANTIC_REVIEW','comparisons':out},indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist inspection
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1616_Q1620_TOP_MATCH_INSPECTION.json
+          git commit -m 'usmle: inspect Q1616-Q1620 canonical top matches'
+          git pull --rebase origin main
+          git push
