@@ -54,12 +54,12 @@ jobs:
                   c={'source_url':s.get('url'),'section_locator':s.get('section_locator'),'source_page_sha256':s.get('source_page_sha256'),'cited_section_sha256':s.get('cited_section_sha256'),'cited_locator_component_count':s.get('cited_locator_component_count'),'hash_status':s.get('hash_status')}
               except Exception as e:
                   c={'candidate_parse_error':repr(e)}
-          out={'status':'DIAGNOSTIC','db_expected':os.environ['DB_BLOB'],'db_actual':os.environ['ACTUAL_DB'],'bind':os.environ['BIND'],'build_rc':int(os.environ['BUILD_RC']),'freeze_rc':int(os.environ['FREEZE_RC']),'build_log':tail('/tmp/build.log'),'freeze_log':tail('/tmp/freeze.log'),'candidate_source':c}
+          out={'status':'DIAGNOSTIC','db_expected':os.environ['DB_BLOB'],'db_actual':os.environ['ACTUAL_DB'],'bind':os.environ['BIND'],'build_rc':int(os.environ['BUILD_RC']),'freeze_rc':int(os.environ['FREEZE_RC']),'audit_rc':int(os.environ['AUDIT_RC']),'build_log':tail('/tmp/build.log'),'freeze_log':tail('/tmp/freeze.log'),'audit_log':tail('/tmp/audit.log'),'candidate_source':c}
           Path('usmle/audit/Q1612_REMEDIATION_DIAGNOSTIC_20260918.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add usmle/audit/Q1612_REMEDIATION_DIAGNOSTIC_20260918.json
-          git commit -m 'usmle: diagnose Q1612 remediation freeze'
+          git commit -m 'usmle: diagnose Q1612 remediation audit'
           git pull --rebase origin main
           git push
