@@ -1,0 +1,772 @@
+{
+  "batch_id": "Q1616-Q1620-REMEDIATION-20260918",
+  "created_at": "2026-09-18",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1620,
+  "canonical_count_after": 1620,
+  "canonical_db_blob": "2126a90ae570f9572aa01ed8df51ab50ed6c11b2",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Full Q1616-Q1620 re-audit after adversarial review identified evidence-binding and distractor-realism defects in the prior certification.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-18: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1616,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Immunology",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 13-year-old boy has persistent Epstein-Barr virus viremia, recurrent lymphadenopathy, and reduced cytotoxic activity of natural killer cells. Flow cytometry shows markedly decreased NKG2D on NK cells and CD8+ T cells. Sequencing identifies a loss-of-function variant in MAGT1. Immunoblotting of patient lymphocytes shows underglycosylated NKG2D protein with reduced steady-state expression.",
+        "lead_in": "Which cellular process is most directly impaired by this mutation?",
+        "options": {
+          "A": "N-linked glycosylation of selected proteins in the endoplasmic reticulum",
+          "B": "O-linked glycosylation of proteins in the Golgi apparatus",
+          "C": "TAP-dependent transport of cytosolic peptides into the endoplasmic reticulum",
+          "D": "Proteasomal degradation of ubiquitinated cytosolic proteins",
+          "E": "Attachment of glycosylphosphatidylinositol anchors to proteins in the endoplasmic reticulum"
+        },
+        "intended_key": "A",
+        "tested_construct": "MAGT1 is an accessory component of the STT3B oligosaccharyltransferase machinery; its loss causes selective N-linked glycosylation defects, including hypoglycosylation and reduced expression of NKG2D",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "MAGT1 functions with the endoplasmic-reticulum oligosaccharyltransferase machinery that catalyzes N-linked glycosylation of selected protein substrates. In MAGT1 deficiency, NKG2D is hypoglycosylated and its steady-state expression is reduced, impairing cytotoxic lymphocyte function and contributing to susceptibility to persistent EBV infection.",
+        "distractor_explanations": {
+          "A": "Correct. MAGT1 deficiency causes selective N-linked glycosylation defects; NKG2D hypoglycosylation directly explains the reduced steady-state expression in the vignette.",
+          "B": "O-linked glycosylation is a distinct Golgi-centered glycosylation pathway and is not the MAGT1-dependent defect demonstrated in these patients.",
+          "C": "TAP transports cytosolic peptides into the endoplasmic reticulum for MHC class I loading; that pathway does not explain NKG2D hypoglycosylation.",
+          "D": "The ubiquitin-proteasome system degrades cytosolic proteins and does not account for the demonstrated glycosylation defect.",
+          "E": "GPI-anchor attachment is a distinct endoplasmic-reticulum modification and does not explain selective underglycosylation of NKG2D in MAGT1 deficiency."
+        },
+        "educational_objective": "Recognize MAGT1 deficiency as a selective N-linked glycosylation disorder in which NKG2D hypoglycosylation reduces NKG2D expression and compromises cytotoxic lymphocyte function."
+      },
+      "sources": [
+        {
+          "source_id": "Q1616-PUBMED-NLG",
+          "title": "Magnesium transporter 1 (MAGT1) deficiency causes selective defects in N-linked glycosylation and expression of immune-response genes",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31337704/",
+          "source_section_date": "2019-07-23",
+          "date_basis": "PubMed reports Epub 2019-07-23; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "integral part of the N-linked glycosylation complex",
+          "source_page_sha256": "b221c182c4c680d894684be21c361cbd40c8e3811b8b6bdc759f45af5e8e0068",
+          "cited_section_sha256": "80eee25f1a32018a77c78325964a1da29f518b10b1699e57799a3909549caa84",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        },
+        {
+          "source_id": "Q1616-PUBMED-NKG2D",
+          "title": "Lack of NKG2D in MAGT1-deficient patients is caused by hypoglycosylation",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35182234/",
+          "source_section_date": "2022-02-19",
+          "date_basis": "PubMed reports Epub 2022-02-19; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "reduced steady-state levels of NKG2D are caused by hypoglycosylation of the protein",
+          "source_page_sha256": "8fae3799f2e2ea92f4e76cfbb72342cdb560be8076f030519b9ae2a3e84cbc0f",
+          "cited_section_sha256": "77a2fff649dbe8e6b6dbf129842f28b2541e73f919ea2eba0c127ccba6f6670f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1616-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. MAGT1 deficiency causes selective N-linked glycosylation defects; NKG2D hypoglycosylation directly explains the reduced steady-state expression in the vignette.",
+          "source_ids": [
+            "Q1616-PUBMED-NLG",
+            "Q1616-PUBMED-NKG2D"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "integral part of the N-linked glycosylation complex; reduced steady-state levels of NKG2D are caused by hypoglycosylation of the protein",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "O-linked glycosylation is a distinct Golgi-centered glycosylation pathway and is not the MAGT1-dependent defect demonstrated in these patients.",
+          "source_ids": [
+            "Q1616-PUBMED-NLG",
+            "Q1616-PUBMED-NKG2D"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "integral part of the N-linked glycosylation complex; reduced steady-state levels of NKG2D are caused by hypoglycosylation of the protein",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "TAP transports cytosolic peptides into the endoplasmic reticulum for MHC class I loading; that pathway does not explain NKG2D hypoglycosylation.",
+          "source_ids": [
+            "Q1616-PUBMED-NLG",
+            "Q1616-PUBMED-NKG2D"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "integral part of the N-linked glycosylation complex; reduced steady-state levels of NKG2D are caused by hypoglycosylation of the protein",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "The ubiquitin-proteasome system degrades cytosolic proteins and does not account for the demonstrated glycosylation defect.",
+          "source_ids": [
+            "Q1616-PUBMED-NLG",
+            "Q1616-PUBMED-NKG2D"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "integral part of the N-linked glycosylation complex; reduced steady-state levels of NKG2D are caused by hypoglycosylation of the protein",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "GPI-anchor attachment is a distinct endoplasmic-reticulum modification and does not explain selective underglycosylation of NKG2D in MAGT1 deficiency.",
+          "source_ids": [
+            "Q1616-PUBMED-NLG",
+            "Q1616-PUBMED-NKG2D"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "integral part of the N-linked glycosylation complex; reduced steady-state levels of NKG2D are caused by hypoglycosylation of the protein",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "O-linked glycosylation is the strongest same-category alternative because both are post-translational glycan modifications. The cited MAGT1 studies specifically establish an N-linked glycosylation defect and directly connect NKG2D hypoglycosylation to its reduced expression.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1617,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 27-year-old man has recurrent episodes of confusion after carbohydrate-rich meals. During an episode, plasma ammonia and citrulline are markedly elevated. He has a longstanding preference for protein- and fat-rich foods. Genetic testing identifies biallelic loss-of-function variants in SLC25A13.",
+        "lead_in": "Which mitochondrial transport process is most directly impaired?",
+        "options": {
+          "A": "Import of ornithine from the cytosol into the mitochondrial matrix",
+          "B": "Export of aspartate from the mitochondrial matrix in exchange for glutamate plus a proton",
+          "C": "Export of citrate from the mitochondrial matrix in exchange for malate",
+          "D": "Import of pyruvate from the cytosol into the mitochondrial matrix",
+          "E": "Exchange of cytosolic ADP for mitochondrial ATP across the inner mitochondrial membrane"
+        },
+        "intended_key": "B",
+        "tested_construct": "Citrin is the mitochondrial aspartate-glutamate carrier that exports aspartate to the cytosol while importing glutamate plus a proton",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC25A13 encodes citrin, a calcium-regulated aspartate-glutamate carrier in the inner mitochondrial membrane. Citrin exports mitochondrial aspartate to the cytosol while importing glutamate with a proton. Cytosolic aspartate is required for argininosuccinate synthesis in the urea cycle, and citrin is also a component of the malate-aspartate shuttle; loss therefore can produce hyperammonemia and citrullinemia.",
+        "distractor_explanations": {
+          "A": "Mitochondrial ornithine import is mediated by ORNT1/SLC25A15 and is impaired in hyperornithinemia-hyperammonemia-homocitrullinuria syndrome, not citrin deficiency.",
+          "B": "Correct. Citrin exchanges mitochondrial aspartate for cytosolic glutamate plus a proton across the inner mitochondrial membrane.",
+          "C": "The mitochondrial citrate carrier SLC25A1 exchanges citrate and related tricarboxylates across the inner membrane; it is not the SLC25A13 transport step required to supply cytosolic aspartate.",
+          "D": "Mitochondrial pyruvate import is mediated by the mitochondrial pyruvate carrier, not citrin.",
+          "E": "ADP/ATP exchange is mediated by adenine nucleotide translocases and does not provide cytosolic aspartate for argininosuccinate synthesis."
+        },
+        "educational_objective": "Link SLC25A13/citrin deficiency to loss of mitochondrial aspartate export, impaired malate-aspartate shuttling, and reduced cytosolic aspartate availability for the urea cycle."
+      },
+      "sources": [
+        {
+          "source_id": "Q1617-GENEREVIEWS",
+          "title": "Citrin Deficiency - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1181/",
+          "source_section_date": "2025-03-20",
+          "date_basis": "GeneReviews reports Last Update: 2025-03-20; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Molecular Pathogenesis",
+          "source_page_sha256": "1aaef360c6cb8c5e1ae478bcd7d6baf9cab72de45688bc808b626618b929dd67",
+          "cited_section_sha256": "b5cf3c547f6d62d076ee291759dba2767ec3177982104be46efeeb66978f5238",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1617-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Mitochondrial ornithine import is mediated by ORNT1/SLC25A15 and is impaired in hyperornithinemia-hyperammonemia-homocitrullinuria syndrome, not citrin deficiency.",
+          "source_ids": [
+            "Q1617-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Citrin exchanges mitochondrial aspartate for cytosolic glutamate plus a proton across the inner mitochondrial membrane.",
+          "source_ids": [
+            "Q1617-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The mitochondrial citrate carrier SLC25A1 exchanges citrate and related tricarboxylates across the inner membrane; it is not the SLC25A13 transport step required to supply cytosolic aspartate.",
+          "source_ids": [
+            "Q1617-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Mitochondrial pyruvate import is mediated by the mitochondrial pyruvate carrier, not citrin.",
+          "source_ids": [
+            "Q1617-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "ADP/ATP exchange is mediated by adenine nucleotide translocases and does not provide cytosolic aspartate for argininosuccinate synthesis.",
+          "source_ids": [
+            "Q1617-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "ORNT1-mediated ornithine import is the strongest alternative because it is another real inner-mitochondrial-membrane transport step linked to hyperammonemia. However, SLC25A13 specifically encodes the aspartate-glutamate carrier, and the citrullinemia phenotype follows reduced cytosolic aspartate availability rather than defective ornithine import.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1618,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neurology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A newborn develops recurrent seizures that persist despite phenobarbital and levetiracetam but stop after intravenous pyridoxine. Urine and plasma contain markedly increased alpha-aminoadipic semialdehyde and piperideine-6-carboxylate. Genetic testing identifies biallelic pathogenic variants in ALDH7A1.",
+        "lead_in": "Which biochemical mechanism most directly explains the pyridoxine dependence?",
+        "options": {
+          "A": "Failure to oxidize pyridoxine phosphate to pyridoxal 5-prime-phosphate because of PNPO deficiency",
+          "B": "Loss of PLPBP-mediated maintenance of intracellular pyridoxal 5-prime-phosphate homeostasis",
+          "C": "Condensation of accumulated piperideine-6-carboxylate with pyridoxal 5-prime-phosphate, functionally inactivating the cofactor",
+          "D": "Failure of tissue-nonspecific alkaline phosphatase to dephosphorylate extracellular pyridoxal 5-prime-phosphate for cellular uptake",
+          "E": "Failure of pyridoxal kinase to phosphorylate intracellular pyridoxal to pyridoxal 5-prime-phosphate"
+        },
+        "intended_key": "C",
+        "tested_construct": "ALDH7A1 deficiency causes P6C accumulation, which chemically condenses with and inactivates pyridoxal 5-prime-phosphate",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "ALDH7A1 encodes alpha-aminoadipic semialdehyde dehydrogenase in lysine degradation. Deficiency causes accumulation of alpha-aminoadipic semialdehyde and its cyclic form, piperideine-6-carboxylate (P6C). P6C chemically condenses with pyridoxal 5-prime-phosphate (PLP), the active vitamin B6 cofactor, producing functional PLP deficiency and pyridoxine-responsive seizures.",
+        "distractor_explanations": {
+          "A": "PNPO deficiency is a real vitamin B6-dependent epilepsy mechanism, but the ALDH7A1 biomarker pattern in this patient identifies PLP sequestration by P6C rather than impaired PNPO-mediated PLP production.",
+          "B": "PLPBP deficiency is another real cause of vitamin B6-dependent epilepsy, but it disrupts intracellular PLP homeostasis rather than causing the alpha-AASA/P6C accumulation shown here.",
+          "C": "Correct. Accumulated P6C condenses with PLP and functionally inactivates this vitamin B6 cofactor, producing pyridoxine dependence.",
+          "D": "Severe ALPL deficiency can produce vitamin B6-responsive seizures through impaired extracellular PLP dephosphorylation, but it does not produce the characteristic ALDH7A1 alpha-AASA/P6C biomarker pattern.",
+          "E": "Pyridoxal kinase generates intracellular PLP from pyridoxal; failure of that step is mechanistically distinct from the P6C-mediated cofactor inactivation caused by ALDH7A1 deficiency."
+        },
+        "educational_objective": "Recognize pyridoxine-dependent epilepsy due to ALDH7A1 deficiency as a lysine-catabolism disorder in which accumulated P6C chemically inactivates PLP."
+      },
+      "sources": [
+        {
+          "source_id": "Q1618-PUBMED-PRIMARY",
+          "title": "Biochemical and molecular characterization of 18 patients with pyridoxine-dependent epilepsy and mutations of the antiquitin (ALDH7A1) gene",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17068770/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-18; no unsupported exact publication date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "The accumulating compound piperideine-6-carboxylic acid (P6C) was shown to inactivate pyridoxalphosphate (PLP) by a Knoevenagel condensation",
+          "source_page_sha256": "b12cd17100e979b746719aae480b88a5578dae18daf1491c05ae2381c149f130",
+          "cited_section_sha256": "f63d29637493a3be21137fe77948d6c8b78a624dd9838cfc7213f164bcac0e5f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1618-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "PNPO deficiency is a real vitamin B6-dependent epilepsy mechanism, but the ALDH7A1 biomarker pattern in this patient identifies PLP sequestration by P6C rather than impaired PNPO-mediated PLP production.",
+          "source_ids": [
+            "Q1618-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "The accumulating compound piperideine-6-carboxylic acid (P6C) was shown to inactivate pyridoxalphosphate (PLP) by a Knoevenagel condensation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PLPBP deficiency is another real cause of vitamin B6-dependent epilepsy, but it disrupts intracellular PLP homeostasis rather than causing the alpha-AASA/P6C accumulation shown here.",
+          "source_ids": [
+            "Q1618-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "The accumulating compound piperideine-6-carboxylic acid (P6C) was shown to inactivate pyridoxalphosphate (PLP) by a Knoevenagel condensation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Accumulated P6C condenses with PLP and functionally inactivates this vitamin B6 cofactor, producing pyridoxine dependence.",
+          "source_ids": [
+            "Q1618-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "The accumulating compound piperideine-6-carboxylic acid (P6C) was shown to inactivate pyridoxalphosphate (PLP) by a Knoevenagel condensation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Severe ALPL deficiency can produce vitamin B6-responsive seizures through impaired extracellular PLP dephosphorylation, but it does not produce the characteristic ALDH7A1 alpha-AASA/P6C biomarker pattern.",
+          "source_ids": [
+            "Q1618-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "The accumulating compound piperideine-6-carboxylic acid (P6C) was shown to inactivate pyridoxalphosphate (PLP) by a Knoevenagel condensation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Pyridoxal kinase generates intracellular PLP from pyridoxal; failure of that step is mechanistically distinct from the P6C-mediated cofactor inactivation caused by ALDH7A1 deficiency.",
+          "source_ids": [
+            "Q1618-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "The accumulating compound piperideine-6-carboxylic acid (P6C) was shown to inactivate pyridoxalphosphate (PLP) by a Knoevenagel condensation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "PNPO deficiency is the strongest clinical alternative because it can also cause neonatal vitamin B6-responsive epilepsy. The elevated alpha-AASA/P6C pattern and ALDH7A1 variants identify a different mechanism: chemical inactivation of PLP by P6C.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1619,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Gastrointestinal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Hematology"
+        ],
+        "official_outline_path": [
+          "Gastrointestinal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 5-month-old infant has poor growth, chronic diarrhea, recurrent Pneumocystis jirovecii pneumonia, and megaloblastic anemia with pancytopenia. Serum folate and cerebrospinal-fluid 5-methyltetrahydrofolate are both very low, whereas vitamin B12 is normal. Genetic testing identifies biallelic loss-of-function variants in SLC46A1.",
+        "lead_in": "Which transport defect most directly explains both the systemic and neurologic folate deficiency?",
+        "options": {
+          "A": "Loss of folate receptor-alpha-mediated uptake at the choroid plexus with preserved intestinal folate absorption",
+          "B": "Loss of intrinsic-factor-dependent cobalamin uptake in the terminal ileum",
+          "C": "Loss of the reduced folate carrier that mediates folate entry into systemic tissues at near-neutral pH",
+          "D": "Loss of proton-coupled folate transport across the apical proximal small intestine and at the choroid plexus",
+          "E": "Loss of intracellular folylpolyglutamate synthesis that normally retains folates within cells"
+        },
+        "intended_key": "D",
+        "tested_construct": "SLC46A1 encodes the proton-coupled folate transporter required for intestinal folate absorption and for folate transport into cerebrospinal fluid",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC46A1 encodes the proton-coupled folate transporter (PCFT). PCFT is highly expressed on the apical membrane of the proximal small intestine, where it mediates dietary folate absorption, and it also participates in folate transport at the choroid plexus. Loss therefore causes both systemic folate deficiency with megaloblastic cytopenias and severe cerebral folate deficiency.",
+        "distractor_explanations": {
+          "A": "FOLR1 loss impairs folate transport into cerebrospinal fluid but typically leaves serum folate and the hemogram relatively preserved; it does not explain combined intestinal malabsorption and cerebral deficiency.",
+          "B": "Intrinsic factor mediates vitamin B12 absorption, not folate transport; this patient has normal vitamin B12.",
+          "C": "The reduced folate carrier is important for folate transport into many systemic cells, but SLC46A1 encodes PCFT, the transporter required for intestinal absorption and choroid-plexus folate transport.",
+          "D": "Correct. PCFT mediates proton-coupled folate uptake in the proximal intestine and contributes to folate transport into cerebrospinal fluid.",
+          "E": "Folylpolyglutamate synthesis retains folates intracellularly after uptake and does not explain the characteristic intestinal and choroid-plexus transport defect."
+        },
+        "educational_objective": "Distinguish hereditary folate malabsorption from isolated cerebral folate disorders by recognizing that SLC46A1/PCFT is required for both proximal-intestinal folate absorption and transport of folate into cerebrospinal fluid."
+      },
+      "sources": [
+        {
+          "source_id": "Q1619-GENEREVIEWS",
+          "title": "Hereditary Folate Malabsorption - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1673/",
+          "source_section_date": "2026-03-25",
+          "date_basis": "GeneReviews reports Last Update: 2026-03-25; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Molecular Pathogenesis",
+          "source_page_sha256": "1a4c13111c00e5e4db53c27b78c078a3ea847f3e5d33f7e414b30344546ed0f3",
+          "cited_section_sha256": "e39e46512421562d4593c9e1687938d4453ba5a21c4909dd4924f623508a06a3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1619-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "FOLR1 loss impairs folate transport into cerebrospinal fluid but typically leaves serum folate and the hemogram relatively preserved; it does not explain combined intestinal malabsorption and cerebral deficiency.",
+          "source_ids": [
+            "Q1619-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Intrinsic factor mediates vitamin B12 absorption, not folate transport; this patient has normal vitamin B12.",
+          "source_ids": [
+            "Q1619-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The reduced folate carrier is important for folate transport into many systemic cells, but SLC46A1 encodes PCFT, the transporter required for intestinal absorption and choroid-plexus folate transport.",
+          "source_ids": [
+            "Q1619-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. PCFT mediates proton-coupled folate uptake in the proximal intestine and contributes to folate transport into cerebrospinal fluid.",
+          "source_ids": [
+            "Q1619-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Folylpolyglutamate synthesis retains folates intracellularly after uptake and does not explain the characteristic intestinal and choroid-plexus transport defect.",
+          "source_ids": [
+            "Q1619-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "FOLR1-related cerebral folate transport deficiency is the strongest alternative because it can produce very low CSF folate. However, FOLR1 loss does not explain profound systemic folate deficiency and megaloblastic pancytopenia from intestinal malabsorption, whereas SLC46A1/PCFT loss explains both compartments.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1620,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Metabolism"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 10-month-old boy develops lethargy and tachypnea during a viral illness. Laboratory studies show hyperammonemia, lactic acidosis, hypoglycemia, and urinary metabolites suggesting impaired activity of several mitochondrial carboxylases. Biotinidase activity is normal. Genetic testing identifies biallelic loss-of-function variants in CA5A, which encodes mitochondrial carbonic anhydrase VA.",
+        "lead_in": "Which molecule is normally generated by the deficient enzyme to support the affected mitochondrial pathways?",
+        "options": {
+          "A": "NADPH",
+          "B": "Biotin",
+          "C": "N-acetylglutamate",
+          "D": "Tetrahydrofolate",
+          "E": "Bicarbonate"
+        },
+        "intended_key": "E",
+        "tested_construct": "Mitochondrial carbonic anhydrase VA generates bicarbonate that is supplied to CPS1 and multiple mitochondrial carboxylases",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Carbonic anhydrase VA catalyzes mitochondrial hydration of carbon dioxide to bicarbonate. The locally generated bicarbonate is required by carbamoyl phosphate synthetase 1 in the urea cycle and by mitochondrial biotin-dependent carboxylases including pyruvate carboxylase, propionyl-CoA carboxylase, and 3-methylcrotonyl-CoA carboxylase. CA5A deficiency can therefore produce simultaneous hyperammonemia, lactic acidosis, hypoglycemia, and a multiple-carboxylase biochemical pattern.",
+        "distractor_explanations": {
+          "A": "NADPH is not the product generated by mitochondrial carbonic anhydrase VA and is not the common substrate defect linking CPS1 with the affected carboxylases.",
+          "B": "Biotin is a cofactor for the mitochondrial carboxylases but not for CPS1, and carbonic anhydrase VA does not synthesize biotin.",
+          "C": "N-acetylglutamate activates CPS1 but is not required by pyruvate, propionyl-CoA, or 3-methylcrotonyl-CoA carboxylases and is not generated by carbonic anhydrase.",
+          "D": "Tetrahydrofolate participates in one-carbon metabolism and is not the molecule supplied by carbonic anhydrase VA to these mitochondrial enzymes.",
+          "E": "Correct. Carbonic anhydrase VA generates intramitochondrial bicarbonate used by CPS1 and several bicarbonate-dependent carboxylases."
+        },
+        "educational_objective": "Recognize CA5A deficiency as impaired mitochondrial bicarbonate generation, simultaneously compromising CPS1 and several biotin-dependent carboxylases."
+      },
+      "sources": [
+        {
+          "source_id": "Q1620-PUBMED-PRIMARY",
+          "title": "Mitochondrial carbonic anhydrase VA deficiency resulting from CA5A alterations presents with hyperammonemia in early childhood",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24530203/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-18; no unsupported exact publication date inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "impaired provision of bicarbonate to the four enzymes that participate in key pathways in intermediary metabolism",
+          "source_page_sha256": "95f2fd798878d175cc24fe6097b5574c4a6b8ea68cd0d9b25e731a0bb269172e",
+          "cited_section_sha256": "2363e053da289e02989477e4fd120441127b322e770a91de6e9ace5eee8fd943",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1620-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "NADPH is not the product generated by mitochondrial carbonic anhydrase VA and is not the common substrate defect linking CPS1 with the affected carboxylases.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "impaired provision of bicarbonate to the four enzymes that participate in key pathways in intermediary metabolism",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Biotin is a cofactor for the mitochondrial carboxylases but not for CPS1, and carbonic anhydrase VA does not synthesize biotin.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "impaired provision of bicarbonate to the four enzymes that participate in key pathways in intermediary metabolism",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "N-acetylglutamate activates CPS1 but is not required by pyruvate, propionyl-CoA, or 3-methylcrotonyl-CoA carboxylases and is not generated by carbonic anhydrase.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "impaired provision of bicarbonate to the four enzymes that participate in key pathways in intermediary metabolism",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Tetrahydrofolate participates in one-carbon metabolism and is not the molecule supplied by carbonic anhydrase VA to these mitochondrial enzymes.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "impaired provision of bicarbonate to the four enzymes that participate in key pathways in intermediary metabolism",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. Carbonic anhydrase VA generates intramitochondrial bicarbonate used by CPS1 and several bicarbonate-dependent carboxylases.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "impaired provision of bicarbonate to the four enzymes that participate in key pathways in intermediary metabolism",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Biotin is the strongest alternative because three affected enzymes are biotin-dependent carboxylases. It cannot explain the CPS1 defect, however, and CA-VA specifically generates bicarbonate rather than biotin; the primary study identifies impaired mitochondrial bicarbonate provision as the shared lesion.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
