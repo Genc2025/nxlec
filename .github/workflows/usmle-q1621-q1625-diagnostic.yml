@@ -1,0 +1,60 @@
+name: USMLE Q1621-Q1625 Diagnostic
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1621-q1625-diagnostic.yml']
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DB_BLOB: df5fa59389666a1e5f54c67ea42fcab8280a9133
+      CANONICAL_COUNT: '1620'
+      CAND_PATH: usmle/batch_specs_1601_1700/05_q1621_q1625_author_20260918.json
+      START_Q: '1621'
+      END_Q: '1625'
+      OUT_PATH: usmle/audit/Q1621_Q1625_ZERO_TRUST.json
+      AUDIT_DATE: '20260918'
+      FREEZE_DATE: '2026-09-18'
+      DIAG_OUT: usmle/audit/Q1621_Q1625_DIAGNOSTIC_20260918.json
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Run diagnostic stages
+        run: |
+          python - <<'PY'
+          import json,os,subprocess
+          from pathlib import Path
+          def run(cmd):
+              p=subprocess.run(cmd,shell=True,text=True,capture_output=True,env=os.environ.copy())
+              return {'rc':p.returncode,'stdout_tail':p.stdout[-6000:],'stderr_tail':p.stderr[-6000:]}
+          d={'db_blob':os.environ['DB_BLOB'],'stages':{}}
+          d['stages']['bind']=run('test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"')
+          d['stages']['compile']=run('python -m py_compile usmle/author_q1621_q1625.py usmle/q1621_item.py usmle/q1622_item.py usmle/q1623_item.py usmle/q1624_item.py usmle/q1625_item.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py')
+          d['stages']['author']=run('python usmle/author_q1621_q1625.py')
+          if d['stages']['author']['rc']==0:
+              d['stages']['freeze']=run('python usmle/freeze_candidate_generic.py')
+          else:
+              d['stages']['freeze']={'rc':999,'stdout_tail':'','stderr_tail':'skipped after author failure'}
+          if d['stages']['freeze']['rc']==0:
+              d['stages']['audit']=run('python usmle/audit_candidate_zero_trust_current.py')
+          else:
+              d['stages']['audit']={'rc':999,'stdout_tail':'','stderr_tail':'skipped after freeze failure'}
+          d['candidate_exists']=Path(os.environ['CAND_PATH']).exists()
+          d['audit_exists']=Path(os.environ['OUT_PATH']).exists()
+          d['overall']='PASS' if all(d['stages'][k]['rc']==0 for k in ('bind','compile','author','freeze','audit')) else 'FAIL'
+          Path(os.environ['DIAG_OUT']).parent.mkdir(exist_ok=True)
+          Path(os.environ['DIAG_OUT']).write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist diagnostic
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$DIAG_OUT"
+          git commit -m 'usmle: diagnose Q1621-Q1625 zero-trust stage'
+          git pull --rebase origin main
+          git push
