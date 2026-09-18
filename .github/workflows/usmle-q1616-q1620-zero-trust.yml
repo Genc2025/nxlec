@@ -72,11 +72,13 @@ jobs:
               A,B=toks(a),toks(c); j=len(A&B)/len(A|B)
               assert j<0.45,(a['num'],c['num'],j)
           byq={x['num']:x for x in b['items']}
-          assert byq[1620]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/15654338/'
-          assert 'MRAP' in byq[1620]['item']['options']['E'] and byq[1620]['item']['intended_key']=='E'
-          assert byq[1617]['item']['intended_key']=='B' and 'FERMT3' in byq[1617]['item']['options']['B']
-          assert byq[1618]['item']['intended_key']=='C' and 'Kir4.1' in byq[1618]['item']['options']['C']
-          assert byq[1619]['item']['intended_key']=='D' and 'Gardos' in byq[1619]['item']['options']['D']
+          assert byq[1616]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/35182234/'
+          assert byq[1616]['item']['intended_key']=='A' and 'N-linked glycosylation' in byq[1616]['item']['options']['A']
+          assert byq[1617]['item']['intended_key']=='B' and 'aspartate' in byq[1617]['item']['options']['B'].casefold()
+          assert byq[1618]['item']['intended_key']=='C' and 'piperideine-6-carboxylate' in byq[1618]['item']['options']['C'].casefold()
+          assert byq[1619]['item']['intended_key']=='D' and 'proton-coupled folate' in byq[1619]['item']['options']['D'].casefold()
+          assert byq[1620]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/24530203/'
+          assert byq[1620]['item']['intended_key']=='E' and byq[1620]['item']['options']['E']=='Bicarbonate'
           assert m['status']=='FINAL_QA_PASS' and m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
           assert m['unresolved_defects']==[] and m['suggested_changes']==[]
           assert 'ncjmm' not in json.dumps(b).casefold()
@@ -92,3 +94,5 @@ jobs:
           git push
 
 # rerun-after-semantic-duplicate-replacement-20260918
+
+# rerun-after-updating-adversarial-assertions-20260918
