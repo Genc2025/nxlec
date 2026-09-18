@@ -1,6 +1,6 @@
 def build(make):
  return make(1618,'','Renal/Urinary System',['Physiology','Genetics','Nephrology'],
- 'A 9-year-old boy has epilepsy beginning in infancy, nonprogressive cerebellar ataxia, sensorineural hearing loss, and chronic salt wasting. Laboratory studies show hypokalemic metabolic alkalosis, hypomagnesemia, and low urinary calcium. Genetic testing identifies biallelic loss-of-function variants in KCNJ10.',
+ 'A 9-year-old boy has epilepsy beginning in infancy, nonprogressive cerebellar ataxia, sensorineural hearing loss, and chronic salt wasting. Laboratory studies show hypokalemic metabolic alkalosis, hypomagnesemia, and low urinary calcium.',
  'Which renal transport abnormality most directly accounts for the salt-wasting tubulopathy?',
  {'A':'Loss of apical NKCC2-mediated sodium-potassium-chloride uptake in the thick ascending limb','B':'Loss of apical ROMK-mediated potassium recycling in the thick ascending limb','C':'Reduced basolateral potassium conductance through Kir4.1 in distal convoluted tubular cells, impairing salt reabsorption','D':'Constitutive activation of epithelial sodium channels in principal cells of the collecting duct','E':'Loss of apical pendrin-mediated chloride-bicarbonate exchange in beta-intercalated cells'},
  'C','KCNJ10/Kir4.1 loss reduces basolateral potassium conductance in distal convoluted tubular cells and impairs renal salt reabsorption',
