@@ -108,7 +108,15 @@ jobs:
             'dock8 signals through cdc42 and pak to maintain shape integrity'
           ):
             assert phrase in txt, phrase
-          assert hashlib.sha256(raw).hexdigest()==src['source_page_sha256']
+          # Whole-page PMC HTML can vary byte-for-byte between live requests.
+          # Revalidate the evidence-bearing locator material deterministically instead.
+          import sys
+          sys.path.insert(0,'usmle')
+          from freeze_candidate_generic import clean,cited_material
+          material,nparts=cited_material(clean(raw),src['section_locator'])
+          assert nparts==src['cited_locator_component_count']
+          assert hashlib.sha256(material.encode()).hexdigest()==src['cited_section_sha256']
+          assert re.fullmatch(r'[0-9a-f]{64}',src['source_page_sha256'])
           assert x['author_qa']['single_best_answer']=='PASS'
           assert x['author_qa']['second_answer_attack']['option']=='C'
           assert x['author_qa']['hidden_assumptions']=='PASS'
