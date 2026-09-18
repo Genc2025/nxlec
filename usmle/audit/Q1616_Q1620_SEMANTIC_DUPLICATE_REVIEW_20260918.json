@@ -1,0 +1,50 @@
+{
+  "audit_id": "Q1616-Q1620-SEMANTIC-DUPLICATE-REVIEW-20260918",
+  "status": "PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION",
+  "candidate_batch_blob": "c0ff5babcb250de9eaf204681db7bd06c6cb3d5e",
+  "canonical_db_blob": "e764efe19c25a0cf53148c6c8f2afa5c861752ef",
+  "canonical_count": 1615,
+  "top_match_report_blob": "1104f546ee730fffed3178509ebfef9973b2ac45",
+  "method": "Manual adversarial comparison of each replacement item against its highest-similarity canonical item after whole-bank lexical/semantic screening.",
+  "comparisons": [
+    {
+      "q": 1616,
+      "top_match": "S1-DIRECT-1227-20260906T001200Z",
+      "jaccard": 0.30147,
+      "decision": "DISTINCT",
+      "reason": "Canonical item tests TAP2-mediated peptide transport for MHC I loading; Q1616 tests MAGT1-dependent N-linked glycosylation and NKG2D stability."
+    },
+    {
+      "q": 1617,
+      "top_match": "S1-DIRECT-0868-20260831T040000Z",
+      "jaccard": 0.36111,
+      "decision": "DISTINCT",
+      "reason": "Canonical item tests SLC25A15/ORNT1 ornithine import in HHH syndrome; Q1617 tests SLC25A13/citrin aspartate export in exchange for glutamate plus H+. Shared mitochondrial/urea-cycle context is a deliberate mechanistic discriminator, not the same construct."
+    },
+    {
+      "q": 1618,
+      "top_match": "S1-DIRECT-0753-20260830T160000Z",
+      "jaccard": 0.18792,
+      "decision": "DISTINCT",
+      "reason": "Canonical item tests PHEX-FGF23 renal phosphate wasting; Q1618 tests ALDH7A1/P6C-mediated chemical inactivation of PLP."
+    },
+    {
+      "q": 1619,
+      "top_match": "S1-DIRECT-1205-20260904T061000Z",
+      "jaccard": 0.3245,
+      "decision": "DISTINCT",
+      "reason": "Canonical item tests FOLR1-mediated choroid-plexus folate transport with preserved systemic folate; Q1619 tests SLC46A1/PCFT-dependent intestinal folate absorption plus CSF transport, producing systemic and cerebral deficiency."
+    },
+    {
+      "q": 1620,
+      "top_match": "S1-DIRECT-0820-20260830T230000Z",
+      "jaccard": 0.19231,
+      "decision": "DISTINCT",
+      "reason": "Canonical item tests SLC22A5/OCTN2 carnitine uptake; Q1620 tests CA5A-dependent intramitochondrial bicarbonate generation supporting CPS1 and multiple carboxylases."
+    }
+  ],
+  "second_pass": "PASS",
+  "material_duplicates": [],
+  "unresolved_defects": [],
+  "import_gate": "PASS"
+}
