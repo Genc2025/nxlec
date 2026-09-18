@@ -1,0 +1,33 @@
+{
+  "db_blob": "df5fa59389666a1e5f54c67ea42fcab8280a9133",
+  "stages": {
+    "bind": {
+      "rc": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile": {
+      "rc": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "author": {
+      "rc": 0,
+      "stdout_tail": "{\"status\": \"AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT\", \"items\": 5, \"keys\": \"ABCDE\", \"canonical_count\": 1620, \"db_blob\": \"df5fa59389666a1e5f54c67ea42fcab8280a9133\"}\n",
+      "stderr_tail": ""
+    },
+    "freeze": {
+      "rc": 1,
+      "stdout_tail": "",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 102, in <module>\n    main()\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 78, in main\n    material,nparts=cited_material(clean(raw),loc)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 58, in cited_material\n    windows=[resolve_part(nt,p) for p in parts]\n             ^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 49, in resolve_part\n    raise RuntimeError(f'cited locator component not resolved: {part}')\nRuntimeError: cited locator component not resolved: variants in SLC39A8 impair the function of manganese-dependent enzymes, most notably β-1,4-galactosyltransferase\n"
+    },
+    "audit": {
+      "rc": 999,
+      "stdout_tail": "",
+      "stderr_tail": "skipped after freeze failure"
+    }
+  },
+  "candidate_exists": true,
+  "audit_exists": false,
+  "overall": "FAIL"
+}
