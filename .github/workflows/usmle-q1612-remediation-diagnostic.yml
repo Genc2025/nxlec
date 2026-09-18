@@ -74,7 +74,48 @@ jobs:
           assert 'ncjmm' not in p.read_text().casefold()
           PY
           AUDIT_RC=$?
-          export ACTUAL_DB BIND BUILD_RC FREEZE_RC AUDIT_RC
+          python - <<'PY' >/tmp/patch.log 2>&1
+          import copy,hashlib,json,os,re,shutil,sqlite3,tempfile
+          from pathlib import Path
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def hobj(o): return hashlib.sha256(canon(o).encode()).hexdigest()
+          b=json.loads(Path(os.environ['CAND_PATH']).read_text()); item=copy.deepcopy(b['items'][0])
+          work=Path('/tmp/q1612_patch_sim.db'); shutil.copy2('usmle/data/usmle-step1.db',work)
+          c=sqlite3.connect(work)
+          c.execute('BEGIN IMMEDIATE')
+          rows=c.execute("select candidate_id from step2_final_items where candidate_id like 'S1-DIRECT-1612-%'").fetchall()
+          assert len(rows)==1, rows
+          cid=rows[0][0]; item['candidate_id']=cid
+          review={'candidate_id':cid,'verdict':'FINAL_10_10_PASS','remediation':'Q1612 mechanism corrected from DOCK8-CDC42-WASp to DOCK8-CDC42-PAK for confined-migration cytothripsis phenotype.','source_binding':'PMC4267229 primary study; DOCK8/CDC42/PAK perturbation phenocopies shape-integrity defect whereas WASp loss does not.','second_answer_attack':'PASS','defects':[],'suggested_changes':[],'audit_scope':'Q1612 targeted remediation diagnostic'}
+          rh=hobj(review)
+          item['step2_final_audit']={'final_10_10_gate':'FINAL_10_10_PASS','production_import_scope':'Q1612 targeted remediation','authoritative_pre_db_blob':os.environ['DB_BLOB'],'authoritative_pre_count':1615,'remediation_reason':'Correct DOCK8-CDC42-PAK mechanism.','review_sha256':rh}
+          ph=hobj(item)
+          c.execute("update step2_final_items set payload_json=?,payload_sha256=?,audit_sha256=?,final_status='FINAL_10_10_PASS' where candidate_id=?",(canon(item),ph,rh,cid))
+          assert c.execute('select changes()').fetchone()[0]==1
+          c.execute("update step2_final_reviews set review_json=?,review_sha256=?,final_status='FINAL_10_10_PASS' where candidate_id=?",(canon(review),rh,cid))
+          assert c.execute('select changes()').fetchone()[0]==1
+          c.commit(); c.close()
+          c=sqlite3.connect(work)
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id,payload_json,payload_sha256,audit_sha256 from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rev=c.execute("select candidate_id,review_sha256 from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchall()
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          assert len(rows)==len(rev)==fin==1615,(len(rows),len(rev),fin)
+          nums=[int(re.search(r'DIRECT-(\d{4})',r[0]).group(1)) for r in rows]
+          assert set(nums)==set(range(1,1616))
+          rm=dict(rev)
+          for cid,pj,ps,ash in rows:
+              assert hobj(json.loads(pj))==ps
+              assert rm[cid]==ash
+          q=[r for r in rows if re.search(r'DIRECT-1612-',r[0])]
+          assert len(q)==1
+          qp=json.loads(q[0][1]); assert qp['item']['intended_key']=='B'
+          assert 'CDC42-PAK' in qp['item']['options']['B'] and 'WASp' not in qp['item']['options']['B']
+          print(json.dumps({'patch_simulation':'PASS','cid':q[0][0],'count':len(rows)}))
+          PY
+          PATCH_RC=$?
+          export ACTUAL_DB BIND BUILD_RC FREEZE_RC AUDIT_RC PATCH_RC
           python - <<'PY'
           import json,os
           from pathlib import Path
@@ -89,7 +130,7 @@ jobs:
                   cs={'source_url':s.get('url'),'section_locator':s.get('section_locator'),'source_page_sha256':s.get('source_page_sha256'),'cited_section_sha256':s.get('cited_section_sha256'),'cited_locator_component_count':s.get('cited_locator_component_count'),'hash_status':s.get('hash_status')}
               except Exception as e:
                   cs={'candidate_parse_error':repr(e)}
-          out={'status':'DIAGNOSTIC','db_expected':os.environ['DB_BLOB'],'db_actual':os.environ['ACTUAL_DB'],'bind':os.environ['BIND'],'build_rc':int(os.environ['BUILD_RC']),'freeze_rc':int(os.environ['FREEZE_RC']),'audit_rc':int(os.environ['AUDIT_RC']),'build_log':tail('/tmp/build.log'),'freeze_log':tail('/tmp/freeze.log'),'audit_log':tail('/tmp/audit.log'),'candidate_source':cs}
+          out={'status':'DIAGNOSTIC','db_expected':os.environ['DB_BLOB'],'db_actual':os.environ['ACTUAL_DB'],'bind':os.environ['BIND'],'build_rc':int(os.environ['BUILD_RC']),'freeze_rc':int(os.environ['FREEZE_RC']),'audit_rc':int(os.environ['AUDIT_RC']),'patch_rc':int(os.environ['PATCH_RC']),'build_log':tail('/tmp/build.log'),'freeze_log':tail('/tmp/freeze.log'),'audit_log':tail('/tmp/audit.log'),'patch_log':tail('/tmp/patch.log'),'candidate_source':cs}
           Path('usmle/audit/Q1612_REMEDIATION_DIAGNOSTIC_20260918.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
           PY
           git config user.name 'github-actions[bot]'
