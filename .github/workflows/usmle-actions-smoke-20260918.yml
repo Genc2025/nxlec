@@ -1,0 +1,23 @@
+name: USMLE Actions Smoke 20260918
+on:
+  push:
+    paths: ['.github/workflows/usmle-actions-smoke-20260918.yml']
+permissions:
+  contents: write
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - name: Persist marker
+        run: |
+          set -euo pipefail
+          mkdir -p usmle/audit
+          printf '{"status":"PASS","purpose":"github-actions-trigger-smoke","date":"2026-09-18"}\n' > usmle/audit/ACTIONS_SMOKE_20260918.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/ACTIONS_SMOKE_20260918.json
+          git commit -m 'usmle: pass actions smoke check'
+          git pull --rebase origin main
+          git push
