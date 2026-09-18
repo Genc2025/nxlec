@@ -1,0 +1,51 @@
+{
+  "audit_id": "Q1621-Q1625-SEMANTIC-DUPLICATE-REVIEW-20260918",
+  "status": "PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION",
+  "candidate_batch_blob": "0deac71ea25e4bb372fe225dc845fb34f15475b5",
+  "canonical_db_blob": "df5fa59389666a1e5f54c67ea42fcab8280a9133",
+  "canonical_count": 1620,
+  "zero_trust_audit_blob": "29091e142c51ad323e15d531513eb34a172bd326",
+  "top_match_report_blob": "616866a1729e4d9b13168725e53738c3cdb3240c",
+  "method": "Manual adversarial construct-level comparison of every candidate against its highest-similarity canonical item after whole-bank screening; lexical overlap alone is not accepted as proof of distinctness.",
+  "comparisons": [
+    {
+      "q": 1621,
+      "top_match": "S1-DIRECT-1607-20260917T223600Z",
+      "jaccard": 0.26562,
+      "decision": "DISTINCT",
+      "reason": "Q1607 tests SLC52A2/riboflavin uptake and downstream FMN/FAD availability. Q1621 tests SLC19A2/THTR1-mediated thiamine uptake. Shared transporter/vitamin language does not represent the same substrate, gene, cofactor system, or tested mechanism."
+    },
+    {
+      "q": 1622,
+      "top_match": "S1-DIRECT-0606-20260827T120000Z",
+      "jaccard": 0.20886,
+      "decision": "DISTINCT",
+      "reason": "Q0606 tests primary mitochondrial complex-I dysfunction in LHON from MT-ND variants. Q1622 tests ETHE1-dependent sulfide detoxification with secondary cytochrome-c-oxidase inhibition. Primary respiratory-chain subunit disease and toxic-metabolite-mediated COX inhibition are different constructs."
+    },
+    {
+      "q": 1623,
+      "top_match": "S1-DIRECT-0838-20260831T010000Z",
+      "jaccard": 0.29752,
+      "decision": "DISTINCT",
+      "reason": "Q0838 tests PMM2 conversion of mannose-6-phosphate to mannose-1-phosphate and impaired N-linked oligosaccharide precursor synthesis. Q1623 tests SLC39A8 manganese deficiency causing reduced manganese-dependent Golgi beta-1,4-galactosyltransferase activity and abnormal glycan processing."
+    },
+    {
+      "q": 1624,
+      "top_match": "S1-DIRECT-1617-20260918T172900Z",
+      "jaccard": 0.2093,
+      "decision": "DISTINCT",
+      "reason": "Q1617 tests citrin/SLC25A13-mediated metabolite exchange across the inner mitochondrial membrane. Q1624 tests AGK as a kinase-independent TIM22-complex subunit required for protein import and assembly of mitochondrial carriers. Metabolite transport and carrier-protein biogenesis are distinct."
+    },
+    {
+      "q": 1625,
+      "top_match": "S1-DIRECT-0851-20260831T030000Z",
+      "jaccard": 0.2069,
+      "decision": "DISTINCT",
+      "reason": "Q0851 tests APRT purine salvage from adenine plus PRPP to AMP. Q1625 tests PANK2-catalyzed ATP-dependent phosphorylation of pantothenate in coenzyme-A biosynthesis. The common reaction-style lead does not create construct duplication."
+    }
+  ],
+  "second_pass": "PASS",
+  "material_duplicates": [],
+  "unresolved_defects": [],
+  "import_gate": "PASS"
+}
