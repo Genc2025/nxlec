@@ -1,0 +1,242 @@
+name: USMLE Q1612 Remediation 20260918
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1612-remediation-20260918.yml']
+permissions:
+  contents: write
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DB_BLOB: 47b3438ed987050198a9de7f0d7ed72ef1a80b78
+      CAND_PATH: usmle/batch_specs_1601_1700/Q1612_remediation_20260918.json
+      AUDIT_OUT: usmle/audit/Q1612_REMEDIATION_FINAL_QA_PASS_20260918.json
+      STATE_OUT: usmle/state/step2_final_q0001_q1615.json
+      START_Q: '1612'
+      END_Q: '1612'
+      FREEZE_DATE: '2026-09-18'
+      FINALIZED_AT: '2026-09-18T13:50:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind current production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os,sqlite3,re
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rev=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          nums=[int(re.search(r'DIRECT-(\d{4})',x[0]).group(1)) for x in rows]
+          assert len(rows)==rev==fin==1615
+          assert set(nums)==set(range(1,1616))
+          assert sum(n==1612 for n in nums)==1
+          PY
+      - name: Build corrected Q1612 and freeze evidence
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+          sys.path.insert(0,'usmle')
+          import q1612_item
+          from author_q1611_q1615 import make_general
+          item=q1612_item.build(make_general)
+          b={
+            'batch_id':'Q1612-REMEDIATION-20260918',
+            'created_at':'2026-09-18',
+            'status':'AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT',
+            'production_import_ready':False,
+            'candidate_count':1,
+            'canonical_count_before':1615,
+            'canonical_count_after':1615,
+            'canonical_db_blob':'47b3438ed987050198a9de7f0d7ed72ef1a80b78',
+            'answer_key_sequence':'B',
+            'answer_key_distribution':{'A':0,'B':1,'C':0,'D':0,'E':0},
+            'construct_selection':'Targeted remediation of Q1612 after adversarial review identified that the confined-migration cytothripsis phenotype is mediated by DOCK8-CDC42-PAK rather than DOCK8-CDC42-WASp.',
+            'technical_integrity':{
+              'source_hashes_fabricated':False,
+              'source_hashes_complete':False,
+              'independent_audit_complete':False,
+              'trusted_importer_complete':False
+            },
+            'items':[item]
+          }
+          p=Path('usmle/batch_specs_1601_1700/Q1612_remediation_20260918.json')
+          p.parent.mkdir(exist_ok=True)
+          p.write_text(json.dumps(b,indent=2,ensure_ascii=False)+'\n')
+          PY
+          python usmle/freeze_candidate_generic.py
+      - name: Zero-trust scientific audit
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,re,urllib.request
+          from pathlib import Path
+          p=Path(os.environ['CAND_PATH'])
+          b=json.loads(p.read_text())
+          assert [x['num'] for x in b['items']]==[1612]
+          x=b['items'][0]
+          it=x['item']; ex=x['explanation']; src=x['sources'][0]
+          assert it['intended_key']=='B'
+          assert 'CDC42-PAK' in it['options']['B']
+          assert 'WASp' not in it['options']['B']
+          assert 'CDC42-PAK' in it['tested_construct']
+          assert 'whereas loss of WASp does not' in ex['key_explanation']
+          assert 'did not reproduce' in ex['distractor_explanations']['C']
+          assert 'normal' in it['vignette'].casefold() and 'platelet' in it['vignette'].casefold()
+          assert src['url']=='https://pmc.ncbi.nlm.nih.gov/articles/PMC4267229/'
+          assert src['title']=='DOCK8 regulates lymphocyte shape integrity for skin antiviral immunity'
+          assert src['source_page_sha256'] and src['cited_section_sha256']
+          assert src['cited_locator_component_count']==2
+          assert src['hash_status'].startswith('FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_')
+          req=urllib.request.Request(src['url'],headers={'User-Agent':'Mozilla/5.0 USMLE-Remediation/1.0'})
+          raw=urllib.request.urlopen(req,timeout=30).read(4000000)
+          txt=re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',raw.decode('utf-8','ignore'))).casefold()
+          for phrase in (
+            'dock8, through cdc42 and p21-activated kinase',
+            'knockdown of cdc42 but not rac1/2',
+            'whereas loss of wasp expression in t cells showed no such effect',
+            'dock8 signals through cdc42 and pak to maintain shape integrity'
+          ):
+            assert phrase in txt, phrase
+          assert hashlib.sha256(raw).hexdigest()==src['source_page_sha256']
+          assert x['author_qa']['single_best_answer']=='PASS'
+          assert x['author_qa']['second_answer_attack']['option']=='C'
+          assert x['author_qa']['hidden_assumptions']=='PASS'
+          assert x['author_qa']['fabricated_distractors'].startswith('PASS')
+          assert x['author_qa']['blueprint']=='PASS'
+          assert x['author_qa']['rationale']=='PASS A-E'
+          assert x['author_qa']['educational_objective']=='PASS'
+          assert 'ncjmm' not in p.read_text().casefold()
+          PY
+      - name: Patch Q1612 in production transactionally
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import copy,hashlib,json,os,re,shutil,sqlite3,subprocess,tempfile
+          from pathlib import Path
+          DB=Path('usmle/data/usmle-step1.db')
+          CAND=Path(os.environ['CAND_PATH'])
+          AUD=Path(os.environ['AUDIT_OUT'])
+          STATE=Path(os.environ['STATE_OUT'])
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def hobj(o): return hashlib.sha256(canon(o).encode()).hexdigest()
+          def gitblob(p): return subprocess.check_output(['git','hash-object',str(p)],text=True).strip()
+          assert gitblob(DB)==os.environ['DB_BLOB']
+          b=json.loads(CAND.read_text()); item=copy.deepcopy(b['items'][0])
+          with tempfile.TemporaryDirectory() as td:
+            work=Path(td)/'remediate.db'; shutil.copy2(DB,work)
+            c=sqlite3.connect(work)
+            try:
+              c.execute('BEGIN IMMEDIATE')
+              rows=c.execute("select candidate_id from step2_final_items where candidate_id like 'S1-DIRECT-1612-%'").fetchall()
+              assert len(rows)==1
+              cid=rows[0][0]
+              item['candidate_id']=cid
+              review={
+                'candidate_id':cid,
+                'verdict':'FINAL_10_10_PASS',
+                'remediation':'Q1612 mechanism corrected from DOCK8-CDC42-WASp to DOCK8-CDC42-PAK for confined-migration cytothripsis phenotype.',
+                'source_binding':'PMC4267229 primary study; DOCK8/CDC42/PAK perturbation phenocopies shape-integrity defect whereas WASp loss does not.',
+                'second_answer_attack':'PASS — WASp remains a plausible syndrome-level distractor but is experimentally excluded for the specific migration-survival phenotype and classic WAS adds microthrombocytopenia.',
+                'defects':[],
+                'suggested_changes':[],
+                'audit_scope':'Q1612 targeted zero-trust remediation after post-finalization defect detection'
+              }
+              rh=hobj(review)
+              item['step2_final_audit']={
+                'final_10_10_gate':'FINAL_10_10_PASS',
+                'production_import_scope':'Q1612 targeted remediation',
+                'authoritative_pre_db_blob':os.environ['DB_BLOB'],
+                'authoritative_pre_count':1615,
+                'remediation_reason':'Original item incorrectly linked the confined-migration cytothripsis phenotype to WASp; primary evidence supports DOCK8-CDC42-PAK and shows WASp loss does not phenocopy it.',
+                'review_sha256':rh
+              }
+              ph=hobj(item)
+              c.execute("update step2_final_items set payload_json=?,payload_sha256=?,audit_sha256=?,final_status='FINAL_10_10_PASS',finalized_at=? where candidate_id=?",
+                        (canon(item),ph,rh,os.environ['FINALIZED_AT'],cid))
+              c.execute("update step2_final_reviews set review_json=?,review_sha256=?,final_status='FINAL_10_10_PASS',finalized_at=? where candidate_id=?",
+                        (canon(review),rh,os.environ['FINALIZED_AT'],cid))
+              assert c.execute('select changes()').fetchone()[0]==1
+              c.commit()
+            except Exception:
+              c.rollback(); c.close(); raise
+            c.close()
+            c=sqlite3.connect(work)
+            assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+            rows=c.execute("select candidate_id,payload_json,payload_sha256,audit_sha256 from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+            rev=c.execute("select candidate_id,review_sha256 from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchall()
+            fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+            c.close()
+            assert len(rows)==len(rev)==fin==1615
+            nums=[int(re.search(r'DIRECT-(\d{4})',r[0]).group(1)) for r in rows]
+            assert set(nums)==set(range(1,1616))
+            rm=dict(rev)
+            for cid,pj,ps,ash in rows:
+              assert hobj(json.loads(pj))==ps
+              assert rm[cid]==ash
+            q=[r for r in rows if re.search(r'DIRECT-1612-',r[0])]
+            assert len(q)==1
+            qpayload=json.loads(q[0][1])
+            assert qpayload['item']['intended_key']=='B'
+            assert 'CDC42-PAK' in qpayload['item']['options']['B']
+            assert 'WASp' not in qpayload['item']['options']['B']
+            shutil.copy2(work,DB)
+          post=gitblob(DB)
+          audit={
+            'audit_id':'Q1612-REMEDIATION-FINAL-QA-PASS-20260918',
+            'status':'FINAL_QA_PASS',
+            'final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT',
+            'item':'Q1612',
+            'prior_defect':'The original keyed mechanism conflated a DOCK8-WIP-WASp TCR-actin pathway with the distinct DOCK8-CDC42-PAK mechanism experimentally responsible for lymphocyte shape integrity and cytothripsis during confined 3D migration.',
+            'repair':'Key B, tested construct, rationale, educational objective, source, evidence binding, and second-answer analysis were rewritten to the DOCK8-CDC42-PAK mechanism.',
+            'primary_source':'https://pmc.ncbi.nlm.nih.gov/articles/PMC4267229/',
+            'source_locator':'Abstract; DOCK8, through CDC42 and p21-activated kinase (PAK), regulates lymphocyte shape integrity to coordinate cytoskeletal structures during cell movement',
+            'candidate_blob':gitblob(CAND),
+            'pre_db_blob':os.environ['DB_BLOB'],
+            'post_db_blob':post,
+            'item_count':1615,
+            'review_count':1615,
+            'contiguous_q0001_q1615':True,
+            'sqlite_integrity':'ok',
+            'single_best_answer':'PASS',
+            'second_answer_attack':'PASS',
+            'hidden_assumptions':'PASS',
+            'fabricated_distractors':'PASS',
+            'blueprint':'PASS',
+            'difficulty':'author estimate only',
+            'rationale':'PASS A-E',
+            'educational_objective':'PASS',
+            'ncjmm':'NOT_APPLICABLE_USMLE',
+            'unresolved_defects':[],
+            'suggested_changes':[],
+            'supersedes_original_q1612_certification':True
+          }
+          AUD.parent.mkdir(exist_ok=True)
+          AUD.write_text(json.dumps(audit,indent=2,ensure_ascii=False)+'\n')
+          st=json.loads(STATE.read_text())
+          st['post_db_blob']=post
+          st['verified_at']=os.environ['FINALIZED_AT']
+          st['latest_remediation']='Q1612_REMEDIATION_FINAL_QA_PASS_20260918'
+          st['latest_remediation_audit_blob']=gitblob(AUD)
+          st['production_import_status']='PASS_WITH_Q1612_REMEDIATION'
+          STATE.write_text(json.dumps(st,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist remediation
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$AUDIT_OUT" "$STATE_OUT" usmle/data/usmle-step1.db
+          git commit -m 'usmle: remediate Q1612 DOCK8 cytothripsis mechanism'
+          git pull --rebase origin main
+          git push
