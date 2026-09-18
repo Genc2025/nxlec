@@ -1,0 +1,72 @@
+name: USMLE Q1621-Q1625 Prospect Screen
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1621-q1625-prospect-screen.yml']
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      DB_BLOB: 2126a90ae570f9572aa01ed8df51ab50ed6c11b2
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Screen prospective constructs against Q0001-Q1620
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,sqlite3
+          from pathlib import Path
+          groups={
+            'SLC19A2_TRMA':['SLC19A2','thiamine-responsive megaloblastic anemia','Rogers syndrome','THTR1'],
+            'MOGS_CDG':['MOGS','glucosidase I deficiency','N-linked glycan trimming'],
+            'ETHE1_EE':['ETHE1','ethylmalonic encephalopathy','sulfur dioxygenase','hydrogen sulfide'],
+            'SLC5A6_SMVT':['SLC5A6','sodium-dependent multivitamin transporter','SMVT'],
+            'LIPT1_LIPOYLATION':['LIPT1','lipoyltransferase 1','protein lipoylation'],
+            'SERAC1_MEGDEL':['SERAC1','MEGDEL','phosphatidylglycerol remodeling'],
+            'TMEM70_ATP_SYNTHASE':['TMEM70','ATP synthase assembly','3-methylglutaconic aciduria'],
+            'BCS1L_COMPLEX_III':['BCS1L','Rieske','complex III assembly','GRACILE'],
+            'SLC39A8_MANGANESE':['SLC39A8','manganese transporter','manganese deficiency glycosylation'],
+            'HMOX1_DEFICIENCY':['HMOX1','heme oxygenase 1 deficiency','biliverdin'],
+            'SLC25A3_PHOSPHATE':['SLC25A3','mitochondrial phosphate carrier','phosphate carrier deficiency'],
+            'AGK_SENGERS':['AGK','Sengers syndrome','acylglycerol kinase','TIM22'],
+            'FLVCR1_HEME':['FLVCR1','heme exporter','posterior column ataxia'],
+            'SLC9A3_CSD':['SLC9A3','congenital sodium diarrhea','NHE3'],
+            'PANK2_COA':['PANK2','pantothenate kinase-associated neurodegeneration','CoA biosynthesis'],
+            'COASY_COA':['COASY','CoA synthase protein-associated neurodegeneration','coenzyme A synthase'],
+            'SLC30A10_MANGANESE':['SLC30A10','hypermanganesemia','manganese efflux'],
+            'ATP13A2_LYSOSOME':['ATP13A2','Kufor-Rakeb','lysosomal polyamine'],
+            'SLC25A42_COA_TRANSPORT':['SLC25A42','mitochondrial coenzyme A transporter','CoA transporter'],
+            'IBA57_FE_S':['IBA57','iron-sulfur cluster assembly','multiple mitochondrial dysfunctions syndrome']
+          }
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          rows=c.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1620
+          out={}
+          for name,terms in groups.items():
+              hits=[]
+              for cid,pj in rows:
+                  low=pj.casefold()
+                  matched=[t for t in terms if t.casefold() in low]
+                  if matched:
+                      d=json.loads(pj); it=d.get('item',{})
+                      hits.append({'candidate_id':cid,'matched_terms':matched,'vignette':it.get('vignette'),'lead_in':it.get('lead_in'),'tested_construct':it.get('tested_construct')})
+              out[name]={'terms':terms,'hit_count':len(hits),'hits':hits[:25]}
+          c.close()
+          p=Path('usmle/audit/Q1621_Q1625_PROSPECT_SCREEN.json')
+          p.write_text(json.dumps({'canonical_db_blob':'2126a90ae570f9572aa01ed8df51ab50ed6c11b2','canonical_count':1620,'prospects':out},indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist screen
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1621_Q1625_PROSPECT_SCREEN.json
+          git commit -m 'usmle: screen prospects for Q1621-Q1625'
+          git pull --rebase origin main
+          git push
