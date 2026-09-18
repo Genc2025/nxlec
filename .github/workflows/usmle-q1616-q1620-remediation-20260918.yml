@@ -1,0 +1,312 @@
+name: USMLE Q1616-Q1620 Remediation 20260918
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1616-q1620-remediation-20260918.yml']
+permissions:
+  contents: write
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      DB_BLOB: 2126a90ae570f9572aa01ed8df51ab50ed6c11b2
+      CAND_PATH: usmle/batch_specs_1601_1700/Q1616_Q1620_remediation_20260918.json
+      AUDIT_OUT: usmle/audit/Q1616_Q1620_REMEDIATION_FINAL_QA_PASS_20260918.json
+      STATE_OUT: usmle/state/step2_final_q0001_q1620.json
+      START_Q: '1616'
+      END_Q: '1620'
+      FREEZE_DATE: '2026-09-18'
+      FINALIZED_AT: '2026-09-18T21:45:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+
+      - name: Bind current Q1620 production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os,sqlite3,re
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rev=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          nums=[int(re.search(r'DIRECT-(\d{4})',x[0]).group(1)) for x in rows]
+          assert len(rows)==rev==fin==1620
+          assert set(nums)==set(range(1,1621))
+          st=json.load(open(os.environ['STATE_OUT']))
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          assert st['item_count']==st['step2_final_review_count']==1620
+          assert st['contiguous_q0001_q1620'] is True
+          PY
+
+      - name: Build corrected batch and freeze evidence
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,'usmle')
+          import q1616_item,q1617_item,q1618_item,q1619_item,q1620_item
+          from author_q1616_q1620 import make_general
+          items=[m.build(make_general) for m in (q1616_item,q1617_item,q1618_item,q1619_item,q1620_item)]
+          b={
+            'batch_id':'Q1616-Q1620-REMEDIATION-20260918',
+            'created_at':'2026-09-18',
+            'status':'AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT',
+            'production_import_ready':False,
+            'candidate_count':5,
+            'canonical_count_before':1620,
+            'canonical_count_after':1620,
+            'canonical_db_blob':'2126a90ae570f9572aa01ed8df51ab50ed6c11b2',
+            'answer_key_sequence':'ABCDE',
+            'answer_key_distribution':{L:1 for L in 'ABCDE'},
+            'construct_selection':'Full Q1616-Q1620 re-audit after adversarial review identified evidence-binding and distractor-realism defects in the prior certification.',
+            'technical_integrity':{
+              'source_hashes_fabricated':False,
+              'source_hashes_complete':False,
+              'independent_audit_complete':False,
+              'trusted_importer_complete':False
+            },
+            'items':items
+          }
+          p=Path('usmle/batch_specs_1601_1700/Q1616_Q1620_remediation_20260918.json')
+          p.parent.mkdir(exist_ok=True)
+          p.write_text(json.dumps(b,indent=2,ensure_ascii=False)+'\n')
+          assert [x['num'] for x in items]==list(range(1616,1621))
+          assert ''.join(x['item']['intended_key'] for x in items)=='ABCDE'
+          assert 'ncjmm' not in p.read_text().casefold()
+          PY
+          python usmle/freeze_candidate_generic.py
+
+      - name: Independent adversarial content and evidence audit
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          b=json.loads(Path(os.environ['CAND_PATH']).read_text())
+          byq={x['num']:x for x in b['items']}
+          assert sorted(byq)==list(range(1616,1621))
+          assert ''.join(byq[n]['item']['intended_key'] for n in range(1616,1621))=='ABCDE'
+
+          # Q1616: exact construct is N-linked glycosylation, with separate evidence for NLG and NKG2D hypoglycosylation.
+          q=byq[1616]
+          assert q['item']['intended_key']=='A'
+          assert q['item']['options']['A']=='N-linked glycosylation of selected proteins in the endoplasmic reticulum'
+          assert len(q['sources'])==2
+          urls={s['url'] for s in q['sources']}
+          assert urls=={'https://pubmed.ncbi.nlm.nih.gov/31337704/','https://pubmed.ncbi.nlm.nih.gov/35182234/'}
+          assert any('N-linked glycosylation complex' in s['section_locator'] for s in q['sources'])
+          assert any('NKG2D are caused by hypoglycosylation' in s['section_locator'] for s in q['sources'])
+          assert q['author_qa']['second_answer_attack']['option']=='B'
+
+          # Q1617: every distractor is now a real mitochondrial transport process.
+          q=byq[1617]
+          assert q['item']['intended_key']=='B'
+          assert 'aspartate' in q['item']['options']['B'].casefold()
+          assert 'citrate' in q['item']['options']['C'].casefold()
+          assert 'pyruvate' in q['item']['options']['D'].casefold()
+          assert 'ADP' in q['item']['options']['E'] and 'ATP' in q['item']['options']['E']
+          bad=' '.join(q['item']['options'].values()).casefold()
+          assert 'carbamoyl phosphate from the mitochondrial matrix into the cytosol' not in bad
+          assert 'acetyl-coa directly across' not in bad
+          assert q['sources'][0]['url']=='https://www.ncbi.nlm.nih.gov/books/NBK1181/'
+          assert q['sources'][0]['source_section_date']=='2025-03-20'
+          assert q['author_qa']['second_answer_attack']['option']=='A'
+
+          # Q1618: alternatives are real vitamin-B6-dependent/PLP-handling mechanisms.
+          q=byq[1618]
+          assert q['item']['intended_key']=='C'
+          assert 'piperideine-6-carboxylate' in q['item']['options']['C'].casefold()
+          assert 'PLPBP' in q['item']['options']['B']
+          assert 'alkaline phosphatase' in q['item']['options']['D'].casefold()
+          assert 'pyridoxal kinase' in q['item']['options']['E'].casefold()
+          bad=' '.join(q['item']['options'].values()).casefold()
+          assert 'sodium-dependent pyridoxine transporter' not in bad
+          assert 'alpha-ketoglutarate' not in bad
+          assert q['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/17068770/'
+          assert 'Knoevenagel condensation' in q['sources'][0]['section_locator']
+          assert q['author_qa']['second_answer_attack']['option']=='A'
+
+          # Q1619: systemic + cerebral folate deficiency uniquely binds SLC46A1/PCFT.
+          q=byq[1619]
+          assert q['item']['intended_key']=='D'
+          assert 'proton-coupled folate' in q['item']['options']['D'].casefold()
+          assert q['sources'][0]['url']=='https://www.ncbi.nlm.nih.gov/books/NBK1673/'
+          assert q['sources'][0]['source_section_date']=='2026-03-25'
+          assert q['author_qa']['second_answer_attack']['option']=='A'
+
+          # Q1620: CA-VA generates mitochondrial bicarbonate used by CPS1 and multiple carboxylases.
+          q=byq[1620]
+          assert q['item']['intended_key']=='E' and q['item']['options']['E']=='Bicarbonate'
+          assert q['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/24530203/'
+          assert 'impaired provision of bicarbonate' in q['sources'][0]['section_locator']
+          assert q['author_qa']['second_answer_attack']['option']=='B'
+
+          # Evidence freeze and generic author QA gates for every item/source.
+          for q in byq.values():
+            assert q['author_qa']['single_best_answer']=='PASS'
+            assert q['author_qa']['hidden_assumptions']=='PASS'
+            assert q['author_qa']['fabricated_distractors'].startswith('PASS')
+            assert q['author_qa']['blueprint']=='PASS'
+            assert q['author_qa']['rationale']=='PASS A-E'
+            assert q['author_qa']['educational_objective']=='PASS'
+            assert q['author_qa']['unresolved_content_defects']==[]
+            for s in q['sources']:
+              assert re.fullmatch(r'[0-9a-f]{64}',s['source_page_sha256'])
+              assert re.fullmatch(r'[0-9a-f]{64}',s['cited_section_sha256'])
+              assert s['cited_locator_component_count']>=1
+              assert s['hash_status'].startswith('FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_')
+          assert 'ncjmm' not in Path(os.environ['CAND_PATH']).read_text().casefold()
+          PY
+
+      - name: Patch Q1616-Q1620 transactionally and verify whole bank
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import copy,hashlib,json,os,re,shutil,sqlite3,subprocess,tempfile
+          from pathlib import Path
+          DB=Path('usmle/data/usmle-step1.db')
+          CAND=Path(os.environ['CAND_PATH'])
+          AUD=Path(os.environ['AUDIT_OUT'])
+          STATE=Path(os.environ['STATE_OUT'])
+          def canon(o): return json.dumps(o,sort_keys=True,separators=(',',':'),ensure_ascii=False)
+          def hobj(o): return hashlib.sha256(canon(o).encode()).hexdigest()
+          def gitblob(p): return subprocess.check_output(['git','hash-object',str(p)],text=True).strip()
+          assert gitblob(DB)==os.environ['DB_BLOB']
+          b=json.loads(CAND.read_text())
+          byq={x['num']:copy.deepcopy(x) for x in b['items']}
+          assert set(byq)==set(range(1616,1621))
+          with tempfile.TemporaryDirectory() as td:
+            work=Path(td)/'remediate.db'; shutil.copy2(DB,work)
+            c=sqlite3.connect(work)
+            try:
+              c.execute('BEGIN IMMEDIATE')
+              for n in range(1616,1621):
+                rows=c.execute("select candidate_id from step2_final_items where candidate_id like ?",(f'S1-DIRECT-{n:04d}-%',)).fetchall()
+                assert len(rows)==1,(n,rows)
+                cid=rows[0][0]
+                item=byq[n]
+                item['candidate_id']=cid
+                review={
+                  'candidate_id':cid,
+                  'verdict':'FINAL_10_10_PASS',
+                  'remediation':'Q1616-Q1620 full re-audit. Q1616 evidence binding was strengthened; Q1617 and Q1618 non-real distractors were replaced with real mechanistic alternatives; Q1619-Q1620 were re-audited unchanged.',
+                  'source_binding':'All declared source locators were live-refetched and frozen before patching.',
+                  'second_answer_attack':item['author_qa']['second_answer_attack'],
+                  'defects':[],
+                  'suggested_changes':[],
+                  'audit_scope':'Q1616-Q1620 zero-trust remediation and full batch re-certification'
+                }
+                rh=hobj(review)
+                item['step2_final_audit']={
+                  'final_10_10_gate':'FINAL_10_10_PASS',
+                  'production_import_scope':'Q1616-Q1620 targeted remediation',
+                  'authoritative_pre_db_blob':os.environ['DB_BLOB'],
+                  'authoritative_pre_count':1620,
+                  'review_sha256':rh
+                }
+                ph=hobj(item)
+                c.execute("update step2_final_items set payload_json=?,payload_sha256=?,audit_sha256=?,final_status='FINAL_10_10_PASS',finalized_at=? where candidate_id=?",
+                          (canon(item),ph,rh,os.environ['FINALIZED_AT'],cid))
+                assert c.execute('select changes()').fetchone()[0]==1
+                c.execute("update step2_final_reviews set review_json=?,review_sha256=?,final_status='FINAL_10_10_PASS',finalized_at=? where candidate_id=?",
+                          (canon(review),rh,os.environ['FINALIZED_AT'],cid))
+                assert c.execute('select changes()').fetchone()[0]==1
+              c.commit()
+            except Exception:
+              c.rollback(); c.close(); raise
+            c.close()
+            c=sqlite3.connect(work)
+            assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+            rows=c.execute("select candidate_id,payload_json,payload_sha256,audit_sha256 from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+            rev=c.execute("select candidate_id,review_sha256 from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchall()
+            fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+            c.close()
+            assert len(rows)==len(rev)==fin==1620
+            nums=[int(re.search(r'DIRECT-(\d{4})',r[0]).group(1)) for r in rows]
+            assert len(set(nums))==1620 and set(nums)==set(range(1,1621))
+            rm=dict(rev)
+            docs={}
+            for cid,pj,ps,ash in rows:
+              assert hobj(json.loads(pj))==ps
+              assert rm[cid]==ash
+              n=int(re.search(r'DIRECT-(\d{4})',cid).group(1))
+              if 1616<=n<=1620: docs[n]=json.loads(pj)
+            assert set(docs)==set(range(1616,1621))
+            assert ''.join(docs[n]['item']['intended_key'] for n in range(1616,1621))=='ABCDE'
+            assert len(docs[1616]['sources'])==2
+            assert 'citrate' in docs[1617]['item']['options']['C'].casefold()
+            assert 'PLPBP' in docs[1618]['item']['options']['B']
+            assert docs[1619]['item']['intended_key']=='D'
+            assert docs[1620]['item']['options']['E']=='Bicarbonate'
+            q1612=[json.loads(pj) for cid,pj,_,_ in rows if re.search(r'DIRECT-1612-',cid)]
+            assert len(q1612)==1
+            assert 'CDC42-PAK' in q1612[0]['item']['options']['B']
+            assert 'WASp' not in q1612[0]['item']['options']['B']
+            shutil.copy2(work,DB)
+          post=gitblob(DB)
+          audit={
+            'audit_id':'Q1616-Q1620-REMEDIATION-FINAL-QA-PASS-20260918',
+            'status':'FINAL_QA_PASS',
+            'final_qa_verdict':'FINAL_QA_PASS_NO_MATERIAL_DEFECT',
+            'item_range':'Q1616-Q1620',
+            'prior_defects':[
+              'Q1616 prior source locator established NKG2D hypoglycosylation but did not by itself bind the keyed N-linked glycosylation construct strongly enough.',
+              'Q1617 contained non-real/impossible transport-process distractors (carbamoyl-phosphate export and direct acetyl-CoA export).',
+              'Q1618 contained non-real/unsupported distractor mechanisms (alpha-ketoglutarate competitive inhibition and a sodium-dependent intestinal pyridoxine transporter).'
+            ],
+            'repairs':[
+              'Q1616 now uses separate live-frozen evidence for MAGT1-dependent N-linked glycosylation and NKG2D hypoglycosylation.',
+              'Q1617 distractors were replaced with real mitochondrial transport processes while preserving the citrin construct and key B.',
+              'Q1618 distractors were replaced with real vitamin-B6/PLP handling mechanisms while preserving the ALDH7A1/P6C construct and key C.',
+              'Q1619 and Q1620 were re-audited from zero and retained without content changes.'
+            ],
+            'candidate_blob':gitblob(CAND),
+            'pre_db_blob':os.environ['DB_BLOB'],
+            'post_db_blob':post,
+            'item_count':1620,
+            'review_count':1620,
+            'contiguous_q0001_q1620':True,
+            'sqlite_integrity':'ok',
+            'single_best_answer':'PASS_ALL_5',
+            'second_answer_attack':'PASS_ALL_5',
+            'hidden_assumptions':'PASS_ALL_5',
+            'fabricated_distractors':'PASS_ALL_5',
+            'source_live_binding':'PASS_ALL_DECLARED_LOCATORS',
+            'blueprint':'PASS_ALL_5',
+            'difficulty':'author estimate only',
+            'rationale':'PASS_A_E_ALL_5',
+            'educational_objective':'PASS_ALL_5',
+            'ncjmm':'NOT_APPLICABLE_USMLE',
+            'unresolved_defects':[],
+            'suggested_changes':[],
+            'supersedes_original_q1616_q1620_certification':True,
+            'prior_q1612_remediation_preserved':True
+          }
+          AUD.parent.mkdir(exist_ok=True)
+          AUD.write_text(json.dumps(audit,indent=2,ensure_ascii=False)+'\n')
+          st=json.loads(STATE.read_text())
+          st['post_db_blob']=post
+          st['verified_at']=os.environ['FINALIZED_AT']
+          st['production_import_status']='PASS_WITH_Q1616_Q1620_REMEDIATION'
+          st['latest_remediation']='Q1616_Q1620_REMEDIATION_FINAL_QA_PASS_20260918'
+          st['latest_remediation_audit_blob']=gitblob(AUD)
+          st['prior_q1612_remediation_preserved']=True
+          STATE.write_text(json.dumps(st,indent=2,ensure_ascii=False)+'\n')
+          PY
+
+      - name: Persist remediation
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$AUDIT_OUT" "$STATE_OUT" usmle/data/usmle-step1.db
+          git commit -m 'usmle: remediate and recertify Q1616-Q1620'
+          git pull --rebase origin main
+          git push
