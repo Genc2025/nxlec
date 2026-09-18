@@ -1,0 +1,753 @@
+{
+  "batch_id": "Q1616-Q1620-20260918",
+  "created_at": "2026-09-18",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1615,
+  "canonical_count_after": 1615,
+  "canonical_db_blob": "e764efe19c25a0cf53148c6c8f2afa5c861752ef",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective construct separation from Q1606-Q1615 plus whole-bank semantic screening against canonical Q0001-Q1615 before finalization.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-18: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1616,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Genetics",
+          "Biochemistry",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An 8-year-old girl has progressive ataxia, dysarthria, vertical supranuclear gaze palsy, and splenomegaly. Cultured skin fibroblasts show intense perinuclear filipin staining caused by lysosomal accumulation of unesterified cholesterol.",
+        "lead_in": "Which cellular process is most directly impaired in this disorder?",
+        "options": {
+          "A": "Intracellular trafficking of unesterified cholesterol and other lipid cargo out of late endosomal-lysosomal compartments by NPC1/NPC2",
+          "B": "Lysosomal hydrolysis of sphingomyelin by acid sphingomyelinase",
+          "C": "Receptor-mediated endocytosis of circulating LDL through the LDL receptor",
+          "D": "Esterification of free cholesterol in the endoplasmic reticulum by acyl-CoA:cholesterol acyltransferase",
+          "E": "Peroxisomal beta-oxidation of very-long-chain fatty acids"
+        },
+        "intended_key": "A",
+        "tested_construct": "Loss of NPC1/NPC2 function causing lysosomal accumulation of unesterified cholesterol and other lipid cargo",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Niemann-Pick disease type C is caused by loss of NPC1 or NPC2 function. These proteins are involved in intracellular cholesterol handling; their deficiency causes lysosomal accumulation of lipid cargo, including unesterified cholesterol. The neurologic-visceral phenotype plus filipin-positive lysosomal cholesterol accumulation therefore points to defective NPC1/NPC2-dependent lipid trafficking.",
+        "distractor_explanations": {
+          "A": "Correct. Loss of NPC1 or NPC2 function causes accumulation of unesterified cholesterol and other lipid cargo in lysosomes, reflecting impaired intracellular lipid trafficking.",
+          "B": "Acid sphingomyelinase deficiency causes acid sphingomyelinase deficiency disease with sphingomyelin accumulation, not the characteristic NPC lysosomal unesterified-cholesterol trafficking defect.",
+          "C": "LDL-receptor deficiency impairs plasma LDL clearance and causes hypercholesterolemia; it does not produce the characteristic NPC neurovisceral phenotype with lysosomal filipin-positive cholesterol accumulation.",
+          "D": "ACAT-mediated cholesterol esterification occurs in the endoplasmic reticulum and is not the primary defect in NPC1/NPC2 deficiency.",
+          "E": "Defective peroxisomal beta-oxidation causes accumulation of very-long-chain fatty acids rather than the NPC pattern of lysosomal unesterified-cholesterol accumulation."
+        },
+        "educational_objective": "Recognize Niemann-Pick disease type C as an NPC1/NPC2 loss-of-function disorder in which defective intracellular lipid trafficking produces lysosomal accumulation of unesterified cholesterol and other lipid cargo."
+      },
+      "sources": [
+        {
+          "source_id": "Q1616-GENEREVIEWS",
+          "title": "Niemann-Pick Disease Type C - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1296/",
+          "source_section_date": "2025-11-20",
+          "date_basis": "GeneReviews reports Last Update: 2025-11-20; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Molecular Pathogenesis",
+          "source_page_sha256": "dc91ef2d0660294bae07148f4a1a75df0b9aed9a73837e7ebca726bcb2a01e47",
+          "cited_section_sha256": "790348c64300021090294edaa2b159b67119f6e100508ff1e7f2cf6820519dd1",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1616-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. Loss of NPC1 or NPC2 function causes accumulation of unesterified cholesterol and other lipid cargo in lysosomes, reflecting impaired intracellular lipid trafficking.",
+          "source_ids": [
+            "Q1616-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Acid sphingomyelinase deficiency causes acid sphingomyelinase deficiency disease with sphingomyelin accumulation, not the characteristic NPC lysosomal unesterified-cholesterol trafficking defect.",
+          "source_ids": [
+            "Q1616-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "LDL-receptor deficiency impairs plasma LDL clearance and causes hypercholesterolemia; it does not produce the characteristic NPC neurovisceral phenotype with lysosomal filipin-positive cholesterol accumulation.",
+          "source_ids": [
+            "Q1616-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ACAT-mediated cholesterol esterification occurs in the endoplasmic reticulum and is not the primary defect in NPC1/NPC2 deficiency.",
+          "source_ids": [
+            "Q1616-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1616-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Defective peroxisomal beta-oxidation causes accumulation of very-long-chain fatty acids rather than the NPC pattern of lysosomal unesterified-cholesterol accumulation.",
+          "source_ids": [
+            "Q1616-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Acid sphingomyelinase deficiency is the strongest lysosomal-storage alternative, but the vignette specifically identifies filipin-positive lysosomal unesterified cholesterol together with the classic NPC neurologic-visceral phenotype; NPC1/NPC2 loss directly produces that lipid-trafficking pattern.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1617,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Immunology",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 3-year-old boy has recurrent severe bacterial infections without pus formation, persistent leukocytosis, gingival bleeding, and recurrent epistaxis. Flow cytometry shows normal surface expression of beta2 integrins on leukocytes and alpha-IIb-beta3 integrin on platelets, but receptor stimulation fails to induce high-affinity ligand binding in either cell type.",
+        "lead_in": "Which molecular defect best explains both the immune and bleeding manifestations?",
+        "options": {
+          "A": "Loss of the beta2-integrin subunit CD18, preventing leukocyte integrin surface expression",
+          "B": "Loss of FERMT3-encoded kindlin-3, impairing inside-out activation of hematopoietic-cell integrins",
+          "C": "Loss of platelet glycoprotein IIb/IIIa expression with otherwise normal leukocyte integrin activation",
+          "D": "Defective phagocyte NADPH oxidase assembly, preventing the respiratory burst",
+          "E": "Loss of the Golgi GDP-fucose transporter SLC35C1, impairing selectin-ligand fucosylation and leukocyte rolling"
+        },
+        "intended_key": "B",
+        "tested_construct": "FERMT3/kindlin-3 deficiency causing defective inside-out integrin activation in leukocytes and platelets",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Leukocyte adhesion deficiency type III is caused by FERMT3 mutations that reduce or eliminate kindlin-3. Leukocytes and platelets can retain beta1, beta2, and beta3 integrin expression, but defective inside-out signaling prevents normal integrin activation. Because the defect affects hematopoietic-cell integrins in both leukocytes and platelets, patients develop recurrent infections together with a Glanzmann-like bleeding phenotype.",
+        "distractor_explanations": {
+          "A": "CD18 deficiency causes LAD-I with absent or markedly reduced beta2-integrin surface expression; this patient has normal beta2-integrin expression but defective activation.",
+          "B": "Correct. FERMT3 encodes kindlin-3, which is required for inside-out activation of hematopoietic-cell integrins; deficiency affects both leukocyte adhesion and platelet function.",
+          "C": "Loss of platelet alpha-IIb-beta3 causes Glanzmann thrombasthenia and bleeding but does not explain defective leukocyte integrin activation and recurrent infections.",
+          "D": "NADPH oxidase deficiency impairs intracellular killing after phagocytosis; it does not cause the combined leukocyte-and-platelet integrin activation defect.",
+          "E": "SLC35C1 deficiency causes LAD-II by impairing fucosylation of selectin ligands and leukocyte rolling; it does not cause the combined leukocyte-and-platelet inside-out integrin activation defect."
+        },
+        "educational_objective": "Distinguish LAD-III from LAD-I and isolated platelet disorders by recognizing normal integrin surface expression with defective FERMT3/kindlin-3-dependent inside-out activation in both leukocytes and platelets."
+      },
+      "sources": [
+        {
+          "source_id": "Q1617-PUBMED",
+          "title": "Leukocyte adhesion deficiency-III is caused by mutations in KINDLIN3 affecting integrin activation",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19234463/",
+          "source_section_date": "2009-02-22",
+          "date_basis": "PubMed record reports Epub 2009-02-22; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "defective inside-out signaling causes immune deficiency and bleeding problems",
+          "source_page_sha256": "dad0318ad86f9c8a60028c13c85bf336b3af5147c693558de8a42af849ee133c",
+          "cited_section_sha256": "6b5b22806c382fbbdab23f1dfdd68449be13c61d2e01115f6d86a91af0f3f39c",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1617-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "CD18 deficiency causes LAD-I with absent or markedly reduced beta2-integrin surface expression; this patient has normal beta2-integrin expression but defective activation.",
+          "source_ids": [
+            "Q1617-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defective inside-out signaling causes immune deficiency and bleeding problems",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. FERMT3 encodes kindlin-3, which is required for inside-out activation of hematopoietic-cell integrins; deficiency affects both leukocyte adhesion and platelet function.",
+          "source_ids": [
+            "Q1617-PUBMED"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "defective inside-out signaling causes immune deficiency and bleeding problems",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Loss of platelet alpha-IIb-beta3 causes Glanzmann thrombasthenia and bleeding but does not explain defective leukocyte integrin activation and recurrent infections.",
+          "source_ids": [
+            "Q1617-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defective inside-out signaling causes immune deficiency and bleeding problems",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "NADPH oxidase deficiency impairs intracellular killing after phagocytosis; it does not cause the combined leukocyte-and-platelet integrin activation defect.",
+          "source_ids": [
+            "Q1617-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defective inside-out signaling causes immune deficiency and bleeding problems",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1617-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "SLC35C1 deficiency causes LAD-II by impairing fucosylation of selectin ligands and leukocyte rolling; it does not cause the combined leukocyte-and-platelet inside-out integrin activation defect.",
+          "source_ids": [
+            "Q1617-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "defective inside-out signaling causes immune deficiency and bleeding problems",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "An isolated alpha-IIb-beta3 defect is the strongest bleeding alternative, but it cannot account for the leukocyte activation defect. LAD-III affects integrin activation across hematopoietic cells despite preserved surface expression, unifying the infection and bleeding phenotypes.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1618,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Renal/Urinary System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Physiology",
+          "Genetics",
+          "Nephrology"
+        ],
+        "official_outline_path": [
+          "Renal/Urinary System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 9-year-old boy has epilepsy beginning in infancy, nonprogressive cerebellar ataxia, sensorineural hearing loss, and chronic salt wasting. Laboratory studies show hypokalemic metabolic alkalosis, hypomagnesemia, and low urinary calcium.",
+        "lead_in": "Which renal transport abnormality most directly accounts for the salt-wasting tubulopathy?",
+        "options": {
+          "A": "Loss of apical NKCC2-mediated sodium-potassium-chloride uptake in the thick ascending limb",
+          "B": "Loss of apical ROMK-mediated potassium recycling in the thick ascending limb",
+          "C": "Reduced basolateral potassium conductance through Kir4.1 in distal convoluted tubular cells, impairing salt reabsorption",
+          "D": "Constitutive activation of epithelial sodium channels in principal cells of the collecting duct",
+          "E": "Loss of apical pendrin-mediated chloride-bicarbonate exchange in beta-intercalated cells"
+        },
+        "intended_key": "C",
+        "tested_construct": "KCNJ10/Kir4.1 loss reduces basolateral potassium conductance in distal convoluted tubular cells and impairs renal salt reabsorption",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "KCNJ10 encodes the inwardly rectifying potassium channel Kir4.1. In kidney, KCNJ10 localizes to basolateral membranes of distal tubular segments, especially the distal convoluted tubule. EAST/SeSAME-associated loss-of-function variants markedly reduce channel activity, disrupting the basolateral potassium conductance needed for efficient distal salt transport and producing a Gitelman-like salt-wasting tubulopathy.",
+        "distractor_explanations": {
+          "A": "NKCC2 loss causes Bartter syndrome, which localizes primarily to the thick ascending limb and does not explain the neurologic and auditory syndrome caused by KCNJ10 variants.",
+          "B": "ROMK loss causes a form of Bartter syndrome; KCNJ10 instead encodes the basolateral Kir4.1 channel in distal tubular cells.",
+          "C": "Correct. KCNJ10 loss impairs basolateral Kir4.1 potassium-channel function in distal convoluted tubular cells, reducing the transport capacity that supports salt reabsorption.",
+          "D": "ENaC activation causes sodium retention, hypertension, hypokalemia, and metabolic alkalosis rather than renal salt wasting with the EAST neurologic phenotype.",
+          "E": "Pendrin loss causes a different chloride-handling disorder and does not explain the characteristic KCNJ10-associated neurologic, auditory, and distal-tubular phenotype."
+        },
+        "educational_objective": "Recognize EAST/SeSAME syndrome as KCNJ10/Kir4.1 loss of function and connect the renal phenotype to impaired basolateral potassium conductance in distal convoluted tubular cells."
+      },
+      "sources": [
+        {
+          "source_id": "Q1618-PUBMED",
+          "title": "KCNJ10 gene mutations causing EAST syndrome (epilepsy, ataxia, sensorineural deafness, and tubulopathy) disrupt channel function",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20651251/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-18; no unsupported exact revision or publication-day metadata inferred.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Kcnj10 and Kcnj16 were found in the basolateral membrane of mouse distal convoluted tubules",
+          "source_page_sha256": "53e0595504736309d72e1de2d6f468816de8b9b9bf7f916396ebb6105d291b11",
+          "cited_section_sha256": "46f4c57d151b614a58a795aef36ea537db4ed923ba982c98300f7c5edc405742",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1618-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "NKCC2 loss causes Bartter syndrome, which localizes primarily to the thick ascending limb and does not explain the neurologic and auditory syndrome caused by KCNJ10 variants.",
+          "source_ids": [
+            "Q1618-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Kcnj10 and Kcnj16 were found in the basolateral membrane of mouse distal convoluted tubules",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "ROMK loss causes a form of Bartter syndrome; KCNJ10 instead encodes the basolateral Kir4.1 channel in distal tubular cells.",
+          "source_ids": [
+            "Q1618-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Kcnj10 and Kcnj16 were found in the basolateral membrane of mouse distal convoluted tubules",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. KCNJ10 loss impairs basolateral Kir4.1 potassium-channel function in distal convoluted tubular cells, reducing the transport capacity that supports salt reabsorption.",
+          "source_ids": [
+            "Q1618-PUBMED"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Kcnj10 and Kcnj16 were found in the basolateral membrane of mouse distal convoluted tubules",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "ENaC activation causes sodium retention, hypertension, hypokalemia, and metabolic alkalosis rather than renal salt wasting with the EAST neurologic phenotype.",
+          "source_ids": [
+            "Q1618-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Kcnj10 and Kcnj16 were found in the basolateral membrane of mouse distal convoluted tubules",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1618-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Pendrin loss causes a different chloride-handling disorder and does not explain the characteristic KCNJ10-associated neurologic, auditory, and distal-tubular phenotype.",
+          "source_ids": [
+            "Q1618-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Kcnj10 and Kcnj16 were found in the basolateral membrane of mouse distal convoluted tubules",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Bartter syndrome from NKCC2 loss can also cause hypokalemic metabolic alkalosis, but the neurologic-auditory phenotype plus KCNJ10 genotype localizes the defect to basolateral Kir4.1 in distal tubular cells rather than apical NKCC2 in the thick ascending limb.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1619,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Hematology",
+          "Physiology",
+          "Genetics"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 24-year-old woman has lifelong compensated hemolysis, splenomegaly, and dehydrated erythrocytes with increased mean corpuscular hemoglobin concentration. Her father has similar findings. Sequencing identifies a gain-of-function variant in PIEZO1 that prolongs activity of the mechanically activated cation channel.",
+        "lead_in": "Which downstream ionic sequence most directly causes erythrocyte dehydration in this disorder?",
+        "options": {
+          "A": "Reduced calcium entry followed by inhibition of potassium efflux through the Gardos channel",
+          "B": "Increased sodium entry followed by osmotic water influx through aquaporin-1",
+          "C": "Increased chloride entry followed by activation of the erythrocyte sodium-potassium ATPase",
+          "D": "Increased calcium entry followed by activation of the KCa3.1 Gardos channel and loss of potassium and water",
+          "E": "Reduced proton extrusion followed by intracellular alkalinization and water loss"
+        },
+        "intended_key": "D",
+        "tested_construct": "PIEZO1-mediated calcium entry activates the KCa3.1 Gardos channel, promoting potassium loss and erythrocyte dehydration",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "PIEZO1 is a mechanically activated cation channel involved in erythrocyte volume regulation. Excess PIEZO1 activity increases calcium entry. The rise in intracellular calcium activates the calcium-sensitive KCa3.1 Gardos channel, driving potassium efflux; water follows osmotically, producing the dehydrated erythrocyte phenotype of hereditary xerocytosis/dehydrated hereditary stomatocytosis.",
+        "distractor_explanations": {
+          "A": "The pathogenic sequence begins with increased, not reduced, calcium entry; Gardos-channel activation promotes rather than inhibits potassium loss.",
+          "B": "Sustained sodium and water influx would tend to swell erythrocytes rather than produce the characteristic dehydration.",
+          "C": "The experimentally demonstrated downstream effector of PIEZO1-mediated calcium entry is the KCa3.1 Gardos potassium channel, not a chloride-triggered increase in sodium-potassium ATPase activity.",
+          "D": "Correct. Increased PIEZO1-dependent calcium entry activates KCa3.1/Gardos channels, leading to potassium efflux and osmotic water loss from erythrocytes.",
+          "E": "Intracellular alkalinization is not the defining downstream mechanism linking PIEZO1 gain of function to erythrocyte dehydration."
+        },
+        "educational_objective": "Connect PIEZO1 gain of function in hereditary xerocytosis to calcium influx, secondary KCa3.1/Gardos-channel activation, potassium efflux, and osmotic water loss."
+      },
+      "sources": [
+        {
+          "source_id": "Q1619-PUBMED",
+          "title": "Piezo1 links mechanical forces to red blood cell volume",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26001274/",
+          "source_section_date": "2015-05-22",
+          "date_basis": "PubMed record reports publication 2015-05-22; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "causes calcium influx and subsequent dehydration of RBCs via downstream activation of the KCa3.1 Gardos channel",
+          "source_page_sha256": "c7604be9dad6302976af823054465c60f540754034015739f40b5fbd761b7652",
+          "cited_section_sha256": "7d666950bc9080199e0af2f2a8e89ea3f96568d348bc64359f1f4681641eb38e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1619-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The pathogenic sequence begins with increased, not reduced, calcium entry; Gardos-channel activation promotes rather than inhibits potassium loss.",
+          "source_ids": [
+            "Q1619-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "causes calcium influx and subsequent dehydration of RBCs via downstream activation of the KCa3.1 Gardos channel",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Sustained sodium and water influx would tend to swell erythrocytes rather than produce the characteristic dehydration.",
+          "source_ids": [
+            "Q1619-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "causes calcium influx and subsequent dehydration of RBCs via downstream activation of the KCa3.1 Gardos channel",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The experimentally demonstrated downstream effector of PIEZO1-mediated calcium entry is the KCa3.1 Gardos potassium channel, not a chloride-triggered increase in sodium-potassium ATPase activity.",
+          "source_ids": [
+            "Q1619-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "causes calcium influx and subsequent dehydration of RBCs via downstream activation of the KCa3.1 Gardos channel",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. Increased PIEZO1-dependent calcium entry activates KCa3.1/Gardos channels, leading to potassium efflux and osmotic water loss from erythrocytes.",
+          "source_ids": [
+            "Q1619-PUBMED"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "causes calcium influx and subsequent dehydration of RBCs via downstream activation of the KCa3.1 Gardos channel",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1619-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Intracellular alkalinization is not the defining downstream mechanism linking PIEZO1 gain of function to erythrocyte dehydration.",
+          "source_ids": [
+            "Q1619-PUBMED"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "causes calcium influx and subsequent dehydration of RBCs via downstream activation of the KCa3.1 Gardos channel",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "The strongest competing option uses the same calcium-Gardos components but reverses their direction. Primary experimental evidence shows PIEZO1 activation increases calcium influx and subsequently activates, rather than inhibits, the Gardos channel.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1620,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Endocrine System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Endocrinology",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Endocrine System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 2-year-old boy is evaluated after recurrent fasting hypoglycemia and seizures. He has diffuse hyperpigmentation. Morning cortisol is very low and plasma ACTH is markedly elevated, but serum sodium, potassium, plasma renin activity, and aldosterone are normal. Sequencing shows no pathogenic variant in the coding region of MC2R. In cultured adrenal cells, the ACTH receptor is synthesized but fails to reach the plasma membrane.",
+        "lead_in": "Which protein defect most directly explains these findings?",
+        "options": {
+          "A": "Loss of steroidogenic acute regulatory protein, preventing mitochondrial cholesterol transport",
+          "B": "Loss of 21-hydroxylase, impairing cortisol and aldosterone synthesis",
+          "C": "Activating mutation of the calcium-sensing receptor, suppressing parathyroid hormone release",
+          "D": "Loss of the glucocorticoid receptor, causing peripheral cortisol resistance",
+          "E": "Loss of MRAP, preventing normal trafficking of the melanocortin-2 ACTH receptor to the cell surface"
+        },
+        "intended_key": "E",
+        "tested_construct": "MRAP deficiency preventing trafficking of MC2R/ACTH receptor to the adrenal-cell surface",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Familial glucocorticoid deficiency can result from defects in MRAP, the melanocortin-2 receptor accessory protein. MRAP is required for trafficking MC2R, the ACTH receptor, to the cell surface. Failure of this step produces ACTH resistance with very low cortisol and compensatory ACTH elevation while mineralocorticoid function can remain preserved.",
+        "distractor_explanations": {
+          "A": "StAR deficiency causes lipoid congenital adrenal hyperplasia with broad adrenal and gonadal steroid deficiency rather than isolated ACTH resistance with preserved mineralocorticoid function.",
+          "B": "21-hydroxylase deficiency impairs both cortisol synthesis and, in classic salt-wasting disease, mineralocorticoid synthesis; it does not specifically prevent MC2R surface trafficking.",
+          "C": "Calcium-sensing receptor activation causes hypocalcemia with low or inappropriately normal parathyroid hormone and does not explain ACTH resistance.",
+          "D": "Glucocorticoid-receptor resistance generally produces elevated cortisol as well as elevated ACTH, rather than severe cortisol deficiency from failure of adrenal ACTH signaling.",
+          "E": "Correct. MRAP is an accessory protein essential for trafficking MC2R to the cell surface; loss causes familial glucocorticoid deficiency with ACTH resistance."
+        },
+        "educational_objective": "Recognize MRAP as the accessory protein required for MC2R/ACTH-receptor surface trafficking and link its loss to familial glucocorticoid deficiency with preserved mineralocorticoid function."
+      },
+      "sources": [
+        {
+          "source_id": "Q1620-PUBMED-PRIMARY",
+          "title": "Mutations in MRAP, encoding a new interacting partner of the ACTH receptor, cause familial glucocorticoid deficiency type 2",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15654338/",
+          "source_section_date": "2005-01-16",
+          "date_basis": "PubMed record reports Epub 2005-01-16; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "MRAP interacts with MC2R and may have a role in the trafficking of MC2R from the endoplasmic reticulum to the cell surface",
+          "source_page_sha256": "22805ef97f50a7e84533ad348c12678dd9542720974bd630ae36ade6d27ce3cb",
+          "cited_section_sha256": "f820884d244cf973409af39c30fb04ee5c16fd51132bc6020d84596dbf9a04a7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1620-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "StAR deficiency causes lipoid congenital adrenal hyperplasia with broad adrenal and gonadal steroid deficiency rather than isolated ACTH resistance with preserved mineralocorticoid function.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "MRAP interacts with MC2R and may have a role in the trafficking of MC2R from the endoplasmic reticulum to the cell surface",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "21-hydroxylase deficiency impairs both cortisol synthesis and, in classic salt-wasting disease, mineralocorticoid synthesis; it does not specifically prevent MC2R surface trafficking.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "MRAP interacts with MC2R and may have a role in the trafficking of MC2R from the endoplasmic reticulum to the cell surface",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Calcium-sensing receptor activation causes hypocalcemia with low or inappropriately normal parathyroid hormone and does not explain ACTH resistance.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "MRAP interacts with MC2R and may have a role in the trafficking of MC2R from the endoplasmic reticulum to the cell surface",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Glucocorticoid-receptor resistance generally produces elevated cortisol as well as elevated ACTH, rather than severe cortisol deficiency from failure of adrenal ACTH signaling.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "MRAP interacts with MC2R and may have a role in the trafficking of MC2R from the endoplasmic reticulum to the cell surface",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1620-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. MRAP is an accessory protein essential for trafficking MC2R to the cell surface; loss causes familial glucocorticoid deficiency with ACTH resistance.",
+          "source_ids": [
+            "Q1620-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "MRAP interacts with MC2R and may have a role in the trafficking of MC2R from the endoplasmic reticulum to the cell surface",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Congenital adrenal hyperplasia can produce low cortisol and high ACTH, but 21-hydroxylase deficiency does not explain preserved mineralocorticoid indices plus direct demonstration that synthesized MC2R fails to reach the plasma membrane; MRAP directly controls that trafficking step.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
