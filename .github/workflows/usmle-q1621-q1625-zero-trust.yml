@@ -1,0 +1,176 @@
+name: USMLE Q1621-Q1625 Zero Trust Stage
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1621-q1625-zero-trust.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CAND_PATH: usmle/batch_specs_1601_1700/05_q1621_q1625_author_20260918.json
+      DB_BLOB: df5fa59389666a1e5f54c67ea42fcab8280a9133
+      CANONICAL_COUNT: '1620'
+      START_Q: '1621'
+      END_Q: '1625'
+      OUT_PATH: usmle/audit/Q1621_Q1625_ZERO_TRUST.json
+      TOP_OUT: usmle/audit/Q1621_Q1625_TOP_MATCH_INSPECTION.json
+      AUDIT_DATE: '20260918'
+      FREEZE_DATE: '2026-09-18'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+
+      - name: Bind remediated Q1620 production
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os,sqlite3,re
+          st=json.load(open('usmle/state/step2_final_q0001_q1620.json'))
+          rem=json.load(open('usmle/audit/Q1616_Q1620_REMEDIATION_FINAL_QA_PASS_20260918.json'))
+          assert st['item_count']==st['step2_final_review_count']==1620
+          assert st['contiguous_q0001_q1620'] is True and st['sqlite_integrity']=='ok'
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          assert st['production_import_status']=='PASS_WITH_Q1616_Q1620_REMEDIATION'
+          assert st['prior_q1612_remediation_preserved'] is True
+          assert rem['status']=='FINAL_QA_PASS'
+          assert rem['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert rem['post_db_blob']==os.environ['DB_BLOB']
+          assert rem['unresolved_defects']==[] and rem['suggested_changes']==[]
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rev=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          c.close()
+          nums=[int(re.search(r'DIRECT-(\d{4})',x[0]).group(1)) for x in rows]
+          assert len(rows)==rev==1620 and set(nums)==set(range(1,1621))
+          PY
+
+      - name: Author freeze and zero-trust audit
+        run: |
+          set -euo pipefail
+          python -m py_compile usmle/author_q1621_q1625.py usmle/q1621_item.py usmle/q1622_item.py usmle/q1623_item.py usmle/q1624_item.py usmle/q1625_item.py usmle/freeze_candidate_generic.py usmle/audit_candidate_zero_trust_current.py
+          python usmle/author_q1621_q1625.py
+          python usmle/freeze_candidate_generic.py
+          export CAND_BLOB="$(git hash-object "$CAND_PATH")"
+          python usmle/audit_candidate_zero_trust_current.py
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+
+      - name: Adversarial content and evidence assertions
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re
+          from pathlib import Path
+          b=json.load(open(os.environ['CAND_PATH']))
+          r=json.load(open(os.environ['OUT_PATH']))
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+          assert [x['num'] for x in b['items']]==list(range(1621,1626))
+          assert ''.join(x['item']['intended_key'] for x in b['items'])=='ABCDE'
+          byq={x['num']:x for x in b['items']}
+          rr={x['q']:x for x in r['item_reports']}
+          assert set(rr)==set(range(1621,1626))
+          for n in range(1621,1626):
+            x=byq[n]; a=rr[n]
+            assert a['status']=='PASS'
+            assert a['source_live_binding']=='PASS'
+            assert a['second_answer_attack']=='PASS'
+            assert a['blueprint']=='PASS'
+            assert a['canonical_max_jaccard']<0.45
+            assert x['author_qa']['single_best_answer']=='PASS'
+            assert x['author_qa']['hidden_assumptions']=='PASS'
+            assert x['author_qa']['fabricated_distractors'].startswith('PASS')
+            assert x['author_qa']['rationale']=='PASS A-E'
+            assert x['author_qa']['educational_objective']=='PASS'
+            assert x['author_qa']['unresolved_content_defects']==[]
+            for s in x['sources']:
+              assert re.fullmatch(r'[0-9a-f]{64}',s['source_page_sha256'])
+              assert re.fullmatch(r'[0-9a-f]{64}',s['cited_section_sha256'])
+              assert s['cited_locator_component_count']>=1
+              assert s['hash_status'].startswith('FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_')
+
+          q=byq[1621]
+          assert q['item']['intended_key']=='A'
+          assert 'SLC19A3-mediated' in q['item']['options']['D']
+          assert q['author_qa']['second_answer_attack']['option']=='D'
+          assert q['sources'][0]['url']=='https://www.ncbi.nlm.nih.gov/books/NBK1282/'
+          assert q['sources'][0]['source_section_date']=='2022-07-28'
+
+          q=byq[1622]
+          assert q['item']['intended_key']=='B'
+          assert 'coenzyme Q biosynthesis' in q['item']['options']['E']
+          assert q['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/19136963/'
+          assert q['sources'][0]['source_section_date']=='2009-01-11'
+
+          q=byq[1623]
+          assert q['item']['intended_key']=='C'
+          assert 'galactosyltransferase' in q['item']['options']['C'].casefold()
+          assert q['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/26637979/'
+          assert q['sources'][0]['source_section_date']=='2015-12-03'
+
+          q=byq[1624]
+          assert q['item']['intended_key']=='D'
+          assert 'TIM22-dependent' in q['item']['options']['D']
+          assert q['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/28712726/'
+          assert q['sources'][0]['source_section_date']=='2017-07-14'
+
+          q=byq[1625]
+          assert q['item']['intended_key']=='E'
+          assert q['item']['options']['A'].startswith('Condensation of 4-prime-phosphopantothenate with cysteine')
+          assert q['item']['options']['E']=='ATP-dependent phosphorylation of pantothenate to 4-prime-phosphopantothenate'
+          assert q['sources'][0]['url']=='https://www.ncbi.nlm.nih.gov/books/NBK1490/'
+          assert q['sources'][0]['source_section_date']=='2017-08-03'
+
+          assert 'ncjmm' not in Path(os.environ['CAND_PATH']).read_text().casefold()
+          PY
+
+      - name: Export canonical top matches for manual second pass
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,sqlite3
+          r=json.load(open(os.environ['OUT_PATH']))
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          out={
+            'audit_id':'Q1621-Q1625-TOP-MATCH-INSPECTION-20260918',
+            'canonical_db_blob':os.environ['DB_BLOB'],
+            'candidate_blob':None,
+            'status':'PENDING_MANUAL_ADVERSARIAL_REVIEW',
+            'matches':[]
+          }
+          import subprocess
+          out['candidate_blob']=subprocess.check_output(['git','hash-object',os.environ['CAND_PATH']],text=True).strip()
+          for x in r['item_reports']:
+            cid=x['canonical_top_match']
+            row=c.execute('select payload_json from step2_final_items where candidate_id=?',(cid,)).fetchone()
+            assert row is not None,(x['q'],cid)
+            p=json.loads(row[0])
+            it=p.get('item',{})
+            out['matches'].append({
+              'q':x['q'],
+              'canonical_top_match':cid,
+              'jaccard':x['canonical_max_jaccard'],
+              'candidate_construct':next(y['item']['tested_construct'] for y in json.load(open(os.environ['CAND_PATH']))['items'] if y['num']==x['q']),
+              'canonical_construct':it.get('tested_construct'),
+              'canonical_vignette':it.get('vignette'),
+              'canonical_lead_in':it.get('lead_in'),
+              'canonical_options':it.get('options'),
+              'canonical_key':it.get('intended_key')
+            })
+          c.close()
+          open(os.environ['TOP_OUT'],'w').write(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
+          PY
+
+      - name: Persist staged audit
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$CAND_PATH" "$OUT_PATH" "$TOP_OUT"
+          git commit -m 'usmle: stage audited Q1621-Q1625 for adversarial review'
+          git pull --rebase origin main
+          git push
