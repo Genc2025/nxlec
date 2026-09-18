@@ -1,0 +1,91 @@
+name: USMLE Detached Import Simulation Q1616-Q1620
+on:
+  push:
+    paths: ['.github/workflows/usmle-simulate-import-q1616-q1620.yml']
+permissions:
+  contents: write
+jobs:
+  sim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1616'
+      END_Q: '1620'
+      PRE_COUNT: '1615'
+      DB_BLOB: e764efe19c25a0cf53148c6c8f2afa5c861752ef
+      CAND_PATH: usmle/batch_specs_1601_1700/04_q1616_q1620_author_20260918.json
+      CAND_BLOB: c0ff5babcb250de9eaf204681db7bd06c6cb3d5e
+      MAN_PATH: usmle/audit/Q1616_Q1620_FINAL_QA_PASS.json
+      MAN_BLOB: 958271e50fc08883a04112b811e234ea5039ba36
+      SEM_PATH: usmle/audit/Q1616_Q1620_SEMANTIC_DUPLICATE_REVIEW_20260918.json
+      SEM_BLOB: 550c1f781efe4ae21082eec27f23f271f7243aaa
+      TOP_PATH: usmle/audit/Q1616_Q1620_TOP_MATCH_INSPECTION.json
+      TOP_BLOB: 1104f546ee730fffed3178509ebfef9973b2ac45
+      SIM_OUT: usmle/audit/Q1616_Q1620_DETACHED_IMPORT_SIMULATION.json
+      AUDIT_DATE: '20260918'
+      CANDIDATE_STAMP: '20260918T172900Z'
+      FINALIZED_AT: '2026-09-18T17:29:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind remediated production and all QA evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$MAN_PATH")" = "$MAN_BLOB"
+          test "$(git hash-object "$SEM_PATH")" = "$SEM_BLOB"
+          test "$(git hash-object "$TOP_PATH")" = "$TOP_BLOB"
+          python - <<'PY'
+          import json,os
+          st=json.load(open('usmle/state/step2_final_q0001_q1615.json'))
+          rem=json.load(open('usmle/audit/Q1612_REMEDIATION_FINAL_QA_PASS_20260918.json'))
+          m=json.load(open(os.environ['MAN_PATH']))
+          sem=json.load(open(os.environ['SEM_PATH']))
+          assert st['item_count']==st['step2_final_review_count']==1615
+          assert st['contiguous_q0001_q1615'] is True and st['sqlite_integrity']=='ok'
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          assert st['production_import_status']=='PASS_WITH_Q1612_REMEDIATION'
+          assert rem['status']=='FINAL_QA_PASS' and rem['post_db_blob']==os.environ['DB_BLOB']
+          assert rem['unresolved_defects']==[] and rem['suggested_changes']==[]
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['production_import_ready'] is True
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          assert m['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert m['authoritative_db_blob']==os.environ['DB_BLOB']
+          assert m['authoritative_db_final_count']==m['authoritative_review_count']==1615
+          assert sem['status']=='PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION'
+          assert sem['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert sem['canonical_db_blob']==os.environ['DB_BLOB']
+          assert sem['material_duplicates']==[] and sem['unresolved_defects']==[]
+          assert sem['import_gate']=='PASS' and all(x['decision']=='DISTINCT' for x in sem['comparisons'])
+          PY
+      - name: Simulate next five
+        run: |
+          set -euo pipefail
+          BEFORE="$(git hash-object usmle/data/usmle-step1.db)"
+          python usmle/simulate_import_next5.py
+          AFTER="$(git hash-object usmle/data/usmle-step1.db)"
+          test "$BEFORE" = "$AFTER"
+          test "$AFTER" = "$DB_BLOB"
+          python - <<'PY'
+          import json,os
+          r=json.load(open(os.environ['SIM_OUT']))
+          assert r['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert r['pre_production_count']==1615 and r['simulated_post_count']==1620
+          assert r['post_simulation_contiguous_q0001_q1620'] is True
+          assert r['production_transactional_import_ready'] is True
+          assert r['production_db_modified'] is False and r['failures']==[]
+          PY
+      - name: Persist simulation
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$SIM_OUT"
+          git commit -m 'usmle: pass detached import simulation Q1616-Q1620'
+          git pull --rebase origin main
+          git push
