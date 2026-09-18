@@ -29,7 +29,16 @@ jobs:
             'MAGT1_XMEN':['MAGT1','XMEN','NKG2D'],
             'LAMP2_DANON':['LAMP2','Danon disease','autophagic vacuole'],
             'UNC13D_MUNC13_4':['UNC13D','MUNC13-4','cytotoxic granule exocytosis'],
-            'SLC25A13_CITRIN':['SLC25A13','citrin deficiency','aspartate-glutamate carrier']
+            'SLC25A13_CITRIN':['SLC25A13','citrin deficiency','aspartate-glutamate carrier'],
+            'ALDH7A1_PDE':['ALDH7A1','pyridoxine-dependent epilepsy','alpha-aminoadipic semialdehyde','piperideine-6-carboxylate'],
+            'SLC46A1_FOLATE':['SLC46A1','hereditary folate malabsorption','proton-coupled folate transporter'],
+            'IRAK4_MYD88':['IRAK4','MYD88','absent fever','toll-like receptor signaling'],
+            'GPIHBP1_LPL':['GPIHBP1','chylomicronemia','lipoprotein lipase transport'],
+            'CA5A':['CA5A','carbonic anhydrase VA','hyperammonemia due to carbonic anhydrase'],
+            'SLC25A15_HHH':['SLC25A15','HHH syndrome','ornithine transporter 1'],
+            'SLC19A2_TRMA':['SLC19A2','thiamine-responsive megaloblastic anemia','TRMA'],
+            'LRBA_CTLA4':['LRBA','CTLA-4 recycling','CTLA4 recycling'],
+            'MOGS_CDG':['MOGS','glucosidase I deficiency','N-linked glycan trimming']
           }
           c=sqlite3.connect('usmle/data/usmle-step1.db')
           rows=c.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
@@ -53,6 +62,8 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add usmle/audit/Q1616_Q1620_REPLACEMENT_CONSTRUCT_SCREEN.json
-          git commit -m 'usmle: screen replacement constructs for Q1616-Q1620'
+          git commit -m 'usmle: expand replacement construct screen for Q1616-Q1620'
           git pull --rebase origin main
           git push
+
+# expanded-prospects-2
