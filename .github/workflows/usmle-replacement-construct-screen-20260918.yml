@@ -1,0 +1,58 @@
+name: USMLE Replacement Construct Screen 20260918
+on:
+  push:
+    paths: ['.github/workflows/usmle-replacement-construct-screen-20260918.yml']
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Screen rare mechanism prospects
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,sqlite3
+          from pathlib import Path
+          groups={
+            'PEX7_PTS2_RCDP':['PEX7','PTS2','rhizomelic chondrodysplasia','plasmalogen'],
+            'AP3B1_HPS2':['AP3B1','Hermansky-Pudlak type 2','AP-3 complex','dense granule'],
+            'CLDN16_19_TAL':['CLDN16','CLDN19','paracellular magnesium','familial hypomagnesemia with hypercalciuria'],
+            'SEC23B_CDAII':['SEC23B','congenital dyserythropoietic anemia type II','COPII','ER-to-Golgi'],
+            'GRA_CYP11B_CHIMERA':['glucocorticoid-remediable aldosteronism','CYP11B1','CYP11B2','chimeric gene'],
+            'SLC52A2_RIBOFLAVIN':['SLC52A2','riboflavin transporter deficiency','Brown-Vialetto'],
+            'MAGT1_XMEN':['MAGT1','XMEN','NKG2D'],
+            'LAMP2_DANON':['LAMP2','Danon disease','autophagic vacuole'],
+            'UNC13D_MUNC13_4':['UNC13D','MUNC13-4','cytotoxic granule exocytosis'],
+            'SLC25A13_CITRIN':['SLC25A13','citrin deficiency','aspartate-glutamate carrier']
+          }
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          rows=c.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          assert len(rows)==1615
+          out={}
+          for name,terms in groups.items():
+              hits=[]
+              for cid,pj in rows:
+                  low=pj.casefold()
+                  matched=[t for t in terms if t.casefold() in low]
+                  if matched:
+                      d=json.loads(pj); it=d.get('item',{})
+                      hits.append({'candidate_id':cid,'matched_terms':matched,'vignette':it.get('vignette'),'lead_in':it.get('lead_in'),'tested_construct':it.get('tested_construct')})
+              out[name]={'terms':terms,'hit_count':len(hits),'hits':hits[:20]}
+          c.close()
+          Path('usmle/audit/Q1616_Q1620_REPLACEMENT_CONSTRUCT_SCREEN.json').write_text(json.dumps({'canonical_count':1615,'prospects':out},indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Persist screen
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1616_Q1620_REPLACEMENT_CONSTRUCT_SCREEN.json
+          git commit -m 'usmle: screen replacement constructs for Q1616-Q1620'
+          git pull --rebase origin main
+          git push
