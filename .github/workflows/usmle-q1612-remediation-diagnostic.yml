@@ -1,0 +1,65 @@
+name: USMLE Q1612 Remediation Diagnostic
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1612-remediation-diagnostic.yml']
+permissions:
+  contents: write
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DB_BLOB: 47b3438ed987050198a9de7f0d7ed72ef1a80b78
+      CAND_PATH: /tmp/Q1612_remediation_candidate.json
+      START_Q: '1612'
+      END_Q: '1612'
+      FREEZE_DATE: '2026-09-18'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Diagnose bind build freeze
+        run: |
+          set +e
+          mkdir -p usmle/audit
+          ACTUAL_DB="$(git hash-object usmle/data/usmle-step1.db)"
+          if [ "$ACTUAL_DB" = "$DB_BLOB" ]; then BIND=PASS; else BIND=FAIL; fi
+          python - <<'PY' >/tmp/build.log 2>&1
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,'usmle')
+          import q1612_item
+          from author_q1611_q1615 import make_general
+          item=q1612_item.build(make_general)
+          b={'batch_id':'Q1612-DIAGNOSTIC','created_at':'2026-09-18','status':'DIAGNOSTIC','production_import_ready':False,'candidate_count':1,'canonical_count_before':1615,'canonical_count_after':1615,'canonical_db_blob':'47b3438ed987050198a9de7f0d7ed72ef1a80b78','items':[item]}
+          Path('/tmp/Q1612_remediation_candidate.json').write_text(json.dumps(b,indent=2,ensure_ascii=False)+'\n')
+          PY
+          BUILD_RC=$?
+          python usmle/freeze_candidate_generic.py >/tmp/freeze.log 2>&1
+          FREEZE_RC=$?
+          export ACTUAL_DB BIND BUILD_RC FREEZE_RC
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          def tail(p,n=12000):
+              q=Path(p)
+              return q.read_text(errors='replace')[-n:] if q.exists() else ''
+          cand=Path(os.environ['CAND_PATH'])
+          c={}
+          if cand.exists():
+              try:
+                  b=json.loads(cand.read_text())
+                  s=b['items'][0]['sources'][0]
+                  c={'source_url':s.get('url'),'section_locator':s.get('section_locator'),'source_page_sha256':s.get('source_page_sha256'),'cited_section_sha256':s.get('cited_section_sha256'),'cited_locator_component_count':s.get('cited_locator_component_count'),'hash_status':s.get('hash_status')}
+              except Exception as e:
+                  c={'candidate_parse_error':repr(e)}
+          out={'status':'DIAGNOSTIC','db_expected':os.environ['DB_BLOB'],'db_actual':os.environ['ACTUAL_DB'],'bind':os.environ['BIND'],'build_rc':int(os.environ['BUILD_RC']),'freeze_rc':int(os.environ['FREEZE_RC']),'build_log':tail('/tmp/build.log'),'freeze_log':tail('/tmp/freeze.log'),'candidate_source':c}
+          Path('usmle/audit/Q1612_REMEDIATION_DIAGNOSTIC_20260918.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1612_REMEDIATION_DIAGNOSTIC_20260918.json
+          git commit -m 'usmle: diagnose Q1612 remediation freeze'
+          git pull --rebase origin main
+          git push
