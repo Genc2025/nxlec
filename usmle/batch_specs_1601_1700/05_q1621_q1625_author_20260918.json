@@ -1,0 +1,753 @@
+{
+  "batch_id": "Q1621-Q1625-20260918",
+  "created_at": "2026-09-18",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1620,
+  "canonical_count_after": 1620,
+  "canonical_db_blob": "df5fa59389666a1e5f54c67ea42fcab8280a9133",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective construct screening against the authoritative canonical Q0001-Q1620 production bank before authoring and finalization.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-18: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1621,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Hematology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 7-year-old girl has chronic macrocytic anemia with ring sideroblasts, insulin-requiring diabetes mellitus, and progressive sensorineural hearing loss. Serum vitamin B12 and folate concentrations are normal. Her anemia improves substantially after pharmacologic-dose thiamine. Genetic testing identifies biallelic loss-of-function variants in SLC19A2.",
+        "lead_in": "Which cellular process is most directly impaired in this disorder?",
+        "options": {
+          "A": "High-affinity transport of thiamine across the plasma membrane into susceptible cells",
+          "B": "Conversion of thiamine to thiamine pyrophosphate by thiamine pyrophosphokinase",
+          "C": "Transport of thiamine pyrophosphate across the inner mitochondrial membrane",
+          "D": "SLC19A3-mediated high-affinity thiamine transport across the plasma membrane",
+          "E": "Binding of thiamine pyrophosphate to the E1 subunit of pyruvate dehydrogenase"
+        },
+        "intended_key": "A",
+        "tested_construct": "SLC19A2 encodes the high-affinity thiamine transporter THTR1; loss reduces cellular thiamine uptake",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC19A2 encodes thiamine transporter 1, a high-affinity plasma-membrane transporter. Loss of this transport system lowers intracellular thiamine in susceptible tissues, producing thiamine-responsive megaloblastic anemia syndrome with the characteristic anemia, diabetes, and sensorineural deafness triad.",
+        "distractor_explanations": {
+          "A": "Correct. SLC19A2 loss impairs high-affinity cellular thiamine uptake through THTR1.",
+          "B": "Thiamine pyrophosphokinase acts after thiamine has entered the cell and is not encoded by SLC19A2.",
+          "C": "Mitochondrial thiamine-pyrophosphate transport is a distinct step and does not explain the SLC19A2 transport phenotype.",
+          "D": "SLC19A3 encodes a second high-affinity thiamine transporter, THTR2; it is a real alternative transport pathway but is not the mutated transporter in this patient.",
+          "E": "Binding of thiamine pyrophosphate to thiamine-dependent enzymes can be secondarily limited when intracellular thiamine is low, but it is not the primary SLC19A2 defect."
+        },
+        "educational_objective": "Recognize thiamine-responsive megaloblastic anemia syndrome as loss of SLC19A2/THTR1-mediated high-affinity cellular thiamine transport."
+      },
+      "sources": [
+        {
+          "source_id": "Q1621-GENEREVIEWS",
+          "title": "Thiamine-Responsive Megaloblastic Anemia Syndrome - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1282/",
+          "source_section_date": "2022-07-28",
+          "date_basis": "GeneReviews reports Last Update: 2022-07-28; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "Molecular Pathogenesis",
+          "source_page_sha256": "fea8158bc1333936d634bf96737427716c02c7e8652e8898e71e0d1b6869c277",
+          "cited_section_sha256": "ab6af785fc851e53fad7f3468ae8459d7a9d799953b14432190dd2e9b07f4d4b",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1621-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. SLC19A2 loss impairs high-affinity cellular thiamine uptake through THTR1.",
+          "source_ids": [
+            "Q1621-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1621-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Thiamine pyrophosphokinase acts after thiamine has entered the cell and is not encoded by SLC19A2.",
+          "source_ids": [
+            "Q1621-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1621-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Mitochondrial thiamine-pyrophosphate transport is a distinct step and does not explain the SLC19A2 transport phenotype.",
+          "source_ids": [
+            "Q1621-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1621-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "SLC19A3 encodes a second high-affinity thiamine transporter, THTR2; it is a real alternative transport pathway but is not the mutated transporter in this patient.",
+          "source_ids": [
+            "Q1621-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1621-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Binding of thiamine pyrophosphate to thiamine-dependent enzymes can be secondarily limited when intracellular thiamine is low, but it is not the primary SLC19A2 defect.",
+          "source_ids": [
+            "Q1621-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "Molecular Pathogenesis",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "SLC19A3/THTR2 is the strongest alternative because it is a second real high-affinity thiamine transporter. GeneReviews distinguishes the two transporters and notes tissue-specific expression; the SLC19A2 genotype and TRMA phenotype specifically identify THTR1 loss.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1622,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Metabolism"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 2-year-old boy has developmental regression, chronic diarrhea, recurrent petechiae and acrocyanosis, and episodic metabolic acidosis. Urine contains markedly increased ethylmalonic acid, and plasma C4 and C5 acylcarnitines are elevated. Muscle biopsy shows reduced cytochrome c oxidase activity. Genetic testing identifies biallelic loss-of-function variants in ETHE1.",
+        "lead_in": "Which mechanism most directly explains the respiratory-chain abnormality?",
+        "options": {
+          "A": "Failure to insert copper into cytochrome c oxidase, preventing assembly of complex IV",
+          "B": "Failure of mitochondrial sulfide oxidation, causing hydrogen sulfide accumulation that secondarily inhibits cytochrome c oxidase",
+          "C": "Defective transfer of electrons from succinate to ubiquinone at respiratory-chain complex II",
+          "D": "Failure to synthesize mitochondrial-encoded cytochrome c oxidase subunits because of mitochondrial DNA depletion",
+          "E": "Failure of coenzyme Q biosynthesis, limiting electron transfer from complexes I and II to complex III"
+        },
+        "intended_key": "B",
+        "tested_construct": "ETHE1 is a mitochondrial sulfur dioxygenase; its loss causes sulfide accumulation that inhibits cytochrome c oxidase",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "ETHE1 participates in mitochondrial sulfide detoxification as a sulfur dioxygenase. ETHE1 deficiency causes hydrogen sulfide to accumulate. Sulfide is a potent inhibitor of cytochrome c oxidase and short-chain fatty-acid oxidation, accounting for the secondary complex IV defect and characteristic biochemical phenotype of ethylmalonic encephalopathy.",
+        "distractor_explanations": {
+          "A": "Copper-delivery defects can cause primary complex IV deficiency but do not explain the ETHE1 genotype, ethylmalonic aciduria, or sulfide toxicity.",
+          "B": "Correct. Loss of ETHE1 blocks mitochondrial sulfide oxidation; accumulated hydrogen sulfide inhibits cytochrome c oxidase.",
+          "C": "Complex II dysfunction impairs succinate oxidation and electron transfer to ubiquinone but is not the ETHE1-dependent lesion.",
+          "D": "Mitochondrial DNA depletion can reduce respiratory-chain complexes containing mtDNA-encoded subunits, but ETHE1 deficiency causes a toxic-metabolite-mediated secondary complex IV defect.",
+          "E": "Primary coenzyme Q deficiency impairs electron transfer from complexes I and II to complex III, a real respiratory-chain mechanism that does not explain the sulfide accumulation caused by ETHE1 loss."
+        },
+        "educational_objective": "Link ETHE1 deficiency to impaired mitochondrial sulfide detoxification and secondary inhibition of cytochrome c oxidase by accumulated hydrogen sulfide."
+      },
+      "sources": [
+        {
+          "source_id": "Q1622-PUBMED-PRIMARY",
+          "title": "Loss of ETHE1, a mitochondrial dioxygenase, causes fatal sulfide toxicity in ethylmalonic encephalopathy",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19136963/",
+          "source_section_date": "2009-01-11",
+          "date_basis": "PubMed reports Epub 2009-01-11; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "ETHE1 is a mitochondrial sulfur dioxygenase involved in catabolism of sulfide that accumulates to toxic levels in ethylmalonic encephalopathy",
+          "source_page_sha256": "433b65d60e33a92b8d86f650ace1284131a7dc5ee3a74bc8fd6579645e258e4d",
+          "cited_section_sha256": "6d15dd9eb737701b8daac822100e2eeaeb739dddf9878ca1d2b4e9ab055cd84e",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1622-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Copper-delivery defects can cause primary complex IV deficiency but do not explain the ETHE1 genotype, ethylmalonic aciduria, or sulfide toxicity.",
+          "source_ids": [
+            "Q1622-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ETHE1 is a mitochondrial sulfur dioxygenase involved in catabolism of sulfide that accumulates to toxic levels in ethylmalonic encephalopathy",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1622-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. Loss of ETHE1 blocks mitochondrial sulfide oxidation; accumulated hydrogen sulfide inhibits cytochrome c oxidase.",
+          "source_ids": [
+            "Q1622-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "ETHE1 is a mitochondrial sulfur dioxygenase involved in catabolism of sulfide that accumulates to toxic levels in ethylmalonic encephalopathy",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1622-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Complex II dysfunction impairs succinate oxidation and electron transfer to ubiquinone but is not the ETHE1-dependent lesion.",
+          "source_ids": [
+            "Q1622-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ETHE1 is a mitochondrial sulfur dioxygenase involved in catabolism of sulfide that accumulates to toxic levels in ethylmalonic encephalopathy",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1622-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Mitochondrial DNA depletion can reduce respiratory-chain complexes containing mtDNA-encoded subunits, but ETHE1 deficiency causes a toxic-metabolite-mediated secondary complex IV defect.",
+          "source_ids": [
+            "Q1622-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ETHE1 is a mitochondrial sulfur dioxygenase involved in catabolism of sulfide that accumulates to toxic levels in ethylmalonic encephalopathy",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1622-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Primary coenzyme Q deficiency impairs electron transfer from complexes I and II to complex III, a real respiratory-chain mechanism that does not explain the sulfide accumulation caused by ETHE1 loss.",
+          "source_ids": [
+            "Q1622-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "ETHE1 is a mitochondrial sulfur dioxygenase involved in catabolism of sulfide that accumulates to toxic levels in ethylmalonic encephalopathy",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "A primary complex-IV assembly defect is a strong alternative because muscle cytochrome c oxidase activity is low. The ETHE1 genotype plus ethylmalonic biochemical pattern instead identifies secondary COX inhibition from sulfide accumulation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1623,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An infant has severe developmental delay, seizures, short limbs, hearing loss, and abnormal transferrin glycosylation consistent with a type II congenital disorder of glycosylation. Serum manganese is below the limit of detection. Genetic testing identifies biallelic pathogenic variants in SLC39A8, which encodes the ZIP8 metal transporter.",
+        "lead_in": "Reduced activity of which enzyme most directly links the trace-element abnormality to the glycosylation defect?",
+        "options": {
+          "A": "Dolichol-phosphate mannosyltransferase in the endoplasmic reticulum",
+          "B": "Mannosyl-oligosaccharide glucosidase I in the endoplasmic reticulum",
+          "C": "Beta-1,4-galactosyltransferase in the Golgi apparatus",
+          "D": "N-acetylglucosaminyl-1-phosphotransferase in the cis-Golgi",
+          "E": "UDP-glucose:glycoprotein glucosyltransferase in the endoplasmic reticulum"
+        },
+        "intended_key": "C",
+        "tested_construct": "SLC39A8 deficiency causes manganese deficiency, reducing activity of manganese-dependent Golgi beta-1,4-galactosyltransferase",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "ZIP8/SLC39A8 mediates manganese uptake. Severe loss of transporter function can produce profound manganese deficiency. Manganese is required by several enzymes, and impaired activity of manganese-dependent Golgi beta-1,4-galactosyltransferase causes defective galactosylation and a type II congenital disorder of glycosylation.",
+        "distractor_explanations": {
+          "A": "Dolichol-phosphate mannosyltransferase participates in assembly of the lipid-linked oligosaccharide precursor but is not the manganese-dependent enzyme highlighted in SLC39A8 deficiency.",
+          "B": "MOGS/glucosidase I trims glucose from N-linked glycans in the endoplasmic reticulum and is not the principal manganese-dependent lesion in this disorder.",
+          "C": "Correct. Manganese deficiency from SLC39A8 loss impairs manganese-dependent beta-1,4-galactosyltransferase and therefore Golgi glycan processing.",
+          "D": "N-acetylglucosaminyl-1-phosphotransferase creates the mannose-6-phosphate targeting signal for lysosomal enzymes; this is a distinct Golgi pathway.",
+          "E": "UGGT participates in ER glycoprotein quality control and is not the manganese-dependent galactosylation step disrupted by SLC39A8 deficiency."
+        },
+        "educational_objective": "Recognize SLC39A8 deficiency as impaired cellular manganese uptake that causes secondary dysfunction of manganese-dependent glycosyltransferases, especially Golgi beta-1,4-galactosyltransferase."
+      },
+      "sources": [
+        {
+          "source_id": "Q1623-PUBMED-PRIMARY",
+          "title": "SLC39A8 Deficiency: A Disorder of Manganese Transport and Glycosylation",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26637979/",
+          "source_section_date": "2015-12-03",
+          "date_basis": "PubMed reports publication 2015-12-03; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "manganese-dependent enzymes, most notably",
+          "source_page_sha256": "f0677753f1ba51e4ffbbef7f5899132bb847581f5c175717952bf7a402b69198",
+          "cited_section_sha256": "802dc0eef2a2efe6c0e7c6f3324c64cd1f2cb65640db84fc03b585337d59a32a",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1623-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Dolichol-phosphate mannosyltransferase participates in assembly of the lipid-linked oligosaccharide precursor but is not the manganese-dependent enzyme highlighted in SLC39A8 deficiency.",
+          "source_ids": [
+            "Q1623-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "manganese-dependent enzymes, most notably",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1623-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "MOGS/glucosidase I trims glucose from N-linked glycans in the endoplasmic reticulum and is not the principal manganese-dependent lesion in this disorder.",
+          "source_ids": [
+            "Q1623-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "manganese-dependent enzymes, most notably",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1623-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. Manganese deficiency from SLC39A8 loss impairs manganese-dependent beta-1,4-galactosyltransferase and therefore Golgi glycan processing.",
+          "source_ids": [
+            "Q1623-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "manganese-dependent enzymes, most notably",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1623-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "N-acetylglucosaminyl-1-phosphotransferase creates the mannose-6-phosphate targeting signal for lysosomal enzymes; this is a distinct Golgi pathway.",
+          "source_ids": [
+            "Q1623-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "manganese-dependent enzymes, most notably",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1623-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "UGGT participates in ER glycoprotein quality control and is not the manganese-dependent galactosylation step disrupted by SLC39A8 deficiency.",
+          "source_ids": [
+            "Q1623-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "manganese-dependent enzymes, most notably",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Glucosidase I is a plausible glycosylation-pathway alternative, but it catalyzes ER glucose trimming. The trace-element clue points to manganese-dependent Golgi beta-1,4-galactosyltransferase.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1624,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A newborn has bilateral congenital cataracts, hypertrophic cardiomyopathy, skeletal myopathy, and persistent lactic acidosis. Genetic testing identifies biallelic loss-of-function variants in AGK. Patient fibroblasts contain a destabilized inner-mitochondrial-membrane protein-import complex and reduced abundance of several mitochondrial carrier proteins.",
+        "lead_in": "Which cellular function is most directly impaired?",
+        "options": {
+          "A": "Recognition of N-terminal mitochondrial targeting sequences by the TOM20 receptor",
+          "B": "Cleavage of mitochondrial targeting peptides by the matrix processing peptidase",
+          "C": "Import of presequence-containing proteins into the mitochondrial matrix through the TIM23 complex",
+          "D": "TIM22-dependent import and assembly of multipass mitochondrial carrier proteins into the inner membrane",
+          "E": "TAFAZZIN-dependent remodeling of cardiolipin acyl chains within the inner mitochondrial membrane"
+        },
+        "intended_key": "D",
+        "tested_construct": "AGK is a kinase-independent subunit of the TIM22 complex required for import and assembly of mitochondrial carrier proteins",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Although AGK can function as a lipid kinase, the Sengers-syndrome mechanism relevant here is kinase independent: AGK is a component of the mitochondrial TIM22 import complex. Loss destabilizes TIM22 and impairs import and assembly of carrier-family substrates in the inner mitochondrial membrane.",
+        "distractor_explanations": {
+          "A": "TOM20 participates in initial recognition of many presequence-containing mitochondrial proteins at the outer membrane, but it is not the AGK-dependent defect described here.",
+          "B": "Matrix processing peptidase removes targeting presequences after import; AGK deficiency instead disrupts the TIM22 carrier-import machinery.",
+          "C": "TIM23 imports many presequence-containing proteins into the matrix or inner membrane, whereas AGK is specifically a subunit of the distinct TIM22 carrier pathway.",
+          "D": "Correct. AGK maintains TIM22-complex integrity and facilitates import and assembly of mitochondrial carrier proteins.",
+          "E": "TAFAZZIN deficiency causes Barth syndrome by defective cardiolipin remodeling; that is mechanistically distinct from AGK/TIM22 dysfunction."
+        },
+        "educational_objective": "Recognize Sengers syndrome due to AGK deficiency as a mitochondrial carrier-import disorder caused by disruption of the TIM22 complex, independent of AGK lipid-kinase activity."
+      },
+      "sources": [
+        {
+          "source_id": "Q1624-PUBMED-PRIMARY",
+          "title": "Sengers Syndrome-Associated Mitochondrial Acylglycerol Kinase Is a Subunit of the Human TIM22 Protein Import Complex",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28712726/",
+          "source_section_date": "2017-07-14",
+          "date_basis": "PubMed reports Epub 2017-07-14; live record reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "AGK functions in a kinase-independent manner to maintain the integrity of the TIM22 complex, where it facilitates the import and assembly of mitochondrial carrier proteins",
+          "source_page_sha256": "cab2828c2927f691b0bf105752570551c269172033a09fb1a442553f95fa575d",
+          "cited_section_sha256": "713c89691d88a68656084f5597aff2da158064b02e1ea77c6e3aa449029c23b1",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1624-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "TOM20 participates in initial recognition of many presequence-containing mitochondrial proteins at the outer membrane, but it is not the AGK-dependent defect described here.",
+          "source_ids": [
+            "Q1624-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "AGK functions in a kinase-independent manner to maintain the integrity of the TIM22 complex, where it facilitates the import and assembly of mitochondrial carrier proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1624-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Matrix processing peptidase removes targeting presequences after import; AGK deficiency instead disrupts the TIM22 carrier-import machinery.",
+          "source_ids": [
+            "Q1624-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "AGK functions in a kinase-independent manner to maintain the integrity of the TIM22 complex, where it facilitates the import and assembly of mitochondrial carrier proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1624-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "TIM23 imports many presequence-containing proteins into the matrix or inner membrane, whereas AGK is specifically a subunit of the distinct TIM22 carrier pathway.",
+          "source_ids": [
+            "Q1624-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "AGK functions in a kinase-independent manner to maintain the integrity of the TIM22 complex, where it facilitates the import and assembly of mitochondrial carrier proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1624-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. AGK maintains TIM22-complex integrity and facilitates import and assembly of mitochondrial carrier proteins.",
+          "source_ids": [
+            "Q1624-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "AGK functions in a kinase-independent manner to maintain the integrity of the TIM22 complex, where it facilitates the import and assembly of mitochondrial carrier proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1624-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "TAFAZZIN deficiency causes Barth syndrome by defective cardiolipin remodeling; that is mechanistically distinct from AGK/TIM22 dysfunction.",
+          "source_ids": [
+            "Q1624-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "AGK functions in a kinase-independent manner to maintain the integrity of the TIM22 complex, where it facilitates the import and assembly of mitochondrial carrier proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "TIM23 is the strongest same-organelle alternative because it is another inner-membrane translocase. AGK, however, is a defined subunit of TIM22, the pathway for mitochondrial carrier proteins.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1625,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neurology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An 8-year-old boy has progressive dystonia, dysarthria, rigidity, and pigmentary retinal degeneration. T2-weighted MRI shows the characteristic eye-of-the-tiger appearance of the globus pallidus. Genetic testing identifies biallelic loss-of-function variants in PANK2.",
+        "lead_in": "Which reaction is catalyzed by the deficient enzyme?",
+        "options": {
+          "A": "Condensation of 4-prime-phosphopantothenate with cysteine to form 4-prime-phosphopantothenoylcysteine",
+          "B": "Decarboxylation of phosphopantothenoylcysteine to phosphopantetheine",
+          "C": "Adenylylation of phosphopantetheine to dephospho-coenzyme A",
+          "D": "Phosphorylation of dephospho-coenzyme A to coenzyme A",
+          "E": "ATP-dependent phosphorylation of pantothenate to 4-prime-phosphopantothenate"
+        },
+        "intended_key": "E",
+        "tested_construct": "PANK2 is a pantothenate kinase that phosphorylates pantothenate at the entry step of coenzyme A biosynthesis",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "PANK2 encodes a functional pantothenate kinase. Pantothenate kinase catalyzes ATP-dependent phosphorylation of pantothenate (vitamin B5), generating 4-prime-phosphopantothenate early in the coenzyme A biosynthetic pathway. Loss of PANK2 causes pantothenate kinase-associated neurodegeneration.",
+        "distractor_explanations": {
+          "A": "Phosphopantothenoylcysteine synthetase catalyzes condensation of 4-prime-phosphopantothenate with cysteine after the pantothenate-kinase step; it is not PANK2.",
+          "B": "Phosphopantothenoylcysteine decarboxylase catalyzes a later step in coenzyme A synthesis.",
+          "C": "Phosphopantetheine adenylyltransferase catalyzes adenylylation later in the pathway, not the PANK2 reaction.",
+          "D": "Dephospho-CoA kinase catalyzes the terminal phosphorylation step to form CoA; PANK2 acts much earlier.",
+          "E": "Correct. PANK2 phosphorylates pantothenate using ATP, producing 4-prime-phosphopantothenate in coenzyme A biosynthesis."
+        },
+        "educational_objective": "Link PANK2-associated neurodegeneration to loss of pantothenate kinase activity, which normally catalyzes ATP-dependent phosphorylation of vitamin B5 in coenzyme A biosynthesis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1625-GENEREVIEWS",
+          "title": "Pantothenate Kinase-Associated Neurodegeneration - GeneReviews® - NCBI Bookshelf",
+          "agency": "National Center for Biotechnology Information (NCBI), National Library of Medicine, NIH",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK1490/",
+          "source_section_date": "2017-08-03",
+          "date_basis": "GeneReviews reports Last Update: 2017-08-03; live NCBI Bookshelf page reverified 2026-09-18.",
+          "retrieved_at": "2026-09-18",
+          "section_locator": "catalyzing the phosphorylation of pantothenate",
+          "source_page_sha256": "4e03ce52019f576f9d840ee07fec44d5ecb5248e244938fc0db9f5094fdbe6e9",
+          "cited_section_sha256": "5fde1c21a01d5b8290ff6ccb44150dcab2b85aaef5ba2ff0c6470ee6fd303643",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-18",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1625-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Phosphopantothenoylcysteine synthetase catalyzes condensation of 4-prime-phosphopantothenate with cysteine after the pantothenate-kinase step; it is not PANK2.",
+          "source_ids": [
+            "Q1625-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzing the phosphorylation of pantothenate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1625-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Phosphopantothenoylcysteine decarboxylase catalyzes a later step in coenzyme A synthesis.",
+          "source_ids": [
+            "Q1625-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzing the phosphorylation of pantothenate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1625-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Phosphopantetheine adenylyltransferase catalyzes adenylylation later in the pathway, not the PANK2 reaction.",
+          "source_ids": [
+            "Q1625-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzing the phosphorylation of pantothenate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1625-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Dephospho-CoA kinase catalyzes the terminal phosphorylation step to form CoA; PANK2 acts much earlier.",
+          "source_ids": [
+            "Q1625-GENEREVIEWS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzing the phosphorylation of pantothenate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1625-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. PANK2 phosphorylates pantothenate using ATP, producing 4-prime-phosphopantothenate in coenzyme A biosynthesis.",
+          "source_ids": [
+            "Q1625-GENEREVIEWS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "catalyzing the phosphorylation of pantothenate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and the stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "The terminal dephospho-CoA kinase step is a strong pathway-level alternative because it is also an ATP-dependent phosphorylation in CoA synthesis. PANK2, however, is pantothenate kinase and phosphorylates pantothenate near the beginning of the pathway, not dephospho-CoA.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-18; source-specific update dates are recorded only when explicitly reported.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-18.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
