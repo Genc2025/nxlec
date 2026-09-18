@@ -1,0 +1,125 @@
+name: USMLE Q1621-Q1625 Finalize
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1621-q1625-finalize.yml']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CAND_PATH: usmle/batch_specs_1601_1700/05_q1621_q1625_author_20260918.json
+      CAND_BLOB: 0deac71ea25e4bb372fe225dc845fb34f15475b5
+      OUT_PATH: usmle/audit/Q1621_Q1625_ZERO_TRUST.json
+      AUD_BLOB: 29091e142c51ad323e15d531513eb34a172bd326
+      TOP_PATH: usmle/audit/Q1621_Q1625_TOP_MATCH_INSPECTION.json
+      TOP_BLOB: 616866a1729e4d9b13168725e53738c3cdb3240c
+      SEM_PATH: usmle/audit/Q1621_Q1625_SEMANTIC_DUPLICATE_REVIEW_20260918.json
+      SEM_BLOB: 3732b7931a1d4de7b7133d04d28b537f2e0bf5b8
+      MAN_OUT: usmle/audit/Q1621_Q1625_FINAL_QA_PASS.json
+      DB_BLOB: df5fa59389666a1e5f54c67ea42fcab8280a9133
+      CANONICAL_COUNT: '1620'
+      START_Q: '1621'
+      END_Q: '1625'
+      AUDIT_DATE: '20260918'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+
+      - name: Bind all pre-final evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$OUT_PATH")" = "$AUD_BLOB"
+          test "$(git hash-object "$TOP_PATH")" = "$TOP_BLOB"
+          test "$(git hash-object "$SEM_PATH")" = "$SEM_BLOB"
+          python - <<'PY'
+          import json,os,re
+          st=json.load(open('usmle/state/step2_final_q0001_q1620.json'))
+          prev=json.load(open('usmle/audit/Q1616_Q1620_REMEDIATION_FINAL_QA_PASS_20260918.json'))
+          b=json.load(open(os.environ['CAND_PATH']))
+          r=json.load(open(os.environ['OUT_PATH']))
+          top=json.load(open(os.environ['TOP_PATH']))
+          sem=json.load(open(os.environ['SEM_PATH']))
+          assert st['item_count']==st['step2_final_review_count']==1620
+          assert st['contiguous_q0001_q1620'] is True and st['sqlite_integrity']=='ok'
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          assert st['production_import_status']=='PASS_WITH_Q1616_Q1620_REMEDIATION'
+          assert st['prior_q1612_remediation_preserved'] is True
+          assert prev['status']=='FINAL_QA_PASS' and prev['post_db_blob']==os.environ['DB_BLOB']
+          assert prev['unresolved_defects']==[] and prev['suggested_changes']==[]
+
+          assert b['canonical_db_blob']==os.environ['DB_BLOB']
+          assert b['canonical_count_before']==1620 and b['candidate_count']==5
+          assert ''.join(x['item']['intended_key'] for x in b['items'])=='ABCDE'
+          assert b['technical_integrity']['source_hashes_complete'] is True
+
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+          assert r['candidate_blob']==os.environ['CAND_BLOB']
+          assert r['canonical_db_blob']==os.environ['DB_BLOB']
+          assert r['canonical_count']==r['canonical_review_count']==1620
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' and x['canonical_max_jaccard']<0.45 for x in r['item_reports'])
+
+          assert top['canonical_db_blob']==os.environ['DB_BLOB']
+          assert top['candidate_blob']==os.environ['CAND_BLOB']
+          assert len(top['matches'])==5
+
+          assert sem['status']=='PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION'
+          assert sem['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert sem['canonical_db_blob']==os.environ['DB_BLOB']
+          assert sem['zero_trust_audit_blob']==os.environ['AUD_BLOB']
+          assert sem['top_match_report_blob']==os.environ['TOP_BLOB']
+          assert sem['second_pass']=='PASS'
+          assert sem['material_duplicates']==[] and sem['unresolved_defects']==[]
+          assert sem['import_gate']=='PASS'
+          assert len(sem['comparisons'])==5 and all(x['decision']=='DISTINCT' for x in sem['comparisons'])
+
+          byq={x['num']:x for x in b['items']}
+          assert byq[1621]['author_qa']['second_answer_attack']['option']=='D'
+          assert 'SLC19A3-mediated' in byq[1621]['item']['options']['D']
+          assert 'coenzyme Q biosynthesis' in byq[1622]['item']['options']['E']
+          assert byq[1623]['item']['intended_key']=='C'
+          assert byq[1624]['item']['intended_key']=='D'
+          assert byq[1625]['item']['options']['A'].startswith('Condensation of 4-prime-phosphopantothenate with cysteine')
+          assert byq[1625]['item']['intended_key']=='E'
+          assert 'ncjmm' not in json.dumps(b).casefold()
+          PY
+
+      - name: Create final manifest
+        run: |
+          set -euo pipefail
+          python usmle/finalize_candidate_current.py
+          python - <<'PY'
+          import json,os
+          p=os.environ['MAN_OUT']
+          m=json.load(open(p))
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert m['authoritative_db_blob']==os.environ['DB_BLOB']
+          assert m['authoritative_db_final_count']==m['authoritative_review_count']==1620
+          assert m['production_import_ready'] is True
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          m['zero_trust_audit_blob']=os.environ['AUD_BLOB']
+          m['top_match_inspection_blob']=os.environ['TOP_BLOB']
+          m['semantic_duplicate_review_blob']=os.environ['SEM_BLOB']
+          m['manual_adversarial_second_pass']='PASS'
+          m['prior_q1612_remediation_preserved']=True
+          m['prior_q1616_q1620_remediation_preserved']=True
+          open(p,'w').write(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+          PY
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+
+      - name: Persist FINAL QA
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$MAN_OUT"
+          git commit -m 'usmle: finalize Q1621-Q1625 after manual adversarial review'
+          git pull --rebase origin main
+          git push
