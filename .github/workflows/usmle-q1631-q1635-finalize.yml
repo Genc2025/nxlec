@@ -10,13 +10,13 @@ jobs:
     timeout-minutes: 20
     env:
       CAND_PATH: usmle/batch_specs_1601_1700/07_q1631_q1635_author_20260919.json
-      CAND_BLOB: acc545b9cf6fc4998a1fb1a20e001abd9adcfa2f
+      CAND_BLOB: 1b179f416daf99f2e7ca475cb9416c4badae34f6
       OUT_PATH: usmle/audit/Q1631_Q1635_ZERO_TRUST.json
-      AUD_BLOB: bde588422353d22a30e4cac39e566e151fe21498
+      AUD_BLOB: 4492800e54e68f2af2d05c7cdddef6488eecd9ce
       TOP_PATH: usmle/audit/Q1631_Q1635_TOP_MATCH_INSPECTION.json
-      TOP_BLOB: f91844e266c15528e780ac20e5fab07f17b7bec8
+      TOP_BLOB: 7383e1c572f9446c4836cd36e3096bd3378fba98
       SEM_PATH: usmle/audit/Q1631_Q1635_SEMANTIC_DUPLICATE_REVIEW_20260919.json
-      SEM_BLOB: 01e61da93136a6e78c873eed6bffeb6fbb1e00f2
+      SEM_BLOB: 081631f6b55a056e5b91c48768ddee54450f73d8
       MAN_OUT: usmle/audit/Q1631_Q1635_FINAL_QA_PASS.json
       DB_BLOB: 0676129cbcfa9cab819708389e22d75062f837d6
       CANONICAL_COUNT: '1630'
@@ -115,3 +115,5 @@ jobs:
           git push
 
 # retrigger-after-stage-persisted-20260919
+
+# rebind-corrected-batch-20260919
