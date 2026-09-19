@@ -1,0 +1,115 @@
+name: USMLE Q1631-Q1635 Finalize
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1631-q1635-finalize.yml']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CAND_PATH: usmle/batch_specs_1601_1700/07_q1631_q1635_author_20260919.json
+      CAND_BLOB: acc545b9cf6fc4998a1fb1a20e001abd9adcfa2f
+      OUT_PATH: usmle/audit/Q1631_Q1635_ZERO_TRUST.json
+      AUD_BLOB: bde588422353d22a30e4cac39e566e151fe21498
+      TOP_PATH: usmle/audit/Q1631_Q1635_TOP_MATCH_INSPECTION.json
+      TOP_BLOB: f91844e266c15528e780ac20e5fab07f17b7bec8
+      SEM_PATH: usmle/audit/Q1631_Q1635_SEMANTIC_DUPLICATE_REVIEW_20260919.json
+      SEM_BLOB: 01e61da93136a6e78c873eed6bffeb6fbb1e00f2
+      MAN_OUT: usmle/audit/Q1631_Q1635_FINAL_QA_PASS.json
+      DB_BLOB: 0676129cbcfa9cab819708389e22d75062f837d6
+      CANONICAL_COUNT: '1630'
+      START_Q: '1631'
+      END_Q: '1635'
+      AUDIT_DATE: '20260919'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+
+      - name: Bind all pre-final evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$OUT_PATH")" = "$AUD_BLOB"
+          test "$(git hash-object "$TOP_PATH")" = "$TOP_BLOB"
+          test "$(git hash-object "$SEM_PATH")" = "$SEM_BLOB"
+          python - <<'PY'
+          import json,os
+          st=json.load(open('usmle/state/step2_final_q0001_q1630.json'))
+          b=json.load(open(os.environ['CAND_PATH']))
+          r=json.load(open(os.environ['OUT_PATH']))
+          top=json.load(open(os.environ['TOP_PATH']))
+          sem=json.load(open(os.environ['SEM_PATH']))
+
+          assert st['item_count']==st['step2_final_review_count']==1630
+          assert st['contiguous_q0001_q1630'] is True and st['sqlite_integrity']=='ok'
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          assert st['production_import_status']=='PASS'
+          assert st['prior_q1612_remediation_preserved'] is True
+          assert st['prior_q1616_q1620_remediation_preserved'] is True
+
+          assert b['canonical_db_blob']==os.environ['DB_BLOB']
+          assert b['canonical_count_before']==1630 and b['candidate_count']==5
+          assert ''.join(x['item']['intended_key'] for x in b['items'])=='ABCDE'
+          assert b['technical_integrity']['source_hashes_complete'] is True
+
+          assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+          assert r['candidate_blob']==os.environ['CAND_BLOB']
+          assert r['canonical_db_blob']==os.environ['DB_BLOB']
+          assert r['canonical_count']==r['canonical_review_count']==1630
+          assert all(x['status']=='PASS' and x['source_live_binding']=='PASS' and x['second_answer_attack']=='PASS' and x['blueprint']=='PASS' and x['canonical_max_jaccard']<0.45 for x in r['item_reports'])
+
+          assert top['canonical_db_blob']==os.environ['DB_BLOB']
+          assert top['candidate_blob']==os.environ['CAND_BLOB']
+          assert len(top['matches'])==5
+
+          assert sem['status']=='PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION'
+          assert sem['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert sem['canonical_db_blob']==os.environ['DB_BLOB']
+          assert sem['zero_trust_audit_blob']==os.environ['AUD_BLOB']
+          assert sem['top_match_report_blob']==os.environ['TOP_BLOB']
+          assert sem['second_answer_attack']=='PASS_ALL_5'
+          assert sem['second_pass']=='PASS'
+          assert sem['material_duplicates']==[] and sem['unresolved_defects']==[]
+          assert sem['import_gate']=='PASS'
+          assert all(x['decision']=='DISTINCT' for x in sem['comparisons'])
+          assert 'ncjmm' not in json.dumps(b).casefold()
+          PY
+
+      - name: Create final manifest
+        run: |
+          set -euo pipefail
+          python usmle/finalize_candidate_current.py
+          python - <<'PY'
+          import json,os
+          p=os.environ['MAN_OUT']; m=json.load(open(p))
+          assert m['status']=='FINAL_QA_PASS'
+          assert m['final_qa_verdict']=='FINAL_QA_PASS_NO_MATERIAL_DEFECT'
+          assert m['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert m['authoritative_db_blob']==os.environ['DB_BLOB']
+          assert m['authoritative_db_final_count']==m['authoritative_review_count']==1630
+          assert m['production_import_ready'] is True
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          m['zero_trust_audit_blob']=os.environ['AUD_BLOB']
+          m['top_match_inspection_blob']=os.environ['TOP_BLOB']
+          m['semantic_duplicate_review_blob']=os.environ['SEM_BLOB']
+          m['manual_adversarial_second_pass']='PASS'
+          m['prior_q1612_remediation_preserved']=True
+          m['prior_q1616_q1620_remediation_preserved']=True
+          open(p,'w').write(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
+          PY
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+
+      - name: Persist FINAL QA
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$MAN_OUT"
+          git commit -m 'usmle: finalize Q1631-Q1635 after manual adversarial review'
+          git pull --rebase origin main
+          git push
