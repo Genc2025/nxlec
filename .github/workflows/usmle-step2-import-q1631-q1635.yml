@@ -1,0 +1,125 @@
+name: USMLE Step2 Import Q1631-Q1635
+on:
+  push:
+    paths: ['.github/workflows/usmle-step2-import-q1631-q1635.yml']
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      START_Q: '1631'
+      END_Q: '1635'
+      PRE_COUNT: '1630'
+      DB_BLOB: 0676129cbcfa9cab819708389e22d75062f837d6
+      CAND_PATH: usmle/batch_specs_1601_1700/07_q1631_q1635_author_20260919.json
+      CAND_BLOB: 1b179f416daf99f2e7ca475cb9416c4badae34f6
+      MAN_PATH: usmle/audit/Q1631_Q1635_FINAL_QA_PASS.json
+      MAN_BLOB: d70ffad0ea09a58757747b4debcf3ab28dbff8ab
+      SEM_PATH: usmle/audit/Q1631_Q1635_SEMANTIC_DUPLICATE_REVIEW_20260919.json
+      SEM_BLOB: 081631f6b55a056e5b91c48768ddee54450f73d8
+      TOP_PATH: usmle/audit/Q1631_Q1635_TOP_MATCH_INSPECTION.json
+      TOP_BLOB: 7383e1c572f9446c4836cd36e3096bd3378fba98
+      SIM_PATH: usmle/audit/Q1631_Q1635_DETACHED_IMPORT_SIMULATION.json
+      SIM_BLOB: 81e01960ab76fb4c17a29ce7ab0002c6420dd050
+      VERIFY_OUT: usmle/audit/Q1631_Q1635_PRODUCTION_IMPORT_VERIFY.json
+      STATE_OUT: usmle/state/step2_final_q0001_q1635.json
+      AUDIT_DATE: '20260919'
+      CANDIDATE_STAMP: '20260919T164200Z'
+      FINALIZED_AT: '2026-09-19T16:42:00Z'
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind evidence
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          test "$(git hash-object "$CAND_PATH")" = "$CAND_BLOB"
+          test "$(git hash-object "$MAN_PATH")" = "$MAN_BLOB"
+          test "$(git hash-object "$SEM_PATH")" = "$SEM_BLOB"
+          test "$(git hash-object "$TOP_PATH")" = "$TOP_BLOB"
+          test "$(git hash-object "$SIM_PATH")" = "$SIM_BLOB"
+          python - <<'PY'
+          import json,os
+          st=json.load(open('usmle/state/step2_final_q0001_q1630.json'))
+          m=json.load(open(os.environ['MAN_PATH']))
+          sem=json.load(open(os.environ['SEM_PATH']))
+          sim=json.load(open(os.environ['SIM_PATH']))
+          assert st['item_count']==st['step2_final_review_count']==1630
+          assert st['contiguous_q0001_q1630'] is True and st['sqlite_integrity']=='ok'
+          assert st['post_db_blob']==os.environ['DB_BLOB']
+          assert st['prior_q1612_remediation_preserved'] is True
+          assert st['prior_q1616_q1620_remediation_preserved'] is True
+          assert m['status']=='FINAL_QA_PASS' and m['production_import_ready'] is True
+          assert m['candidate_batch_blob']==os.environ['CAND_BLOB']
+          assert m['authoritative_db_blob']==os.environ['DB_BLOB']
+          assert m['unresolved_defects']==[] and m['suggested_changes']==[]
+          assert sem['status']=='PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION'
+          assert sem['material_duplicates']==[] and sem['unresolved_defects']==[]
+          assert sim['status']=='DETACHED_IMPORT_SIMULATION_PASS'
+          assert sim['pre_production_count']==1630 and sim['simulated_post_count']==1635
+          assert sim['post_simulation_contiguous_q0001_q1635'] is True
+          assert sim['production_transactional_import_ready'] is True
+          assert sim['failures']==[]
+          PY
+      - name: Import
+        run: |
+          set -euo pipefail
+          python usmle/step2_import_next5.py
+      - name: Verify
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,re,sqlite3,subprocess
+          db='usmle/data/usmle-step1.db'
+          c=sqlite3.connect(db)
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          rows=c.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
+          rc=c.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
+          fin=c.execute('select item_count from step2_finalization where id=1').fetchone()[0]
+          c.close()
+          nums=[int(re.search(r'DIRECT-(\d{4})',x[0]).group(1)) for x in rows]
+          assert len(rows)==rc==fin==1635
+          assert set(nums)==set(range(1,1636))
+          docs={int(re.search(r'DIRECT-(\d{4})',x[0]).group(1)):json.loads(x[1]) for x in rows}
+          assert ''.join(docs[n]['item']['intended_key'] for n in range(1631,1636))=='ABCDE'
+          assert 'SLC25A3' in docs[1631]['item']['tested_construct']
+          assert 'PNKP' in docs[1632]['item']['tested_construct']
+          assert 'ATP13A2' in docs[1633]['item']['tested_construct']
+          assert 'DDHD2' in docs[1634]['item']['tested_construct']
+          assert 'MTFMT' in docs[1635]['item']['tested_construct']
+          assert 'CDC42-PAK' in docs[1612]['item']['options']['B']
+          assert len(docs[1616]['sources'])==2
+          assert 'PLPBP' in docs[1618]['item']['options']['B']
+          v=json.load(open(os.environ['VERIFY_OUT']))
+          st=json.load(open(os.environ['STATE_OUT']))
+          assert v['status']=='PRODUCTION_IMPORT_PASS' and v['failures']==[]
+          assert v['item_count']==v['review_count']==1635
+          assert v['contiguous_q0001_q1635'] is True
+          assert st['item_count']==st['step2_final_review_count']==1635
+          assert st['contiguous_q0001_q1635'] is True and st['production_import_status']=='PASS'
+          v['prior_q1612_remediation_preserved']=True
+          v['prior_q1616_q1620_remediation_preserved']=True
+          v['semantic_duplicate_review_blob']=os.environ['SEM_BLOB']
+          v['top_match_inspection_blob']=os.environ['TOP_BLOB']
+          st['prior_q1612_remediation_preserved']=True
+          st['prior_q1616_q1620_remediation_preserved']=True
+          st['semantic_duplicate_review_blob']=os.environ['SEM_BLOB']
+          st['top_match_inspection_blob']=os.environ['TOP_BLOB']
+          open(os.environ['VERIFY_OUT'],'w').write(json.dumps(v,indent=2,ensure_ascii=False)+'\n')
+          open(os.environ['STATE_OUT'],'w').write(json.dumps(st,indent=2,ensure_ascii=False)+'\n')
+          post=subprocess.check_output(['git','hash-object',db],text=True).strip()
+          assert post==v['post_db_blob']==st['post_db_blob']
+          PY
+      - name: Persist
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db "$VERIFY_OUT" "$STATE_OUT"
+          git commit -m 'usmle: import Q1631-Q1635 into production'
+          git pull --rebase origin main
+          git push
