@@ -1,6 +1,6 @@
 def build(make):
  return make(1638,'','Multisystem Processes & Disorders',['Cell Biology','Genetics','Biochemistry'],
- 'A 6-year-old girl has developmental delay, congenital cataracts, delayed tooth eruption, hearing loss, and metaphyseal skeletal abnormalities. Genetic testing identifies biallelic pathogenic variants in LONP1. Patient fibroblasts accumulate carbonylated proteins within the mitochondrial matrix after oxidative stress.',
+ 'A 6-year-old girl has developmental delay, congenital cataracts, delayed tooth eruption, hearing loss, and metaphyseal skeletal abnormalities. Genetic testing identifies biallelic pathogenic variants in LONP1. The affected protein localizes to the mitochondrial matrix and contains ATP-binding and proteolytic domains.',
  'Which cellular function is most directly impaired?',
  {'A':'Proteolytic removal of mitochondrial targeting presequences by the mitochondrial processing peptidase','B':'ATP-dependent import of presequence-containing proteins into the mitochondrial matrix by the TIM23/PAM machinery','C':'ATP-stimulated proteolytic degradation of oxidized or abnormal proteins in the mitochondrial matrix','D':'Stress-induced cleavage of OPA1 by the inner-membrane metalloprotease OMA1','E':'Parkin-dependent ubiquitination of outer-mitochondrial-membrane proteins during mitophagy'},
  'C','LONP1 is an ATP-dependent mitochondrial matrix protease that removes oxidized and abnormal proteins as part of mitochondrial protein quality control',
