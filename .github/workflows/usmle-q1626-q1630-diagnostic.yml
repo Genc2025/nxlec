@@ -35,7 +35,7 @@ jobs:
           d['stages']['bind']=run('test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"')
           d['stages']['author']=run('python usmle/author_q1626_q1630.py')
           d['stages']['freeze']=run('python usmle/freeze_candidate_generic.py') if d['stages']['author']['rc']==0 else {'rc':999,'stdout_tail':'','stderr_tail':'skipped'}
-          d['stages']['audit']=run('python usmle/audit_candidate_zero_trust_current.py') if d['stages']['freeze']['rc']==0 else {'rc':999,'stdout_tail':'','stderr_tail':'skipped'}
+          d['stages']['audit']=run('CAND_BLOB="$(git hash-object "$CAND_PATH")" python usmle/audit_candidate_zero_trust_current.py') if d['stages']['freeze']['rc']==0 else {'rc':999,'stdout_tail':'','stderr_tail':'skipped'}
           d['candidate_exists']=Path(os.environ['CAND_PATH']).exists()
           d['audit_exists']=Path(os.environ['OUT_PATH']).exists()
           d['overall']='PASS' if all(d['stages'][k]['rc']==0 for k in ('bind','author','freeze','audit')) else 'FAIL'
@@ -57,3 +57,5 @@ jobs:
 # rerun-after-freezer-restore-2
 
 # rerun-after-q1627-q1628-replacement-2
+
+# diagnostic-exports-candidate-blob
