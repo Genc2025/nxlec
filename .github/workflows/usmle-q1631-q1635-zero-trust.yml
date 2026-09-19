@@ -60,6 +60,8 @@ jobs:
           b=json.load(open(os.environ['CAND_PATH']))
           r=json.load(open(os.environ['OUT_PATH']))
           assert r['verdict']=='ZERO_TRUST_PASS' and r['failures']==[]
+          assert r['canonical_count']==r['canonical_review_count']==1630
+          assert r['canonical_db_blob']==os.environ['DB_BLOB']
           assert [x['num'] for x in b['items']]==list(range(1631,1636))
           assert ''.join(x['item']['intended_key'] for x in b['items'])=='ABCDE'
           byq={x['num']:x for x in b['items']}
@@ -159,3 +161,5 @@ jobs:
 # rerun-after-auditor-rebuild-1-20260919
 
 # rerun-after-canonical-count-auditor-fix-1
+
+# authoritative-rerun-after-direct-canonical-binding-20260919
