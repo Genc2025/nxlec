@@ -1,0 +1,791 @@
+{
+  "batch_id": "Q1636-Q1640-20260919",
+  "created_at": "2026-09-19",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1635,
+  "canonical_count_after": 1635,
+  "canonical_db_blob": "92a3aeb4588fa3a1677c2edf5f79a611fdccd8ed",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective whole-bank screening against authoritative Q0001-Q1635 production plus source-first adversarial authoring; FLVCR1 was excluded because newer literature creates a material transporter-function ambiguity.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-19: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1636,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An 8-year-old boy has progressive behavioral deterioration, sleep disturbance, coarse facial features, and loss of previously acquired language. Urine glycosaminoglycan analysis shows excess heparan sulfate. Genetic testing identifies biallelic loss-of-function variants in HGSNAT.",
+        "lead_in": "Which lysosomal reaction is most directly impaired?",
+        "options": {
+          "A": "Transfer of an acetyl group from cytosolic acetyl-CoA across the lysosomal membrane to terminal alpha-glucosamine residues of heparan sulfate in the lysosomal lumen",
+          "B": "Removal of sulfate from terminal glucosamine residues of heparan sulfate by sulfamidase",
+          "C": "Hydrolysis of terminal N-acetylglucosamine residues from heparan sulfate by alpha-N-acetylglucosaminidase",
+          "D": "Export of cystine from the lysosomal lumen into the cytosol by cystinosin",
+          "E": "Addition of mannose-6-phosphate targeting signals to lysosomal hydrolases in the Golgi apparatus"
+        },
+        "intended_key": "A",
+        "tested_construct": "HGSNAT catalyzes lysosomal transmembrane acetylation of terminal glucosamine residues in heparan sulfate using cytosolic acetyl-CoA",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "HGSNAT is an integral lysosomal membrane acetyltransferase. It binds acetyl-CoA on the cytosolic side and transfers the acetyl group across the membrane to terminal glucosamine residues of heparan sulfate in the lysosomal lumen. This acetylation step is required for continued lysosomal degradation of heparan sulfate; HGSNAT deficiency causes mucopolysaccharidosis IIIC.",
+        "distractor_explanations": {
+          "A": "Correct. HGSNAT couples cytosolic acetyl-CoA to acetylation of terminal glucosamine on luminal heparan sulfate.",
+          "B": "SGSH/sulfamidase removes N-sulfate groups from heparan sulfate and causes MPS IIIA when deficient; it is not the HGSNAT reaction.",
+          "C": "NAGLU removes terminal N-acetylglucosamine residues and causes MPS IIIB when deficient; HGSNAT performs the preceding acetylation step needed for further catabolism.",
+          "D": "Cystinosin exports cystine from lysosomes and is defective in cystinosis, not Sanfilippo type C.",
+          "E": "Mannose-6-phosphate tagging occurs in the Golgi and targets many soluble lysosomal enzymes; HGSNAT itself is a lysosomal membrane enzyme catalyzing transmembrane acetylation."
+        },
+        "educational_objective": "Recognize HGSNAT deficiency as failure of the unique transmembrane acetylation step required for lysosomal heparan-sulfate degradation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1636-PUBMED-PRIMARY",
+          "title": "Structure and mechanism of lysosome transmembrane acetylation by HGSNAT",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38769387/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "transfer of the acetyl group from Ac-CoA to the glucosamine group of HS",
+          "source_page_sha256": "af240bd084c9e0599ee6a131c18afac7e14996b6e8cca0a8edae5b0a5b47f18b",
+          "cited_section_sha256": "738a897d1df0201cfe4839f5864ee2cf7fceef3116b52aac5299840f65d0787f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1636-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. HGSNAT couples cytosolic acetyl-CoA to acetylation of terminal glucosamine on luminal heparan sulfate.",
+          "source_ids": [
+            "Q1636-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "transfer of the acetyl group from Ac-CoA to the glucosamine group of HS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1636-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "SGSH/sulfamidase removes N-sulfate groups from heparan sulfate and causes MPS IIIA when deficient; it is not the HGSNAT reaction.",
+          "source_ids": [
+            "Q1636-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transfer of the acetyl group from Ac-CoA to the glucosamine group of HS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1636-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "NAGLU removes terminal N-acetylglucosamine residues and causes MPS IIIB when deficient; HGSNAT performs the preceding acetylation step needed for further catabolism.",
+          "source_ids": [
+            "Q1636-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transfer of the acetyl group from Ac-CoA to the glucosamine group of HS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1636-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Cystinosin exports cystine from lysosomes and is defective in cystinosis, not Sanfilippo type C.",
+          "source_ids": [
+            "Q1636-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transfer of the acetyl group from Ac-CoA to the glucosamine group of HS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1636-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Mannose-6-phosphate tagging occurs in the Golgi and targets many soluble lysosomal enzymes; HGSNAT itself is a lysosomal membrane enzyme catalyzing transmembrane acetylation.",
+          "source_ids": [
+            "Q1636-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transfer of the acetyl group from Ac-CoA to the glucosamine group of HS",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "C",
+          "resolution": "NAGLU deficiency is the strongest pathway-level alternative because it also blocks heparan-sulfate degradation and causes Sanfilippo syndrome. HGSNAT genotype specifically identifies the acetylation step that prepares terminal glucosamine for subsequent glycosidase action.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact dates are recorded only when directly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1637,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Physiology",
+          "Genetics",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 3-year-old boy had refractory seizures beginning on the first day of life and now has severe developmental delay and hypoplastic tooth enamel. Plasma citrate is elevated. Genetic testing identifies biallelic loss-of-function variants in SLC13A5.",
+        "lead_in": "Which membrane transport process is most directly impaired?",
+        "options": {
+          "A": "Citrate export from the mitochondrial matrix to the cytosol through the mitochondrial citrate carrier",
+          "B": "Sodium-coupled citrate uptake across the neuronal plasma membrane",
+          "C": "Proton-coupled lactate export through a monocarboxylate transporter",
+          "D": "Aspartate export from mitochondria in exchange for glutamate plus a proton",
+          "E": "Sodium-coupled glucose uptake through an epithelial sodium-glucose cotransporter"
+        },
+        "intended_key": "B",
+        "tested_construct": "SLC13A5 encodes NaCT, a plasma-membrane sodium-dependent citrate transporter whose loss abolishes cellular citrate uptake",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC13A5 encodes the sodium-dependent citrate transporter NaCT. Pathogenic loss-of-function variants can abolish citrate uptake despite preserved synthesis of the transporter, producing neonatal-onset epilepsy, developmental impairment, and characteristic dental abnormalities.",
+        "distractor_explanations": {
+          "A": "The mitochondrial citrate carrier exchanges citrate across the inner mitochondrial membrane; it is not SLC13A5 and does not mediate extracellular citrate uptake.",
+          "B": "Correct. SLC13A5/NaCT mediates sodium-coupled citrate uptake across the plasma membrane.",
+          "C": "Monocarboxylate transporters move lactate and related monocarboxylates and are distinct from NaCT-mediated citrate uptake.",
+          "D": "Citrin mediates mitochondrial aspartate-glutamate exchange and is unrelated to SLC13A5-mediated plasma-membrane citrate transport.",
+          "E": "Sodium-glucose cotransporters mediate epithelial glucose uptake and do not transport citrate."
+        },
+        "educational_objective": "Link SLC13A5-related developmental epilepsy to loss of NaCT-mediated sodium-coupled citrate uptake at the plasma membrane."
+      },
+      "sources": [
+        {
+          "source_id": "Q1637-PUBMED-PRIMARY",
+          "title": "Recessive mutations in SLC13A5 result in a loss of citrate transport and cause neonatal epilepsy, developmental delay and teeth hypoplasia",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26384929/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "complete loss of citrate uptake",
+          "source_page_sha256": "3e4d69ba05e663032d7a7fccef9cce17a42c077aeff09352ecfd153cb0d1a87d",
+          "cited_section_sha256": "5a8a7dda4dd483ae0075740e7b2f002ef1743e7a603e3f0be50939731d78eb5f",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        },
+        {
+          "source_id": "Q1637-PUBMED-METABOLOMICS",
+          "title": "Analyses of SLC13A5-epilepsy patients reveal perturbations of TCA cycle",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28673551/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "Distinctive elevations of citrate",
+          "source_page_sha256": "eb05d489d8fe863cc822cc711b5e8847401be32ea5c7072c0bb46032aff7cc44",
+          "cited_section_sha256": "752cd7c365f314362b8c4c8e21f73e89e17ec7be3ce849a90b3d45f34e86ac63",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1637-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "The mitochondrial citrate carrier exchanges citrate across the inner mitochondrial membrane; it is not SLC13A5 and does not mediate extracellular citrate uptake.",
+          "source_ids": [
+            "Q1637-PUBMED-PRIMARY",
+            "Q1637-PUBMED-METABOLOMICS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "complete loss of citrate uptake; Distinctive elevations of citrate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1637-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. SLC13A5/NaCT mediates sodium-coupled citrate uptake across the plasma membrane.",
+          "source_ids": [
+            "Q1637-PUBMED-PRIMARY",
+            "Q1637-PUBMED-METABOLOMICS"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "complete loss of citrate uptake; Distinctive elevations of citrate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1637-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Monocarboxylate transporters move lactate and related monocarboxylates and are distinct from NaCT-mediated citrate uptake.",
+          "source_ids": [
+            "Q1637-PUBMED-PRIMARY",
+            "Q1637-PUBMED-METABOLOMICS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "complete loss of citrate uptake; Distinctive elevations of citrate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1637-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Citrin mediates mitochondrial aspartate-glutamate exchange and is unrelated to SLC13A5-mediated plasma-membrane citrate transport.",
+          "source_ids": [
+            "Q1637-PUBMED-PRIMARY",
+            "Q1637-PUBMED-METABOLOMICS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "complete loss of citrate uptake; Distinctive elevations of citrate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1637-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Sodium-glucose cotransporters mediate epithelial glucose uptake and do not transport citrate.",
+          "source_ids": [
+            "Q1637-PUBMED-PRIMARY",
+            "Q1637-PUBMED-METABOLOMICS"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "complete loss of citrate uptake; Distinctive elevations of citrate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "The mitochondrial citrate carrier is the strongest substrate-level alternative because it also transports citrate. The SLC13A5 genotype and neonatal epilepsy phenotype identify NaCT-mediated plasma-membrane uptake rather than mitochondrial citrate export.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact dates are recorded only when directly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1638,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Cell Biology",
+          "Genetics",
+          "Biochemistry"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 6-year-old girl has developmental delay, congenital cataracts, delayed tooth eruption, hearing loss, and metaphyseal skeletal abnormalities. Genetic testing identifies biallelic pathogenic variants in LONP1. Patient fibroblasts accumulate carbonylated proteins within the mitochondrial matrix after oxidative stress.",
+        "lead_in": "Which cellular function is most directly impaired?",
+        "options": {
+          "A": "Proteolytic removal of mitochondrial targeting presequences by the mitochondrial processing peptidase",
+          "B": "ATP-dependent import of presequence-containing proteins into the mitochondrial matrix by the TIM23/PAM machinery",
+          "C": "ATP-stimulated proteolytic degradation of oxidized or abnormal proteins in the mitochondrial matrix",
+          "D": "Stress-induced cleavage of OPA1 by the inner-membrane metalloprotease OMA1",
+          "E": "Parkin-dependent ubiquitination of outer-mitochondrial-membrane proteins during mitophagy"
+        },
+        "intended_key": "C",
+        "tested_construct": "LONP1 is an ATP-dependent mitochondrial matrix protease that removes oxidized and abnormal proteins as part of mitochondrial protein quality control",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "LONP1 is a conserved ATP-dependent protease in the mitochondrial matrix. It recognizes and degrades oxidatively damaged or otherwise abnormal matrix proteins, thereby limiting their accumulation and aggregation. Biallelic LONP1 variants cause CODAS syndrome and can disrupt this mitochondrial proteostasis function.",
+        "distractor_explanations": {
+          "A": "Mitochondrial processing peptidase removes targeting presequences from newly imported proteins but is distinct from LONP1-mediated quality-control proteolysis.",
+          "B": "TIM23/PAM imports many presequence-containing proteins into the matrix; it is not the protease responsible for degrading oxidized matrix proteins.",
+          "C": "Correct. LONP1 performs ATP-stimulated proteolytic degradation of damaged and abnormal mitochondrial-matrix proteins.",
+          "D": "OMA1 is an inner-membrane metalloprotease involved in stress-responsive OPA1 processing, not the matrix Lon protease.",
+          "E": "PINK1/Parkin-mediated mitophagy targets damaged mitochondria at the organelle level; it does not directly perform matrix protein proteolysis."
+        },
+        "educational_objective": "Recognize LONP1 as an ATP-dependent mitochondrial-matrix quality-control protease whose loss permits accumulation of oxidized and abnormal proteins."
+      },
+      "sources": [
+        {
+          "source_id": "Q1638-PUBMED-DISEASE",
+          "title": "Mutations in LONP1, a mitochondrial matrix protease, cause CODAS syndrome",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25808063/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "participates in protein turnover within the mitochondrial matrix",
+          "source_page_sha256": "1c4f4d625483e9f93fa7ab1b061e123737827c0a004641bd0632146d65ccba42",
+          "cited_section_sha256": "4ce1f4e06e50da38375695a71dcfe575a3434ecc78ae1ea55fd709a6c9ac5f18",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        },
+        {
+          "source_id": "Q1638-PUBMED-MECHANISM",
+          "title": "Lon protease preferentially degrades oxidized mitochondrial aconitase by an ATP-stimulated mechanism",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12198491/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "selectively recognizes and degrades the oxidized",
+          "source_page_sha256": "26f48d140b750f54321fcdd1050ecb156da62607cd770d7dd639f9d2b665cda9",
+          "cited_section_sha256": "359eaa745bc121a251cce4f01ce3b0fe2fb0399cd02bba934b0c79d06c729f2d",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1638-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Mitochondrial processing peptidase removes targeting presequences from newly imported proteins but is distinct from LONP1-mediated quality-control proteolysis.",
+          "source_ids": [
+            "Q1638-PUBMED-DISEASE",
+            "Q1638-PUBMED-MECHANISM"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "participates in protein turnover within the mitochondrial matrix; selectively recognizes and degrades the oxidized",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1638-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "TIM23/PAM imports many presequence-containing proteins into the matrix; it is not the protease responsible for degrading oxidized matrix proteins.",
+          "source_ids": [
+            "Q1638-PUBMED-DISEASE",
+            "Q1638-PUBMED-MECHANISM"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "participates in protein turnover within the mitochondrial matrix; selectively recognizes and degrades the oxidized",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1638-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. LONP1 performs ATP-stimulated proteolytic degradation of damaged and abnormal mitochondrial-matrix proteins.",
+          "source_ids": [
+            "Q1638-PUBMED-DISEASE",
+            "Q1638-PUBMED-MECHANISM"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "participates in protein turnover within the mitochondrial matrix; selectively recognizes and degrades the oxidized",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1638-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "OMA1 is an inner-membrane metalloprotease involved in stress-responsive OPA1 processing, not the matrix Lon protease.",
+          "source_ids": [
+            "Q1638-PUBMED-DISEASE",
+            "Q1638-PUBMED-MECHANISM"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "participates in protein turnover within the mitochondrial matrix; selectively recognizes and degrades the oxidized",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1638-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "PINK1/Parkin-mediated mitophagy targets damaged mitochondria at the organelle level; it does not directly perform matrix protein proteolysis.",
+          "source_ids": [
+            "Q1638-PUBMED-DISEASE",
+            "Q1638-PUBMED-MECHANISM"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "participates in protein turnover within the mitochondrial matrix; selectively recognizes and degrades the oxidized",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Mitochondrial processing peptidase is the strongest same-compartment alternative because it is also a matrix protease. The oxidative-protein accumulation and LONP1 genotype identify ATP-dependent quality-control proteolysis rather than presequence cleavage.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact dates are recorded only when directly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1639,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Musculoskeletal System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Musculoskeletal System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "Two sisters have congenital cataracts, disproportionate short stature, spondyloepimetaphyseal dysplasia, and white-matter abnormalities. Genetic testing identifies compound heterozygous pathogenic variants in PISD. Their fibroblasts show fragmented mitochondria and reduced production of a major mitochondrial membrane phospholipid.",
+        "lead_in": "Which biochemical reaction is most directly impaired?",
+        "options": {
+          "A": "Exchange of serine for choline in phosphatidylcholine to synthesize phosphatidylserine in the endoplasmic reticulum",
+          "B": "CTP-dependent conversion of phosphoethanolamine to CDP-ethanolamine in the Kennedy pathway",
+          "C": "Sequential methylation of phosphatidylethanolamine to phosphatidylcholine in hepatocytes",
+          "D": "Decarboxylation of phosphatidylserine to phosphatidylethanolamine in the inner mitochondrial membrane",
+          "E": "Remodeling of immature cardiolipin acyl chains by tafazzin"
+        },
+        "intended_key": "D",
+        "tested_construct": "PISD encodes mitochondrial phosphatidylserine decarboxylase, which converts phosphatidylserine to phosphatidylethanolamine in the inner mitochondrial membrane",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "PISD is the mitochondrial phosphatidylserine decarboxylase. It converts phosphatidylserine to phosphatidylethanolamine in the inner mitochondrial membrane. Pathogenic PISD variants reduce this reaction and disrupt mitochondrial membrane composition and morphology.",
+        "distractor_explanations": {
+          "A": "Phosphatidylserine synthases in the endoplasmic reticulum generate phosphatidylserine by base-exchange reactions; this is upstream of the PISD step.",
+          "B": "PCYT2 catalyzes formation of CDP-ethanolamine in the ER-based Kennedy pathway, an alternative biosynthetic route to phosphatidylethanolamine.",
+          "C": "PEMT methylates phosphatidylethanolamine to phosphatidylcholine mainly in liver and acts downstream of PE formation.",
+          "D": "Correct. PISD decarboxylates phosphatidylserine to phosphatidylethanolamine in the inner mitochondrial membrane.",
+          "E": "TAFAZZIN remodels cardiolipin and is defective in Barth syndrome; it does not catalyze phosphatidylserine decarboxylation."
+        },
+        "educational_objective": "Link PISD-related skeletal and neurologic disease to impaired mitochondrial conversion of phosphatidylserine into phosphatidylethanolamine."
+      },
+      "sources": [
+        {
+          "source_id": "Q1639-PUBMED-PRIMARY",
+          "title": "PISD is a mitochondrial disease gene causing skeletal dysplasia, cataracts, and white matter changes",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30858161/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "converts phosphatidylserine to phosphatidylethanolamine",
+          "source_page_sha256": "906cf4215136f22a0716a9d15d6470e267693ac754ae7e9a2d835c611ef552fc",
+          "cited_section_sha256": "eca3d92a7117837afb255375de8384dc4a845af293dac4b170c5922e9d5dd4da",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1639-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Phosphatidylserine synthases in the endoplasmic reticulum generate phosphatidylserine by base-exchange reactions; this is upstream of the PISD step.",
+          "source_ids": [
+            "Q1639-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "converts phosphatidylserine to phosphatidylethanolamine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1639-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "PCYT2 catalyzes formation of CDP-ethanolamine in the ER-based Kennedy pathway, an alternative biosynthetic route to phosphatidylethanolamine.",
+          "source_ids": [
+            "Q1639-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "converts phosphatidylserine to phosphatidylethanolamine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1639-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PEMT methylates phosphatidylethanolamine to phosphatidylcholine mainly in liver and acts downstream of PE formation.",
+          "source_ids": [
+            "Q1639-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "converts phosphatidylserine to phosphatidylethanolamine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1639-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. PISD decarboxylates phosphatidylserine to phosphatidylethanolamine in the inner mitochondrial membrane.",
+          "source_ids": [
+            "Q1639-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "converts phosphatidylserine to phosphatidylethanolamine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1639-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "TAFAZZIN remodels cardiolipin and is defective in Barth syndrome; it does not catalyze phosphatidylserine decarboxylation.",
+          "source_ids": [
+            "Q1639-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "converts phosphatidylserine to phosphatidylethanolamine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "The Kennedy pathway is the strongest alternative because it also synthesizes phosphatidylethanolamine. PISD genotype specifically identifies the mitochondrial phosphatidylserine-decarboxylation route rather than CDP-ethanolamine synthesis through the Kennedy pathway.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact dates are recorded only when directly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1640,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Cell Biology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An infant has severe developmental delay, seizures, failure to thrive, ichthyotic skin changes, and impaired vision. Serum transferrin is hypoglycosylated. Fibroblasts accumulate incomplete lipid-linked oligosaccharide precursors that lack mannose and glucose residues. Genetic testing identifies biallelic pathogenic variants in MPDU1.",
+        "lead_in": "Which step in glycoprotein biosynthesis is most directly impaired?",
+        "options": {
+          "A": "Synthesis of dolichol-phosphate-mannose from GDP-mannose by the DPM synthase complex",
+          "B": "Synthesis of GDP-mannose from mannose-1-phosphate and GTP",
+          "C": "Synthesis of dolichol-phosphate-glucose from UDP-glucose by ALG5",
+          "D": "En bloc transfer of a completed oligosaccharide from dolichol pyrophosphate to an asparagine residue by oligosaccharyltransferase",
+          "E": "Utilization of dolichol-phosphate-mannose and dolichol-phosphate-glucose donor substrates during lipid-linked oligosaccharide assembly"
+        },
+        "intended_key": "E",
+        "tested_construct": "MPDU1 is required for utilization of dolichol-phosphate-mannose and dolichol-phosphate-glucose rather than for synthesis of those donor lipids",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "MPDU1 deficiency causes a congenital disorder of glycosylation in which dolichol-phosphate-mannose and dolichol-phosphate-glucose can be synthesized but are not efficiently utilized for lipid-linked oligosaccharide assembly. The result is accumulation and transfer of incomplete oligosaccharide precursors lacking mannose and glucose residues.",
+        "distractor_explanations": {
+          "A": "DPM synthase produces dolichol-phosphate-mannose; MPDU1 deficiency primarily impairs utilization of this donor rather than its biosynthesis.",
+          "B": "GDP-mannose synthesis supplies mannose nucleotide sugar upstream and is not the specific MPDU1-dependent step.",
+          "C": "ALG5 synthesizes dolichol-phosphate-glucose; MPDU1 deficiency affects use of Dol-P-Glc rather than its formation.",
+          "D": "Oligosaccharyltransferase transfers lipid-linked oligosaccharides to nascent proteins, but the MPDU1 defect occurs earlier during donor utilization and precursor assembly.",
+          "E": "Correct. MPDU1 is required for effective use of Dol-P-Man and Dol-P-Glc donor substrates in lipid-linked oligosaccharide biosynthesis."
+        },
+        "educational_objective": "Distinguish donor-lipid synthesis from donor-lipid utilization: MPDU1 deficiency impairs use of Dol-P-Man and Dol-P-Glc during N-linked oligosaccharide assembly."
+      },
+      "sources": [
+        {
+          "source_id": "Q1640-PUBMED-PRIMARY",
+          "title": "A mutation in the human MPDU1 gene causes congenital disorder of glycosylation type If (CDG-If)",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11733556/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "affect the use, rather than the biosynthesis, of donor substrates for lipid-linked oligosaccharides",
+          "source_page_sha256": "fa8c465507ef005e69f63196d3760702978963b729d1a72466df86e7cb165105",
+          "cited_section_sha256": "7ba1a567d8cf1fe1ab68a7bba175e1b274ada5d50c3ba8cc1fcf2ba2632c1ace",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1640-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "DPM synthase produces dolichol-phosphate-mannose; MPDU1 deficiency primarily impairs utilization of this donor rather than its biosynthesis.",
+          "source_ids": [
+            "Q1640-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "affect the use, rather than the biosynthesis, of donor substrates for lipid-linked oligosaccharides",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1640-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "GDP-mannose synthesis supplies mannose nucleotide sugar upstream and is not the specific MPDU1-dependent step.",
+          "source_ids": [
+            "Q1640-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "affect the use, rather than the biosynthesis, of donor substrates for lipid-linked oligosaccharides",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1640-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "ALG5 synthesizes dolichol-phosphate-glucose; MPDU1 deficiency affects use of Dol-P-Glc rather than its formation.",
+          "source_ids": [
+            "Q1640-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "affect the use, rather than the biosynthesis, of donor substrates for lipid-linked oligosaccharides",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1640-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Oligosaccharyltransferase transfers lipid-linked oligosaccharides to nascent proteins, but the MPDU1 defect occurs earlier during donor utilization and precursor assembly.",
+          "source_ids": [
+            "Q1640-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "affect the use, rather than the biosynthesis, of donor substrates for lipid-linked oligosaccharides",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1640-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. MPDU1 is required for effective use of Dol-P-Man and Dol-P-Glc donor substrates in lipid-linked oligosaccharide biosynthesis.",
+          "source_ids": [
+            "Q1640-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "affect the use, rather than the biosynthesis, of donor substrates for lipid-linked oligosaccharides",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "Oligosaccharyltransferase is the strongest pathway-level alternative because incomplete precursors are eventually transferred to protein. The biochemical hallmark and MPDU1 genotype localize the primary lesion earlier, at utilization of Dol-P-Man and Dol-P-Glc during precursor assembly.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact dates are recorded only when directly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
