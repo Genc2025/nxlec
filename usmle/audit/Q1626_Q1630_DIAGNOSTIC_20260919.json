@@ -2,7 +2,7 @@
   "db_blob": "3560a1d056dd8aca9367f8079215d18b4379174d",
   "stages": {
     "bind": {
-      "rc": 0,
+      "rc": 1,
       "stdout_tail": "",
       "stderr_tail": ""
     },
@@ -19,10 +19,10 @@
     "audit": {
       "rc": 1,
       "stdout_tail": "",
-      "stderr_tail": "Traceback (most recent call last):\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_current.py\", line 18, in <module>\n    exec(compile(s,str(base)+'[current canonical transformed]','exec'),ns)\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_adaptive.py[current canonical transformed]\", line 8, in <module>\n  File \"<frozen os>\", line 714, in __getitem__\nKeyError: 'CAND_BLOB'\n"
+      "stderr_tail": "Traceback (most recent call last):\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_current.py\", line 10, in <module>\n    exec(compile(s,str(base)+'[current canonical]','exec'),ns)\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_adaptive.py[current canonical]\", line 264, in <module>\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_adaptive.py[current canonical]\", line 108, in main\nAssertionError\n"
     }
   },
   "candidate_exists": true,
-  "audit_exists": false,
+  "audit_exists": true,
   "overall": "FAIL"
 }
