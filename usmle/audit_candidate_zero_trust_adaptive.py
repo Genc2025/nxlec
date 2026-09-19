@@ -13,6 +13,8 @@ CAND_BLOB=os.environ['CAND_BLOB']
 DB_BLOB=os.environ.get('DB_BLOB','1a0f0b702f86a57624161413ba60fa4ce88e8d97')
 START=int(os.environ['START_Q'])
 END=int(os.environ['END_Q'])
+CANON_COUNT=int(os.environ.get('CANONICAL_COUNT','1300'))
+AUDIT_DATE=os.environ.get('AUDIT_DATE','20260910')
 
 STOP={'the','a','an','and','or','of','to','in','is','are','with','this','that','does','not','direct','directly','drug','effect','activity','correct','label','identifies'}
 
@@ -108,14 +110,14 @@ def main():
  items=b['items']
  assert [x['num'] for x in items]==list(range(START,END+1))
  assert len(items)==END-START+1
- assert b.get('canonical_count_before')==b.get('canonical_count_after')==1300 and b.get('production_import_ready') is False
+ assert b.get('canonical_count_before')==b.get('canonical_count_after')==CANON_COUNT and b.get('production_import_ready') is False
 
  con=sqlite3.connect(DB.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
  assert con.execute('pragma integrity_check').fetchone()[0]=='ok'
  rows=con.execute("select candidate_id,payload_json from step2_final_items where final_status='FINAL_10_10_PASS'").fetchall()
  rc=con.execute("select count(*) from step2_final_reviews where final_status='FINAL_10_10_PASS'").fetchone()[0]
  con.close()
- assert len(rows)==rc==1300
+ assert len(rows)==rc==CANON_COUNT
 
  canon=[]
  for cid,pj in rows:
@@ -236,11 +238,11 @@ def main():
   failures.extend(f'Q{q}:{z}' for z in sorted(set(f)))
 
  out={
-  'audit_id':f'Q{START}-Q{END}-ZERO-TRUST-ADAPTIVE-20260910',
+  'audit_id':f'Q{START}-Q{END}-ZERO-TRUST-ADAPTIVE-{AUDIT_DATE}',
   'candidate_blob':CAND_BLOB,
   'canonical_db_blob':DB_BLOB,
-  'canonical_count':1300,
-  'canonical_review_count':1300,
+  'canonical_count':CANON_COUNT,
+  'canonical_review_count':CANON_COUNT,
   'item_count':len(items),
   'item_reports':reports,
   'failures':failures,
