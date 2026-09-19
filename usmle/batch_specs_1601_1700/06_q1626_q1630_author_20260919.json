@@ -175,56 +175,56 @@
       "country_scope": "Foundational science; not jurisdiction-specific",
       "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
       "blueprint": {
-        "primary_system": "Nervous System & Special Senses",
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
         "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
         "disciplines": [
           "Cell Biology",
           "Genetics",
-          "Neurology"
+          "Immunology"
         ],
         "official_outline_path": [
-          "Nervous System & Special Senses"
+          "Blood & Lymphoreticular/Immune Systems"
         ],
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "A 5-year-old girl has nonprogressive cerebellar ataxia, short stature, and mild intellectual disability. Genetic testing identifies biallelic pathogenic variants in PMPCA. Patient fibroblasts accumulate precursor forms of several nuclear-encoded mitochondrial proteins, including incompletely processed frataxin, despite normal delivery of these proteins into mitochondria.",
-        "lead_in": "Which cellular process is most directly impaired?",
+        "vignette": "A 5-year-old boy has silvery-gray hair, recurrent fevers, splenomegaly, pancytopenia, and markedly elevated ferritin. Genetic testing identifies biallelic loss-of-function variants in RAB27A. Cytotoxic T cells contain normal amounts of perforin, form conjugates with target cells, and polarize lytic granules toward the immunologic synapse, but show markedly reduced degranulation and target-cell killing.",
+        "lead_in": "Which cellular step is most directly impaired?",
         "options": {
-          "A": "Recognition of mitochondrial targeting sequences by TOM20 at the outer mitochondrial membrane",
-          "B": "Proteolytic maturation of imported mitochondrial precursor proteins by the mitochondrial processing peptidase",
-          "C": "TIM22-dependent insertion of multipass carrier proteins into the inner mitochondrial membrane",
-          "D": "Replication of mitochondrial DNA by DNA polymerase gamma",
-          "E": "Post-transcriptional polyadenylation of mitochondrial messenger RNAs"
+          "A": "Synthesis of perforin within cytotoxic lymphocytes",
+          "B": "Membrane docking and regulated exocytosis of polarized lytic granules at the immunologic synapse",
+          "C": "MUNC13-4-dependent priming of already docked cytolytic granules for membrane fusion",
+          "D": "Syntaxin-11-dependent SNARE fusion after granule priming",
+          "E": "LYST-dependent regulation of lysosomal granule size and trafficking"
         },
         "intended_key": "B",
-        "tested_construct": "PMPCA encodes the alpha subunit of mitochondrial processing peptidase, which is required for maturation of many imported nuclear-encoded mitochondrial precursor proteins",
+        "tested_construct": "RAB27A is required for regulated cytotoxic-granule secretion; RAB27A-deficient lytic granules polarize toward the immunologic synapse but fail to dock efficiently at the plasma membrane",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
       },
       "explanation": {
-        "key_explanation": "Most nuclear-encoded mitochondrial proteins are synthesized as precursor proteins carrying targeting presequences. After mitochondrial import, the mitochondrial processing peptidase removes targeting sequences to generate mature proteins. PMPCA encodes the alpha subunit of this processing complex; pathogenic variants impair precursor maturation, including processing of frataxin.",
+        "key_explanation": "RAB27A is a small Rab GTPase required for terminal trafficking of cytotoxic secretory lysosomes. In RAB27A deficiency, cytotoxic granules can polarize toward the immunologic synapse but fail membrane docking and regulated release, producing defective NK-cell and cytotoxic T-cell killing and predisposing to hemophagocytic lymphohistiocytosis.",
         "distractor_explanations": {
-          "A": "TOM20 participates in initial recognition of many mitochondrial targeting sequences, but the vignette states that import occurs and precursor proteins accumulate after entry.",
-          "B": "Correct. PMPCA dysfunction impairs mitochondrial processing peptidase activity and therefore maturation of imported precursor proteins.",
-          "C": "TIM22 inserts a restricted class of multipass inner-membrane carriers; PMPCA deficiency instead causes defective proteolytic maturation of many imported precursor proteins.",
-          "D": "POLG replicates mitochondrial DNA and does not cleave targeting presequences from nuclear-encoded proteins.",
-          "E": "Mitochondrial mRNA polyadenylation is a post-transcriptional RNA process and cannot explain accumulation of unprocessed imported protein precursors."
+          "A": "Perforin deficiency causes familial HLH type 2, but the vignette specifies normal perforin abundance and a defect in granule release rather than granule cargo synthesis.",
+          "B": "Correct. RAB27A deficiency causes failure of membrane docking and regulated exocytosis of polarized lytic granules at the immunologic synapse.",
+          "C": "UNC13D/MUNC13-4 deficiency disrupts the priming step after granules have docked; it is a closely related but distinct exocytic defect.",
+          "D": "STX11 participates in the downstream SNARE fusion machinery; RAB27A acts earlier in terminal granule docking/exocytosis.",
+          "E": "LYST deficiency causes Chediak-Higashi syndrome with abnormal giant lysosomal granules, a distinct organelle-trafficking defect."
         },
-        "educational_objective": "Distinguish mitochondrial protein import from post-import processing: PMPCA deficiency impairs mitochondrial processing peptidase-mediated maturation of nuclear-encoded precursor proteins."
+        "educational_objective": "Differentiate defects within the cytotoxic-granule pathway: RAB27A deficiency impairs docking and regulated exocytosis of polarized lytic granules, causing Griscelli syndrome type 2 with HLH susceptibility."
       },
       "sources": [
         {
           "source_id": "Q1627-PUBMED-PRIMARY",
-          "title": "PMPCA mutations cause abnormal mitochondrial protein processing in patients with non-progressive cerebellar ataxia",
+          "title": "Rab27a is required for regulated secretion in cytotoxic T lymphocytes",
           "agency": "PubMed, U.S. National Library of Medicine",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/25808372/",
-          "source_section_date": "2015-03-25",
-          "date_basis": "PubMed reports Epub 2015-03-25; live record reverified 2026-09-19.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11266472/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
           "retrieved_at": "2026-09-19",
-          "section_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
-          "source_page_sha256": "56046f27251cc2722c4d7e20f84c4b59ed1b3586fd5016e08989870d3b9ad3e4",
-          "cited_section_sha256": "bbb0a64d0a5f2447cedac4485554fb3e41338923e4d6fc1791ac4ca35460c472",
+          "section_locator": "polarization but no membrane docking of ash/ash lytic granules at the immunological synapse",
+          "source_page_sha256": "77c7f9bc6f7d57dc4abd08815b6181d4abb794ef42c241c2bb0dbaa67e2ecc44",
+          "cited_section_sha256": "8d7a2be4757a9a5c4dd9db955cc0240204dd1d8b5ad014317fb8479d1d5c9fcb",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
           "cited_locator_component_count": 1
         }
@@ -234,60 +234,60 @@
           "claim_id": "Q1627-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "TOM20 participates in initial recognition of many mitochondrial targeting sequences, but the vignette states that import occurs and precursor proteins accumulate after entry.",
+          "claim": "Perforin deficiency causes familial HLH type 2, but the vignette specifies normal perforin abundance and a defect in granule release rather than granule cargo synthesis.",
           "source_ids": [
             "Q1627-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "source_locator": "polarization but no membrane docking of ash/ash lytic granules at the immunological synapse",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1627-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "Correct. PMPCA dysfunction impairs mitochondrial processing peptidase activity and therefore maturation of imported precursor proteins.",
+          "claim": "Correct. RAB27A deficiency causes failure of membrane docking and regulated exocytosis of polarized lytic granules at the immunologic synapse.",
           "source_ids": [
             "Q1627-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "direct",
-          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "source_locator": "polarization but no membrane docking of ash/ash lytic granules at the immunological synapse",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1627-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "TIM22 inserts a restricted class of multipass inner-membrane carriers; PMPCA deficiency instead causes defective proteolytic maturation of many imported precursor proteins.",
+          "claim": "UNC13D/MUNC13-4 deficiency disrupts the priming step after granules have docked; it is a closely related but distinct exocytic defect.",
           "source_ids": [
             "Q1627-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "source_locator": "polarization but no membrane docking of ash/ash lytic granules at the immunological synapse",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1627-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "POLG replicates mitochondrial DNA and does not cleave targeting presequences from nuclear-encoded proteins.",
+          "claim": "STX11 participates in the downstream SNARE fusion machinery; RAB27A acts earlier in terminal granule docking/exocytosis.",
           "source_ids": [
             "Q1627-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "source_locator": "polarization but no membrane docking of ash/ash lytic granules at the immunological synapse",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1627-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "Mitochondrial mRNA polyadenylation is a post-transcriptional RNA process and cannot explain accumulation of unprocessed imported protein precursors.",
+          "claim": "LYST deficiency causes Chediak-Higashi syndrome with abnormal giant lysosomal granules, a distinct organelle-trafficking defect.",
           "source_ids": [
             "Q1627-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "source_locator": "polarization but no membrane docking of ash/ash lytic granules at the immunological synapse",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         }
       ],
@@ -296,8 +296,8 @@
         "all_options_review": "PASS",
         "single_best_answer": "PASS",
         "second_answer_attack": {
-          "option": "A",
-          "resolution": "TOM20 is the strongest same-pathway alternative because it acts on mitochondrial precursor proteins before import. The explicit accumulation of precursors after successful mitochondrial delivery localizes the defect to post-import processing by mitochondrial processing peptidase.",
+          "option": "C",
+          "resolution": "MUNC13-4 deficiency is the strongest pathway-level alternative because it also causes HLH with defective degranulation. However, MUNC13-4 acts in priming after docking, whereas RAB27A deficiency specifically produces failure of lytic-granule membrane docking despite polarization.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
@@ -333,43 +333,43 @@
         "specification_source_id": "USMLE-SPEC"
       },
       "item": {
-        "vignette": "A 6-year-old boy has recurrent bacterial and viral infections, severe eczema, skeletal dysplasia, and developmental delay. Laboratory studies show lymphopenia and reduced intracellular UDP-N-acetylglucosamine. Genetic testing identifies biallelic hypomorphic variants in PGM3, and patient cells show reduced N-linked and O-linked protein glycosylation.",
-        "lead_in": "Which metabolic reaction is most directly impaired?",
+        "vignette": "A 6-year-old boy has recurrent bacterial and viral infections, severe eczema, skeletal dysplasia, and developmental delay. Laboratory studies show lymphopenia. Genetic testing identifies biallelic hypomorphic variants in PGM3, and patient cells show reduced N-linked and O-linked protein glycosylation.",
+        "lead_in": "Which intracellular nucleotide-sugar pool is most directly reduced by this enzyme defect?",
         "options": {
-          "A": "Conversion of fructose-6-phosphate and glutamine to glucosamine-6-phosphate",
-          "B": "Acetylation of glucosamine-6-phosphate to N-acetylglucosamine-6-phosphate",
-          "C": "Conversion of N-acetylglucosamine-6-phosphate to N-acetylglucosamine-1-phosphate",
-          "D": "Formation of UDP-N-acetylglucosamine from N-acetylglucosamine-1-phosphate and UTP",
-          "E": "Conversion of UDP-N-acetylglucosamine to N-acetylmannosamine and UDP by GNE"
+          "A": "GDP-mannose",
+          "B": "UDP-galactose",
+          "C": "UDP-N-acetylglucosamine",
+          "D": "CMP-N-acetylneuraminic acid",
+          "E": "UDP-glucuronic acid"
         },
         "intended_key": "C",
-        "tested_construct": "PGM3 converts N-acetylglucosamine-6-phosphate to N-acetylglucosamine-1-phosphate during UDP-GlcNAc synthesis",
+        "tested_construct": "PGM3 activity is required for synthesis of UDP-N-acetylglucosamine, a donor substrate used by multiple N-linked and O-linked glycosylation pathways",
         "difficulty": "moderate-hard",
         "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
       },
       "explanation": {
-        "key_explanation": "PGM3 is a phosphoacetylglucosamine mutase in the hexosamine biosynthetic pathway. It converts GlcNAc-6-phosphate to GlcNAc-1-phosphate, which is subsequently used to generate UDP-GlcNAc. UDP-GlcNAc supplies multiple glycosylation pathways, explaining the combined immune, skeletal, and neurologic phenotype when PGM3 activity is reduced.",
+        "key_explanation": "PGM3 converts N-acetylglucosamine-6-phosphate to N-acetylglucosamine-1-phosphate in the hexosamine biosynthetic pathway. Reduced PGM3 activity lowers the cellular UDP-GlcNAc pool, limiting substrate availability for multiple glycosylation reactions and producing immune, skeletal, and neurologic abnormalities.",
         "distractor_explanations": {
-          "A": "GFPT catalyzes the upstream formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine; this is not the PGM3 reaction.",
-          "B": "GNPNAT1 catalyzes acetylation of glucosamine-6-phosphate upstream of PGM3.",
-          "C": "Correct. PGM3 interconverts GlcNAc-6-phosphate and GlcNAc-1-phosphate, supplying substrate for UDP-GlcNAc synthesis.",
-          "D": "UAP1 catalyzes the downstream uridylation step that forms UDP-GlcNAc from GlcNAc-1-phosphate and UTP.",
-          "E": "GNE converts UDP-GlcNAc to N-acetylmannosamine and UDP at the entry to sialic-acid biosynthesis; it is downstream of UDP-GlcNAc production and is not the PGM3 reaction."
+          "A": "GDP-mannose supplies mannose residues for several glycoconjugates but is generated through a different mannose pathway and is not the primary nucleotide-sugar deficit in PGM3 deficiency.",
+          "B": "UDP-galactose is generated from UDP-glucose by UDP-galactose 4-epimerase and is not the nucleotide-sugar pool directly reduced by PGM3 loss.",
+          "C": "Correct. PGM3 deficiency lowers UDP-GlcNAc, compromising both N-linked and O-linked protein glycosylation.",
+          "D": "CMP-sialic acid is the activated donor for terminal sialylation; its synthesis is downstream of a distinct pathway and is not the primary PGM3-dependent pool.",
+          "E": "UDP-glucuronic acid is produced by oxidation of UDP-glucose and is used in glycosaminoglycan synthesis and glucuronidation, not as the primary product of the PGM3-dependent pathway."
         },
-        "educational_objective": "Link PGM3 immunodeficiency to impaired GlcNAc-6-phosphate to GlcNAc-1-phosphate conversion and reduced UDP-GlcNAc availability for protein glycosylation."
+        "educational_objective": "Recognize PGM3 immunodeficiency as a hexosamine-pathway defect that lowers UDP-GlcNAc availability and thereby compromises multiple protein-glycosylation pathways."
       },
       "sources": [
         {
           "source_id": "Q1628-PUBMED-PRIMARY",
-          "title": "PGM3 mutations cause a congenital disorder of glycosylation with severe immunodeficiency and skeletal dysplasia",
+          "title": "Autosomal recessive phosphoglucomutase 3 (PGM3) mutations link glycosylation defects to atopy, immune deficiency, autoimmunity, and neurocognitive impairment",
           "agency": "PubMed, U.S. National Library of Medicine",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/24931394/",
-          "source_section_date": "2014-06-12",
-          "date_basis": "PubMed reports Epub 2014-06-12; live record reverified 2026-09-19.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24589341/",
+          "source_section_date": "2014-02-28",
+          "date_basis": "PubMed reports Epub 2014-02-28; live record reverified 2026-09-19.",
           "retrieved_at": "2026-09-19",
-          "section_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
-          "source_page_sha256": "31cd9ef8ef91389348eb020037daf8f56d747d9e37fe3353e3816f4580938e31",
-          "cited_section_sha256": "51b9ca9e99247276b40eb5f5d182235d746c428c6b79eed8b859b474e4c015c7",
+          "section_locator": "reduced uridine diphosphate-N-acetyl-D-glucosamine, along with decreased O- and N-linked protein glycosylation in patients cells",
+          "source_page_sha256": "2fedad3d646d72971e725333ca73886bc4d513474a707bd44fccfb7479c84a40",
+          "cited_section_sha256": "1156931780fd1c63805588fcba7154fc40ef0df8fabbca1790747922dae50ec0",
           "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
           "cited_locator_component_count": 1
         }
@@ -379,60 +379,60 @@
           "claim_id": "Q1628-A",
           "option": "A",
           "claim_locator": "explanation.distractor_explanations.A",
-          "claim": "GFPT catalyzes the upstream formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine; this is not the PGM3 reaction.",
+          "claim": "GDP-mannose supplies mannose residues for several glycoconjugates but is generated through a different mannose pathway and is not the primary nucleotide-sugar deficit in PGM3 deficiency.",
           "source_ids": [
             "Q1628-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "source_locator": "reduced uridine diphosphate-N-acetyl-D-glucosamine, along with decreased O- and N-linked protein glycosylation in patients cells",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1628-B",
           "option": "B",
           "claim_locator": "explanation.distractor_explanations.B",
-          "claim": "GNPNAT1 catalyzes acetylation of glucosamine-6-phosphate upstream of PGM3.",
+          "claim": "UDP-galactose is generated from UDP-glucose by UDP-galactose 4-epimerase and is not the nucleotide-sugar pool directly reduced by PGM3 loss.",
           "source_ids": [
             "Q1628-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "source_locator": "reduced uridine diphosphate-N-acetyl-D-glucosamine, along with decreased O- and N-linked protein glycosylation in patients cells",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1628-C",
           "option": "C",
           "claim_locator": "explanation.distractor_explanations.C",
-          "claim": "Correct. PGM3 interconverts GlcNAc-6-phosphate and GlcNAc-1-phosphate, supplying substrate for UDP-GlcNAc synthesis.",
+          "claim": "Correct. PGM3 deficiency lowers UDP-GlcNAc, compromising both N-linked and O-linked protein glycosylation.",
           "source_ids": [
             "Q1628-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "direct",
-          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "source_locator": "reduced uridine diphosphate-N-acetyl-D-glucosamine, along with decreased O- and N-linked protein glycosylation in patients cells",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1628-D",
           "option": "D",
           "claim_locator": "explanation.distractor_explanations.D",
-          "claim": "UAP1 catalyzes the downstream uridylation step that forms UDP-GlcNAc from GlcNAc-1-phosphate and UTP.",
+          "claim": "CMP-sialic acid is the activated donor for terminal sialylation; its synthesis is downstream of a distinct pathway and is not the primary PGM3-dependent pool.",
           "source_ids": [
             "Q1628-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "source_locator": "reduced uridine diphosphate-N-acetyl-D-glucosamine, along with decreased O- and N-linked protein glycosylation in patients cells",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         },
         {
           "claim_id": "Q1628-E",
           "option": "E",
           "claim_locator": "explanation.distractor_explanations.E",
-          "claim": "GNE converts UDP-GlcNAc to N-acetylmannosamine and UDP at the entry to sialic-acid biosynthesis; it is downstream of UDP-GlcNAc production and is not the PGM3 reaction.",
+          "claim": "UDP-glucuronic acid is produced by oxidation of UDP-glucose and is used in glycosaminoglycan synthesis and glucuronidation, not as the primary product of the PGM3-dependent pathway.",
           "source_ids": [
             "Q1628-PUBMED-PRIMARY"
           ],
           "direct_or_inference": "inference",
-          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "source_locator": "reduced uridine diphosphate-N-acetyl-D-glucosamine, along with decreased O- and N-linked protein glycosylation in patients cells",
           "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
         }
       ],
@@ -442,7 +442,7 @@
         "single_best_answer": "PASS",
         "second_answer_attack": {
           "option": "D",
-          "resolution": "The UAP1 uridylation step is the strongest adjacent-pathway alternative because it immediately follows PGM3 and also controls UDP-GlcNAc production. The gene and source-bound reaction specifically identify the phosphomutase step as the lesion.",
+          "resolution": "CMP-sialic acid is the strongest downstream glycosylation alternative because abnormal sialylation can occur when glycan synthesis is disturbed. The primary biochemical defect demonstrated in PGM3-deficient cells is reduction of UDP-GlcNAc itself.",
           "status": "PASS"
         },
         "hidden_assumptions": "PASS",
