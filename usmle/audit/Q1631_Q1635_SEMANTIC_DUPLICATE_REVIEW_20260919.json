@@ -1,0 +1,52 @@
+{
+  "audit_id": "Q1631-Q1635-SEMANTIC-DUPLICATE-REVIEW-20260919",
+  "status": "PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION",
+  "candidate_batch_blob": "acc545b9cf6fc4998a1fb1a20e001abd9adcfa2f",
+  "canonical_db_blob": "0676129cbcfa9cab819708389e22d75062f837d6",
+  "canonical_count": 1630,
+  "zero_trust_audit_blob": "bde588422353d22a30e4cac39e566e151fe21498",
+  "top_match_report_blob": "f91844e266c15528e780ac20e5fab07f17b7bec8",
+  "method": "Manual adversarial construct-level review of each candidate against its highest-similarity canonical item after whole-bank zero-trust screening.",
+  "comparisons": [
+    {
+      "q": 1631,
+      "top_match": "S1-DIRECT-1617-20260918T172900Z",
+      "jaccard": 0.37391,
+      "decision": "DISTINCT",
+      "reason": "Both use inner-mitochondrial-membrane transport as a frame, but Q1617 tests SLC25A13/citrin aspartate-glutamate exchange for urea-cycle substrate delivery, whereas Q1631 tests SLC25A3 inorganic-phosphate import required for ATP synthesis. Substrate, transporter, pathway, phenotype, and causal consequence differ."
+    },
+    {
+      "q": 1632,
+      "top_match": "S1-DIRECT-1272-20260906T112500Z",
+      "jaccard": 0.18065,
+      "decision": "DISTINCT",
+      "reason": "Q1272 tests neuronal KCC2 chloride extrusion and GABA-A signaling. Q1632 tests PNKP DNA-end chemistry with 5-prime kinase and 3-prime phosphatase activities. Shared seizure phenotype does not constitute mechanistic duplication."
+    },
+    {
+      "q": 1633,
+      "top_match": "S1-DIRECT-1617-20260918T172900Z",
+      "jaccard": 0.23438,
+      "decision": "DISTINCT",
+      "reason": "Q1617 tests mitochondrial metabolite exchange by citrin. Q1633 tests ATP13A2-mediated lysosomal polyamine, especially spermine, export. Organelle, substrate, transporter family, disease phenotype, and mechanism are distinct."
+    },
+    {
+      "q": 1634,
+      "top_match": "S1-DIRECT-1216-20260906T001200Z",
+      "jaccard": 0.24638,
+      "decision": "DISTINCT",
+      "reason": "Q1216 tests COQ8A-related coenzyme-Q biosynthesis and oxidative phosphorylation. Q1634 tests DDHD2 intracellular triglyceride hydrolysis and neuronal lipid-droplet accumulation. Both can cause neurologic disease, but the biochemical constructs are unrelated."
+    },
+    {
+      "q": 1635,
+      "top_match": "S1-DIRECT-1629-20260919T160300Z",
+      "jaccard": 0.25,
+      "decision": "DISTINCT",
+      "reason": "Q1629 tests LRPPRC-dependent mitochondrial mRNA stabilization/polyadenylation. Q1635 tests MTFMT-dependent formylation of mitochondrial Met-tRNA for translation initiation. Both affect mitochondrial gene expression, but one is mRNA homeostasis and the other is initiator-tRNA modification."
+    }
+  ],
+  "second_answer_attack": "PASS_ALL_5",
+  "second_pass": "PASS",
+  "material_duplicates": [],
+  "unresolved_defects": [],
+  "import_gate": "PASS"
+}
