@@ -1,0 +1,753 @@
+{
+  "batch_id": "Q1626-Q1630-20260919",
+  "created_at": "2026-09-19",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1625,
+  "canonical_count_after": 1625,
+  "canonical_db_blob": "3560a1d056dd8aca9367f8079215d18b4379174d",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective whole-bank screening against authoritative Q0001-Q1625 production followed by manual adversarial construct selection.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-19: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1626,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Metabolism"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 4-month-old boy has recurrent episodes of severe lactic acidosis and hypotonia. Enzyme assays show markedly reduced pyruvate dehydrogenase and 2-ketoglutarate dehydrogenase activities. Glycine concentration is normal. Immunoblotting shows markedly decreased lipoylation of the E2 subunits of both dehydrogenase complexes but preserved lipoylation of the H protein of the glycine cleavage system. Genetic testing identifies biallelic pathogenic variants in LIPT1.",
+        "lead_in": "Which biochemical process is most directly impaired?",
+        "options": {
+          "A": "Transfer of lipoyl groups to selected E2 subunits of mitochondrial 2-ketoacid dehydrogenase complexes",
+          "B": "Insertion of sulfur atoms into protein-bound octanoyl groups by mitochondrial lipoic acid synthetase",
+          "C": "Covalent attachment of biotin to mitochondrial carboxylases by holocarboxylase synthetase",
+          "D": "Binding of thiamine pyrophosphate to the E1 subunit of pyruvate dehydrogenase",
+          "E": "Transport of pyruvate from the cytosol into the mitochondrial matrix"
+        },
+        "intended_key": "A",
+        "tested_construct": "LIPT1 is required for transfer of lipoic acid to selected 2-ketoacid dehydrogenase proteins, allowing their lipoylation and activation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "LIPT1 deficiency causes a selective lipoic-acid transfer defect. The E2 subunits of pyruvate dehydrogenase and 2-ketoglutarate dehydrogenase require covalently attached lipoate for catalytic activity. In the original human LIPT1 disorder, lipoylation of these E2 proteins was markedly reduced while lipoylation of the glycine-cleavage H protein was preserved, distinguishing defective lipoate transfer to selected proteins from a generalized failure of lipoic-acid synthesis.",
+        "distractor_explanations": {
+          "A": "Correct. LIPT1 is required for lipoylation and activation of selected 2-ketoacid dehydrogenases.",
+          "B": "LIAS inserts sulfur into protein-bound octanoyl groups during mitochondrial lipoate biosynthesis; a generalized LIAS defect would not fit the preserved H-protein lipoylation described in the vignette.",
+          "C": "Holocarboxylase synthetase attaches biotin to biotin-dependent carboxylases; it does not lipoylate the E2 subunits of PDH or 2-KGDH.",
+          "D": "Thiamine pyrophosphate is a required E1 cofactor, but the demonstrated abnormality is loss of E2 lipoylation rather than impaired TPP binding.",
+          "E": "Mitochondrial pyruvate transport occurs upstream of PDH and cannot explain simultaneous loss of PDH and 2-KGDH activity with selective E2 hypolipoylation."
+        },
+        "educational_objective": "Recognize LIPT1 deficiency as a selective mitochondrial lipoate-transfer defect that reduces lipoylation and activity of 2-ketoacid dehydrogenase complexes."
+      },
+      "sources": [
+        {
+          "source_id": "Q1626-PUBMED-PRIMARY",
+          "title": "Mutations in the lipoyltransferase LIPT1 gene cause a fatal disease associated with a specific lipoylation defect of the 2-ketoacid dehydrogenase complexes",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24256811/",
+          "source_section_date": "2013-11-20",
+          "date_basis": "PubMed reports Epub 2013-11-20; live record reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "LIPT1 protein is required for lipoylation and activation of 2-ketoacid dehydrogenases in humans",
+          "source_page_sha256": "88fc44c6656ea2e7ad79812a7c073d3cb3f23b2aa623eea4f09a570a4a351057",
+          "cited_section_sha256": "7d892829cccd04e68b6bd5499ec28355479af0cda37c4a5baba0f2d334872e49",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1626-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. LIPT1 is required for lipoylation and activation of selected 2-ketoacid dehydrogenases.",
+          "source_ids": [
+            "Q1626-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "LIPT1 protein is required for lipoylation and activation of 2-ketoacid dehydrogenases in humans",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1626-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "LIAS inserts sulfur into protein-bound octanoyl groups during mitochondrial lipoate biosynthesis; a generalized LIAS defect would not fit the preserved H-protein lipoylation described in the vignette.",
+          "source_ids": [
+            "Q1626-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "LIPT1 protein is required for lipoylation and activation of 2-ketoacid dehydrogenases in humans",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1626-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Holocarboxylase synthetase attaches biotin to biotin-dependent carboxylases; it does not lipoylate the E2 subunits of PDH or 2-KGDH.",
+          "source_ids": [
+            "Q1626-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "LIPT1 protein is required for lipoylation and activation of 2-ketoacid dehydrogenases in humans",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1626-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Thiamine pyrophosphate is a required E1 cofactor, but the demonstrated abnormality is loss of E2 lipoylation rather than impaired TPP binding.",
+          "source_ids": [
+            "Q1626-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "LIPT1 protein is required for lipoylation and activation of 2-ketoacid dehydrogenases in humans",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1626-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Mitochondrial pyruvate transport occurs upstream of PDH and cannot explain simultaneous loss of PDH and 2-KGDH activity with selective E2 hypolipoylation.",
+          "source_ids": [
+            "Q1626-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "LIPT1 protein is required for lipoylation and activation of 2-ketoacid dehydrogenases in humans",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Generalized lipoic-acid synthesis failure is the strongest alternative because it can also impair lipoate-dependent enzymes. Preserved H-protein lipoylation together with selective E2 hypolipoylation supports a LIPT1 transfer defect rather than LIAS failure.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1627,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Cell Biology",
+          "Genetics",
+          "Neurology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 5-year-old girl has nonprogressive cerebellar ataxia, short stature, and mild intellectual disability. Genetic testing identifies biallelic pathogenic variants in PMPCA. Patient fibroblasts accumulate precursor forms of several nuclear-encoded mitochondrial proteins, including incompletely processed frataxin, despite normal delivery of these proteins into mitochondria.",
+        "lead_in": "Which cellular process is most directly impaired?",
+        "options": {
+          "A": "Recognition of mitochondrial targeting sequences by TOM20 at the outer mitochondrial membrane",
+          "B": "Proteolytic maturation of imported mitochondrial precursor proteins by the mitochondrial processing peptidase",
+          "C": "TIM22-dependent insertion of multipass carrier proteins into the inner mitochondrial membrane",
+          "D": "Replication of mitochondrial DNA by DNA polymerase gamma",
+          "E": "Post-transcriptional polyadenylation of mitochondrial messenger RNAs"
+        },
+        "intended_key": "B",
+        "tested_construct": "PMPCA encodes the alpha subunit of mitochondrial processing peptidase, which is required for maturation of many imported nuclear-encoded mitochondrial precursor proteins",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Most nuclear-encoded mitochondrial proteins are synthesized as precursor proteins carrying targeting presequences. After mitochondrial import, the mitochondrial processing peptidase removes targeting sequences to generate mature proteins. PMPCA encodes the alpha subunit of this processing complex; pathogenic variants impair precursor maturation, including processing of frataxin.",
+        "distractor_explanations": {
+          "A": "TOM20 participates in initial recognition of many mitochondrial targeting sequences, but the vignette states that import occurs and precursor proteins accumulate after entry.",
+          "B": "Correct. PMPCA dysfunction impairs mitochondrial processing peptidase activity and therefore maturation of imported precursor proteins.",
+          "C": "TIM22 inserts a restricted class of multipass inner-membrane carriers; PMPCA deficiency instead causes defective proteolytic maturation of many imported precursor proteins.",
+          "D": "POLG replicates mitochondrial DNA and does not cleave targeting presequences from nuclear-encoded proteins.",
+          "E": "Mitochondrial mRNA polyadenylation is a post-transcriptional RNA process and cannot explain accumulation of unprocessed imported protein precursors."
+        },
+        "educational_objective": "Distinguish mitochondrial protein import from post-import processing: PMPCA deficiency impairs mitochondrial processing peptidase-mediated maturation of nuclear-encoded precursor proteins."
+      },
+      "sources": [
+        {
+          "source_id": "Q1627-PUBMED-PRIMARY",
+          "title": "PMPCA mutations cause abnormal mitochondrial protein processing in patients with non-progressive cerebellar ataxia",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25808372/",
+          "source_section_date": "2015-03-25",
+          "date_basis": "PubMed reports Epub 2015-03-25; live record reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "source_page_sha256": "56046f27251cc2722c4d7e20f84c4b59ed1b3586fd5016e08989870d3b9ad3e4",
+          "cited_section_sha256": "bbb0a64d0a5f2447cedac4485554fb3e41338923e4d6fc1791ac4ca35460c472",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1627-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "TOM20 participates in initial recognition of many mitochondrial targeting sequences, but the vignette states that import occurs and precursor proteins accumulate after entry.",
+          "source_ids": [
+            "Q1627-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1627-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. PMPCA dysfunction impairs mitochondrial processing peptidase activity and therefore maturation of imported precursor proteins.",
+          "source_ids": [
+            "Q1627-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1627-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "TIM22 inserts a restricted class of multipass inner-membrane carriers; PMPCA deficiency instead causes defective proteolytic maturation of many imported precursor proteins.",
+          "source_ids": [
+            "Q1627-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1627-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "POLG replicates mitochondrial DNA and does not cleave targeting presequences from nuclear-encoded proteins.",
+          "source_ids": [
+            "Q1627-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1627-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Mitochondrial mRNA polyadenylation is a post-transcriptional RNA process and cannot explain accumulation of unprocessed imported protein precursors.",
+          "source_ids": [
+            "Q1627-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "the primary enzyme responsible for the maturation of the vast majority of nuclear-encoded mitochondrial proteins",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "TOM20 is the strongest same-pathway alternative because it acts on mitochondrial precursor proteins before import. The explicit accumulation of precursors after successful mitochondrial delivery localizes the defect to post-import processing by mitochondrial processing peptidase.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1628,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Blood & Lymphoreticular/Immune Systems",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Immunology"
+        ],
+        "official_outline_path": [
+          "Blood & Lymphoreticular/Immune Systems"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 6-year-old boy has recurrent bacterial and viral infections, severe eczema, skeletal dysplasia, and developmental delay. Laboratory studies show lymphopenia and reduced intracellular UDP-N-acetylglucosamine. Genetic testing identifies biallelic hypomorphic variants in PGM3, and patient cells show reduced N-linked and O-linked protein glycosylation.",
+        "lead_in": "Which metabolic reaction is most directly impaired?",
+        "options": {
+          "A": "Conversion of fructose-6-phosphate and glutamine to glucosamine-6-phosphate",
+          "B": "Acetylation of glucosamine-6-phosphate to N-acetylglucosamine-6-phosphate",
+          "C": "Conversion of N-acetylglucosamine-6-phosphate to N-acetylglucosamine-1-phosphate",
+          "D": "Formation of UDP-N-acetylglucosamine from N-acetylglucosamine-1-phosphate and UTP",
+          "E": "Conversion of UDP-N-acetylglucosamine to N-acetylmannosamine and UDP by GNE"
+        },
+        "intended_key": "C",
+        "tested_construct": "PGM3 converts N-acetylglucosamine-6-phosphate to N-acetylglucosamine-1-phosphate during UDP-GlcNAc synthesis",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "PGM3 is a phosphoacetylglucosamine mutase in the hexosamine biosynthetic pathway. It converts GlcNAc-6-phosphate to GlcNAc-1-phosphate, which is subsequently used to generate UDP-GlcNAc. UDP-GlcNAc supplies multiple glycosylation pathways, explaining the combined immune, skeletal, and neurologic phenotype when PGM3 activity is reduced.",
+        "distractor_explanations": {
+          "A": "GFPT catalyzes the upstream formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine; this is not the PGM3 reaction.",
+          "B": "GNPNAT1 catalyzes acetylation of glucosamine-6-phosphate upstream of PGM3.",
+          "C": "Correct. PGM3 interconverts GlcNAc-6-phosphate and GlcNAc-1-phosphate, supplying substrate for UDP-GlcNAc synthesis.",
+          "D": "UAP1 catalyzes the downstream uridylation step that forms UDP-GlcNAc from GlcNAc-1-phosphate and UTP.",
+          "E": "GNE converts UDP-GlcNAc to N-acetylmannosamine and UDP at the entry to sialic-acid biosynthesis; it is downstream of UDP-GlcNAc production and is not the PGM3 reaction."
+        },
+        "educational_objective": "Link PGM3 immunodeficiency to impaired GlcNAc-6-phosphate to GlcNAc-1-phosphate conversion and reduced UDP-GlcNAc availability for protein glycosylation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1628-PUBMED-PRIMARY",
+          "title": "PGM3 mutations cause a congenital disorder of glycosylation with severe immunodeficiency and skeletal dysplasia",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24931394/",
+          "source_section_date": "2014-06-12",
+          "date_basis": "PubMed reports Epub 2014-06-12; live record reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "source_page_sha256": "31cd9ef8ef91389348eb020037daf8f56d747d9e37fe3353e3816f4580938e31",
+          "cited_section_sha256": "51b9ca9e99247276b40eb5f5d182235d746c428c6b79eed8b859b474e4c015c7",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1628-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "GFPT catalyzes the upstream formation of glucosamine-6-phosphate from fructose-6-phosphate and glutamine; this is not the PGM3 reaction.",
+          "source_ids": [
+            "Q1628-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1628-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "GNPNAT1 catalyzes acetylation of glucosamine-6-phosphate upstream of PGM3.",
+          "source_ids": [
+            "Q1628-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1628-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. PGM3 interconverts GlcNAc-6-phosphate and GlcNAc-1-phosphate, supplying substrate for UDP-GlcNAc synthesis.",
+          "source_ids": [
+            "Q1628-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1628-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "UAP1 catalyzes the downstream uridylation step that forms UDP-GlcNAc from GlcNAc-1-phosphate and UTP.",
+          "source_ids": [
+            "Q1628-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1628-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "GNE converts UDP-GlcNAc to N-acetylmannosamine and UDP at the entry to sialic-acid biosynthesis; it is downstream of UDP-GlcNAc production and is not the PGM3 reaction.",
+          "source_ids": [
+            "Q1628-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "catalyzes the conversion of N-acetyl-glucosamine (GlcNAc)-6-phosphate into GlcNAc-1-phosphate",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "D",
+          "resolution": "The UAP1 uridylation step is the strongest adjacent-pathway alternative because it immediately follows PGM3 and also controls UDP-GlcNAc production. The gene and source-bound reaction specifically identify the phosphomutase step as the lesion.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1629,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Cell Biology",
+          "Genetics",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 2-year-old boy from a French-Canadian founder population has developmental delay and recurrent episodes of severe lactic acidosis during minor illnesses. Muscle studies show a marked cytochrome c oxidase deficiency. Genetic testing identifies biallelic pathogenic variants in LRPPRC. Mitochondrial DNA copy number is normal, but steady-state levels of multiple mitochondrial messenger RNAs are markedly reduced.",
+        "lead_in": "Which molecular process is most directly impaired?",
+        "options": {
+          "A": "Replication of mitochondrial DNA by DNA polymerase gamma",
+          "B": "Initiation of mitochondrial transcription by the POLRMT-TFAM machinery",
+          "C": "Cleavage of polycistronic mitochondrial transcripts at transfer-RNA boundaries",
+          "D": "Post-transcriptional stabilization and polyadenylation of mitochondrial messenger RNAs",
+          "E": "Aminoacylation of mitochondrial transfer RNAs before translation"
+        },
+        "intended_key": "D",
+        "tested_construct": "LRPPRC forms an RNA-binding complex that stabilizes mitochondrial mRNAs and supports their polyadenylation and coordinated translation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "LRPPRC acts at the post-transcriptional level in mitochondria. In complex with RNA-binding partners such as SLIRP, it helps maintain mitochondrial mRNA stability and polyadenylation and coordinates translation. LRPPRC deficiency therefore lowers steady-state mitochondrial mRNA levels despite preserved mitochondrial DNA copy number.",
+        "distractor_explanations": {
+          "A": "POLG-dependent mtDNA replication failure would reduce or deplete mitochondrial DNA itself; copy number is normal in this vignette.",
+          "B": "POLRMT and TFAM are central to mitochondrial transcription initiation, but LRPPRC primarily regulates mitochondrial RNA after transcription.",
+          "C": "Mitochondrial transcript cleavage is performed by RNA-processing machinery at tRNA junctions and is not the principal LRPPRC function.",
+          "D": "Correct. LRPPRC loss destabilizes mitochondrial mRNAs and impairs their polyadenylation and coordinated translation.",
+          "E": "Aminoacyl-tRNA synthetases charge mitochondrial tRNAs; failure of that process does not directly explain selective loss of steady-state mitochondrial mRNAs."
+        },
+        "educational_objective": "Recognize LRPPRC deficiency as a post-transcriptional mitochondrial gene-expression defect involving mRNA stabilization, polyadenylation, and coordinated translation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1629-PUBMED-PRIMARY",
+          "title": "LRPPRC is necessary for polyadenylation and coordination of translation of mitochondrial mRNAs",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22045337/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "leads to loss of mRNA polyadenylation",
+          "source_page_sha256": "9b62bcf0da72677abe56d869659afa68ae33d7d179c00edf073c724fc559e81a",
+          "cited_section_sha256": "e371112daf76b016a6b6fb2a505d2456031b6a54ad82b50864fe56c5941895f0",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1629-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "POLG-dependent mtDNA replication failure would reduce or deplete mitochondrial DNA itself; copy number is normal in this vignette.",
+          "source_ids": [
+            "Q1629-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "leads to loss of mRNA polyadenylation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1629-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "POLRMT and TFAM are central to mitochondrial transcription initiation, but LRPPRC primarily regulates mitochondrial RNA after transcription.",
+          "source_ids": [
+            "Q1629-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "leads to loss of mRNA polyadenylation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1629-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Mitochondrial transcript cleavage is performed by RNA-processing machinery at tRNA junctions and is not the principal LRPPRC function.",
+          "source_ids": [
+            "Q1629-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "leads to loss of mRNA polyadenylation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1629-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. LRPPRC loss destabilizes mitochondrial mRNAs and impairs their polyadenylation and coordinated translation.",
+          "source_ids": [
+            "Q1629-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "leads to loss of mRNA polyadenylation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1629-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Aminoacyl-tRNA synthetases charge mitochondrial tRNAs; failure of that process does not directly explain selective loss of steady-state mitochondrial mRNAs.",
+          "source_ids": [
+            "Q1629-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "leads to loss of mRNA polyadenylation",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "A primary transcription-initiation defect is the strongest alternative because it could also lower mitochondrial mRNA abundance. The source and normal mtDNA copy number support a post-transcriptional LRPPRC defect in mRNA stability/polyadenylation rather than impaired transcription initiation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1630,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Genetics",
+          "Physiology",
+          "Toxicology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 10-year-old boy has progressive dystonia, gait difficulty, polycythemia, and chronic liver disease. Whole-blood manganese concentration is markedly elevated, and T1-weighted brain MRI shows symmetric hyperintensity of the basal ganglia. Genetic testing identifies biallelic loss-of-function variants in SLC30A10.",
+        "lead_in": "Which transport function is most directly impaired?",
+        "options": {
+          "A": "Cellular manganese uptake mediated by SLC39A8",
+          "B": "Manganese uptake into hepatocytes mediated by SLC39A14",
+          "C": "Canalicular copper export mediated by ATP7B",
+          "D": "Cellular iron export mediated by ferroportin",
+          "E": "Cell-surface manganese efflux mediated by SLC30A10"
+        },
+        "intended_key": "E",
+        "tested_construct": "SLC30A10 is a cell-surface manganese efflux transporter; loss of trafficking or efflux function causes cellular and systemic manganese accumulation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC30A10 localizes to the cell surface and exports manganese, protecting cells from manganese toxicity. Disease-causing variants can prevent appropriate surface trafficking or directly impair efflux, producing hypermanganesemia with dystonia, polycythemia, and liver disease.",
+        "distractor_explanations": {
+          "A": "SLC39A8 promotes manganese uptake and its deficiency causes systemic manganese deficiency with glycosylation abnormalities, the opposite metal phenotype.",
+          "B": "SLC39A14 is a manganese influx transporter important for tissue uptake; its deficiency can also cause manganese neurotoxicity but is mechanistically distinct from SLC30A10 loss.",
+          "C": "ATP7B exports copper into bile; its failure causes copper accumulation rather than isolated hypermanganesemia.",
+          "D": "Ferroportin exports iron and does not account for the characteristic manganese accumulation and SLC30A10 genotype.",
+          "E": "Correct. SLC30A10 mediates cell-surface manganese efflux, and loss of this function increases cellular manganese burden."
+        },
+        "educational_objective": "Recognize SLC30A10-associated hypermanganesemia as failure of cell-surface manganese efflux rather than a defect in copper, iron, or manganese-uptake pathways."
+      },
+      "sources": [
+        {
+          "source_id": "Q1630-PUBMED-PRIMARY",
+          "title": "SLC30A10 is a cell surface-localized manganese efflux transporter, and parkinsonism-causing mutations block its intracellular trafficking and efflux activity",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25319704/",
+          "source_section_date": "2014-10-15",
+          "date_basis": "PubMed reports publication 2014-10-15; live record reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "SLC30A10 is a cell surface-localized Mn efflux transporter that reduces cellular Mn levels",
+          "source_page_sha256": "bc105a5fd071aaeea56a06310558d80902bddc7eef9e2f057a790315d698fb6e",
+          "cited_section_sha256": "690cddf6aec4dda87af037db63deca1b4d6fb896e34cc00cafdbdcc468ea0878",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1630-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "SLC39A8 promotes manganese uptake and its deficiency causes systemic manganese deficiency with glycosylation abnormalities, the opposite metal phenotype.",
+          "source_ids": [
+            "Q1630-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "SLC30A10 is a cell surface-localized Mn efflux transporter that reduces cellular Mn levels",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1630-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "SLC39A14 is a manganese influx transporter important for tissue uptake; its deficiency can also cause manganese neurotoxicity but is mechanistically distinct from SLC30A10 loss.",
+          "source_ids": [
+            "Q1630-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "SLC30A10 is a cell surface-localized Mn efflux transporter that reduces cellular Mn levels",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1630-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "ATP7B exports copper into bile; its failure causes copper accumulation rather than isolated hypermanganesemia.",
+          "source_ids": [
+            "Q1630-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "SLC30A10 is a cell surface-localized Mn efflux transporter that reduces cellular Mn levels",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1630-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Ferroportin exports iron and does not account for the characteristic manganese accumulation and SLC30A10 genotype.",
+          "source_ids": [
+            "Q1630-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "SLC30A10 is a cell surface-localized Mn efflux transporter that reduces cellular Mn levels",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        },
+        {
+          "claim_id": "Q1630-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. SLC30A10 mediates cell-surface manganese efflux, and loss of this function increases cellular manganese burden.",
+          "source_ids": [
+            "Q1630-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "SLC30A10 is a cell surface-localized Mn efflux transporter that reduces cellular Mn levels",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated clinical or experimental findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "SLC39A14 deficiency is the strongest phenotypic alternative because it also produces inherited manganese neurotoxicity. The identified SLC30A10 genotype directly specifies failure of the distinct cell-surface manganese-efflux pathway.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
