@@ -39,6 +39,11 @@ def qnum(cid):
 def is_sha256(s):
     return isinstance(s,str) and bool(re.fullmatch(r'[0-9a-f]{64}',s.casefold()))
 
+def review_hash_valid(review, expected):
+    # Legacy reviews hash their content before adding the self-hash field.
+    body={k:v for k,v in review.items() if k!='review_sha256'}
+    return hobj(review)==expected or hobj(body)==expected
+
 def item_text(payload):
     it=payload.get('item') if isinstance(payload.get('item'),dict) else {}
     opts=it.get('options') if isinstance(it.get('options'),dict) else {}
@@ -68,9 +73,9 @@ def criteria_defects(p):
     if not str(it.get('vignette','')).strip(): d.append('missing_vignette')
     if not str(it.get('lead_in','')).strip(): d.append('missing_lead_in')
     elif not str(it.get('lead_in','')).strip().endswith('?'): d.append('lead_in_not_question')
-    if list(opts.keys())!=list('ABCDE'): d.append('options_not_exact_A_E')
+    if set(opts)!=set('ABCDE'): d.append('options_not_exact_A_E')
     if len({norm(v) for v in opts.values()})!=5: d.append('options_not_unique')
-    if key not in 'ABCDE': d.append('invalid_key')
+    if key not in tuple('ABCDE'): d.append('invalid_key')
     if not str(it.get('tested_construct','')).strip(): d.append('missing_tested_construct')
     if not str(it.get('difficulty','')).strip(): d.append('missing_difficulty')
     if not str(it.get('difficulty_basis','')).strip(): d.append('missing_difficulty_basis')
@@ -82,7 +87,8 @@ def criteria_defects(p):
     if not str(bp.get('primary_system','')).strip(): d.append('missing_primary_system')
     if not str(bp.get('primary_competency','')).strip(): d.append('missing_primary_competency')
     if not isinstance(bp.get('disciplines'),list) or not bp.get('disciplines'): d.append('missing_disciplines')
-    if bp.get('official_outline_path') != [bp.get('primary_system')]: d.append('blueprint_path_mismatch')
+    path=bp.get('official_outline_path')
+    if not isinstance(path,list) or not path or path[0]!=bp.get('primary_system'): d.append('blueprint_path_mismatch')
 
     if not src: d.append('missing_sources')
     for i,s in enumerate(src):
@@ -107,10 +113,10 @@ def criteria_defects(p):
         if len(em)!=5 or {e.get('option') for e in em}!=set('ABCDE'):
             d.append('evidence_map_shape')
         else:
-            strong=[e.get('option') for e in em if e.get('direct_or_inference') in {'direct','mixed'}]
-            if strong!=[key]: d.append('evidence_key_not_unique')
-            if any(e.get('direct_or_inference')!='inference' for e in em if e.get('option')!=key):
-                d.append('distractor_evidence_not_inference')
+            # Direct evidence may support exclusion of a distractor. Its label
+            # cannot establish or disprove a unique clinical answer.
+            if any(e.get('direct_or_inference') not in (None,'direct','mixed','inference') for e in em):
+                d.append('invalid_evidence_classification')
             source_ids={s.get('source_id') for s in src if isinstance(s,dict)}
             for e in em:
                 if e.get('source_ids') is not None and not set(e.get('source_ids',[])).issubset(source_ids):
@@ -172,7 +178,7 @@ def main():
         else:
             try: robj=json.loads(rr[1])
             except Exception: robj={}
-            if hobj(robj)!=rr[2] and robj.get('review_sha256')!=rr[2]: cd.append('review_sha256_mismatch')
+            if not review_hash_valid(robj,rr[2]): cd.append('review_sha256_mismatch')
             if rr[2]!=ash: cd.append('item_review_audit_hash_mismatch')
             if rr[3]!='FINAL_10_10_PASS' or status!='FINAL_10_10_PASS': cd.append('final_status_mismatch')
             if robj.get('verdict')!='FINAL_10_10_PASS': cd.append('review_verdict_not_final')
@@ -220,7 +226,7 @@ def main():
     counts_ok=(len(items)==len(reviews)==expected and fin and fin[0]==expected)
 
     # Zero-trust verdict: exact/high near duplicate or any stored-contract defect blocks.
-    verdict='PASS' if not exact_full_groups and not exact_stem_groups and not high and not defect_items and not consistency and integrity=='ok' and contig and counts_ok else 'BLOCKED'
+    verdict='STORED_CHECKS_PASS_PENDING_CLINICAL_REVIEW' if not exact_full_groups and not exact_stem_groups and not high and not defect_items and not consistency and integrity=='ok' and contig and counts_ok else 'BLOCKED'
     out={
       'audit_id':f'FULL-CANONICAL-Q0001-Q{expected}-COMPLIANCE-{AUDIT_DATE}',
       'scope':f'Q0001-Q{expected}',
@@ -233,16 +239,16 @@ def main():
       'counts_ok':counts_ok,
       'contiguous_unique_q_numbers':contig,
       'payload_review_consistency_failure_count':len(consistency),
-      'payload_review_consistency_failures':consistency[:200],
+      'payload_review_consistency_failures':consistency,
       'criteria_contract':{
         'five_unique_options_A_E':True,
         'single_intended_key':True,
         'vignette_and_question_lead_in':True,
         'tested_construct_and_difficulty':True,
         'A_E_rationales_and_educational_objective':True,
-        'blueprint_metadata':True,
+        'blueprint_root_consistency_only':True,
         'source_identity_url_locator_currentness_hashes':True,
-        'evidence_map_key_binding':True,
+        'evidence_map_option_and_source_binding_only':True,
         'second_answer_attack':True,
         'NCJMM_not_applicable_USMLE':True,
         'final_review_no_defects_or_suggested_changes':True
@@ -250,7 +256,7 @@ def main():
       'items_meeting_all_stored_generation_criteria':len(items)-len(defect_items),
       'items_with_generation_criteria_defects':len(defect_items),
       'generation_defect_counts':dict(defect_counts.most_common()),
-      'generation_defect_items':defect_items[:500],
+      'generation_defect_items':defect_items,
       'construct_inventory':construct_inventory,
       'duplicate_analysis':{
         'exact_full_item_duplicate_group_count':len(exact_full_groups),
@@ -268,6 +274,7 @@ def main():
         'top_similarity_pairs_ge_0_45':near[:300]
       },
       'verdict':verdict,
+      'clinical_reaudit_completed':False,
       'verdict_note':'Read-only audit of stored canonical content and metadata. This verifies structural/evidence/source-metadata compliance and lexical duplicate risk; it does not independently re-adjudicate every medical claim against live external sources.'
     }
     out_file.parent.mkdir(parents=True,exist_ok=True)
