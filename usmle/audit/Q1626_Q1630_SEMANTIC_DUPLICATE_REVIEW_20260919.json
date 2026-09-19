@@ -1,0 +1,51 @@
+{
+  "audit_id": "Q1626-Q1630-SEMANTIC-DUPLICATE-REVIEW-20260919",
+  "status": "PASS_NO_MATERIAL_CONSTRUCT_DUPLICATION",
+  "candidate_batch_blob": "5de4b7f4f89bae51c4e8156c169675331426671f",
+  "canonical_db_blob": "3560a1d056dd8aca9367f8079215d18b4379174d",
+  "canonical_count": 1625,
+  "zero_trust_audit_blob": "e2dbcc14ea571bbd9dd063c28a7c3d2fb0f57b97",
+  "top_match_report_blob": "04b6bd56de71a540e104bc41a5a58632beb15cd1",
+  "method": "Manual adversarial construct-level comparison against each highest-similarity canonical item after whole-bank screening. Adjacent steps in one pathway are accepted only when the stem and options force mechanistic discrimination between those steps.",
+  "comparisons": [
+    {
+      "q": 1626,
+      "top_match": "S1-DIRECT-1617-20260918T172900Z",
+      "jaccard": 0.22143,
+      "decision": "DISTINCT",
+      "reason": "Q1617 tests citrin-mediated aspartate/glutamate exchange across the inner mitochondrial membrane; Q1626 tests LIPT1-mediated lipoate transfer to E2 subunits of 2-ketoacid dehydrogenases. Shared mitochondrial language does not represent the same substrate, protein class, or mechanism."
+    },
+    {
+      "q": 1627,
+      "top_match": "S1-DIRECT-1278-20260906T112500Z",
+      "jaccard": 0.36111,
+      "decision": "DISTINCT",
+      "reason": "Q1278 tests UNC13D/Munc13-4 priming of cytolytic granules after docking. Q1627 explicitly establishes preserved polarization but failed membrane docking from RAB27A loss. The stem and options directly separate docking from downstream priming and SNARE fusion, so the keyed cellular step is different despite shared HLH/degranulation context."
+    },
+    {
+      "q": 1628,
+      "top_match": "S1-DIRECT-0838-20260831T010000Z",
+      "jaccard": 0.25217,
+      "decision": "DISTINCT",
+      "reason": "Q0838 tests PMM2 conversion of mannose-6-phosphate to mannose-1-phosphate and GDP-mannose-dependent N-linked precursor synthesis. Q1628 tests reduction of the UDP-GlcNAc nucleotide-sugar pool in PGM3 deficiency, affecting multiple N- and O-linked glycosylation pathways."
+    },
+    {
+      "q": 1629,
+      "top_match": "S1-DIRECT-1622-20260918T211300Z",
+      "jaccard": 0.225,
+      "decision": "DISTINCT",
+      "reason": "Q1622 tests ETHE1-dependent sulfide detoxification with secondary cytochrome-c-oxidase inhibition. Q1629 tests post-transcriptional stabilization/polyadenylation of mitochondrial mRNAs by LRPPRC. Shared lactic acidosis/complex-IV context is phenotypic, not mechanistic duplication."
+    },
+    {
+      "q": 1630,
+      "top_match": "S1-DIRECT-0058-20260827T020000Z",
+      "jaccard": 0.26733,
+      "decision": "DISTINCT",
+      "reason": "Q0058 tests ATP7B-mediated biliary copper excretion. Q1630 tests SLC30A10-mediated cell-surface manganese efflux. Both are metal-transport disorders but involve different metals, transporters, cellular locations, and pathophysiology."
+    }
+  ],
+  "second_pass": "PASS",
+  "material_duplicates": [],
+  "unresolved_defects": [],
+  "import_gate": "PASS"
+}
