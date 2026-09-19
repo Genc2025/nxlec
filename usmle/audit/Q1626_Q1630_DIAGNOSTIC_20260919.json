@@ -12,14 +12,14 @@
       "stderr_tail": ""
     },
     "freeze": {
-      "rc": 1,
-      "stdout_tail": "",
-      "stderr_tail": "  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 15\n    m=re.search(r'/([0-9]+)/?\n                ^\nSyntaxError: unterminated string literal (detected at line 15)\n"
+      "rc": 0,
+      "stdout_tail": "{\"items\": 5, \"sources\": 5, \"technical_freeze\": \"PASS\"}\n",
+      "stderr_tail": ""
     },
     "audit": {
-      "rc": 999,
+      "rc": 1,
       "stdout_tail": "",
-      "stderr_tail": "skipped"
+      "stderr_tail": "Traceback (most recent call last):\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_current.py\", line 18, in <module>\n    exec(compile(s,str(base)+'[current canonical transformed]','exec'),ns)\n  File \"/home/runner/work/nxlec/nxlec/usmle/audit_candidate_zero_trust_adaptive.py[current canonical transformed]\", line 8, in <module>\n  File \"<frozen os>\", line 714, in __getitem__\nKeyError: 'CAND_BLOB'\n"
     }
   },
   "candidate_exists": true,
