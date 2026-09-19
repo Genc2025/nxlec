@@ -1,0 +1,28 @@
+{
+  "db_blob": "3560a1d056dd8aca9367f8079215d18b4379174d",
+  "stages": {
+    "bind": {
+      "rc": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "author": {
+      "rc": 0,
+      "stdout_tail": "{\"status\": \"AUTHOR_QA_PASS_PENDING_INDEPENDENT_AUDIT\", \"items\": 5, \"keys\": \"ABCDE\", \"canonical_count\": 1625, \"db_blob\": \"3560a1d056dd8aca9367f8079215d18b4379174d\"}\n",
+      "stderr_tail": ""
+    },
+    "freeze": {
+      "rc": 1,
+      "stdout_tail": "",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 102, in <module>\n    main()\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 77, in main\n    raw=fetch(url)\n        ^^^^^^^^^^\n  File \"/home/runner/work/nxlec/nxlec/usmle/freeze_candidate_generic.py\", line 20, in fetch\n    with urllib.request.urlopen(req,timeout=30) as r:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/urllib/request.py\", line 521, in open\n    response = meth(req, response)\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/urllib/request.py\", line 630, in http_response\n    response = self.parent.error(\n               ^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/urllib/request.py\", line 559, in error\n    return self._call_chain(*args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/urllib/request.py\", line 639, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 429: Too Many Requests\n"
+    },
+    "audit": {
+      "rc": 999,
+      "stdout_tail": "",
+      "stderr_tail": "skipped"
+    }
+  },
+  "candidate_exists": true,
+  "audit_exists": false,
+  "overall": "FAIL"
+}
