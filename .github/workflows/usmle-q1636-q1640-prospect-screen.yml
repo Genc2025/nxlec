@@ -1,0 +1,41 @@
+name: USMLE Q1636-Q1640 Prospect Screen
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1636-q1640-prospect-screen.yml']
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DB_BLOB: 92a3aeb4588fa3a1677c2edf5f79a611fdccd8ed
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Bind production and screen
+        run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python usmle/screen_q1636_q1640_prospects.py
+          python - <<'PY'
+          import json,os,sqlite3
+          p='usmle/audit/Q1636_Q1640_PROSPECT_SCREEN_20260919.json'
+          r=json.load(open(p))
+          assert r['canonical_db_blob']==os.environ['DB_BLOB']
+          assert r['canonical_count']==1635
+          c=sqlite3.connect('usmle/data/usmle-step1.db')
+          assert c.execute('pragma integrity_check').fetchone()[0]=='ok'
+          c.close()
+          PY
+      - name: Persist
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1636_Q1640_PROSPECT_SCREEN_20260919.json
+          git commit -m 'usmle: screen prospects Q1636-Q1640'
+          git pull --rebase origin main
+          git push
