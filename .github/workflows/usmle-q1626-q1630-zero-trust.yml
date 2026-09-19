@@ -76,12 +76,14 @@ jobs:
           assert 'protein-bound octanoyl' in byq[1626]['item']['options']['B']
           assert byq[1626]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/24256811/'
           assert byq[1627]['item']['intended_key']=='B'
-          assert 'processing peptidase' in byq[1627]['item']['options']['B'].casefold()
-          assert byq[1627]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/25808372/'
+          assert 'Membrane docking and regulated exocytosis' in byq[1627]['item']['options']['B']
+          assert 'MUNC13-4' in byq[1627]['item']['options']['C']
+          assert byq[1627]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/11266472/'
+          assert byq[1627]['author_qa']['second_answer_attack']['option']=='C'
           assert byq[1628]['item']['intended_key']=='C'
-          assert 'N-acetylglucosamine-6-phosphate to N-acetylglucosamine-1-phosphate' in byq[1628]['item']['options']['C']
-          assert 'N-acetylmannosamine and UDP' in byq[1628]['item']['options']['E']
-          assert byq[1628]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/24931394/'
+          assert byq[1628]['item']['options']['C']=='UDP-N-acetylglucosamine'
+          assert byq[1628]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/24589341/'
+          assert byq[1628]['author_qa']['second_answer_attack']['option']=='D'
           assert byq[1629]['item']['intended_key']=='D'
           assert 'stabilization and polyadenylation' in byq[1629]['item']['options']['D']
           assert byq[1629]['sources'][0]['url']=='https://pubmed.ncbi.nlm.nih.gov/22045337/'
@@ -122,3 +124,5 @@ jobs:
 # rerun-after-freezer-restore-1
 
 # rerun-after-q1627-q1628-replacement-1
+
+# assertions-updated-for-rab27a-and-udp-glcnac
