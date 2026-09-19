@@ -1,0 +1,753 @@
+{
+  "batch_id": "Q1631-Q1635-20260919",
+  "created_at": "2026-09-19",
+  "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+  "production_import_ready": false,
+  "candidate_count": 5,
+  "canonical_count_before": 1630,
+  "canonical_count_after": 1630,
+  "canonical_db_blob": "0676129cbcfa9cab819708389e22d75062f837d6",
+  "answer_key_sequence": "ABCDE",
+  "answer_key_distribution": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 1
+  },
+  "construct_selection": "Prospective whole-bank screening against authoritative Q0001-Q1630 production followed by source-first manual adversarial authoring.",
+  "technical_integrity": {
+    "source_hashes_fabricated": false,
+    "source_hashes_complete": true,
+    "independent_audit_complete": false,
+    "trusted_importer_complete": false,
+    "required_before_freeze": "COMPLETE_2026-09-19: source_page_sha256 + cited_section_sha256 bind every declared locator component"
+  },
+  "items": [
+    {
+      "num": 1631,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Cardiovascular System",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Physiology"
+        ],
+        "official_outline_path": [
+          "Cardiovascular System"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 4-month-old boy has severe hypertrophic cardiomyopathy, muscular hypotonia, and recurrent lactic acidosis. Respiratory-chain complex activities in skeletal muscle are preserved, but isolated muscle mitochondria have markedly reduced oxidative ATP synthesis. Genetic testing identifies a biallelic pathogenic variant in SLC25A3.",
+        "lead_in": "Which mitochondrial transport process is most directly impaired?",
+        "options": {
+          "A": "Import of inorganic phosphate from the cytosol into the mitochondrial matrix",
+          "B": "Exchange of cytosolic ADP for mitochondrial ATP through adenine nucleotide translocase",
+          "C": "Import of pyruvate from the cytosol into the mitochondrial matrix",
+          "D": "Export of mitochondrial aspartate in exchange for cytosolic glutamate plus a proton",
+          "E": "Exchange of acylcarnitine for free carnitine across the inner mitochondrial membrane"
+        },
+        "intended_key": "A",
+        "tested_construct": "SLC25A3 is the mitochondrial phosphate carrier that imports inorganic phosphate into the matrix for oxidative phosphorylation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "SLC25A3 encodes the mitochondrial phosphate carrier. Inorganic phosphate must enter the mitochondrial matrix so ATP synthase can phosphorylate ADP. Loss of SLC25A3 therefore impairs oxidative ATP synthesis even when the respiratory-chain complexes themselves remain intact.",
+        "distractor_explanations": {
+          "A": "Correct. SLC25A3 transports inorganic phosphate into the mitochondrial matrix, supplying a substrate required for ATP synthesis.",
+          "B": "Adenine nucleotide translocase exchanges matrix ATP for cytosolic ADP, but it is encoded by a different SLC25 family member and does not transport phosphate.",
+          "C": "The mitochondrial pyruvate carrier imports pyruvate for oxidation; its loss does not directly remove the phosphate substrate required by ATP synthase.",
+          "D": "Citrin/AGC2 mediates aspartate-glutamate exchange and is mechanistically distinct from the phosphate carrier.",
+          "E": "The carnitine-acylcarnitine translocase exchanges acylcarnitine and carnitine during long-chain fatty-acid oxidation; it does not supply phosphate for ATP synthesis."
+        },
+        "educational_objective": "Recognize SLC25A3 deficiency as impaired mitochondrial inorganic-phosphate import, limiting oxidative ATP synthesis despite preserved respiratory-chain complex activities."
+      },
+      "sources": [
+        {
+          "source_id": "Q1631-PUBMED-PRIMARY",
+          "title": "Mitochondrial phosphate-carrier deficiency: a novel disorder of oxidative phosphorylation",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17273968/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "transports inorganic phosphate into the mitochondrial matrix",
+          "source_page_sha256": "215724520472b77d17c7b28077f9e5fd35e6e8cb021c32437203f3d56c1e7a91",
+          "cited_section_sha256": "d13529ef02f22d9d996826eedef9915a75c28eb509ec67a0d144e4f96f28b012",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1631-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Correct. SLC25A3 transports inorganic phosphate into the mitochondrial matrix, supplying a substrate required for ATP synthesis.",
+          "source_ids": [
+            "Q1631-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "transports inorganic phosphate into the mitochondrial matrix",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1631-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Adenine nucleotide translocase exchanges matrix ATP for cytosolic ADP, but it is encoded by a different SLC25 family member and does not transport phosphate.",
+          "source_ids": [
+            "Q1631-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transports inorganic phosphate into the mitochondrial matrix",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1631-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "The mitochondrial pyruvate carrier imports pyruvate for oxidation; its loss does not directly remove the phosphate substrate required by ATP synthase.",
+          "source_ids": [
+            "Q1631-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transports inorganic phosphate into the mitochondrial matrix",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1631-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Citrin/AGC2 mediates aspartate-glutamate exchange and is mechanistically distinct from the phosphate carrier.",
+          "source_ids": [
+            "Q1631-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transports inorganic phosphate into the mitochondrial matrix",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1631-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "The carnitine-acylcarnitine translocase exchanges acylcarnitine and carnitine during long-chain fatty-acid oxidation; it does not supply phosphate for ATP synthesis.",
+          "source_ids": [
+            "Q1631-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "transports inorganic phosphate into the mitochondrial matrix",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "Adenine nucleotide translocase is the strongest same-organelle alternative because ADP/ATP exchange is also essential for oxidative phosphorylation. The SLC25A3 genotype specifically identifies inorganic-phosphate import rather than nucleotide exchange.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1632,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Genetics",
+          "Molecular Biology",
+          "Neurology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 10-month-old girl has congenital microcephaly, developmental delay, and recurrent intractable seizures. Cultured fibroblasts are unusually sensitive to ionizing radiation and repair induced DNA strand breaks slowly. Genetic testing identifies biallelic pathogenic variants in PNKP.",
+        "lead_in": "Which DNA-end processing activity is most directly impaired?",
+        "options": {
+          "A": "Removal of 8-oxoguanine from damaged DNA by a base-excision glycosylase",
+          "B": "Phosphorylation of DNA 5-prime hydroxyl ends and dephosphorylation of DNA 3-prime phosphate ends",
+          "C": "Poly-ADP-ribosylation at strand breaks to recruit repair proteins",
+          "D": "Nuclease-mediated resection of double-strand break ends to create 3-prime single-stranded overhangs",
+          "E": "ATP-dependent ligation of compatible double-strand break ends by DNA ligase IV"
+        },
+        "intended_key": "B",
+        "tested_construct": "PNKP is a bifunctional DNA-end processing enzyme with 5-prime kinase and 3-prime phosphatase activities",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "PNKP processes damaged DNA termini so they can be repaired. Its 5-prime kinase activity phosphorylates 5-prime hydroxyl ends, and its 3-prime phosphatase activity removes obstructive 3-prime phosphates, restoring termini compatible with downstream polymerase and ligase reactions. Loss of PNKP impairs DNA strand-break repair and causes microcephaly with early-onset seizures.",
+        "distractor_explanations": {
+          "A": "OGG1 removes oxidized guanine bases during base-excision repair; it does not perform the dual DNA-end processing reaction of PNKP.",
+          "B": "Correct. PNKP has DNA 5-prime kinase and DNA 3-prime phosphatase activities that restore repair-compatible strand-break termini.",
+          "C": "PARP1 senses many single-strand breaks and catalyzes poly-ADP-ribosylation, but it does not provide the PNKP end-cleaning activities.",
+          "D": "MRE11-CtIP-dependent resection contributes to homologous recombination at double-strand breaks; it is not the defining PNKP reaction.",
+          "E": "DNA ligase IV seals compatible ends during nonhomologous end joining; PNKP acts upstream by converting damaged termini into ligatable 5-prime phosphate and 3-prime hydroxyl ends."
+        },
+        "educational_objective": "Link PNKP-associated microcephaly and seizures to defective DNA strand-break end processing caused by loss of 5-prime kinase and 3-prime phosphatase activities."
+      },
+      "sources": [
+        {
+          "source_id": "Q1632-PUBMED-PRIMARY",
+          "title": "Impact of PNKP mutations associated with microcephaly, seizures and developmental delay on enzyme activity and DNA strand break repair",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22508754/",
+          "source_section_date": "2012-04-15",
+          "date_basis": "PubMed reports Epub 2012-04-15; live record reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "DNA 5'-kinase and DNA 3'-phosphatase activity",
+          "source_page_sha256": "59ada047d0d12c49dadaebe58b015ecc6af2dc17429ca6d9a52f07f9c1269133",
+          "cited_section_sha256": "5000dc75a35ba556a9c78af2a6da180fcc9bf338a4415792c6a8340c8b173a67",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1632-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "OGG1 removes oxidized guanine bases during base-excision repair; it does not perform the dual DNA-end processing reaction of PNKP.",
+          "source_ids": [
+            "Q1632-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DNA 5'-kinase and DNA 3'-phosphatase activity",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1632-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Correct. PNKP has DNA 5-prime kinase and DNA 3-prime phosphatase activities that restore repair-compatible strand-break termini.",
+          "source_ids": [
+            "Q1632-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "DNA 5'-kinase and DNA 3'-phosphatase activity",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1632-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "PARP1 senses many single-strand breaks and catalyzes poly-ADP-ribosylation, but it does not provide the PNKP end-cleaning activities.",
+          "source_ids": [
+            "Q1632-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DNA 5'-kinase and DNA 3'-phosphatase activity",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1632-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "MRE11-CtIP-dependent resection contributes to homologous recombination at double-strand breaks; it is not the defining PNKP reaction.",
+          "source_ids": [
+            "Q1632-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DNA 5'-kinase and DNA 3'-phosphatase activity",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1632-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "DNA ligase IV seals compatible ends during nonhomologous end joining; PNKP acts upstream by converting damaged termini into ligatable 5-prime phosphate and 3-prime hydroxyl ends.",
+          "source_ids": [
+            "Q1632-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "DNA 5'-kinase and DNA 3'-phosphatase activity",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "E",
+          "resolution": "DNA ligase IV is the strongest pathway-level alternative because strand-break repair ultimately requires ligation. PNKP acts earlier by restoring chemically compatible DNA termini; ligase IV cannot substitute for missing 5-prime kinase and 3-prime phosphatase activity.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1633,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Cell Biology",
+          "Genetics",
+          "Neurology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 17-year-old boy develops juvenile parkinsonism, pyramidal signs, and progressive cognitive decline. Genetic testing identifies biallelic loss-of-function variants in ATP13A2. Patient fibroblasts accumulate spermine within dysfunctional lysosomes and are unusually susceptible to lysosomal rupture under polyamine stress.",
+        "lead_in": "Which transport process is most directly impaired?",
+        "options": {
+          "A": "Export of cystine from lysosomes into the cytosol by cystinosin",
+          "B": "Egress of unesterified cholesterol from late endosomes and lysosomes through NPC1/NPC2",
+          "C": "ATP-dependent export of polyamines, especially spermine, from the lysosomal lumen to the cytosol",
+          "D": "ATP-dependent proton transport into lysosomes by the vacuolar proton pump",
+          "E": "Release of lysosomal calcium through the mucolipin-1 channel"
+        },
+        "intended_key": "C",
+        "tested_construct": "ATP13A2 is a lysosomal polyamine exporter with high affinity for spermine",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "ATP13A2 is a lysosomal P5B-type ATPase that exports polyamines from the lysosomal lumen toward the cytosol, with particularly high affinity for spermine. Loss of this transport function promotes lysosomal polyamine accumulation, lysosomal dysfunction, and vulnerability to membrane rupture, providing a mechanistic link to ATP13A2-associated juvenile parkinsonism.",
+        "distractor_explanations": {
+          "A": "Cystinosin exports cystine from lysosomes and is defective in cystinosis; it is not the ATP13A2 substrate pathway.",
+          "B": "NPC1/NPC2 mediate lysosomal cholesterol egress; their loss causes Niemann-Pick type C rather than a primary polyamine-export defect.",
+          "C": "Correct. ATP13A2 exports lysosomal polyamines and shows particularly high affinity for spermine.",
+          "D": "V-ATPase acidifies lysosomes by pumping protons inward; ATP13A2 instead transports polyamines.",
+          "E": "MCOLN1/TRPML1 mediates lysosomal calcium release and is defective in mucolipidosis IV; it does not account for spermine accumulation in ATP13A2 deficiency."
+        },
+        "educational_objective": "Recognize ATP13A2-associated neurodegeneration as a lysosomal transport disorder in which defective polyamine, especially spermine, export disrupts lysosomal homeostasis."
+      },
+      "sources": [
+        {
+          "source_id": "Q1633-PUBMED-PRIMARY",
+          "title": "ATP13A2 deficiency disrupts lysosomal polyamine export",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31996848/",
+          "source_section_date": "2020-01-29",
+          "date_basis": "PubMed reports Epub 2020-01-29; live record reverified 2026-09-19.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "lysosomal polyamine exporter that shows the highest affinity for spermine",
+          "source_page_sha256": "a6760d71e0a42b1b4842385478bad20833d7443509b226db6b0f436383755f4b",
+          "cited_section_sha256": "be89972bac789bff3ac3737f1d49cd4d5a94cdbaa853e068c02249752ae70738",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1633-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Cystinosin exports cystine from lysosomes and is defective in cystinosis; it is not the ATP13A2 substrate pathway.",
+          "source_ids": [
+            "Q1633-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "lysosomal polyamine exporter that shows the highest affinity for spermine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1633-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "NPC1/NPC2 mediate lysosomal cholesterol egress; their loss causes Niemann-Pick type C rather than a primary polyamine-export defect.",
+          "source_ids": [
+            "Q1633-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "lysosomal polyamine exporter that shows the highest affinity for spermine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1633-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Correct. ATP13A2 exports lysosomal polyamines and shows particularly high affinity for spermine.",
+          "source_ids": [
+            "Q1633-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "lysosomal polyamine exporter that shows the highest affinity for spermine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1633-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "V-ATPase acidifies lysosomes by pumping protons inward; ATP13A2 instead transports polyamines.",
+          "source_ids": [
+            "Q1633-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "lysosomal polyamine exporter that shows the highest affinity for spermine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1633-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "MCOLN1/TRPML1 mediates lysosomal calcium release and is defective in mucolipidosis IV; it does not account for spermine accumulation in ATP13A2 deficiency.",
+          "source_ids": [
+            "Q1633-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "lysosomal polyamine exporter that shows the highest affinity for spermine",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "NPC1/NPC2-mediated lysosomal cholesterol egress is the strongest organelle-level alternative because it also causes a neurodegenerative lysosomal storage phenotype. The demonstrated spermine accumulation and ATP13A2 genotype specifically identify polyamine export.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1634,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Nervous System & Special Senses",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Neurology"
+        ],
+        "official_outline_path": [
+          "Nervous System & Special Senses"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "An 8-year-old boy has early-onset spastic paraplegia, developmental delay, dysarthria, and a thin corpus callosum. Brain proton magnetic resonance spectroscopy shows an unusually large lipid signal, and imaging studies suggest widespread neuronal lipid-droplet accumulation. Genetic testing identifies biallelic loss-of-function variants in DDHD2.",
+        "lead_in": "Which cellular metabolic defect most directly explains the lipid accumulation?",
+        "options": {
+          "A": "Failure of lysosomal cholesteryl-ester and triglyceride hydrolysis by lysosomal acid lipase",
+          "B": "Failure of peroxisomal import and beta-oxidation of very-long-chain fatty acids",
+          "C": "Failure of lysosomal sphingomyelin degradation by acid sphingomyelinase",
+          "D": "Reduced intracellular triglyceride hydrolysis in the central nervous system, causing ectopic lipid-droplet accumulation",
+          "E": "Failure of mitochondrial cardiolipin remodeling by tafazzin"
+        },
+        "intended_key": "D",
+        "tested_construct": "DDHD2 functions as a major intracellular triglyceride hydrolase in the central nervous system; loss promotes neuronal lipid-droplet accumulation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "DDHD2 is a serine hydrolase with important neutral-lipid lipase activity in the central nervous system. DDHD2 loss markedly reduces intracellular triglyceride hydrolysis and produces ectopic lipid-droplet accumulation in neurons, a characteristic biochemical feature of SPG54.",
+        "distractor_explanations": {
+          "A": "Lysosomal acid lipase deficiency causes cholesteryl-ester and triglyceride accumulation in lysosomes, especially in liver and macrophages; it is not the DDHD2-dependent neuronal neutral-lipid defect.",
+          "B": "Peroxisomal very-long-chain fatty-acid oxidation defects cause characteristic VLCFA accumulation but do not explain the DDHD2-associated neuronal lipid-droplet phenotype.",
+          "C": "Acid sphingomyelinase deficiency causes sphingomyelin accumulation in lysosomes and is mechanistically distinct from neutral triglyceride hydrolysis by DDHD2.",
+          "D": "Correct. DDHD2 is a major CNS triglyceride hydrolase, and loss of its activity causes ectopic lipid-droplet accumulation.",
+          "E": "TAFAZZIN remodels cardiolipin in the inner mitochondrial membrane; its loss causes Barth syndrome rather than the DDHD2/SPG54 lipid-droplet phenotype."
+        },
+        "educational_objective": "Recognize DDHD2-associated SPG54 as a neuronal lipid-metabolism disorder in which reduced intracellular triglyceride hydrolysis causes ectopic lipid-droplet accumulation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1634-PUBMED-PRIMARY",
+          "title": "Functional Contribution of the Spastic Paraplegia-Related Triglyceride Hydrolase DDHD2 to the Formation and Content of Lipid Droplets",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29278326/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "principal triglyceride hydrolase in the central nervous system",
+          "source_page_sha256": "103fe78071343dde4cb14ec79999acbbc8df8c156c67fb8f8cc2b7ac7ebe6874",
+          "cited_section_sha256": "087e827cb442f723e5d0550beccdef126ea8cba4be840a0c166b1cf364d91986",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1634-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "Lysosomal acid lipase deficiency causes cholesteryl-ester and triglyceride accumulation in lysosomes, especially in liver and macrophages; it is not the DDHD2-dependent neuronal neutral-lipid defect.",
+          "source_ids": [
+            "Q1634-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "principal triglyceride hydrolase in the central nervous system",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1634-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "Peroxisomal very-long-chain fatty-acid oxidation defects cause characteristic VLCFA accumulation but do not explain the DDHD2-associated neuronal lipid-droplet phenotype.",
+          "source_ids": [
+            "Q1634-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "principal triglyceride hydrolase in the central nervous system",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1634-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Acid sphingomyelinase deficiency causes sphingomyelin accumulation in lysosomes and is mechanistically distinct from neutral triglyceride hydrolysis by DDHD2.",
+          "source_ids": [
+            "Q1634-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "principal triglyceride hydrolase in the central nervous system",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1634-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Correct. DDHD2 is a major CNS triglyceride hydrolase, and loss of its activity causes ectopic lipid-droplet accumulation.",
+          "source_ids": [
+            "Q1634-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "principal triglyceride hydrolase in the central nervous system",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1634-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "TAFAZZIN remodels cardiolipin in the inner mitochondrial membrane; its loss causes Barth syndrome rather than the DDHD2/SPG54 lipid-droplet phenotype.",
+          "source_ids": [
+            "Q1634-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "principal triglyceride hydrolase in the central nervous system",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "A",
+          "resolution": "Lysosomal acid lipase deficiency is the strongest biochemical alternative because it also produces intracellular neutral-lipid accumulation. The DDHD2 genotype, neurologic phenotype, and neuronal lipid droplets instead localize the defect to cytosolic/CNS triglyceride hydrolysis rather than lysosomal lipid degradation.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    },
+    {
+      "num": 1635,
+      "drug": "",
+      "country_scope": "Foundational science; not jurisdiction-specific",
+      "status": "AUTHOR_QA_PASS_PENDING_TECHNICAL_FREEZE_AND_INDEPENDENT_AUDIT",
+      "blueprint": {
+        "primary_system": "Multisystem Processes & Disorders",
+        "primary_competency": "Medical Knowledge: Applying Foundational Science Concepts",
+        "disciplines": [
+          "Biochemistry",
+          "Genetics",
+          "Molecular Biology"
+        ],
+        "official_outline_path": [
+          "Multisystem Processes & Disorders"
+        ],
+        "specification_source_id": "USMLE-SPEC"
+      },
+      "item": {
+        "vignette": "A 2-year-old girl has developmental regression, hypotonia, lactic acidosis, and symmetric basal-ganglia lesions consistent with Leigh syndrome. Muscle studies show combined oxidative-phosphorylation deficiency. Genetic testing identifies biallelic pathogenic variants in MTFMT, and patient fibroblasts have markedly reduced mitochondrial protein synthesis.",
+        "lead_in": "Which transfer-RNA modification is most directly impaired?",
+        "options": {
+          "A": "Addition of the terminal CCA sequence to mitochondrial transfer RNAs",
+          "B": "Charging of mitochondrial tRNA-Met with methionine by mitochondrial methionyl-tRNA synthetase",
+          "C": "Pseudouridylation of mitochondrial ribosomal and transfer RNAs",
+          "D": "Taurine-containing wobble-base modification of selected mitochondrial transfer RNAs",
+          "E": "Formylation of mitochondrial methionyl-tRNA to generate N-formylmethionyl-tRNA used for translation initiation"
+        },
+        "intended_key": "E",
+        "tested_construct": "MTFMT formylates mitochondrial Met-tRNA to generate fMet-tRNA required for efficient mitochondrial translation initiation",
+        "difficulty": "moderate-hard",
+        "difficulty_basis": "Requires mechanistic discrimination among clinically plausible foundational-science alternatives; author estimate only."
+      },
+      "explanation": {
+        "key_explanation": "Human mitochondria use a single tRNA-Met pool for both initiation and elongation. MTFMT formylates a portion of charged mitochondrial Met-tRNA to produce N-formylmethionyl-tRNA, the initiator species used for efficient mitochondrial translation initiation. Loss of MTFMT reduces fMet-tRNA and impairs mitochondrial protein synthesis.",
+        "distractor_explanations": {
+          "A": "CCA addition is required for aminoacylation of tRNAs but is mediated by a distinct tRNA nucleotidyltransferase.",
+          "B": "MARS2 charges mitochondrial tRNA-Met with methionine; MTFMT acts after aminoacylation by adding a formyl group.",
+          "C": "Pseudouridylation is performed by RNA-modifying enzymes and is not the MTFMT-dependent modification.",
+          "D": "Taurine-containing wobble modifications affect decoding by selected mitochondrial tRNAs and are mechanistically distinct from initiator Met-tRNA formylation.",
+          "E": "Correct. MTFMT generates N-formylmethionyl-tRNA from mitochondrial Met-tRNA, enabling efficient initiation of mitochondrial translation."
+        },
+        "educational_objective": "Link MTFMT-associated Leigh syndrome to defective formylation of mitochondrial methionyl-tRNA and impaired mitochondrial translation initiation."
+      },
+      "sources": [
+        {
+          "source_id": "Q1635-PUBMED-PRIMARY",
+          "title": "Mutations in MTFMT underlie a human disorder of formylation causing impaired mitochondrial translation",
+          "agency": "PubMed, U.S. National Library of Medicine",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21907147/",
+          "source_section_date": null,
+          "date_basis": "PubMed record live reverified 2026-09-19; no unsupported exact publication-day metadata inferred.",
+          "retrieved_at": "2026-09-19",
+          "section_locator": "generate N-formylmethionine-tRNA",
+          "source_page_sha256": "85977712afe889df9c5535ba69577b1124734351fbb3eaea3c36ef59841614d9",
+          "cited_section_sha256": "bdf35ebcc57ef7547a8d39a71ea40e0a7315c23fddd85e1c6fbe09fb62e8fcd3",
+          "hash_status": "FROZEN_FROM_LIVE_REFETCH_ALL_DECLARED_LOCATOR_COMPONENTS_2026-09-19",
+          "cited_locator_component_count": 1
+        }
+      ],
+      "evidence_map": [
+        {
+          "claim_id": "Q1635-A",
+          "option": "A",
+          "claim_locator": "explanation.distractor_explanations.A",
+          "claim": "CCA addition is required for aminoacylation of tRNAs but is mediated by a distinct tRNA nucleotidyltransferase.",
+          "source_ids": [
+            "Q1635-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "generate N-formylmethionine-tRNA",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1635-B",
+          "option": "B",
+          "claim_locator": "explanation.distractor_explanations.B",
+          "claim": "MARS2 charges mitochondrial tRNA-Met with methionine; MTFMT acts after aminoacylation by adding a formyl group.",
+          "source_ids": [
+            "Q1635-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "generate N-formylmethionine-tRNA",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1635-C",
+          "option": "C",
+          "claim_locator": "explanation.distractor_explanations.C",
+          "claim": "Pseudouridylation is performed by RNA-modifying enzymes and is not the MTFMT-dependent modification.",
+          "source_ids": [
+            "Q1635-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "generate N-formylmethionine-tRNA",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1635-D",
+          "option": "D",
+          "claim_locator": "explanation.distractor_explanations.D",
+          "claim": "Taurine-containing wobble modifications affect decoding by selected mitochondrial tRNAs and are mechanistically distinct from initiator Met-tRNA formylation.",
+          "source_ids": [
+            "Q1635-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "inference",
+          "source_locator": "generate N-formylmethionine-tRNA",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        },
+        {
+          "claim_id": "Q1635-E",
+          "option": "E",
+          "claim_locator": "explanation.distractor_explanations.E",
+          "claim": "Correct. MTFMT generates N-formylmethionyl-tRNA from mitochondrial Met-tRNA, enabling efficient initiation of mitochondrial translation.",
+          "source_ids": [
+            "Q1635-PUBMED-PRIMARY"
+          ],
+          "direct_or_inference": "direct",
+          "source_locator": "generate N-formylmethionine-tRNA",
+          "item_specific_application": "The keyed mechanism is directly source-bound; distractor rejection follows from the cited pathway and stipulated findings."
+        }
+      ],
+      "author_qa": {
+        "key_correctness": "PASS",
+        "all_options_review": "PASS",
+        "single_best_answer": "PASS",
+        "second_answer_attack": {
+          "option": "B",
+          "resolution": "MARS2-mediated methionine charging is the strongest pathway-level alternative because formylation requires an aminoacylated Met-tRNA substrate. MTFMT acts after charging and specifically performs the formylation step required for the initiator tRNA species.",
+          "status": "PASS"
+        },
+        "hidden_assumptions": "PASS",
+        "numerical_claims": "PASS — no unsupported empirical calibration or numerical threshold is required to identify the key.",
+        "fabricated_distractors": "PASS — distractors are real biochemical, cellular, physiologic, or disease mechanisms.",
+        "source_identity_setid_url_locator": "PASS — canonical NCBI/NLM source identity, HTTPS URL, and declared locator verified; DailyMed SetID not applicable.",
+        "currentness": "PASS — live source pages reverified 2026-09-19; exact publication dates are recorded only when explicitly verified.",
+        "blueprint": "PASS",
+        "difficulty": "Author estimate only",
+        "rationale": "PASS A-E",
+        "educational_objective": "PASS",
+        "adversarial_second_pass": "PASS",
+        "technical_hash_gate": "PASS — live refetch and hashes for every declared locator component completed 2026-09-19.",
+        "unresolved_content_defects": []
+      }
+    }
+  ]
+}
