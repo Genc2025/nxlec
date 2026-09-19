@@ -1,6 +1,6 @@
 def build(make):
  return make(1631,'','Cardiovascular System',['Biochemistry','Genetics','Physiology'],
- 'A 4-month-old boy has severe hypertrophic cardiomyopathy, muscular hypotonia, and recurrent lactic acidosis. Respiratory-chain complex activities in skeletal muscle are preserved, but isolated muscle mitochondria have markedly reduced oxidative ATP synthesis. Genetic testing identifies a biallelic pathogenic variant in SLC25A3.',
+ 'A 4-month-old boy has severe hypertrophic cardiomyopathy, muscular hypotonia, and recurrent lactic acidosis. Respiratory-chain complex activities in skeletal muscle are preserved, but isolated muscle mitochondria have markedly reduced oxidative ATP synthesis. Genetic testing identifies biallelic pathogenic variants in SLC25A3.',
  'Which mitochondrial transport process is most directly impaired?',
  {'A':'Import of inorganic phosphate from the cytosol into the mitochondrial matrix','B':'Exchange of cytosolic ADP for mitochondrial ATP through adenine nucleotide translocase','C':'Import of pyruvate from the cytosol into the mitochondrial matrix','D':'Export of mitochondrial aspartate in exchange for cytosolic glutamate plus a proton','E':'Exchange of acylcarnitine for free carnitine across the inner mitochondrial membrane'},
  'A','SLC25A3 is the mitochondrial phosphate carrier that imports inorganic phosphate into the matrix for oxidative phosphorylation',
