@@ -1,7 +1,7 @@
 def build(make):
  return make(1635,'','Multisystem Processes & Disorders',['Biochemistry','Genetics','Molecular Biology'],
  'A 2-year-old girl has developmental regression, hypotonia, lactic acidosis, and symmetric basal-ganglia lesions consistent with Leigh syndrome. Muscle studies show combined oxidative-phosphorylation deficiency. Genetic testing identifies biallelic pathogenic variants in MTFMT, and patient fibroblasts have markedly reduced mitochondrial protein synthesis.',
- 'Which transfer-RNA modification is most directly impaired?',
+ 'Which reaction involving mitochondrial methionyl-tRNA is most directly impaired?',
  {'A':'Addition of the terminal CCA sequence to mitochondrial transfer RNAs','B':'Charging of mitochondrial tRNA-Met with methionine by mitochondrial methionyl-tRNA synthetase','C':'Pseudouridylation of mitochondrial ribosomal and transfer RNAs','D':'Taurine-containing wobble-base modification of selected mitochondrial transfer RNAs','E':'Formylation of mitochondrial methionyl-tRNA to generate N-formylmethionyl-tRNA used for translation initiation'},
  'E','MTFMT formylates mitochondrial Met-tRNA to generate fMet-tRNA required for efficient mitochondrial translation initiation',
  'Human mitochondria use a single tRNA-Met pool for both initiation and elongation. MTFMT formylates a portion of charged mitochondrial Met-tRNA to produce N-formylmethionyl-tRNA, the initiator species used for efficient mitochondrial translation initiation. Loss of MTFMT reduces fMet-tRNA and impairs mitochondrial protein synthesis.',
