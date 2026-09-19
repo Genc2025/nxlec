@@ -15,6 +15,8 @@ START=int(os.environ['START_Q'])
 END=int(os.environ['END_Q'])
 CANON_COUNT=int(os.environ.get('CANONICAL_COUNT','1300'))
 AUDIT_DATE=os.environ.get('AUDIT_DATE','20260910')
+CANON_COUNT=int(os.environ.get('CANONICAL_COUNT','1300'))
+AUDIT_DATE=os.environ.get('AUDIT_DATE','20260910')
 
 STOP={'the','a','an','and','or','of','to','in','is','are','with','this','that','does','not','direct','directly','drug','effect','activity','correct','label','identifies'}
 
