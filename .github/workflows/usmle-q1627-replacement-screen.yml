@@ -1,0 +1,27 @@
+name: USMLE Q1627 Replacement Screen
+on:
+  push:
+    paths: ['.github/workflows/usmle-q1627-replacement-screen.yml']
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    env:
+      DB_BLOB: 3560a1d056dd8aca9367f8079215d18b4379174d
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - run: |
+          set -euo pipefail
+          test "$(git hash-object usmle/data/usmle-step1.db)" = "$DB_BLOB"
+          python usmle/screen_q1627_replacement.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/Q1627_REPLACEMENT_PROSPECT_SCREEN_20260919.json
+          git commit -m 'usmle: screen Q1627 replacement prospects'
+          git pull --rebase origin main
+          git push
