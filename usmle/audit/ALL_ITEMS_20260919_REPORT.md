@@ -52,3 +52,7 @@ Live NIA review exposed an overstrong inference in Q0001's reasoning chain: pres
 ### Q0002 clinical follow-up
 
 Q0002's key remained correct, but four remote distractors were replaced with verified real mechanisms involving ciliary dynein, alpha-1 antitrypsin, phagocyte NADPH oxidase and lysosomal trafficking. The keyed wording is now CFTR-specific, the generic moderate rating was replaced with an item-specific easy author estimate, and every option is bound to an inspected source and raw-capture hash. See [the Q0002 record](Q0002_CLINICAL_FOLLOWUP_20260920.md). Q0002 is newly held, bringing the review-branch total to 39; no new FINAL pass is claimed.
+
+### Q0003 clinical follow-up
+
+Q0003's key remained pulsatile GnRH, but its invented outline path, age-band mismatch and sources that did not establish pulsatility were corrected. Four real endocrine alternatives now replace generic negations; the exact USMLE 2026 adolescence path, current source dates, raw hashes, and hosted-third-party attribution are stored. See [the Q0003 record](Q0003_CLINICAL_FOLLOWUP_20260920.md). Q0003 is newly held, bringing the review-branch total to 40; no new FINAL pass is claimed.
