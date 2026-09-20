@@ -1,7 +1,7 @@
 {
   "audit_id": "FULL-CANONICAL-Q0001-Q1635-COMPLIANCE-20260920",
   "scope": "Q0001-Q1635",
-  "production_db_blob": "2e308ae91894c954f5a6d6bb28fd81212ea6d121",
+  "production_db_blob": "b500d8582663d7c3b57c1f954aa280776fbb1a3d",
   "production_db_modified": false,
   "sqlite_integrity": "ok",
   "item_count": 1635,
@@ -9,7 +9,7 @@
   "finalization_count": 1635,
   "counts_ok": true,
   "contiguous_unique_q_numbers": true,
-  "payload_review_consistency_failure_count": 41,
+  "payload_review_consistency_failure_count": 42,
   "payload_review_consistency_failures": [
     {
       "candidate_id": "S1-DIRECT-0001-20260826T223550Z",
@@ -41,6 +41,15 @@
     {
       "candidate_id": "S1-DIRECT-0004-20260827T020000Z",
       "q": 4,
+      "defects": [
+        "final_status_mismatch",
+        "review_has_defects",
+        "review_verdict_not_final"
+      ]
+    },
+    {
+      "candidate_id": "S1-DIRECT-0005-20260827T020000Z",
+      "q": 5,
       "defects": [
         "final_status_mismatch",
         "review_has_defects",
@@ -402,16 +411,16 @@
     "source_1_missing_page_hash": 1330,
     "source_2_missing_cited_hash": 1306,
     "source_2_missing_page_hash": 1306,
-    "source_3_missing_cited_hash": 429,
-    "source_3_missing_page_hash": 429,
+    "source_3_missing_cited_hash": 430,
+    "source_3_missing_page_hash": 430,
     "blueprint_path_mismatch": 173,
-    "source_4_missing_cited_hash": 106,
-    "source_4_missing_page_hash": 106,
+    "source_4_missing_cited_hash": 107,
+    "source_4_missing_page_hash": 107,
     "author_qa_hidden_assumptions_not_pass": 55,
-    "source_5_missing_cited_hash": 49,
-    "source_5_missing_page_hash": 49,
-    "source_6_missing_cited_hash": 34,
-    "source_6_missing_page_hash": 34,
+    "source_5_missing_cited_hash": 50,
+    "source_5_missing_page_hash": 50,
+    "source_6_missing_cited_hash": 35,
+    "source_6_missing_page_hash": 35,
     "source_7_missing_cited_hash": 21,
     "source_7_missing_page_hash": 21,
     "source_8_missing_cited_hash": 6,
@@ -493,7 +502,15 @@
         "source_1_missing_cited_hash",
         "source_1_missing_page_hash",
         "source_2_missing_cited_hash",
-        "source_2_missing_page_hash"
+        "source_2_missing_page_hash",
+        "source_3_missing_cited_hash",
+        "source_3_missing_page_hash",
+        "source_4_missing_cited_hash",
+        "source_4_missing_page_hash",
+        "source_5_missing_cited_hash",
+        "source_5_missing_page_hash",
+        "source_6_missing_cited_hash",
+        "source_6_missing_page_hash"
       ]
     },
     {
@@ -16937,9 +16954,9 @@
       "q": 5,
       "candidate_id": "S1-DIRECT-0005-20260827T020000Z",
       "drug": null,
-      "tested_construct": "G6PD deficiency lowers pentose-phosphate-pathway NADPH generation, impairing maintenance of reduced glutathione and increasing erythrocyte susceptibility to oxidative injury.",
-      "educational_objective": "Explain oxidant-triggered hemolysis in G6PD deficiency through deficient NADPH generation and impaired glutathione reduction.",
-      "primary_system": "Blood, Lymphoreticular and Immune Systems"
+      "tested_construct": "G6PD deficiency reduces pentose-phosphate-pathway NADPH production, leaving erythrocytes unable to withstand an oxidant challenge and causing Heinz-body injury, bite cells, and hemolysis.",
+      "educational_objective": "Distinguish G6PD-dependent NADPH failure and oxidant hemolysis from ATP depletion, membrane instability, beta-globin underproduction, and HbS polymerization.",
+      "primary_system": "Blood & Lymphoreticular System"
     },
     {
       "q": 6,
