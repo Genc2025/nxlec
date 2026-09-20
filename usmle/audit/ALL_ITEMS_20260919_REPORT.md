@@ -44,3 +44,7 @@ The old finalization aggregate is historical and is not a certification of this 
 ## Clinical corrections — 20 September 2026
 
 Eight additional items were corrected: Q0001, Q0006, Q0012, Q0014, Q0015, Q0032, Q0036 and Q0045. Exact previous rows and reasoned changes are preserved in `CLINICAL_Q0001_Q0050_BEFORE_ROWS_20260920.json` and `CLINICAL_Q0001_Q0050_CORRECTIONS_20260920.json`. There are now 38 held records in the review branch. These specific corrections do not close each item's complete evidence gate. `CONTINUATION_STATE.json` records the remaining work. The full audit is still incomplete.
+
+### Q0001 evidence follow-up
+
+Live NIA review exposed an overstrong inference in Q0001's reasoning chain: preserved daily function does not by itself exclude mild cognitive impairment. Corrected this, replaced the generic difficulty assignment with an explicit easy author estimate, repaired source metadata, and separated obsolete PASS claims from current review status. A same-reviewer adversarial reread and option-by-option review are documented in [the Q0001 record](Q0001_EVIDENCE_FOLLOWUP_20260920.md). No independent blind execution or full certification is claimed; full completion remains 0/1,635 and 38 records remain held.

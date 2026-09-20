@@ -1,0 +1,35 @@
+name: USMLE Q0001 evidence follow-up
+on:
+  push:
+    branches: ['audit/usmle-all-20260919']
+    paths: ['.github/workflows/usmle-q0001-evidence-followup.yml']
+permissions:
+  contents: write
+concurrency:
+  group: usmle-audit-review-writes
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: audit/usmle-all-20260919, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Apply guarded repair and run structural regressions
+        run: |
+          set -euo pipefail
+          python usmle/remediation/q0001_evidence_followup_20260920.py
+          python -m unittest discover -s usmle/tests -p test_full_canonical_audit.py
+          python usmle/audit_all_items_20260919.py
+          AUDIT_DATE=20260920 python usmle/audit_full_canonical_compliance.py
+      - name: Persist review-only database and exact prior rows
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db usmle/remediation/Q0001_EVIDENCE_FOLLOWUP_20260920_BEFORE_ROWS.json usmle/audit/Q0001_EVIDENCE_FOLLOWUP_20260920_RESULT.json usmle/audit/ALL_ITEMS_20260919_COVERAGE.json usmle/audit/FULL_CANONICAL_Q0001_Q1635_COMPLIANCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'usmle: persist Q0001 evidence corrections without final promotion'
+          git push origin HEAD:refs/heads/audit/usmle-all-20260919
