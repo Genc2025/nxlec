@@ -2,7 +2,7 @@
 
 Latest clinical corrections: seven items in Q0034–Q0058 repaired after a 25-stem/option screen; see [targeted batch](BATCH_CLINICAL_Q0034_Q0058_20260920.md). Replaced fabricated distractors, corrected nonrestrictive VSD physiology, and removed stale fingerprint content. Zero new full certifications; earlier counts below are historical.
 
-Latest scoped batch: Q0009–Q0033 reviewed for difficulty; 24 estimates corrected, Q0014 unchanged. Q0031 crystal/OA and concomitant-infection explanations corrected. See [batch record](BATCH_Q0009_Q0033_20260920.md). Zero new full clinical passes; full clinical cursor remains Q0009. Earlier per-item counts below are historical.
+Latest duplicate-resolution batch: Q0009, Q0010, Q0018, Q0020 and Q0021 were fully rewritten to distinct constructs, resolving five confirmed duplicate pairs without deleting rows. See [batch record](BATCH_DUPLICATE_REWRITES_Q0009_Q0021_20260920.md). Zero new full clinical passes; full clinical cursor remains Q0009 because independent, exhaustive-originality, raw-source and final metadata gates remain open. Earlier per-item counts below are historical.
 
 Latest follow-up: Q0008's original stem did not distinguish hemophilia A from hemophilia B. The revision adds a correcting mixing study and normal factor IX and VWF assays, replaces weak alternatives with real inherited hemostatic disorders, and repairs the exact USMLE hierarchy and option-level evidence; see [Q0008 record](Q0008_CLINICAL_FOLLOWUP_20260920.md). There are now 44 held records, zero new FINAL certifications, and open independent/originality/raw-archival gates. Continue substantive content review at Q0009 without treating Q0008 as fully certified.
 
