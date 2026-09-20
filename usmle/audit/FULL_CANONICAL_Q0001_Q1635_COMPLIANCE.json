@@ -1,7 +1,7 @@
 {
   "audit_id": "FULL-CANONICAL-Q0001-Q1635-COMPLIANCE-20260920",
   "scope": "Q0001-Q1635",
-  "production_db_blob": "697bdbfc2973c009d0f3682df9c6bd3d608ecd70",
+  "production_db_blob": "762e4e5f2b64f78cffbfe014a127d7933d7a8c04",
   "production_db_modified": false,
   "sqlite_integrity": "ok",
   "item_count": 1635,
@@ -9,7 +9,7 @@
   "finalization_count": 1635,
   "counts_ok": true,
   "contiguous_unique_q_numbers": true,
-  "payload_review_consistency_failure_count": 39,
+  "payload_review_consistency_failure_count": 40,
   "payload_review_consistency_failures": [
     {
       "candidate_id": "S1-DIRECT-0001-20260826T223550Z",
@@ -23,6 +23,15 @@
     {
       "candidate_id": "S1-DIRECT-0002-20260827T013100",
       "q": 2,
+      "defects": [
+        "final_status_mismatch",
+        "review_has_defects",
+        "review_verdict_not_final"
+      ]
+    },
+    {
+      "candidate_id": "S1-DIRECT-0003-20260827T020000Z",
+      "q": 3,
       "defects": [
         "final_status_mismatch",
         "review_has_defects",
@@ -384,8 +393,8 @@
     "source_1_missing_page_hash": 1330,
     "source_2_missing_cited_hash": 1306,
     "source_2_missing_page_hash": 1306,
-    "source_3_missing_cited_hash": 427,
-    "source_3_missing_page_hash": 427,
+    "source_3_missing_cited_hash": 428,
+    "source_3_missing_page_hash": 428,
     "blueprint_path_mismatch": 173,
     "source_4_missing_cited_hash": 105,
     "source_4_missing_page_hash": 105,
@@ -441,7 +450,9 @@
         "source_1_missing_cited_hash",
         "source_1_missing_page_hash",
         "source_2_missing_cited_hash",
-        "source_2_missing_page_hash"
+        "source_2_missing_page_hash",
+        "source_3_missing_cited_hash",
+        "source_3_missing_page_hash"
       ]
     },
     {
@@ -16891,8 +16902,8 @@
       "q": 3,
       "candidate_id": "S1-DIRECT-0003-20260827T020000Z",
       "drug": null,
-      "tested_construct": "Increasing pulsatile hypothalamic GnRH secretion stimulates pituitary LH and FSH release and activates gonadal steroid production during puberty.",
-      "educational_objective": "Recognize pulsatile GnRH secretion as the central physiologic trigger for activation of the hypothalamic-pituitary-gonadal axis at puberty.",
+      "tested_construct": "Re-emergent pulsatile hypothalamic GnRH signaling activates pituitary LH/FSH secretion and gonadal sex-steroid production at gonadarche.",
+      "educational_objective": "Distinguish normal gonadarche—reactivation of pulsatile GnRH followed by LH/FSH and gonadal steroid secretion—from adrenarche, suppressive GnRH exposure, hyperprolactinemia, and gonadotropin-independent estrogen production.",
       "primary_system": "Human Development"
     },
     {
