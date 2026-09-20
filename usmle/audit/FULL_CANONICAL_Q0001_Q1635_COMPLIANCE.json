@@ -1,7 +1,7 @@
 {
   "audit_id": "FULL-CANONICAL-Q0001-Q1635-COMPLIANCE-20260920",
   "scope": "Q0001-Q1635",
-  "production_db_blob": "fa3161a2fd657ad521b80d01a64ccf0662fadf44",
+  "production_db_blob": "5c78fb6b0280870a01fdc82382d5a5886eb7d0dc",
   "production_db_modified": false,
   "sqlite_integrity": "ok",
   "item_count": 1635,
@@ -9,7 +9,7 @@
   "finalization_count": 1635,
   "counts_ok": true,
   "contiguous_unique_q_numbers": true,
-  "payload_review_consistency_failure_count": 42,
+  "payload_review_consistency_failure_count": 43,
   "payload_review_consistency_failures": [
     {
       "candidate_id": "S1-DIRECT-0001-20260826T223550Z",
@@ -59,6 +59,15 @@
     {
       "candidate_id": "S1-DIRECT-0006-20260827T020000Z",
       "q": 6,
+      "defects": [
+        "final_status_mismatch",
+        "review_has_defects",
+        "review_verdict_not_final"
+      ]
+    },
+    {
+      "candidate_id": "S1-DIRECT-0007-20260827T020000Z",
+      "q": 7,
       "defects": [
         "final_status_mismatch",
         "review_has_defects",
@@ -411,16 +420,16 @@
     "source_1_missing_page_hash": 1330,
     "source_2_missing_cited_hash": 1306,
     "source_2_missing_page_hash": 1306,
-    "source_3_missing_cited_hash": 430,
-    "source_3_missing_page_hash": 430,
+    "source_3_missing_cited_hash": 431,
+    "source_3_missing_page_hash": 431,
     "blueprint_path_mismatch": 173,
-    "source_4_missing_cited_hash": 108,
-    "source_4_missing_page_hash": 108,
+    "source_4_missing_cited_hash": 109,
+    "source_4_missing_page_hash": 109,
     "author_qa_hidden_assumptions_not_pass": 55,
-    "source_5_missing_cited_hash": 51,
-    "source_5_missing_page_hash": 51,
-    "source_6_missing_cited_hash": 36,
-    "source_6_missing_page_hash": 36,
+    "source_5_missing_cited_hash": 52,
+    "source_5_missing_page_hash": 52,
+    "source_6_missing_cited_hash": 37,
+    "source_6_missing_page_hash": 37,
     "source_7_missing_cited_hash": 22,
     "source_7_missing_page_hash": 22,
     "source_8_missing_cited_hash": 6,
@@ -542,7 +551,15 @@
         "source_1_missing_cited_hash",
         "source_1_missing_page_hash",
         "source_2_missing_cited_hash",
-        "source_2_missing_page_hash"
+        "source_2_missing_page_hash",
+        "source_3_missing_cited_hash",
+        "source_3_missing_page_hash",
+        "source_4_missing_cited_hash",
+        "source_4_missing_page_hash",
+        "source_5_missing_cited_hash",
+        "source_5_missing_page_hash",
+        "source_6_missing_cited_hash",
+        "source_6_missing_page_hash"
       ]
     },
     {
