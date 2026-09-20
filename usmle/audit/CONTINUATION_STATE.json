@@ -162,9 +162,9 @@
   ],
   "known_remaining_content_findings": {
     "31": "Crystal/OA and infection wording repaired in batch; remaining full clinical/evidence gates open.",
-    "35": "Distractor D is a questionable constitutive-RANKL mechanism; replace with a verified real mechanism.",
-    "38": "Several distractors are fabricated processes (platelet bile-acid-to-cholesterol synthesis, endothelial HDL-to-LDL conversion); rewrite with real alternatives.",
-    "42": "Large nonrestrictive VSD explanation should center on PVR/SVR, not assume a large LV-to-RV systolic pressure gradient. Difficulty basis incorrectly claims calculation."
+    "35": "Targeted defect corrected in BATCH_CLINICAL_Q0034_Q0058_20260920; full clinical/evidence gates remain open.",
+    "38": "Targeted defect corrected in BATCH_CLINICAL_Q0034_Q0058_20260920; full clinical/evidence gates remain open.",
+    "42": "Targeted defect corrected in BATCH_CLINICAL_Q0034_Q0058_20260920; full clinical/evidence gates remain open."
   },
   "instructions": "Resume earliest incomplete clinical/evidence gate; do not count preliminary reads or HTTP success as full QA. Independently verify every option, rationale, metadata and numeric claim; repair and restart adversarial audit before any FINAL. Preserve prior rows and do not delete questions. Full scope includes staged questions. Publish progress to existing PR 8; do not merge while any gate remains open.",
   "batch_work_policy": {
@@ -173,11 +173,16 @@
     "individual_clinical_verification_required": true
   },
   "latest_scoped_batch": {
-    "record": "usmle/audit/BATCH_Q0009_Q0033_20260920.md",
-    "items_read": 25,
-    "difficulty_corrections": 24,
-    "clinical_explanation_corrections": [
-      31
+    "record": "usmle/audit/BATCH_CLINICAL_Q0034_Q0058_20260920.md",
+    "stems_and_option_sets_screened": 25,
+    "items_corrected": [
+      35,
+      38,
+      40,
+      42,
+      53,
+      54,
+      57
     ],
     "complete_clinical_reaudits": 0,
     "next_full_clinical_item": 9
