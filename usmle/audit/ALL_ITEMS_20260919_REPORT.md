@@ -1,6 +1,6 @@
 # USMLE bank audit — 19 September 2026
 
-Latest follow-up: Q0007 received limited clinical repairs on 20 September 2026; see [Q0007 record](Q0007_CLINICAL_FOLLOWUP_20260920.md). Corrected unjustified sex/inheritance and lifelong-history inferences and source bindings. Q0007 remains unfinished and is newly held (43 held records). Continue Q0007 before advancing. No new FINAL certification.
+Latest follow-up: Q0007's revised differential now replaces factor V Leiden with factor XI deficiency and includes repeated VWF-specific assays to resolve the resulting clinical overlap. The exact USMLE hierarchy, source revision dates and option-level bindings were repaired; see [Q0007 v2 record](Q0007_EVIDENCE_V2_20260920.md). The prior [partial repair](Q0007_CLINICAL_FOLLOWUP_20260920.md) remains historical evidence. There are still 43 held records, zero new FINAL certifications, and open independent/originality/raw-archival gates. Continue substantive content review at Q0008 without treating Q0007 as fully certified.
 
 **BLOCKED — full clinical re-audit is incomplete. This branch is not ready for production promotion.**
 
