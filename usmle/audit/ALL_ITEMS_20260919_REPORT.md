@@ -48,3 +48,7 @@ Eight additional items were corrected: Q0001, Q0006, Q0012, Q0014, Q0015, Q0032,
 ### Q0001 evidence follow-up
 
 Live NIA review exposed an overstrong inference in Q0001's reasoning chain: preserved daily function does not by itself exclude mild cognitive impairment. Corrected this, replaced the generic difficulty assignment with an explicit easy author estimate, repaired source metadata, and separated obsolete PASS claims from current review status. A same-reviewer adversarial reread and option-by-option review are documented in [the Q0001 record](Q0001_EVIDENCE_FOLLOWUP_20260920.md). No independent blind execution or full certification is claimed; full completion remains 0/1,635 and 38 records remain held.
+
+### Q0002 clinical follow-up
+
+Q0002's key remained correct, but four remote distractors were replaced with verified real mechanisms involving ciliary dynein, alpha-1 antitrypsin, phagocyte NADPH oxidase and lysosomal trafficking. The keyed wording is now CFTR-specific, the generic moderate rating was replaced with an item-specific easy author estimate, and every option is bound to an inspected source and raw-capture hash. See [the Q0002 record](Q0002_CLINICAL_FOLLOWUP_20260920.md). Q0002 is newly held, bringing the review-branch total to 39; no new FINAL pass is claimed.
