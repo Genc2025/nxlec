@@ -1,6 +1,6 @@
 # USMLE bank audit — 19 September 2026
 
-Latest follow-up: Q0007's revised differential now replaces factor V Leiden with factor XI deficiency and includes repeated VWF-specific assays to resolve the resulting clinical overlap. The exact USMLE hierarchy, source revision dates and option-level bindings were repaired; see [Q0007 v2 record](Q0007_EVIDENCE_V2_20260920.md). The prior [partial repair](Q0007_CLINICAL_FOLLOWUP_20260920.md) remains historical evidence. There are still 43 held records, zero new FINAL certifications, and open independent/originality/raw-archival gates. Continue substantive content review at Q0008 without treating Q0007 as fully certified.
+Latest follow-up: Q0008's original stem did not distinguish hemophilia A from hemophilia B. The revision adds a correcting mixing study and normal factor IX and VWF assays, replaces weak alternatives with real inherited hemostatic disorders, and repairs the exact USMLE hierarchy and option-level evidence; see [Q0008 record](Q0008_CLINICAL_FOLLOWUP_20260920.md). There are now 44 held records, zero new FINAL certifications, and open independent/originality/raw-archival gates. Continue substantive content review at Q0009 without treating Q0008 as fully certified.
 
 **BLOCKED — full clinical re-audit is incomplete. This branch is not ready for production promotion.**
 
@@ -70,3 +70,7 @@ Q0005's G6PD/NADPH key remained correct, but four remote metabolite distractors 
 ### Q0006 clinical follow-up
 
 Q0006 was a confirmed semantic duplicate of Q1111: both tested the diagnosis of hereditary spherocytosis from the same familial hemolysis pattern. Q0006 was retained but fully rewritten to test parvovirus B19 transient aplastic crisis from fifth-disease exposure, abrupt anemia and reticulocytopenia. Every mechanism now has separately inspected evidence, and the exact USMLE 2026 outline path replaces the generic stored hierarchy. See [the Q0006 record](Q0006_CLINICAL_FOLLOWUP_20260920.md). Q0006 was already held, so the review-branch total remains 42; no new FINAL pass is claimed.
+
+### Q0008 clinical follow-up
+
+Q0008 originally allowed hemophilia B as an unstated second answer because the stem contained no factor-specific discriminator. The revision adds a correcting mixing study, normal factor IX activity, and normal VWF antigen/activity; it also replaces awkward or remote alternatives with real coagulation disorders and binds each to a specific source. A targeted search documented the related reciprocal Q0406 item, while exhaustive originality remains open. See [the Q0008 record](Q0008_CLINICAL_FOLLOWUP_20260920.md). Q0008 is newly held, bringing the review-branch total to 44; no new FINAL pass is claimed.
