@@ -1,0 +1,54 @@
+name: USMLE clinical corrections and source inventory 20260920
+on:
+  push:
+    branches: ['audit/usmle-all-20260919']
+    paths: ['.github/workflows/usmle-clinical-corrections-20260920.yml']
+permissions:
+  contents: write
+concurrency:
+  group: usmle-audit-review-writes
+  cancel-in-progress: false
+jobs:
+  corrections:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: audit/usmle-all-20260919, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Apply evidence-backed corrections without FINAL promotion
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s usmle/tests -p test_full_canonical_audit.py
+          python usmle/remediation/apply_clinical_patches_20260920.py
+          python usmle/audit_all_items_20260919.py
+          AUDIT_DATE=20260920 python usmle/audit_full_canonical_compliance.py
+      - name: Save review branch corrections
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/data/usmle-step1.db usmle/remediation/CLINICAL_Q0001_Q0050_BEFORE_ROWS_20260920.json usmle/audit/CLINICAL_Q0001_Q0050_CORRECTIONS_20260920.json usmle/audit/ALL_ITEMS_20260919_COVERAGE.json usmle/audit/FULL_CANONICAL_Q0001_Q1635_COMPLIANCE.json
+          git commit -m 'usmle: persist eight clinical audit corrections and preserve prior rows'
+          git push origin HEAD:refs/heads/audit/usmle-all-20260919
+  sources:
+    needs: corrections
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v6
+        with: {ref: audit/usmle-all-20260919, fetch-depth: 0}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Check all stored source URLs without clinical certification
+        run: python usmle/audit/live_20260919/verify_source_inventory.py
+      - name: Save source availability report only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usmle/audit/live_20260919/SOURCE_AVAILABILITY.json
+          git commit -m 'usmle: record live source availability without claiming medical validation'
+          git pull --rebase origin audit/usmle-all-20260919
+          git push origin HEAD:refs/heads/audit/usmle-all-20260919

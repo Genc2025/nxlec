@@ -1,6 +1,6 @@
 # Independent USMLE Step 1 Bank
 
-**Review branch audit status (2026-09-19): BLOCKED.** See [the audit report](audit/ALL_ITEMS_20260919_REPORT.md). The branch contains limited corrections and 30 records held for further review; the full clinical re-audit is incomplete. Do not treat historical FINAL labels as a new certification.
+**Review branch audit status (2026-09-19): BLOCKED.** See [the audit report](audit/ALL_ITEMS_20260919_REPORT.md). The branch contains limited corrections and 38 records held for further review; the full clinical re-audit is incomplete. Do not treat historical FINAL labels as a new certification.
 
 Authoritative production database: `data/usmle-step1.db`.
 

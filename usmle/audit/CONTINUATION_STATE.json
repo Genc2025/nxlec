@@ -1,0 +1,33 @@
+{
+  "audit_id": "ALL-ITEMS-20260919",
+  "status": "IN_PROGRESS_NOT_FINAL",
+  "canonical_count": 1635,
+  "staged_range": [
+    1636,
+    1640
+  ],
+  "first_content_read_completed_range": [
+    1,
+    50
+  ],
+  "complete_clinical_reaudits": 0,
+  "earliest_item_requiring_full_evidence_gate": 1,
+  "next_unread_item": 51,
+  "latest_corrections": [
+    1,
+    6,
+    12,
+    14,
+    15,
+    32,
+    36,
+    45
+  ],
+  "known_remaining_content_findings": {
+    "31": "Avoid blanket exclusion of crystals in osteoarthritis and remember crystals do not exclude concurrent infection; retain most-likely gout task.",
+    "35": "Distractor D is a questionable constitutive-RANKL mechanism; replace with a verified real mechanism.",
+    "38": "Several distractors are fabricated processes (platelet bile-acid-to-cholesterol synthesis, endothelial HDL-to-LDL conversion); rewrite with real alternatives.",
+    "42": "Large nonrestrictive VSD explanation should center on PVR/SVR, not assume a large LV-to-RV systolic pressure gradient. Difficulty basis incorrectly claims calculation."
+  },
+  "instructions": "Resume earliest incomplete clinical/evidence gate; do not count preliminary reads or HTTP success as full QA. Independently verify every option, rationale, metadata and numeric claim; repair and restart adversarial audit before any FINAL. Preserve prior rows and do not delete questions. Full scope includes staged questions. Publish progress to existing PR 8; do not merge while any gate remains open."
+}

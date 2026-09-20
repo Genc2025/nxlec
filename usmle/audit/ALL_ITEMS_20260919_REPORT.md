@@ -40,3 +40,7 @@ Q1612's canonical text already contains the repaired CDC42–PAK mechanism. No n
 **Fully completed live, claim-by-claim clinical re-audits in this run: 0/1,635.** All 1,635 have individual coverage records and are assigned to 33 batches (32 × 50 and a final 35). Every item still requires an independent assessment of the stem, all five options, every numeric/medical assertion, exact supporting passages, a second-answer attack, difficulty, blueprint and objective. The staged five questions also require this review.
 
 The old finalization aggregate is historical and is not a certification of this changed branch. Do not promote this database until the blocked items are repaired and the complete required audit succeeds. This report records substantive initial findings and safe limited corrections; it does not represent completion of the user's requested full audit.
+
+## Clinical corrections — 20 September 2026
+
+Eight additional items were corrected: Q0001, Q0006, Q0012, Q0014, Q0015, Q0032, Q0036 and Q0045. Exact previous rows and reasoned changes are preserved in `CLINICAL_Q0001_Q0050_BEFORE_ROWS_20260920.json` and `CLINICAL_Q0001_Q0050_CORRECTIONS_20260920.json`. There are now 38 held records in the review branch. These specific corrections do not close each item's complete evidence gate. `CONTINUATION_STATE.json` records the remaining work. The full audit is still incomplete.
