@@ -56,3 +56,7 @@ Q0002's key remained correct, but four remote distractors were replaced with ver
 ### Q0003 clinical follow-up
 
 Q0003's key remained pulsatile GnRH, but its invented outline path, age-band mismatch and sources that did not establish pulsatility were corrected. Four real endocrine alternatives now replace generic negations; the exact USMLE 2026 adolescence path, current source dates, raw hashes, and hosted-third-party attribution are stored. See [the Q0003 record](Q0003_CLINICAL_FOLLOWUP_20260920.md). Q0003 is newly held, bringing the review-branch total to 40; no new FINAL pass is claimed.
+
+### Q0004 clinical follow-up
+
+Q0004's HbS-polymerization key remained correct, but its evidence map incorrectly reused sickle-cell citations for four unrelated red-cell mechanisms. Each option now has its own inspected source and raw hash, the low-oxygen mechanism is directly bound to NHLBI, and the exact USMLE 2026 blood-system hierarchy replaces the invented path. See [the Q0004 record](Q0004_CLINICAL_FOLLOWUP_20260920.md). Q0004 is newly held, bringing the review-branch total to 41; no new FINAL pass is claimed.
