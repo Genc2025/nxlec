@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest follow-up: Q0007 received limited clinical repairs on 20 September 2026; see [Q0007 record](Q0007_CLINICAL_FOLLOWUP_20260920.md). Corrected unjustified sex/inheritance and lifelong-history inferences and source bindings. Q0007 remains unfinished and is newly held (43 held records). Continue Q0007 before advancing. No new FINAL certification.
+
 **BLOCKED — full clinical re-audit is incomplete. This branch is not ready for production promotion.**
 
 The source snapshot is main commit `0ac9fe92`, database blob `92a3aeb4588fa3a1677c2edf5f79a611fdccd8ed`. SQLite contains 1,635 canonical item rows, Q0001–Q1635, and 1,635 associated reviews. Q1636–Q1640 are staged separately. No questions were added or deleted.
