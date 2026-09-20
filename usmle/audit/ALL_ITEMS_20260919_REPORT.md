@@ -60,3 +60,7 @@ Q0003's key remained pulsatile GnRH, but its invented outline path, age-band mis
 ### Q0004 clinical follow-up
 
 Q0004's HbS-polymerization key remained correct, but its evidence map incorrectly reused sickle-cell citations for four unrelated red-cell mechanisms. Each option now has its own inspected source and raw hash, the low-oxygen mechanism is directly bound to NHLBI, and the exact USMLE 2026 blood-system hierarchy replaces the invented path. See [the Q0004 record](Q0004_CLINICAL_FOLLOWUP_20260920.md). Q0004 is newly held, bringing the review-branch total to 41; no new FINAL pass is claimed.
+
+### Q0005 clinical follow-up
+
+Q0005's G6PD/NADPH key remained correct, but four remote metabolite distractors were replaced with genuine red-cell mechanisms involving pyruvate kinase, membrane proteins, beta-globin synthesis and HbS polymerization. Heinz-body visualization is now stain-specific, every option has a separate inspected source and raw hash, and the exact USMLE 2026 hemolysis path replaces the generic stored hierarchy. See [the Q0005 record](Q0005_CLINICAL_FOLLOWUP_20260920.md). Q0005 is newly held, bringing the review-branch total to 42; no new FINAL pass is claimed.
