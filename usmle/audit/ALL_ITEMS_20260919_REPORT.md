@@ -64,3 +64,7 @@ Q0004's HbS-polymerization key remained correct, but its evidence map incorrectl
 ### Q0005 clinical follow-up
 
 Q0005's G6PD/NADPH key remained correct, but four remote metabolite distractors were replaced with genuine red-cell mechanisms involving pyruvate kinase, membrane proteins, beta-globin synthesis and HbS polymerization. Heinz-body visualization is now stain-specific, every option has a separate inspected source and raw hash, and the exact USMLE 2026 hemolysis path replaces the generic stored hierarchy. See [the Q0005 record](Q0005_CLINICAL_FOLLOWUP_20260920.md). Q0005 is newly held, bringing the review-branch total to 42; no new FINAL pass is claimed.
+
+### Q0006 clinical follow-up
+
+Q0006 was a confirmed semantic duplicate of Q1111: both tested the diagnosis of hereditary spherocytosis from the same familial hemolysis pattern. Q0006 was retained but fully rewritten to test parvovirus B19 transient aplastic crisis from fifth-disease exposure, abrupt anemia and reticulocytopenia. Every mechanism now has separately inspected evidence, and the exact USMLE 2026 outline path replaces the generic stored hierarchy. See [the Q0006 record](Q0006_CLINICAL_FOLLOWUP_20260920.md). Q0006 was already held, so the review-branch total remains 42; no new FINAL pass is claimed.
