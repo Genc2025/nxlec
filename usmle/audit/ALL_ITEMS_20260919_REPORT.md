@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest content batch (22 September): all 25 items Q0059–Q0083 were read. Q0063's incomplete GALT-reaction distractor and Q0072's hidden sex-chromosome assumption were repaired; all 25 received item-specific difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0059_Q0083_20260922.md). Zero new full clinical passes; the evidence, originality and independent-review gates remain open.
+
 Latest duplicate-resolution batch (22 September): the nine remaining pairs from the confirmed 19 September list were resolved by rewriting Q0053, Q0193, Q0263, Q0264, Q0703, Q0744, Q0771, Q0797 and Q1418 to distinct constructs. See [batch record](BATCH_DUPLICATE_REWRITES_REMAINING_20260922.md). No rows were deleted. Zero new full clinical passes; the independent, exhaustive-originality, raw-source and final metadata gates remain open.
 
 Latest clinical corrections: seven items in Q0034–Q0058 repaired after a 25-stem/option screen; see [targeted batch](BATCH_CLINICAL_Q0034_Q0058_20260920.md). Replaced fabricated distractors, corrected nonrestrictive VSD physiology, and removed stale fingerprint content. Zero new full certifications; earlier counts below are historical.
