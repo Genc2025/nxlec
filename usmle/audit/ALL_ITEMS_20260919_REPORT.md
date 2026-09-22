@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest duplicate-resolution batch (22 September): the nine remaining pairs from the confirmed 19 September list were resolved by rewriting Q0053, Q0193, Q0263, Q0264, Q0703, Q0744, Q0771, Q0797 and Q1418 to distinct constructs. See [batch record](BATCH_DUPLICATE_REWRITES_REMAINING_20260922.md). No rows were deleted. Zero new full clinical passes; the independent, exhaustive-originality, raw-source and final metadata gates remain open.
+
 Latest clinical corrections: seven items in Q0034–Q0058 repaired after a 25-stem/option screen; see [targeted batch](BATCH_CLINICAL_Q0034_Q0058_20260920.md). Replaced fabricated distractors, corrected nonrestrictive VSD physiology, and removed stale fingerprint content. Zero new full certifications; earlier counts below are historical.
 
 Latest duplicate-resolution batch: Q0009, Q0010, Q0018, Q0020 and Q0021 were fully rewritten to distinct constructs, resolving five confirmed duplicate pairs without deleting rows. See [batch record](BATCH_DUPLICATE_REWRITES_Q0009_Q0021_20260920.md). Zero new full clinical passes; full clinical cursor remains Q0009 because independent, exhaustive-originality, raw-source and final metadata gates remain open. Earlier per-item counts below are historical.
