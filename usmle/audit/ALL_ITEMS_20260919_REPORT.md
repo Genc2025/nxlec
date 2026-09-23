@@ -1,3 +1,5 @@
+Latest content screen: Q0534–Q0558, 25 read, 7 targeted content/source repairs, 25 held for evidence and clinical completion; 0 full passes. See [BATCH_CLINICAL_Q0534_Q0558_20260923](BATCH_CLINICAL_Q0534_Q0558_20260923.md).
+
 Latest content batch (23 September): all 25 items Q0509–Q0533 were read. Four targeted defects were repaired in Q0513, Q0516, Q0518 and Q0530; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0509_Q0533_20260923.md). Zero new full clinical passes.
 
 # USMLE bank audit — 19 September 2026
