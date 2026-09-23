@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest content batch (23 September): all 25 items Q0484–Q0508 were read. Four items received fresh source-metadata repairs in Q0491, Q0492, Q0506 and Q0507; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0484_Q0508_20260923.md). Zero new full clinical passes.
+
 Latest content batch (23 September): all 25 items Q0459–Q0483 were read. Seventeen items received option, vignette, rationale or source-metadata repairs in Q0459, Q0461, Q0462, Q0465, Q0466, Q0467, Q0468, Q0469, Q0472, Q0474, Q0475, Q0476, Q0477, Q0478, Q0479, Q0482 and Q0483; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0459_Q0483_20260923.md). Zero new full clinical passes.
 
 Latest content batch (23 September): all 25 items Q0434–Q0458 were read. Fourteen items received option, lead-in or source-metadata repairs in Q0439, Q0440, Q0441, Q0442, Q0445, Q0446, Q0447, Q0448, Q0453, Q0454, Q0455, Q0456, Q0457 and Q0458; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0434_Q0458_20260923.md). Zero new full clinical passes.
