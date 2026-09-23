@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest content batch (23 September): all 25 items Q0384–Q0408 were read. Seven option sets were repaired in Q0385, Q0394, Q0400, Q0403, Q0404, Q0405 and Q0408; Q0404 now uses real hemoglobin-variant substitutions rather than invented amino-acid changes. All 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0384_Q0408_20260923.md). Zero new full clinical passes.
+
 Latest content batch (23 September): all 25 items Q0359–Q0383 were read. Ten option sets were repaired in Q0359, Q0360, Q0368, Q0369, Q0371, Q0372, Q0373, Q0376, Q0377 and Q0378; Q0365's blueprint was corrected from appendix to ileal neuroendocrine tumor. All 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0359_Q0383_20260923.md). Zero new full clinical passes.
 
 Latest content batch (23 September): all 25 items Q0334–Q0358 were read. Eleven option sets were repaired in Q0335, Q0339, Q0342, Q0344, Q0345, Q0346, Q0347, Q0353, Q0354, Q0357 and Q0358; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0334_Q0358_20260923.md). Zero new full clinical passes.
