@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest content batch (23 September): all 25 items Q0109–Q0133 were read. Q0112's artificial JAK2 distractor was replaced with the specific JAK2 V617F competing mechanism and corrected rationale; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0109_Q0133_20260923.md). Zero new full clinical passes.
+
 Latest content batch (22 September): all 25 items Q0084–Q0108 were read. Q0088's artificial repair-pathway distractors, Q0091's duplicated sensitivity concept, and Q0104's congenital-deficiency implication were repaired; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0084_Q0108_20260922.md). Zero new full clinical passes.
 
 Latest content batch (22 September): all 25 items Q0059–Q0083 were read. Q0063's incomplete GALT-reaction distractor and Q0072's hidden sex-chromosome assumption were repaired; all 25 received item-specific difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0059_Q0083_20260922.md). Zero new full clinical passes; the evidence, originality and independent-review gates remain open.
