@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest content batch (23 September): all 25 items Q0259–Q0283 were read. Ten option sets were repaired in Q0260, Q0261, Q0265, Q0267, Q0268, Q0270, Q0272, Q0273, Q0276 and Q0279; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0259_Q0283_20260923.md). Zero new full clinical passes.
+
 Latest content batch (23 September): all 25 items Q0234–Q0258 were read. Nine option sets were repaired in Q0239, Q0240, Q0241, Q0242, Q0243, Q0248, Q0254, Q0255 and Q0256; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0234_Q0258_20260923.md). Zero new full clinical passes.
 
 Latest content batch (23 September): all 25 items Q0209–Q0233 were read. Ten artificial distractors were repaired in Q0209, Q0212, Q0216, Q0217, Q0219, Q0224, Q0225, Q0227, Q0228 and Q0229; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0209_Q0233_20260923.md). Zero new full clinical passes.
