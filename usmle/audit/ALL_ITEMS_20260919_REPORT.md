@@ -1,3 +1,5 @@
+Latest content batch (23 September): all 25 items Q0509–Q0533 were read. Four targeted defects were repaired in Q0513, Q0516, Q0518 and Q0530; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0509_Q0533_20260923.md). Zero new full clinical passes.
+
 # USMLE bank audit — 19 September 2026
 
 Latest content batch (23 September): all 25 items Q0484–Q0508 were read. Four items received fresh source-metadata repairs in Q0491, Q0492, Q0506 and Q0507; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0484_Q0508_20260923.md). Zero new full clinical passes.
