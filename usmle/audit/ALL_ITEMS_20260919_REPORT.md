@@ -1,5 +1,7 @@
 # USMLE bank audit — 19 September 2026
 
+Latest content batch (23 September): all 25 items Q0159–Q0183 were read. Five wording/precision defects were repaired in Q0162, Q0163, Q0170, Q0174 and Q0177; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0159_Q0183_20260923.md). Zero new full clinical passes.
+
 Latest content batch (23 September): all 25 items Q0134–Q0158 were read. Four option/precision defects were repaired in Q0147, Q0150, Q0157 and Q0158; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0134_Q0158_20260923.md). Zero new full clinical passes.
 
 Latest content batch (23 September): all 25 items Q0109–Q0133 were read. Q0112's artificial JAK2 distractor was replaced with the specific JAK2 V617F competing mechanism and corrected rationale; all 25 received individualized difficulty estimates and historical PASS isolation. See [batch record](BATCH_CLINICAL_Q0109_Q0133_20260923.md). Zero new full clinical passes.
