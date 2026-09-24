@@ -120,3 +120,6 @@ Q0006 was a confirmed semantic duplicate of Q1111: both tested the diagnosis of 
 ### Q0008 clinical follow-up
 
 Q0008 originally allowed hemophilia B as an unstated second answer because the stem contained no factor-specific discriminator. The revision adds a correcting mixing study, normal factor IX activity, and normal VWF antigen/activity; it also replaces awkward or remote alternatives with real coagulation disorders and binds each to a specific source. A targeted search documented the related reciprocal Q0406 item, while exhaustive originality remains open. See [the Q0008 record](Q0008_CLINICAL_FOLLOWUP_20260920.md). Q0008 is newly held, bringing the review-branch total to 44; no new FINAL pass is claimed.
+
+
+Latest content screen (24 September): Q0609-Q0633 read; Q0617 source metadata and Q0631 distractor repaired. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0609_Q0633_20260924](BATCH_CLINICAL_Q0609_Q0633_20260924.md). Next content cursor Q0634.
