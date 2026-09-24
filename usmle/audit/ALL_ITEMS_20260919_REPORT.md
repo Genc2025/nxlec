@@ -127,3 +127,5 @@ Latest content screen (24 September): Q0609-Q0633 read; Q0617 source metadata an
 Latest content screen (24 September): Q0634-Q0658 read; Q0634 distractor and Q0646/Q0649/Q0652 source metadata repaired. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0634_Q0658_20260924](BATCH_CLINICAL_Q0634_Q0658_20260924.md). Next content cursor Q0659.
 
 Latest content screen (24 September): Q0659-Q0683 read; Q0664/Q0668/Q0676/Q0678 content, source metadata, or blueprint defects repaired. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0659_Q0683_20260924](BATCH_CLINICAL_Q0659_Q0683_20260924.md). Next content cursor Q0684.
+
+Latest content screen (24 September): Q0684-Q0708 read; source provenance was corrected across 24 items, Q0696's irrelevant citation was removed, and Q0702's USMLE quality-improvement blueprint was repaired. Q0706's direct mechanistic-source gap is isolated. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0684_Q0708_20260924](BATCH_CLINICAL_Q0684_Q0708_20260924.md). Next content cursor Q0709.
