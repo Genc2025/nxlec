@@ -123,3 +123,5 @@ Q0008 originally allowed hemophilia B as an unstated second answer because the s
 
 
 Latest content screen (24 September): Q0609-Q0633 read; Q0617 source metadata and Q0631 distractor repaired. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0609_Q0633_20260924](BATCH_CLINICAL_Q0609_Q0633_20260924.md). Next content cursor Q0634.
+
+Latest content screen (24 September): Q0634-Q0658 read; Q0634 distractor and Q0646/Q0649/Q0652 source metadata repaired. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0634_Q0658_20260924](BATCH_CLINICAL_Q0634_Q0658_20260924.md). Next content cursor Q0659.
