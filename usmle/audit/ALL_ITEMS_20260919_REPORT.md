@@ -147,3 +147,7 @@ Sources were inspected only for the claims recorded in the decision artifact, no
 25 items read individually (stems, A–E, keys, rationales, objectives); 25 payloads changed including metadata. Content/wording corrections: Q0821, Q0823. Full clinical closures: 0. Next unread: Q0834. All remain BLOCKED_PENDING_FULL_REAUDIT.
 
 Sources were inspected only for the claims recorded in the decision artifact, not every existing claim. Historical self-certification is archived. No independent or complete adversarial pass is claimed. Shared runner preserves item and review rows and guards original hashes. No deletion or main merge.
+
+## BATCH_CLINICAL_Q0834_Q0858_20260925
+
+Read 25 items (Q0834-Q0858); corrected Q0846; full clinical closures: 0. Next: Q0859.
