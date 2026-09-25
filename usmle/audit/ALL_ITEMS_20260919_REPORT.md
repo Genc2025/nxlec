@@ -135,3 +135,9 @@ Latest content screen (24 September): Q0709-Q0733 read; source provenance, diffi
 Latest content screen (24 September): Q0734-Q0758 read; source provenance, difficulty, history, and evidence state were repaired across all 25. The duplicate Q0749 immortal-time-bias construct was fully rewritten as confounding by indication; Q0740/Q0750/Q0758 received published outline paths, and Q0746's redundant citation was removed. All 25 remain blocked pending full evidence and independent gates. See [BATCH_CLINICAL_Q0734_Q0758_20260924](BATCH_CLINICAL_Q0734_Q0758_20260924.md). Next content cursor Q0759.
 
 Q0759–Q0783: 25 read, 25 changed (4 content repairs; 5 exact outline mappings; metadata/evidence-state repairs), 0 full clinical closures. See [BATCH_CLINICAL_Q0759_Q0783_20260924](BATCH_CLINICAL_Q0759_Q0783_20260924.md). Next content cursor Q0784.
+
+## BATCH_CLINICAL_Q0784_Q0808_20260925
+
+25 items read individually (stems, A–E, keys, rationales, objectives); 25 payloads changed including metadata. Content/wording corrections: Q0784, Q0786, Q0795, Q0796, Q0801, Q0808. Full clinical closures: 0. Next unread: Q0809. All remain BLOCKED_PENDING_FULL_REAUDIT.
+
+Sources were inspected only for the claims recorded in the decision artifact, not every existing claim. Historical self-certification is archived. No independent or complete adversarial pass is claimed. Shared runner preserves item and review rows and guards original hashes. No deletion or main merge.
